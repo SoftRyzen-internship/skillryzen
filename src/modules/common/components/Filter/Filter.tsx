@@ -1,7 +1,7 @@
 import css from './Filter.module.css'
-import { setFilter } from '../../../../redux/filterSlice/filterSlice'
+import { setFilter } from '@redux/filterSlice/filterSlice'
 
-import { useAppSelector, useAppDispatch } from '../../../../hooks/hook'
+import { useAppSelector, useAppDispatch } from '@hooks/hook'
 
 export const Filter = () => {
   const filter = useAppSelector((state) => state.filter)
