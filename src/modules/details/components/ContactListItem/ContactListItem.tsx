@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
-import { useAppDispatch } from '../../../../hooks/hook'
-import { deleteContact } from '../../../../redux/contactsSlice/contactsSlice'
+import { useAppDispatch } from '@hooks/hook'
+import { deleteContact } from '@redux/contactsSlice/contactsSlice'
 
 import css from './ContactListItem.module.css'
 

@@ -1,13 +1,13 @@
 import css from './ContactForm.module.css'
 
-import { Button } from '../../../index'
+import { Button } from '@modules/index'
 
 import { nanoid } from '@reduxjs/toolkit'
 
-import { useAppDispatch, useAppSelector } from '../../../../hooks/hook'
+import { useAppDispatch, useAppSelector } from '@hooks/hook'
 import { useState } from 'react'
 
-import { addContact } from '../../../../redux/contactsSlice/contactsSlice'
+import { addContact } from '@redux/contactsSlice/contactsSlice'
 
 interface IContact {
   id?: string
