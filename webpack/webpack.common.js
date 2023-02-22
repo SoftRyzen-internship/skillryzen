@@ -10,7 +10,6 @@ module.exports = {
       '@assets': path.resolve(__dirname, '../src/assets'),
       '@hooks': path.resolve(__dirname, '../src/hooks'),
       '@redux': path.resolve(__dirname, '../src/redux'),
-      '@pages': path.resolve(__dirname, '../src/pages'),
       '@services': path.resolve(__dirname, '../src/services'),
     },
   },
