@@ -1,0 +1,95 @@
+.list {
+  display: block;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  background-color: #2e2e2e;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: center;
+}
+
+// CIRCLE
+.circleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+}
+
+.circleContainerActive {
+  composes: circleContainer;
+  border-radius: 50%;
+  border: 1px solid var(--accent-cl);
+}
+
+.inactiveCircle {
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: var(--secondary-cl);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--text-md);
+  line-height: var(--line-height);
+  color: var(--secondary-txt-cl);
+}
+
+.prevCircle {
+  composes: inactiveCircle;
+  background-color: var(--accent-cl);
+}
+
+.activeCircle {
+  composes: prevCircle;
+  color: var(--primary-txt-cl);
+}
+
+// LINE
+.lineWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.inactiveLine {
+  width: 52px;
+  height: 2px;
+  background-color: var(--disabled-cl);
+}
+
+.blueLine {
+  composes: inactiveLine;
+  background-color: var(--accent-cl);
+}
+
+.halfBlueLine {
+  composes: inactiveLine;
+  background-image: linear-gradient(
+    to right,
+    var(--accent-cl) 50%,
+    var(--disabled-cl) 50%
+  );
+}
+
+.text {
+  margin-left: 6px;
+  text-transform: uppercase;
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--primary-txt-cl);
+  letter-spacing: 2px;
+}
