@@ -1,6 +1,43 @@
 :root {
+  --accent-cl: #2A55F6;
+
+
+  /*BACKGROUND COLORS*/
+  --primary-cl: #202125;
+  --secondary-cl:#1C1E21;
+  --components-cl: #2E2F35;
+
   /* TEXT COLORS */
-  --color-white: #ffffff;
+  --primary-txt-cl: #FFFFFF;
+  --secondary-txt-cl: #B9B9B9;
+
+  /*BUTTONS*/
+  --copy-btn-cl: #5599FF;
+
+  /*OTHER COLORS*/
+  --disabled-cl: #5A5C5F;
+  --message-cl: #F2CB40;
+  --success-cl: #2AB143;
+  --error-cl: #DF3C3C;
+  --purple-cl: #9747FF;
+  --light-purple-cl: #7368F0;
+
   /* TRANSITION */
   --transition: all 250ms linear;
+
+  /*FONTS*/
+  --font-family: 'Inter', sans-serif;
+  --line-height: 1.3;
+
+  /*FONT SIZE*/
+  --title: 30px;
+  --subtitle: 20px;
+  --text-lg: 16px;
+  --text-md: 14px;
+  --text-sm: 12px;
+
+  /*FONT WEIGHT*/
+  --extrabold: 800;
+  --bold: 700;
+  --regular: 400;
 }
