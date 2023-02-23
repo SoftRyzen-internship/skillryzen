@@ -11,7 +11,7 @@ interface ITabProps {
   tabs: ITab[]
 }
 
-export function Tabs({ tabs }: ITabProps) {
+export const Tabs = ({ tabs }: ITabProps) => {
   return (
     <ul className={s.tabs__list}>
       {tabs.map(({ title, id, to }) => {
