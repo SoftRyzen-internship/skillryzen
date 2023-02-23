@@ -1,0 +1,15 @@
+.testStatus {
+  padding: 7px 8px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.success {
+  color: var(--success-cl);
+  background-color: var(--success-cl-rgb);
+}
+
+.failed{
+  color: var(--error-cl);
+  background-color: var(--error-cl-rgb);
+}
