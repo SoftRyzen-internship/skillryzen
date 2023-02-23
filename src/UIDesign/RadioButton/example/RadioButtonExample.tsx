@@ -16,7 +16,6 @@ export default function RadioButtonExample() {
   return (
     <>
       <RadioButton
-        id="button1"
         value="Option 1"
         label="Option 1"
         labelClassName={s.label}
@@ -24,7 +23,6 @@ export default function RadioButtonExample() {
         onChange={handleOptionChange}
       />
       <RadioButton
-        id="button2"
         value="Option 2"
         label="Option 2"
         labelClassName={s.label}
@@ -34,13 +32,11 @@ export default function RadioButtonExample() {
       <p style={{ margin: '10px' }}>Selected option: {selectedOption}</p>
 
       <RadioButton
-        id="button3"
         value="Option 1"
         checked={selectedOption2 === 'Option 1'}
         onChange={handleOptionChange2}
       />
       <RadioButton
-        id="button4"
         value="Option 2"
         checked={selectedOption2 === 'Option 2'}
         onChange={handleOptionChange2}
