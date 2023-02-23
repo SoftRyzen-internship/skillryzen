@@ -1,0 +1,48 @@
+.popupWrapper {
+  width: 200px;
+  min-height: 96px;
+  padding: 16px;
+  background: #121533;
+  border-radius: 4px;
+}
+
+.vievAllHidden {
+  display: none;
+}
+
+.vievAllVisible {
+  display: block;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 8px;
+
+  font-family: var(--font-family);
+  font-weight: var(--regular);
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  color: #3653f2;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  height: 28px;
+}
+
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.text {
+  margin-left: 8px;
+  font-family: var(--font-family);
+  font-weight: var(--regular);
+  font-size: var(--text-md);
+  line-height: var(--line-height);
+  color: #f8f8f8;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
