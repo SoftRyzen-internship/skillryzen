@@ -3,6 +3,7 @@
   margin: 0px;
   border: 0px;
 }
+
 *,
 *:before,
 *:after {
@@ -15,6 +16,7 @@ html,
 body {
   height: 100%;
 }
+
 body {
   line-height: 1;
   -ms-text-size-adjust: 100%;
@@ -22,6 +24,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
+
 input,
 button,
 button {
@@ -29,22 +32,26 @@ button {
   color: inherit;
   background-color: inherit;
 }
+
 a {
   color: inherit;
-}
-a:link,
-a:visited {
   text-decoration: none;
 }
-a:hover {
-  text-decoration: none;
+
+button {
+  cursor: pointer;
 }
-ul li {
+
+ul {
   list-style: none;
 }
+
 img {
-  vertical-align: top;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
+
 h1,
 h2,
 h3,
