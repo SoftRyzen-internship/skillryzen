@@ -1,4 +1,4 @@
-import s from './style/CopyButton.module.scss'
+import s from './styles/CopyButton.module.scss'
 
 interface ButtonProps {
   type: 'button' | 'submit'

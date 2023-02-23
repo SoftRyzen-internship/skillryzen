@@ -1,4 +1,4 @@
-import s from './style/AuthorizingButton.module.scss'
+import s from './styles/AuthorizingButton.module.scss'
 
 interface ButtonProps {
   type: 'button' | 'submit'

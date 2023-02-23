@@ -1,0 +1,35 @@
+.addButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-md);
+  font-weight: var(--bold);
+  line-height: var(--line-height);
+  color: var(--primary-txt-cl);
+  border-radius: 5px;
+  border: none;
+}
+
+.addButton--forTest {
+  width: 142px;
+  height: 40px;
+}
+
+.addButton--forStudent {
+  width: 158px;
+  height: 40px;
+}
+
+.addButton--black {
+  background-color: var(--components-cl);
+}
+
+.addButton--blue {
+  background-color: var(--accent-cl);
+}
+
+.iconplus {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+}
