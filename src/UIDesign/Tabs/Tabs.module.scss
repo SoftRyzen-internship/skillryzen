@@ -1,6 +1,7 @@
 .tabs__list {
     display: flex;
     gap: 4px;
+    color: var(--primary-txt-cl);
 }
 
 .tabs__item {
@@ -9,11 +10,11 @@
     position: relative;
 }
 
-.tabs__title {
+.tabs__navLink {
     font-family: 'Inter';
 }
 
-.tabs__navLink {
+.tabs__navLinkActive {
     font-family: 'Inter';
 }
 
