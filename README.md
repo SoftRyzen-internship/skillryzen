@@ -1,3 +1,6 @@
+[Group by Route/Module](https://alexkondov.com/tao-of-react/#group-by-route-module)
+[maket](https://www.figma.com/file/eNLtBquqR6ygHvDFJQqskP/FSD-(Copy)?node-id=0%3A1&t=vK8EhNWfQPHwP7UL-0)
+[swagger](https://sleepy-taiga-12194.herokuapp.com/api/)
 # Детальніше про кожну папку та її підпапки:
 
 ## modules/: папка, в якій розміщені модулі додатку. Модуль - це логічно зв'язаний набір компонентів та функцій для роботи з певною частиною додатку.
