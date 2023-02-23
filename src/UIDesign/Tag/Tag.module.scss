@@ -2,7 +2,7 @@
   display: inline-block;
   font-family: var(--font-family);
   font-size: var(--text-sm);
-  border: 1px solid #464962;
+  border: 1px solid var(--disabled-cl);
   border-radius: 15px;
   background-color: transparent;
 }
@@ -11,7 +11,7 @@
   composes: tag--common;
   font-weight: var(--regular);
   line-height: 1.2;
-  color: #3653f2;
+  color: var(--accent-cl);
   padding: 4px 8px;
 }
 
@@ -19,7 +19,7 @@
   composes: tag--common;
   font-weight: 500;
   line-height: 1;
-  color: #9d9fb5;
+  color: var(--secondary-txt-cl);
   padding: 9px 18px;
 }
 
@@ -29,7 +29,7 @@
   align-items: center;
   justify-content: center;
   gap: 11px;
-  color: #9d9fb5;
+  color: var(--secondary-txt-cl);
   border-radius: 20px;
   padding: 8px 15px;
 }
@@ -44,7 +44,7 @@
   font-weight: var(--bold);
   font-size: var(--text-sm);
   line-height: 2;
-  color: #f8f8f8;
+  color: var(--primary-txt-cl);
   background-color: transparent;
 }
 
@@ -59,7 +59,7 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: 3px solid #3653f2;
+  border: 3px solid var(--accent-cl);
 }
 
 .tag--time::before {
