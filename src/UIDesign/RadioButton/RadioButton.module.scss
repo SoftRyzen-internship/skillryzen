@@ -1,0 +1,50 @@
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+input[type='radio'] + .radio {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  border: 2px solid var(--primary-cl);
+  border-radius: 50%;
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary-cl);
+    border-radius: 50%;
+    opacity: 0;
+  }
+  &:hover,
+  &:focus {
+    border-color: var(--accent-cl);
+  }
+}
+input[type='radio']:checked + .radio {
+  &::before {
+    opacity: 1;
+  }
+  &:hover,
+  &:focus {
+    border-color: var(--primary-cl);
+  }
+}
+.label {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  min-width: 20px;
+  min-height: 20px;
+  position: relative;
+  padding-left: 20px;
+}
