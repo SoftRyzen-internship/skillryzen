@@ -7,6 +7,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
       '@modules': path.resolve(__dirname, '../src/modules'),
+      '@ui': path.resolve(__dirname, '../src/UIDesign'),
       '@assets': path.resolve(__dirname, '../src/assets'),
       '@hooks': path.resolve(__dirname, '../src/hooks'),
       '@redux': path.resolve(__dirname, '../src/redux'),

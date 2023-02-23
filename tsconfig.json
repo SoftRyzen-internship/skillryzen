@@ -3,6 +3,7 @@
     "baseUrl": "./src",
     "paths": {
       "@modules/*": ["modules/*"],
+      "@ui/*": ["UIDesign/*"],
       "@services/*": ["services/*"],
       "@hooks/*": ["hooks/*"],
       "@redux/*": ["redux/*"],
