@@ -1,0 +1,83 @@
+.tag--common {
+  display: inline-block;
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  border: 1px solid var(--disabled-cl);
+  border-radius: 15px;
+  background-color: transparent;
+}
+
+.tag--field {
+  composes: tag--common;
+  font-weight: var(--regular);
+  line-height: 1.2;
+  color: var(--accent-cl);
+  padding: 4px 8px;
+}
+
+.tag--questions {
+  composes: tag--common;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--secondary-txt-cl);
+  padding: 9px 18px;
+}
+
+.tag--icon {
+  composes: tag--common;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  color: var(--secondary-txt-cl);
+  border-radius: 20px;
+  padding: 8px 15px;
+}
+
+.tag--time {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 44px;
+
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--text-sm);
+  line-height: 2;
+  color: var(--primary-txt-cl);
+  background-color: transparent;
+}
+
+.tag--time::before,
+.tag--time::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  content: '';
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 3px solid var(--accent-cl);
+}
+
+.tag--time::before {
+  border-top-color: transparent;
+  transform: rotate(-45deg);
+}
+
+.tag--time::after {
+  border-left-color: transparent;
+  transform: rotate(100deg);
+}
+
+.label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 35px;
+  text-align: center;
+}
