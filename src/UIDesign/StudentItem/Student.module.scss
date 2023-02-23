@@ -1,0 +1,12 @@
+.studentItem{
+  padding: 16px 12px;
+
+  display: grid;
+  grid-template-columns: 2% 3.3% 17.5% 17.5% 13.5% 6.4% 8.1% 8.5% 2% 2%;
+  grid-column-gap: 1.8%;
+  align-items: center;
+
+  background-color: var(--components-cl);
+
+  border-radius: 10px;
+}
