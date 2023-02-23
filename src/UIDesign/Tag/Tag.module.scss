@@ -1,20 +1,22 @@
 .tag--common {
   display: inline-block;
   font-family: var(--font-family);
-  font-size: 12px;
+  font-size: var(--text-sm);
   border: 1px solid #464962;
   border-radius: 15px;
   background-color: transparent;
 }
 
 .tag--field {
-  font-weight: 400;
+  composes: tag--common;
+  font-weight: var(--regular);
   line-height: 1.2;
   color: #3653f2;
   padding: 4px 8px;
 }
 
 .tag--questions {
+  composes: tag--common;
   font-weight: 500;
   line-height: 1;
   color: #9d9fb5;
@@ -22,6 +24,7 @@
 }
 
 .tag--icon {
+  composes: tag--common;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,8 +41,8 @@
   height: 44px;
 
   font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 12px;
+  font-weight: var(--bold);
+  font-size: var(--text-sm);
   line-height: 2;
   color: #f8f8f8;
   background-color: transparent;
