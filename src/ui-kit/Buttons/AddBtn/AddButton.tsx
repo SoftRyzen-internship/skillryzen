@@ -1,32 +1,33 @@
 import s from './AddButton.module.scss'
+import { ICONS } from '@theme/icons.const'
 
 interface ButtonProps {
   type: 'button' | 'submit'
   text: string
   onClick: () => void
-  size: 'forTest' | 'forStudent'
   color: 'black' | 'blue'
-  icon?: string
 }
 
-const AddButton = ({
+export const AddButton = ({
   type = 'button',
   text,
   onClick,
-  size,
   color,
-  icon,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       type={type}
-      className={`${s.addButton} ${s[size]} ${s[color]}`}
+      className={`${s.addButton} ${s[color]}`}
     >
-      <img className={s.iconplus} src={icon} />
+      <img
+        width={24}
+        height={24}
+        className={s.iconplus}
+        src={ICONS.PLUS}
+        alt={'plus'}
+      />
       {text}
     </button>
   )
 }
-
-export default AddButton
