@@ -1,0 +1,52 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+.imgThumb {
+  position: relative;
+}
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.status--common {
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--primary-cl);
+  border-radius: 50%;
+}
+.status--green {
+  composes: status--common;
+  background-color: var(--success-cl);
+}
+.status--yellow {
+  composes: status--common;
+  background-color: var(--message-cl);
+}
+.status--gray {
+  composes: status--common;
+  background-color: var(--secondary-txt-cl);
+}
+
+.info {
+  margin-left: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.name {
+  margin-bottom: 5px;
+  font-family: var(--font-family);
+  font-size: var(--text-lg);
+  font-weight: var(--bold);
+  color: var(--primary-txt-cl);
+}
+.role {
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  color: var(--secondary-txt-cl);
+}
