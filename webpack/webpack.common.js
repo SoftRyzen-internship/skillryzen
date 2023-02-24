@@ -6,11 +6,14 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],
     alias: {
-      '@modules': path.resolve(__dirname, '../src/modules'),
       '@assets': path.resolve(__dirname, '../src/assets'),
       '@hooks': path.resolve(__dirname, '../src/hooks'),
+      '@modules': path.resolve(__dirname, '../src/modules'),
       '@redux': path.resolve(__dirname, '../src/redux'),
+      '@routes': path.resolve(__dirname, '../src/routes'),
       '@services': path.resolve(__dirname, '../src/services'),
+      '@theme': path.resolve(__dirname, '../src/theme'),
+      '@ui-kit': path.resolve(__dirname, '../src/ui-kit'),
     },
   },
   module: {
