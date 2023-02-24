@@ -1,0 +1,32 @@
+.menu__list {
+    list-style: none;
+
+    .menu__navLink {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 16px;
+        color: var(--secondary-txt-cl);
+    }
+
+    .menu__navLinkActive {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        padding: 16px;
+        background-color: var(--accent-cl);
+        color: var(--primary-txt-cl);
+        border-radius: 5px;
+    }
+
+    .menu__icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .menu__title {
+        font-size: 14px;
+        line-height: calc(14 / 14);   
+        
+    }
+}
