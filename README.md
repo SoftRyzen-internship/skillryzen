@@ -12,6 +12,7 @@
 4. **Для ознайомлення з API можливостями Back-End.[swagger](https://sleepy-taiga-12194.herokuapp.com/api/)**
 
 5. **Методика структури проєкту базується по найкращим TAO практикам [Tao of React](https://alexkondov.com/tao-of-react/#group-by-route-module)**
+6. **ТЗ по функціоналу [SkillRyzen](https://docs.google.com/document/d/1C6jRHyy7N8wD9YLe1S-wY8DzzmOc8wta6zyvhGxW_EY/edit#heading=h.aumtuh67gt3c)**
 
 ## MVP-1, буде включати основні базові моменти сервісу:
 
