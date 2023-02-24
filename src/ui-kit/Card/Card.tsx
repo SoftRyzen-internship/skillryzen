@@ -3,8 +3,10 @@ import { Tag } from '@ui-kit/Tag'
 import { ICONS } from '@theme/icons.const'
 import s from './Card.module.scss'
 
+type Type = 'notification' | 'coin' | 'info'
+
 interface ICard {
-  type?: 'notification' | 'coin' | 'info'
+  type?: Type
   size?: 'large' | 'small'
   hideNumber?: boolean
   custom?: boolean
@@ -20,6 +22,16 @@ interface IItem {
   time?: number
 }
 
+const imageObject = {
+  notification: {
+    background: 'green',
+    icon: ICONS.WARNING_CIRCLE,
+    alt: 'warning',
+  },
+  coin: { background: 'blue', icon: ICONS.COIN, alt: 'coin' },
+  info: { background: 'yellow', icon: ICONS.WARNING_CIRCLE, alt: 'lock' },
+}
+
 export const Card: React.FC<ICard> = ({
   type = 'info',
   item,
@@ -30,47 +42,28 @@ export const Card: React.FC<ICard> = ({
 }) => {
   const { title, text, fields, number, time } = item
 
-  const addBackgroundColor = (type: string): string => {
-    if (type === 'notification' || custom) {
-      return 'green'
-    }
-    if (type === 'coin') {
-      return 'blue'
-    }
-    return 'yellow'
+  const addBackgroundColor = (type: Type): string => {
+  return custom ? 'green' : imageObject[type].background
   }
 
-  const addIcon = (type: string): string => {
-    if (type === 'notification') {
-      return ICONS.WARNING_CIRCLE
-    }
-    if (type === 'coin') {
-      return ICONS.COIN
-    }
-    if (custom) {
-      return ICONS.EDIT
-    }
-    return ICONS.WARNING_CIRCLE
+  const addIcon = (type: Type): string => {
+    return custom ? ICONS.EDIT : imageObject[type].icon
   }
 
-  const addDescription = (type: string): string => {
-    if (type === 'notification') {
-      return "warning"
-    }
-    if (type === 'coin') {
-      return "coin"
-    }
-    if (custom) {
-      return "edit"
-    }
-    return "lock"
+  const addDescription = (type: Type): string => {
+    return custom ? 'edit' : imageObject[type].alt
   }
 
   return (
     <li className={`${s[`card--${size}`]}`}>
       <div className={s.card__infoWrapper}>
         <div className={`${s[`card__thumb--${addBackgroundColor(type)}`]}`}>
-        <img src={addIcon(type)} width="18" height="20" alt={addDescription(type)}/>
+          <img
+            src={addIcon(type)}
+            width="18"
+            height="20"
+            alt={addDescription(type)}
+          />
         </div>
         {!custom && (
           <div className={s.card__contentWrapper}>
@@ -113,7 +106,7 @@ export const Card: React.FC<ICard> = ({
         )}
         {type !== 'info' && (
           <button className={s.card__close} onClick={onClick}>
-            <img src={ICONS.CLOSE} width="8" height="8" alt="close"/>
+            <img src={ICONS.CLOSE} width="8" height="8" alt="close" />
           </button>
         )}
       </div>
