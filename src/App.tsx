@@ -6,11 +6,13 @@ import { AppRoutes } from './routes'
 import './theme/styles/global.scss'
 import './theme/styles/variables.scss'
 
+import { SideBar } from '@ui-kit/SideBar/SideBar'
+
 export const App: React.FC = () => {
   return (
     <>
       <Layout>
-        <AppRoutes />
+        <SideBar />
         <Suspense fallback={<p>Loading..</p>}>
           <AppRoutes />
         </Suspense>
