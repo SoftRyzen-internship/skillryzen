@@ -1,12 +1,6 @@
 .list {
-  display: block;
-  margin: 0 auto;
   display: flex;
   justify-content: center;
-  list-style: none;
-  padding: 0;
-  margin-top: 20px;
-  background-color: #2e2e2e;
 }
 
 .stepWrapper {
@@ -30,19 +24,15 @@
 }
 
 .inactiveCircle {
-  display: block;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: var(--secondary-cl);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: var(--font-family);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   font-weight: var(--bold);
-  font-size: var(--text-md);
-  line-height: var(--line-height);
   color: var(--secondary-txt-cl);
+  background-color: var(--secondary-cl);
 }
 
 .prevCircle {
@@ -86,7 +76,6 @@
 .text {
   margin-left: 6px;
   text-transform: uppercase;
-  font-family: var(--font-family);
   font-weight: var(--bold);
   font-size: 10px;
   line-height: 1.6;

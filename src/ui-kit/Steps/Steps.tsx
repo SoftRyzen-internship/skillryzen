@@ -1,11 +1,12 @@
 import React from 'react'
+import { ICONS } from '../../theme/icons.const'
 import s from './Steps.module.scss'
 
 interface ICurrentStep {
   currentStep: number
 }
 
-const Steps = ({ currentStep }: ICurrentStep) => {
+export const Steps = ({ currentStep }: ICurrentStep) => {
   const steps = [1, 2, 3, 4]
 
   // Classname контейнера для кружечків (синя обводка активного степу)
@@ -37,7 +38,7 @@ const Steps = ({ currentStep }: ICurrentStep) => {
       return s.blueLine
     }
 
-    // перед активним степом
+    // після активного степу
     if (idx === currentStep - 1) {
       return s.halfBlueLine
     }
@@ -55,9 +56,11 @@ const Steps = ({ currentStep }: ICurrentStep) => {
                 {' '}
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
+                  {currentStep > idx + 1 && (
+                    <img className={s.checkIcon} src={ICONS.CHECK_MARK} />
+                  )}
                 </div>
               </div>
-              {/* <img className={s.checkIcon} src="" /> */}
               {step < 4 && (
                 <div className={s.lineWrapper}>
                   <div className={setClassnameLine(idx)}></div>
@@ -71,5 +74,3 @@ const Steps = ({ currentStep }: ICurrentStep) => {
     </div>
   )
 }
-
-export default Steps
