@@ -11,7 +11,7 @@ interface IProps {
   vievAll?: string
 }
 
-const Popup = ({ list, vievAll }: IProps) => {
+export const Popup = ({ list, vievAll }: IProps) => {
   return (
     <div className={s.popupWrapper}>
       <button
@@ -20,14 +20,15 @@ const Popup = ({ list, vievAll }: IProps) => {
       >
         {vievAll}
       </button>
-      {list.map(({ icon, text }, idx) => (
-        <li key={idx} className={s.item}>
-          <img className={s.icon} src={icon} />
-          <div className={s.text}>{text}</div>
-        </li>
-      ))}
+      <ul>
+        {' '}
+        {list.map(({ icon, text }, idx) => (
+          <li key={idx} className={s.item}>
+            <img className={s.icon} src={icon} alt="Popu Icon" />
+            <p className={s.text}>{text}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
-
-export default Popup

@@ -1,14 +1,22 @@
 .popupWrapper {
   width: 200px;
-  min-height: 96px;
+  min-width: 200px;
   padding: 16px;
-  // background: #121533;
   background-color: var(--components-cl);
   border-radius: 4px;
 }
 
 .vievAllHidden {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .vievAllVisible {
@@ -16,19 +24,14 @@
   width: 100%;
   text-align: right;
   margin-bottom: 8px;
-
-  font-family: var(--font-family);
-  font-weight: var(--regular);
   font-size: var(--text-sm);
   line-height: 1.2;
-  // color: #3653f2;
   color: var(--accent-cl);
 }
 
 .item {
   display: flex;
   align-items: center;
-  height: 28px;
 }
 
 .item:not(:last-child) {
@@ -37,15 +40,10 @@
 
 .text {
   margin-left: 8px;
-  font-family: var(--font-family);
-  font-weight: var(--regular);
-  font-size: var(--text-md);
-  line-height: var(--line-height);
-  // color: #f8f8f8;
   color: var(--primary-txt-cl);
 }
 
+// для тесту, поки не пр
 .icon {
-  width: 24px;
-  height: 24px;
+  background-color: #fff;
 }
