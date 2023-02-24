@@ -1,5 +1,5 @@
 import React from 'react'
-// import { ICONS } from '../../theme/icons.const'
+import { ICONS } from '../../theme/icons.const'
 
 import s from './Checkbox.module.scss'
 
@@ -36,13 +36,12 @@ export default function Checkbox({
     <label className={labelClass(type)}>
       <input type="checkbox" checked={checked} onChange={onChange} />
       <span className={s.checkbox}>
-        {checked ? 'Ic' : 'Iu'}
-        {/* <img
+        <img
           src={checked ? ICONS.CHECK_ROUND : ICONS.DEFAULT_CHECKBOX}
           width={16}
           height={16}
           alt="checkbox icon"
-        /> */}
+        />
       </span>
       {label}
     </label>
