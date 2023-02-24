@@ -7,10 +7,11 @@
 1. **Ми використовуємо [Trello](https://trello.com/b/4cvImEcY/softryzen), для вирішення проблем.**
 
 2. **Для ознайомлення з дизайном [maket Figma](<https://www.figma.com/file/eNLtBquqR6ygHvDFJQqskP/FSD-(Copy)?node-id=0%3A1&t=vK8EhNWfQPHwP7UL-0>).**
+3. **Питання для розбору проєкту дизайна [SkillRyzen](https://docs.google.com/spreadsheets/d/1ptCOWs2vfSn2Wswu5UKjbHKOcYV5rer-M2etQa9ySeU/edit#gid=0).**
 
-3. **Для ознайомлення з API можливостями Back-End.[swagger](https://sleepy-taiga-12194.herokuapp.com/api/)**
+4. **Для ознайомлення з API можливостями Back-End.[swagger](https://sleepy-taiga-12194.herokuapp.com/api/)**
 
-4. **Методика структури проєкту базується по найкращим TAO практикам [Tao of React](https://alexkondov.com/tao-of-react/#group-by-route-module)**
+5. **Методика структури проєкту базується по найкращим TAO практикам [Tao of React](https://alexkondov.com/tao-of-react/#group-by-route-module)**
 
 ## MVP-1, буде включати основні базові моменти сервісу:
 
