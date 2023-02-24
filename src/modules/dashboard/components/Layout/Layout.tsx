@@ -1,7 +1,6 @@
 import { ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
-import Footer from '../Footer/Footer'
-import Header from '../Header/Header'
+import { Footer, Header } from '@modules/dashboard'
 
 type LayoutProps = {
   children: ReactNode
