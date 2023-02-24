@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import s from './Breadcrumbs.module.scss';
 import TestsPage from '@modules/pages/TestsPage/TestsPage';
 
@@ -11,42 +11,30 @@ const routes = [
 
 interface routes {
   path: string;
-  element: any;
+  element: React.FC;
 }
 
 interface BreadcrumbsProps {
   breadcrumbs?: routes[];
 }
 
-export const Breadcrumbs: React.FC = ({ breadcrumbs }: BreadcrumbsProps) => {
-  const location = useLocation();
+function convertTitle(title: string) {
+  return title?.split('/')[1]?.charAt(0)?.toUpperCase() + title?.slice(2);
+}
 
+export const Breadcrumbs: React.FC = ({ breadcrumbs }: BreadcrumbsProps) => {
   return (
-    console.log(location.pathname),
-    (
-      <nav className={s.breadcrumbs}>
-        {routes?.map(
-          ({ path }, index) => (
-            console.log(routes),
-            (
-              <div className={s.crumbs} key={path}>
-                <Link
-                  to={path}
-                  className={
-                    path === location.pathname
-                      ? s.crumbActive
-                      : s.crumbNotActive
-                  }
-                >
-                  {path?.split('/')[1]?.charAt(0)?.toUpperCase() +
-                    path?.slice(2)}
-                </Link>
-                {index !== routes.length - 1 && ''}
-              </div>
-            )
-          )
-        )}
-      </nav>
-    )
+    <ul className={s.breadcrumbs}>
+      {routes?.map(({ path }) => (
+        <li key={path} className={s.crumbs}>
+          <NavLink
+            to={path}
+            className={({ isActive }) => (isActive ? s.active : undefined)}
+          >
+            {convertTitle(path)}
+          </NavLink>
+        </li>
+      ))}
+    </ul>
   );
 };
