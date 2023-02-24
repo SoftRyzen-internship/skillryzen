@@ -6,26 +6,24 @@ import { AppRoutes } from './routes'
 import './theme/styles/global.scss'
 import './theme/styles/variables.scss'
 
-import { Menu } from './UIDesign/Menu/Menu'
+import { Tabs } from './ui-kit'
 
-const menu = [
-  {title: 'Dashboard',
-  id: '1',
-  icon: '',
-  to: '/'
-},
-{title: 'Dashboard',
-  id: '1',
-  icon: '',
-  to: '/route'
-}
+const tabs = [
+  {
+    title: 'smth',
+    path: '/route'
+  },
+  {
+    title: 'else',
+    path: '/'
+  }
 ]
 
 export const App: React.FC = () => {
   return (
     <>
       <Layout>
-        <Menu menu={menu}/>
+        <Tabs tabs={tabs}/>
         <AppRoutes />
         <Suspense fallback={<p>Loading..</p>}>
           <AppRoutes />

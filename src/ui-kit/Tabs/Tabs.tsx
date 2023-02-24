@@ -4,8 +4,7 @@ import s from './Tabs.module.scss'
 
 interface ITab {
   title: string
-  id: string
-  to: string
+  path: string
 }
 interface ITabProps {
   tabs: ITab[]
@@ -14,11 +13,11 @@ interface ITabProps {
 export const Tabs = ({ tabs }: ITabProps) => {
   return (
     <ul className={s.tabs__list}>
-      {tabs.map(({ title, id, to }) => {
+      {tabs.map(({ title, path }) => {
         return (
-          <li className={s.tabs__item} key={id}>
+          <li className={s.tabs__item} key={title}>
             <NavLink
-              to={to}
+              to={path}
               className={({ isActive }: { isActive: boolean }) =>
                 isActive ? s.tabs__navLinkActive : s.tabs__navLink
               }
