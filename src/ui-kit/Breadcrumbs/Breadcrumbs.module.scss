@@ -1,0 +1,31 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.crumbs {
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.crumbs::after {
+  content: '/';
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--disabled-cl);
+}
+
+.crumbs:last-child::after {
+  opacity: 0;
+}
+
+.crumbNotActive {
+  color: var(--secondary-txt-cl);
+}
+
+.crumbActive {
+  color: var(--disabled-cl);
+}
