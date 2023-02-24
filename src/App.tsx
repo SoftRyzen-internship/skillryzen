@@ -1,6 +1,6 @@
 import { Suspense } from 'react'
 
-import { Layout } from '@modules/dashboard/components/Layout/Layout'
+import { Layout } from '@modules/dashboard'
 import { AppRoutes } from './routes'
 
 import './theme/styles/global.scss'

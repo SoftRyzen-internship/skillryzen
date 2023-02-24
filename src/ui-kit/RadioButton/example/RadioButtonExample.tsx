@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import RadioButton from '../RadioButton'
+import { RadioButton } from '../RadioButton'
 
 import s from './RadioButtonExample.module.scss'
 
