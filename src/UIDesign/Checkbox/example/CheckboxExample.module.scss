@@ -1,0 +1,8 @@
+.label {
+  padding-left: 20px;
+  margin-left: 20px;
+  font-size: 14px;
+  &:hover {
+    color: red;
+  }
+}
