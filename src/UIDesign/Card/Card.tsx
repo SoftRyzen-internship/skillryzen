@@ -15,7 +15,7 @@ interface IItem {
   text: string
   fields?: string[]
   number?: number
-  time: number
+  time?: number
 }
 
 export const Card: React.FC<ICard> = ({
@@ -64,7 +64,7 @@ export const Card: React.FC<ICard> = ({
             label={type === 'info' ? number + ' запитань' : number + ' min ago'}
           />
         )}
-        {type === 'info' && <Tag type="time" label={time.toString()} />}
+        {time && type === 'info' && <Tag type="time" label={time.toString()} />}
         {type !== 'info' && (
           <button className={s.card__close} onClick={onClick}>
             <svg width="8" height="8">
