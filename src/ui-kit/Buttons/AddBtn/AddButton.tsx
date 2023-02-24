@@ -1,4 +1,4 @@
-import s from './styles/AddButton.module.scss'
+import s from './AddButton.module.scss'
 
 interface ButtonProps {
   type: 'button' | 'submit'
@@ -21,9 +21,7 @@ const AddButton = ({
     <button
       onClick={onClick}
       type={type}
-      className={`${s.addButton} ${s[`addButton--${size}`]} ${
-        s[`addButton--${color}`]
-      }`}
+      className={`${s.addButton} ${s[size]} ${s[color]}`}
     >
       <img className={s.iconplus} src={icon} />
       {text}

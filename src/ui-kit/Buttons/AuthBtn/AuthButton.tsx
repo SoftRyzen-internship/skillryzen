@@ -1,14 +1,14 @@
-import s from './styles/AuthorizingButton.module.scss'
+import s from './AuthButton.module.scss'
 
 interface ButtonProps {
   type: 'button' | 'submit'
   text: string
   onClick: () => void
   size: 'small' | 'large'
-  color: 'grey' | 'white' | 'blue' | 'light-blue'
+  color: 'grey' | 'white' | 'blue'
 }
 
-const AuthorizingButton = ({
+export const AuthButton = ({
   type = 'button',
   text,
   onClick,
@@ -19,13 +19,9 @@ const AuthorizingButton = ({
     <button
       onClick={onClick}
       type={type}
-      className={`${s.authButton} ${s[`authButton--${size}`]} ${
-        s[`authButton--${color}`]
-      }`}
+      className={`${s.authBtn} ${s[size]} ${s[color]}`}
     >
       {text}
     </button>
   )
 }
-
-export default AuthorizingButton
