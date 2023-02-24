@@ -1,24 +1,25 @@
 :root {
-  --accent-cl: #2A55F6;
-
+  --accent-cl: #3653F2;
 
   /*BACKGROUND COLORS*/
-  --primary-cl: #202125;
-  --secondary-cl:#1C1E21;
-  --components-cl: #2E2F35;
+  --primary-cl: #0A0E29;
+  --secondary-cl:#080B25;
+  --components-cl: #121533;
 
   /* TEXT COLORS */
-  --primary-txt-cl: #FFFFFF;
-  --secondary-txt-cl: #B9B9B9;
+  --primary-txt-cl: #F8F8F8;
+  --secondary-txt-cl: #9D9FB5;
 
   /*BUTTONS*/
   --copy-btn-cl: #5599FF;
 
   /*OTHER COLORS*/
-  --disabled-cl: #5A5C5F;
-  --message-cl: #F2CB40;
-  --success-cl: #2AB143;
-  --error-cl: #DF3C3C;
+  --disabled-cl: #464962;
+  --message-cl: #FFD84F;
+  --success-cl: #47C05D;
+  --success-cl-rgb: rgba(71, 192, 93, 0.3);
+  --error-cl: #EE4343;
+  --error-cl-rgb: rgba(238, 67, 67, 0.3);
   --purple-cl: #9747FF;
   --light-purple-cl: #7368F0;
 
