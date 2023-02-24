@@ -1,5 +1,6 @@
 import s from './Student.module.scss'
 import { TestStatus } from '../TestStatus/TestStatus'
+import { ICONS } from '../../theme'
 
 // interface IStudentItem {
 //   id: string,
@@ -28,8 +29,12 @@ export const StudentItem = () => {
         <TestStatus status="success" />
       </td>
       <td>48/50</td>
-      <td></td>
-      <td></td>
+      <td>
+        <img className={s.icon} src={ICONS.EDIT} alt="edit" />
+      </td>
+      <td>
+        <img className={s.icon} src={ICONS.FILTERS} alt="filter" />
+      </td>
     </tr>
   )
 }
