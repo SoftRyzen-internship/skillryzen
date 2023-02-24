@@ -1,30 +1,23 @@
 import { useState, useEffect } from 'react';
+import { ICONS } from '@theme/icons.const';
 import s from './Pagination.module.scss';
 
 interface IProps {
-  // currentPage: number;
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
 }
 
-export const Pagination = ({
-  // currentPage,
-  totalPages,
-  onPageChange,
-}: IProps) => {
+export const Pagination = ({ totalPages, onPageChange }: IProps) => {
+  const [currentPage, setCurrentPage] = useState<number>(1); // Current active page number
+  const [arrayOfVisiblePages, setArrayOfVisiblePages] = useState<
+    Array<number | string>
+  >([]); // Array of buttons what we see on the page
+
   //Set number of pages
   const pageNumbers: Array<number> = [];
   for (let i = 1; i <= totalPages; i += 1) {
     pageNumbers.push(i);
   }
-  console.log('pageNumbers', pageNumbers);
-
-  // Current active page number
-  const [currentPage, setCurrentPage] = useState<number>(1);
-  // Array of buttons what we see on the page
-  const [arrayOfVisiblePages, setArrayOfVisiblePages] = useState<
-    Array<number | string>
-  >([]);
 
   useEffect(() => {
     let tempNumberOfPages: Array<number | string> = [...arrayOfVisiblePages];
@@ -59,28 +52,13 @@ export const Pagination = ({
         pageNumbers.length,
       ];
     } else if (currentPage > pageNumbers.length - 3) {
-      // > 7
-      const sliced = pageNumbers.slice(pageNumbers.length - 4); // slice(10-4)
+      const sliced = pageNumbers.slice(pageNumbers.length - 4);
       tempNumberOfPages = [1, dotsLeft, ...sliced];
     }
 
     setArrayOfVisiblePages(tempNumberOfPages);
     onPageChange(currentPage);
   }, [currentPage]);
-
-  const handleClickNext = (page: number | string) => {
-    if (typeof page === 'string') {
-      return;
-    }
-    setCurrentPage(page + 1);
-  };
-
-  const handleClickPrev = (page: number | string) => {
-    if (typeof page === 'string') {
-      return;
-    }
-    setCurrentPage(page - 1);
-  };
 
   const handleClickPage = (page: number | string) => {
     if (typeof page === 'string') {
@@ -93,10 +71,10 @@ export const Pagination = ({
     <div className={s.paginationContainer}>
       <button
         onClick={() => setCurrentPage(currentPage - 1)}
-        className={s.text}
+        className={currentPage <= 1 ? s.arrowBtnDisabled : s.arrowBtn}
         disabled={currentPage <= 1}
       >
-        Previous
+        <img src={ICONS.ARROW_LEFT} alt='Preview Page' />
       </button>
 
       {arrayOfVisiblePages.map((page, index) => (
@@ -112,10 +90,10 @@ export const Pagination = ({
 
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
-        className={s.text}
+        className={currentPage === totalPages ? s.arrowBtnDisabled : s.arrowBtn}
         disabled={currentPage === totalPages}
       >
-        Next
+        <img src={ICONS.ARROW_RIGHT} alt='Next Page' />
       </button>
     </div>
   );
