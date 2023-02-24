@@ -1,0 +1,50 @@
+.popupWrapper {
+  width: 200px;
+  min-width: 200px;
+  padding: 16px;
+  background-color: var(--components-cl);
+  border-radius: 4px;
+}
+
+.vievAllHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.vievAllVisible {
+  display: block;
+  width: 100%;
+  text-align: right;
+  margin-bottom: 8px;
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  color: var(--accent-cl);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--primary-cl);
+}
+
+.item:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+.text {
+  margin-left: 8px;
+  color: var(--primary-txt-cl);
+}
+
+// для тесту, поки не пр
+.icon {
+  background-color: #fff;
+}
