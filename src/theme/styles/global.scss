@@ -18,7 +18,12 @@ body {
 }
 
 body {
-  line-height: 1;
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  font-weight: var(--regular);
+  line-height: var(--line-height);
+  color: var(--primary-txt-cl);
+
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -26,9 +31,7 @@ body {
 }
 
 input,
-button,
 button {
-  cursor: pointer;
   color: inherit;
   background-color: inherit;
 }
