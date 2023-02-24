@@ -1,0 +1,84 @@
+.list {
+  display: flex;
+  justify-content: center;
+}
+
+.stepWrapper {
+  display: flex;
+  align-items: center;
+}
+
+// CIRCLE
+.circleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+}
+
+.circleContainerActive {
+  composes: circleContainer;
+  border-radius: 50%;
+  border: 1px solid var(--accent-cl);
+}
+
+.inactiveCircle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-weight: var(--bold);
+  color: var(--secondary-txt-cl);
+  background-color: var(--secondary-cl);
+}
+
+.prevCircle {
+  composes: inactiveCircle;
+  background-color: var(--accent-cl);
+}
+
+.activeCircle {
+  composes: prevCircle;
+  color: var(--primary-txt-cl);
+}
+
+// LINE
+.lineWrapper {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
+.inactiveLine {
+  width: 52px;
+  height: 2px;
+  background-color: var(--disabled-cl);
+}
+
+.blueLine {
+  composes: inactiveLine;
+  background-color: var(--accent-cl);
+}
+
+.halfBlueLine {
+  composes: inactiveLine;
+  background-image: linear-gradient(
+    to right,
+    var(--accent-cl) 50%,
+    var(--disabled-cl) 50%
+  );
+}
+
+.text {
+  margin-left: 6px;
+  text-transform: uppercase;
+  font-weight: var(--bold);
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--primary-txt-cl);
+  letter-spacing: 2px;
+}

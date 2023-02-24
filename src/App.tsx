@@ -12,7 +12,6 @@ export const App: React.FC = () => {
   return (
     <>
       <Layout>
-        <SideBar />
         <Suspense fallback={<p>Loading..</p>}>
           <AppRoutes />
         </Suspense>
