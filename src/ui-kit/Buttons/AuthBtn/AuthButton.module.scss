@@ -1,0 +1,29 @@
+.authBtn {
+  font-weight: var(--bold);
+  border-radius: 5px;
+  border: none;
+  padding: 16px 0;
+}
+
+.small {
+  min-width: 200px;
+}
+
+.large {
+  width: 100%;
+}
+
+.grey {
+  background-color: var(--disabled-cl);
+  color: var(--secondary-txt-cl);
+}
+
+.blue {
+  background-color: var(--accent-cl);
+}
+
+.white {
+  background-color: var(--primary-txt-cl);
+  border: 2px solid var(--accent-cl);
+  color: var(--accent-cl);
+}

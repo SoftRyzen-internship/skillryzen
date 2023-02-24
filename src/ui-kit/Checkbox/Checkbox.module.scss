@@ -1,0 +1,38 @@
+input[type='checkbox'] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+input[type='checkbox'] + .checkbox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+}
+
+.label {
+  display: flex;
+  justify-content: start;
+  align-items: first baseline;
+  min-width: 16px;
+  min-height: 16px;
+  position: relative;
+}
+
+.labelForm {
+  padding-left: 36px;
+  color: var(--secondary-txt-cl);
+}
+
+.labelFilter {
+  font-size: 16px;
+  padding-left: 35px;
+  color: var(----primary-txt-cl);
+}
