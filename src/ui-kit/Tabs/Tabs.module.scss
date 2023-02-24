@@ -1,0 +1,34 @@
+.tabs__list {
+    display: flex;
+    gap: 4px;
+    color: var(--primary-txt-cl);
+}
+
+.tabs__item {
+    padding: 0 8px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.tabs__navLink {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+}
+
+.tabs__navLinkActive {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+}
+
+.tabs__navLinkActive::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent-cl);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
