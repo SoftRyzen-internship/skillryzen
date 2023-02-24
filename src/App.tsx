@@ -10,7 +10,6 @@ export const App: React.FC = () => {
   return (
     <>
       <Layout>
-        <AppRoutes />
         <Suspense fallback={<p>Loading..</p>}>
           <AppRoutes />
         </Suspense>
