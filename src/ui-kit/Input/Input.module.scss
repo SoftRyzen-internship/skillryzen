@@ -1,0 +1,37 @@
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 334px;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: 11px 20px;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--primary-txt-cl);
+  background-color: var(--components-cl);
+  border-radius: 5px;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--secondary-txt-cl);
+}
+
+.iconVisible {
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}
+
+.iconHidden {
+  display: none;
+}
+
+// для тесту, поки не змінєються колір на іконках
+// .icon {
+//   background-color: #fff;
+// }
