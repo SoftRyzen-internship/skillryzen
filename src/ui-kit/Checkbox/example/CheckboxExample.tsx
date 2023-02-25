@@ -34,7 +34,7 @@ export default function RadioButtonExample() {
       <h2 style={{ margin: '10px' }}>Checkbox</h2>
 
       <p style={{ marginBottom: '10px' }}>Checkbox without label</p>
-      <Checkbox checked={isChecked1} onChange={handleCheckboxChange1} />
+      <Checkbox onChange={handleCheckboxChange1} />
       <p style={{ margin: '10px' }}>
         Selected: {isChecked1 ? 'true' : 'false'}
       </p>
@@ -43,7 +43,6 @@ export default function RadioButtonExample() {
       <Checkbox
         type='form'
         label='Checkbox label for form'
-        checked={isChecked2}
         onChange={handleCheckboxChange2}
       />
       <p style={{ margin: '10px' }}>
@@ -54,7 +53,6 @@ export default function RadioButtonExample() {
       <Checkbox
         type='filter'
         label='Checkbox label for filter '
-        checked={isChecked3}
         onChange={handleCheckboxChange3}
       />
       <p style={{ margin: '10px' }}>
@@ -68,7 +66,6 @@ export default function RadioButtonExample() {
         type='custom'
         label='Checkbox with custom label'
         labelClassName={s.labelCustom}
-        checked={isChecked4}
         onChange={handleCheckboxChange4}
         checkboxColor='#ff0000'
         checkedColor='#00ff00'

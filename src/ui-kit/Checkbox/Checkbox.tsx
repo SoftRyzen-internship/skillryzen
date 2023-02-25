@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { COLORS } from '../../theme/colors.const';
 import { CheckRound, DefaultCheckbox } from '@theme/icons.const';
 
 import s from './Checkbox.module.scss';
 
 type CheckboxProps = {
-  checked: boolean;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
+  initialState?: boolean;
   checkboxColor?: `#${string}`;
   checkedColor?: `#${string}`;
   checkboxSize?: `${number}px`;
@@ -16,8 +16,8 @@ type CheckboxProps = {
 };
 
 export const Checkbox: React.FC<CheckboxProps> = ({
-  checked,
   onChange,
+  initialState = false,
   checkboxColor = COLORS.checkboxIcon,
   checkedColor = COLORS.checkedCheckboxIcon,
   checkboxSize = '16px',
@@ -25,6 +25,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   labelClassName = '',
   label,
 }) => {
+  const [checked, setChecked] = useState(initialState);
+
   const labelClass = (type: 'form' | 'filter' | 'custom' | '') => {
     switch (type) {
       case 'form':
@@ -41,7 +43,16 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   };
   return (
     <label className={labelClass(type)}>
-      <input type='checkbox' checked={checked} onChange={onChange} />
+      <input
+        type='checkbox'
+        checked={checked}
+        onChange={(e) => {
+          setChecked((prev) => !prev);
+          if (onChange) {
+            onChange(e);
+          }
+        }}
+      />
       <span className={s.checkbox}>
         {checked ? (
           <CheckRound color={checkedColor} size={checkboxSize} />
