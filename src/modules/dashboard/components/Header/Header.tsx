@@ -1,15 +1,13 @@
-import React from 'react';
-import CheckboxExample from '@ui-kit/Checkbox/example/CheckboxExample';
+import React from 'react'
 
 interface HeaderProps {
-  title: string;
+  title: string
 }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <header>
       <h1>{title}</h1>
-      <CheckboxExample />
     </header>
-  );
-};
+  )
+}
