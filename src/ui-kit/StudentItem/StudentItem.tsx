@@ -1,6 +1,6 @@
 import s from './Student.module.scss';
-import { TestStatus, Checkbox } from '@ui-kit';
-import { ICONS } from '@theme/icons.const';
+import { TestStatus } from '@ui-kit/index';
+import { Edit, Filters } from '@theme/icons.const';
 
 // interface IStudentItem {
 //   id: string,
@@ -16,9 +16,7 @@ import { ICONS } from '@theme/icons.const';
 export const StudentItem = () => {
   return (
     <tr className={s.studentItem}>
-      <td>
-        <Checkbox type='form' labelClassName={s.checkbox} />
-      </td>
+      <td>{/* <Checkbox type='form' labelClassName={s.checkbox} /> */}</td>
       <td>150</td>
       <td>Aнастасія Скоробагатько</td>
       <td>daria.serhiienko@gmail.com</td>
@@ -30,10 +28,10 @@ export const StudentItem = () => {
       </td>
       <td>48/50</td>
       <td>
-        <img className={s.icon} src={ICONS.EDIT} alt='edit' />
+        <Edit color='#fff' size='24px' />
       </td>
       <td>
-        <img className={s.icon} src={ICONS.FILTERS} alt='filter' />
+        <Filters color='#fff' size='24px' />
       </td>
     </tr>
   );
