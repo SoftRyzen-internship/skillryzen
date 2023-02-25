@@ -1,0 +1,12 @@
+.timer__text,
+.timer__time {
+  max-width: 80px;
+  font-weight: var(--bold);
+  font-size: var(--text-lg);
+  color: var(--primary-txt-cl);
+  text-align: right;
+}
+
+.timer__text {
+  margin-bottom: 4px;
+}

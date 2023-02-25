@@ -1,8 +1,8 @@
-import s from './CopyButton.module.scss'
+import s from './CopyButton.module.scss';
 
 interface ButtonProps {
-  type: 'button' | 'submit'
-  onClick: () => void
+  type?: 'button' | 'submit';
+  onClick: () => void;
 }
 
 export const CopyButton = ({ type = 'button', onClick }: ButtonProps) => {
@@ -15,5 +15,5 @@ export const CopyButton = ({ type = 'button', onClick }: ButtonProps) => {
     >
       Copy
     </button>
-  )
-}
+  );
+};
