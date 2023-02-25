@@ -1,6 +1,7 @@
 import s from './Student.module.scss';
 import { TestStatus, Checkbox } from '@ui-kit/index';
 import { Edit, Filters } from '@theme/icons.const';
+import { useState } from 'react';
 
 // interface IStudentItem {
 //   id: string,
@@ -14,10 +15,21 @@ import { Edit, Filters } from '@theme/icons.const';
 // }
 
 export const StudentItem = () => {
+  const [checked, setChecked] = useState(false);
+
+  const handleChange = () => {
+    setChecked(!checked);
+  };
+
   return (
     <tr className={s.studentItem}>
       <td>
-        <Checkbox type='form' labelClassName={s.checkbox} />
+        <Checkbox
+          type='filter'
+          labelClassName={s.checkbox}
+          checked={checked}
+          onChange={handleChange}
+        />
       </td>
       <td>150</td>
       <td>Aнастасія Скоробагатько</td>
@@ -30,10 +42,14 @@ export const StudentItem = () => {
       </td>
       <td>48/50</td>
       <td>
-        <Edit />
+        <button type='button'>
+          <Edit color='#9D9FB5' />
+        </button>
       </td>
       <td>
-        <Filters />
+        <button type='button'>
+          <Filters color='#9D9FB5' />
+        </button>
       </td>
     </tr>
   );

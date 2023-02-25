@@ -1,5 +1,11 @@
-const LoginPage = () => {
-  return <div>Login</div>
-}
+import { StudentItem } from '@ui-kit';
 
-export default LoginPage
+const LoginPage = () => {
+  return (
+    <div>
+      <StudentItem />
+    </div>
+  );
+};
+
+export default LoginPage;
