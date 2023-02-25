@@ -1,12 +1,12 @@
-import s from './HeaderButton.module.scss'
+import s from './HeaderButton.module.scss';
 
 interface HeaderButtonProps {
-  icon: string
-  className?: string
-  onClick?: () => void
-  onMouseEnter?: () => void
-  onMouseLeave?: () => void
-  popupContent?: React.ReactNode
+  icon: JSX.Element;
+  className?: string;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+  popupContent?: React.ReactNode;
 }
 
 export const HeaderButton: React.FC<HeaderButtonProps> = ({
@@ -23,10 +23,10 @@ export const HeaderButton: React.FC<HeaderButtonProps> = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <button className={s.button} type="button" onClick={onClick}>
-        <img width={24} height={24} className={s.icon} src={icon} alt="icon" />
+      <button className={s.button} type='button' onClick={onClick}>
+        {icon}
       </button>
       {popupContent ? <div className={s.popup}>{popupContent}</div> : null}
     </div>
-  )
-}
+  );
+};

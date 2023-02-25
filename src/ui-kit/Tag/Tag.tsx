@@ -1,5 +1,5 @@
 import React from 'react'
-import { ICONS } from '@theme/icons.const'
+// import { ICONS } from '@theme/icons.const'
 import s from './Tag.module.scss'
 
 interface ITag {

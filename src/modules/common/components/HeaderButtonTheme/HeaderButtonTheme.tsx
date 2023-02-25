@@ -1,16 +1,29 @@
-import { useState } from 'react'
-import { ICONS } from '@theme/icons.const'
-import { HeaderButton } from '@ui-kit/index'
+import { useState } from 'react';
+import { Sun, Moon } from '@theme/icons.const';
+import { HeaderButton } from '@ui-kit/index';
 
 export const HeaderButtonTheme = () => {
-  const [icon, setIcon] = useState(ICONS.SUN)
+  const SunIcon = <Sun color='#FFD84F' size='24px' />;
+  const MoonIcon = <Moon color='#3653F2' size='24px' />;
+
+  const [theme, setTheme] = useState('dark');
+
+  const [icon, setIcon] = useState<JSX.Element>(() => {
+    if (theme === 'dark') {
+      return MoonIcon;
+    } else {
+      return SunIcon;
+    }
+  });
 
   const clickHandler = () => {
-    if (icon === ICONS.SUN) {
-      setIcon(ICONS.MOON)
+    if (theme === 'light') {
+      setTheme('dark');
+      setIcon(MoonIcon);
     } else {
-      setIcon(ICONS.SUN)
+      setTheme('light');
+      setIcon(SunIcon);
     }
-  }
-  return <HeaderButton icon={icon} onClick={clickHandler} />
-}
+  };
+  return <HeaderButton icon={icon} onClick={clickHandler} />;
+};

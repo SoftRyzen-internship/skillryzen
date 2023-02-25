@@ -1,5 +1,5 @@
 import s from './AddButton.module.scss'
-import { ICONS } from '@theme/icons.const'
+// import { ICONS } from '@theme/icons.const'
 
 interface ButtonProps {
   type: 'button' | 'submit'
