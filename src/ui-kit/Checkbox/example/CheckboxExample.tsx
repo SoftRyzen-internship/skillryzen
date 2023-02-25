@@ -61,15 +61,18 @@ export default function RadioButtonExample() {
         Selected: {isChecked3 ? 'true' : 'false'}
       </p>
 
-      <p style={{ marginBottom: '10px' }}>Checkbox with custom label</p>
+      <p style={{ marginBottom: '10px' }}>
+        Checkbox with custom label custom size custom color
+      </p>
       <Checkbox
         type='custom'
         label='Checkbox with custom label'
         labelClassName={s.labelCustom}
         checked={isChecked4}
         onChange={handleCheckboxChange4}
-        checkboxColor='red'
-        checkedColor='green'
+        checkboxColor='#ff0000'
+        checkedColor='#00ff00'
+        checkboxSize='24px'
       />
       <p style={{ margin: '10px' }}>
         Selected: {isChecked4 ? 'true' : 'false'}
