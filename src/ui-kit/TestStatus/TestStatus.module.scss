@@ -5,11 +5,13 @@
 }
 
 .success {
+  composes: testStatus;
   color: var(--success-cl);
   background-color: var(--success-cl-rgb);
 }
 
 .failed{
+  composes: testStatus;
   color: var(--error-cl);
   background-color: var(--error-cl-rgb);
 }
