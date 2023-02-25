@@ -1,5 +1,5 @@
 import s from './Student.module.scss';
-import { TestStatus } from '@ui-kit/index';
+import { TestStatus, Checkbox } from '@ui-kit/index';
 import { Edit, Filters } from '@theme/icons.const';
 
 // interface IStudentItem {
@@ -16,7 +16,9 @@ import { Edit, Filters } from '@theme/icons.const';
 export const StudentItem = () => {
   return (
     <tr className={s.studentItem}>
-      <td>{/* <Checkbox type='form' labelClassName={s.checkbox} /> */}</td>
+      <td>
+        <Checkbox type='form' labelClassName={s.checkbox} />
+      </td>
       <td>150</td>
       <td>Aнастасія Скоробагатько</td>
       <td>daria.serhiienko@gmail.com</td>
@@ -28,10 +30,10 @@ export const StudentItem = () => {
       </td>
       <td>48/50</td>
       <td>
-        <Edit color='#fff' size='24px' />
+        <Edit />
       </td>
       <td>
-        <Filters color='#fff' size='24px' />
+        <Filters />
       </td>
     </tr>
   );
