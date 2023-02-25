@@ -68,6 +68,8 @@ export default function RadioButtonExample() {
         labelClassName={s.labelCustom}
         checked={isChecked4}
         onChange={handleCheckboxChange4}
+        checkboxColor='red'
+        checkedColor='green'
       />
       <p style={{ margin: '10px' }}>
         Selected: {isChecked4 ? 'true' : 'false'}

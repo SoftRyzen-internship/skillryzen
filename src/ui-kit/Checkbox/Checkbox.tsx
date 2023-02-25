@@ -7,6 +7,8 @@ import s from './Checkbox.module.scss';
 type CheckboxProps = {
   checked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  checkboxColor?: string;
+  checkedColor?: string;
   type?: 'form' | 'filter' | 'custom' | '';
   labelClassName?: string;
   label?: string;
@@ -15,6 +17,8 @@ type CheckboxProps = {
 export const Checkbox: React.FC<CheckboxProps> = ({
   checked,
   onChange,
+  checkboxColor = COLORS.checkboxIcon,
+  checkedColor = COLORS.checkedCheckboxIcon,
   type = '',
   labelClassName = '',
   label,
@@ -38,9 +42,9 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       <input type='checkbox' checked={checked} onChange={onChange} />
       <span className={s.checkbox}>
         {checked ? (
-          <CheckRound color={COLORS.checkedCheckboxIcon} size={'16px'} />
+          <CheckRound color={checkedColor} size={'16px'} />
         ) : (
-          <DefaultCheckbox color={COLORS.checkboxIcon} size={'16px'} />
+          <DefaultCheckbox color={checkboxColor} size={'16px'} />
         )}
       </span>
       {label}
