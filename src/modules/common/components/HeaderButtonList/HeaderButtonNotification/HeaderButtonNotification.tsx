@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { COLORS } from 'theme/colors.const';
 import { ICONS } from 'theme/icons.const';
 import { HeaderPopupNotification } from './HeaderPopupNotification';
 import { HeaderButton } from 'ui-kit/index';
@@ -13,7 +14,7 @@ export const HeaderButtonNotification = () => {
   };
   return (
     <HeaderButton
-      icon={<ICONS.BELL fill='#F8F8F8' />}
+      icon={<ICONS.BELL fill={COLORS.bellIcon} />}
       IndicatorNumber={2}
       IndicatorColor='yellow'
       onMouseEnter={mouseEnterHandler}

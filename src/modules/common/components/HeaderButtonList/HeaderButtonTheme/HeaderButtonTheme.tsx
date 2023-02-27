@@ -1,10 +1,11 @@
 import { useState } from 'react';
+import { COLORS } from 'theme/colors.const';
 import { ICONS } from 'theme/icons.const';
 import { HeaderButton } from 'ui-kit/index';
 
 export const HeaderButtonTheme = () => {
-  const SunIcon = <ICONS.SUN stroke='#FFD84F' />;
-  const MoonIcon = <ICONS.MOON stroke='#3653F2' />;
+  const SunIcon = <ICONS.SUN stroke={COLORS.sunIcon} />;
+  const MoonIcon = <ICONS.MOON stroke={COLORS.moonIcon} />;
 
   const [theme, setTheme] = useState('dark');
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
