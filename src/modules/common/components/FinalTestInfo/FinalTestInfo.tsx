@@ -8,7 +8,9 @@ interface IListInfoJS {
   questions: number;
   learners: number;
   author: string;
-  icons: string[];
+  icons: {
+    [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  };
 }
 
 interface IIconProps {
@@ -26,6 +28,8 @@ interface IProps {
   correctAnswers?: number;
   totalQuestions?: number;
   timeSpent?: number;
+  iconAnswers?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  iconTime?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
   theBestTopic?: string;
   onClickBtn: () => void;
@@ -43,6 +47,8 @@ export const FinalTestInfo = ({
   correctAnswers,
   totalQuestions,
   timeSpent,
+  iconAnswers: IconAnswers,
+  iconTime: IconTime,
   theWorstTopic,
   theBestTopic,
   onClickBtn,
@@ -54,7 +60,6 @@ export const FinalTestInfo = ({
   return (
     <div className={s.container}>
       <div className={s.imageThumb}>
-        {' '}
         <img
           className={s.image}
           src={image}
@@ -69,40 +74,45 @@ export const FinalTestInfo = ({
         <ul className={s.list}>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              {' '}
-              <img className={s.icon} src='/' alt='' />
+              <div className={s.iconThumb}>
+                <listInfo.icons.BAR className={s.icon} />
+              </div>
               <p className={s.text}>Теми</p>
             </div>
             <p className={s.textRight}>{`${listInfo.topics}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              {' '}
-              <img className={s.icon} src='/' alt='' />
+              <div className={s.iconThumb}>
+                <listInfo.icons.CLOCK className={s.icon} />
+              </div>
               <p className={s.text}>Час проходження</p>
             </div>
             <p className={s.textRight}>{`${listInfo.time}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              {' '}
-              <img className={s.icon} src='/' alt='' />
+              <div className={s.iconThumb}>
+                <listInfo.icons.QUESTION className={s.icon} />
+              </div>
               <p className={s.text}>Питання</p>
             </div>
             <p className={s.textRight}>{`${listInfo.questions}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              {' '}
-              <img className={s.icon} src='/' alt='' />
+              <div className={s.iconThumb}>
+                <listInfo.icons.GROUP className={s.icon} />
+              </div>
               <p className={s.text}>Learners</p>
             </div>
             <p className={s.textRight}>{`${listInfo.learners}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              {' '}
-              <img className={s.icon} src='/' alt='' />
+              <div className={s.iconThumb}>
+                <listInfo.icons.USERS className={s.icon} />
+              </div>
               <p className={s.text}>Author</p>
             </div>
             <p className={s.textRight}>{`${listInfo.author}`}</p>
@@ -114,11 +124,12 @@ export const FinalTestInfo = ({
 
       {finishTest && (
         <>
-          <ul className={s.list}>
+          <ul className={s.recList}>
             <li className={s.item}>
               <div className={s.iconWrapper}>
-                {' '}
-                <img className={s.icon} src='/' alt='' />
+                <div className={s.iconThumb}>
+                  <IconAnswers className={s.icon} />
+                </div>
                 <p className={s.text}>Correct answers</p>
               </div>
               <p className={s.textRight}>
@@ -128,10 +139,11 @@ export const FinalTestInfo = ({
             </li>
             <li className={s.item}>
               <div className={s.iconWrapper}>
-                <img className={s.icon} src='/' alt='' />
+                <div className={s.iconThumb}>
+                  <IconTime className={s.icon} />
+                </div>
                 <p className={s.text}>Time spent</p>
               </div>
-
               <p className={s.textRight}>{`${timeSpent}`} min</p>
             </li>
           </ul>
@@ -166,6 +178,13 @@ export const FinalTestInfo = ({
 //   questions: 50,
 //   learners: 200,
 //   author: 'GoIT',
+//   icons: {
+//     BAR: ICONS.BAR_TWO_LINE,
+//     CLOCK: ICONS.CLOCK,
+//     QUESTION: ICONS.QUESTION_ROUND,
+//     GROUP: ICONS.USER_GROUP,
+//     USERS: ICONS.USERS,
+//   },
 // };
 
 // const [isClickBtn, setIsClickBtn] = useState(false);
@@ -193,6 +212,8 @@ export const FinalTestInfo = ({
 //   correctAnswers={15}
 //   totalQuestions={50}
 //   timeSpent={20}
+// iconAnswers={ICONS.CHECK_MARK}
+// iconTime={ICONS.CLOCK}
 //   theWorstTopic='“Asynchrony” section.'
 //   theBestTopic='"Lorem lorem lorem" section.'
 //   onClickBtn={handleClickBtn}
