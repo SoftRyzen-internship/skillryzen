@@ -1,4 +1,4 @@
-import { lazy } from 'react';
+// import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 import RegisterPage from '../modules/pages/RegisterPage/RegisterPage';
 import LoginPage from '../modules/pages/LoginPage/LoginPage';

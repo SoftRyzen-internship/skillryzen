@@ -1,6 +1,7 @@
 export { Logo } from './Logo/Logo';
 export { Tabs } from './Tabs/Tabs';
 export { Popup } from './Popup/Popup';
+export { Input } from './Input/Input';
 export { RadioButton } from './RadioButton/RadioButton';
 export { Tag } from './Tag/Tag';
 export { CopyButton } from './Buttons/CopyBtn/CopyButton';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { IMGS } from '../../../../theme/images.const';
+import { IMGS } from 'theme/images.const';
 import { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
-import { UserAvatarCard } from '../../../../ui-kit/index';
+import { UserAvatarCard } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
 
