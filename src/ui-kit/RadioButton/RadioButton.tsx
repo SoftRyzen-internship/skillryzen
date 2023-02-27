@@ -1,15 +1,15 @@
-import React from 'react'
+import React from 'react';
 
-import s from './RadioButton.module.scss'
+import s from './RadioButton.module.scss';
 
 type RadioButtonProps = {
-  value: string
-  checked: boolean
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  value: string;
+  checked: boolean;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 
-  labelClassName?: string
-  label?: string
-}
+  labelClassName?: string;
+  label?: string;
+};
 
 export function RadioButton({
   value,
@@ -20,9 +20,9 @@ export function RadioButton({
 }: RadioButtonProps) {
   return (
     <label className={`${labelClassName} ${s.label}`}>
-      <input type="radio" value={value} checked={checked} onChange={onChange} />
+      <input type='radio' value={value} checked={checked} onChange={onChange} />
       <span className={s.radio}></span>
       {label}
     </label>
-  )
+  );
 }

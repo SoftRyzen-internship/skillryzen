@@ -1,7 +1,6 @@
-export {}
-export type Img = { [key: string]: string }
+export {};
+export type Img = { [key: string]: string };
 export interface IconProps {
-  classNames?: string
-  color?: string
-  size?: string
+  color: string;
+  size: string;
 }

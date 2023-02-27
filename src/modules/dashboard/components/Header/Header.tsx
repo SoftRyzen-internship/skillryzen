@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 interface HeaderProps {
-  title: string
+  title: string;
 }
 
 export const Header: React.FC<HeaderProps> = ({ title }) => {
@@ -9,5 +9,5 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
     <header>
       <h1>{title}</h1>
     </header>
-  )
-}
+  );
+};

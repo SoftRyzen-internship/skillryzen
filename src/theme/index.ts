@@ -1,2 +1,2 @@
-export * from './colors.const'
-export * from './icons.const'
+export * from './colors.const';
+export * from './icons.const';
