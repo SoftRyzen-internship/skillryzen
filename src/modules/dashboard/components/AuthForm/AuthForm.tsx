@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { AuthFormStep1 } from '../../../details';
+import { AuthFormStep3 } from '../../../details';
 import s from './AuthForm.module.scss';
 
 interface IProps {
@@ -14,6 +15,7 @@ export const AuthForm = ({ currentStep }: IProps) => {
         Already have an account? <NavLink to='/login'>Log in</NavLink>
       </p>
       {currentStep === 1 && <AuthFormStep1 />}
+      {currentStep === 3 && <AuthFormStep3 />}
     </div>
   );
 };
