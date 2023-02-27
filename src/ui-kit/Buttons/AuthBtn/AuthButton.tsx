@@ -1,11 +1,11 @@
-import s from './AuthButton.module.scss'
+import s from './AuthButton.module.scss';
 
 interface ButtonProps {
-  type: 'button' | 'submit'
-  text: string
-  onClick: () => void
-  size: 'small' | 'large'
-  color: 'grey' | 'white' | 'blue'
+  type: 'button' | 'submit';
+  text: string;
+  onClick: () => void;
+  size: 'small' | 'large';
+  color: 'grey' | 'white' | 'blue';
 }
 
 export const AuthButton = ({
@@ -23,5 +23,5 @@ export const AuthButton = ({
     >
       {text}
     </button>
-  )
-}
+  );
+};

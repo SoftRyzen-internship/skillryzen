@@ -1,13 +1,13 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
-import s from './Tabs.module.scss'
+import s from './Tabs.module.scss';
 
 interface ITab {
-  title: string
-  path: string
+  title: string;
+  path: string;
 }
 interface ITabProps {
-  tabs: ITab[]
+  tabs: ITab[];
 }
 
 export const Tabs = ({ tabs }: ITabProps) => {
@@ -25,8 +25,8 @@ export const Tabs = ({ tabs }: ITabProps) => {
               {title}
             </NavLink>
           </li>
-        )
+        );
       })}
     </ul>
-  )
-}
+  );
+};
