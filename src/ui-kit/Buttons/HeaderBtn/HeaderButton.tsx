@@ -9,14 +9,14 @@ interface HeaderButtonProps {
   popupContent?: React.ReactNode;
 }
 
-export const HeaderButton: React.FC<HeaderButtonProps> = ({
+export const HeaderButton = ({
   icon,
   className,
   onClick,
   onMouseEnter,
   onMouseLeave,
   popupContent,
-}) => {
+}: HeaderButtonProps) => {
   return (
     <div
       className={className ? `${s.container} ${className}` : s.container}

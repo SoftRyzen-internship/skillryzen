@@ -1,17 +1,17 @@
-import s from './UserAvatarCard.module.scss'
+import s from './UserAvatarCard.module.scss';
 
-interface HeaderProps {
-  userName: string
-  userRole: string
-  userAvatarUrl: string
-  userStatus: 'green' | 'yellow' | 'gray'
+interface UserAvatarCardProps {
+  userName: string;
+  userRole: string;
+  userAvatarUrl: string;
+  userStatus: 'green' | 'yellow' | 'gray';
 }
-export const UserAvatarCard: React.FC<HeaderProps> = ({
+export const UserAvatarCard = ({
   userName,
   userRole,
   userAvatarUrl,
   userStatus,
-}) => {
+}: UserAvatarCardProps) => {
   // console.log(`status--${userStatus}`)
   return (
     <div className={s.card}>
@@ -21,7 +21,7 @@ export const UserAvatarCard: React.FC<HeaderProps> = ({
           src={userAvatarUrl}
           width={40}
           height={40}
-          alt="avatar"
+          alt='avatar'
         />
         <span className={`${s[`status--${userStatus}`]}`}></span>
       </div>
@@ -30,5 +30,5 @@ export const UserAvatarCard: React.FC<HeaderProps> = ({
         <p className={s.role}>{userRole}</p>
       </div>
     </div>
-  )
-}
+  );
+};
