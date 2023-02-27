@@ -1,10 +1,14 @@
-import { lazy } from 'react';
+// import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
-import RegisterPage from "../modules/pages/RegisterPage/RegisterPage";
-import LoginPage from "../modules/pages/LoginPage/LoginPage";
-import StudentPage from "../modules/pages/StudentPage/StudentPage";
-import CompanyPage from "../modules/pages/CompanyPage/CompanyPage";
-import TestsPage from "../modules/pages/TestsPage/TestsPage";
+import RegisterPage from '../modules/pages/RegisterPage/RegisterPage';
+import LoginPage from '../modules/pages/LoginPage/LoginPage';
+import StudentPage from '../modules/pages/StudentPage/StudentPage';
+import CompanyPage from '../modules/pages/CompanyPage/CompanyPage';
+import TestsPage from '../modules/pages/TestsPage/TestsPage';
+import TestingPage from '../modules/pages/TestingPage/TestingPage';
+
+import { TestsMain } from '../modules/dashboard/components/TestsMain';
+import { TestingMain } from '../modules/dashboard/components/TestingMain';
 
 // const LoginPage = lazy(() => import('@modules/pages/LoginPage/LoginPage'));
 // const RegisterPage = lazy(
@@ -24,7 +28,27 @@ const routes = [
   { path: '/', element: <LoginPage /> },
   { path: '/student', element: <StudentPage /> },
   { path: '/company', element: <CompanyPage /> },
-  { path: '/tests', element: <TestsPage /> },
+  {
+    path: '/tests/',
+    element: <TestsPage />,
+    children: [
+      {
+        path: '',
+        element: <TestsMain />,
+      },
+    ],
+  },
+  {
+    path: '/testing',
+    element: <TestingPage />,
+    children: [
+      {
+        path: '',
+        element: <TestingMain />,
+      },
+    ],
+  },
+
   { path: '*', element: <h1>404 Not Found</h1> },
 ];
 
