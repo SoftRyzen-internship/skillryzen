@@ -1,0 +1,13 @@
+.test__header {
+  background-color: var(--components-cl);
+}
+
+.test__container {
+  width: 1440px;
+  padding: 27px 173px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
