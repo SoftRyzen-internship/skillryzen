@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FC } from 'react';
 import { COLORS } from '../../theme/colors.const';
 
 import s from './Checkbox.module.scss';
@@ -10,15 +10,15 @@ import { ICONS } from '../../theme';
 type CheckboxProps = {
   onChange?: undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
   initialState?: boolean;
-  checkboxColor?: `#${string}`;
-  checkedColor?: `#${string}`;
-  checkboxSize?: `${number}px`;
+  // checkboxColor?: `#${string}`;
+  // checkedColor?: `#${string}`;
+  // checkboxSize?: `${number}px`;
   type?: 'form' | 'filter' | 'custom' | '';
   labelClassName?: string;
   label?: string;
 };
 
-export const Checkbox: React.FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps> = ({
   onChange,
   initialState = false,
   // checkboxColor = COLORS.checkboxIcon,
