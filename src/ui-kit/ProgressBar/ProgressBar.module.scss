@@ -13,6 +13,7 @@
 
 .progressBar__line {
   width: max(15px, 1%);
+  // width: clamp(30px, 15px, 1%);
   height: 4px;
   background-color: var(--disabled-cl);
   border-radius: 4px;
