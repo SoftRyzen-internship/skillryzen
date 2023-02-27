@@ -1,5 +1,5 @@
 const DEFAULT_IMG_PROPS = {
-  color: '#000',
+  color: 'currentColor',
   size: '24px',
 };
 
@@ -1831,5 +1831,5 @@ export const ICONS = {
   FullScreen,
   DefaultCheckbox,
   CheckRound,
-  Plus
-}
+  Plus,
+};

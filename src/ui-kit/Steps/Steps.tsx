@@ -32,7 +32,6 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
 
   // Classname для ліній
   const setClassnameLine = (idx: number) => {
-    console.log(idx);
     // позаду активного степу
     if (idx < currentStep - 1) {
       return s.blueLine;

@@ -9,12 +9,17 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
     // }
 
     const fileLoader =  {
-        test: /\.(png|jpe?g|gif|woff2|woff)$/i,
+        test: /\.(woff2|woff)$/i,
         use: [
             {
                 loader: 'file-loader',
             },
         ],
+    }
+
+    const imgLoader = {
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource',
     }
 
     const cssLoader =  {
@@ -44,7 +49,7 @@ export function buildLoaders({isDev}: BuildOptions): webpack.RuleSetRule[] {
 
     return [
         fileLoader,
-        // svgLoader,
+        imgLoader,
         typescriptLoader,
         cssLoader,
     ]

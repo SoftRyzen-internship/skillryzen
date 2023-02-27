@@ -10,8 +10,11 @@ export const AuthForm = ({ currentStep }: IProps) => {
   return (
     <div className={s.formWrapper}>
       <h2 className={s.formTitle}>Choose your role</h2>
-      <p>
-        Already have an account? <NavLink to='/login'>Log in</NavLink>
+      <p className={s.logIn}>
+        Already have an account?{' '}
+        <NavLink to='/login' className={s.link}>
+          Log in
+        </NavLink>
       </p>
       {currentStep === 1 && <AuthFormStep1 />}
     </div>

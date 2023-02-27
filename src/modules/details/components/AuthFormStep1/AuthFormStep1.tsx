@@ -1,14 +1,27 @@
 import s from './AuthFormStep1.module.scss';
 import { User, Users } from '../../../../theme/icons.const';
 import { AuthButton, Input } from '../../../../ui-kit/index';
+import { useState } from 'react';
 
 export const AuthFormStep1 = () => {
+  const [code, setCode] = useState('');
+  const [isValid, setIsValid] = useState(false);
   const handleClick = () => {};
 
+  const handleSubmit = () => {};
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCode(e.target.value);
+
+    if (code.length === 5) {
+      setIsValid(true);
+    }
+  };
+
   return (
-    <form action=''>
+    <form action='' className={s.form}>
       <fieldset>
-        <legend>Please choose your role</legend>
+        <legend className={s.formTitle}>Please choose your role</legend>
         <ul className={s.roleList}>
           <li>
             <input
@@ -33,9 +46,11 @@ export const AuthFormStep1 = () => {
         </ul>
       </fieldset>
       <Input
+        onChange={handleChange}
         className={s.codeInput}
         name='code'
         placeholder='Введіть код компанії'
+        value={code}
       />
       <div className={s.buttonsWrapper}>
         <p className={s.buttonsTitle}>Your company is</p>

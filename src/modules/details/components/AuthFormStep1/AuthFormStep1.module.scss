@@ -1,7 +1,12 @@
+.formTitle{
+  margin-bottom: 24px;
+}
+
 .roleList{
+  margin-bottom: 26px;
   display: flex;
   justify-content: space-between;
-  gap: 2.34vh;
+  gap: 24px;
 
   color: var(--secondary-txt-cl);
 
@@ -28,6 +33,7 @@
 }
 
 .codeInput{
+  margin-bottom: 12px;
   width: 100%;
   padding: 14px 16px;
 
@@ -49,5 +55,5 @@
   margin-top: 8px;
   display: flex;
   flex-direction: column;
-  gap: 3.13vh;
+  gap: 32px;
 }
