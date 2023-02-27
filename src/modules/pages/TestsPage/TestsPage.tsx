@@ -58,7 +58,7 @@ const userMenu = [
 
 const TestsPage = () => {
   return <div>
-            <SideBar children={[<Menu menu={menu}/>, <Menu menu={userMenu}/>]}/>
+            <SideBar children={[<Menu menu={menu}/>, <Menu menu={userMenu}/>]} spaceBetween='388px'/>
           </div>;
 };
 

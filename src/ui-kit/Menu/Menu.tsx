@@ -12,7 +12,6 @@ interface IMenu {
 }
 interface IMenuProps {
   menu: IMenu[]
-  isOpen?: boolean
 }
 
 export const Menu = ({ menu }: IMenuProps) => {

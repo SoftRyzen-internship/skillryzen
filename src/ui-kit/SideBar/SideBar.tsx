@@ -6,9 +6,10 @@ import s from './SideBar.module.scss';
 
 interface SideBarProps {
   children : React.ReactNode[];
+  spaceBetween?: string;
 }
 
-export const SideBar = ({children}: SideBarProps) => {
+export const SideBar = ({children, spaceBetween}: SideBarProps) => {
 
     const [isOpen, setIsOpen] = useState(true);
 
@@ -25,7 +26,7 @@ export const SideBar = ({children}: SideBarProps) => {
                 <img src='' alt='close-button'/>
             </button>
             <SideBarContext.Provider value={isOpen}>
-              <div className={s.sideBar__listWrapper}>
+              <div className={s.sideBar__listWrapper} style={{gap: spaceBetween}}>
                 {children}
               </div>
             </SideBarContext.Provider>
