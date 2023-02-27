@@ -1,10 +1,10 @@
 import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
-import RegisterPage from "../modules/pages/RegisterPage/RegisterPage";
-import LoginPage from "../modules/pages/LoginPage/LoginPage";
-import StudentPage from "../modules/pages/StudentPage/StudentPage";
-import CompanyPage from "../modules/pages/CompanyPage/CompanyPage";
-import TestsPage from "../modules/pages/TestsPage/TestsPage";
+import RegisterPage from '../pages/RegisterPage/RegisterPage';
+import LoginPage from '../pages/LoginPage/LoginPage';
+import StudentPage from '../pages/StudentPage/StudentPage';
+import CompanyPage from '../pages/CompanyPage/CompanyPage';
+import TestsPage from '../pages/TestsPage/TestsPage';
 
 // const LoginPage = lazy(() => import('@modules/pages/LoginPage/LoginPage'));
 // const RegisterPage = lazy(

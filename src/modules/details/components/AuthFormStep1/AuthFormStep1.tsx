@@ -1,6 +1,6 @@
 import s from './AuthFormStep1.module.scss';
-import { User, Users } from '@theme/icons.const';
-import { AuthButton, Input } from '@ui-kit/index';
+import { User, Users } from '../../../../theme/icons.const';
+import { AuthButton, Input } from '../../../../ui-kit/index';
 
 export const AuthFormStep1 = () => {
   const handleClick = () => {};

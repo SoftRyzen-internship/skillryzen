@@ -1,5 +1,5 @@
-import { AuthIntro, AuthContainer, AuthForm } from '@modules/dashboard';
-import { AuthSteps } from '@modules/details';
+import { AuthIntro, AuthContainer } from '../../modules/dashboard';
+import { AuthSteps } from '../../modules/details';
 
 const RegisterPage = () => {
   return (

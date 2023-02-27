@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Logo, Steps } from '@ui-kit/index';
+import { Logo, Steps } from '../../../../ui-kit';
 import { AuthForm } from '../../../dashboard/components/AuthForm/AuthForm';
 
 import s from './AuthSteps.module.scss';

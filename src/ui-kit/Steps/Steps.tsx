@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckMark } from '@theme/icons.const';
+import { CheckMark } from '../../theme/icons.const';
 import s from './Steps.module.scss';
 
 interface ICurrentStep {
@@ -56,9 +56,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
                 {' '}
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
-                  {currentStep > idx + 1 && (
-                    <CheckMark classNames={s.checkIcon} />
-                  )}
+                  {currentStep > idx + 1 && <CheckMark />}
                 </div>
               </div>
               {step < 4 && (

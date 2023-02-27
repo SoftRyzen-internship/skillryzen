@@ -1,8 +1,12 @@
 import { NavLink } from 'react-router-dom';
-import { AuthFormStep1 } from '@modules/details';
+import { AuthFormStep1 } from '../../../details';
 import s from './AuthForm.module.scss';
 
-export const AuthForm = ({ currentStep }) => {
+interface IProps {
+  currentStep: number;
+}
+
+export const AuthForm = ({ currentStep }: IProps) => {
   return (
     <div className={s.formWrapper}>
       <h2 className={s.formTitle}>Choose your role</h2>
