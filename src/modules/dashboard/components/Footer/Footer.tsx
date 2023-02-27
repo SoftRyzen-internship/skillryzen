@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 interface FooterProps {
-  text: string
+  text: string;
 }
 
 export const Footer: React.FC<FooterProps> = ({ text }) => {
@@ -9,5 +9,5 @@ export const Footer: React.FC<FooterProps> = ({ text }) => {
     <footer>
       <p>{text}</p>
     </footer>
-  )
-}
+  );
+};

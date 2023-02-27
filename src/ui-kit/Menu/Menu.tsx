@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
 
-import s from './Menu.module.scss'
+import s from './Menu.module.scss';
 
 interface IMenu {
   title: string
@@ -39,5 +39,5 @@ export const Menu = ({ menu, isOpen }: IMenuProps) => {
       })}
       </ul>
     </nav>
-  )
-}
+  );
+};

@@ -1,14 +1,15 @@
-import { Suspense } from 'react'
+import { Suspense } from 'react';
 
-import { Layout } from '@modules/dashboard'
-import { AppRoutes } from './routes'
+import { AppRoutes } from './routes';
+import { Layout } from "./modules/dashboard";
 
-import './theme/styles/global.scss'
-import './theme/styles/variables.scss'
+import './theme/styles/global.scss';
+import './theme/styles/variables.scss';
+import { SideBar } from 'ui-kit/SideBar/SideBar';
 
-import { SideBar } from '@ui-kit/SideBar/SideBar'
 
-export const App: React.FC = () => {
+
+export const App = () => {
   return (
     <>
       <Layout>
@@ -18,5 +19,5 @@ export const App: React.FC = () => {
         </Suspense>
       </Layout>
     </>
-  )
-}
+  );
+};
