@@ -1,36 +1,33 @@
-import React from 'react'
-import { Tag } from '@ui-kit/Tag'
-import { ICONS } from '@theme/icons.const'
-import s from './Card.module.scss'
+import React from 'react';
+import { Tag } from '@ui-kit/Tag';
+import { Close, WarningCircle, Edit, Coin, Lock } from '@theme/icons.const';
+import { COLORS } from '@theme/colors.const';
+import s from './Card.module.scss';
 
-type Type = 'notification' | 'coin' | 'info'
+type Type = 'notification' | 'coin' | 'info';
 
 interface ICard {
-  type?: Type
-  size?: 'large' | 'small'
-  hideNumber?: boolean
-  custom?: boolean
-  onClick?: () => void
-  item: IItem
+  type?: Type;
+  size?: 'large' | 'small';
+  hideNumber?: boolean;
+  custom?: boolean;
+  onClick?: () => void;
+  item: IItem;
 }
 
 interface IItem {
-  title: string
-  text?: string
-  fields?: string[]
-  number?: number
-  time?: number
+  title: string;
+  text?: string;
+  fields?: string[];
+  number?: number;
+  time?: number;
 }
 
-const imageObject = {
-  notification: {
-    background: 'green',
-    icon: ICONS.WARNING_CIRCLE,
-    alt: 'warning',
-  },
-  coin: { background: 'blue', icon: ICONS.COIN, alt: 'coin' },
-  info: { background: 'yellow', icon: ICONS.WARNING_CIRCLE, alt: 'lock' },
-}
+const iconBackground = {
+  notification: 'green',
+  coin: 'blue',
+  info: 'yellow',
+};
 
 export const Card: React.FC<ICard> = ({
   type = 'info',
@@ -40,30 +37,22 @@ export const Card: React.FC<ICard> = ({
   custom = false,
   onClick,
 }) => {
-  const { title, text, fields, number, time } = item
+  const { title, text, fields, number, time } = item;
 
   const addBackgroundColor = (type: Type): string => {
-  return custom ? 'green' : imageObject[type].background
-  }
-
-  const addIcon = (type: Type): string => {
-    return custom ? ICONS.EDIT : imageObject[type].icon
-  }
-
-  const addDescription = (type: Type): string => {
-    return custom ? 'edit' : imageObject[type].alt
-  }
+    return custom ? 'green' : iconBackground[type];
+  };
 
   return (
     <li className={`${s[`card--${size}`]}`}>
       <div className={s.card__infoWrapper}>
         <div className={`${s[`card__thumb--${addBackgroundColor(type)}`]}`}>
-          <img
-            src={addIcon(type)}
-            width="18"
-            height="20"
-            alt={addDescription(type)}
-          />
+          {!custom && type === 'info' && <Lock size='20px' color={COLORS.white} />}
+          {!custom && type === 'coin' && <Coin size='20px' color={COLORS.white} />}
+          {!custom && type === 'notification' && (
+            <WarningCircle size='15px' color={COLORS.white}/>
+          )}
+          {custom && <Edit size='17px' color={COLORS.white} />}
         </div>
         {!custom && (
           <div className={s.card__contentWrapper}>
@@ -75,7 +64,7 @@ export const Card: React.FC<ICard> = ({
               <ul className={s.card__list}>
                 {fields.map((item, index) => (
                   <li key={index}>
-                    <Tag type="field" label={item} />
+                    <Tag type='field' label={item} />
                   </li>
                 ))}
               </ul>
@@ -91,7 +80,7 @@ export const Card: React.FC<ICard> = ({
       >
         {((!hideNumber && number) || custom) && (
           <Tag
-            type="number"
+            type='number'
             label={
               type === 'info' && custom
                 ? '? запитань'
@@ -102,14 +91,14 @@ export const Card: React.FC<ICard> = ({
           />
         )}
         {((time && type === 'info') || custom) && (
-          <Tag type="time" label={!custom ? time + '' : '?'} />
+          <Tag type='time' label={!custom ? time + '' : '?'} />
         )}
         {type !== 'info' && (
           <button className={s.card__close} onClick={onClick}>
-            <img src={ICONS.CLOSE} width="8" height="8" alt="close" />
+            <Close color={COLORS.checkboxIcon} size='24px' />
           </button>
         )}
       </div>
     </li>
-  )
-}
+  );
+};
