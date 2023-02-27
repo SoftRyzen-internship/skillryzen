@@ -45,13 +45,12 @@ export const ProgressBar = ({
       </p>
       <ul className={s.progressBar__list}>
         {array.map((item) => (
-          <li key={item}>
-            <span
-              className={`${s.progressBar__line} ${
-                s[`${checkRightAnswer(item)}`]
-              }`}
-            ></span>
-          </li>
+          <li
+            key={item}
+            className={`${s.progressBar__line} ${
+              s[`${checkRightAnswer(item)}`]
+            }`}
+          ></li>
         ))}
       </ul>
     </div>

@@ -6,13 +6,13 @@
 }
 
 .progressBar__list {
+  width: 946px;
   display: flex;
   gap: 4px;
 }
 
 .progressBar__line {
-  display: inline-block;
-  width: 15px;
+  width: max(15px, 1%);
   height: 4px;
   background-color: var(--disabled-cl);
   border-radius: 4px;
