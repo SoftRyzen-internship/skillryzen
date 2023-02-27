@@ -1,0 +1,16 @@
+.testsPage {
+    background-color: var(--primary-cl);
+    padding: 22px 60px 15px 24px;
+
+    .testsPage__title {
+        font-size: 30px;
+        font-weight: 800;
+        color: var(--primary-txt-cl);
+    }
+
+    .testsPage__header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+    }
+}
