@@ -12,7 +12,6 @@ export const UserAvatarCard = ({
   userAvatarUrl,
   userStatus,
 }: UserAvatarCardProps) => {
-  // console.log(`status--${userStatus}`)
   return (
     <div className={s.card}>
       <div className={s.imgThumb}>
