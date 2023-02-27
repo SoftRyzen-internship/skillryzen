@@ -6,7 +6,7 @@ import { AuthForm } from '../../../dashboard/components/AuthForm/AuthForm';
 import s from './AuthSteps.module.scss';
 
 export const AuthSteps = () => {
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(3);
 
   return (
     <section className={s.section}>
