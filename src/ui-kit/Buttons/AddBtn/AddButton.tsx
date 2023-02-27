@@ -1,11 +1,11 @@
-import s from './AddButton.module.scss'
-import { ICONS } from '@theme/icons.const'
+import s from './AddButton.module.scss';
+// import { ICONS } from '@theme/icons.const';
 
 interface ButtonProps {
-  type: 'button' | 'submit'
-  text: string
-  onClick: () => void
-  color: 'black' | 'blue'
+  type: 'button' | 'submit';
+  text: string;
+  onClick: () => void;
+  color: 'black' | 'blue';
 }
 
 export const AddButton = ({
@@ -20,14 +20,14 @@ export const AddButton = ({
       type={type}
       className={`${s.addButton} ${s[color]}`}
     >
-      <img
-        width={24}
-        height={24}
-        className={s.iconplus}
-        src={ICONS.PLUS}
-        alt={'plus'}
-      />
+      {/*<img*/}
+      {/*  width={24}*/}
+      {/*  height={24}*/}
+      {/*  className={s.iconplus}*/}
+      {/*  src={ICONS.PLUS}*/}
+      {/*  alt={'plus'}*/}
+      {/*/>*/}
       {text}
     </button>
-  )
-}
+  );
+};

@@ -1,14 +1,12 @@
-import { IconProps } from '@modules/common/types';
-
-const DEFAULT_IMG_PROPS: IconProps = {
-  color: 'currentColor',
+const DEFAULT_IMG_PROPS = {
+  color: '#000',
   size: '24px',
 };
 
 export const Clock = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -37,7 +35,7 @@ export const Clock = ({
 export const Alert = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -45,7 +43,7 @@ export const Alert = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_305_11041)'>
+    <g clipPath='url(#clip0_305_11041)'>
       <path
         d='M12 2C10.0222 2 8.08879 2.58649 6.4443 3.6853C4.79981 4.78412 3.51809 6.3459 2.76121 8.17317C2.00433 10.0004 1.8063 12.0111 2.19215 13.9509C2.578 15.8907 3.53041 17.6725 4.92894 19.0711C6.32746 20.4696 8.10929 21.422 10.0491 21.8079C11.9889 22.1937 13.9996 21.9957 15.8268 21.2388C17.6541 20.4819 19.2159 19.2002 20.3147 17.5557C21.4135 15.9112 22 13.9778 22 12C22 10.6868 21.7413 9.38642 21.2388 8.17317C20.7363 6.95991 19.9997 5.85752 19.0711 4.92893C18.1425 4.00035 17.0401 3.26375 15.8268 2.7612C14.6136 2.25866 13.3132 2 12 2ZM12 20C10.4178 20 8.87104 19.5308 7.55544 18.6518C6.23985 17.7727 5.21447 16.5233 4.60897 15.0615C4.00347 13.5997 3.84504 11.9911 4.15372 10.4393C4.4624 8.88743 5.22433 7.46197 6.34315 6.34315C7.46197 5.22433 8.88743 4.4624 10.4393 4.15372C11.9911 3.84504 13.5997 4.00346 15.0615 4.60896C16.5233 5.21447 17.7727 6.23984 18.6518 7.55544C19.5308 8.87103 20 10.4177 20 12C20 14.1217 19.1572 16.1566 17.6569 17.6569C16.1566 19.1571 14.1217 20 12 20Z'
         fill={color}
@@ -69,7 +67,7 @@ export const Alert = ({
 export const ArrowDownward = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -77,7 +75,7 @@ export const ArrowDownward = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_8021)'>
+    <g clipPath='url(#clip0_277_8021)'>
       <path
         d='M12 15.9993C11.7664 15.9998 11.5399 15.9184 11.36 15.7693L5.36003 10.7693C5.15581 10.5996 5.02739 10.3556 5.00301 10.0912C4.97863 9.8268 5.06029 9.56352 5.23003 9.3593C5.39977 9.15508 5.64368 9.02666 5.90811 9.00228C6.17253 8.9779 6.43581 9.05956 6.64003 9.2293L12 13.7093L17.36 9.3893C17.4623 9.30623 17.58 9.2442 17.7064 9.20677C17.8327 9.16934 17.9652 9.15724 18.0962 9.17118C18.2272 9.18512 18.3542 9.22482 18.4699 9.28799C18.5855 9.35117 18.6875 9.43657 18.77 9.5393C18.8616 9.64212 18.931 9.76275 18.9738 9.89362C19.0166 10.0245 19.0319 10.1628 19.0187 10.2999C19.0056 10.4369 18.9643 10.5698 18.8974 10.6902C18.8305 10.8105 18.7395 10.9158 18.63 10.9993L12.63 15.8293C12.4449 15.9548 12.2231 16.0147 12 15.9993Z'
         fill={color}
@@ -93,7 +91,7 @@ export const ArrowDownward = ({
 export const ArrowLeft = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -101,7 +99,7 @@ export const ArrowLeft = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_8019)'>
+    <g clipPath='url(#clip0_277_8019)'>
       <path
         d='M13.8299 19.0013C13.6805 19.0018 13.5329 18.9688 13.3979 18.9048C13.263 18.8407 13.144 18.7473 13.0499 18.6313L8.21992 12.6313C8.07284 12.4523 7.99243 12.2279 7.99243 11.9963C7.99243 11.7646 8.07284 11.5402 8.21992 11.3613L13.2199 5.36125C13.3897 5.15704 13.6336 5.02861 13.898 5.00423C14.1624 4.97985 14.4257 5.06151 14.6299 5.23125C14.8341 5.40099 14.9626 5.6449 14.9869 5.90933C15.0113 6.17375 14.9297 6.43704 14.7599 6.64125L10.2899 12.0013L14.6099 17.3613C14.7322 17.508 14.8099 17.6868 14.8338 17.8763C14.8576 18.0659 14.8267 18.2583 14.7447 18.4308C14.6626 18.6034 14.5328 18.7488 14.3707 18.8499C14.2086 18.9509 14.021 19.0035 13.8299 19.0013Z'
         fill={color}
@@ -117,7 +115,7 @@ export const ArrowLeft = ({
 export const ArrowRight = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -125,7 +123,7 @@ export const ArrowRight = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_8018)'>
+    <g clipPath='url(#clip0_277_8018)'>
       <path
         d='M10.0001 18.9999C9.7664 19.0004 9.53996 18.919 9.36005 18.7699C9.25879 18.686 9.17509 18.5829 9.11374 18.4665C9.05239 18.3502 9.01459 18.2229 9.00251 18.0919C8.99044 17.9609 9.00432 17.8289 9.04337 17.7033C9.08241 17.5777 9.14585 17.461 9.23005 17.3599L13.7101 11.9999L9.39005 6.62994C9.30699 6.52765 9.24495 6.40996 9.20752 6.28362C9.17009 6.15728 9.158 6.02479 9.17194 5.89376C9.18587 5.76273 9.22557 5.63575 9.28875 5.52011C9.35192 5.40447 9.43732 5.30246 9.54005 5.21994C9.64352 5.1289 9.76468 5.06024 9.89595 5.01825C10.0272 4.97626 10.1657 4.96185 10.3028 4.97594C10.4399 4.99002 10.5726 5.03229 10.6926 5.1001C10.8126 5.1679 10.9173 5.25977 11.0001 5.36994L15.8301 11.3699C15.9771 11.5489 16.0575 11.7733 16.0575 12.0049C16.0575 12.2366 15.9771 12.461 15.8301 12.6399L10.8301 18.6399C10.7297 18.761 10.6023 18.8566 10.4581 18.9192C10.3139 18.9817 10.157 19.0094 10.0001 18.9999Z'
         fill={color}
@@ -141,7 +139,7 @@ export const ArrowRight = ({
 export const ArrowUpward = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -149,7 +147,7 @@ export const ArrowUpward = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_8020)'>
+    <g clipPath='url(#clip0_277_8020)'>
       <path
         d='M18.0001 14.9997C17.7664 15.0001 17.54 14.9188 17.3601 14.7697L12.0001 10.2897L6.63006 14.6097C6.52778 14.6927 6.41008 14.7548 6.28374 14.7922C6.1574 14.8296 6.02491 14.8417 5.89388 14.8278C5.76285 14.8139 5.63587 14.7742 5.52024 14.711C5.4046 14.6478 5.30259 14.5624 5.22006 14.4597C5.137 14.3574 5.07497 14.2397 5.03754 14.1134C5.0001 13.987 4.98801 13.8545 5.00195 13.7235C5.01589 13.5925 5.05559 13.4655 5.11876 13.3498C5.18193 13.2342 5.26734 13.1322 5.37006 13.0497L11.3701 8.21968C11.549 8.07259 11.7734 7.99219 12.0051 7.99219C12.2367 7.99219 12.4611 8.07259 12.6401 8.21968L18.6401 13.2197C18.7413 13.3036 18.825 13.4067 18.8864 13.5231C18.9477 13.6394 18.9855 13.7667 18.9976 13.8977C19.0097 14.0287 18.9958 14.1608 18.9568 14.2864C18.9177 14.412 18.8543 14.5286 18.7701 14.6297C18.677 14.7444 18.5597 14.8371 18.4266 14.901C18.2934 14.965 18.1478 14.9987 18.0001 14.9997Z'
         fill={color}
@@ -160,7 +158,7 @@ export const ArrowUpward = ({
 export const AtEmail = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -171,23 +169,23 @@ export const AtEmail = ({
     <path
       d='M15.8571 12C15.8571 14.1302 14.1302 15.8571 12 15.8571C9.86976 15.8571 8.14286 14.1302 8.14286 12C8.14286 9.86976 9.86976 8.14286 12 8.14286C14.1302 8.14286 15.8571 9.86976 15.8571 12ZM15.8571 12V13.2857C15.8571 14.7059 17.0084 15.8571 18.4286 15.8571C19.3408 15.8571 20.1422 15.3821 20.5986 14.6658C20.8528 14.2671 21 13.7936 21 13.2857V12C21 9.17273 19.6963 6.64996 17.6573 5M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C13.9122 21 15.6851 20.4037 17.1429 19.3868'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Award = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11551)'>
+    <g clipPath='url(#clip0_274_11551)'>
       <path
         d='M19 20.752L16.69 11.752C17.5441 10.6893 18.0066 9.36525 18 8.00195C18 6.41065 17.3679 4.88453 16.2427 3.75931C15.1175 2.63409 13.5913 2.00195 12 2.00195C10.4087 2.00195 8.88262 2.63409 7.7574 3.75931C6.63218 4.88453 6.00004 6.41065 6.00004 8.00195C5.9973 9.37577 6.47084 10.7081 7.34004 11.772L5.00004 20.752C4.95026 20.9439 4.95867 21.1463 5.02419 21.3334C5.08971 21.5206 5.20939 21.684 5.36802 21.803C5.52664 21.9219 5.71706 21.9911 5.91506 22.0016C6.11306 22.0121 6.30972 21.9635 6.48004 21.862L11.81 18.732L17.49 21.872C17.6435 21.9646 17.8209 22.0098 18 22.002C18.1553 22.0069 18.3096 21.9756 18.4507 21.9106C18.5918 21.8455 18.7157 21.7485 18.8128 21.6272C18.9098 21.5058 18.9773 21.3636 19.0098 21.2117C19.0423 21.0598 19.039 20.9024 19 20.752ZM12 4.00195C12.7912 4.00195 13.5645 4.23655 14.2223 4.67607C14.8801 5.1156 15.3928 5.74031 15.6956 6.47122C15.9983 7.20212 16.0775 8.00639 15.9232 8.78231C15.7688 9.55824 15.3879 10.271 14.8285 10.8304C14.2691 11.3898 13.5563 11.7708 12.7804 11.9251C12.0045 12.0794 11.2002 12.0002 10.4693 11.6975C9.7384 11.3947 9.11369 10.882 8.67416 10.2242C8.23463 9.56644 8.00004 8.79308 8.00004 8.00195C8.00004 6.94109 8.42146 5.92367 9.17161 5.17353C9.92176 4.42338 10.9392 4.00195 12 4.00195ZM12.31 16.712C12.158 16.6242 11.9856 16.578 11.81 16.578C11.6345 16.578 11.4621 16.6242 11.31 16.712L7.56004 18.912L9.00004 13.212C9.90065 13.7296 10.9213 14.002 11.96 14.002C12.9988 14.002 14.0194 13.7296 14.92 13.212L16.45 19.002L12.31 16.712Z'
         fill={color}
@@ -200,14 +198,14 @@ export const Award = ({
     </defs>
   </svg>
 );
-export const BarEmptyLine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
+export const BarEmptyLine = ({ size = DEFAULT_IMG_PROPS.size }) => (
   <svg
     width={size}
     height={size}
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_305_10928)'>
+    <g clipPath='url(#clip0_305_10928)'>
       <path
         d='M5 12C4.73478 12 4.48043 12.1054 4.29289 12.2929C4.10536 12.4804 4 12.7348 4 13V20C4 20.2652 4.10536 20.5196 4.29289 20.7071C4.48043 20.8946 4.73478 21 5 21C5.26522 21 5.51957 20.8946 5.70711 20.7071C5.89464 20.5196 6 20.2652 6 20V13C6 12.7348 5.89464 12.4804 5.70711 12.2929C5.51957 12.1054 5.26522 12 5 12Z'
         fill='#9D9FB5'
@@ -228,14 +226,14 @@ export const BarEmptyLine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
     </defs>
   </svg>
 );
-export const BarOneLine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
+export const BarOneLine = ({ size = DEFAULT_IMG_PROPS.size }) => (
   <svg
     width={size}
     height={size}
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_305_10927)'>
+    <g clipPath='url(#clip0_305_10927)'>
       <path
         d='M5 12C4.73478 12 4.48043 12.1054 4.29289 12.2929C4.10536 12.4804 4 12.7348 4 13V20C4 20.2652 4.10536 20.5196 4.29289 20.7071C4.48043 20.8946 4.73478 21 5 21C5.26522 21 5.51957 20.8946 5.70711 20.7071C5.89464 20.5196 6 20.2652 6 20V13C6 12.7348 5.89464 12.4804 5.70711 12.2929C5.51957 12.1054 5.26522 12 5 12Z'
         fill='#9D9FB5'
@@ -259,7 +257,7 @@ export const BarOneLine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
 export const BarTwoLine = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -267,7 +265,7 @@ export const BarTwoLine = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11725)'>
+    <g clipPath='url(#clip0_274_11725)'>
       <path
         d='M5 12C4.73478 12 4.48043 12.1054 4.29289 12.2929C4.10536 12.4804 4 12.7348 4 13V20C4 20.2652 4.10536 20.5196 4.29289 20.7071C4.48043 20.8946 4.73478 21 5 21C5.26522 21 5.51957 20.8946 5.70711 20.7071C5.89464 20.5196 6 20.2652 6 20V13C6 12.7348 5.89464 12.4804 5.70711 12.2929C5.51957 12.1054 5.26522 12 5 12Z'
         fill='#9D9FB5'
@@ -291,7 +289,7 @@ export const BarTwoLine = ({
 export const BellTwo = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -302,21 +300,21 @@ export const BellTwo = ({
     <path
       d='M8.85314 2.67414C9.70534 2.24187 10.6587 2 11.6649 2C15.2882 2 18.2255 5.13623 18.2255 9.00497V9.70957C18.2255 10.5552 18.46 11.3818 18.8993 12.0854L19.9758 13.8095C20.959 15.3843 20.2084 17.5249 18.4982 18.0229C14.0244 19.3257 9.30543 19.3257 4.83159 18.0229C3.12141 17.5249 2.37076 15.3843 3.35404 13.8095L4.43055 12.0854C4.86985 11.3818 5.10427 10.5552 5.10427 9.70957V9.00497C5.10427 7.93058 5.3308 6.91269 5.73564 6.00277'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
     <path
       d='M7.29053 19C7.92726 20.7478 9.64533 22 11.6648 22C11.9025 22 12.136 21.9827 12.364 21.9492M16.0392 19C15.7796 19.7126 15.3402 20.3428 14.774 20.8393'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
   </svg>
 );
 export const Bell = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -333,7 +331,7 @@ export const Bell = ({
 export const Book = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -341,7 +339,7 @@ export const Book = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11283)'>
+    <g clipPath='url(#clip0_274_11283)'>
       <path
         d='M19 3H7C6.20435 3 5.44129 3.31607 4.87868 3.87868C4.31607 4.44129 4 5.20435 4 6V18C4 18.7956 4.31607 19.5587 4.87868 20.1213C5.44129 20.6839 6.20435 21 7 21H19C19.2652 21 19.5196 20.8946 19.7071 20.7071C19.8946 20.5196 20 20.2652 20 20V4C20 3.73478 19.8946 3.48043 19.7071 3.29289C19.5196 3.10536 19.2652 3 19 3ZM7 5H18V15H7C6.65886 15.0027 6.32067 15.0636 6 15.18V6C6 5.73478 6.10536 5.48043 6.29289 5.29289C6.48043 5.10536 6.73478 5 7 5ZM7 19C6.73478 19 6.48043 18.8946 6.29289 18.7071C6.10536 18.5196 6 18.2652 6 18C6 17.7348 6.10536 17.4804 6.29289 17.2929C6.48043 17.1054 6.73478 17 7 17H18V19H7Z'
         fill={color}
@@ -357,7 +355,7 @@ export const Book = ({
 export const CheckRound = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -372,15 +370,15 @@ export const CheckRound = ({
     <path
       d='M17.0001 9L11.5001 14.5M10 16L8.50002 14.5L7 13'
       stroke='white'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const CheckSmall = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -391,26 +389,24 @@ export const CheckSmall = ({
     <path
       d='M17.0001 9L12.0001 14M10 16L7 13'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const CheckMark = ({
-  classNames,
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
-    className={classNames}
     width={size}
     height={size}
     fill='none'
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11284)'>
+    <g clipPath='url(#clip0_274_11284)'>
       <path
         d='M9.85996 18.0009C9.72285 18.0004 9.58729 17.9718 9.4617 17.9168C9.33612 17.8617 9.2232 17.7814 9.12996 17.6809L4.26996 12.5109C4.08829 12.3173 3.99097 12.0594 3.99941 11.7941C4.00785 11.5287 4.12136 11.2776 4.31496 11.0959C4.50857 10.9142 4.76642 10.8169 5.03178 10.8253C5.29715 10.8338 5.54829 10.9473 5.72996 11.1409L9.84996 15.5309L18.26 6.33089C18.3453 6.22461 18.4515 6.1369 18.572 6.07315C18.6924 6.0094 18.8247 5.97095 18.9606 5.96017C19.0964 5.94938 19.2331 5.96649 19.3621 6.01044C19.4911 6.05439 19.6098 6.12425 19.7108 6.21573C19.8119 6.30722 19.8932 6.41839 19.9497 6.54243C20.0062 6.66647 20.0367 6.80075 20.0395 6.93703C20.0422 7.0733 20.017 7.2087 19.9655 7.3349C19.914 7.4611 19.8373 7.57543 19.74 7.67089L10.6 17.6709C10.5076 17.7732 10.3951 17.8554 10.2695 17.9122C10.1438 17.969 10.0078 17.9992 9.86996 18.0009H9.85996Z'
         fill={color}
@@ -426,7 +422,7 @@ export const CheckMark = ({
 export const ClockOne = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -437,23 +433,23 @@ export const ClockOne = ({
     <path
       d='M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 9.69494 3.86656 7.59227 5.29168 6M12 7V12L15 15'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Close = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_9246)'>
+    <g clipPath='url(#clip0_277_9246)'>
       <path
         d='M13.4099 12.0002L17.7099 7.71019C17.8982 7.52188 18.004 7.26649 18.004 7.00019C18.004 6.73388 17.8982 6.47849 17.7099 6.29019C17.5216 6.10188 17.2662 5.99609 16.9999 5.99609C16.7336 5.99609 16.4782 6.10188 16.2899 6.29019L11.9999 10.5902L7.70994 6.29019C7.52164 6.10188 7.26624 5.99609 6.99994 5.99609C6.73364 5.99609 6.47824 6.10188 6.28994 6.29019C6.10164 6.47849 5.99585 6.73388 5.99585 7.00019C5.99585 7.26649 6.10164 7.52188 6.28994 7.71019L10.5899 12.0002L6.28994 16.2902C6.19621 16.3831 6.12182 16.4937 6.07105 16.6156C6.02028 16.7375 5.99414 16.8682 5.99414 17.0002C5.99414 17.1322 6.02028 17.2629 6.07105 17.3848C6.12182 17.5066 6.19621 17.6172 6.28994 17.7102C6.3829 17.8039 6.4935 17.8783 6.61536 17.9291C6.73722 17.9798 6.86793 18.006 6.99994 18.006C7.13195 18.006 7.26266 17.9798 7.38452 17.9291C7.50638 17.8783 7.61698 17.8039 7.70994 17.7102L11.9999 13.4102L16.2899 17.7102C16.3829 17.8039 16.4935 17.8783 16.6154 17.9291C16.7372 17.9798 16.8679 18.006 16.9999 18.006C17.132 18.006 17.2627 17.9798 17.3845 17.9291C17.5064 17.8783 17.617 17.8039 17.7099 17.7102C17.8037 17.6172 17.8781 17.5066 17.9288 17.3848C17.9796 17.2629 18.0057 17.1322 18.0057 17.0002C18.0057 16.8682 17.9796 16.7375 17.9288 16.6156C17.8781 16.4937 17.8037 16.3831 17.7099 16.2902L13.4099 12.0002Z'
         fill={color}
@@ -469,7 +465,7 @@ export const Close = ({
 export const Coin = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -481,26 +477,26 @@ export const Coin = ({
       d='M3.88417 13.5641L3.82736 13.4522L3.73096 13.5326C2.74064 14.3583 2.15 15.3682 2.15 16.4984C2.15 18.0728 3.29375 19.412 5.07929 20.352C6.86787 21.2937 9.32216 21.8484 12 21.8484C14.6778 21.8484 17.1321 21.2937 18.9207 20.352C20.7063 19.412 21.85 18.0728 21.85 16.4984C21.85 15.3744 21.2656 14.3676 20.2827 13.5447L20.1873 13.4649L20.1298 13.5751L19.4158 14.9446L19.3817 15.0101L19.4342 15.062C19.9013 15.5233 20.15 16.0122 20.15 16.4984C20.15 16.9476 19.9382 17.3999 19.5361 17.8298C19.134 18.2598 18.5467 18.6616 17.8111 19.0062C16.3403 19.6953 14.2928 20.1484 12 20.1484C9.70724 20.1484 7.65967 19.6953 6.18886 19.0062C5.45331 18.6616 4.86598 18.2598 4.46389 17.8298C4.06183 17.3999 3.85 16.9476 3.85 16.4984C3.85 16.012 4.09733 15.5216 4.56565 15.0606L4.61778 15.0093L4.58467 14.9441L3.88417 13.5641Z'
       fill={color}
       stroke={color}
-      stroke-width='0.2'
+      strokeWidth='0.2'
     />
     <path
       d='M3.88417 9.06411L3.82736 8.95219L3.73096 9.03257C2.74064 9.85835 2.15 10.8682 2.15 11.9984C2.15 13.5728 3.29375 14.912 5.07929 15.852C6.86787 16.7937 9.32216 17.3484 12 17.3484C14.6778 17.3484 17.1321 16.7937 18.9207 15.852C20.7063 14.912 21.85 13.5728 21.85 11.9984C21.85 10.8744 21.2656 9.8676 20.2827 9.0447L20.1873 8.96486L20.1298 9.07514L19.4158 10.4446L19.3817 10.5101L19.4342 10.562C19.9013 11.0233 20.15 11.5122 20.15 11.9984C20.15 12.4476 19.9382 12.8999 19.5361 13.3298C19.134 13.7598 18.5467 14.1616 17.8111 14.5062C16.3403 15.1953 14.2928 15.6484 12 15.6484C9.70724 15.6484 7.65967 15.1953 6.18886 14.5062C5.45331 14.1616 4.86598 13.7598 4.46389 13.3298C4.06183 12.8999 3.85 12.4476 3.85 11.9984C3.85 11.5136 4.09729 11.0231 4.56576 10.5605L4.61772 10.5092L4.58467 10.4441L3.88417 9.06411Z'
       fill={color}
       stroke={color}
-      stroke-width='0.2'
+      strokeWidth='0.2'
     />
     <path
       d='M2.15 7.5C2.15 9.07438 3.29375 10.4136 5.07929 11.3537C6.86787 12.2953 9.32216 12.85 12 12.85C14.6778 12.85 17.1321 12.2953 18.9207 11.3537C20.7063 10.4136 21.85 9.07438 21.85 7.5C21.85 5.92562 20.7063 4.58635 18.9207 3.64633C17.1321 2.7047 14.6778 2.15 12 2.15C9.32216 2.15 6.86787 2.7047 5.07929 3.64633C3.29375 4.58635 2.15 5.92562 2.15 7.5ZM20.15 7.5C20.15 7.94922 19.9382 8.40149 19.5361 8.83143C19.134 9.26141 18.5467 9.6632 17.8111 10.0078C16.3403 10.6969 14.2928 11.15 12 11.15C9.70724 11.15 7.65967 10.6969 6.18886 10.0078C5.45331 9.6632 4.86598 9.26141 4.46389 8.83143C4.06183 8.40149 3.85 7.94922 3.85 7.5C3.85 7.05078 4.06183 6.59851 4.46389 6.16857C4.86598 5.73859 5.45331 5.3368 6.18886 4.99218C7.65967 4.30307 9.70724 3.85 12 3.85C14.2928 3.85 16.3403 4.30307 17.8111 4.99218C18.5467 5.3368 19.134 5.73859 19.5361 6.16857C19.9382 6.59851 20.15 7.05078 20.15 7.5Z'
       fill={color}
       stroke={color}
-      stroke-width='0.2'
+      strokeWidth='0.2'
     />
   </svg>
 );
 export const CrossSmall = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -511,16 +507,16 @@ export const CrossSmall = ({
     <path
       d='M16 8L8 16M8.00003 8L10 10M16 16L12 12'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const DefaultCheckbox = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -531,15 +527,15 @@ export const DefaultCheckbox = ({
     <path
       d='M16 4C18.2091 4 20 5.79086 20 8V16C20 18.2091 18.2091 20 16 20H8C5.79086 20 4 18.2091 4 16V8C4 5.79086 5.79086 4 8 4H12'
       stroke={color}
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Edit = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -550,16 +546,16 @@ export const Edit = ({
     <path
       d='M14 6L18 10M7.25 12.75L10.5 9.5L17 3L21 7L17.75 10.25L16.9375 11.0625M4.8125 15.1875L4 16V20H8L11.25 16.75L14.5 13.5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const EyeClosed = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -570,16 +566,16 @@ export const EyeClosed = ({
     <path
       d='M22 12C22 12 21.171 13.5958 19.612 15.2635M9.76406 5.29519C10.4664 5.10724 11.2123 5 12 5C14.8779 5 17.198 6.43162 18.8762 8M4.34912 8.77822C2.8152 10.4307 2 12 2 12C2 12 5.63636 19 12 19C12.8021 19 13.5608 18.8888 14.2744 18.6944M11.5 14.9585C10.4158 14.7766 9.52883 14.0132 9.17071 13M12.5 9.04148C13.7563 9.25224 14.7478 10.2437 14.9585 11.5M3 3L21 21'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const EyeOpen = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -590,16 +586,16 @@ export const EyeOpen = ({
     <path
       d='M22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12C2 12 5.63636 5 12 5C14.8779 5 17.198 6.43162 18.8762 8M9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const FiltersTwo = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -610,16 +606,16 @@ export const FiltersTwo = ({
     <path
       d='M20 4L15 12V21L9 18V15.5M9 12L4 4H16'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Filters = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -630,15 +626,15 @@ export const Filters = ({
     <path
       d='M14 5C14 3.89543 13.1046 3 12 3C10.8954 3 10 3.89543 10 5C10 6.10457 10.8954 7 12 7C13.1046 7 14 6.10457 14 5ZM14 5H20M16 12C16 13.1046 16.8954 14 18 14C19.1046 14 20 13.1046 20 12C20 10.8954 19.1046 10 18 10C16.8954 10 16 10.8954 16 12ZM16 12H13M20 19H11M4 12H10M4 5L7 5M6 17C7.10457 17 8 17.8954 8 19C8 20.1046 7.10457 21 6 21C4.89543 21 4 20.1046 4 19C4 17.8954 4.89543 17 6 17Z'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
   </svg>
 );
 export const FlagOne = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -649,23 +645,23 @@ export const FlagOne = ({
     <path
       d='M4 21V16C4 16 5 15 8 15C11 15 13 17 16 17C19 17 20 16 20 16V4C20 4 19 5 16 5C13 5 11 3 8 3C5 3 4 4 4 4V12.5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Flash = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11549)'>
+    <g clipPath='url(#clip0_274_11549)'>
       <path
         d='M11.1099 22.9981C10.994 22.998 10.8789 22.9777 10.7699 22.9381C10.5597 22.8612 10.3813 22.7158 10.2635 22.5255C10.1456 22.3351 10.0951 22.1107 10.1199 21.8881L10.8899 14.7981H4.99992C4.81825 14.7984 4.63994 14.7492 4.48414 14.6558C4.32833 14.5623 4.20092 14.4282 4.11559 14.2679C4.03026 14.1075 3.99023 13.9269 3.9998 13.7455C4.00937 13.564 4.06819 13.3887 4.16992 13.2381L12.0599 1.43814C12.1847 1.25348 12.3676 1.1158 12.5796 1.04695C12.7915 0.978108 13.0204 0.982046 13.2299 1.05814C13.4313 1.13291 13.6033 1.27053 13.7203 1.45063C13.8374 1.63074 13.8934 1.84375 13.8799 2.05814L13.1099 9.19814H18.9999C19.1816 9.19787 19.3599 9.24709 19.5157 9.34052C19.6715 9.43395 19.7989 9.56805 19.8843 9.72844C19.9696 9.88882 20.0096 10.0694 20 10.2508C19.9905 10.4323 19.9317 10.6076 19.8299 10.7581L11.9399 22.5581C11.8482 22.6939 11.7245 22.805 11.5798 22.8817C11.4351 22.9584 11.2737 22.9984 11.1099 22.9981ZM6.86992 12.7981H11.9999C12.1395 12.7985 12.2774 12.828 12.4048 12.8848C12.5323 12.9417 12.6464 13.0246 12.7399 13.1281C12.8343 13.2331 12.9054 13.3569 12.9484 13.4914C12.9915 13.6258 13.0057 13.7678 12.9899 13.9081L12.5399 18.0581L17.1299 11.1981H11.9999C11.8588 11.199 11.7191 11.17 11.59 11.113C11.4609 11.056 11.3453 10.9723 11.2509 10.8675C11.1564 10.7627 11.0852 10.639 11.042 10.5047C10.9987 10.3704 10.9844 10.2284 10.9999 10.0881L11.4499 5.93814L6.86992 12.7981Z'
         fill={color}
@@ -681,14 +677,14 @@ export const Flash = ({
 export const Funnel = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_7794)'>
+    <g clipPath='url(#clip0_277_7794)'>
       <path
         d='M13.8999 22C13.6835 22 13.473 21.9298 13.2999 21.8L9.29989 18.75C9.17753 18.6558 9.07864 18.5346 9.01098 18.3958C8.94332 18.257 8.90872 18.1044 8.90989 17.95V14.68L4.10989 5.46C4.03083 5.30741 3.99244 5.13703 3.99841 4.96529C4.00437 4.79354 4.0545 4.62623 4.14394 4.4795C4.23339 4.33276 4.35914 4.21155 4.50907 4.12757C4.659 4.04358 4.82804 3.99964 4.99989 4H18.9999C19.1734 4.00003 19.344 4.04523 19.4948 4.13114C19.6455 4.21705 19.7714 4.34072 19.8599 4.49C19.9477 4.64202 19.9939 4.81447 19.9939 4.99C19.9939 5.16554 19.9477 5.33798 19.8599 5.49L14.8599 14.7V21C14.8612 21.1864 14.8104 21.3694 14.7132 21.5284C14.616 21.6874 14.4763 21.8161 14.3099 21.9C14.1819 21.9621 14.0421 21.9962 13.8999 22ZM10.8999 17.46L12.8999 18.99V14.44C12.8993 14.2876 12.9335 14.1371 12.9999 14L17.2999 6H6.63988L10.7699 14C10.8428 14.1423 10.8805 14.3001 10.8799 14.46L10.8999 17.46Z'
         fill={color}
@@ -704,7 +700,7 @@ export const Funnel = ({
 export const Grid = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -712,7 +708,7 @@ export const Grid = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11854)'>
+    <g clipPath='url(#clip0_274_11854)'>
       <path
         d='M9 3H5C4.46957 3 3.96086 3.21071 3.58579 3.58579C3.21071 3.96086 3 4.46957 3 5V9C3 9.53043 3.21071 10.0391 3.58579 10.4142C3.96086 10.7893 4.46957 11 5 11H9C9.53043 11 10.0391 10.7893 10.4142 10.4142C10.7893 10.0391 11 9.53043 11 9V5C11 4.46957 10.7893 3.96086 10.4142 3.58579C10.0391 3.21071 9.53043 3 9 3ZM5 9V5H9V9H5Z'
         fill={color}
@@ -740,7 +736,7 @@ export const Grid = ({
 export const Heart = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -748,7 +744,7 @@ export const Heart = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11550)'>
+    <g clipPath='url(#clip0_274_11550)'>
       <path
         d='M12 20.9976C11.8684 20.9983 11.7379 20.9731 11.6161 20.9233C11.4943 20.8736 11.3834 20.8003 11.29 20.7076L3.51999 12.9276C2.54536 11.9428 1.99866 10.6131 1.99866 9.22757C1.99866 7.84201 2.54536 6.5124 3.51999 5.52758C4.50226 4.54809 5.83283 3.99805 7.21999 3.99805C8.60716 3.99805 9.93773 4.54809 10.92 5.52758L12 6.60758L13.08 5.52758C14.0623 4.54809 15.3928 3.99805 16.78 3.99805C18.1672 3.99805 19.4977 4.54809 20.48 5.52758C21.4546 6.5124 22.0013 7.84201 22.0013 9.22757C22.0013 10.6131 21.4546 11.9428 20.48 12.9276L12.71 20.7076C12.6166 20.8003 12.5057 20.8736 12.3839 20.9233C12.2621 20.9731 12.1316 20.9983 12 20.9976ZM7.21999 5.99758C6.79667 5.99566 6.37717 6.07776 5.9858 6.23911C5.59443 6.40047 5.23897 6.63787 4.93999 6.93758C4.33605 7.5447 3.99703 8.36622 3.99703 9.22258C3.99703 10.0789 4.33605 10.9005 4.93999 11.5076L12 18.5776L19.06 11.5076C19.6639 10.9005 20.003 10.0789 20.003 9.22258C20.003 8.36622 19.6639 7.5447 19.06 6.93758C18.4437 6.35528 17.6279 6.03087 16.78 6.03087C15.9321 6.03087 15.1163 6.35528 14.5 6.93758L12.71 8.73758C12.617 8.8313 12.5064 8.9057 12.3846 8.95647C12.2627 9.00724 12.132 9.03337 12 9.03337C11.868 9.03337 11.7373 9.00724 11.6154 8.95647C11.4936 8.9057 11.383 8.8313 11.29 8.73758L9.49999 6.93758C9.20102 6.63787 8.84556 6.40047 8.45419 6.23911C8.06282 6.07776 7.64332 5.99566 7.21999 5.99758Z'
         fill={color}
@@ -764,7 +760,7 @@ export const Heart = ({
 export const Home = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -775,16 +771,16 @@ export const Home = ({
     <path
       d='M12 3L20 10L20 20H15M15 16C15 15.2044 14.6839 14.4413 14.1213 13.8787C13.5587 13.3161 12.7957 13 12 13C11.2044 13 10.4413 13.3161 9.87868 13.8787C9.31607 14.4413 9 15.2043 9 16V20H4L4 10L8 6.5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Link = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -795,16 +791,16 @@ export const Link = ({
     <path
       d='M8 12H16M3 12C3 14.2091 4.79086 16 7 16H9M9 8H7C6.27143 8 5.58835 8.19479 5 8.53513M15 16H17C19.2091 16 21 14.2091 21 12C21 9.79086 19.2091 8 17 8L15 8'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const List = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -812,7 +808,7 @@ export const List = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11828)'>
+    <g clipPath='url(#clip0_274_11828)'>
       <path
         d='M4 8C4.55228 8 5 7.55228 5 7C5 6.44772 4.55228 6 4 6C3.44772 6 3 6.44772 3 7C3 7.55228 3.44772 8 4 8Z'
         fill={color}
@@ -848,7 +844,7 @@ export const List = ({
 export const Logout = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -859,16 +855,16 @@ export const Logout = ({
     <path
       d='M14 4L18 4C19.1046 4 20 4.89543 20 6V12V14M20 18C20 19.1046 19.1046 20 18 20H14M15 12L3 12L7 16M7 8L6 9'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Mail = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -879,16 +875,16 @@ export const Mail = ({
     <path
       d='M3.5 5.5L5 7M20.5 5.5L13.4142 12.5858C12.6332 13.3668 11.3668 13.3668 10.5858 12.5858L7.5 9.5M18 19H20C20.5523 19 21 18.5523 21 18V6C21 5.44772 20.5523 5 20 5H4C3.44772 5 3 5.44772 3 6V18C3 18.5523 3.44772 19 4 19H14'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const MenuArrow = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -896,7 +892,7 @@ export const MenuArrow = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11980)'>
+    <g clipPath='url(#clip0_274_11980)'>
       <path
         d='M20.0499 11.0002H5.90994L7.20994 9.71019C7.39824 9.52188 7.50403 9.26649 7.50403 9.00019C7.50403 8.73388 7.39824 8.47849 7.20994 8.29019C7.02164 8.10188 6.76624 7.99609 6.49994 7.99609C6.23364 7.99609 5.97824 8.10188 5.78994 8.29019L2.78994 11.2902C2.69621 11.3831 2.62182 11.4937 2.57105 11.6156C2.52028 11.7375 2.49414 11.8682 2.49414 12.0002C2.49414 12.1322 2.52028 12.2629 2.57105 12.3848C2.62182 12.5066 2.69621 12.6172 2.78994 12.7102L5.78994 15.7102C5.8829 15.8039 5.9935 15.8783 6.11536 15.9291C6.23722 15.9798 6.36793 16.006 6.49994 16.006C6.63195 16.006 6.76266 15.9798 6.88452 15.9291C7.00637 15.8783 7.11698 15.8039 7.20994 15.7102C7.30367 15.6172 7.37806 15.5066 7.42883 15.3848C7.4796 15.2629 7.50574 15.1322 7.50574 15.0002C7.50574 14.8682 7.4796 14.7375 7.42883 14.6156C7.37806 14.4937 7.30367 14.3831 7.20994 14.2902L5.90994 13.0002H20.0499C20.298 12.9881 20.5326 12.8841 20.7082 12.7085C20.8838 12.5329 20.9878 12.2982 20.9999 12.0502V12.0002C21.0003 11.7434 20.9018 11.4963 20.7249 11.3102C20.5481 11.124 20.3064 11.013 20.0499 11.0002Z'
         fill={color}
@@ -920,7 +916,7 @@ export const MenuArrow = ({
 export const Menu = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -928,7 +924,7 @@ export const Menu = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11285)'>
+    <g clipPath='url(#clip0_274_11285)'>
       <path
         d='M20.05 11.002H3.95C3.42533 11.002 3 11.4273 3 11.952V12.052C3 12.5766 3.42533 13.002 3.95 13.002H20.05C20.5747 13.002 21 12.5766 21 12.052V11.952C21 11.4273 20.5747 11.002 20.05 11.002Z'
         fill={color}
@@ -952,7 +948,7 @@ export const Menu = ({
 export const MessageCircle = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -963,16 +959,16 @@ export const MessageCircle = ({
     <path
       d='M15.3 19.1C14.1219 19.6951 12.8199 20.0035 11.5 20C9.92179 19.9994 8.37488 19.5594 7.03258 18.7293C5.69028 17.8992 4.6056 16.7118 3.90003 15.3C3.30496 14.1219 2.99659 12.8199 3.00003 11.5V11C3.11502 8.91568 3.99479 6.94699 5.47089 5.47089C6.94699 3.99479 8.91568 3.11502 11 3.00003M15.3 3.90003C16.7118 4.6056 17.8992 5.69028 18.7293 7.03258C19.5594 8.37488 19.9994 9.92179 20 11.5C20.0035 12.8199 19.6951 14.1219 19.1 15.3L21 21L18 20M7.5 11.5H7.51M11.5 11.5H11.51M15.5 11.5H15.51'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Message = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -980,7 +976,7 @@ export const Message = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_305_10954)'>
+    <g clipPath='url(#clip0_305_10954)'>
       <path
         d='M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z'
         fill={color}
@@ -1008,7 +1004,7 @@ export const Message = ({
 export const Moon = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1019,16 +1015,16 @@ export const Moon = ({
     <path
       d='M20 12C20 7.11149 16.0007 3.13144 11 3C16.6829 8.75775 10.952 18.6176 3 17C4.65938 19.4319 7.77111 21 11 21C14.2137 21 16.9395 19.4122 18.5234 17'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Pin = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1039,16 +1035,16 @@ export const Pin = ({
     <path
       d='M4 20L11 13L15 17L17.2222 13M8.99997 11L6.99998 9L16 4L20 8L18.8889 10'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Plus = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1056,7 +1052,7 @@ export const Plus = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_277_7783)'>
+    <g clipPath='url(#clip0_277_7783)'>
       <path
         d='M19 11H13V5C13 4.73478 12.8946 4.48043 12.7071 4.29289C12.5196 4.10536 12.2652 4 12 4C11.7348 4 11.4804 4.10536 11.2929 4.29289C11.1054 4.48043 11 4.73478 11 5V11H5C4.73478 11 4.48043 11.1054 4.29289 11.2929C4.10536 11.4804 4 11.7348 4 12C4 12.2652 4.10536 12.5196 4.29289 12.7071C4.48043 12.8946 4.73478 13 5 13H11V19C11 19.2652 11.1054 19.5196 11.2929 19.7071C11.4804 19.8946 11.7348 20 12 20C12.2652 20 12.5196 19.8946 12.7071 19.7071C12.8946 19.5196 13 19.2652 13 19V13H19C19.2652 13 19.5196 12.8946 19.7071 12.7071C19.8946 12.5196 20 12.2652 20 12C20 11.7348 19.8946 11.4804 19.7071 11.2929C19.5196 11.1054 19.2652 11 19 11Z'
         fill={color}
@@ -1072,7 +1068,7 @@ export const Plus = ({
 export const QuestionCircle = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1083,15 +1079,15 @@ export const QuestionCircle = ({
     <path
       d='M12 16.99V17M12 14C12 12 15 12 15 9.90909C15 9.09272 14.6601 8.35488 14.1048 7.82655M12 7C10.5797 7 9.33836 7.92711 9 9.18182M12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12C21 15.1204 19.412 17.8699 17 19.4845'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
   </svg>
 );
 export const Question = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1099,7 +1095,7 @@ export const Question = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_281_10182)'>
+    <g clipPath='url(#clip0_281_10182)'>
       <path
         d='M17 9C17 7.67392 16.4732 6.40215 15.5355 5.46447C14.5979 4.52678 13.3261 4 12 4C10.6739 4 9.40215 4.52678 8.46447 5.46447C7.52678 6.40215 7 7.67392 7 9C7 9.26522 7.10536 9.51957 7.29289 9.70711C7.48043 9.89464 7.73478 10 8 10C8.26522 10 8.51957 9.89464 8.70711 9.70711C8.89464 9.51957 9 9.26522 9 9C9 8.40666 9.17595 7.82664 9.50559 7.33329C9.83524 6.83994 10.3038 6.45542 10.8519 6.22836C11.4001 6.0013 12.0033 5.94189 12.5853 6.05764C13.1672 6.1734 13.7018 6.45912 14.1213 6.87868C14.5409 7.29824 14.8266 7.83279 14.9424 8.41473C15.0581 8.99667 14.9987 9.59987 14.7716 10.1481C14.5446 10.6962 14.1601 11.1648 13.6667 11.4944C13.1734 11.8241 12.5933 12 12 12C11.7348 12 11.4804 12.1054 11.2929 12.2929C11.1054 12.4804 11 12.7348 11 13V15C11 15.2652 11.1054 15.5196 11.2929 15.7071C11.4804 15.8946 11.7348 16 12 16C12.2652 16 12.5196 15.8946 12.7071 15.7071C12.8946 15.5196 13 15.2652 13 15V13.9C14.1294 13.6695 15.1444 13.0558 15.8733 12.1629C16.6022 11.27 17.0002 10.1527 17 9Z'
         fill={color}
@@ -1119,7 +1115,7 @@ export const Question = ({
 export const ResizeSmall = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1130,16 +1126,16 @@ export const ResizeSmall = ({
     <path
       d='M15 10L12 7M9 10L10.5 8.5M9 14L12 17L15 14'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Search = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1156,7 +1152,7 @@ export const Search = ({
 export const Settings = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1167,15 +1163,15 @@ export const Settings = ({
     <path
       d='M4.92889 17.6568C4.53837 17.2663 4.53837 16.6331 4.92889 16.2426L5.33123 15.8403C5.63384 15.5377 5.69638 15.0775 5.53228 14.6822C5.36825 14.2871 4.99659 14 4.56879 14H4C3.44772 14 3 13.5523 3 13V11C3 10.4477 3.44772 10 4 10L4.56877 10C4.99658 10 5.36825 9.71288 5.53229 9.31776C5.6964 8.9225 5.63386 8.46229 5.33123 8.15966L4.92891 7.75734C4.53838 7.36681 4.53838 6.73365 4.92891 6.34313L6.34312 4.92891C6.73365 4.53839 7.36681 4.53839 7.75734 4.92891L8.15966 5.33123C8.46228 5.63386 8.9225 5.6964 9.31776 5.53229C9.71288 5.36825 10 4.99658 10 4.56876V4C10 3.44772 10.4477 3 11 3M8.1596 18.6688C8.46223 18.3661 8.92247 18.3036 9.31774 18.4677C9.71287 18.6317 10 19.0034 10 19.4313V20C10 20.5523 10.4477 21 11 21H13C13.5523 21 14 20.5523 14 20V19.4312C14 19.0034 14.2871 18.6317 14.6822 18.4677C15.0775 18.3036 15.5377 18.3661 15.8403 18.6688L16.2426 19.071C16.6331 19.4616 17.2663 19.4616 17.6568 19.071M19.071 16.2426L18.6688 15.8403C18.3661 15.5377 18.3036 15.0775 18.4677 14.6822C18.6318 14.2871 19.0034 14 19.4312 14H20C20.5523 14 21 13.5523 21 13V11C21 10.4477 20.5523 10 20 10L19.4313 10C19.0034 10 18.6317 9.71287 18.4677 9.31774C18.3036 8.92247 18.3661 8.46223 18.6688 8.1596L19.071 7.75734C19.4616 7.36681 19.4616 6.73365 19.071 6.34312L17.6568 4.92891C17.2663 4.53838 16.6331 4.53838 16.2426 4.92891L15.8403 5.33123C15.5377 5.63384 15.0775 5.69638 14.6822 5.53228C14.2871 5.36825 14 4.99659 14 4.56879M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
   </svg>
 );
 export const Star = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1183,7 +1179,7 @@ export const Star = ({
     viewBox='0 0 24 24'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_274_11568)'>
+    <g clipPath='url(#clip0_274_11568)'>
       <path
         d='M17.56 21.0002C17.4001 21.0008 17.2423 20.9631 17.1 20.8902L12 18.2202L6.90001 20.8902C6.7344 20.9773 6.54768 21.0162 6.36108 21.0024C6.17448 20.9887 5.99548 20.9228 5.84444 20.8124C5.69339 20.702 5.57635 20.5514 5.50662 20.3778C5.4369 20.2041 5.41728 20.0144 5.45001 19.8302L6.45001 14.2002L2.33001 10.2002C2.20146 10.0719 2.11028 9.91107 2.06623 9.7349C2.02219 9.55872 2.02695 9.37388 2.08001 9.2002C2.13797 9.02248 2.24458 8.86456 2.38776 8.74436C2.53093 8.62417 2.70493 8.54651 2.89001 8.5202L8.59001 7.6902L11.1 2.5602C11.1819 2.39113 11.3097 2.24855 11.4689 2.14878C11.6281 2.04901 11.8122 1.99609 12 1.99609C12.1879 1.99609 12.3719 2.04901 12.5311 2.14878C12.6903 2.24855 12.8181 2.39113 12.9 2.5602L15.44 7.6802L21.14 8.5102C21.3251 8.53651 21.4991 8.61417 21.6423 8.73436C21.7854 8.85456 21.892 9.01248 21.95 9.1902C22.0031 9.36388 22.0078 9.54872 21.9638 9.7249C21.9197 9.90107 21.8286 10.0619 21.7 10.1902L17.58 14.1902L18.58 19.8202C18.6157 20.0077 18.597 20.2015 18.5261 20.3787C18.4553 20.5559 18.3352 20.7091 18.18 20.8202C17.9989 20.9471 17.7809 21.0104 17.56 21.0002ZM12 16.1002C12.1603 16.0962 12.3189 16.1341 12.46 16.2102L16.23 18.2102L15.51 14.0002C15.4821 13.8395 15.4939 13.6743 15.5444 13.5192C15.595 13.364 15.6827 13.2236 15.8 13.1102L18.8 10.1802L14.6 9.5602C14.446 9.5292 14.3014 9.46233 14.1781 9.36504C14.0547 9.26775 13.956 9.14276 13.89 9.0002L12 5.2502L10.11 9.0002C10.0377 9.14391 9.9317 9.26803 9.80113 9.36204C9.67056 9.45605 9.51924 9.51717 9.36001 9.5402L5.16001 10.1602L8.16001 13.0902C8.27728 13.2036 8.36502 13.344 8.41557 13.4992C8.46612 13.6543 8.47794 13.8195 8.45001 13.9802L7.73001 18.1402L11.5 16.1402C11.6598 16.0808 11.8329 16.067 12 16.1002Z'
         fill={color}
@@ -1199,7 +1195,7 @@ export const Star = ({
 export const Sun = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1210,16 +1206,16 @@ export const Sun = ({
     <path
       d='M3 12H5M19 12H21M12 3V5M12 19V21M5.00002 5.00002L7.00002 7.00002M17 17L19 19M5.00006 19L7.00006 17M16.9999 6.99998L18.9999 4.99998M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Trophy = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1230,13 +1226,13 @@ export const Trophy = ({
     <path
       d='M8 21H16M12 21V17C9.23858 17 7 14.7614 7 12V4H17V12C17 13.6356 16.2147 15.0878 15.0005 16M17 6H18.5C19.8807 6 21 7.11929 21 8.5C21 9.88071 19.8807 11 18.5 11H17M7 6L5.5 6C4.11929 6 3 7.11929 3 8.5C3 9.70948 3.85888 10.7184 5 10.95'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
-export const Ukraine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
+export const Ukraine = ({ size = DEFAULT_IMG_PROPS.size }) => (
   <svg
     width={size}
     height={size}
@@ -1244,7 +1240,7 @@ export const Ukraine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_1021_2521)'>
+    <g clipPath='url(#clip0_1021_2521)'>
       <path
         d='M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24Z'
         fill='#FFDA44'
@@ -1261,7 +1257,7 @@ export const Ukraine = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
     </defs>
   </svg>
 );
-export const UK = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
+export const UK = ({ size = DEFAULT_IMG_PROPS.size }) => (
   <svg
     width={size}
     height={size}
@@ -1269,7 +1265,7 @@ export const UK = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_1021_2500)'>
+    <g clipPath='url(#clip0_1021_2500)'>
       <path
         d='M12.0001 24C18.6275 24 24.0001 18.6274 24.0001 12C24.0001 5.37258 18.6275 0 12.0001 0C5.3727 0 0.00012207 5.37258 0.00012207 12C0.00012207 18.6274 5.3727 24 12.0001 24Z'
         fill='#F0F0F0'
@@ -1337,7 +1333,7 @@ export const UK = ({ size = DEFAULT_IMG_PROPS.size }: IconProps) => (
 export const User = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1348,16 +1344,16 @@ export const User = ({
     <path
       d='M8 15C5.79086 15 4 16.7909 4 19V21M20 21V19C20 16.7909 18.2091 15 16 15H12M12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11C14.2091 11 16 9.20914 16 7C16 6.27143 15.8052 5.58835 15.4649 5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Users = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1368,16 +1364,16 @@ export const Users = ({
     <path
       d='M23 21V19C23 16.7909 21.2091 15 19 15H18.5M15 11C17.2091 11 19 9.20914 19 7C19 4.79086 17.2091 3 15 3M5 15C2.79086 15 1 16.7909 1 19V21M17 21V19C17 16.7909 15.2091 15 13 15H9M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 7.72857 5.19479 8.41165 5.53513 9'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const WarningCircle = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1388,15 +1384,15 @@ export const WarningCircle = ({
     <path
       d='M12 7V14M12 16.99V17M20.9451 13C20.9814 12.6717 21 12.338 21 12C21 7.02944 16.9706 3 12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C14.6655 21 17.0604 19.8412 18.7083 18'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
   </svg>
 );
 export const WarningRound = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1407,16 +1403,16 @@ export const WarningRound = ({
     <path
       d='M12 7V14M12 16.99V17M20 8C20 5.79086 18.2091 4 16 4H8C5.79086 4 4 5.79086 4 8V16C4 18.2091 5.79086 20 8 20H16C18.2091 20 20 18.2091 20 16V12'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Lock = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1424,7 +1420,7 @@ export const Lock = ({
     viewBox='0 0 24 25'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <g clip-path='url(#clip0_1402_1108)'>
+    <g clipPath='url(#clip0_1402_1108)'>
       <path
         d='M19 10.6836H20C20.2652 10.6836 20.5196 10.789 20.7071 10.9765C20.8946 11.164 21 11.4184 21 11.6836V21.6836C21 21.9488 20.8946 22.2032 20.7071 22.3907C20.5196 22.5782 20.2652 22.6836 20 22.6836H4C3.73478 22.6836 3.48043 22.5782 3.29289 22.3907C3.10536 22.2032 3 21.9488 3 21.6836V11.6836C3 11.4184 3.10536 11.164 3.29289 10.9765C3.48043 10.789 3.73478 10.6836 4 10.6836H5V9.68359C5 8.76434 5.18106 7.85409 5.53284 7.00481C5.88463 6.15553 6.40024 5.38386 7.05025 4.73385C7.70026 4.08384 8.47194 3.56822 9.32122 3.21644C10.1705 2.86465 11.0807 2.68359 12 2.68359C12.9193 2.68359 13.8295 2.86465 14.6788 3.21644C15.5281 3.56822 16.2997 4.08384 16.9497 4.73385C17.5998 5.38386 18.1154 6.15553 18.4672 7.00481C18.8189 7.85409 19 8.76434 19 9.68359V10.6836ZM5 12.6836V20.6836H19V12.6836H5ZM11 14.6836H13V18.6836H11V14.6836ZM17 10.6836V9.68359C17 8.35751 16.4732 7.08574 15.5355 6.14806C14.5979 5.21038 13.3261 4.68359 12 4.68359C10.6739 4.68359 9.40215 5.21038 8.46447 6.14806C7.52678 7.08574 7 8.35751 7 9.68359V10.6836H17Z'
         fill={color}
@@ -1447,7 +1443,7 @@ export const Lock = ({
 export const Asteriks = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1464,7 +1460,7 @@ export const Asteriks = ({
 export const ChevronDown = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1475,16 +1471,16 @@ export const ChevronDown = ({
     <path
       d='M4 9L9 14M12 17L20 9'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ChevronDownSmall = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1495,16 +1491,16 @@ export const ChevronDownSmall = ({
     <path
       d='M7 10L9.5 12.5M12 15L17 10'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ChevronLeft = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1515,16 +1511,16 @@ export const ChevronLeft = ({
     <path
       d='M16 3L8 11M16 19L11 14'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ChevronRight = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1535,16 +1531,16 @@ export const ChevronRight = ({
     <path
       d='M8 19L16 11M8 3L13 8'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ChevronUp = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1555,16 +1551,16 @@ export const ChevronUp = ({
     <path
       d='M20 15L12 7M4 15L9 10'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ChevronUpSmall = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1575,16 +1571,16 @@ export const ChevronUpSmall = ({
     <path
       d='M17 14L12 9M7 14L9.5 11.5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Files = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1595,15 +1591,15 @@ export const Files = ({
     <path
       d='M13.3297 2.5V5C13.3297 7.35702 13.3297 8.53553 14.0619 9.26777C14.7942 10 15.9727 10 18.3297 10H22.3297'
       stroke={color}
-      stroke-width='1.5'
+      strokeWidth='1.5'
     />
     <ellipse cx='17.3297' cy='14.5' rx='1' ry='1.5' fill={color} />
     <path
       d='M9.32971 17.5C11.1464 18.7111 13.5131 18.7111 15.3297 17.5'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
     <ellipse cx='7.32971' cy='14.5' rx='1' ry='1.5' fill={color} />
     <path
@@ -1615,7 +1611,7 @@ export const Files = ({
 export const FullScreen = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1626,16 +1622,16 @@ export const FullScreen = ({
     <path
       d='M20 10V4.00004L14 4.00004M4 14L4 20H10M10 4L4.00004 4L4.00004 10M14 20H20V14'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ImageWave = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1652,7 +1648,7 @@ export const ImageWave = ({
 export const Location = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1663,16 +1659,16 @@ export const Location = ({
     <path
       d='M12 21C7.58172 19 4 15.4183 4 11C4 6.58172 7.58172 3 12 3C16.4183 3 20 6.58172 20 11C20 13.9611 18.3912 16.5465 16 18.5318M9 11C9 12.6569 10.3431 14 12 14C13.6569 14 15 12.6569 15 11C15 9.34315 13.6569 8 12 8'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const PauseHorizontal = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1683,16 +1679,16 @@ export const PauseHorizontal = ({
     <path
       d='M18 9L6 9M18 15L12 15M6 15L8 15'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const PauseVertical = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1703,16 +1699,16 @@ export const PauseVertical = ({
     <path
       d='M9 6V18M15 6V12M15 18V16'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const PlusSmall = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1723,16 +1719,16 @@ export const PlusSmall = ({
     <path
       d='M12 7V17M7 12H9.5M17 12L12 12'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const QuestionRound = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1743,16 +1739,16 @@ export const QuestionRound = ({
     <path
       d='M12 16.99V17M12 14C12 12 15 12 15 9.90909C15 9.17855 14.7278 8.51091 14.2727 8M12 7C10.5797 7 9.33836 7.92711 9 9.18182M4 16C4 18.2091 5.79086 20 8 20H16C18.2091 20 20 18.2091 20 16V8C20 5.79086 18.2091 4 16 4H8C5.79086 4 4 5.79086 4 8V12'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const ShieldCheck = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1763,16 +1759,16 @@ export const ShieldCheck = ({
     <path
       d='M12 3L20 7C20 12.1932 17.2157 19.5098 12 21C6.78428 19.5098 4 12.1932 4 7L8 5M10 10L14 14M10 14L14 10'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const Trash = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1783,16 +1779,16 @@ export const Trash = ({
     <path
       d='M18 6V14M18 18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V13M6 6V9M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6M4 6H20M10 10V16M14 10V16'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
-      stroke-linejoin='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
+      strokeLinejoin='round'
     />
   </svg>
 );
 export const UserGroup = ({
   color = DEFAULT_IMG_PROPS.color,
   size = DEFAULT_IMG_PROPS.size,
-}: IconProps) => (
+}) => (
   <svg
     width={size}
     height={size}
@@ -1800,24 +1796,40 @@ export const UserGroup = ({
     fill='none'
     xmlns='http://www.w3.org/2000/svg'
   >
-    <circle cx='9' cy='6' r='4' stroke={color} stroke-width='1.5' />
+    <circle cx='9' cy='6' r='4' stroke={color} strokeWidth='1.5' />
     <path
       d='M15 9C16.6569 9 18 7.65685 18 6C18 4.34315 16.6569 3 15 3'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
     <path
       d='M5.88915 20.5843C6.82627 20.8504 7.88256 21 9 21C12.866 21 16 19.2091 16 17C16 14.7909 12.866 13 9 13C5.13401 13 2 14.7909 2 17C2 17.3453 2.07657 17.6804 2.22053 18'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
     <path
       d='M18 14C19.7542 14.3847 21 15.3589 21 16.5C21 17.5293 19.9863 18.4229 18.5 18.8704'
       stroke={color}
-      stroke-width='1.5'
-      stroke-linecap='round'
+      strokeWidth='1.5'
+      strokeLinecap='round'
     />
   </svg>
 );
+
+export const ICONS = {
+  Clock,
+  UserGroup,
+  Trash,
+  ShieldCheck,
+  QuestionRound,
+  PlusSmall,
+  PauseVertical,
+  Location,
+  ImageWave,
+  FullScreen,
+  DefaultCheckbox,
+  CheckRound,
+  Plus
+}

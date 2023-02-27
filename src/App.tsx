@@ -5,7 +5,7 @@ import { AppRoutes } from './routes';
 import './theme/styles/global.scss';
 import './theme/styles/variables.scss';
 
-export const App: React.FC = () => {
+export const App = () => {
   return (
     <>
       <Suspense fallback={<p>Loading..</p>}>
