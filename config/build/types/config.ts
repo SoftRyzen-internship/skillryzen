@@ -18,3 +18,5 @@ export interface BuildOptions {
     isDev: boolean;
     port: number;
 }
+
+export interface Icons { [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>> }
