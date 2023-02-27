@@ -2,6 +2,8 @@ import s from './HeaderButton.module.scss';
 
 interface HeaderButtonProps {
   icon: JSX.Element;
+  IndicatorNumber?: number;
+  IndicatorColor?: 'green' | 'yellow';
   className?: string;
   onClick?: () => void;
   onMouseEnter?: () => void;
@@ -11,6 +13,8 @@ interface HeaderButtonProps {
 
 export const HeaderButton = ({
   icon,
+  IndicatorNumber,
+  IndicatorColor,
   className,
   onClick,
   onMouseEnter,
@@ -26,6 +30,11 @@ export const HeaderButton = ({
       <button className={s.button} type='button' onClick={onClick}>
         {icon}
       </button>
+      {IndicatorNumber ? (
+        <div className={`${s[`indicator--${IndicatorColor}`]}`}>
+          {IndicatorNumber}
+        </div>
+      ) : null}
       {popupContent ? <div className={s.popup}>{popupContent}</div> : null}
     </div>
   );

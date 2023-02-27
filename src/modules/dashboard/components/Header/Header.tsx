@@ -1,7 +1,5 @@
 import React from 'react';
-import { HeaderButtonTheme } from '@modules/common/components/HeaderButtonTheme';
-import { HeaderButtonLanguage } from '@modules/common/components/HeaderButtonLanguage';
-import { HeaderButtonCoin } from '@modules/common/components/HeaderButtonCoin';
+import { HeaderButtonList } from '@modules/common/components/HeaderButtonList';
 import { HeaderUserAvatarCard } from '@modules/common/components/HeaderUserAvatarCard';
 import { Logo } from '@ui-kit/index';
 import s from './Header.module.scss';
@@ -15,9 +13,7 @@ export const Header: React.FC<HeaderProps> = ({ title }) => {
     <header className={s.header}>
       <h1>{title}</h1>
       <Logo content='SkillRyzen' />
-      <HeaderButtonTheme />
-      <HeaderButtonLanguage />
-      <HeaderButtonCoin />
+      <HeaderButtonList />
       <HeaderUserAvatarCard />
     </header>
   );

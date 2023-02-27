@@ -14,6 +14,8 @@ export const HeaderButtonCoin = () => {
   return (
     <HeaderButton
       icon={<Coin color='#F8F8F8' size='24px' />}
+      IndicatorNumber={45}
+      IndicatorColor='green'
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       popupContent={popup}
