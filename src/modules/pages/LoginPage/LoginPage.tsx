@@ -1,5 +1,7 @@
+import { FinalTestInfo } from '../../common/components/FinalTestInfo/FinalTestInfo';
+
 const LoginPage = () => {
-  return <div>Login</div>;
+  return <FinalTestInfo />;
 };
 
 export default LoginPage;
