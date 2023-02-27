@@ -1,4 +1,4 @@
-import React from 'react';
+import { HeaderInput } from '../../../common/components/HeaderInput';
 import { HeaderButtonList } from '../../../common/components/HeaderButtonList';
 import { HeaderUserAvatarCard } from '../../../common/components/HeaderUserAvatarCard';
 import { Logo } from '../../../../ui-kit/index';
@@ -8,8 +8,11 @@ export const Header = () => {
   return (
     <header className={s.header}>
       <Logo content='SkillRyzen' />
-      <HeaderButtonList />
-      <HeaderUserAvatarCard />
+      <div className={s.container}>
+        <HeaderInput />
+        <HeaderButtonList />
+        <HeaderUserAvatarCard />
+      </div>
     </header>
   );
 };
