@@ -15,13 +15,13 @@ export const SideBar = ({children, spaceBetween}: SideBarProps) => {
 
     return (
         <div className={isOpen ? s.sideBarIsOpen : s.slideBarIsClosed}>
-            <div className={s.sideBar__companyBlock}>
+            {/* <div className={s.sideBar__companyBlock}>
                 <img height='32' width='32'/>
                 {isOpen && <p className={s.sideBar__companyTitle}>Name of company</p>}
                 <button className={s.sideBar__companyBtn}>
                     <img height='24' width='24'/>
                 </button>
-            </div>
+            </div> */}
             <button className={s.sideBar__btn} onClick={() => setIsOpen(!isOpen)}>
                 <img src='' alt='close-button'/>
             </button>

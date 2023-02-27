@@ -11,7 +11,7 @@ interface IMenu {
   path: string
 }
 interface IMenuProps {
-  menu: IMenu[]
+  menu: IMenu[];
 }
 
 export const Menu = ({ menu }: IMenuProps) => {
