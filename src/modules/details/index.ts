@@ -1,2 +1,2 @@
 export { AuthSteps } from './components/AuthSteps/AuthSteps';
-export { AuthForm } from './components/AuthForm/AuthForm';
+export { AuthFormStep1 } from './components/AuthFormStep1/AuthFormStep1';

@@ -1,16 +1,3 @@
-.formWrapper{
-  display: flex;
-  flex-direction: column;
-  gap: 1.95vh;
-
-  font-size: var(--text-lg);
-}
-
-.formTitle{
-  font-size: var(--title);
-  font-weight: var(--extrabold);
-}
-
 .roleList{
   display: flex;
   justify-content: space-between;

@@ -1,37 +1,37 @@
+import s from './AuthFormStep1.module.scss';
 import { User, Users } from '@theme/icons.const';
 import { AuthButton, Input } from '@ui-kit/index';
-import { NavLink } from 'react-router-dom';
-import s from './AuthForm.module.scss';
 
-export const AuthForm = () => {
+export const AuthFormStep1 = () => {
   const handleClick = () => {};
 
   return (
-    <div className={s.formWrapper}>
-      <h2 className={s.formTitle}>Choose your role</h2>
-      <p>
-        Already have an account? <NavLink to='/login'>Log in</NavLink>
-      </p>
-      <p>Please choose your role</p>
-      <div className={s.roleList}>
-        <input
-          type='radio'
-          name='role'
-          id='candidate'
-          value='candidate'
-          checked
-        />
-        <label htmlFor='candidate' className={s.roleBtn}>
-          <User />
-          Candidate
-        </label>
-
-        <input type='radio' name='role' id='company' value='company' />
-        <label htmlFor='company' className={s.roleBtn}>
-          <Users />
-          Company
-        </label>
-      </div>
+    <form action=''>
+      <fieldset>
+        <legend>Please choose your role</legend>
+        <ul className={s.roleList}>
+          <li>
+            <input
+              type='radio'
+              name='role'
+              id='candidate'
+              value='candidate'
+              checked
+            />
+            <label htmlFor='candidate' className={s.roleBtn}>
+              <User />
+              Candidate
+            </label>
+          </li>
+          <li>
+            <input type='radio' name='role' id='company' value='company' />
+            <label htmlFor='company' className={s.roleBtn}>
+              <Users />
+              Company
+            </label>
+          </li>
+        </ul>
+      </fieldset>
       <Input
         className={s.codeInput}
         name='code'
@@ -54,12 +54,12 @@ export const AuthForm = () => {
               onClick={handleClick}
               size='large'
               text='Create account'
-              type='button'
+              type='submit'
               color='blue'
             />
           </li>
         </ul>
       </div>
-    </div>
+    </form>
   );
 };

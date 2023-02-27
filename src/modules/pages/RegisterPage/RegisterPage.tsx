@@ -1,4 +1,4 @@
-import { AuthIntro, AuthContainer } from '@modules/dashboard';
+import { AuthIntro, AuthContainer, AuthForm } from '@modules/dashboard';
 import { AuthSteps } from '@modules/details';
 
 const RegisterPage = () => {
