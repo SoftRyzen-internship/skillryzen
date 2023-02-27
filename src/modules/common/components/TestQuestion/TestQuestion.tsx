@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { AuthButton } from '../../../../ui-kit/Buttons/AuthBtn/AuthButton';
+
 import s from './TestQuestion.module.scss';
 
 interface ITestQuestionProps {
@@ -32,28 +34,39 @@ export const TestQuestion = ({
   };
 
   return (
-    <div>
-      <h2>{title}</h2>
-      <ul>
-        {possibleAnswers.map((answer) => (
-          <li key={answer.label}>
-            <label htmlFor={answer.label}>
-              <input
-                type='radio'
-                name={questionId}
-                id={answer.label}
-                value={answer.value}
-                checked={selectedAnswer === answer.value}
-                onChange={(e) => setSelectedAnswer(e.target.value)}
-              />
-              {answer.title}
-            </label>
-          </li>
-        ))}
-      </ul>
-      <button disabled={!selectedAnswer} onClick={handleAnswer}>
-        Answer
-      </button>
+    <div className={s.testWrapper}>
+      <h2 className={s.testTitle}>{title}</h2>
+      <div className={s.questionWrapper}>
+        <div className={s.questionCode}>Code</div>
+        <ul className={s.questionList}>
+          {possibleAnswers.map((answer) => (
+            <li className={s.questionItem} key={answer.label}>
+              {/* label, radiobutton треба повністю переробляти
+							тому всі стилі не додані, лише загальні для відображення */}
+              <label htmlFor={answer.label} className={s.questionLabel}>
+                <input
+                  type='radio'
+                  name={questionId}
+                  id={answer.label}
+                  value={answer.value}
+                  checked={selectedAnswer === answer.value}
+                  onChange={(e) => setSelectedAnswer(e.target.value)}
+                />
+                {answer.title}
+              </label>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {/* кнопку требе доопрацювати */}
+      <AuthButton
+        type='button'
+        text='Answer'
+        onClick={handleAnswer}
+        size='small'
+        color='blue'
+        // disabled={!selectedAnswer}
+      />
       {!hasNextQuestion && <p>The end(here must be next page)</p>}
     </div>
   );
