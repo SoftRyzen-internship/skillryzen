@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--secondary-cl);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.indicator--common {
+  font-family: var(--font-family);
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  font-weight: var(--regular);
+  position: absolute;
+  display: block;
+  top: 12px;
+  right: 0;
+  min-width: 20px;
+  height: 16px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  text-align: center;
+  border-radius: 7.5px;
+  color: var(--primary-txt-cl);
+}
+.indicator--green {
+  composes: indicator--common;
+  background-color: var(--success-cl);
+}
+.indicator--yellow {
+  composes: indicator--common;
+  background-color: var(--message-cl);
+}
+
+.popup {
+  position: absolute;
+  top: 64px;
+  z-index: 10;
+}
