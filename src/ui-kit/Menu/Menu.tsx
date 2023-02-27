@@ -15,8 +15,7 @@ interface IMenuProps {
 
 export const Menu = ({ menu, isOpen }: IMenuProps) => {
   return (
-    <nav className={s.menu__list}>
-      <ul>
+      <ul className={s.menu__list}>
       {menu.map((item) => {
         return (
           <li key={item.title} className={s.menu__item}>
@@ -38,6 +37,5 @@ export const Menu = ({ menu, isOpen }: IMenuProps) => {
         )
       })}
       </ul>
-    </nav>
   );
 };

@@ -1,8 +1,11 @@
 import { useState } from 'react';
 
+import { Menu } from '../Menu/Menu';
+
 import s from './SideBar.module.scss'
 
-import { Menu } from '@ui-kit/Menu/Menu'
+
+
 
 const menu = [
   {
