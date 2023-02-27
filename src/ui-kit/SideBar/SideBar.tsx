@@ -61,8 +61,8 @@ export const SideBar = () => {
         <div className={isOpen ? s.sideBarIsOpen : s.slideBarIsClosed}>
             <div className={s.sideBar__companyBlock}>
                 <img height='32' width='32'/>
-                <p>Name of company</p>
-                <button>
+                {isOpen && <p className={s.sideBar__companyTitle}>Name of company</p>}
+                <button className={s.sideBar__companyBtn}>
                     <img height='24' width='24'/>
                 </button>
             </div>
