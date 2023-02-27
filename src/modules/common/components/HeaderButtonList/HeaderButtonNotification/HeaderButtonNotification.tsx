@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Bell } from '../../../../../theme/icons.const';
+// import { Bell } from '../../../../../theme/icons.const';
 import { HeaderPopupNotification } from './HeaderPopupNotification';
 import { HeaderButton } from '../../../../../ui-kit/index';
 
@@ -13,7 +13,7 @@ export const HeaderButtonNotification = () => {
   };
   return (
     <HeaderButton
-      icon={<Bell color='#F8F8F8' size='24px' />}
+      // icon={<Bell color='#F8F8F8' size='24px' />}
       IndicatorNumber={2}
       IndicatorColor='yellow'
       onMouseEnter={mouseEnterHandler}

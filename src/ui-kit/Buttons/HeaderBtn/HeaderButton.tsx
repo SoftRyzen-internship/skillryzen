@@ -1,7 +1,7 @@
 import s from './HeaderButton.module.scss';
 
 interface HeaderButtonProps {
-  icon: JSX.Element;
+  // icon: JSX.Element;
   IndicatorNumber?: number;
   IndicatorColor?: 'green' | 'yellow';
   className?: string;
@@ -12,7 +12,7 @@ interface HeaderButtonProps {
 }
 
 export const HeaderButton = ({
-  icon,
+  // icon,
   IndicatorNumber,
   IndicatorColor,
   className,
@@ -28,7 +28,7 @@ export const HeaderButton = ({
       onMouseLeave={onMouseLeave}
     >
       <button className={s.button} type='button' onClick={onClick}>
-        {icon}
+        {/* {icon} */}
       </button>
       {IndicatorNumber ? (
         <div className={`${s[`indicator--${IndicatorColor}`]}`}>
