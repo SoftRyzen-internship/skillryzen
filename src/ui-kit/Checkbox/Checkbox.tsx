@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { COLORS } from '../../theme/colors.const';
 
 import s from './Checkbox.module.scss';
-import {CheckRound, DefaultCheckbox} from "../../theme";
+// import { CheckRound, DefaultCheckbox } from "../../theme";
+
+import { ICONS } from '../../theme';
+
 
 type CheckboxProps = {
   onChange?: undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
@@ -18,9 +21,9 @@ type CheckboxProps = {
 export const Checkbox: React.FC<CheckboxProps> = ({
   onChange,
   initialState = false,
-  checkboxColor = COLORS.checkboxIcon,
-  checkedColor = COLORS.checkedCheckboxIcon,
-  checkboxSize = '16px',
+  // checkboxColor = COLORS.checkboxIcon,
+  // checkedColor = COLORS.checkedCheckboxIcon,
+  // checkboxSize = '16px',
   type = '',
   labelClassName = '',
   label,
@@ -55,9 +58,11 @@ export const Checkbox: React.FC<CheckboxProps> = ({
       />
       <span className={s.checkbox}>
         {checked ? (
-          <CheckRound color={checkedColor} size={checkboxSize} />
+          <ICONS.CHECK_ROUND />
+          // <CheckRound color={checkedColor} size={checkboxSize} />
         ) : (
-          <DefaultCheckbox color={checkboxColor} size={checkboxSize} />
+          <ICONS.DEFAULT_CHECKBOX />
+          // <DefaultCheckbox color={checkboxColor} size={checkboxSize} />
         )}
       </span>
       {label}
