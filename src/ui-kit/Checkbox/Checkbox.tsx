@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { COLORS } from '../../theme/colors.const';
-import { CheckRound, DefaultCheckbox } from '@theme/icons.const';
 
 import s from './Checkbox.module.scss';
+import {CheckRound, DefaultCheckbox} from "../../theme";
 
 type CheckboxProps = {
   onChange?: undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
