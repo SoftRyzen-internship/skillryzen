@@ -67,7 +67,7 @@ export const SideBar = () => {
                 </button>
             </div>
             <button className={s.sideBar__btn} onClick={() => setIsOpen(!isOpen)}>
-                <img/>
+                <img src='' alt='close-button'/>
             </button>
             <Menu menu={menu} isOpen={isOpen}/>
         </div>

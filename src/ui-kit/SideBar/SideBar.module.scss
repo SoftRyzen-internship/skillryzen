@@ -3,12 +3,17 @@
     max-width: 260px;
     padding: 16px 24px 100px 60px;
     background-color: var(--secondary-cl);
+    transform: translateX(0);
+    transition: 0.5s;
 }
 
 .slideBarIsClosed {
     position: relative;
+    max-width: 100px;
     padding: 16px 22px 100px;
     background-color: var(--secondary-cl);
+    transform: translateX(0);
+    transition: 0.5s;
 }
 
 .sideBar__companyBlock {
