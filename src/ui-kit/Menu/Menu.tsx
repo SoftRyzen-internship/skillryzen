@@ -1,5 +1,7 @@
 import { NavLink } from 'react-router-dom';
 
+import { UseSideBarContext } from '../../hooks/hook';
+
 import s from './Menu.module.scss';
 
 interface IMenu {
@@ -13,7 +15,9 @@ interface IMenuProps {
   isOpen?: boolean
 }
 
-export const Menu = ({ menu, isOpen }: IMenuProps) => {
+export const Menu = ({ menu }: IMenuProps) => {
+  const isOpen = UseSideBarContext()
+
   return (
       <ul className={s.menu__list}>
       {menu.map((item) => {

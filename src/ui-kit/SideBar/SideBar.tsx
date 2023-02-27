@@ -1,65 +1,17 @@
 import { useState } from 'react';
 
-import { Menu } from '../Menu/Menu';
+import { SideBarContext } from '../../hooks/hook';
 
-import s from './SideBar.module.scss'
+import s from './SideBar.module.scss';
 
+interface SideBarProps {
+  children : React.ReactNode[];
+}
 
+export const SideBar = ({children}: SideBarProps) => {
 
+    const [isOpen, setIsOpen] = useState(true);
 
-const menu = [
-  {
-    title: 'Dashboard',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/',
-  },
-  {
-    title: 'Certification',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/router',
-  },
-  {
-    title: 'Petprojects',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/routea',
-  },
-  {
-    title: 'Leaderboard',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/routed',
-  },
-  {
-    title: 'Vacancies',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/routes',
-  },
-  {
-    title: 'Profile',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/routesa',
-  },
-  {
-    title: 'Settings',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/routesg',
-  },
-  {
-    title: 'Feedback',
-    icon: 'someicon.svg',
-    iconAlt: 'someicon',
-    path: '/routese',
-  },
-]
-
-export const SideBar = () => {
-    const [isOpen, setIsOpen] = useState(true)
     return (
         <div className={isOpen ? s.sideBarIsOpen : s.slideBarIsClosed}>
             <div className={s.sideBar__companyBlock}>
@@ -72,7 +24,11 @@ export const SideBar = () => {
             <button className={s.sideBar__btn} onClick={() => setIsOpen(!isOpen)}>
                 <img src='' alt='close-button'/>
             </button>
-            <Menu menu={menu} isOpen={isOpen}/>
+            <SideBarContext.Provider value={isOpen}>
+              <div className={s.sideBar__listWrapper}>
+                {children}
+              </div>
+            </SideBarContext.Provider>
         </div>
     )
 }
