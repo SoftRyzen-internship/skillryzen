@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Sun, Moon } from '@theme/icons.const';
-import { HeaderButton } from '@ui-kit/index';
+import { Sun, Moon } from '../../../../../theme/icons.const';
+import { HeaderButton } from '../../../../../ui-kit/index';
 
 export const HeaderButtonTheme = () => {
   const SunIcon = <Sun color='#FFD84F' size='24px' />;

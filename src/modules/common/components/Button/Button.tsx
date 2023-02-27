@@ -1,8 +1,8 @@
-import React, { ButtonHTMLAttributes } from 'react'
+import React, { ButtonHTMLAttributes } from 'react';
 // test button
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary'
-  disabled?: boolean
+  variant?: 'primary' | 'secondary';
+  disabled?: boolean;
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -21,7 +21,7 @@ const Button: React.FC<ButtonProps> = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

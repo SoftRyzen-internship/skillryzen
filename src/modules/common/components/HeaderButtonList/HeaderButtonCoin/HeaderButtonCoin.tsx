@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Coin } from '@theme/icons.const';
+import { Coin } from '../../../../../theme/icons.const';
 import { HeaderPopupCoin } from './HeaderPopupCoin';
-import { HeaderButton } from '@ui-kit/index';
+import { HeaderButton } from '../../../../../ui-kit/index';
 
 export const HeaderButtonCoin = () => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);

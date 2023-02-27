@@ -1,5 +1,15 @@
-const TestsPage = () => {
-  return <div>Tests</div>
-}
+import { Header } from '../../dashboard';
+import { MainLayout } from '../../dashboard/components/MainLayout';
+import { Sidebar } from '../../dashboard/components/Sidebar';
 
-export default TestsPage
+const TestsPage = () => {
+  return (
+    <>
+      <Header />
+      <Sidebar />
+      <MainLayout />
+    </>
+  );
+};
+
+export default TestsPage;

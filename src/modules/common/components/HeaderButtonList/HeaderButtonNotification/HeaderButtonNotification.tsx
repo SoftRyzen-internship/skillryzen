@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Bell } from '@theme/icons.const';
+import { Bell } from '../../../../../theme/icons.const';
 import { HeaderPopupNotification } from './HeaderPopupNotification';
-import { HeaderButton } from '@ui-kit/index';
+import { HeaderButton } from '../../../../../ui-kit/index';
 
 export const HeaderButtonNotification = () => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);

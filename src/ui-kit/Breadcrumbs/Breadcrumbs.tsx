@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Breadcrumbs.module.scss';
-import TestsPage from '@modules/pages/TestsPage/TestsPage';
+import TestsPage from "../../modules/pages/TestsPage/TestsPage";
+
 
 // Маршрути не дійсні, це заглушка для відображення
 const routes = [

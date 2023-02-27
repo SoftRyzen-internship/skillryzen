@@ -1,7 +1,7 @@
-import { HeaderButtonTheme } from '@modules/common/components/HeaderButtonList/HeaderButtonTheme';
-import { HeaderButtonLanguage } from '@modules/common/components/HeaderButtonList/HeaderButtonLanguage';
-import { HeaderButtonCoin } from '@modules/common/components/HeaderButtonList/HeaderButtonCoin';
-import { HeaderButtonNotification } from '@modules/common/components/HeaderButtonList/HeaderButtonNotification';
+import { HeaderButtonTheme } from './HeaderButtonTheme';
+import { HeaderButtonLanguage } from './HeaderButtonLanguage';
+import { HeaderButtonCoin } from './HeaderButtonCoin';
+import { HeaderButtonNotification } from './HeaderButtonNotification';
 
 import s from './HeaderButtonList.module.scss';
 
