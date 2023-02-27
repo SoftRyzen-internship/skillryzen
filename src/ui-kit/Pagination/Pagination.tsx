@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { ICONS } from '@theme/icons.const';
+import { ICONS } from '../../theme';
 import s from './Pagination.module.scss';
 
 interface IProps {
@@ -74,7 +74,8 @@ export const Pagination = ({ totalPages, onPageChange }: IProps) => {
         className={currentPage <= 1 ? s.arrowBtnDisabled : s.arrowBtn}
         disabled={currentPage <= 1}
       >
-        <img src={ICONS.ARROW_LEFT} alt='Preview Page' />
+        <ICONS.ARROW_LEFT />
+        {/* <img src={ICONS.ARROW_LEFT} alt='Preview Page' /> */}
       </button>
 
       {arrayOfVisiblePages.map((page, index) => (
@@ -93,7 +94,8 @@ export const Pagination = ({ totalPages, onPageChange }: IProps) => {
         className={currentPage === totalPages ? s.arrowBtnDisabled : s.arrowBtn}
         disabled={currentPage === totalPages}
       >
-        <img src={ICONS.ARROW_RIGHT} alt='Next Page' />
+        <ICONS.ARROW_RIGHT />
+        {/* <img src={ICONS.ARROW_RIGHT} alt='Next Page' /> */}
       </button>
     </div>
   );
