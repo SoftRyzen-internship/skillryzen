@@ -8,6 +8,7 @@ const listInfoJS = {
   questions: 50,
   learners: 200,
   author: 'GoIT',
+  icons: ['1', '2', '3', '4', '5'],
 };
 const LoginPage = () => {
   const [isClickBtn, setIsClickBtn] = useState(false);
@@ -16,8 +17,8 @@ const LoginPage = () => {
   };
   return (
     <FinalTestInfo
-      icon={IMGS.JAVA_SCRIPT}
-      iconProps={{ alt: 'Java Script', width: '146', height: '146' }}
+      image={IMGS.JAVA_SCRIPT}
+      imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
       title='FullStack - Final Test'
       subtitle='JavaScript is a programming language that is one of the core
         technologies of the World Wide Web, alongside HTML and CSS.'
@@ -27,14 +28,14 @@ const LoginPage = () => {
       test='JS'
     />
     // <FinalTestInfo
-    //   icon={IMGS.JAVA_SCRIPT}
-    //   iconProps={{ alt: 'Java Script', width: '146', height: '146' }}
+    //   image={IMGS.JAVA_SCRIPT}
+    //   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
     //   title='FullStack - Final Test'
     //   correctAnswers={15}
     //   totalQuestions={50}
     //   timeSpent={20}
-    //   theWorstTopic='The worst topic in JS - “Asynchrony” section.'
-    //   theBestTopic='The best topic in JS - "Lorem lorem lorem" section.'
+    //   theWorstTopic='“Asynchrony” section.'
+    //   theBestTopic='"Lorem lorem lorem" section.'
     //   onClickBtn={handleClickBtn}
     //   textBtn='Start test'
     //   test='JS'

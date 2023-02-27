@@ -1,4 +1,6 @@
 import React from 'react';
+import { AuthButton } from '../../../../ui-kit/Buttons/AuthBtn/AuthButton';
+import s from './FinalTestInfo.module.scss';
 
 interface IListInfoJS {
   topics: string;
@@ -6,6 +8,7 @@ interface IListInfoJS {
   questions: number;
   learners: number;
   author: string;
+  icons: string[];
 }
 
 interface IIconProps {
@@ -15,8 +18,8 @@ interface IIconProps {
 }
 
 interface IProps {
-  icon: string;
-  iconProps: IIconProps;
+  image: string;
+  imageProps: IIconProps;
   title: string;
   subtitle?: string;
   listInfo?: IListInfoJS;
@@ -32,8 +35,8 @@ interface IProps {
 }
 
 export const FinalTestInfo = ({
-  icon,
-  iconProps,
+  image,
+  imageProps,
   title,
   subtitle,
   listInfo,
@@ -47,33 +50,62 @@ export const FinalTestInfo = ({
   finishTest,
   test,
 }: IProps) => {
-  const { alt, width, height } = iconProps;
+  const { alt, width, height } = imageProps;
   return (
-    <>
-      <img src={icon} alt={alt} width={width} height={height} />
-      <h2>{title}</h2>
-      {subtitle && <p>{subtitle}</p>}
+    <div className={s.container}>
+      <div className={s.imageThumb}>
+        {' '}
+        <img
+          className={s.image}
+          src={image}
+          alt={alt}
+          width={width}
+          height={height}
+        />
+      </div>
+      <h2 className={s.title}>{title}</h2>
+      {subtitle && <p className={s.subtitle}>{subtitle}</p>}
       {listInfo ? (
-        <ul>
-          <li>
-            <p>Теми</p>
-            <p>{`${listInfo.topics}`}</p>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <div className={s.iconWrapper}>
+              {' '}
+              <img className={s.icon} src='/' alt='' />
+              <p className={s.text}>Теми</p>
+            </div>
+            <p className={s.textRight}>{`${listInfo.topics}`}</p>
           </li>
-          <li>
-            <p>Час проходження</p>
-            <p>{`${listInfo.time}`}</p>
+          <li className={s.item}>
+            <div className={s.iconWrapper}>
+              {' '}
+              <img className={s.icon} src='/' alt='' />
+              <p className={s.text}>Час проходження</p>
+            </div>
+            <p className={s.textRight}>{`${listInfo.time}`}</p>
           </li>
-          <li>
-            <p>Питання</p>
-            <p>{`${listInfo.questions}`}</p>
+          <li className={s.item}>
+            <div className={s.iconWrapper}>
+              {' '}
+              <img className={s.icon} src='/' alt='' />
+              <p className={s.text}>Питання</p>
+            </div>
+            <p className={s.textRight}>{`${listInfo.questions}`}</p>
           </li>
-          <li>
-            <p>Learners</p>
-            <p>{`${listInfo.learners}`}</p>
+          <li className={s.item}>
+            <div className={s.iconWrapper}>
+              {' '}
+              <img className={s.icon} src='/' alt='' />
+              <p className={s.text}>Learners</p>
+            </div>
+            <p className={s.textRight}>{`${listInfo.learners}`}</p>
           </li>
-          <li>
-            <p>Author</p>
-            <p>{`${listInfo.author}`}</p>
+          <li className={s.item}>
+            <div className={s.iconWrapper}>
+              {' '}
+              <img className={s.icon} src='/' alt='' />
+              <p className={s.text}>Author</p>
+            </div>
+            <p className={s.textRight}>{`${listInfo.author}`}</p>
           </li>
         </ul>
       ) : (
@@ -82,34 +114,47 @@ export const FinalTestInfo = ({
 
       {finishTest && (
         <>
-          <ul>
-            <li>
-              <p>Correct answers</p>
-              <p>
-                {`${correctAnswers}`}/{`${totalQuestions}`}
+          <ul className={s.list}>
+            <li className={s.item}>
+              <div className={s.iconWrapper}>
+                {' '}
+                <img className={s.icon} src='/' alt='' />
+                <p className={s.text}>Correct answers</p>
+              </div>
+              <p className={s.textRight}>
+                {`${correctAnswers}`}
+                <span className={s.textGrey}>/{`${totalQuestions}`}</span>
               </p>
             </li>
-            <li>
-              <p>Time spent</p>
-              <p>{`${timeSpent}`} min</p>
+            <li className={s.item}>
+              <div className={s.iconWrapper}>
+                <img className={s.icon} src='/' alt='' />
+                <p className={s.text}>Time spent</p>
+              </div>
+
+              <p className={s.textRight}>{`${timeSpent}`} min</p>
             </li>
           </ul>
-          <div>
-            <p>Recomendations:</p>
-            <p>
+          <div className={s.recomendationsWrapper}>
+            <p className={s.recText}>Recomendations:</p>
+            <p className={s.recTextSmall}>
               The worst topic in {`${test}`} - {`${theWorstTopic}`}
             </p>
-            <p>
+            <p className={s.recTextSmall}>
               The best topic in {`${test}`} - {`${theBestTopic}`}
             </p>
           </div>
         </>
       )}
 
-      <button type='button' onClick={onClickBtn}>
-        {textBtn}
-      </button>
-    </>
+      <AuthButton
+        type='button'
+        text={textBtn}
+        onClick={onClickBtn}
+        size='large'
+        color='blue'
+      />
+    </div>
   );
 };
 
@@ -129,30 +174,29 @@ export const FinalTestInfo = ({
 // };
 
 // PROPS For Start Test
-// <FinalTestInfo
-//   icon={IMGS.JAVA_SCRIPT}
-//   iconProps={{ alt: 'Java Script', width: '146', height: '146' }}
+//   image={IMGS.JAVA_SCRIPT}
+//   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
 //   title='FullStack - Final Test'
 //   subtitle='JavaScript is a programming language that is one of the core
 //     technologies of the World Wide Web, alongside HTML and CSS.'
 //   listInfo={listInfoJS}
 //   onClickBtn={handleClickBtn}
 //   textBtn='Start test'
-//   test = 'JS';
-// />;
+//   test='JS'
+// />
 
 // PROPS For End Test
 // <FinalTestInfo
-//   icon={IMGS.JAVA_SCRIPT}
-//   iconProps={{ alt: 'Java Script', width: '146', height: '146' }}
+//   image={IMGS.JAVA_SCRIPT}
+//   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
 //   title='FullStack - Final Test'
 //   correctAnswers={15}
 //   totalQuestions={50}
 //   timeSpent={20}
-//   theWorstTopic='The worst topic in JS - “Asynchrony” section.'
-//   theBestTopic='The best topic in JS - "Lorem lorem lorem" section.'
+//   theWorstTopic='“Asynchrony” section.'
+//   theBestTopic='"Lorem lorem lorem" section.'
 //   onClickBtn={handleClickBtn}
 //   textBtn='Start test'
 //   test='JS'
 //   finishTest
-// />;
+// />
