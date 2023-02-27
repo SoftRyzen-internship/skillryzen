@@ -1,5 +1,5 @@
 import React from 'react';
 
 export const HeaderPopupNotification = () => {
-  return <div>HeaderPopupNotification</div>;
+  return <div>Popup Notification</div>;
 };
