@@ -1,49 +1,49 @@
-import React from 'react'
-import { ICONS } from '../../theme/icons.const'
-import s from './Steps.module.scss'
+import React from 'react';
+import { CheckMark } from '@theme/icons.const';
+import s from './Steps.module.scss';
 
 interface ICurrentStep {
-  currentStep: number
+  currentStep: number;
 }
 
 export const Steps = ({ currentStep }: ICurrentStep) => {
-  const steps = [1, 2, 3, 4]
+  const steps = [1, 2, 3, 4];
 
   // Classname контейнера для кружечків (синя обводка активного степу)
   const setClassnameCircleContainer = (idx: number) => {
     if (currentStep === idx + 1) {
-      return s.circleContainerActive
+      return s.circleContainerActive;
     }
 
-    return s.circleContainer
-  }
+    return s.circleContainer;
+  };
 
   // Classname для кружечків
   const setClassnameCircle = (idx: number) => {
     if (currentStep === idx + 1) {
-      return s.activeCircle
+      return s.activeCircle;
     }
     if (currentStep > idx + 1) {
-      return s.prevCircle
+      return s.prevCircle;
     }
 
-    return s.inactiveCircle
-  }
+    return s.inactiveCircle;
+  };
 
   // Classname для ліній
   const setClassnameLine = (idx: number) => {
-    console.log(idx)
+    console.log(idx);
     // позаду активного степу
     if (idx < currentStep - 1) {
-      return s.blueLine
+      return s.blueLine;
     }
 
     // після активного степу
     if (idx === currentStep - 1) {
-      return s.halfBlueLine
+      return s.halfBlueLine;
     }
-    return s.inactiveLine
-  }
+    return s.inactiveLine;
+  };
 
   return (
     <div>
@@ -57,7 +57,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
                   {currentStep > idx + 1 && (
-                    <img className={s.checkIcon} src={ICONS.CHECK_MARK} />
+                    <CheckMark classNames={s.checkIcon} />
                   )}
                 </div>
               </div>
@@ -72,5 +72,5 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
         ))}
       </ul>
     </div>
-  )
-}
+  );
+};

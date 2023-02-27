@@ -1,0 +1,66 @@
+.formWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 1.95vh;
+
+  font-size: var(--text-lg);
+}
+
+.formTitle{
+  font-size: var(--title);
+  font-weight: var(--extrabold);
+}
+
+.roleList{
+  display: flex;
+  justify-content: space-between;
+  gap: 2.34vh;
+
+  color: var(--secondary-txt-cl);
+
+  input:checked + .roleBtn{
+    color: var(--accent-cl);
+    border-color: var(--accent-cl);
+  }
+}
+
+.roleBtn{
+  padding: 20px;
+  min-width: 200px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
+  font-weight: var(--bold);
+  text-align: left;
+
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.codeInput{
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+
+  background-color: transparent;
+}
+
+.codeInput::placeholder{
+  color: var(--secondary-txt-cl)
+}
+
+.buttonsWrapper{
+  font-size: var(--text-md);
+}
+
+.buttonsList{
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3.13vh;
+}

@@ -1,5 +1,13 @@
-const RegisterPage = () => {
-  return <div>Register</div>
-}
+import { AuthIntro, AuthContainer } from '@modules/dashboard';
+import { AuthSteps } from '@modules/details';
 
-export default RegisterPage
+const RegisterPage = () => {
+  return (
+    <AuthContainer>
+      <AuthIntro />
+      <AuthSteps />
+    </AuthContainer>
+  );
+};
+
+export default RegisterPage;

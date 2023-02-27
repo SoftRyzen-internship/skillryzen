@@ -33,6 +33,7 @@
   font-weight: var(--bold);
   color: var(--secondary-txt-cl);
   background-color: var(--secondary-cl);
+  border: 1px solid var(--disabled-cl);
 }
 
 .prevCircle {
@@ -43,6 +44,7 @@
 .activeCircle {
   composes: prevCircle;
   color: var(--primary-txt-cl);
+  border: none;;
 }
 
 // LINE

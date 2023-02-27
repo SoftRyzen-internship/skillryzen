@@ -1,0 +1,50 @@
+.section{
+  width: 49.2vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--accent-cl);
+}
+
+.authIntroWrapper{
+  padding-top: 268px;
+  width: 408px;
+}
+
+.authIntroBg{
+  background-image: url('@assets/images/registration-monitor-user.png');
+  background-repeat: no-repeat;
+}
+
+.introMetaList{
+  margin: auto;
+  padding: 40px 20px;
+  max-width: 318px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  border-radius: 15px;
+
+  color: var(--primary-cl);
+  background-color: var(--primary-txt-cl);
+}
+
+.introMetaItem{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  &::before{
+    content: '';
+    width: 24px;
+    height: 24px;
+
+    background-image: url('@assets/images/svg/check-small.svg');
+    background-repeat: no-repeat;
+  }
+}
