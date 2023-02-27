@@ -1,0 +1,58 @@
+.sideBarIsOpen {
+    position: relative;
+    max-width: 260px;
+    padding: 16px 24px 100px 60px;
+    background-color: var(--secondary-cl);
+    transform: translateX(0);
+    transition: 0.5s;
+}
+
+.slideBarIsClosed {
+    position: relative;
+    max-width: 100px;
+    padding: 16px 22px 100px;
+    background-color: var(--secondary-cl);
+    transform: translateX(0);
+    transition: 0.5s;
+}
+
+.sideBar__companyBlock {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 16px 0 32px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 100%;
+        background-color: var(--disabled-cl);
+        bottom: 0;
+        display: block;
+        margin-bottom: 16px;
+    }
+
+    .sideBar__companyTitle {
+        margin-left: 8px;
+    }
+
+    .sideBar__companyBtn {
+        margin-left: 4px;
+    }
+}
+
+.sideBar__btn {
+    position: absolute;
+    right: -12px;
+    top: 16px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--components-cl);
+}
+
+.sideBar__listWrapper {
+    display: flex;
+    flex-direction: column;
+}
