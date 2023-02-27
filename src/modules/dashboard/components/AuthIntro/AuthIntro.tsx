@@ -5,7 +5,7 @@ const introMeta = [
   'Отримати сертифікат',
   'Оновлене проходження раз у 10 днів',
   'Отримати сертифікат',
-  'Отримати сертифікат',
+  'Отримати',
 ];
 
 export const AuthIntro = () => {
@@ -13,8 +13,8 @@ export const AuthIntro = () => {
     <section className={s.section}>
       <div className={`${s.authIntroWrapper} ${s.authIntroBg}`}>
         <ul className={s.introMetaList}>
-          {introMeta.map((item) => (
-            <li key={item} className={s.introMetaItem}>
+          {introMeta.map((item, idx) => (
+            <li key={idx} className={s.introMetaItem}>
               {item}
             </li>
           ))}
