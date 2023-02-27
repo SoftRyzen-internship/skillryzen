@@ -14,6 +14,19 @@
   width: 100%;
 }
 
+.grey {
+  background-color: var(--disabled-cl);
+  color: var(--secondary-txt-cl);
+}
+
+.blue {
+  background-color: var(--accent-cl);
+}
+
+.white {
+  background-color: var(--primary-txt-cl);
+}
+
 .authBtn:disabled {
   background-color: var(--disabled-cl);
   color: var(--secondary-txt-cl);
