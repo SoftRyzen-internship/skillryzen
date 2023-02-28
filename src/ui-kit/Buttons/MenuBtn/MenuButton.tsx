@@ -16,17 +16,17 @@ export const MenuButton = ({
   icon,
   className,
 }: ButtonProps) => {
+  const obectIcons = {
+    grid4: <ICONS.GRID_GORIZONTAL className={s.iconGrid4} />,
+    grid2: <ICONS.GRID className={s.iconGrid} />,
+  };
   return (
     <button
       type={type}
       onClick={onClick}
       className={`${s.menuBtn} ${s[color]} ${className}`}
     >
-      {icon === 'grid4' ? (
-        <ICONS.GRID className={s.iconGrid} />
-      ) : (
-        <ICONS.GRID_GORIZONTAL className={s.iconGrid4} />
-      )}
+      {obectIcons[icon]}
     </button>
   );
 };
