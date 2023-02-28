@@ -59,6 +59,11 @@
   }
 }
 
+.card__icon path{
+  stroke: var(--primary-txt-cl);
+}
+
+
 .card__contentWrapper {
   display: flex;
 
@@ -148,3 +153,9 @@
   justify-content: center;
   background-color: transparent;
 }
+
+.card__closeIcon path{
+    stroke: var(--secondary-txt-cl);
+}
+
+

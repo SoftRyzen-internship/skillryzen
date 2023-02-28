@@ -3,8 +3,6 @@
 {
   title: string - назва вашої менюшки;
   icon: string - посилання на іконку;
-  iconWidth: - string ширина іконки;
-  iconHeight: - string висота іконки;
   iconAlt: - string підпис іконки;
   path: - string шлях, куди буде вести посилання;
 }
@@ -17,19 +15,54 @@ const menu = [
   {
     title: 'Dashboard',
     icon: 'someicon.svg',
-    iconWidth: '24',
-    iconHeight: '24',
-    iconAlt: 'someicon'
-    to: '/'
+    iconAlt: 'someicon',
+    path: '/tests',
   },
   {
-    title: 'Statistics',
+    title: 'Certification',
     icon: 'someicon.svg',
-    iconWidth: '24',
-    iconHeight: '24',
-    iconAlt: 'someicon'
-    to: '/route'
-  }
+    iconAlt: 'someicon',
+    path: '/router',
+  },
+  {
+    title: 'Petprojects',
+    icon: 'someicon.svg',
+    iconAlt: 'someicon',
+    path: '/routea',
+  },
+  {
+    title: 'Leaderboard',
+    icon: 'someicon.svg',
+    iconAlt: 'someicon',
+    path: '/routed',
+  },
+  {
+    title: 'Vacancies',
+    icon: 'someicon.svg',
+    iconAlt: 'someicon',
+    path: '/routes',
+  },
+]
+
+const userMenu = [
+  {
+    title: 'Profile',
+    icon: 'someicon.svg',
+    iconAlt: 'someicon',
+    path: '/routesa',
+  },
+  {
+    title: 'Settings',
+    icon: 'someicon.svg',
+    iconAlt: 'someicon',
+    path: '/routesg',
+  },
+  {
+    title: 'Feedback',
+    icon: 'someicon.svg',
+    iconAlt: 'someicon',
+    path: '/routese',
+  },
 ]
 
 <!-- <Menu menu={menu}/> -->

@@ -1,5 +1,13 @@
+import { Header, MainLayout, Sidebar } from 'modules/dashboard';
+
 const TestsPage = () => {
-  return <div>Tests</div>;
+  return (
+    <>
+      <Header />
+      <Sidebar />
+      <MainLayout />
+    </>
+  );
 };
 
 export default TestsPage;
