@@ -8,7 +8,8 @@
     "start": "webpack serve --env port=3000",
     "build:dev": "webpack --env mode=development",
     "build:prod": "webpack --env mode=production",
-    "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\"",
+    "lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --fix",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "predeploy": "npm run build:prod",
     "deploy": "netlify deploy -d build -p"
@@ -56,6 +57,7 @@
     "css-loader": "^6.7.3",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.32.2",

@@ -1,8 +1,10 @@
 import React from 'react';
-import { AuthButton } from 'ui-kit';
-import s from './FinalTestInfo.module.scss';
 
 import { useTranslation } from 'react-i18next';
+
+import { AuthButton } from 'ui-kit';
+
+import s from './FinalTestInfo.module.scss';
 
 interface IListInfoJS {
   topics: string;
@@ -24,7 +26,7 @@ interface IIconProps {
 interface IProps {
   image: string;
   imageProps: IIconProps;
-  title: string;
+  title?: string;
   subtitle?: string;
   listInfo?: IListInfoJS;
   correctAnswers?: number;
@@ -35,7 +37,7 @@ interface IProps {
   theWorstTopic?: string;
   theBestTopic?: string;
   onClickBtn: () => void;
-  textBtn: string;
+  textBtn?: string;
   finishTest?: boolean;
   test: string;
 }
@@ -43,7 +45,6 @@ interface IProps {
 export const FinalTestInfo = ({
   image,
   imageProps,
-  title,
   subtitle,
   listInfo,
   correctAnswers,
@@ -54,11 +55,10 @@ export const FinalTestInfo = ({
   theWorstTopic,
   theBestTopic,
   onClickBtn,
-  textBtn,
   finishTest,
   test,
 }: IProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { alt, width, height } = imageProps;
   return (

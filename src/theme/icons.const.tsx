@@ -97,11 +97,9 @@ import IconPython from 'assets/svg/python.svg';
 import IconNest from 'assets/svg/nest.svg';
 import IconUx from 'assets/svg/ux.svg';
 
-
-
 //  IconCorrect
 
-import { Icons } from 'modules/common/types/index'
+import { Icons } from 'modules/common/types/index';
 
 export const ICONS: Icons = {
   ALERT: IconAlert,
@@ -199,5 +197,4 @@ export const ICONS: Icons = {
   PYTHON: IconPython,
   NEST: IconNest,
   UX: IconUx,
-}
-
+};

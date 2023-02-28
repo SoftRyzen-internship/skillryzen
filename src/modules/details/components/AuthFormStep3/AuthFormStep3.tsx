@@ -1,6 +1,8 @@
-import s from './AuthFormStep3.module.scss';
-import { AuthButton, Input } from 'ui-kit';
 import React, { useState } from 'react';
+
+import { AuthButton, Input } from 'ui-kit';
+
+import s from './AuthFormStep3.module.scss';
 
 interface FormValues {
   name: string;
@@ -22,7 +24,6 @@ export const AuthFormStep3 = () => {
     phone: '',
   });
 
-  const handleClick = () => {};
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setValues((prevState) => ({ ...prevState, [name]: value }));
@@ -72,8 +73,7 @@ export const AuthFormStep3 = () => {
         type='submit'
         text='Continue'
         size='small'
-        onClick={handleClick}
-        disabled //додав дізейблд, його треба зробити в залежності від того чи пройшов ти валідацію чи ні
+        disabled // додав дізейблд, його треба зробити в залежності від того чи пройшов ти валідацію чи ні
       />
     </form>
   );

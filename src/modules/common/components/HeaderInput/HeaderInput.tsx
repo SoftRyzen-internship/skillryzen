@@ -1,5 +1,6 @@
 import { Input } from 'ui-kit/index';
 import { ICONS } from 'theme/icons.const';
+
 import s from './HeaderInput.module.scss';
 export const HeaderInput = () => {
   return (

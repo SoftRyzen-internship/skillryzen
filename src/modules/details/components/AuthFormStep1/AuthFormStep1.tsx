@@ -1,7 +1,9 @@
-import s from './AuthFormStep1.module.scss';
+import React, { useState } from 'react';
+
 import { ICONS } from 'theme';
 import { AuthButton, Input } from 'ui-kit';
-import { useState } from 'react';
+
+import s from './AuthFormStep1.module.scss';
 
 export const AuthFormStep1 = () => {
   const [code, setCode] = useState('');
@@ -10,7 +12,6 @@ export const AuthFormStep1 = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(role);
 
     setCode('');
   };

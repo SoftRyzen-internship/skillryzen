@@ -1,13 +1,15 @@
+import { Link } from 'react-router-dom';
+
 import { Input } from 'ui-kit/Input/Input';
 import { Tabs } from 'ui-kit/Tabs/Tabs';
 // import { Card } from 'ui-kit/Card/Card';
 // import { Breadcrumbs } from 'ui-kit/Breadcrumbs/Breadcrumbs';
 
-import s from './TestsMain.module.scss'
 import { Card } from 'ui-kit/Card/Card';
 import { ICONS } from 'theme';
 import { Breadcrumbs } from 'ui-kit/Breadcrumbs';
-import { Link } from 'react-router-dom';
+
+import s from './TestsMain.module.scss';
 
 export const TestsMain = () => {
   return (
@@ -17,8 +19,15 @@ export const TestsMain = () => {
         <div className={s.testsPage__header}>
           <h2 className={s.testsPage__title}>Tests</h2>
           <div className={s.testsPage__inputWrapper}>
-            <Input name='search' placeholder='Search..' button={true} icon={<ICONS.SEARCH fill='#9D9FB5' />} />
-            <button className={s.testsPage__button}><ICONS.BOOK className={s.testsPage__iconBook} /> Practice</button>
+            <Input
+              name='search'
+              placeholder='Search..'
+              button={true}
+              icon={<ICONS.SEARCH fill='#9D9FB5' />}
+            />
+            <button className={s.testsPage__button}>
+              <ICONS.BOOK className={s.testsPage__iconBook} /> Practice
+            </button>
           </div>
         </div>
       </div>
@@ -44,7 +53,7 @@ export const TestsMain = () => {
         </div>
       </div>
       <div className={s.testsPage__testList}>
-        <Link to="fullstack_final">
+        <Link to='fullstack_final'>
           <Card
             item={{
               title: 'FullStack_Final Test',

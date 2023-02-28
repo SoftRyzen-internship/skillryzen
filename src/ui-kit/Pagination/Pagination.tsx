@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
-import { ICONS } from '../../theme';
+
+import { ICONS } from 'theme';
+
 import s from './Pagination.module.scss';
 
 interface IProps {
@@ -13,8 +15,9 @@ export const Pagination = ({ totalPages, onPageChange }: IProps) => {
     Array<number | string>
   >([]); // Array of buttons what we see on the page
 
-  //Set number of pages
+  // Set number of pages
   const pageNumbers: Array<number> = [];
+
   for (let i = 1; i <= totalPages; i += 1) {
     pageNumbers.push(i);
   }
@@ -22,9 +25,9 @@ export const Pagination = ({ totalPages, onPageChange }: IProps) => {
   useEffect(() => {
     let tempNumberOfPages: Array<number | string> = [...arrayOfVisiblePages];
 
-    let dotsInitial = '...';
-    let dotsLeft = '... ';
-    let dotsRight = ' ...';
+    const dotsInitial = '...';
+    const dotsLeft = '... ';
+    const dotsRight = ' ...';
 
     // 1, 2, 3, 4, 5
     if (pageNumbers.length < 6) {
@@ -58,7 +61,7 @@ export const Pagination = ({ totalPages, onPageChange }: IProps) => {
 
     setArrayOfVisiblePages(tempNumberOfPages);
     onPageChange(currentPage);
-  }, [currentPage]);
+  }, [currentPage, arrayOfVisiblePages, onPageChange, pageNumbers]);
 
   const handleClickPage = (page: number | string) => {
     if (typeof page === 'string') {

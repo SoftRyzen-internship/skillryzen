@@ -1,8 +1,11 @@
 import { useState } from 'react';
+
 import { COLORS } from 'theme/colors.const';
 import { ICONS } from 'theme/icons.const';
-import { HeaderPopupNotification } from './HeaderPopupNotification';
+
 import { HeaderButton } from 'ui-kit/index';
+
+import { HeaderPopupNotification } from './HeaderPopupNotification';
 
 export const HeaderButtonNotification = () => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);

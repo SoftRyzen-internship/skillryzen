@@ -1,6 +1,7 @@
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
 import { useState } from 'react';
+
 import { AuthButton } from 'ui-kit/index';
 import { Checkbox } from 'ui-kit/Checkbox';
 import { ICONS } from 'theme';
@@ -17,13 +18,13 @@ export const AuthFormStep2 = () => {
   const [hasValue, setHasValue] = useState(false);
 
   const handleCheckboxFormStep2 = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setIsCheckedForm(event.target.checked);
   };
 
   const handleSubmitGoogle = () => {
-    console.log('click google');
+    // console.log('click google');
   };
 
   const formik = useFormik<MyFormValues>({
@@ -35,22 +36,22 @@ export const AuthFormStep2 = () => {
     validationSchema: Yup.object({
       email: Yup.string()
         .email('Некоректна адреса електронної пошти')
-        .required("Електронна пошта є обов'язковою")
+        .required('Електронна пошта є обов\'язковою')
         .max(63, 'Електронна адреса має містити не більше 63 символів')
         .matches(
           /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
-          'Невірна адреса електронної пошти'
+          'Невірна адреса електронної пошти',
         )
         .matches(
           /^[^.-].*[^.-]$/,
-          'Електронна пошта не повинна починатися або закінчуватися крапкою чи дефісом'
+          'Електронна пошта не повинна починатися або закінчуватися крапкою чи дефісом',
         ),
       password: Yup.string()
         .min(8, 'Пароль повинен містити мінімум 8 символів')
-        .required("Пароль є обов'язковим"),
+        .required('Пароль є обов\'язковим'),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
     },
   });
 

@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { ProgressBar } from '../../../../ui-kit/ProgressBar';
-import { Timer } from '../../../common/components/Timer';
+import { ProgressBar } from 'ui-kit/ProgressBar';
+import { Timer } from 'modules/common/components/Timer';
 
-// @ts-ignore
 import s from './HeaderTest.module.scss';
 
 export const HeaderTest = () => {

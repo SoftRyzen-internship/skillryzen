@@ -16,14 +16,14 @@
     top: 50%;
     left: 27px;
     transform: translateY(-50%);
-  
+
     display: block;
     content: '';
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: var(--disabled-cl);
-  }  
+  }
 }
 
 .labelPassTest input {
@@ -31,7 +31,6 @@
 }
 
 .labelPassTest--checked {
-
   &::before {
     background-color: transparent;
     border: 2px solid var(--primary-txt-cl);
@@ -71,5 +70,3 @@
     background-image: url('assets/images/javascript.png');
   }
 }
-
-

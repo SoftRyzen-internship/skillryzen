@@ -1,34 +1,33 @@
 .tabs__list {
-    display: flex;
-    gap: 4px;
-    color: var(--primary-txt-cl);
+  display: flex;
+  gap: 4px;
+  color: var(--primary-txt-cl);
 }
 
 .tabs__item {
-    padding: 0 8px 12px;
-    position: relative;
+  padding: 0 8px 12px;
+  position: relative;
 }
 
 .tabs__navLink {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--secondary-txt-cl);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--secondary-txt-cl);
 }
 
 .tabs__navLinkActive {
-    font-size: 16px;
-    font-weight: 700;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .tabs__navLinkActive::after {
-    content: '';
-    display: block;
-    height: 2px;
-    width: 100%;
-    background-color: var(--accent-cl);
-    border-radius: 10px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  content: '';
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--accent-cl);
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
-
