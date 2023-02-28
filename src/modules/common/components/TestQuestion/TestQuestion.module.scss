@@ -45,3 +45,8 @@
   padding: 20px;
   background: var(--components-cl);
 }
+
+.buttonWrapper {
+  display: flex;
+  justify-content: flex-end;
+}
