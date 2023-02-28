@@ -7,30 +7,15 @@ i18n
   .use(Backend)
   .use(LanguageDetector)
   .use(initReactI18next)
-  // .init({
-  //   lng: localStorage.getItem('i18nextLng') || 'en',
-  //   debug: false,
-    // backend: {
-    //   loadPath: '/locales/{{lng}}/{{ns}}.json',
-    // },
-  //   interpolation: {
-  //     escapeValue: false,
-  //   },
-  // });
-    .init({
-      fallbackLng: 'en',
-      
-      // react: {
-      // // Turn off the use of React Suspense
-      // useSuspense: false
-      // },
-      backend: {
-        loadPath: '/locales/{{lng}}/{{ns}}.json',
-      },
-
-    // interpolation: {
-    //   escapeValue: false, // not needed for react as it escapes by default
-    // },
+  .init({
+    fallbackLng: 'en',
+    react: {
+    // Turn off the use of React Suspense
+    useSuspense: false
+    },
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+    }
   });
 
   export default i18n;
