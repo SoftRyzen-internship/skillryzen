@@ -27,7 +27,7 @@ const menu = [
     title: 'Petprojects',
     icon: ICONS.FILES,
     iconAlt: 'Petprojects',
-    path: '/routea',
+    path: '/testsі',
   },
   {
     title: 'Leaderboard',
