@@ -67,6 +67,7 @@ import IconAsterix from '../assets/svg/asteriks.svg';
 import IconImgOne from '../assets/svg/image-1.svg';
 import IconFullscreen from '../assets/svg/fullscreen.svg';
 import IconBrokecheckRound from '../assets/svg/brokechek-round.svg';
+import IconLock from '../assets/svg/lock.svg';
 
 import IconLocation from '../assets/svg/location-1.svg';
 import IconQuestionRound from '../assets/svg/question-round.svg';
@@ -165,5 +166,6 @@ export const ICONS: Icons = {
   CASE_ROUND: IconCaseRound,
   USER_GROUP: IconUserGroup,
   PAUSE_VERTICAL: IconPauseVertical,
-  PAUSE_HORIZONTAL: IconPauseHorizontal
+  PAUSE_HORIZONTAL: IconPauseHorizontal,
+  LOCK: IconLock
 }
