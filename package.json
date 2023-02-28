@@ -11,7 +11,7 @@
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "predeploy": "npm run build:prod",
-    "deploy": "gh-pages -d build:prod"
+    "deploy": "netlify deploy -d build -p"
   },
   "keywords": [],
   "author": "",
