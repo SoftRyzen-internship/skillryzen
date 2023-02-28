@@ -5,3 +5,142 @@
     margin-bottom: 110px;
   }
 }
+
+.form {
+  max-width: 424px;
+  min-width: 324px;
+  align-items: center;
+  text-align: left;
+}
+.checkboxWrapper {
+  display: flex;
+}
+
+.checkboxWrapper {
+  margin-top: 28px;
+  margin-bottom: 44px;
+}
+
+.floatingGroup {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.floatingLabel {
+  position: absolute;
+  color: var(--secondary-txt-cl);
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  transition: color 250ms ease-in-out, top 250ms ease-in-out;
+}
+
+.floatingLabelPhone {
+  left: 50px;
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+  padding: 11px 20px;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--primary-txt-cl);
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+
+  background-color: transparent;
+}
+
+.inputPhone {
+  padding-left: 50px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.floatingGroup.hasValue .floatingLabel,
+.floatingGroup .input:focus + .floatingLabel {
+  top: 0%;
+  font-size: 12px;
+  margin: 0px 4px;
+  background-color: var(--primary-cl);
+  padding: 0px 4px;
+}
+
+.floatingGroup.hasValue .floatingLabelPhone,
+.floatingGroup .input:focus + .floatingLabel {
+  left: 17px;
+}
+.inputError {
+  border-color: var(--error-cl);
+}
+.showPasswordButtonError,
+.floatingLabelError {
+  color: var(--error-cl);
+}
+
+.showPasswordButtonValid,
+.floatingLabelValid {
+  color: var(--success-cl);
+}
+
+.inputValid {
+  border-color: var(--success-cl);
+  color: var(--success-cl);
+}
+.errorMsg {
+  position: absolute;
+  bottom: -20px;
+  left: 20px;
+  font-size: 12px;
+  color: var(--error-cl);
+}
+
+.boxOr {
+  margin-top: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.boxOrLine {
+  display: block;
+  height: 1px;
+  width: 50%;
+  background-color: var(--disabled-cl);
+}
+.boxOrLetters {
+  margin: 0 19px;
+}
+.showPasswordButton {
+  position: absolute;
+  top: 55%;
+  right: 290px;
+  transform: translateY(-50%);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+.iconEye {
+  path {
+    stroke: var(--secondary-txt-cl);
+  }
+}
+.iconEyeError {
+  path {
+    stroke: var(--error-cl);
+  }
+}
+.iconEyeValid {
+  path {
+    stroke: var(--success-cl);
+  }
+}
