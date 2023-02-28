@@ -1,6 +1,5 @@
-import React from 'react';
+// import { ICONS } from 'theme';
 
-// import { ICONS } from 'theme/icons.const';
 import s from './Tag.module.scss';
 
 interface ITag {
@@ -9,12 +8,12 @@ interface ITag {
   icon?: boolean;
 }
 
-export const Tag: React.FC<ITag> = ({ label, type, icon = false }) => {
+export const Tag = ({ label, type, icon = false }: ITag) => {
   return (
     <p className={`${s[`tag--${type}`]} ${icon && s['tag--icon']} `}>
       {type === 'time' && <span className={s.label}>{label} год</span>}
       {type !== 'time' && label}
-      {/* {icon && <img src={ICONS.CLOSE} width='12' height='12' alt='close' />} */}
+      {/* {icon && <ICONS.CLOSE className={s.tag__icon/>} */}
     </p>
   );
 };

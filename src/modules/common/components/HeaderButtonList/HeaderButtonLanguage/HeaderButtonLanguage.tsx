@@ -1,5 +1,5 @@
 import { useState } from 'react';
-// import { Ukraine } from '../../../../../theme/icons.const';
+import { ICONS } from 'theme/icons.const';
 import { HeaderPopupLanguage } from './HeaderPopupLanguage';
 import { HeaderButton } from 'ui-kit/index';
 
@@ -13,7 +13,7 @@ export const HeaderButtonLanguage = () => {
   };
   return (
     <HeaderButton
-      // icon={<Ukraine size='24px' />}
+      icon={<ICONS.UKRAINE />}
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       popupContent={popup}
