@@ -29,10 +29,17 @@ input[type='checkbox'] + .checkbox {
 .labelForm {
   padding-left: 36px;
   color: var(--secondary-txt-cl);
+  font-size: 14px;
 }
 
 .labelFilter {
   font-size: 16px;
   padding-left: 35px;
   color: var(----primary-txt-cl);
+}
+
+.checkboxColor {
+  path {
+    stroke: var(--secondary-txt-cl);
+  }
 }
