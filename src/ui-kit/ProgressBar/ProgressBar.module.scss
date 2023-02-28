@@ -2,7 +2,12 @@
   font-weight: var(--bold);
   font-size: var(--text-lg);
   color: var(--primary-txt-cl);
-  margin-bottom: 16px;
+}
+
+.progressBar__wrapper {
+  display: flex;
+  align-items: end;
+  gap: 14px;
 }
 
 .progressBar__list {
@@ -25,4 +30,8 @@
 
 .progressBar__line--false {
   background-color: var(--wrong-cl);
+}
+
+.progressBar__icon path {
+  stroke: var(--primary-txt-cl);
 }

@@ -50,9 +50,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
         {steps.map((step, idx) => (
           <li key={step} className={s.itemWrapper}>
             <div className={s.stepWrapper}>
-              {' '}
               <div className={setClassnameCircleContainer(idx)}>
-                {' '}
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
                   {currentStep > idx + 1 && <ICONS.CHECK_MARK />}

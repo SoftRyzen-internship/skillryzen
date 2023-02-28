@@ -5,9 +5,9 @@ interface IProps {
   name: string;
   placeholder: string;
   type?: string;
-  icon?: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
+  icon?: JSX.Element;
   button?: boolean;
 }
 
@@ -33,7 +33,7 @@ export const Input = ({
       />
       {button && (
         <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
-          <img className={s.icon} src={icon} alt='Icon Search' />
+          {icon ? <div className={s.icon}>{icon}</div> : null}
         </button>
       )}
     </label>
