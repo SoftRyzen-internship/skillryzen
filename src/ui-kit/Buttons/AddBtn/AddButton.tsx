@@ -22,14 +22,7 @@ export const AddButton = ({
       type={type}
       className={`${s.addButton} ${className} ${s[color]}`}
     >
-      <ICONS.PLUS />
-      {/* <img
-        width={24}
-        height={24}
-        className={s.iconplus}
-        src={ICONS.PLUS}
-        alt={'plus'}
-      /> */}
+      <ICONS.PLUS className={s.icon} />
       {text}
     </button>
   );

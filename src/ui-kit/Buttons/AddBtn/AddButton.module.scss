@@ -7,6 +7,7 @@
   border: none;
   padding: 8px 18px;
   gap: 5px;
+  color: var(--primary-txt-cl);
 }
 
 .black {
@@ -15,4 +16,8 @@
 
 .blue {
   background-color: var(--accent-cl);
+}
+
+.icon path {
+  fill: var(--primary-txt-cl);
 }

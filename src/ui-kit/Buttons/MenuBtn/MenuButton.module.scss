@@ -12,3 +12,7 @@
 .black {
   background-color: var(--components-cl);
 }
+
+.icon path {
+  fill: var(--disabled-cl);
+}
