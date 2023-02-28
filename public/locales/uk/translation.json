@@ -1,0 +1,21 @@
+{
+  "finalTestInfo": {
+    "title": "FullStack - фінальний тест",
+    "subtitle": "JavaScript — це мова програмування, яка є однією з основних технологій Всесвітньої павутини, поряд з HTML і CSS.",
+    "list": {
+      "topics": "Теми", 
+      "time": "Час проходження", 
+      "questions": "Питання", 
+      "learners": "Учні", 
+      "author": "Автор"
+    },
+    "correctAnswers": "Правильні відповіді",
+    "timeSpent": "Затрачений час",
+    "min": "хв",
+    "recomendations": "Рекомендації",
+    "worstTopic": "Найслабша тема в",
+    "bestTopic": "Найсильніша тема в",
+    "section": "секція",
+    "startTest": "Початок тестування"
+  }
+}
