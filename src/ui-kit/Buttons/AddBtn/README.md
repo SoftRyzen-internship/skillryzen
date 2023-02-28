@@ -12,12 +12,14 @@ type - тип кнопки. Може бути button або submit.
 text - текст, що відображається на кнопці.
 onClick - функція, яка виконується при кліку на кнопку.
 color - колір кнопки. Може бути black або blue.
+className - определяет пользовательский класс CSS для кнопки.
 
 # Приклад використання
 
 <AddButton
-  type="button"
-  text="Додати"
-  onClick={...}
-  color="blue"
+className={s.margin} - задавання додаткового стилю для прикладу з вашого компонента s - назва файлу; margin- назва класу
+type="button"
+text="Додати"
+onClick={...}
+color="blue"
 />

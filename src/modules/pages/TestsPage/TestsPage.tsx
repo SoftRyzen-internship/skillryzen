@@ -1,9 +1,15 @@
-import { TestsMain } from "../../common/components/TestsMain/TestsMain";
-
-// import { TestsMain } from "modules/common/components/TestsMain/TestsMain";
+import { Header } from '../../dashboard';
+import { MainLayout } from '../../dashboard/components/MainLayout';
+import { Sidebar } from '../../dashboard/components/Sidebar';
 
 const TestsPage = () => {
-  return <div><TestsMain/></div>;
+  return (
+    <>
+      <Header />
+      <Sidebar />
+      <MainLayout />
+    </>
+  );
 };
 
 export default TestsPage;

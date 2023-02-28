@@ -1,16 +1,21 @@
 import s from './CopyButton.module.scss';
 
 interface ButtonProps {
+  className?: string;
   type?: 'button' | 'submit';
-  onClick: () => void;
+  onClick?: () => void;
 }
 
-export const CopyButton = ({ type = 'button', onClick }: ButtonProps) => {
+export const CopyButton = ({
+  type = 'button',
+  onClick,
+  className,
+}: ButtonProps) => {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={`${s.copyBtn} 
+      className={`${s.copyBtn} ${className}
       }`}
     >
       Copy

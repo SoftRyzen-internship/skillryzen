@@ -8,9 +8,17 @@ interface IProps {
   placeholder: string;
   type?: string;
   icon?: string;
+  button?: boolean;
 }
 
-export const Input = ({ className, name, placeholder, type, icon }: IProps) => {
+export const Input = ({
+  className,
+  name,
+  placeholder,
+  type,
+  icon,
+  button,
+}: IProps) => {
   const [inputValue, setInputValue] = useState<string>('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,9 +35,11 @@ export const Input = ({ className, name, placeholder, type, icon }: IProps) => {
         value={inputValue}
         onChange={handleInputChange}
       />
-      <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
-        <img className={s.icon} src={icon} alt='Icon Search' />
-      </button>
+      {button && (
+        <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
+          <img className={s.icon} src={icon} alt='Icon Search' />
+        </button>
+      )}
     </div>
   );
 };
