@@ -36,3 +36,9 @@ input[type='checkbox'] + .checkbox {
   padding-left: 35px;
   color: var(----primary-txt-cl);
 }
+
+.checkboxColor {
+  path {
+    stroke: var(--secondary-txt-cl);
+  }
+}

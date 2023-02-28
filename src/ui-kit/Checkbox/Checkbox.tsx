@@ -6,7 +6,6 @@ import s from './Checkbox.module.scss';
 
 import { ICONS } from '../../theme';
 
-
 type CheckboxProps = {
   onChange?: undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
   initialState?: boolean;
@@ -59,9 +58,9 @@ export const Checkbox: FC<CheckboxProps> = ({
       <span className={s.checkbox}>
         {checked ? (
           <ICONS.CHECK_ROUND />
-          // <CheckRound color={checkedColor} size={checkboxSize} />
         ) : (
-          <ICONS.DEFAULT_CHECKBOX />
+          // <CheckRound color={checkedColor} size={checkboxSize} />
+          <ICONS.DEFAULT_CHECKBOX className={s.checkboxColor} />
           // <DefaultCheckbox color={checkboxColor} size={checkboxSize} />
         )}
       </span>
