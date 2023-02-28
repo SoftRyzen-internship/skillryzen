@@ -8,6 +8,7 @@ interface IProps {
   icon?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  button?: boolean;
 }
 
 export const Input = ({
@@ -18,6 +19,7 @@ export const Input = ({
   icon,
   onChange,
   value,
+  button,
 }: IProps) => {
   return (
     <label className={s.inputContainer}>
@@ -29,9 +31,11 @@ export const Input = ({
         value={value}
         onChange={onChange}
       />
-      <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
-        <img className={s.icon} src={icon} alt='Icon Search' />
-      </button>
+      {button && (
+        <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
+          <img className={s.icon} src={icon} alt='Icon Search' />
+        </button>
+      )}
     </label>
   );
 };

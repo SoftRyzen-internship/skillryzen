@@ -10,10 +10,12 @@ CopyButton
 
 type - тип кнопки. Може бути button або submit. За замовчуванням - button.
 onClick - функція, яка виконується при кліку на кнопку.
+className - определяет пользовательский класс CSS для кнопки.
 
 # Приклад використання
 
 <CopyButton
-  type="button"
-  onClick={...}
-/>
+            className={s.margin} - задавання додаткового стилю для прикладу з вашого компонента s - назва файлу; margin- назва класу
+            type='button'
+            onClick={...}
+          />

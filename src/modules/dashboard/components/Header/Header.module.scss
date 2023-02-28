@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 26px 60px;
+  background-color: var(--components-cl);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
