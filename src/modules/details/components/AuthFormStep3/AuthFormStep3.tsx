@@ -1,5 +1,5 @@
 import s from './AuthFormStep3.module.scss';
-import { AuthButton, Input } from '../../../../ui-kit/index';
+import { AuthButton, Input } from 'ui-kit';
 import React, { useState } from 'react';
 
 interface FormValues {

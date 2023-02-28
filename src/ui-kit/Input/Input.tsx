@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import s from './Input.module.scss';
 
 interface IProps {
@@ -8,6 +6,8 @@ interface IProps {
   placeholder: string;
   type?: string;
   icon?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   button?: boolean;
 }
 
@@ -17,29 +17,25 @@ export const Input = ({
   placeholder,
   type,
   icon,
+  onChange,
+  value,
   button,
 }: IProps) => {
-  const [inputValue, setInputValue] = useState<string>('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value.toLowerCase().trim());
-  };
-
   return (
-    <div className={s.inputContainer}>
+    <label className={s.inputContainer}>
       <input
         className={className ? className : s.input}
         name={name}
         placeholder={placeholder}
         type={type}
-        value={inputValue}
-        onChange={handleInputChange}
+        value={value}
+        onChange={onChange}
       />
       {button && (
         <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
           <img className={s.icon} src={icon} alt='Icon Search' />
         </button>
       )}
-    </div>
+    </label>
   );
 };
