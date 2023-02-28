@@ -82,6 +82,10 @@ import IconCaseRound from 'assets/svg/Case-Round.svg';
 import IconUserGroup from 'assets/svg/users-group.svg';
 import IconPauseVertical from 'assets/svg/pause-vertical.svg';
 import IconPauseHorizontal from 'assets/svg/pause-horizontal.svg';
+import IconWrong from 'assets/svg/wrong.svg';
+import IconCorrect from 'assets/svg/correct.svg';
+
+//  IconCorrect
 
 interface Icons { [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>> }
 
@@ -167,5 +171,7 @@ export const ICONS: Icons = {
   USER_GROUP: IconUserGroup,
   PAUSE_VERTICAL: IconPauseVertical,
   PAUSE_HORIZONTAL: IconPauseHorizontal,
-  LOCK: IconLock
+  LOCK: IconLock,
+  WRONG: IconWrong,
+  CORRECT: IconCorrect
 }
