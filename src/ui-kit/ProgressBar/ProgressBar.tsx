@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { ICONS } from 'theme';
 // @ts-ignore
 import s from './ProgressBar.module.scss';
 
@@ -43,6 +43,7 @@ export const ProgressBar = ({
       <p className={s.progressBar__info}>
         Question {currentNumber}/{totalNumber}
       </p>
+      <div className={s.progressBar__wrapper}>
       <ul className={s.progressBar__list}>
         {array.map((item) => (
           <li
@@ -53,6 +54,8 @@ export const ProgressBar = ({
           ></li>
         ))}
       </ul>
+      <ICONS.FLAG_ONE className={s.progressBar__icon}/>
+      </div>
     </div>
   );
 };
