@@ -1,9 +1,9 @@
-import { MainLayout } from '../../dashboard/components/MainLayout';
+import { MainLayout, HeaderTest } from 'modules/dashboard';
 
 const TestingPage = () => {
   return (
     <>
-      <div>Timer</div>
+      <HeaderTest />
       <MainLayout />
     </>
   );
