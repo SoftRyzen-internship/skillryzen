@@ -1,27 +1,15 @@
-// import { lazy } from 'react';
 import { useRoutes } from 'react-router-dom';
 
-import RegisterPage from '../pages/RegisterPage/RegisterPage';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import CompanyPage from '../pages/CompanyPage/CompanyPage';
-import TestsPage from '../pages/TestsPage/TestsPage';
-import TestingPage from '../pages/TestingPage/TestingPage';
+import RegisterPage from 'pages/RegisterPage';
+import LoginPage from 'pages/LoginPage';
+import CompanyPage from 'pages/CompanyPage';
+import TestsPage from 'pages/TestsPage';
+import TestingPage from 'pages/TestingPage';
 
 import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
-
-// const LoginPage = lazy(() => import('@modules/pages/LoginPage/LoginPage'));
-// const RegisterPage = lazy(
-//   () => import('@modules/pages/RegisterPage/RegisterPage')
-// );
-// const StudentPage = lazy(
-//   () => import('@modules/pages/StudentPage/StudentPage')
-// );
-// const CompanyPage = lazy(
-//   () => import('@modules/pages/CompanyPage/CompanyPage')
-// );
-// const TestsPage = lazy(() => import('@modules/pages/TestsPage/TestsPage'));
+import { UnderDevelopmentPage } from 'pages/UnderDevelopmentPage';
 
 export const AppRoutes = () => {
   const routes = [
@@ -36,7 +24,7 @@ export const AppRoutes = () => {
       children: [
         {
           path: 'dashboard',
-          element: <div>Dashboard</div>,
+          element: <UnderDevelopmentPage />,
         },
 
         {
@@ -67,31 +55,31 @@ export const AppRoutes = () => {
 
         {
           path: 'pet-projects',
-          element: <div>Petprojects</div>,
+          element: <UnderDevelopmentPage />,
         },
 
         {
           path: 'leader-board',
-          element: <div>Leaderboard</div>,
+          element: <UnderDevelopmentPage />,
         },
 
         {
           path: 'vacancies',
-          element: <div>Vacancies</div>,
+          element: <UnderDevelopmentPage />,
         },
 
         {
           path: 'profile',
-          element: <div>Profile</div>,
+          element: <UnderDevelopmentPage />,
         },
 
         {
           path: 'settings',
-          element: <div>Settings</div>,
+          element: <UnderDevelopmentPage />,
         },
         {
           path: 'feedback',
-          element: <div>Feedback</div>,
+          element: <UnderDevelopmentPage />,
         },
       ],
     },
