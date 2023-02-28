@@ -31,7 +31,7 @@
 
   &::before {
     background-color: transparent;
-    border: 2px solid #f8f8f8;
+    border: 2px solid var(--primary-txt-cl);
   }
 
   &::after {
@@ -45,7 +45,7 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: #f8f8f8;
+    background-color: var(--primary-txt-cl);
   }
 }
 
@@ -54,7 +54,7 @@
 
   &::before {
     background-color: transparent;
-    border: 2px solid #f8f8f8;
+    border: 2px solid var(--primary-txt-cl);
   }
 
   &::after {
@@ -68,7 +68,7 @@
     width: 9px;
     height: 9px;
     border-radius: 50%;
-    background-color: #f8f8f8;
+    background-color: var(--primary-txt-cl);
   }
 }
 
@@ -78,7 +78,7 @@
 
   &::before {
     background-color: transparent;
-    border: 2px solid #f8f8f8;
+    border: 2px solid var(--primary-txt-cl);
     background-image: url('../../assets/images/javascript.png');
   }
 }
