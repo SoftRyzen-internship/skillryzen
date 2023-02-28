@@ -55,7 +55,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
                 {' '}
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
-                  {currentStep > idx + 1 && <ICONS.CHECKMARK />}
+                  {currentStep > idx + 1 && <ICONS.CHECK_MARK />}
                 </div>
               </div>
               {step < 4 && (
