@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import { UseSideBarContext } from '../../context/sideBarContext';
 
 import s from './Menu.module.scss';
-import { useState } from 'react';
 
 interface IMenu {
   title: string
