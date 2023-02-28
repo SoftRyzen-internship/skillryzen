@@ -23,30 +23,11 @@
     height: 20px;
     border-radius: 50%;
     background-color: var(--disabled-cl);
-  }
+  }  
 }
 
-.labelPassTest--checked {
-  composes: labelPassTest;
-
-  &::before {
-    background-color: transparent;
-    border: 2px solid var(--primary-txt-cl);
-  }
-
-  &::after {
-    position: absolute;
-    top: 50%;
-    left: 32px;
-    transform: translateY(-50%);
-
-    display: block;
-    content: '';
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background-color: var(--primary-txt-cl);
-  }
+.labelPassTest input {
+  display: none;
 }
 
 .labelPassTest--checked {
@@ -85,15 +66,13 @@
 
 .labelPassTest--right {
   composes: labelPassTest;
-  background-color: #2EAC61;
+  background-color: var(--right-cl);
 
   &::before {
     background-color: transparent;
-    border: 2px solid #f8f8f8;
+    border: 2px solid var(--primary-txt-cl);
     background-image: url('../../assets/images/javascript.png');
   }
 }
 
-.labelPassTest input {
-  display: none;
-}
+
