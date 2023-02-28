@@ -44,6 +44,7 @@ input[type='radio']:checked + .radio {
     border-color: var(--primary-cl);
   }
 }
+
 .label {
   display: flex;
   justify-content: start;

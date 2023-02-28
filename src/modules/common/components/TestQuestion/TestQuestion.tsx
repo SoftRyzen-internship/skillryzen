@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 
-import { AuthButton } from '../../../../ui-kit/Buttons/AuthBtn/AuthButton';
+import { AuthButton } from 'ui-kit/Buttons/AuthBtn/AuthButton';
 
 import s from './TestQuestion.module.scss';
+import { RadioButton } from 'ui-kit';
 
 interface ITestQuestionProps {
   questionId: string;
@@ -43,7 +44,7 @@ export const TestQuestion = ({
             <li className={s.questionItem} key={answer.label}>
               {/* label, radiobutton треба повністю переробляти
 							тому всі стилі не додані, лише загальні для відображення */}
-              <label htmlFor={answer.label} className={s.questionLabel}>
+              {/* <label htmlFor={answer.label} className={s.questionLabel}>
                 <input
                   type='radio'
                   name={questionId}
@@ -53,7 +54,14 @@ export const TestQuestion = ({
                   onChange={(e) => setSelectedAnswer(e.target.value)}
                 />
                 {answer.title}
-              </label>
+              </label> */}
+              <RadioButton
+                value={answer.value}
+                checked={selectedAnswer === answer.value}
+                onChange={(e) => setSelectedAnswer(e.target.value)}
+                labelClassName={s.questionLabel}
+                label={answer.title}
+              />
             </li>
           ))}
         </ul>
