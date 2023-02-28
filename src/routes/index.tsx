@@ -3,7 +3,6 @@ import { useRoutes } from 'react-router-dom';
 
 import RegisterPage from '../pages/RegisterPage/RegisterPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
-import StudentPage from '../pages/StudentPage/StudentPage';
 import CompanyPage from '../pages/CompanyPage/CompanyPage';
 import TestsPage from '../pages/TestsPage/TestsPage';
 import TestingPage from '../pages/TestingPage/TestingPage';
@@ -29,33 +28,73 @@ export const AppRoutes = () => {
     { path: '/register', element: <RegisterPage /> },
     { path: '/login', element: <LoginPage /> },
     { path: '/', element: <LoginPage /> },
-    { path: '/student', element: <StudentPage /> },
-    { path: '/company', element: <CompanyPage /> },
-    {
-      path: 'tests',
-      element: <TestsPage />,
-      children: [
-        {
-          path: '',
-          element: <TestsMain />,
-        },
-        {
-          path: ':testId',
-          element: <TestInfo />,
-        },
-      ],
-    },
-    {
-      path: '/testing',
-      element: <TestingPage />,
-      children: [
-        {
-          path: '',
-          element: <TestingMain />,
-        },
-      ],
-    },
 
+    { path: '/company', element: <CompanyPage /> },
+
+    {
+      path: '/student',
+      children: [
+        {
+          path: 'dashboard',
+          element: <div>Dashboard</div>,
+        },
+
+        {
+          path: 'tests',
+          element: <TestsPage />,
+          children: [
+            {
+              path: '',
+              element: <TestsMain />,
+            },
+            {
+              path: ':testId',
+              element: <TestInfo />,
+            },
+          ],
+        },
+
+        {
+          path: 'testing',
+          element: <TestingPage />,
+          children: [
+            {
+              path: '',
+              element: <TestingMain />,
+            },
+          ],
+        },
+
+        {
+          path: 'pet-projects',
+          element: <div>Petprojects</div>,
+        },
+
+        {
+          path: 'leader-board',
+          element: <div>Leaderboard</div>,
+        },
+
+        {
+          path: 'vacancies',
+          element: <div>Vacancies</div>,
+        },
+
+        {
+          path: 'profile',
+          element: <div>Profile</div>,
+        },
+
+        {
+          path: 'settings',
+          element: <div>Settings</div>,
+        },
+        {
+          path: 'feedback',
+          element: <div>Feedback</div>,
+        },
+      ],
+    },
     { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);
