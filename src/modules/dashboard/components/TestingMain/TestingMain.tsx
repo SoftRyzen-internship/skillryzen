@@ -7,6 +7,7 @@ export const TestingMain = () => {
   const testQuestion = {
     id: '3fa85f64-5717-4562-b3fc-2c963f66afa6',
     title: 'How to create a constant in JS?',
+    rightAnswer: 'const',
     possibleAnswers: [
       {
         value: 'const',
@@ -42,6 +43,7 @@ export const TestingMain = () => {
         <TestQuestion
           questionId={testQuestion.id}
           title={testQuestion.title}
+          rightAnswer={testQuestion.rightAnswer}
           possibleAnswers={testQuestion.possibleAnswers}
           onNextQuestion={testQuestion.onNextQuestion}
           hasNextQuestion={testQuestion.hasNextQuestion}

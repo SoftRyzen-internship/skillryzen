@@ -8,6 +8,7 @@ import s from './TestQuestion.module.scss';
 interface ITestQuestionProps {
   questionId: string;
   title: string;
+  rightAnswer: string;
   possibleAnswers: {
     value: string;
     title: string;
@@ -18,49 +19,52 @@ interface ITestQuestionProps {
   ) => void;
   hasNextQuestion: boolean;
 }
-
 export const TestQuestion = ({
   questionId,
+  rightAnswer,
   title,
   possibleAnswers,
   onNextQuestion,
   hasNextQuestion,
 }: ITestQuestionProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  const [sendAnswer, setSendAnswer] = useState<string | null>(null);
 
   const handleAnswer = () => {
     if (selectedAnswer) {
+      setSendAnswer(selectedAnswer);
+
       onNextQuestion([{ value: selectedAnswer, title: title, label: '' }]);
     }
   };
-
   return (
     <div className={s.testWrapper}>
       <h2 className={s.testTitle}>{title}</h2>
       <div className={s.questionWrapper}>
-        {/* Наступний рядок потрібен коли з'являться питання з кодом */}
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>
-          {possibleAnswers.map((answer) => (
-            <li className={s.questionItem} key={answer.label}>
-              <label className={s.questionLabel}>
-                <input
-                  type='radio'
-                  name={questionId}
-                  value={answer.value}
-                  checked={selectedAnswer === answer.value}
-                  onChange={(e) => setSelectedAnswer(e.target.value)}
-                />
-                {answer.title}
-              </label>
-              {/* <RadioButton
-                value={answer.value}
-                checked={selectedAnswer === answer.value}
-                onChange={(e) => setSelectedAnswer(e.target.value)}
-                // labelClassName={s.questionLabel}
-                label={answer.title}
-              /> */}
-            </li>
+          {possibleAnswers.map((answer, index) => (
+            <RadioButton
+              key={index}
+              state={
+                (sendAnswer &&
+                  sendAnswer === answer.value &&
+                  rightAnswer === answer.value) ||
+                (sendAnswer && rightAnswer === answer.value)
+                  ? 'right'
+                  : sendAnswer && sendAnswer === answer.value
+                  ? 'wrong'
+                  : !sendAnswer && selectedAnswer === answer.value
+                  ? 'checked'
+                  : ''
+              }
+              type='PassTest'
+              name='answers'
+              value={answer.value}
+              checked={selectedAnswer === answer.value}
+              onChange={(e) => setSelectedAnswer(e.target.value)}
+              label={answer.title}
+            />
           ))}
         </ul>
       </div>
@@ -70,6 +74,7 @@ export const TestQuestion = ({
           text='Answer'
           onClick={handleAnswer}
           size='small'
+          color='blue'
           disabled={!selectedAnswer}
         />
       </div>
