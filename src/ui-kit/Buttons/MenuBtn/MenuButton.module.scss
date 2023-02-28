@@ -13,6 +13,10 @@
   background-color: var(--components-cl);
 }
 
-.icon path {
-  fill: var(--disabled-cl);
+.iconGrid path {
+  fill: var(--secondary-txt-cl);
+}
+
+.iconGrid4 path {
+  stroke: var(--secondary-txt-cl);
 }

@@ -22,8 +22,11 @@ export const MenuButton = ({
       onClick={onClick}
       className={`${s.menuBtn} ${s[color]} ${className}`}
     >
-      {icon === 'grid4' && <ICONS.GRID className={s.icon} />}
-      {icon === 'grid2' && <ICONS.GRID_GORIZONTAL className={s.icon} />}
+      {icon === 'grid4' ? (
+        <ICONS.GRID className={s.iconGrid} />
+      ) : (
+        <ICONS.GRID_GORIZONTAL className={s.iconGrid4} />
+      )}
     </button>
   );
 };
