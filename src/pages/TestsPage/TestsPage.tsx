@@ -1,11 +1,14 @@
 import { Header, MainLayout, Sidebar } from 'modules/dashboard';
+import { TestsContainer } from 'modules/dashboard/components/TestsContainer';
 
 const TestsPage = () => {
   return (
     <>
       <Header />
-      <Sidebar />
-      <MainLayout />
+      <TestsContainer>
+        <Sidebar />
+        <MainLayout />
+      </TestsContainer>
     </>
   );
 };
