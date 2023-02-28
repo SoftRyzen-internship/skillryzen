@@ -1,5 +1,5 @@
 import React from 'react';
-import { AuthButton } from '../../../../ui-kit/Buttons/AuthBtn/AuthButton';
+import { AuthButton } from 'ui-kit';
 import s from './FinalTestInfo.module.scss';
 
 interface IListInfoJS {
