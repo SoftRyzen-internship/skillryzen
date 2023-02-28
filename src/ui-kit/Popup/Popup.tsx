@@ -2,16 +2,17 @@ import React from 'react';
 import s from './Popup.module.scss';
 
 type TItem = {
-  icon?: string;
+  icon?: JSX.Element;
   text?: string;
 };
 
 interface IProps {
   list: TItem[];
   vievAll?: string;
+  handleClickItem?: (text: string) => void;
 }
 
-export const Popup = ({ list, vievAll }: IProps) => {
+export const Popup = ({ list, vievAll, handleClickItem }: IProps) => {
   return (
     <div className={s.popupWrapper}>
       <button
@@ -23,8 +24,12 @@ export const Popup = ({ list, vievAll }: IProps) => {
       <ul>
         {' '}
         {list.map(({ icon, text }, idx) => (
-          <li key={idx} className={s.item}>
-            <img className={s.icon} src={icon} alt='Popu Icon' />
+          <li
+            key={idx}
+            className={s.item}
+            onClick={() => handleClickItem(text)}
+          >
+            <div> {icon}</div>
             <p className={s.text}>{text}</p>
           </li>
         ))}

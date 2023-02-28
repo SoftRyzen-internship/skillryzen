@@ -1,64 +1,72 @@
-input[type='radio'] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  clip: rect(0 0 0 0);
-}
-input[type='radio'] + .radio {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-color: var(--disabled-cl);
-  transform: translateY(-50%);
-  border-radius: 50%;
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--primary-txt-cl);
-    border: none;
-    border-radius: 50%;
-    opacity: 0;
-  }
-}
-input[type='radio']:checked + .radio {
-  background-color: transparent;
-  border: 2px solid var(--primary-txt-cl);
-  &::before {
-    opacity: 1;
-  }
-}
+.labelPassTest {
+  display: block;
+  position: relative;
+  width: 536px;
 
-.label {
   font-weight: 500;
   font-size: 17px;
-  line-height: 1.55;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  min-width: 20px;
-  min-height: 20px;
-  position: relative;
-  padding-left: 42px;
+  color: var(--primary-txt-cl);
+  background-color: var(--components-cl);
+  border-radius: 5px;
+  padding: 20px 20px 20px 69px;
+  margin: 24px;
+
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 27px;
+    transform: translateY(-50%);
+
+    display: block;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--disabled-cl);
+  }
 }
 
-.container {
-  width: 536px;
-  height: 66px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-left: 27px;
-  background-color: #121533;
-  border-radius: 5px;
+.labelPassTest input {
+  display: none;
+}
+
+.labelPassTest--checked {
+  &::before {
+    background-color: transparent;
+    border: 2px solid var(--primary-txt-cl);
+  }
+
+  &::after {
+    position: absolute;
+    top: 50%;
+    left: 32px;
+    transform: translateY(-50%);
+
+    display: block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-txt-cl);
+  }
+}
+
+.labelPassTest--wrong {
+  background-color: var(--wrong-cl);
+
+  &::before {
+    background-color: transparent;
+    border: 2px solid var(--primary-txt-cl);
+    background-image: url('assets/images/javascript.png');
+  }
+}
+
+.labelPassTest--right {
+  background-color: var(--right-cl);
+
+  &::before {
+    background-color: transparent;
+    border: 2px solid var(--primary-txt-cl);
+    background-image: url('assets/images/javascript.png');
+  }
 }
