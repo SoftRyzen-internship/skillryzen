@@ -72,8 +72,8 @@ export const AuthFormStep3 = () => {
         type='submit'
         text='Continue'
         size='small'
-        color='grey'
         onClick={handleClick}
+        disabled //додав дізейблд, його треба зробити в залежності від того чи пройшов ти валідацію чи ні
       />
     </form>
   );

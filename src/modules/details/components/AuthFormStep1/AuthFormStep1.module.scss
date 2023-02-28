@@ -17,8 +17,11 @@
 }
 
 .icon {
+  color: inherit;
 
-  stroke: #fff;
+  path {
+    stroke: currentColor;
+  }
 }
 
 .roleBtn{
@@ -64,7 +67,7 @@
 }
 
 .buttonsList{
-  min-height: 156px;
+  min-height: 160px;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -93,6 +96,13 @@
   right: 12px;
   width: 24px;
   height: 24px;
-  background-image: url('assets/svg/check-small.svg');
+  background-image: url('assets/svg/check-validation.svg');
+}
+
+.company{
+  padding: 13px 0;
+  font-weight: inherit;
+  color: inherit;
+  border-width: 1px;
 }
 

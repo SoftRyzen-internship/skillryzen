@@ -11,4 +11,5 @@ export { Steps } from './Steps/Steps';
 export { AddButton } from './Buttons/AddBtn/AddButton';
 export { HeaderButton } from './Buttons/HeaderBtn/HeaderButton';
 export { UserAvatarCard } from './UserAvatarCard';
+export { Checkbox } from './Checkbox/Checkbox';
 

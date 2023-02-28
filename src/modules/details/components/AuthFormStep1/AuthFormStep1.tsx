@@ -6,9 +6,18 @@ import { useState } from 'react';
 export const AuthFormStep1 = () => {
   const [code, setCode] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const handleClick = () => {};
+  const [role, setRole] = useState('candidate');
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log(role);
+
+    setCode('');
+  };
+
+  const handleRoleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setRole(e.target.value);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCode(e.target.value);
@@ -22,7 +31,7 @@ export const AuthFormStep1 = () => {
   };
 
   return (
-    <form action='' className={s.form}>
+    <form action='' className={s.form} onSubmit={handleSubmit}>
       <fieldset>
         <legend className={s.formTitle}>Please choose your role</legend>
         <ul className={s.roleList}>
@@ -32,18 +41,23 @@ export const AuthFormStep1 = () => {
               name='role'
               id='candidate'
               value='candidate'
-              checked
+              checked={role === 'candidate'}
+              onChange={handleRoleChange}
             />
             <label htmlFor='candidate' className={s.roleBtn}>
-              <ICONS.USER
-                style={{ stroke: '#fff', color: '#fff' }}
-                className={s.icon}
-              />
+              <ICONS.USER className={s.icon} />
               Candidate
             </label>
           </li>
           <li>
-            <input type='radio' name='role' id='company' value='company' />
+            <input
+              type='radio'
+              name='role'
+              id='company'
+              value='company'
+              checked={role === 'company'}
+              onChange={handleRoleChange}
+            />
             <label htmlFor='company' className={s.roleBtn}>
               <ICONS.USERS className={s.icon} />
               Company
@@ -66,21 +80,21 @@ export const AuthFormStep1 = () => {
             <li>
               <p className={s.buttonsTitle}>Your company is</p>
               <AuthButton
-                onClick={handleClick}
+                className={s.company}
                 size='large'
                 text='GoIT'
                 type='button'
-                color='white'
+                needBackground='noBackgroundAccent'
               />
             </li>
           )}
           <li>
             <AuthButton
-              onClick={handleClick}
               size='large'
               text='Create account'
               type='submit'
               color='blue'
+              disabled={!isValid}
             />
           </li>
         </ul>
