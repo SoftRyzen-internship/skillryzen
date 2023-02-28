@@ -14,9 +14,7 @@ interface ITestQuestionProps {
     title: string;
     label: string;
   }[];
-  onNextQuestion: (
-    answer: { value: string; title: string; label: string }[]
-  ) => void;
+  onNextQuestion: () => void;
   hasNextQuestion: boolean;
 }
 export const TestQuestion = ({
@@ -33,10 +31,14 @@ export const TestQuestion = ({
   const handleAnswer = () => {
     if (selectedAnswer) {
       setSendAnswer(selectedAnswer);
-
-      onNextQuestion([{ value: selectedAnswer, title: title, label: '' }]);
+      setTimeout(() => {
+        setSelectedAnswer('');
+        setSendAnswer('');
+        onNextQuestion();
+      }, 1000);
     }
   };
+
   return (
     <div className={s.testWrapper}>
       <h2 className={s.testTitle}>{title}</h2>
@@ -63,21 +65,23 @@ export const TestQuestion = ({
               value={answer.value}
               checked={selectedAnswer === answer.value}
               onChange={(e) => setSelectedAnswer(e.target.value)}
-              label={answer.title}
+              label={answer.value}
             />
           ))}
         </ul>
       </div>
-      <div className={s.buttonWrapper}>
-        <AuthButton
-          type='button'
-          text='Answer'
-          onClick={handleAnswer}
-          size='small'
-          color='blue'
-          disabled={!selectedAnswer}
-        />
-      </div>
+      {!sendAnswer && (
+        <div className={s.buttonWrapper}>
+          <AuthButton
+            type='button'
+            text='Answer'
+            onClick={handleAnswer}
+            size='small'
+            color='blue'
+            disabled={!selectedAnswer}
+          />
+        </div>
+      )}
       {!hasNextQuestion && <p>The end(here must be next page)</p>}
     </div>
   );
