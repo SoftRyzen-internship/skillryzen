@@ -1,5 +1,5 @@
 import React from 'react';
-import { ICONS } from '../../theme/icons.const';
+import { ICONS } from 'theme/icons.const';
 import s from './Steps.module.scss';
 
 interface ICurrentStep {
@@ -51,14 +51,13 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
         {steps.map((step, idx) => (
           <li key={step} className={s.itemWrapper}>
             <div className={s.stepWrapper}>
-              {' '}
               <div className={setClassnameCircleContainer(idx)}>
-                {' '}
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
-                  {currentStep > idx + 1 && (''
-                    // <img className={s.checkIcon} src={ICONS.CHECK_MARK} />
-                  )}
+                  {
+                    currentStep > idx + 1 && ''
+                    // <img className={s.checkIcon} src={ICONS.CHECK_MARK} src='checkmark' />
+                  }
                 </div>
               </div>
               {step < 4 && (

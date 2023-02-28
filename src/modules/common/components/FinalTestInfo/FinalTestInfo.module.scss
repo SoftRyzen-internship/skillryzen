@@ -1,0 +1,83 @@
+.container {
+  width: 424px;
+}
+
+.imageThumb {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.title {
+  margin-bottom: 8px;
+  font-weight: var(--extrabold);
+  font-size: var(--title);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.subtitle {
+  margin-bottom: 32px;
+  font-size: var(--text-lg);
+  text-align: center;
+}
+
+.list {
+  margin-bottom: 32px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.iconThumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-right: 20px;
+  background-color: var(--components-cl);
+  border-radius: 10px;
+}
+
+.text {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.textRight {
+  composes: text;
+  width: 142px;
+  text-align: right;
+}
+
+.recomendationsWrapper {
+  margin-bottom: 60px;
+}
+
+.recomendationsWrapper::before {
+  content: '';
+  display: block;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 24px;
+  border: 1px solid #464962;
+}
+
+.recText {
+  composes: text;
+  margin-bottom: 8px;
+}
+
+.recTextSmall {
+  color: var(--secondary-txt-cl);
+}
