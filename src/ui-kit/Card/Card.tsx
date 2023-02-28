@@ -25,7 +25,7 @@ interface IItem {
 const imageObject = {
   info: {
     background: 'yellow',
-    icon: <ICONS.WARNING_CIRCLE className={s.card__icon} />,
+    icon: <ICONS.LOCK className={s.card__icon} />,
   },
   notification: {
     background: 'green',
