@@ -50,6 +50,25 @@
     height: 24px;
     border-radius: 50%;
     background-color: var(--components-cl);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sideBar__iconOpen {
+    display: block;
+    stroke: var(--secondary-txt-cl);
+    fill: var(--secondary-txt-cl);
+    width: 11px;
+    transform: rotate(0deg);
+}
+
+.slideBar__iconClosed {
+    display: block;
+    stroke: var(--secondary-txt-cl);
+    fill: var(--secondary-txt-cl);
+    width: 11px;
+    transform: rotate(180deg);
 }
 
 .sideBar__listWrapper {
