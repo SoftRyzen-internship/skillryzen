@@ -1,5 +1,6 @@
 import { useState } from 'react';
-// import { Coin } from '../../../../../theme/icons.const';
+import { COLORS } from 'theme/colors.const';
+import { ICONS } from 'theme/icons.const';
 import { HeaderPopupCoin } from './HeaderPopupCoin';
 import { HeaderButton } from 'ui-kit/index';
 
@@ -13,7 +14,7 @@ export const HeaderButtonCoin = () => {
   };
   return (
     <HeaderButton
-      // icon={<Coin color='#F8F8F8' size='24px' />}
+      icon={<ICONS.COIN fill={COLORS.coinIcon} stroke={COLORS.coinIcon} />}
       IndicatorNumber={45}
       IndicatorColor='green'
       onMouseEnter={mouseEnterHandler}
