@@ -20,7 +20,7 @@ export const Input = ({
   value,
 }: IProps) => {
   return (
-    <div className={s.inputContainer}>
+    <label className={s.inputContainer}>
       <input
         className={className ? className : s.input}
         name={name}
@@ -32,6 +32,6 @@ export const Input = ({
       <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
         <img className={s.icon} src={icon} alt='Icon Search' />
       </button>
-    </div>
+    </label>
   );
 };

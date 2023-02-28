@@ -1,6 +1,6 @@
 import s from './AuthFormStep1.module.scss';
-import { User, Users } from '../../../../theme/icons.const';
-import { AuthButton, Input } from '../../../../ui-kit/index';
+import { User, Users } from 'theme/icons.const';
+import { AuthButton, Input } from 'ui-kit';
 import { useState } from 'react';
 
 export const AuthFormStep1 = () => {
@@ -13,9 +13,12 @@ export const AuthFormStep1 = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCode(e.target.value);
 
-    if (code.length === 5) {
+    if (e.target.value.length === 5) {
       setIsValid(true);
+      return;
     }
+
+    setIsValid(false);
   };
 
   return (
@@ -45,25 +48,29 @@ export const AuthFormStep1 = () => {
           </li>
         </ul>
       </fieldset>
-      <Input
-        onChange={handleChange}
-        className={s.codeInput}
-        name='code'
-        placeholder='Введіть код компанії'
-        value={code}
-      />
+      <div className={`${s.inputWrapper} ${isValid ? s.valid : null}`}>
+        <Input
+          onChange={handleChange}
+          className={s.codeInput}
+          name='code'
+          placeholder='Введіть код компанії'
+          value={code}
+        />
+      </div>
       <div className={s.buttonsWrapper}>
-        <p className={s.buttonsTitle}>Your company is</p>
         <ul className={s.buttonsList}>
-          <li>
-            <AuthButton
-              onClick={handleClick}
-              size='large'
-              text='GoIT'
-              type='button'
-              color='white'
-            />
-          </li>
+          {isValid && (
+            <li>
+              <p className={s.buttonsTitle}>Your company is</p>
+              <AuthButton
+                onClick={handleClick}
+                size='large'
+                text='GoIT'
+                type='button'
+                color='white'
+              />
+            </li>
+          )}
           <li>
             <AuthButton
               onClick={handleClick}
