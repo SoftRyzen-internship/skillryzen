@@ -84,10 +84,11 @@ import IconPauseVertical from 'assets/svg/pause-vertical.svg';
 import IconPauseHorizontal from 'assets/svg/pause-horizontal.svg';
 import IconWrong from 'assets/svg/wrong.svg';
 import IconCorrect from 'assets/svg/correct.svg';
+import IconChart from 'assets/svg/Chart.svg';
 
 //  IconCorrect
 
-interface Icons { [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>> }
+import { Icons } from 'modules/common/types/index'
 
 export const ICONS: Icons = {
   ALERT: IconAlert,
@@ -173,5 +174,6 @@ export const ICONS: Icons = {
   PAUSE_HORIZONTAL: IconPauseHorizontal,
   LOCK: IconLock,
   WRONG: IconWrong,
-  CORRECT: IconCorrect
+  CORRECT: IconCorrect,
+  CHART: IconChart
 }

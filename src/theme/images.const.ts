@@ -10,7 +10,7 @@ import ImgUser from 'assets/images/registration-monitor-user.png';
 
 import { Img } from "modules/common/types";
 
-export const IMGS: Img = {
+export const IMGS:Img = {
   DONE: ImgDone,
   HTML: ImgHtml,
   JAVA_SCRIPT: ImgJavaScript,
@@ -19,5 +19,5 @@ export const IMGS: Img = {
   NOT_FOUND: ImgNotFound,
   REACT: ImgReact,
   COMPANY: ImgCompany,
-  USER: ImgUser,
+  USER: ImgUser
 };
