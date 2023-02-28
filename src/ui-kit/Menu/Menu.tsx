@@ -1,14 +1,15 @@
 import { NavLink } from 'react-router-dom';
 
-import { UseSideBarContext } from '../../hooks/hook';
+import { UseSideBarContext } from 'context/sideBarContext';
 
 import s from './Menu.module.scss';
 
 interface IMenu {
   title: string
-  icon: string
+  icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>
   iconAlt: string
   path: string
+  className?: string
 }
 interface IMenuProps {
   menu: IMenu[];
@@ -16,7 +17,6 @@ interface IMenuProps {
 
 export const Menu = ({ menu }: IMenuProps) => {
   const isOpen = UseSideBarContext()
-
   return (
       <ul className={s.menu__list}>
       {menu.map((item) => {
@@ -28,12 +28,7 @@ export const Menu = ({ menu }: IMenuProps) => {
                 isActive ? s.menu__navLinkActive : s.menu__navLink
               }
             >
-              <img
-                src={item.icon}
-                alt={item.iconAlt}
-                width='24'
-                height='24'
-              />
+              <item.icon aria-label={item.iconAlt} className={item.className || undefined}/>
               {isOpen && <p className={s.menu__title}>{item.title}</p>}
             </NavLink>
           </li>

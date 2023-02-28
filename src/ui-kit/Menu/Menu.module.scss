@@ -1,5 +1,13 @@
 .menu__list {
 
+    .menu__item  {
+        :hover.menu__navLink {
+            color: var(--primary-txt-cl);
+            background-color: var(--accent-cl);
+            border-radius: 5px;
+        }
+    }
+
     .menu__navLink {
         display: flex;
         gap: 12px;
@@ -16,6 +24,15 @@
         background-color: var(--accent-cl);
         color: var(--primary-txt-cl);
         border-radius: 5px;
+
+        /* svg {
+            path {
+                fill: var(--primary-txt-cl);
+            }
+            ellipse {
+                fill: var(--primary-txt-cl);
+            }
+        } */
     }
 
     .menu__title {
