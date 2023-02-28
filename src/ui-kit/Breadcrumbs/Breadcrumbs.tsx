@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+
+import TestsPage from 'pages/TestsPage/TestsPage';
+
 import s from './Breadcrumbs.module.scss';
-import TestsPage from '../../pages/TestsPage/TestsPage';
 
 // Маршрути не дійсні, це заглушка для відображення
 const routes = [
@@ -11,10 +13,10 @@ const routes = [
 
 interface routes {
   path: string;
-  element: React.FC;
+  element: JSX.Element;
 }
 
-interface BreadcrumbsProps {
+interface IBreadcrumbsProps {
   breadcrumbs?: routes[];
 }
 
@@ -22,7 +24,7 @@ function convertTitle(title: string) {
   return title?.split('/')[1]?.charAt(0)?.toUpperCase() + title?.slice(2);
 }
 
-export const Breadcrumbs: React.FC = ({ breadcrumbs }: BreadcrumbsProps) => {
+export const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
   return (
     <ul className={s.breadcrumbs}>
       {routes?.map(({ path }) => (
