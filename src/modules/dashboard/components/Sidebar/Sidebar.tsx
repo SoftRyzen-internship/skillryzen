@@ -3,7 +3,11 @@ import React from 'react';
 import { SideBar } from 'ui-kit/SideBar/SideBar';
 import { Menu } from 'ui-kit/Menu/Menu';
 
+
+
 import { ICONS } from 'theme';
+
+import { ROUTES } from 'routes/routes.const';
 
 function generateId() {    
   return Math.random().toString(36).substring(2) +
@@ -15,31 +19,31 @@ const menu = [
     title: 'Dashboard',
     icon: ICONS.DIPLOMA,
     iconAlt: 'dashboard',
-    path: '/',
+    path: ROUTES.DASHBOARD,
   },
   {
     title: 'Certification',
     icon: ICONS.DIPLOMA,
     iconAlt: 'Certification',
-    path: '/tests',
+    path: ROUTES.CERTIFICATION,
   },
   {
     title: 'Petprojects',
     icon: ICONS.FILES,
     iconAlt: 'Petprojects',
-    path: '/testsі',
+    path: ROUTES.PETPROJECTS,
   },
   {
     title: 'Leaderboard',
     icon: ICONS.TROPHY,
     iconAlt: 'Leaderboard',
-    path: '/routed',
+    path: ROUTES.LEADERBOARD,
   },
   {
     title: 'Vacancies',
     icon: ICONS.CASE_ROUND,
     iconAlt: 'Vacancies',
-    path: '/routes',
+    path: ROUTES.VACANCIES,
   },
 ]
 
@@ -48,19 +52,19 @@ const userMenu = [
     title: 'Profile',
     icon: ICONS.USER,
     iconAlt: 'Profile',
-    path: '/routesa',
+    path: ROUTES.PROFILE,
   },
   {
     title: 'Settings',
     icon: ICONS.SETTINGS,
     iconAlt: 'Settings',
-    path: '/routesg',
+    path: ROUTES.SETTINGS,
   },
   {
     title: 'Feedback',
     icon: ICONS.DIPLOMA,
     iconAlt: 'Feedback',
-    path: '/routese',
+    path: ROUTES.FEEDBACK,
   },
 ]
 
