@@ -2,6 +2,8 @@ import { useState } from 'react';
 
 import { SideBarContext } from '../../context/sideBarContext';
 
+import { ICONS } from 'theme';
+
 import s from './SideBar.module.scss';
 
 interface SideBarProps {
@@ -22,8 +24,10 @@ export const SideBar = ({children, spaceBetween}: SideBarProps) => {
                     <img height='24' width='24'/>
                 </button>
             </div> */}
-            <button className={s.sideBar__btn} onClick={() => setIsOpen(!isOpen)}>
-                <img src='' alt='close-button'/>
+            <button className={s.sideBar__btn} onClick={(e) => {
+              setIsOpen(!isOpen)
+                }}>
+                <ICONS.ARROW_LEFT className={isOpen ? s.sideBar__iconOpen : s.slideBar__iconClosed}/>
             </button>
             <SideBarContext.Provider value={isOpen}>
               <div className={s.sideBar__listWrapper} style={{gap: spaceBetween}}>
