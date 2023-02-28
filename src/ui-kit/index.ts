@@ -9,3 +9,4 @@ export { AuthButton } from './Buttons/AuthBtn/AuthButton';
 export { AddButton } from './Buttons/AddBtn/AddButton';
 export { HeaderButton } from './Buttons/HeaderBtn/HeaderButton';
 export { UserAvatarCard } from './UserAvatarCard';
+export { MenuButton } from './Buttons/MenuBtn/MenuButton';
