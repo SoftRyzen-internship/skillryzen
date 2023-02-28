@@ -8,6 +8,8 @@ import ImgReact from 'assets/images/react.png';
 import ImgCompany from 'assets/images/registration-company.png';
 import ImgUser from 'assets/images/registration-monitor-user.png';
 
+
+
 import { Img } from "modules/common/types";
 
 export const IMGS:Img = {
@@ -19,5 +21,5 @@ export const IMGS:Img = {
   NOT_FOUND: ImgNotFound,
   REACT: ImgReact,
   COMPANY: ImgCompany,
-  USER: ImgUser
+  USER: ImgUser,
 };

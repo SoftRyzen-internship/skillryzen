@@ -85,6 +85,19 @@ import IconPauseHorizontal from 'assets/svg/pause-horizontal.svg';
 import IconWrong from 'assets/svg/wrong.svg';
 import IconCorrect from 'assets/svg/correct.svg';
 import IconChart from 'assets/svg/Chart.svg';
+import IconGoogle from 'assets/svg/google.svg';
+
+import IconHtml from 'assets/svg/html.svg';
+import IconCss from 'assets/svg/css.svg';
+import IconJs from 'assets/svg/js.svg';
+import IconReact from 'assets/svg/react.svg';
+import IconNode from 'assets/svg/node.svg';
+import IconNext from 'assets/svg/next.svg';
+import IconPython from 'assets/svg/python.svg';
+import IconNest from 'assets/svg/nest.svg';
+import IconUx from 'assets/svg/ux.svg';
+
+
 
 //  IconCorrect
 
@@ -175,5 +188,16 @@ export const ICONS: Icons = {
   LOCK: IconLock,
   WRONG: IconWrong,
   CORRECT: IconCorrect,
-  CHART: IconChart
+  CHART: IconChart,
+  GOOGLE: IconGoogle,
+  HTML: IconHtml,
+  CSS: IconCss,
+  JS: IconJs,
+  REACT: IconReact,
+  NODE: IconNode,
+  NEXT: IconNext,
+  PYTHON: IconPython,
+  NEST: IconNest,
+  UX: IconUx,
 }
+
