@@ -8,8 +8,9 @@ import CompanyPage from '../pages/CompanyPage/CompanyPage';
 import TestsPage from '../pages/TestsPage/TestsPage';
 import TestingPage from '../pages/TestingPage/TestingPage';
 
-import { TestsMain } from '../modules/dashboard/components/TestsMain';
-import { TestingMain } from '../modules/dashboard/components/TestingMain';
+import { TestsMain } from 'modules/dashboard/components/TestsMain';
+import { TestingMain } from 'modules/dashboard/components/TestingMain';
+import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
 // const LoginPage = lazy(() => import('@modules/pages/LoginPage/LoginPage'));
 // const RegisterPage = lazy(
@@ -23,37 +24,40 @@ import { TestingMain } from '../modules/dashboard/components/TestingMain';
 // );
 // const TestsPage = lazy(() => import('@modules/pages/TestsPage/TestsPage'));
 
-const routes = [
-  { path: '/register', element: <RegisterPage /> },
-  { path: '/login', element: <LoginPage /> },
-  { path: '/', element: <LoginPage /> },
-  { path: '/student', element: <StudentPage /> },
-  { path: '/company', element: <CompanyPage /> },
-  {
-    path: '/tests/',
-    element: <TestsPage />,
-    children: [
-      {
-        path: '',
-        element: <TestsMain />,
-      },
-    ],
-  },
-  {
-    path: '/testing',
-    element: <TestingPage />,
-    children: [
-      {
-        path: '',
-        element: <TestingMain />,
-      },
-    ],
-  },
-
-  { path: '*', element: <h1>404 Not Found</h1> },
-];
-
 export const AppRoutes = () => {
+  const routes = [
+    { path: '/register', element: <RegisterPage /> },
+    { path: '/login', element: <LoginPage /> },
+    { path: '/', element: <LoginPage /> },
+    { path: '/student', element: <StudentPage /> },
+    { path: '/company', element: <CompanyPage /> },
+    {
+      path: 'tests',
+      element: <TestsPage />,
+      children: [
+        {
+          path: '',
+          element: <TestsMain />,
+        },
+        {
+          path: ':testId',
+          element: <TestInfo />,
+        },
+      ],
+    },
+    {
+      path: '/testing',
+      element: <TestingPage />,
+      children: [
+        {
+          path: '',
+          element: <TestingMain />,
+        },
+      ],
+    },
+
+    { path: '*', element: <h1>404 Not Found</h1> },
+  ];
   const routing = useRoutes(routes);
 
   return routing;
