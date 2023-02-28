@@ -28,7 +28,7 @@ export const AppRoutes = () => {
         },
 
         {
-          path: 'tests',
+          path: 'certification',
           element: <TestsPage />,
           children: [
             {

@@ -2,7 +2,7 @@ import { ICONS } from 'theme/icons.const';
 import { IMGS } from 'theme/images.const';
 import { FinalTestInfo } from 'modules/common/components/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from './TestInfoContainer';
-import { Navigate, useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 
 export const TestInfo = () => {
   const listInfoJS = {
@@ -23,7 +23,7 @@ export const TestInfo = () => {
 
   const handleClickBtn = () => {
     console.log('start test');
-    navigate('/testing');
+    navigate('/student/testing');
   };
 
   return (
