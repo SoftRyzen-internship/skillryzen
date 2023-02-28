@@ -1,0 +1,108 @@
+.formTitle{
+  margin-bottom: 24px;
+}
+
+.roleList{
+  margin-bottom: 26px;
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+
+  color: var(--secondary-txt-cl);
+
+  input:checked + .roleBtn{
+    color: var(--primary-txt-cl);
+    border-color: var(--accent-cl);
+  }
+}
+
+.icon {
+  color: inherit;
+
+  path {
+    stroke: currentColor;
+  }
+}
+
+.roleBtn{
+  padding: 20px;
+  min-width: 200px;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
+  font-weight: var(--bold);
+  text-align: left;
+
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.codeInput{
+  position: relative;
+  margin-bottom: 12px;
+  width: 100%;
+  padding: 14px 16px;
+
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+
+  outline: none;
+
+  background-color: transparent;
+}
+
+.codeInput::placeholder{
+  color: var(--secondary-txt-cl)
+}
+
+.buttonsWrapper{
+  font-size: var(--text-md);
+}
+
+.buttonsTitle{
+  margin-bottom: 8px;
+}
+
+.buttonsList{
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  & > li:first-child{
+    font-size: 16px;
+  }
+
+  & > li:last-child{
+    margin-top: auto;
+  }
+}
+
+.inputWrapper{
+  position: relative;
+}
+
+.valid .codeInput{
+  border-color: var(--success-cl);
+}
+
+.valid::after{
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 24px;
+  height: 24px;
+  background-image: url('assets/svg/check-validation.svg');
+}
+
+.company{
+  padding: 13px 0;
+  font-weight: inherit;
+  color: inherit;
+  border-width: 1px;
+}
+

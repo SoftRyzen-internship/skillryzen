@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import s from './Input.module.scss';
 
 interface IProps {
@@ -7,29 +5,37 @@ interface IProps {
   name: string;
   placeholder: string;
   type?: string;
-  icon?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
+  icon?: JSX.Element;
+  button?: boolean;
 }
 
-export const Input = ({ className, name, placeholder, type, icon }: IProps) => {
-  const [inputValue, setInputValue] = useState<string>('');
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(e.target.value.toLowerCase().trim());
-  };
-
+export const Input = ({
+  className,
+  name,
+  placeholder,
+  type,
+  icon,
+  onChange,
+  value,
+  button,
+}: IProps) => {
   return (
-    <div className={s.inputContainer}>
+    <label className={s.inputContainer}>
       <input
         className={className ? className : s.input}
         name={name}
         placeholder={placeholder}
         type={type}
-        value={inputValue}
-        onChange={handleInputChange}
+        value={value}
+        onChange={onChange}
       />
-      <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
-        <img className={s.icon} src={icon} alt='Icon Search' />
-      </button>
-    </div>
+      {button && (
+        <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
+          {icon ? <div className={s.icon}>{icon}</div> : null}
+        </button>
+      )}
+    </label>
   );
 };

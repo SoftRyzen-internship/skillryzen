@@ -2,9 +2,10 @@ import s from './AddButton.module.scss';
 // import { ICONS } from '@theme/icons.const';
 
 interface ButtonProps {
+  className?: string;
   type: 'button' | 'submit';
   text: string;
-  onClick: () => void;
+  onClick?: () => void;
   color: 'black' | 'blue';
 }
 
@@ -13,12 +14,13 @@ export const AddButton = ({
   text,
   onClick,
   color,
+  className,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
       type={type}
-      className={`${s.addButton} ${s[color]}`}
+      className={`${s.addButton} ${className} ${s[color]}`}
     >
       {/*<img*/}
       {/*  width={24}*/}
