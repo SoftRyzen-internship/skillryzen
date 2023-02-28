@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { UseSideBarContext } from '../../context/sideBarContext';
+import { UseSideBarContext } from 'context/sideBarContext';
 
 import s from './Menu.module.scss';
 

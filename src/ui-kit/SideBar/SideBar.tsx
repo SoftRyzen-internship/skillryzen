@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SideBarContext } from '../../context/sideBarContext';
+import { SideBarContext } from 'context/sideBarContext';
 
 import { ICONS } from 'theme';
 
