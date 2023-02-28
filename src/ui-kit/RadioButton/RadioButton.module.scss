@@ -31,7 +31,6 @@
 }
 
 .labelPassTest--checked {
-  composes: labelPassTest;
 
   &::before {
     background-color: transparent;
@@ -54,24 +53,22 @@
 }
 
 .labelPassTest--wrong {
-  composes: labelPassTest;
   background-color: var(--wrong-cl);
 
   &::before {
     background-color: transparent;
     border: 2px solid var(--primary-txt-cl);
-    background-image: url('../../assets/images/javascript.png');
+    background-image: url('assets/images/javascript.png');
   }
 }
 
 .labelPassTest--right {
-  composes: labelPassTest;
   background-color: var(--right-cl);
 
   &::before {
     background-color: transparent;
     border: 2px solid var(--primary-txt-cl);
-    background-image: url('../../assets/images/javascript.png');
+    background-image: url('assets/images/javascript.png');
   }
 }
 
