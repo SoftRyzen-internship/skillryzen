@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SideBarContext } from '../../hooks/hook';
+import { SideBarContext } from '../../context/sideBarContext';
 
 import s from './SideBar.module.scss';
 

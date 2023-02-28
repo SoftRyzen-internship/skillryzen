@@ -11,8 +11,9 @@ export const TestsMain = () => {
      
       <div className={s.testsPage__header}>
           <h2 className={s.testsPage__title}>Tests</h2>
-          <div>
+          <div className={s.testsPage__inputWrapper}>
             <Input name='search' placeholder='Search..' />
+            <button>Practice</button>
           </div>
       </div>
       <Tabs
@@ -21,6 +22,10 @@ export const TestsMain = () => {
           { title: 'My tests', path: '/route' },
         ]}
       />
+      <div style={{padding: '18px 20px 18px 25px', color: 'white', backgroundColor: '#121533'}}>Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.</div>
+      <div style={{padding: '18px 20px 18px 25px', color: 'white', backgroundColor: '#121533'}}>Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.</div>
+      <div style={{padding: '18px 20px 18px 25px', color: 'white', backgroundColor: '#121533'}}>Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.</div>
+      <div style={{padding: '18px 20px 18px 25px', color: 'white', backgroundColor: '#121533'}}>Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.</div>
       {/* <Card
         item={{
           title: 'FullStuck_Final_Test',
