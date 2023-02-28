@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Footer } from '../Footer/Footer';
 import { Header } from '../Header/Header';
 
 type LayoutProps = {
@@ -13,7 +12,6 @@ export const Layout = ({ children }: LayoutProps) => {
       <Header />
       {children}
       <Outlet />
-      <Footer text='Copyright © 2023' />
     </>
   );
 };

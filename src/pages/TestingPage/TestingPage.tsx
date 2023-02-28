@@ -1,4 +1,4 @@
-import { MainLayout } from '../../dashboard/components/MainLayout';
+import { MainLayout } from 'modules/dashboard';
 
 const TestingPage = () => {
   return (

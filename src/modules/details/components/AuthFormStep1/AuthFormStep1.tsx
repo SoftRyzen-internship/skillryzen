@@ -1,5 +1,5 @@
 import s from './AuthFormStep1.module.scss';
-import { User, Users } from 'theme/icons.const';
+import { ICONS } from 'theme';
 import { AuthButton, Input } from 'ui-kit';
 import { useState } from 'react';
 
@@ -35,14 +35,17 @@ export const AuthFormStep1 = () => {
               checked
             />
             <label htmlFor='candidate' className={s.roleBtn}>
-              <User />
+              <ICONS.USER
+                style={{ stroke: '#fff', color: '#fff' }}
+                className={s.icon}
+              />
               Candidate
             </label>
           </li>
           <li>
             <input type='radio' name='role' id='company' value='company' />
             <label htmlFor='company' className={s.roleBtn}>
-              <Users />
+              <ICONS.USERS className={s.icon} />
               Company
             </label>
           </li>

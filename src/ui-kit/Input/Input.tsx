@@ -6,8 +6,8 @@ interface IProps {
   placeholder: string;
   type?: string;
   icon?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  value: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value?: string;
   button?: boolean;
 }
 

@@ -6,7 +6,7 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import StudentPage from '../pages/StudentPage/StudentPage';
 import CompanyPage from '../pages/CompanyPage/CompanyPage';
 import TestsPage from '../pages/TestsPage/TestsPage';
-import TestingPage from '../modules/pages/TestingPage/TestingPage';
+import TestingPage from '../pages/TestingPage/TestingPage';
 
 import { TestsMain } from '../modules/dashboard/components/TestsMain';
 import { TestingMain } from '../modules/dashboard/components/TestingMain';

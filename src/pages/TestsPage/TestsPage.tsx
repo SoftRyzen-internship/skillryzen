@@ -1,6 +1,4 @@
-import { Header } from '../../dashboard';
-import { MainLayout } from '../../dashboard/components/MainLayout';
-import { Sidebar } from '../../dashboard/components/Sidebar';
+import { Header, MainLayout, Sidebar } from 'modules/dashboard';
 
 const TestsPage = () => {
   return (
