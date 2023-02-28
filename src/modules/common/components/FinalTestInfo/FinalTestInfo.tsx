@@ -2,6 +2,8 @@ import React from 'react';
 import { AuthButton } from 'ui-kit';
 import s from './FinalTestInfo.module.scss';
 
+import { useTranslation } from 'react-i18next';
+
 interface IListInfoJS {
   topics: string;
   time: string;
@@ -56,6 +58,8 @@ export const FinalTestInfo = ({
   finishTest,
   test,
 }: IProps) => {
+  const { t, i18n } = useTranslation();
+
   const { alt, width, height } = imageProps;
   return (
     <div className={s.container}>
@@ -68,8 +72,8 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={s.title}>{title}</h2>
-      {subtitle && <p className={s.subtitle}>{subtitle}</p>}
+      <h2 className={s.title}>{t('finalTestInfo.title')}</h2>
+      {subtitle && <p className={s.subtitle}>{t('finalTestInfo.subtitle')}</p>}
       {listInfo ? (
         <ul className={s.list}>
           <li className={s.item}>
@@ -77,7 +81,7 @@ export const FinalTestInfo = ({
               <div className={s.iconThumb}>
                 <listInfo.icons.BAR className={s.icon} />
               </div>
-              <p className={s.text}>Теми</p>
+              <p className={s.text}>{t('finalTestInfo.list.topics')}</p>
             </div>
             <p className={s.textRight}>{`${listInfo.topics}`}</p>
           </li>
@@ -86,7 +90,7 @@ export const FinalTestInfo = ({
               <div className={s.iconThumb}>
                 <listInfo.icons.CLOCK className={s.icon} />
               </div>
-              <p className={s.text}>Час проходження</p>
+              <p className={s.text}>{t('finalTestInfo.list.time')}</p>
             </div>
             <p className={s.textRight}>{`${listInfo.time}`}</p>
           </li>
@@ -95,7 +99,7 @@ export const FinalTestInfo = ({
               <div className={s.iconThumb}>
                 <listInfo.icons.QUESTION className={s.icon} />
               </div>
-              <p className={s.text}>Питання</p>
+              <p className={s.text}>{t('finalTestInfo.list.questions')}</p>
             </div>
             <p className={s.textRight}>{`${listInfo.questions}`}</p>
           </li>
@@ -104,7 +108,7 @@ export const FinalTestInfo = ({
               <div className={s.iconThumb}>
                 <listInfo.icons.GROUP className={s.icon} />
               </div>
-              <p className={s.text}>Learners</p>
+              <p className={s.text}>{t('finalTestInfo.list.learners')}</p>
             </div>
             <p className={s.textRight}>{`${listInfo.learners}`}</p>
           </li>
@@ -113,7 +117,7 @@ export const FinalTestInfo = ({
               <div className={s.iconThumb}>
                 <listInfo.icons.USERS className={s.icon} />
               </div>
-              <p className={s.text}>Author</p>
+              <p className={s.text}>{t('finalTestInfo.list.author')}</p>
             </div>
             <p className={s.textRight}>{`${listInfo.author}`}</p>
           </li>
@@ -130,7 +134,7 @@ export const FinalTestInfo = ({
                 <div className={s.iconThumb}>
                   <IconAnswers className={s.icon} />
                 </div>
-                <p className={s.text}>Correct answers</p>
+                <p className={s.text}>{t('finalTestInfo.correctAnswers')}</p>
               </div>
               <p className={s.textRight}>
                 {`${correctAnswers}`}
@@ -142,18 +146,22 @@ export const FinalTestInfo = ({
                 <div className={s.iconThumb}>
                   <IconTime className={s.icon} />
                 </div>
-                <p className={s.text}>Time spent</p>
+                <p className={s.text}>{t('finalTestInfo.timeSpent')}</p>
               </div>
-              <p className={s.textRight}>{`${timeSpent}`} min</p>
+              <p className={s.textRight}>
+                {`${timeSpent}`} {t('finalTestInfo.min')}
+              </p>
             </li>
           </ul>
           <div className={s.recomendationsWrapper}>
-            <p className={s.recText}>Recomendations:</p>
+            <p className={s.recText}>{t('finalTestInfo.recomendations')}:</p>
             <p className={s.recTextSmall}>
-              The worst topic in {`${test}`} - {`${theWorstTopic}`}
+              {t('finalTestInfo.worstTopic')} {`${test}`} - {`${theWorstTopic}`}{' '}
+              {t('finalTestInfo.section')}
             </p>
             <p className={s.recTextSmall}>
-              The best topic in {`${test}`} - {`${theBestTopic}`}
+              {t('finalTestInfo.bestTopic')} {`${test}`} - {`${theBestTopic}`}{' '}
+              {t('finalTestInfo.section')}
             </p>
           </div>
         </>
@@ -161,7 +169,7 @@ export const FinalTestInfo = ({
 
       <AuthButton
         type='button'
-        text={textBtn}
+        text={t('finalTestInfo.startTest')}
         onClick={onClickBtn}
         size='large'
         color='blue'
@@ -178,13 +186,13 @@ export const FinalTestInfo = ({
 //   questions: 50,
 //   learners: 200,
 //   author: 'GoIT',
-//   icons: {
-//     BAR: ICONS.BAR_TWO_LINE,
-//     CLOCK: ICONS.CLOCK,
-//     QUESTION: ICONS.QUESTION_ROUND,
-//     GROUP: ICONS.USER_GROUP,
-//     USERS: ICONS.USERS,
-//   },
+// icons: {
+//   BAR: ICONS.BAR_ONE_LINE,
+//   CLOCK: ICONS.CLOCK,
+//   QUESTION: ICONS.QUESTION_CIRCLE,
+//   GROUP: ICONS.USERS,
+//   USERS: ICONS.USER,
+// },
 // };
 
 // const [isClickBtn, setIsClickBtn] = useState(false);
@@ -193,18 +201,20 @@ export const FinalTestInfo = ({
 // };
 
 // PROPS For Start Test
-//   image={IMGS.JAVA_SCRIPT}
-//   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
-//   title='FullStack - Final Test'
-//   subtitle='JavaScript is a programming language that is one of the core
-//     technologies of the World Wide Web, alongside HTML and CSS.'
-//   listInfo={listInfoJS}
-//   onClickBtn={handleClickBtn}
-//   textBtn='Start test'
-//   test='JS'
-// />
+/* <FinalTestInfo
+  image={IMGS.JAVA_SCRIPT}
+  imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
+  title='FullStack - Final Test'
+  subtitle='JavaScript is a programming language that is one of the core
+    technologies of the World Wide Web, alongside HTML and CSS.'
+  listInfo={listInfoJS}
+  onClickBtn={handleClickBtn}
+  textBtn='Start test'
+  test='JS'
+/> */
 
 // PROPS For End Test
+
 // <FinalTestInfo
 //   image={IMGS.JAVA_SCRIPT}
 //   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
@@ -212,10 +222,10 @@ export const FinalTestInfo = ({
 //   correctAnswers={15}
 //   totalQuestions={50}
 //   timeSpent={20}
-// iconAnswers={ICONS.CHECK_MARK}
-// iconTime={ICONS.CLOCK}
-//   theWorstTopic='“Asynchrony” section.'
-//   theBestTopic='"Lorem lorem lorem" section.'
+//   iconAnswers={ICONS.CHECK_SMALL}
+//   iconTime={ICONS.CLOCK}
+//   theWorstTopic='“Asynchrony”'
+//   theBestTopic='"Lorem lorem lorem"'
 //   onClickBtn={handleClickBtn}
 //   textBtn='Start test'
 //   test='JS'
