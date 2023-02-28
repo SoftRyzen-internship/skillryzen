@@ -9,20 +9,29 @@ type RadioButtonProps = {
 
   labelClassName?: string;
   label?: string;
+  containerClassName?: string;
 };
 
 export function RadioButton({
   value,
   checked,
   onChange,
-  labelClassName = '',
   label,
+  labelClassName = '',
+  containerClassName = '',
 }: RadioButtonProps) {
   return (
-    <label className={`${labelClassName} ${s.label}`}>
-      <input type='radio' value={value} checked={checked} onChange={onChange} />
-      <span className={s.radio}></span>
-      {label}
-    </label>
+    <div className={containerClassName ? containerClassName : s.container}>
+      <label className={`${labelClassName} ${s.label}`}>
+        <input
+          type='radio'
+          value={value}
+          checked={checked}
+          onChange={onChange}
+        />
+        <span className={s.radio}></span>
+        {label}
+      </label>
+    </div>
   );
 }
