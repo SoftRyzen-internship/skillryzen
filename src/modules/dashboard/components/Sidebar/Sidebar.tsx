@@ -3,11 +3,10 @@ import React from 'react';
 import { SideBar } from 'ui-kit/SideBar/SideBar';
 import { Menu } from 'ui-kit/Menu/Menu';
 
-
-
+import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'theme';
 
-import { ROUTES } from 'routes/routes.const';
+import s from './Sidebar.module.scss'
 
 function generateId() {    
   return Math.random().toString(36).substring(2) +
@@ -62,9 +61,10 @@ const userMenu = [
   },
   {
     title: 'Feedback',
-    icon: ICONS.DIPLOMA,
+    icon: ICONS.MESSAGE_CIRCLE,
     iconAlt: 'Feedback',
     path: ROUTES.FEEDBACK,
+    className: s.iconMessage
   },
 ]
 
