@@ -1,10 +1,10 @@
 import s from './AuthFormStep3.module.scss';
-import { AuthButton, Input } from '../../../../ui-kit/index';
-import React, { useState } from 'react';
+import { AuthButton } from '../../../../ui-kit/index';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { ICONS } from 'theme';
-
+import InputMask from 'react-input-mask';
 interface FormValues {
   name: string;
   surname: string;
@@ -12,6 +12,8 @@ interface FormValues {
 }
 
 export const AuthFormStep3 = () => {
+  const phoneRegExp =
+    /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/;
   const [hasValue, setHasValue] = useState(false);
 
   const formik = useFormik<FormValues>({
@@ -25,22 +27,19 @@ export const AuthFormStep3 = () => {
       name: Yup.string()
         .required("Ім'я є обовязковим")
         .min(2, 'Повинно містити біле 2 символів')
-        .max(50, 'Повинно містити не більше 50 символів')
-        .matches(
-          /^([A-Za-z\-\']{1,50})|([А-Яа-я\-\']{2,50})$/,
-          'Невірна адреса імені'
-        ),
+        .max(50, 'Повинно містити не більше 50 символів'),
+      // .matches(
+      //   /^([A-Za-z\-\']{1,50})|([А-Яа-я\-\']{2,50})$/,
+      //   'Невірне імя'
+      // ),
       surname: Yup.string()
         .required('Прізвище є обовязковим')
         .min(2, 'Повинно містити біле 2 символів')
-        .max(50, 'Повинно містити не більше 50 символів')
-        .matches(
-          /^([A-Za-z\-\']{1,50})|([А-Яа-я\-\']{2,50})$/,
-          'Невірна адреса імені'
-        ),
-      password: Yup.string()
-        .min(8, 'Пароль повинен містити мінімум 8 символів')
-        .required("Пароль є обов'язковим"),
+        .max(50, 'Повинно містити не більше 50 символів'),
+
+      phone: Yup.string()
+        .required("Номер телефону є обов'язковим")
+        .matches(phoneRegExp, 'Невірний формат телефону'),
     }),
     onSubmit: (values) => {
       console.log(values);
@@ -49,7 +48,7 @@ export const AuthFormStep3 = () => {
 
   const {
     values,
-    isSubmitting,
+    isValid,
     errors,
     touched,
     handleBlur,
@@ -64,6 +63,12 @@ export const AuthFormStep3 = () => {
     setHasValue(event.target.value !== '');
   };
 
+  const handlePhoneInputChange = (event: { target: { value: string } }) => {
+    event.target.value = event.target.value.replace(/ /g, '').replace(/_/g, '');
+
+    handleChange(event);
+    setHasValue(event.target.value !== '');
+  };
   return (
     <>
       <form onSubmit={handleSubmit} className={s.form}>
@@ -85,6 +90,7 @@ export const AuthFormStep3 = () => {
             onBlur={handleBlur}
             value={name}
             autoComplete='name'
+            placeholder='Name'
           />
           <label
             className={`${s.floatingLabel} ${
@@ -104,7 +110,7 @@ export const AuthFormStep3 = () => {
             </>
           )}
           <input
-            className={`${s.input} ${
+            className={`${s.input}  ${
               touched.surname && errors.surname ? s.inputError : ''
             } ${touched.surname && !errors.surname ? s.inputValid : ''}`}
             name='surname'
@@ -114,6 +120,7 @@ export const AuthFormStep3 = () => {
             onBlur={handleBlur}
             value={surname}
             autoComplete='surname'
+            placeholder='Surname'
           />
           <label
             className={`${s.floatingLabel} ${
@@ -127,23 +134,26 @@ export const AuthFormStep3 = () => {
           </label>
         </div>
 
+        {/* Третій ІНПУТ */}
         <div className={`${s.floatingGroup} ${hasValue ? s.hasValue : ''}`}>
           {touched.phone && errors.phone && (
             <>
               <div className={s.errorMsg}>{errors.phone}</div>
             </>
           )}
-          <input
+          <InputMask
             className={`${s.input} ${s.inputPhone} ${
               touched.phone && errors.phone ? s.inputError : ''
             } ${touched.phone && !errors.phone ? s.inputValid : ''}`}
             name='phone'
-            type='number'
+            type='phone'
+            mask='+380 99 999 99 99'
             id='phone'
-            onChange={handleInputChange}
+            onChange={handlePhoneInputChange}
             onBlur={handleBlur}
             value={phone}
             autoComplete='off'
+            placeholder='Phone'
           />
           <label
             className={`${s.floatingLabel} ${s.floatingLabelPhone} ${
@@ -156,101 +166,23 @@ export const AuthFormStep3 = () => {
           <button
             type='button'
             onClick={() => console.log(`klikc`)}
-            className={`${s.showPasswordButton} ${
-              touched.phone && errors.phone ? s.showPasswordButtonError : ''
-            } ${
-              touched.phone && !errors.phone ? s.showPasswordButtonValid : ''
-            }`}
+            className={`${s.phoneButton} ${
+              touched.phone && errors.phone ? s.phoneButton : ''
+            } ${touched.phone && !errors.phone ? s.phoneButton : ''}`}
           >
-            {/* {showPassword ? (
-              <ICONS.EYE_CLOSED
-                className={`${s.iconEye} ${
-                  touched.password && errors.password ? s.iconEyeError : ''
-                } ${
-                  touched.password && !errors.password ? s.iconEyeValid : ''
-                }`}
-              />
-            ) : (
-              <ICONS.EYE_OPEN
-                className={`${s.iconEye} ${
-                  touched.password && errors.password ? s.iconEyeError : ''
-                } ${
-                  touched.password && !errors.password ? s.iconEyeValid : ''
-                }`}
-              />
-            )} */}
             <ICONS.UKRAINE />
           </button>
         </div>
+
+        <AuthButton
+          className={s.btnSubmit}
+          onClick={handleSubmit}
+          size='large'
+          text='Continue'
+          type='submit'
+          disabled={!(hasValue && isValid)}
+        />
       </form>
     </>
   );
 };
-// export const AuthFormStep3 = () => {
-//   const [values, setValues] = useState<FormValues>({
-//     name: '',
-//     surname: '',
-//     phone: '',
-//   });
-//   const [formErrors, setFormErrors] = useState({
-//     name: '',
-//     surname: '',
-//     phone: '',
-//   });
-
-//   const handleClick = () => {};
-//   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-//     const { name, value } = event.target;
-//     setValues((prevState) => ({ ...prevState, [name]: value }));
-//     if (value === '') {
-//       setFormErrors({ ...formErrors, [name]: `${name} не може бути порожнім` });
-//     } else {
-//       setFormErrors({ ...formErrors, [name]: '' });
-//     }
-//   };
-
-//   return (
-//     <form action=''>
-//       <ul>
-//         <li className={s.list__item}>
-//           <Input
-//             onChange={handleChange}
-//             className={s.codeInput}
-//             name='name'
-//             placeholder='Name'
-//             value={values.name}
-//           />
-//           <span>{formErrors.name}</span>
-//         </li>
-//         <li className={s.list__item}>
-//           <Input
-//             onChange={handleChange}
-//             className={s.codeInput}
-//             name='surname'
-//             placeholder='Surname'
-//             value={values.surname}
-//           />
-//           <span>{formErrors.surname}</span>
-//         </li>
-//         <li className={s.list__item}>
-//           <Input
-//             onChange={handleChange}
-//             className={s.codeInput}
-//             name='phone'
-//             placeholder='Phone'
-//             value={values.phone}
-//           />
-//           <span>{formErrors.phone}</span>
-//         </li>
-//       </ul>
-
-//       <AuthButton
-//         type='submit'
-//         text='Continue'
-//         size='small'
-//         onClick={handleClick}
-//         disabled //додав дізейблд, його треба зробити в залежності від того чи пройшов ти валідацію чи ні
-//       />
-//     </form>
-//   );
-// };
