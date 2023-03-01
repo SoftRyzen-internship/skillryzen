@@ -1,8 +1,7 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { AuthButton } from 'ui-kit';
 import s from './FinalTestInfo.module.scss';
-
-import { useTranslation } from 'react-i18next';
 
 interface IListInfoJS {
   topics: string;
@@ -58,7 +57,7 @@ export const FinalTestInfo = ({
   finishTest,
   test,
 }: IProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const { alt, width, height } = imageProps;
   return (

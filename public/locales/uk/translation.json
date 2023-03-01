@@ -17,5 +17,20 @@
     "bestTopic": "Найсильніша тема в",
     "section": "секція",
     "startTest": "Початок тестування"
+  },
+    "testsMain": {
+    "tests": "Тести",
+    "allTests": "Усі тести",
+    "myTests": "Мої тести",
+    "search": "Шукати..",
+    "practice": "Практика",
+    "filter": "Фільтр",
+    "numberOfQuestions": "50 запитань",
+    "time": "год"
+  },
+
+  "header": {
+    "search": "Шукати..",
+    "admin": "Адмін"
   }
 }
