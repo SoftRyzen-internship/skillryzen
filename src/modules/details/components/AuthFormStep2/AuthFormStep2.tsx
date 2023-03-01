@@ -32,7 +32,7 @@ export const AuthFormStep2 = ({ setStep }: IAuth) => {
 
     validationSchema: registerSchema,
 
-    onSubmit: (values) => {
+    onSubmit: (_values) => {
       setStep(3);
     },
   });
