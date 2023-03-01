@@ -1,10 +1,13 @@
-import s from './AuthFormStep3.module.scss';
-import { AuthButton } from '../../../../ui-kit/index';
-import { useState } from 'react';
-import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { ICONS } from 'theme';
+import { useFormik } from 'formik';
 import InputMask from 'react-input-mask';
+import { useState } from 'react';
+
+import { AuthButton } from 'ui-kit';
+import { ICONS } from 'theme';
+
+import s from './AuthFormStep3.module.scss';
+
 interface FormValues {
   name: string;
   surname: string;
