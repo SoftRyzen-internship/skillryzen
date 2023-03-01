@@ -112,7 +112,7 @@
   }
 
   .card--large & {
-    width: 129px;
+    max-width: 20%;
     column-gap: 4px;
     row-gap: 8px;
   }

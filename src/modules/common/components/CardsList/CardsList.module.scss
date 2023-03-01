@@ -1,14 +1,14 @@
 .testsList--large {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding-top: 13px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 13px;
 }
 
 .testsList--small {
-    min-width: 1096px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 25px;
-    padding-top: 13px;
+  min-width: 1096px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding-top: 13px;
 }
