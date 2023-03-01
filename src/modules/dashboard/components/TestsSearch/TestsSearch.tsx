@@ -6,7 +6,7 @@ import { Breadcrumbs } from 'ui-kit';
 
 import s from './TestsSearch.module.scss';
 
-export const TestSearch = () => {
+export const TestsSearch = () => {
   const { t } = useTranslation();
 
   return (

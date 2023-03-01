@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { TestSearch } from '../TestsSearch/TestsSearch';
+import { TestsSearch } from '../TestsSearch/TestsSearch';
 import { TestsFilter } from '../TestsFilter/TestsFilter';
 import { CardsList } from 'modules/common/components/CardsList/CardsList';
 
@@ -44,7 +44,7 @@ export const TestsMain = () => {
 
   return (
     <div className={s.testsPage}>
-      <TestSearch />
+      <TestsSearch />
       <TestsFilter setSize={setSize} size={size} />
       <CardsList type='info' size={size} testsArray={testsArray} />
     </div>
