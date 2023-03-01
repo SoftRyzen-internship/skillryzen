@@ -1,5 +1,3 @@
-import React from 'react';
-
 import s from './UnderDevelopment.module.scss';
 
 interface IUnderDevelopmentProps {

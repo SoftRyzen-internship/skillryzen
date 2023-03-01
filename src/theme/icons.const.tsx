@@ -82,8 +82,26 @@ import IconCaseRound from 'assets/svg/Case-Round.svg';
 import IconUserGroup from 'assets/svg/users-group.svg';
 import IconPauseVertical from 'assets/svg/pause-vertical.svg';
 import IconPauseHorizontal from 'assets/svg/pause-horizontal.svg';
+import IconWrong from 'assets/svg/wrong.svg';
+import IconCorrect from 'assets/svg/correct.svg';
+import IconChart from 'assets/svg/Chart.svg';
+import IconGoogle from 'assets/svg/google.svg';
 
-interface Icons { [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>> }
+import IconHtml from 'assets/svg/html.svg';
+import IconCss from 'assets/svg/css.svg';
+import IconJs from 'assets/svg/js.svg';
+import IconReact from 'assets/svg/react.svg';
+import IconNode from 'assets/svg/node.svg';
+import IconNext from 'assets/svg/next.svg';
+import IconPython from 'assets/svg/python.svg';
+import IconNest from 'assets/svg/nest.svg';
+import IconUx from 'assets/svg/ux.svg';
+
+
+
+//  IconCorrect
+
+import { Icons } from 'modules/common/types/index'
 
 export const ICONS: Icons = {
   ALERT: IconAlert,
@@ -167,5 +185,19 @@ export const ICONS: Icons = {
   USER_GROUP: IconUserGroup,
   PAUSE_VERTICAL: IconPauseVertical,
   PAUSE_HORIZONTAL: IconPauseHorizontal,
-  LOCK: IconLock
+  LOCK: IconLock,
+  WRONG: IconWrong,
+  CORRECT: IconCorrect,
+  CHART: IconChart,
+  GOOGLE: IconGoogle,
+  HTML: IconHtml,
+  CSS: IconCss,
+  JS: IconJs,
+  REACT: IconReact,
+  NODE: IconNode,
+  NEXT: IconNext,
+  PYTHON: IconPython,
+  NEST: IconNest,
+  UX: IconUx,
 }
+
