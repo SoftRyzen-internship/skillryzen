@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'theme/icons.const';
@@ -11,18 +11,22 @@ import { IThemeContext } from 'modules/common/types';
 
 export const HeaderButtonLanguage = () => {
   const { theme }: IThemeContext = useThemeContext();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const [lang, setLang] = useState<string>(() =>
-    localStorage.getItem('i18nextLng').slice(0, 2)
+    localStorage.getItem('i18nextLng')
   );
 
   const handleClickLanguage = (language: string) => {
+    if (language === 'Ukrainian' || language === 'Українська') {
+      i18n.changeLanguage('uk');
+    }
+    if (language === 'English' || language === 'Англійська') {
+      i18n.changeLanguage('en');
+    }
     const shortLangName = language.toLowerCase().slice(0, 2);
     setLang(shortLangName);
-
-    i18n.changeLanguage(shortLangName);
     setPopup(null);
   };
 
@@ -30,8 +34,8 @@ export const HeaderButtonLanguage = () => {
     setPopup(
       <Popup
         list={[
-          { icon: <ICONS.UK />, text: 'English' },
-          { icon: <ICONS.UKRAINE />, text: 'Ukrainian' },
+          { icon: <ICONS.UK />, text: t('header.language.eng') },
+          { icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
         ]}
         handleClickItem={handleClickLanguage}
       />

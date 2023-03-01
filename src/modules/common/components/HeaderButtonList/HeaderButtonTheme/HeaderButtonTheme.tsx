@@ -33,7 +33,9 @@ export const HeaderButtonTheme = () => {
           {
             icon: theme === 'dark' ? MoonIcon : SunIcon,
             text:
-              theme === 'dark' ? t('header.themeDark') : t('header.themeLight'),
+              theme === 'dark'
+                ? t('header.theme.dark')
+                : t('header.theme.light'),
           },
         ]}
       />

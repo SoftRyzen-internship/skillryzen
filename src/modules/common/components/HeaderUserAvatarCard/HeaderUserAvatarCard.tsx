@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { IMGS } from 'theme/images.const';
+import { ICONS } from 'theme/icons.const';
 
 import { useThemeContext } from 'context/themeContext';
 
-import { UserAvatarCard } from 'ui-kit/index';
-
-import { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
+import { UserAvatarCard, Popup } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
 import { IThemeContext } from 'modules/common/types';
@@ -27,7 +26,25 @@ export const HeaderUserAvatarCard = ({
   const { t } = useTranslation();
 
   const mouseEnterHandler = () => {
-    setPopup(<HeaderUserAvatarCardPopup />);
+    setPopup(
+      <Popup
+        list={[
+          {
+            icon: <ICONS.USER stroke='var(--primary-txt-cl)' />,
+            text: t('header.userAvatar.profile'),
+          },
+          {
+            icon: <ICONS.SETTINGS stroke='var(--primary-txt-cl)' />,
+            text: t('header.userAvatar.settings'),
+          },
+          {
+            icon: <ICONS.LOGOUT stroke='var(--primary-txt-cl)' />,
+            text: t('header.userAvatar.logOut'),
+          },
+        ]}
+        vievAll={t('header.viewAll')}
+      />
+    );
   };
   const mouseLeaveHandler = () => {
     setPopup(null);
