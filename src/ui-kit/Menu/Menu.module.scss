@@ -62,10 +62,17 @@
     }
   }
 
-  .menu__icon {
+  .menu__iconDark {
     stroke: var(--secondary-txt-cl);
     path {
       stroke: var(--secondary-txt-cl);
+    }
+  }
+
+  .menu__iconLight {
+    stroke: var(--accent-cl);
+    path {
+      stroke: var(--accent-cl);
     }
   }
 }

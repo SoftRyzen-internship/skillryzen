@@ -10,3 +10,5 @@ export interface IAuth {
 export interface Icons {
   [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
 }
+
+export type Theme = 'dark' | 'light';

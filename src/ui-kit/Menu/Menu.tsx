@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
-
 import { UseSideBarContext } from 'context/sideBarContext';
+import { Theme } from 'modules/common/types';
 
 import s from './Menu.module.scss';
 
@@ -13,9 +13,10 @@ interface IMenu {
 }
 interface IMenuProps {
   menu: IMenu[];
+  theme?: Theme;
 }
 
-export const Menu = ({ menu }: IMenuProps) => {
+export const Menu = ({ menu, theme }: IMenuProps) => {
   const isOpen = UseSideBarContext();
 
   return (
@@ -32,7 +33,12 @@ export const Menu = ({ menu }: IMenuProps) => {
                 isActive ? s.menu__navLinkActive : s.menu__navLink
               }
             >
-              <item.icon aria-label={item.iconAlt} className={s.menu__icon} />
+              <item.icon
+                aria-label={item.iconAlt}
+                className={
+                  theme === 'dark' ? s.menu__iconDark : s.menu__iconLight
+                }
+              />
               {isOpen && <p className={s.menu__title}>{item.title}</p>}
             </NavLink>
           </li>
