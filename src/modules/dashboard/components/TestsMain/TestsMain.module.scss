@@ -1,7 +1,7 @@
 .testsPage {
   background-color: var(--primary-cl);
   padding: 22px 60px 15px 24px;
-  height: 100vh;
+  height: calc(100vh - 72px);
 
   .testsPage__title {
     font-size: 30px;

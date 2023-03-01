@@ -34,7 +34,7 @@ export const SideBar = ({ children, spaceBetween }: SideBarProps) => {
         />
       </button>
       <SideBarContext.Provider value={isOpen}>
-        <div className={s.sideBar__listWrapper} style={{ gap: spaceBetween }}>
+        <div className={s.sideBar__listWrapper} style={{ justifyContent: spaceBetween }}>
           {children}
         </div>
       </SideBarContext.Provider>
