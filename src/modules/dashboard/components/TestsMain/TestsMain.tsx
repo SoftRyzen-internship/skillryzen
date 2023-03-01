@@ -7,7 +7,6 @@ import { CardsList } from 'modules/common/components/CardsList/CardsList';
 
 import s from './TestsMain.module.scss';
 
-
 const testsArray = [
   {
     title: 'FullStuck_Final_Test',
@@ -45,7 +44,7 @@ export const TestsMain = () => {
 
   return (
     <div className={s.testsPage}>
-<TestSearch/>
+      <TestSearch />
       <TestsFilter setSize={setSize} size={size} />
       <CardsList type='info' size={size} testsArray={testsArray} />
     </div>

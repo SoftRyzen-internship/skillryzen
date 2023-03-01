@@ -25,7 +25,11 @@ export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
   const { t } = useTranslation();
 
   return (
-    <ul className={size==="large" ? s['testsList--large'] : s['testsList--small']}>
+    <ul
+      className={
+        size === 'large' ? s['testsList--large'] : s['testsList--small']
+      }
+    >
       {testsArray.map((item, index) => (
         <li key={index}>
           <Link to='fullstack_final'>
