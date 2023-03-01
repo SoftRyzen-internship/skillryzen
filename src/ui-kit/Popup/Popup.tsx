@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useTranslation } from 'react-i18next';
 import s from './Popup.module.scss';
 
 type TItem = {
@@ -14,6 +14,7 @@ interface IProps {
 }
 
 export const Popup = ({ list, vievAll, handleClickItem }: IProps) => {
+  const { t } = useTranslation();
   return (
     <div className={s.popupWrapper}>
       <button
@@ -29,7 +30,7 @@ export const Popup = ({ list, vievAll, handleClickItem }: IProps) => {
             className={s.item}
             onClick={() => handleClickItem(text)}
           >
-            <div> {icon}</div>
+            <div>{icon}</div>
             <p className={s.text}>{text}</p>
           </li>
         ))}

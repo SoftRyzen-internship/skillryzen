@@ -14,11 +14,11 @@ export const TestInfo = () => {
     learners: 200,
     author: 'GoIT',
     icons: {
-      BAR: ICONS.BAR_TWO_LINE,
+      BAR: ICONS.BAR_ONE_LINE,
       CLOCK: ICONS.CLOCK,
-      QUESTION: ICONS.QUESTION_ROUND,
-      GROUP: ICONS.USER_GROUP,
+      QUESTION: ICONS.QUESTION_CIRCLE,
       USERS: ICONS.USERS,
+      USER: ICONS.USER,
     },
   };
   const navigate = useNavigate();

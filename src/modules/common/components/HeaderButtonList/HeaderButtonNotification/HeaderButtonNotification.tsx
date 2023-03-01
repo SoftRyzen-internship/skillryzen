@@ -1,24 +1,38 @@
 import { useState } from 'react';
-
-import { COLORS } from 'theme/colors.const';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from 'theme/icons.const';
 
-import { HeaderButton } from 'ui-kit/index';
-
-import { HeaderPopupNotification } from './HeaderPopupNotification';
+import { HeaderButton, Popup } from 'ui-kit/index';
 
 export const HeaderButtonNotification = () => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const { t } = useTranslation();
+
+  // тимчасовий масив, далі буде приходити з бекенду
+  const tempList = [
+    {
+      icon: <ICONS.PIN stroke='var(--primary-txt-cl)' />,
+      text: t('header.notifications.item1'),
+    },
+    {
+      icon: <ICONS.PIN stroke='var(--primary-txt-cl)' />,
+      text: t('header.notifications.item2'),
+    },
+    {
+      icon: <ICONS.PIN stroke='var(--primary-txt-cl)' />,
+      text: t('header.notifications.item2'),
+    },
+  ];
   const mouseEnterHandler = () => {
-    setPopup(<HeaderPopupNotification />);
+    setPopup(<Popup list={tempList} vievAll={t('header.viewAll')} />);
   };
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
   return (
     <HeaderButton
-      icon={<ICONS.BELL fill={COLORS.bellIcon} />}
-      IndicatorNumber={2}
+      icon={<ICONS.BELL fill='var(--primary-txt-cl)' />}
+      IndicatorNumber={tempList.length}
       IndicatorColor='yellow'
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}

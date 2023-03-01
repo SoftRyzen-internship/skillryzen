@@ -1,24 +1,34 @@
 import { useState } from 'react';
-
-import { COLORS } from 'theme/colors.const';
+import { useTranslation } from 'react-i18next';
 import { ICONS } from 'theme/icons.const';
-
-import { HeaderButton } from 'ui-kit/index';
-
-import { HeaderPopupCoin } from './HeaderPopupCoin';
+import { HeaderButton, Popup } from 'ui-kit/index';
 
 export const HeaderButtonCoin = () => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const { t } = useTranslation();
+
+  // тимчасовий масив, далі буде приходити з бекенду
+  const tempList = [
+    {
+      icon: <ICONS.COIN fill='var(--message-cl)' />,
+      text: t('header.coins.item1'),
+    },
+    {
+      icon: <ICONS.COIN fill='var(--message-cl)' />,
+      text: t('header.coins.item2'),
+    },
+  ];
+
   const mouseEnterHandler = () => {
-    setPopup(<HeaderPopupCoin />);
+    setPopup(<Popup list={tempList} vievAll={t('header.viewAll')} />);
   };
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
   return (
     <HeaderButton
-      icon={<ICONS.COIN fill={COLORS.coinIcon} stroke={COLORS.coinIcon} />}
-      IndicatorNumber={45}
+      icon={<ICONS.COIN fill='var(--primary-txt-cl)' />}
+      IndicatorNumber={tempList.length}
       IndicatorColor='green'
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}

@@ -1,1 +1,0 @@
-export { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
