@@ -2,28 +2,27 @@
   display: block;
   position: relative;
   width: 536px;
-
+  cursor: pointer;
   font-weight: 500;
   font-size: 17px;
   color: var(--primary-txt-cl);
   background-color: var(--components-cl);
   border-radius: 5px;
   padding: 20px 20px 20px 69px;
-  margin: 24px;
 
   &::before {
     position: absolute;
     top: 50%;
     left: 27px;
     transform: translateY(-50%);
-  
+
     display: block;
     content: '';
     width: 20px;
     height: 20px;
     border-radius: 50%;
     background-color: var(--disabled-cl);
-  }  
+  }
 }
 
 .labelPassTest input {
@@ -31,7 +30,6 @@
 }
 
 .labelPassTest--checked {
-
   &::before {
     background-color: transparent;
     border: 2px solid var(--primary-txt-cl);
@@ -45,8 +43,8 @@
 
     display: block;
     content: '';
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: var(--primary-txt-cl);
   }
@@ -71,5 +69,3 @@
     background-image: url('assets/images/javascript.png');
   }
 }
-
-
