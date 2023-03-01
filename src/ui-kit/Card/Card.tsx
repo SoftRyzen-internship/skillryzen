@@ -31,7 +31,7 @@ const imageObject = {
     background: 'green',
     icon: <ICONS.WARNING_CIRCLE className={s.card__icon} />,
   },
-  coin: { background: 'blue', icon: <ICONS.COIN className={s.card__icon} /> }
+  coin: { background: 'blue', icon: <ICONS.COIN className={s.card__icon} /> },
 };
 
 export const Card = ({

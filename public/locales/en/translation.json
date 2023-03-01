@@ -17,5 +17,21 @@
     "bestTopic": "The best topic in",
     "section": "section",
     "startTest": "Start Test"
+  },
+  "testsMain": {
+    "tests": "Tests",
+    "allTests": "All tests",
+    "myTests": "My tests",
+    "search": "Search..",
+    "practice": "Practice",
+    "filter": "Filter",
+    "numberOfQuestions": "50 questions",
+    "time": "hrs"
+  },
+
+  "header": {
+    "search": "Search..",
+    "admin": "Admin"
   }
+
 }

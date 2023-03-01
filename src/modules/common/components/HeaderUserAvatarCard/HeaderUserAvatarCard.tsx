@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { IMGS } from 'theme/images.const';
 import { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
 import { UserAvatarCard } from 'ui-kit/index';
@@ -16,6 +17,9 @@ export const HeaderUserAvatarCard = ({
   className,
 }: HeaderUserAvatarCardProps) => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
+
+  const { t } = useTranslation();
+
   const mouseEnterHandler = () => {
     setPopup(<HeaderUserAvatarCardPopup />);
   };
@@ -30,7 +34,7 @@ export const HeaderUserAvatarCard = ({
     >
       <UserAvatarCard
         userName='John Doe'
-        userRole='Admin'
+        userRole={t('header.admin')}
         userAvatarUrl={IMGS.JAVA_SCRIPT}
         userStatus='green'
       />
