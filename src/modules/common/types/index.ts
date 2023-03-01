@@ -1,6 +1,3 @@
 export type Img = { [key: string]: string };
-export interface IconProps {
-  classNames?: string
-  color?: string
-  size?: string
-}
+export interface Icons { [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>> }
+
