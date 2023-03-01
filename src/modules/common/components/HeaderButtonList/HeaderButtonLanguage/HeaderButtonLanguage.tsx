@@ -5,7 +5,7 @@ import { HeaderButton } from 'ui-kit/index';
 import { Popup } from 'ui-kit/index';
 
 export const HeaderButtonLanguage = () => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const [lang, setLang] = useState<string>(() =>
@@ -24,8 +24,8 @@ export const HeaderButtonLanguage = () => {
     setPopup(
       <Popup
         list={[
-          { icon: <ICONS.UK />, text: 'English' },
-          { icon: <ICONS.UKRAINE />, text: 'Ukrainian' },
+          { icon: <ICONS.UK />, text: t('header.language.eng') },
+          { icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
         ]}
         handleClickItem={handleClickLanguage}
       />

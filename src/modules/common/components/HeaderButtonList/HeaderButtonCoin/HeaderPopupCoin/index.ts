@@ -1,1 +1,0 @@
-export { HeaderPopupCoin } from './HeaderPopupCoin';

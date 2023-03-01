@@ -31,7 +31,17 @@
 
   "header": {
     "search": "Search..",
-    "admin": "Admin"
+    "admin": "Admin",
+    "viewAll": "View all",
+    "hideAll": "Hide all",
+    "coins" : {
+      "item1": "+2 coins for test",
+      "item2": "+5 coins for invite"
+    },
+    "language": {
+      "ukr": "Ukrainian",
+      "eng": "English"
+    }
   }
 
 }
