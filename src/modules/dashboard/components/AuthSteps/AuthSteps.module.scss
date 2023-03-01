@@ -1,3 +1,12 @@
+.section {
+  margin: 0 auto;
+  padding-top: 9.77vh;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3.9vh;
+}
+
 .formWrapper {
   font-size: var(--text-lg);
   text-align: center;

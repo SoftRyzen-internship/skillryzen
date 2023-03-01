@@ -40,6 +40,18 @@
   cursor: pointer;
 }
 
+.inputTitle {
+  position: absolute;
+  top: 0;
+  left: 16px;
+
+  display: inline-block;
+
+  color: var(--secondary-txt-cl);
+
+  transition: transform var(--transition), font-size var(--transition);
+}
+
 .codeInput {
   position: relative;
   margin-bottom: 12px;
@@ -52,18 +64,22 @@
   outline: none;
 
   background-color: transparent;
-}
 
-.codeInput::placeholder {
-  color: var(--secondary-txt-cl);
-}
+  &:not(:placeholder-shown) + .inputTitle,
+  &:focus + .inputTitle {
+    padding: 0 4px;
+    transform: translateY(-23px);
 
-.buttonsWrapper {
-  font-size: var(--text-md);
+    font-size: var(--text-sm);
+
+    background-color: var(--primary-cl);
+  }
 }
 
 .buttonsTitle {
   margin-bottom: 8px;
+
+  font-weight: var(--bold);
 }
 
 .buttonsList {
@@ -71,6 +87,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  font-size: var(--text-md);
 
   & > li:first-child {
     font-size: 16px;
@@ -81,22 +99,50 @@
   }
 }
 
-.inputWrapper {
+.label {
   position: relative;
 }
 
-.valid .codeInput {
-  border-color: var(--success-cl);
+.valid {
+  & .codeInput:not(:placeholder-shown) {
+    border-color: var(--success-cl);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background-image: url('assets/svg/check-validation.svg');
+  }
 }
 
-.valid::after {
-  content: '';
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 24px;
-  height: 24px;
-  background-image: url('assets/svg/check-validation.svg');
+.invalid {
+  & .codeInput:not(:placeholder-shown) {
+    border-color: var(--error-cl);
+  }
+
+  // &::before{
+  //   content: 'Спробуйте інший код';
+  //   position: absolute;
+  //   bottom: -34px;
+  //   left: 16px;
+  //   display: inline-block;
+  //   font-size: var(--text-sm);
+  //   color: var(--error-cl);
+  // }
+
+  // &::after{
+  //   content: '';
+  //   position: absolute;
+  //   top: 0;
+  //   right: 12px;
+  //   width: 24px;
+  //   height: 24px;
+  //   background-image: url('assets/svg/warning-circle.svg');
+  // }
 }
 
 .company {
