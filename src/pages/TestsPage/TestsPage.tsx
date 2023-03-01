@@ -1,4 +1,6 @@
-import { Header, MainLayout, Sidebar } from 'modules/dashboard';
+import { Outlet } from 'react-router';
+
+import { Header, Sidebar } from 'modules/dashboard';
 import { TestsContainer } from 'modules/dashboard/components/TestsContainer';
 
 const TestsPage = () => {
@@ -7,7 +9,7 @@ const TestsPage = () => {
       <Header />
       <TestsContainer>
         <Sidebar />
-        <MainLayout />
+        <Outlet />
       </TestsContainer>
     </>
   );

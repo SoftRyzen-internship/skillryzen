@@ -1,10 +1,12 @@
-import { MainLayout, HeaderTest } from 'modules/dashboard';
+import { Outlet } from 'react-router';
+
+import { HeaderTest } from 'modules/dashboard';
 
 const TestingPage = () => {
   return (
     <>
       <HeaderTest />
-      <MainLayout />
+      <Outlet />
     </>
   );
 };
