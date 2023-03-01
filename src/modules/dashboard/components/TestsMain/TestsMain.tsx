@@ -8,9 +8,9 @@ import { Tabs } from 'ui-kit/Tabs/Tabs';
 import { Card } from 'ui-kit/Card/Card';
 import { Breadcrumbs } from 'ui-kit/Breadcrumbs';
 
-import s from './TestsAll.module.scss';
+import s from './TestsMain.module.scss';
 
-export const TestsAll = () => {
+export const TestsMain = () => {
   const { t } = useTranslation();
 
   return (
