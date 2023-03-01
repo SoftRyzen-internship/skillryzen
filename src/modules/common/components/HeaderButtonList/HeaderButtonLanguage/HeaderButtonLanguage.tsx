@@ -9,7 +9,7 @@ export const HeaderButtonLanguage = () => {
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const [lang, setLang] = useState<string>(() =>
-    localStorage.getItem('i18nextLng').slice(0, 2),
+    localStorage.getItem('i18nextLng').slice(0, 2)
   );
 
   const handleClickLanguage = (language: string) => {
@@ -28,7 +28,7 @@ export const HeaderButtonLanguage = () => {
           { icon: <ICONS.UKRAINE />, text: 'Ukrainian' },
         ]}
         handleClickItem={handleClickLanguage}
-      />,
+      />
     );
   };
   const mouseLeaveHandler = () => {

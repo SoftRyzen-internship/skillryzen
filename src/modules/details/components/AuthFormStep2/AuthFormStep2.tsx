@@ -17,7 +17,7 @@ export const AuthFormStep2 = () => {
   const [_, setHasValue] = useState(false);
 
   const handleCheckboxFormStep2 = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setIsCheckedForm(event.target.checked);
   };

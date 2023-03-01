@@ -30,7 +30,7 @@ const contactsSlice = createSlice({
 
     deleteContact({ contacts }, action: PayloadAction<string>) {
       const index = contacts.findIndex(
-        (contact) => contact.id === action.payload,
+        (contact) => contact.id === action.payload
       );
       contacts.splice(index, 1);
     },
@@ -45,5 +45,5 @@ const persistConfig = {
 export const { addContact, deleteContact } = contactsSlice.actions;
 export const contactsReducer = persistReducer(
   persistConfig,
-  contactsSlice.reducer,
+  contactsSlice.reducer
 );

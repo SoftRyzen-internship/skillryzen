@@ -20,12 +20,7 @@ module.exports = {
     'plugin:react-hooks/recommended',
     'prettier',
   ],
-  plugins: [
-    'react',
-    'react-hooks',
-    '@typescript-eslint',
-    'prettier',
-  ],
+  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
   settings: {
     react: {
       version: 'detect',
@@ -51,7 +46,16 @@ module.exports = {
     'no-console': 'warn',
     'react/jsx-indent': ['warn', 2],
     indent: ['warn', 2],
-    'comma-dangle': ['warn', 'always-multiline'],
+    'comma-dangle': [
+      'warn',
+      {
+        arrays: 'always-multiline',
+        objects: 'always-multiline',
+        imports: 'always-multiline',
+        exports: 'always-multiline',
+        functions: 'never',
+      },
+    ],
     semi: ['warn', 'always'],
     'import/no-named-as-default': 0,
     'import/prefer-default-export': 'off',
@@ -73,4 +77,3 @@ module.exports = {
     // ],
   },
 };
-
