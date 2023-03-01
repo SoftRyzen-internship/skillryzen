@@ -64,6 +64,7 @@ export const TestQuestion = ({
               <RadioButton
                 key={index}
                 state={
+                  // це тимчасове рішення поки нема бекенду
                   (sendAnswer &&
                     sendAnswer === answer.value &&
                     rightAnswer === answer.value) ||
