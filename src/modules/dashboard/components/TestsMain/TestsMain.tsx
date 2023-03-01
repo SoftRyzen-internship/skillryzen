@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { TestsSearch } from '../TestsSearch/TestsSearch';
 import { TestsFilter } from '../TestsFilter/TestsFilter';
@@ -40,7 +39,6 @@ const testsArray = [
 
 export const TestsMain = () => {
   const [size, setSize] = useState<'large' | 'small'>('large');
-  const { t } = useTranslation();
 
   return (
     <div className={s.testsPage}>
