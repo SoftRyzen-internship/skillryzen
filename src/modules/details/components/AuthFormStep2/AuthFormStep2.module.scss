@@ -119,3 +119,13 @@
     stroke: var(--success-cl);
   }
 }
+.googleButton {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12px 0;
+  font-weight: 400;
+}
+.googleIcon {
+  margin-right: 8px;
+}

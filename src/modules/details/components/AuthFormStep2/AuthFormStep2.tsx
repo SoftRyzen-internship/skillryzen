@@ -13,7 +13,7 @@ interface MyFormValues {
 export const AuthFormStep2 = () => {
   const [isCheckedForm, setIsCheckedForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-  const [hasValue, setHasValue] = useState(false);
+  const [_, setHasValue] = useState(false);
 
   const handleCheckboxFormStep2 = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -52,6 +52,7 @@ export const AuthFormStep2 = () => {
     handleChange(event);
     setHasValue(event.target.value !== '');
   };
+  const iconGoogle = <ICONS.GOOGLE className={s.googleIcon} />;
 
   return (
     <>
@@ -62,6 +63,9 @@ export const AuthFormStep2 = () => {
           text='Google'
           type='button'
           needBackground='noBackgroundGray'
+          icon={iconGoogle}
+          className={s.googleButton}
+          disabled
         />
         <div className={s.boxOr}>or</div>
         <br />
