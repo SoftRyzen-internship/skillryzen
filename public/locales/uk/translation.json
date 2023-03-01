@@ -45,6 +45,11 @@
     "notifications": {
       "item1": "Результати тесту",
       "item2": "Нові повідомлення"
+    },
+    "userAvatar": {
+      "profile": "Профіль",
+      "settings": "Налаштування",
+      "logOut": "Вийти"
     }
   }
 }

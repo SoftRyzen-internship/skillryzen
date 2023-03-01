@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'theme/icons.const';
@@ -9,14 +9,18 @@ export const HeaderButtonLanguage = () => {
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const [lang, setLang] = useState<string>(() =>
-    localStorage.getItem('i18nextLng').slice(0, 2)
+    localStorage.getItem('i18nextLng')
   );
 
   const handleClickLanguage = (language: string) => {
+    if (language === 'Ukrainian' || language === 'Українська') {
+      i18n.changeLanguage('uk');
+    }
+    if (language === 'English' || language === 'Англійська') {
+      i18n.changeLanguage('en');
+    }
     const shortLangName = language.toLowerCase().slice(0, 2);
     setLang(shortLangName);
-
-    i18n.changeLanguage(shortLangName);
     setPopup(null);
   };
 
