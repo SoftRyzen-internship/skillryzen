@@ -53,7 +53,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
               <div className={setClassnameCircleContainer(idx)}>
                 <div className={setClassnameCircle(idx)}>
                   {currentStep <= idx + 1 && step}
-                  {currentStep > idx + 1 && <ICONS.CHECK_MARK />}
+                  {currentStep > idx + 1 && <ICONS.CHECK_MARK className={s.icon} />}
                 </div>
               </div>
               {step < 4 && (

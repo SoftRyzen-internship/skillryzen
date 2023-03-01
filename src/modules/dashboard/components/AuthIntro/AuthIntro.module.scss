@@ -1,15 +1,13 @@
 .section{
+  padding-top: 11.72vh;
   width: 49.2vw;
   height: 100vh;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   background-color: var(--accent-cl);
 }
 
 .authIntroWrapper{
+  margin: auto;
   padding-top: 268px;
   width: 408px;
 }

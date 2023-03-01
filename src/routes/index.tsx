@@ -24,9 +24,9 @@ import { TestingMain } from '../modules/dashboard/components/TestingMain';
 // const TestsPage = lazy(() => import('@modules/pages/TestsPage/TestsPage'));
 
 const routes = [
+  { path: '/', element: <RegisterPage /> },
   { path: '/register', element: <RegisterPage /> },
   { path: '/login', element: <LoginPage /> },
-  { path: '/', element: <LoginPage /> },
   { path: '/student', element: <StudentPage /> },
   { path: '/company', element: <CompanyPage /> },
   {
