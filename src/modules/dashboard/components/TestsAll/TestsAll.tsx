@@ -4,13 +4,13 @@ import { Tabs } from 'ui-kit/Tabs/Tabs';
 // import { Card } from 'ui-kit/Card/Card';
 // import { Breadcrumbs } from 'ui-kit/Breadcrumbs/Breadcrumbs';
 
-import s from './TestsMain.module.scss';
+import s from './TestsAll.module.scss';
 import { Card } from 'ui-kit/Card/Card';
 import { ICONS } from 'theme';
 import { Breadcrumbs } from 'ui-kit/Breadcrumbs';
 import { Link } from 'react-router-dom';
 
-export const TestsMain = () => {
+export const TestsAll = () => {
   const { t } = useTranslation();
 
   return (
@@ -27,7 +27,7 @@ export const TestsMain = () => {
               icon={<ICONS.SEARCH fill='#9D9FB5' />}
             />
             <button className={s.testsPage__button}>
-              <ICONS.BOOK className={s.testsPage__iconBook} />{' '}
+              <ICONS.BOOK className={s.testsPage__iconBook} />
               {t('testsMain.practice')}
             </button>
           </div>
