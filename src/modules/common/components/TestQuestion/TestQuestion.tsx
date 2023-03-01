@@ -69,10 +69,10 @@ export const TestQuestion = ({
                   (sendAnswer && rightAnswer === answer.value)
                     ? 'right'
                     : sendAnswer && sendAnswer === answer.value
-                      ? 'wrong'
-                      : !sendAnswer && selectedAnswer === answer.value
-                        ? 'checked'
-                        : ''
+                    ? 'wrong'
+                    : !sendAnswer && selectedAnswer === answer.value
+                    ? 'checked'
+                    : ''
                 }
                 type='PassTest'
                 name='answers'

@@ -21,7 +21,7 @@ export const registerSchema = Yup.object({
       (value) => !/\s/.test(value)
     )
     .required("Пароль є обов'язковим"),
-  checkbox: Yup.boolean().oneOf([true]).required()
+  checkbox: Yup.boolean().oneOf([true]).required(),
 });
 
 export const contactInfoSchema = Yup.object({
@@ -34,10 +34,14 @@ export const contactInfoSchema = Yup.object({
     .min(2, 'Повинно містити біле 2 символів')
     .max(50, 'Повинно містити не більше 50 символів'),
   phone: Yup.string()
-  .transform((value, originalValue) => {
-    return originalValue ? originalValue.replace(/ /g, '').replace(/_/g, '') : '';
-  })
-  .matches(/((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/, 'Невірний формат телефону')
-  .required("Номер телефону є обов'язковим")
-})
-
+    .transform((value, originalValue) => {
+      return originalValue
+        ? originalValue.replace(/ /g, '').replace(/_/g, '')
+        : '';
+    })
+    .matches(
+      /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/,
+      'Невірний формат телефону'
+    )
+    .required("Номер телефону є обов'язковим"),
+});

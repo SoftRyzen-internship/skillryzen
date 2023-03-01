@@ -1,10 +1,8 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { ICONS } from 'theme';
 import { AuthButton } from 'ui-kit';
-
-import React from 'react';
 
 import s from './AuthFormStep1.module.scss';
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
