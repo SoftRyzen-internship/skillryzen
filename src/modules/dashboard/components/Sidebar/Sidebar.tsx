@@ -73,7 +73,7 @@ export const Sidebar = () => {
         <Menu menu={menu} key={generateId()} />,
         <Menu menu={userMenu} key={generateId()} />,
       ]}
-      /* spaceBetween='space-between' */
+      spaceBetween='space-between'
     />
   );
 };
