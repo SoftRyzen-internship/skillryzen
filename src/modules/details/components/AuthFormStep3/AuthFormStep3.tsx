@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import { AuthButton } from 'ui-kit';
 import { ICONS } from 'theme';
+import { IAuth } from 'modules/common/types';
 
 import s from './AuthFormStep3.module.scss';
 
@@ -14,7 +15,7 @@ interface FormValues {
   phone: string;
 }
 
-export const AuthFormStep3 = () => {
+export const AuthFormStep3 = ({ setStep }: IAuth) => {
   const phoneRegExp =
     /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/;
   const [hasValue, setHasValue] = useState(false);
@@ -44,8 +45,8 @@ export const AuthFormStep3 = () => {
         .required("Номер телефону є обов'язковим")
         .matches(phoneRegExp, 'Невірний формат телефону'),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: () => {
+      setStep(4);
     },
   });
 

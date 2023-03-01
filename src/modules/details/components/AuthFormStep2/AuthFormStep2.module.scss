@@ -11,6 +11,8 @@
   font-size: 14px;
   margin-top: 28px;
   margin-bottom: 44px;
+
+  cursor: pointer;
 }
 
 .floatingGroup {
@@ -65,7 +67,7 @@
 }
 
 .boxOr {
-  margin-top: 16px;
+  margin: 16px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -121,7 +123,7 @@
 }
 .googleButton {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 12px 0;
   font-weight: 400;

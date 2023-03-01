@@ -18,8 +18,8 @@ export const AuthSteps = ({ step, setStep, role, setRole }: IAuth) => {
       {step === 1 && (
         <AuthFormStep1 setStep={setStep} setRole={setRole} role={role} />
       )}
-      {step === 2 && <AuthFormStep2 setStep={setStep} />}
-      {step === 3 && <AuthFormStep3 />}
+      {step === 2 && <AuthFormStep2 setStep={setStep} role={role} />}
+      {step === 3 && <AuthFormStep3 setStep={setStep} role={role} />}
       {step === 4 && <AuthFormStep4 />}
     </section>
   );

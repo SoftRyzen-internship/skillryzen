@@ -15,6 +15,8 @@ type CheckboxProps = {
   type?: 'form' | 'filter' | 'custom' | '';
   labelClassName?: string;
   label?: string;
+  id: string;
+  name: string;
 };
 
 export const Checkbox: FC<CheckboxProps> = ({
@@ -26,6 +28,8 @@ export const Checkbox: FC<CheckboxProps> = ({
   type = '',
   labelClassName = '',
   label,
+  id,
+  name,
 }) => {
   const [checked, setChecked] = useState(initialState);
 
@@ -46,6 +50,8 @@ export const Checkbox: FC<CheckboxProps> = ({
   return (
     <label className={labelClass(type)}>
       <input
+        id={id}
+        name={name}
         type='checkbox'
         checked={checked}
         onChange={(e) => {

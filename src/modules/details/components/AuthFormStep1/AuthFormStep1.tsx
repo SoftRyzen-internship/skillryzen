@@ -80,18 +80,20 @@ export const AuthFormStep1 = ({ setStep, setRole, role }: IAuth) => {
             </li>
           </ul>
         </fieldset>
-        <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
-          <input
-            onChange={handleChange}
-            className={s.codeInput}
-            name='code'
-            value={code}
-            placeholder='&#32;'
-          />
-          <span className={s.inputTitle}>Введіть код компанії</span>
-        </label>
+        {role === 'candidate' && (
+          <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
+            <input
+              onChange={handleChange}
+              className={s.codeInput}
+              name='code'
+              value={code}
+              placeholder='&#32;'
+            />
+            <span className={s.inputTitle}>Введіть код компанії</span>
+          </label>
+        )}
         <ul className={s.buttonsList}>
-          {isValid && (
+          {isValid && role === 'candidate' && (
             <li>
               <p className={s.buttonsTitle}>Your company is</p>
               <AuthButton

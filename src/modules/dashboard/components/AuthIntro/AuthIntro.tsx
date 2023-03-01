@@ -2,15 +2,15 @@ import s from './AuthIntro.module.scss';
 
 import { IAuth } from 'modules/common/types';
 
-const introMeta = {
-  company: [
+const meta = {
+  candidate: [
     'Пройти тест з JavaScript',
     'Отримати сертифікат',
     'Оновлене проходження раз у 10 днів',
     'Отримати сертифікат',
     'Отримати',
   ],
-  candidate: [
+  company: [
     'Створення власних тестів',
     'Необмежена кількість учасників',
     'Можливість надавати доступ до команди',
@@ -20,15 +20,17 @@ const introMeta = {
 };
 
 export const AuthIntro = ({ role }: IAuth) => {
+  const introMeta = role === 'candidate' ? meta.candidate : meta.company;
+
   return (
     <section className={s.section}>
       <div
-        className={`${s.authIntroWrapper} ${
+        className={`${
           role === 'candidate' ? s.authCandidateBg : s.authCompanyBg
         }`}
       >
         <ul className={s.introMetaList}>
-          {introMeta.candidate.map((item, idx) => (
+          {introMeta.map((item, idx) => (
             <li key={idx} className={s.introMetaItem}>
               {item}
             </li>

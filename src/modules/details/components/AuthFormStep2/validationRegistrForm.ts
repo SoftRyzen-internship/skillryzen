@@ -15,5 +15,10 @@ export const validationSchema = Yup.object({
     ),
   password: Yup.string()
     .min(8, 'Пароль повинен містити мінімум 8 символів')
+    .test(
+      'has-spaces',
+      'Пробіли заборонені в паролі',
+      (value) => !/\s/.test(value)
+    )
     .required("Пароль є обов'язковим"),
 });

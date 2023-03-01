@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 
-export const RegisterSchema = Yup.object({
+export const registerSchema = Yup.object({
   email: Yup.string()
     .email('Некоректна адреса електронної пошти')
     .required("Електронна пошта є обов'язковою")
@@ -15,5 +15,12 @@ export const RegisterSchema = Yup.object({
     ),
   password: Yup.string()
     .min(8, 'Пароль повинен містити мінімум 8 символів')
+    .test(
+      'has-spaces',
+      'Пробіли заборонені в паролі',
+      (value) => !/\s/.test(value)
+    )
     .required("Пароль є обов'язковим"),
+  checkbox: Yup.boolean().oneOf([true]).required()
 });
+

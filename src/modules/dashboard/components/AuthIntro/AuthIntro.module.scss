@@ -15,11 +15,13 @@
 }
 
 .authCandidateBg{
+  composes: authIntroWrapper;
   background-image: url('assets/images/registration-monitor-user.png');
 
 }
 
 .authCompanyBg{
+  composes: authIntroWrapper;
   background-image: url('assets/images/registration-company.png');
 }
 
