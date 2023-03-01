@@ -42,7 +42,6 @@ export const HeaderUserAvatarCard = ({
             text: t('header.userAvatar.logOut'),
           },
         ]}
-        vievAll={t('header.viewAll')}
       />
     );
   };
