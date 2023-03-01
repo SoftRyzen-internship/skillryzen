@@ -56,6 +56,13 @@
     background-color: var(--primary-cl);
     padding: 0px 4px;
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--primary-txt-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .errorMsg {
@@ -112,6 +119,13 @@
   path {
     stroke: var(--error-cl);
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .floatingLabelValid * {
@@ -119,6 +133,13 @@
   border-color: var(--success-cl);
   path {
     stroke: var(--success-cl);
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--success-cl);
+    -webkit-background-clip: text;
   }
 }
 .googleButton {
