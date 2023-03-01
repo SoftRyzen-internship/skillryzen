@@ -79,7 +79,7 @@ export const FinalTestInfo = ({
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={s.iconThumb}>
-                <listInfo.icons.BAR className={s.icon} />
+                <listInfo.icons.BAR fill='var(--primary-txt-cl)' />
               </div>
               <p className={s.text}>{t('finalTestInfo.list.topics')}</p>
             </div>
@@ -106,7 +106,7 @@ export const FinalTestInfo = ({
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={s.iconThumb}>
-                <listInfo.icons.GROUP className={s.icon} />
+                <listInfo.icons.USERS className={s.icon} />
               </div>
               <p className={s.text}>{t('finalTestInfo.list.learners')}</p>
             </div>
@@ -115,7 +115,7 @@ export const FinalTestInfo = ({
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={s.iconThumb}>
-                <listInfo.icons.USERS className={s.icon} />
+                <listInfo.icons.USER className={s.icon} />
               </div>
               <p className={s.text}>{t('finalTestInfo.list.author')}</p>
             </div>

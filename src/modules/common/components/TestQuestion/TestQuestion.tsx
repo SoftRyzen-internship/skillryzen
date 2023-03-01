@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 
-import { AuthButton } from 'ui-kit/Buttons/AuthBtn/AuthButton';
-import { RadioButton } from 'ui-kit';
+import { AuthButton, RadioButton } from 'ui-kit';
 
 import { IInfo, array } from 'pages/TestingPage/TestingPage';
 
@@ -21,6 +20,9 @@ interface ITestQuestionProps {
   hasNextQuestion: boolean;
 }
 
+// Ця логіка на демо-версію
+// type IState = 'checked' | 'wrong' | 'right' | '';
+
 export const TestQuestion = ({
   testId,
   questionId,
@@ -35,6 +37,7 @@ export const TestQuestion = ({
   const [sendAnswer, setSendAnswer] = useState<string | null>(null);
 
   const handleAnswer = () => {
+    // сет-таймаут для демо-версії, поки залишаємо, як буде бек - переробиться логіка
     if (selectedAnswer) {
       setSendAnswer(selectedAnswer);
       setTimeout(() => {
@@ -47,10 +50,26 @@ export const TestQuestion = ({
           possibleAnswers: array[number].possibleAnswers,
           hasNextQuestion: array[number].hasNextQuestion,
         });
-      }, 1000);
+      }, 0);
     }
     setNumber((prevstate) => prevstate + 1);
   };
+
+  // Ця логіка на демо-версію
+  // const chooseState = (value: string): IState => {
+  //   if (
+  //     (sendAnswer && sendAnswer === value && rightAnswer === value) ||
+  //     (sendAnswer && rightAnswer === value)
+  //   ) {
+  //     return 'right';
+  //   } else if (sendAnswer && sendAnswer === value) {
+  //     return 'wrong';
+  //   } else if (!sendAnswer && selectedAnswer === value) {
+  //     return 'checked';
+  //   } else {
+  //     return '';
+  //   }
+  // };
 
   return (
     <div className={s.testWrapper}>
@@ -61,18 +80,9 @@ export const TestQuestion = ({
           {possibleAnswers.map((answer, index) => (
             <li key={index}>
               <RadioButton
+                // state={chooseState(answer.value)}
                 state={
-                  // це тимчасове рішення поки нема бекенду
-                  (sendAnswer &&
-                    sendAnswer === answer.value &&
-                    rightAnswer === answer.value) ||
-                  (sendAnswer && rightAnswer === answer.value)
-                    ? 'right'
-                    : sendAnswer && sendAnswer === answer.value
-                      ? 'wrong'
-                      : !sendAnswer && selectedAnswer === answer.value
-                        ? 'checked'
-                        : ''
+                  !sendAnswer && selectedAnswer === answer.value && 'checked'
                 }
                 type='PassTest'
                 name='answers'

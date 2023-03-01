@@ -1,10 +1,40 @@
 .menu__list {
-  .menu__item {
+  .menu__itemOpen {
+    width: 176px;
+    transform: translateX(0);
+    transition: 0.5s;
+    
     :hover.menu__navLink {
       color: var(--primary-txt-cl);
       background-color: var(--accent-cl);
       border-radius: 5px;
+
+      svg {
+        stroke: var(--primary-txt-cl);
+        path {
+            stroke: var(--primary-txt-cl);
+        }
+        }
     }
+  }
+
+  .menu__itemClose {
+    width: 56px;
+    transform: translateX(0);
+    transition: 0.5s;
+
+    :hover.menu__navLink {
+        color: var(--primary-txt-cl);
+        background-color: var(--accent-cl);
+        border-radius: 5px;
+  
+        svg {
+          stroke: var(--primary-txt-cl);
+          path {
+              stroke: var(--primary-txt-cl);
+          }
+          }
+      }
   }
 
   .menu__navLink {
@@ -24,15 +54,20 @@
     color: var(--primary-txt-cl);
     border-radius: 5px;
 
-    /* svg {
-            path {
-                fill: var(--primary-txt-cl);
-            }
-            ellipse {
-                fill: var(--primary-txt-cl);
-            }
-        } */
+    svg {
+        stroke: var(--primary-txt-cl);
+        path {
+            stroke: var(--primary-txt-cl);
+        }
+    }
   }
+
+  .menu__icon {
+    stroke: var(--secondary-txt-cl);
+    path {
+        stroke: var(--secondary-txt-cl);
+    }
+}
 
   .menu__title {
     line-height: calc(14 / 14);

@@ -1,95 +1,89 @@
-import { useFormik } from 'formik';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import { useFormik } from 'formik';
 
-import { AuthButton } from 'ui-kit/index';
-import { Checkbox } from 'ui-kit/Checkbox';
+import { AuthButton, Checkbox } from 'ui-kit';
+
 import { ICONS } from 'theme';
-import { validationSchema } from './validationRegistrForm';
+import { registerSchema } from 'services/validationSchema';
+
+import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 import s from './AuthFormStep2.module.scss';
+
+import { IAuth } from 'modules/common/types';
+
 interface MyFormValues {
   email: string;
   password: string;
+  checkbox: boolean;
 }
 
-export const AuthFormStep2 = () => {
-  const [isCheckedForm, setIsCheckedForm] = useState(false);
+export const AuthFormStep2 = ({ setStep }: IAuth) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [_, setHasValue] = useState(false);
 
-  const handleCheckboxFormStep2 = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setIsCheckedForm(event.target.checked);
-  };
-
-  const handleSubmitGoogle = () => {
-    // console.log('click google');
-  };
+  // const handleClickGoogle = () => {};
 
   const formik = useFormik<MyFormValues>({
     initialValues: {
       email: '',
       password: '',
+      checkbox: false,
     },
-    validationSchema,
-    onSubmit: (values) => {
-      // console.log(values);
+
+    validationSchema: registerSchema,
+
+    onSubmit: (_values) => {
+      setStep(3);
     },
   });
 
   const {
-    values,
-    isSubmitting,
+    values: { email, password },
     errors,
     touched,
+    isValid,
+    dirty,
     handleBlur,
     handleChange,
     handleSubmit,
   } = formik;
 
-  const { email, password } = values;
-
-  const handleInputChange = (event: { target: { value: string } }) => {
-    handleChange(event);
-    setHasValue(event.target.value !== '');
-  };
-  const iconGoogle = <ICONS.GOOGLE className={s.googleIcon} />;
-
   return (
-    <>
+    <div className={container.formWrapper}>
+      <h2 className={container.formTitle}>Get started for free</h2>
+      <p className={container.logIn}>
+        Already have an account?{' '}
+        <NavLink to='/login' className={container.link}>
+          Log in
+        </NavLink>
+      </p>
       <form onSubmit={handleSubmit} className={s.form}>
         <AuthButton
-          onClick={handleSubmitGoogle}
+          // onClick={handleClickGoogle}
           size='large'
           text='Google'
           type='button'
           needBackground='noBackgroundGray'
-          icon={iconGoogle}
+          icon={<ICONS.GOOGLE className={s.googleIcon} />}
           className={s.googleButton}
           disabled
         />
         <div className={s.boxOr}>or</div>
-        <br />
         <div
           className={`${s.floatingGroup} ${
-            touched.email && errors.email
-              ? s.floatingLabelError
-              : touched.email && !errors.email
-                ? s.floatingLabelValid
-                : ''
+            touched.email &&
+            (errors.email ? s.floatingLabelError : s.floatingLabelValid)
           }`}
         >
           {touched.email && errors.email && (
-            <>
-              <p className={s.errorMsg}>{errors.email}</p>
-            </>
+            <p className={s.errorMsg}>{errors.email}</p>
           )}
           <input
             className={s.input}
             name='email'
             type='email'
             id='email'
-            onChange={handleInputChange}
+            onChange={handleChange}
             onBlur={handleBlur}
             value={email}
             autoComplete='email'
@@ -101,24 +95,19 @@ export const AuthFormStep2 = () => {
         </div>
         <div
           className={`${s.floatingGroup} ${
-            touched.password && errors.password
-              ? s.floatingLabelError
-              : touched.password && !errors.password
-                ? s.floatingLabelValid
-                : ''
+            touched.password &&
+            (errors.password ? s.floatingLabelError : s.floatingLabelValid)
           }`}
         >
           {touched.password && errors.password && (
-            <>
-              <p className={s.errorMsg}>{errors.password}</p>
-            </>
+            <p className={s.errorMsg}>{errors.password}</p>
           )}
           <input
             className={s.input}
             name='password'
             type={showPassword ? 'text' : 'password'}
             id='password'
-            onChange={handleInputChange}
+            onChange={handleChange}
             onBlur={handleBlur}
             value={password}
             autoComplete='off'
@@ -139,23 +128,22 @@ export const AuthFormStep2 = () => {
             )}
           </button>
         </div>
-
         <Checkbox
+          id='checkbox'
+          name='checkbox'
           type='custom'
           label='By signing up, I agree to Lorem`s Terms of Service & Privacy
               Policy.'
-          onChange={handleCheckboxFormStep2}
+          onChange={handleChange}
           labelClassName={s.checkboxLabel}
         />
-
         <AuthButton
-          onClick={handleSubmit}
           size='large'
           text='Continue'
           type='submit'
-          disabled={!isSubmitting && !isCheckedForm}
+          disabled={!isValid || !dirty}
         />
       </form>
-    </>
+    </div>
   );
 };

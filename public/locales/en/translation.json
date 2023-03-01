@@ -31,7 +31,26 @@
 
   "header": {
     "search": "Search..",
-    "admin": "Admin"
+    "admin": "Admin",
+    "viewAll": "View all",
+    "hideAll": "Hide all",
+    "coins" : {
+      "item1": "+2 coins for test",
+      "item2": "+5 coins for invite"
+    },
+    "language": {
+      "ukr": "Ukrainian",
+      "eng": "English"
+    },
+    "notifications": {
+      "item1": "Results of test",
+      "item2": "New messages"
+    },
+    "userAvatar": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "logOut": "Log out"
+    }
   }
 
 }

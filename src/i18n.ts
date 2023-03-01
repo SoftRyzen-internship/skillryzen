@@ -8,13 +8,18 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: 'en',
-    react: {
-      // Turn off the use of React Suspense
-      useSuspense: false,
-    },
+    fallbackLng: 'uk',
+    lng: localStorage.getItem('i18nextLng') || 'uk',
+    // react: {
+    //   // Turn off the use of React Suspense
+    //   useSuspense: false,
+    // },
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',
+    },
+    debug: false,
+    interpolation: {
+      escapeValue: false,
     },
   });
 

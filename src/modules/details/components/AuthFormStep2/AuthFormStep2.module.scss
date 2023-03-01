@@ -11,6 +11,8 @@
   font-size: 14px;
   margin-top: 28px;
   margin-bottom: 44px;
+
+  cursor: pointer;
 }
 
 .floatingGroup {
@@ -54,6 +56,13 @@
     background-color: var(--primary-cl);
     padding: 0px 4px;
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--primary-txt-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .errorMsg {
@@ -65,7 +74,7 @@
 }
 
 .boxOr {
-  margin-top: 16px;
+  margin: 16px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -105,23 +114,33 @@
 }
 
 .floatingLabelError * {
-  color: var(--error-cl);
   border-color: var(--error-cl);
   path {
     stroke: var(--error-cl);
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-background-clip: text;
+  }
 }
 
 .floatingLabelValid * {
-  color: var(--success-cl);
   border-color: var(--success-cl);
   path {
     stroke: var(--success-cl);
   }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-background-clip: text;
+  }
 }
 .googleButton {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: 12px 0;
   font-weight: 400;
