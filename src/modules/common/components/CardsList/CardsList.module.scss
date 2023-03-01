@@ -1,0 +1,14 @@
+.testsList--large {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 13px;
+}
+
+.testsList--small {
+  min-width: 1096px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding-top: 13px;
+}

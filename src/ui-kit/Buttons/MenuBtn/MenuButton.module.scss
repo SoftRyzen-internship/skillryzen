@@ -1,5 +1,9 @@
 .menuBtn {
-  padding: 8px;
+  width: 40px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 10px;
   border: none;
   color: var(--disabled-cl);
@@ -7,16 +11,26 @@
 
 .blue {
   background-color: var(--accent-cl);
+
+  .iconGrid path {
+    fill: var(--primary-txt-cl);
+  }
+
+  .iconGrid4 path {
+    stroke: var(--primary-txt-cl);
+  }
 }
 
 .black {
   background-color: var(--components-cl);
+
+  .iconGrid path {
+    fill: var(--secondary-txt-cl);
+  }
+
+  .iconGrid4 path {
+    stroke: var(--secondary-txt-cl);
+  }
 }
 
-.iconGrid path {
-  fill: var(--secondary-txt-cl);
-}
 
-.iconGrid4 path {
-  stroke: var(--secondary-txt-cl);
-}
