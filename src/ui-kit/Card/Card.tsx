@@ -1,6 +1,7 @@
 import { ICONS } from 'theme';
+
 import { Tag } from '../Tag';
-// @ts-ignore
+
 import s from './Card.module.scss';
 
 type Type = 'notification' | 'coin' | 'info';

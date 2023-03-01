@@ -6,8 +6,7 @@ import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 
-import { TestsAll } from 'modules/dashboard/components/TestsAll';
-import { TestsMy } from 'modules/dashboard/components/TestsMy';
+import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 import { UnderDevelopmentPage } from 'pages/UnderDevelopmentPage';
@@ -23,7 +22,7 @@ export const AppRoutes = () => {
     {
       path: '/student',
       children: [
-        { path: '', element: <Navigate to='certification' /> },
+        { path: '', element: <Navigate to='certification' replace={true} /> },
         {
           path: 'dashboard',
           element: <UnderDevelopmentPage />,
@@ -35,33 +34,11 @@ export const AppRoutes = () => {
           children: [
             {
               path: '',
-              element: <Navigate to='all' />,
+              element: <TestsMain />,
             },
             {
-              path: 'all',
-              children: [
-                {
-                  path: '',
-                  element: <TestsAll />,
-                },
-                {
-                  path: ':testId',
-                  element: <TestInfo />,
-                },
-              ],
-            },
-            {
-              path: 'my',
-              children: [
-                {
-                  path: '',
-                  element: <TestsMy />,
-                },
-                {
-                  path: ':testId',
-                  element: <TestInfo />,
-                },
-              ],
+              path: ':testId',
+              element: <TestInfo />,
             },
           ],
         },

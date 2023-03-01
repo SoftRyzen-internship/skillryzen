@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+
 import s from './Timer.module.scss';
 
 interface ITimer {

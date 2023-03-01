@@ -1,23 +1,22 @@
-import React, { useState, FC } from 'react';
-import { COLORS } from '../../theme/colors.const';
+import React, { useState } from 'react';
+
+import { ICONS } from 'theme';
 
 import s from './Checkbox.module.scss';
-// import { CheckRound, DefaultCheckbox } from "../../theme";
-
-import { ICONS } from '../../theme';
+// import { CheckRound, DefaultCheckbox } from '../../theme';
 
 type CheckboxProps = {
   onChange?: undefined | ((e: React.ChangeEvent<HTMLInputElement>) => void);
   initialState?: boolean;
-  // checkboxColor?: `#${string}`;
-  // checkedColor?: `#${string}`;
-  // checkboxSize?: `${number}px`;
+  checkboxColor?: `#${string}`;
+  checkedColor?: `#${string}`;
+  checkboxSize?: `${number}px`;
   type?: 'form' | 'filter' | 'custom' | '';
   labelClassName?: string;
   label?: string;
 };
 
-export const Checkbox: FC<CheckboxProps> = ({
+export const Checkbox = ({
   onChange,
   initialState = false,
   // checkboxColor = COLORS.checkboxIcon,
@@ -26,21 +25,21 @@ export const Checkbox: FC<CheckboxProps> = ({
   type = '',
   labelClassName = '',
   label,
-}) => {
+}: CheckboxProps) => {
   const [checked, setChecked] = useState(initialState);
 
   const labelClass = (type: 'form' | 'filter' | 'custom' | '') => {
     switch (type) {
-      case 'form':
-        return `${s.label} ${s.labelForm}`;
-      case 'filter':
-        return `${s.label} ${s.labelFilter}`;
+    case 'form':
+      return `${s.label} ${s.labelForm}`;
+    case 'filter':
+      return `${s.label} ${s.labelFilter}`;
 
-      case 'custom':
-        return `${s.label} ${labelClassName}`;
+    case 'custom':
+      return `${s.label} ${labelClassName}`;
 
-      default:
-        return `${s.label}`;
+    default:
+      return `${s.label}`;
     }
   };
   return (
@@ -59,9 +58,11 @@ export const Checkbox: FC<CheckboxProps> = ({
         {checked ? (
           <ICONS.CHECK_ROUND />
         ) : (
-          // <CheckRound color={checkedColor} size={checkboxSize} />
-          <ICONS.DEFAULT_CHECKBOX className={s.checkboxColor} />
-          // <DefaultCheckbox color={checkboxColor} size={checkboxSize} />
+          <>
+            {/* <CheckRound color={checkedColor} size={checkboxSize} />*/}
+            <ICONS.DEFAULT_CHECKBOX className={s.checkboxColor} />
+            {/* <DefaultCheckbox color={checkboxColor} size={checkboxSize} />*/}
+          </>
         )}
       </span>
       {label}

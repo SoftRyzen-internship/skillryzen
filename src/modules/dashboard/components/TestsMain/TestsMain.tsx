@@ -1,16 +1,16 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import { ICONS } from 'theme';
+
 import { Input } from 'ui-kit/Input/Input';
 import { Tabs } from 'ui-kit/Tabs/Tabs';
-// import { Card } from 'ui-kit/Card/Card';
-// import { Breadcrumbs } from 'ui-kit/Breadcrumbs/Breadcrumbs';
-
-import s from './TestsAll.module.scss';
 import { Card } from 'ui-kit/Card/Card';
-import { ICONS } from 'theme';
 import { Breadcrumbs } from 'ui-kit/Breadcrumbs';
-import { Link } from 'react-router-dom';
 
-export const TestsAll = () => {
+import s from './TestsMain.module.scss';
+
+export const TestsMain = () => {
   const { t } = useTranslation();
 
   return (

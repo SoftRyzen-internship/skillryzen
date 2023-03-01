@@ -1,4 +1,5 @@
 import React from 'react';
+
 import s from './Popup.module.scss';
 
 type TItem = {
@@ -22,7 +23,6 @@ export const Popup = ({ list, vievAll, handleClickItem }: IProps) => {
         {vievAll}
       </button>
       <ul>
-        {' '}
         {list.map(({ icon, text }, idx) => (
           <li
             key={idx}

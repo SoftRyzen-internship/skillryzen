@@ -22,7 +22,7 @@
 .card__infoWrapper {
   .card--small & {
     width: 100%;
-  } 
+  }
 
   .card--large & {
     display: flex;
@@ -59,10 +59,9 @@
   }
 }
 
-.card__icon path{
+.card__icon path {
   stroke: var(--primary-txt-cl);
 }
-
 
 .card__contentWrapper {
   display: flex;
@@ -154,8 +153,6 @@
   background-color: transparent;
 }
 
-.card__closeIcon path{
-    stroke: var(--secondary-txt-cl);
+.card__closeIcon path {
+  stroke: var(--secondary-txt-cl);
 }
-
-

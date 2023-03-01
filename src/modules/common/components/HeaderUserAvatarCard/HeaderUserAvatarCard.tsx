@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { IMGS } from 'theme/images.const';
-import { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
+
 import { UserAvatarCard } from 'ui-kit/index';
+
+import { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
 
 import s from './HeaderUserAvatarCard.module.scss';
 

@@ -1,5 +1,6 @@
-import s from './AddButton.module.scss';
 import { ICONS } from 'theme';
+
+import s from './AddButton.module.scss';
 
 interface ButtonProps {
   className?: string;

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import { AppRoutes } from './routes';
+import { AppRoutes } from 'routes';
 
 import './theme/styles/global.scss';
 import './theme/styles/variables.scss';
