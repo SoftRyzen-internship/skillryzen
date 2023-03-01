@@ -1,4 +1,5 @@
 .sideBarIsOpen {
+  height: calc(100vh - 72px);
   position: relative;
   max-width: 260px;
   padding: 16px 24px 100px 60px;
@@ -8,6 +9,7 @@
 }
 
 .slideBarIsClosed {
+  height: calc(100vh - 72px);
   position: relative;
   max-width: 100px;
   padding: 16px 22px 100px;
