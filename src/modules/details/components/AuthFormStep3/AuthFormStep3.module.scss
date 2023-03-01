@@ -55,6 +55,14 @@
   &:not(:placeholder-shown) + .floatingLabelPhone {
     left: 17px;
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--primary-txt-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .inputPhone {
@@ -68,8 +76,8 @@
 
 .inputValid {
   border-color: var(--success-cl);
-  color: var(--success-cl);
 }
+
 .errorMsg {
   position: absolute;
   bottom: -20px;
@@ -93,4 +101,32 @@
 
 .btnSubmit {
   margin-top: 80px;
+}
+
+.floatingLabelValid {
+  border-color: var(--success-cl);
+  path {
+    stroke: var(--success-cl);
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--success-cl);
+    -webkit-background-clip: text;
+  }
+}
+
+.floatingLabelError {
+  border-color: var(--error-cl);
+  path {
+    stroke: var(--error-cl);
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
 }

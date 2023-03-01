@@ -112,7 +112,7 @@ export const AuthFormStep3 = ({ setStep }: IAuth) => {
             <p className={s.errorMsg}>{errors.phone}</p>
           )}
           <InputMask
-            className={`${s.inputPhone} ${
+            className={`${s.inputPhone}  ${
               touched.phone && (errors.phone ? s.inputError : s.inputValid)
             }`}
             name='phone'
