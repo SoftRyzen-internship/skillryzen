@@ -5,7 +5,7 @@ import { AuthIntro, AuthSteps } from 'modules/dashboard';
 import s from './Auth.module.scss';
 
 export const Auth = () => {
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(1);
   const [role, setRole] = useState('candidate');
 
   return (

@@ -67,6 +67,16 @@ h6 {
   font-size: inherit;
 }
 
+input {
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--primary-txt-cl);
+    -webkit-background-clip: text;
+  }
+}
+
 .visually-hidden {
   position: absolute;
   width: 1px;
