@@ -1,4 +1,4 @@
-import { useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes } from 'react-router-dom';
 
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
@@ -6,7 +6,8 @@ import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 
-import { TestsMain } from 'modules/dashboard/components/TestsMain';
+import { TestsAll } from 'modules/dashboard/components/TestsAll';
+import { TestsMy } from 'modules/dashboard/components/TestsMy';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 import { UnderDevelopmentPage } from 'pages/UnderDevelopmentPage';
@@ -22,6 +23,7 @@ export const AppRoutes = () => {
     {
       path: '/student',
       children: [
+        { path: '', element: <Navigate to='certification' /> },
         {
           path: 'dashboard',
           element: <UnderDevelopmentPage />,
@@ -33,11 +35,33 @@ export const AppRoutes = () => {
           children: [
             {
               path: '',
-              element: <TestsMain />,
+              element: <Navigate to='all' />,
             },
             {
-              path: ':testId',
-              element: <TestInfo />,
+              path: 'all',
+              children: [
+                {
+                  path: '',
+                  element: <TestsAll />,
+                },
+                {
+                  path: ':testId',
+                  element: <TestInfo />,
+                },
+              ],
+            },
+            {
+              path: 'my',
+              children: [
+                {
+                  path: '',
+                  element: <TestsMy />,
+                },
+                {
+                  path: ':testId',
+                  element: <TestInfo />,
+                },
+              ],
             },
           ],
         },
