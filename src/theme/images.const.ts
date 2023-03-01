@@ -8,11 +8,9 @@ import ImgReact from 'assets/images/react.png';
 import ImgCompany from 'assets/images/registration-company.png';
 import ImgUser from 'assets/images/registration-monitor-user.png';
 
+import { Img } from 'modules/common/types';
 
-
-import { Img } from "modules/common/types";
-
-export const IMGS:Img = {
+export const IMGS: Img = {
   DONE: ImgDone,
   HTML: ImgHtml,
   JAVA_SCRIPT: ImgJavaScript,

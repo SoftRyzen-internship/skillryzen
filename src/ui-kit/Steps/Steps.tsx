@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ICONS } from 'theme';
+
 import s from './Steps.module.scss';
 
 interface ICurrentStep {

@@ -1,1 +1,1 @@
-export { HeaderButtonLanguage } from './HeaderButtonLanguage'
+export { HeaderButtonLanguage } from './HeaderButtonLanguage';

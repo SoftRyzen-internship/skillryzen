@@ -1,5 +1,4 @@
 export type Img = { [key: string]: string };
-export interface Icons { [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>> }
 
 export interface IAuth {
   role?: string;
@@ -8,3 +7,6 @@ export interface IAuth {
   setRole?: (role: string) => void;
 }
 
+export interface Icons {
+  [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+}

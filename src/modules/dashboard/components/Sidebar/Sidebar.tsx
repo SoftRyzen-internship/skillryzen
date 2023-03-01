@@ -6,11 +6,12 @@ import { Menu } from 'ui-kit/Menu/Menu';
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'theme';
 
-import s from './Sidebar.module.scss'
+import s from './Sidebar.module.scss';
 
-function generateId() {    
-  return Math.random().toString(36).substring(2) +
-    (new Date()).getTime().toString(36);
+function generateId() {
+  return (
+    Math.random().toString(36).substring(2) + new Date().getTime().toString(36)
+  );
 }
 
 const menu = [
@@ -44,7 +45,7 @@ const menu = [
     iconAlt: 'Vacancies',
     path: ROUTES.VACANCIES,
   },
-]
+];
 
 const userMenu = [
   {
@@ -64,10 +65,18 @@ const userMenu = [
     icon: ICONS.MESSAGE_CIRCLE,
     iconAlt: 'Feedback',
     path: ROUTES.FEEDBACK,
-    className: s.iconMessage
+    className: s.iconMessage,
   },
-]
+];
 
 export const Sidebar = () => {
-  return <SideBar children={[<Menu menu={menu} key={generateId()}/>, <Menu menu={userMenu} key={generateId()}/>]} spaceBetween='388px'/>;
+  return (
+    <SideBar
+      children={[
+        <Menu menu={menu} key={generateId()} />,
+        <Menu menu={userMenu} key={generateId()} />,
+      ]}
+      spaceBetween='388px'
+    />
+  );
 };
