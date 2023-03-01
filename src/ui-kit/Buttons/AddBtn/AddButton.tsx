@@ -1,5 +1,5 @@
 import s from './AddButton.module.scss';
-// import { ICONS } from '@theme/icons.const';
+import { ICONS } from 'theme';
 
 interface ButtonProps {
   className?: string;
@@ -22,13 +22,7 @@ export const AddButton = ({
       type={type}
       className={`${s.addButton} ${className} ${s[color]}`}
     >
-      {/*<img*/}
-      {/*  width={24}*/}
-      {/*  height={24}*/}
-      {/*  className={s.iconplus}*/}
-      {/*  src={ICONS.PLUS}*/}
-      {/*  alt={'plus'}*/}
-      {/*/>*/}
+      <ICONS.PLUS className={s.icon} />
       {text}
     </button>
   );

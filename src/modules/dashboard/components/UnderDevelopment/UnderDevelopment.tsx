@@ -1,13 +1,10 @@
-import React from 'react';
 import s from './UnderDevelopment.module.scss';
 
-interface UnderDevelopmentProps {
+interface IUnderDevelopmentProps {
   title: string;
 }
 
-export const UnderDevelopment: React.FC<UnderDevelopmentProps> = ({
-  title,
-}) => {
+export const UnderDevelopment = ({ title }: IUnderDevelopmentProps) => {
   return (
     <section className={s.section}>
       <div className={s.wrapper}>
