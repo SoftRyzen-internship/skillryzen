@@ -7,7 +7,7 @@ const LazyUnderDevelopment = lazy(async () => ({
     .UnderDevelopment,
 }));
 
-export const UnderDevelopmentPage = () => {
+const UnderDevelopmentPage = () => {
   return (
     <>
       <Header />
@@ -20,3 +20,5 @@ export const UnderDevelopmentPage = () => {
     </>
   );
 };
+
+export default UnderDevelopmentPage;

@@ -1,1 +1,1 @@
-export { UnderDevelopmentPage } from './UnderDevelopmentPage';
+export { default } from './UnderDevelopmentPage';
