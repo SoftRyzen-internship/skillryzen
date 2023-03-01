@@ -1,0 +1,31 @@
+.testsFilter {
+  display: flex;
+  justify-content: space-between;
+}
+
+.testsFilter__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testsFilter__filter {
+  padding: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+  color: var(--primary-txt-cl);
+  background-color: var(--components-cl);
+}
+
+.testsFilter__icon {
+  width: 22px;
+  height: 22px;
+
+  path {
+    stroke: var(--primary-txt-cl);
+  }
+}
+

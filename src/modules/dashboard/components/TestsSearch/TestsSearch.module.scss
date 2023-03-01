@@ -1,0 +1,38 @@
+.testsSearch {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.testsSearch__wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.testsSearch__title {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--primary-txt-cl);
+}
+
+.testsSearch__inputWrapper {
+  display: flex;
+  gap: 12px;
+}
+
+.testsSearch__button {
+  padding: 8px 22px 7px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  background-color: var(--disabled-cl);
+  border-radius: 5px;
+  color: var(--secondary-txt-cl);
+}
+
+.testsSearch__iconBook path {
+  fill: var(--secondary-txt-cl);
+}
+
+
