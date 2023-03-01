@@ -76,13 +76,9 @@
   }
 }
 
-.buttonsWrapper{
-  font-size: var(--text-md);
-}
-
 .buttonsTitle{
   margin-bottom: 8px;
-  font-size: var(--text-md);
+
   font-weight: var(--bold);
 }
 
@@ -91,6 +87,8 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  font-size: var(--text-md);
 
   & > li:first-child{
     font-size: 16px;
@@ -101,7 +99,7 @@
   }
 }
 
-.inputWrapper{
+.label{
   position: relative;
 }
 

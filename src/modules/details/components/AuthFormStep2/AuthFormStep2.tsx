@@ -1,22 +1,30 @@
-import * as Yup from 'yup';
-import { useFormik } from 'formik';
 import { useState } from 'react';
-import { AuthButton } from 'ui-kit/index';
-import { Checkbox } from 'ui-kit/Checkbox';
+import { NavLink } from 'react-router-dom';
+import { useFormik } from 'formik';
+
+import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'theme';
+import { RegisterSchema } from 'services/validationSchema';
 
 import s from './AuthFormStep2.module.scss';
+import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
+
 interface MyFormValues {
   email: string;
   password: string;
 }
 
-export const AuthFormStep2 = () => {
+export const AuthFormStep2 = ({ setStep }: any) => {
   const [isCheckedForm, setIsCheckedForm] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [hasValue, setHasValue] = useState(false);
 
-  const handleCheckboxFormStep2 = (
+  const handleInputChange = (event: { target: { value: string } }) => {
+    handleChange(event);
+    setHasValue(event.target.value !== '');
+  };
+
+  const handleAgreementCheckbox = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setIsCheckedForm(event.target.checked);
@@ -32,30 +40,15 @@ export const AuthFormStep2 = () => {
       password: '',
     },
 
-    validationSchema: Yup.object({
-      email: Yup.string()
-        .email('Некоректна адреса електронної пошти')
-        .required("Електронна пошта є обов'язковою")
-        .max(63, 'Електронна адреса має містити не більше 63 символів')
-        .matches(
-          /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
-          'Невірна адреса електронної пошти'
-        )
-        .matches(
-          /^[^.-].*[^.-]$/,
-          'Електронна пошта не повинна починатися або закінчуватися крапкою чи дефісом'
-        ),
-      password: Yup.string()
-        .min(8, 'Пароль повинен містити мінімум 8 символів')
-        .required("Пароль є обов'язковим"),
-    }),
+    validationSchema: RegisterSchema,
+
     onSubmit: (values) => {
-      console.log(values);
+      setStep(3);
     },
   });
 
   const {
-    values,
+    values: { email, password },
     isSubmitting,
     errors,
     touched,
@@ -64,15 +57,15 @@ export const AuthFormStep2 = () => {
     handleSubmit,
   } = formik;
 
-  const { email, password } = values;
-
-  const handleInputChange = (event: { target: { value: string } }) => {
-    handleChange(event);
-    setHasValue(event.target.value !== '');
-  };
-
   return (
-    <>
+    <div className={container.formWrapper}>
+      <h2 className={container.formTitle}>Get started for free</h2>
+      <p className={container.logIn}>
+        Already have an account?{' '}
+        <NavLink to='/login' className={container.link}>
+          Log in
+        </NavLink>
+      </p>
       <form onSubmit={handleSubmit} className={s.form}>
         <AuthButton
           onClick={handleSubmitGoogle}
@@ -179,7 +172,7 @@ export const AuthFormStep2 = () => {
             type='form'
             label='By signing up, I agree to Lorem`s Terms of Service & Privacy
               Policy.'
-            onChange={handleCheckboxFormStep2}
+            onChange={handleAgreementCheckbox}
           />
         </div>
 
@@ -191,6 +184,6 @@ export const AuthFormStep2 = () => {
           disabled={!isSubmitting && !isCheckedForm}
         />
       </form>
-    </>
+    </div>
   );
 };

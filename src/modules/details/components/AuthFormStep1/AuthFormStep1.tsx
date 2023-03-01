@@ -7,16 +7,13 @@ import { AuthButton } from 'ui-kit';
 import React from 'react';
 
 import s from './AuthFormStep1.module.scss';
-import s2 from '../AuthSteps/AuthSteps.module.scss';
+import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 
-interface IProps {
-  setStep: any;
-}
+import { IAuth } from 'modules/common/types';
 
-export const AuthFormStep1 = ({ setStep }: IProps) => {
+export const AuthFormStep1 = ({ setStep, setRole, role }: IAuth) => {
   const [code, setCode] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const [role, setRole] = useState('candidate');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,28 +29,28 @@ export const AuthFormStep1 = ({ setStep }: IProps) => {
 
     if (e.target.value.length === 5) {
       setIsValid(true);
+      return;
     }
 
-    if (e.target.value.length !== 5 && e.target.value.length > 0) {
-      setIsValid(false);
-    }
+    setIsValid(false);
   };
 
   return (
-    <div className={s2.formWrapper}>
-      <h2 className={s2.formTitle}>Choose your role</h2>
-      <p className={s2.logIn}>
+    <div className={container.formWrapper}>
+      <h2 className={container.formTitle}>Choose your role</h2>
+      <p className={container.logIn}>
         Already have an account?{' '}
-        <NavLink to='/login' className={s2.link}>
+        <NavLink to='/login' className={container.link}>
           Log in
         </NavLink>
       </p>
-      <form action='' className={s.form} onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleSubmit}>
         <fieldset>
           <legend className={s.formTitle}>Please choose your role</legend>
           <ul className={s.roleList}>
             <li>
               <input
+                className='visually-hidden'
                 type='radio'
                 name='role'
                 id='candidate'
@@ -68,6 +65,7 @@ export const AuthFormStep1 = ({ setStep }: IProps) => {
             </li>
             <li>
               <input
+                className='visually-hidden'
                 type='radio'
                 name='role'
                 id='company'
@@ -82,7 +80,7 @@ export const AuthFormStep1 = ({ setStep }: IProps) => {
             </li>
           </ul>
         </fieldset>
-        <label className={`${s.inputWrapper} ${isValid ? s.valid : s.invalid}`}>
+        <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
           <input
             onChange={handleChange}
             className={s.codeInput}
@@ -92,31 +90,29 @@ export const AuthFormStep1 = ({ setStep }: IProps) => {
           />
           <span className={s.inputTitle}>Введіть код компанії</span>
         </label>
-        <div className={s.buttonsWrapper}>
-          <ul className={s.buttonsList}>
-            {isValid && (
-              <li>
-                <p className={s.buttonsTitle}>Your company is</p>
-                <AuthButton
-                  className={s.company}
-                  size='large'
-                  text='GoIT'
-                  type='button'
-                  needBackground='noBackgroundAccent'
-                />
-              </li>
-            )}
+        <ul className={s.buttonsList}>
+          {isValid && (
             <li>
+              <p className={s.buttonsTitle}>Your company is</p>
               <AuthButton
+                className={s.company}
                 size='large'
-                text='Create account'
-                type='submit'
-                color='blue'
-                disabled={!isValid}
+                text='GoIT'
+                type='button'
+                needBackground='noBackgroundAccent'
               />
             </li>
-          </ul>
-        </div>
+          )}
+          <li>
+            <AuthButton
+              size='large'
+              text='Create account'
+              type='submit'
+              color='blue'
+              disabled={!isValid}
+            />
+          </li>
+        </ul>
       </form>
     </div>
   );

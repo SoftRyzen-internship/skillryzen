@@ -1,19 +1,34 @@
 import s from './AuthIntro.module.scss';
 
-const introMeta = [
-  'Пройти тест з JavaScript',
-  'Отримати сертифікат',
-  'Оновлене проходження раз у 10 днів',
-  'Отримати сертифікат',
-  'Отримати',
-];
+import { IAuth } from 'modules/common/types';
 
-export const AuthIntro = () => {
+const introMeta = {
+  company: [
+    'Пройти тест з JavaScript',
+    'Отримати сертифікат',
+    'Оновлене проходження раз у 10 днів',
+    'Отримати сертифікат',
+    'Отримати',
+  ],
+  candidate: [
+    'Створення власних тестів',
+    'Необмежена кількість учасників',
+    'Можливість надавати доступ до команди',
+    'Видача сертифікатів',
+    'Отримання зворотнього зв’язку від учасників',
+  ],
+};
+
+export const AuthIntro = ({ role }: IAuth) => {
   return (
     <section className={s.section}>
-      <div className={`${s.authIntroWrapper} ${s.authIntroBg}`}>
+      <div
+        className={`${s.authIntroWrapper} ${
+          role === 'candidate' ? s.authCandidateBg : s.authCompanyBg
+        }`}
+      >
         <ul className={s.introMetaList}>
-          {introMeta.map((item, idx) => (
+          {introMeta.candidate.map((item, idx) => (
             <li key={idx} className={s.introMetaItem}>
               {item}
             </li>

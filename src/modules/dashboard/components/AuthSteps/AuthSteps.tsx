@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Logo, Steps } from 'ui-kit';
 import {
   AuthFormStep1,
@@ -10,15 +8,17 @@ import {
 
 import s from './AuthSteps.module.scss';
 
-export const AuthSteps = () => {
-  const [step, setStep] = useState(1);
+import { IAuth } from 'modules/common/types';
 
+export const AuthSteps = ({ step, setStep, role, setRole }: IAuth) => {
   return (
     <section className={s.section}>
       <Logo content='SkillRyzen' />
       <Steps currentStep={step} />
-      {step === 1 && <AuthFormStep1 setStep={setStep} />}
-      {step === 2 && <AuthFormStep2 />}
+      {step === 1 && (
+        <AuthFormStep1 setStep={setStep} setRole={setRole} role={role} />
+      )}
+      {step === 2 && <AuthFormStep2 setStep={setStep} />}
       {step === 3 && <AuthFormStep3 />}
       {step === 4 && <AuthFormStep4 />}
     </section>

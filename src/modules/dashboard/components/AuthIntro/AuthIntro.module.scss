@@ -10,11 +10,17 @@
   margin: auto;
   padding-top: 268px;
   width: 408px;
+
+  background-repeat: no-repeat;
 }
 
-.authIntroBg{
+.authCandidateBg{
   background-image: url('assets/images/registration-monitor-user.png');
-  background-repeat: no-repeat;
+
+}
+
+.authCompanyBg{
+  background-image: url('assets/images/registration-company.png');
 }
 
 .introMetaList{
