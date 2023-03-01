@@ -41,6 +41,10 @@
     "language": {
       "ukr": "Ukrainian",
       "eng": "English"
+    },
+    "notifications": {
+      "item1": "Results of test",
+      "item2": "New messages"
     }
   }
 
