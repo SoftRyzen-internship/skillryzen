@@ -1,13 +1,7 @@
-import { AuthIntro, AuthContainer } from '../../modules/dashboard';
-import { AuthSteps } from '../../modules/details';
+import { Auth } from 'modules/dashboard';
 
 const RegisterPage = () => {
-  return (
-    <AuthContainer>
-      <AuthIntro />
-      <AuthSteps />
-    </AuthContainer>
-  );
+  return <Auth />;
 };
 
 export default RegisterPage;

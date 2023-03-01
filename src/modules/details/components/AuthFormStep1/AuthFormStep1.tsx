@@ -1,19 +1,21 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { ICONS } from 'theme';
-import { AuthButton, Input } from 'ui-kit';
+import { AuthButton } from 'ui-kit';
 
 import s from './AuthFormStep1.module.scss';
+import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 
-export const AuthFormStep1 = () => {
+import { IAuth } from 'modules/common/types';
+
+export const AuthFormStep1 = ({ setStep, setRole, role }: IAuth) => {
   const [code, setCode] = useState('');
   const [isValid, setIsValid] = useState(false);
-  const [role, setRole] = useState('candidate');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    setCode('');
+    setStep(2);
   };
 
   const handleRoleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,52 +34,64 @@ export const AuthFormStep1 = () => {
   };
 
   return (
-    <form action='' className={s.form} onSubmit={handleSubmit}>
-      <fieldset>
-        <legend className={s.formTitle}>Please choose your role</legend>
-        <ul className={s.roleList}>
-          <li>
+    <div className={container.formWrapper}>
+      <h2 className={container.formTitle}>Choose your role</h2>
+      <p className={container.logIn}>
+        Already have an account?{' '}
+        <NavLink to='/login' className={container.link}>
+          Log in
+        </NavLink>
+      </p>
+      <form className={s.form} onSubmit={handleSubmit}>
+        <fieldset>
+          <legend className={s.formTitle}>Please choose your role</legend>
+          <ul className={s.roleList}>
+            <li>
+              <input
+                className='visually-hidden'
+                type='radio'
+                name='role'
+                id='candidate'
+                value='candidate'
+                checked={role === 'candidate'}
+                onChange={handleRoleChange}
+              />
+              <label htmlFor='candidate' className={s.roleBtn}>
+                <ICONS.USER className={s.icon} />
+                Candidate
+              </label>
+            </li>
+            <li>
+              <input
+                className='visually-hidden'
+                type='radio'
+                name='role'
+                id='company'
+                value='company'
+                checked={role === 'company'}
+                onChange={handleRoleChange}
+              />
+              <label htmlFor='company' className={s.roleBtn}>
+                <ICONS.USERS className={s.icon} />
+                Company
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+        {role === 'candidate' && (
+          <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
             <input
-              type='radio'
-              name='role'
-              id='candidate'
-              value='candidate'
-              checked={role === 'candidate'}
-              onChange={handleRoleChange}
+              onChange={handleChange}
+              className={s.codeInput}
+              name='code'
+              value={code}
+              placeholder='&#32;'
             />
-            <label htmlFor='candidate' className={s.roleBtn}>
-              <ICONS.USER className={s.icon} />
-              Candidate
-            </label>
-          </li>
-          <li>
-            <input
-              type='radio'
-              name='role'
-              id='company'
-              value='company'
-              checked={role === 'company'}
-              onChange={handleRoleChange}
-            />
-            <label htmlFor='company' className={s.roleBtn}>
-              <ICONS.USERS className={s.icon} />
-              Company
-            </label>
-          </li>
-        </ul>
-      </fieldset>
-      <div className={`${s.inputWrapper} ${isValid ? s.valid : null}`}>
-        <Input
-          onChange={handleChange}
-          className={s.codeInput}
-          name='code'
-          placeholder='Введіть код компанії'
-          value={code}
-        />
-      </div>
-      <div className={s.buttonsWrapper}>
+            <span className={s.inputTitle}>Введіть код компанії</span>
+          </label>
+        )}
         <ul className={s.buttonsList}>
-          {isValid && (
+          {isValid && role === 'candidate' && (
             <li>
               <p className={s.buttonsTitle}>Your company is</p>
               <AuthButton
@@ -99,7 +113,7 @@ export const AuthFormStep1 = () => {
             />
           </li>
         </ul>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 };
