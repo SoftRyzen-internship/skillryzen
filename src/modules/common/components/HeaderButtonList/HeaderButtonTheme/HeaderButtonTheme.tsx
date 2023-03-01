@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { COLORS } from 'theme/colors.const';
 import { ICONS } from 'theme/icons.const';
 
 import { useThemeContext } from 'context/themeContext';
@@ -10,8 +9,8 @@ import { HeaderButton, Popup } from 'ui-kit/index';
 import { IThemeContext } from 'modules/common/types';
 
 export const HeaderButtonTheme = () => {
-  const SunIcon = <ICONS.SUN stroke={COLORS.themeIcon} />;
-  const MoonIcon = <ICONS.MOON stroke={COLORS.themeIcon} />;
+  const SunIcon = <ICONS.SUN stroke={'var(--accent-cl)'} />;
+  const MoonIcon = <ICONS.MOON stroke={'var(--accent-cl)'} />;
 
   const { theme, setTheme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();

@@ -73,6 +73,7 @@
 .role--common {
   font-family: var(--font-family);
   font-size: var(--text-sm);
+  line-height: 1.16;
 }
 .role--light {
   composes: role--common;

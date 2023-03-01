@@ -32,7 +32,11 @@ export const HeaderButtonCoin = () => {
   };
   return (
     <HeaderButton
-      icon={<ICONS.COIN fill='var(--primary-txt-cl)' />}
+      icon={
+        <ICONS.COIN
+          fill={theme === 'dark' ? 'var(--primary-txt-cl)' : 'var(--accent-cl)'}
+        />
+      }
       IndicatorNumber={tempList.length}
       IndicatorColor='green'
       onMouseEnter={mouseEnterHandler}
