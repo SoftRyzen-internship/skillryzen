@@ -1,1 +1,1 @@
-export { HeaderButtonTheme } from './HeaderButtonTheme'
+export { HeaderButtonTheme } from './HeaderButtonTheme';

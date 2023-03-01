@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+
 import { ICONS } from 'theme';
-// @ts-ignore
+
 import s from './ProgressBar.module.scss';
 
 interface IAnswer {
@@ -28,7 +29,7 @@ export const ProgressBar = ({
       ...prevState,
       { number: currentNumber - 1, isRight: isPrevRight },
     ]);
-  }, [currentNumber]);
+  }, [currentNumber, isPrevRight]);
 
   const checkRightAnswer = (item: number) => {
     // if (item > arrayOfAnswers.length || arrayOfAnswers.length === 0) return '';
@@ -44,17 +45,17 @@ export const ProgressBar = ({
         Question {currentNumber}/{totalNumber}
       </p>
       <div className={s.progressBar__wrapper}>
-      <ul className={s.progressBar__list}>
-        {array.map((item) => (
-          <li
-            key={item}
-            className={`${s.progressBar__line} ${
-              s[`${checkRightAnswer(item)}`]
-            }`}
-          ></li>
-        ))}
-      </ul>
-      <ICONS.FLAG_ONE className={s.progressBar__icon}/>
+        <ul className={s.progressBar__list}>
+          {array.map((item) => (
+            <li
+              key={item}
+              className={`${s.progressBar__line} ${
+                s[`${checkRightAnswer(item)}`]
+              }`}
+            ></li>
+          ))}
+        </ul>
+        <ICONS.FLAG_ONE className={s.progressBar__icon} />
       </div>
     </div>
   );

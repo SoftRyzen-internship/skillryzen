@@ -16,6 +16,7 @@ interface FormValues {
 
 export const AuthFormStep3 = () => {
   const phoneRegExp =
+    // eslint-disable-next-line no-useless-escape
     /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/;
   const [hasValue, setHasValue] = useState(false);
 
@@ -28,6 +29,7 @@ export const AuthFormStep3 = () => {
 
     validationSchema: Yup.object({
       name: Yup.string()
+        // eslint-disable-next-line quotes
         .required("Ім'я є обовязковим")
         .min(2, 'Повинно містити біле 2 символів')
         .max(50, 'Повинно містити не більше 50 символів'),
@@ -41,6 +43,7 @@ export const AuthFormStep3 = () => {
         .max(50, 'Повинно містити не більше 50 символів'),
 
       phone: Yup.string()
+        // eslint-disable-next-line quotes
         .required("Номер телефону є обов'язковим")
         .matches(phoneRegExp, 'Невірний формат телефону'),
     }),
@@ -168,7 +171,7 @@ export const AuthFormStep3 = () => {
           </label>
           <button
             type='button'
-            onClick={() => console.log(`klikc`)}
+            onClick={() => console.log('klikc')}
             className={`${s.phoneButton} ${
               touched.phone && errors.phone ? s.phoneButton : ''
             } ${touched.phone && !errors.phone ? s.phoneButton : ''}`}

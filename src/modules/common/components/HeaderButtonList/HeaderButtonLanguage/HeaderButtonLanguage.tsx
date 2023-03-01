@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { ICONS } from 'theme/icons.const';
-import { HeaderButton } from 'ui-kit/index';
-import { Popup } from 'ui-kit/index';
+import { HeaderButton, Popup } from 'ui-kit/index';
 
 export const HeaderButtonLanguage = () => {
   const { t, i18n } = useTranslation();

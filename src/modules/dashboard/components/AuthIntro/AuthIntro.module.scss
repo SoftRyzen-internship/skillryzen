@@ -1,4 +1,4 @@
-.section{
+.section {
   width: 49.2vw;
   height: 100vh;
 
@@ -9,17 +9,17 @@
   background-color: var(--accent-cl);
 }
 
-.authIntroWrapper{
+.authIntroWrapper {
   padding-top: 268px;
   width: 408px;
 }
 
-.authIntroBg{
+.authIntroBg {
   background-image: url('assets/images/registration-monitor-user.png');
   background-repeat: no-repeat;
 }
 
-.introMetaList{
+.introMetaList {
   margin: auto;
   padding: 40px 20px;
   max-width: 318px;
@@ -34,12 +34,12 @@
   background-color: var(--primary-txt-cl);
 }
 
-.introMetaItem{
+.introMetaItem {
   display: flex;
   align-items: center;
   gap: 12px;
 
-  &::before{
+  &::before {
     content: '';
     width: 24px;
     height: 24px;

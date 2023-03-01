@@ -8,8 +8,8 @@ interface ButtonProps {
   onClick?: () => void;
   size: 'small' | 'large';
   color?: 'grey' | 'white' | 'blue';
-  disabled?: boolean; //коли disabled то кнопка сіра, в іншому випадку акцент колір
-  needBackground?: 'noBackgroundAccent' | 'noBackgroundGray'; //робить кнопку прозорою, та додає акцент колір на бордер та текст або сірий бордер
+  disabled?: boolean; // коли disabled то кнопка сіра, в іншому випадку акцент колір
+  needBackground?: 'noBackgroundAccent' | 'noBackgroundGray'; // робить кнопку прозорою, та додає акцент колір на бордер та текст або сірий бордер
 }
 
 export const AuthButton = ({

@@ -3,8 +3,7 @@ import React, { useState } from 'react';
 import { AuthButton } from 'ui-kit/Buttons/AuthBtn/AuthButton';
 import { RadioButton } from 'ui-kit';
 
-import { array } from 'pages/TestingPage/TestingPage';
-import { IInfo } from 'pages/TestingPage/TestingPage';
+import { IInfo, array } from 'pages/TestingPage/TestingPage';
 
 import s from './TestQuestion.module.scss';
 
@@ -60,9 +59,8 @@ export const TestQuestion = ({
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>
           {possibleAnswers.map((answer, index) => (
-            <li>
+            <li key={index}>
               <RadioButton
-                key={index}
                 state={
                   // це тимчасове рішення поки нема бекенду
                   (sendAnswer &&
@@ -71,10 +69,10 @@ export const TestQuestion = ({
                   (sendAnswer && rightAnswer === answer.value)
                     ? 'right'
                     : sendAnswer && sendAnswer === answer.value
-                    ? 'wrong'
-                    : !sendAnswer && selectedAnswer === answer.value
-                    ? 'checked'
-                    : ''
+                      ? 'wrong'
+                      : !sendAnswer && selectedAnswer === answer.value
+                        ? 'checked'
+                        : ''
                 }
                 type='PassTest'
                 name='answers'

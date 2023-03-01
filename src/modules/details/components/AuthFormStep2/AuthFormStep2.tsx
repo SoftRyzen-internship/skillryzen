@@ -1,5 +1,6 @@
 import { useFormik } from 'formik';
 import { useState } from 'react';
+
 import { AuthButton } from 'ui-kit/index';
 import { Checkbox } from 'ui-kit/Checkbox';
 import { ICONS } from 'theme';
@@ -22,7 +23,7 @@ export const AuthFormStep2 = () => {
   };
 
   const handleSubmitGoogle = () => {
-    console.log('click google');
+    // console.log('click google');
   };
 
   const formik = useFormik<MyFormValues>({
@@ -32,7 +33,7 @@ export const AuthFormStep2 = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
     },
   });
 
@@ -74,8 +75,8 @@ export const AuthFormStep2 = () => {
             touched.email && errors.email
               ? s.floatingLabelError
               : touched.email && !errors.email
-              ? s.floatingLabelValid
-              : ''
+                ? s.floatingLabelValid
+                : ''
           }`}
         >
           {touched.email && errors.email && (
@@ -103,8 +104,8 @@ export const AuthFormStep2 = () => {
             touched.password && errors.password
               ? s.floatingLabelError
               : touched.password && !errors.password
-              ? s.floatingLabelValid
-              : ''
+                ? s.floatingLabelValid
+                : ''
           }`}
         >
           {touched.password && errors.password && (

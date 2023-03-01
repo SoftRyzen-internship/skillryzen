@@ -26,7 +26,7 @@ export const Popup = ({ list, vievAll, handleClickItem }: IProps) => {
     if (!isClickViewAll) {
       setListForRendering(list.slice(0, 3));
     }
-  }, [isClickViewAll]);
+  }, [isClickViewAll, list]);
 
   const handleClickViewAll = () => {
     setIsClickViewAll((prevState) => !prevState);

@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { AuthFormStep1 } from 'modules/details';
-import { AuthFormStep2 } from 'modules/details';
-import { AuthFormStep3 } from 'modules/details';
+
+import { AuthFormStep1, AuthFormStep2, AuthFormStep3 } from 'modules/details';
+
 import s from './AuthForm.module.scss';
 
 interface IProps {

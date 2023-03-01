@@ -16,7 +16,7 @@ interface routes {
   element: JSX.Element;
 }
 
-interface IBreadcrumbsProps {
+export interface BreadcrumbsProps {
   breadcrumbs?: routes[];
 }
 
@@ -24,7 +24,7 @@ function convertTitle(title: string) {
   return title?.split('/')[1]?.charAt(0)?.toUpperCase() + title?.slice(2);
 }
 
-export const Breadcrumbs = ({ breadcrumbs }: IBreadcrumbsProps) => {
+export const Breadcrumbs = () => {
   return (
     <ul className={s.breadcrumbs}>
       {routes?.map(({ path }) => (

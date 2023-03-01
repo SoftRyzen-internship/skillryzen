@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router';
+
 import { ICONS } from 'theme/icons.const';
 import { IMGS } from 'theme/images.const';
 import { FinalTestInfo } from 'modules/common/components/FinalTestInfo/FinalTestInfo';
+
 import { TestInfoContainer } from './TestInfoContainer';
-import { useNavigate } from 'react-router';
 
 export const TestInfo = () => {
   const listInfoJS = {
@@ -22,7 +24,6 @@ export const TestInfo = () => {
   const navigate = useNavigate();
 
   const handleClickBtn = () => {
-    console.log('start test');
     navigate('/student/testing');
   };
 

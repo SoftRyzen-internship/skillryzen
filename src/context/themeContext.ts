@@ -7,7 +7,7 @@ const themes = {
 
 const ThemeContext = createContext({
   theme: themes.light,
-  toggleTheme: () => {},
+  // toggleTheme: () => {},
 });
 
 export { ThemeContext, themes };
