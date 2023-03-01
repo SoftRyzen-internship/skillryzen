@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+import { ICONS } from 'theme';
 
 import { Input } from 'ui-kit/Input/Input';
 import { Tabs } from 'ui-kit/Tabs/Tabs';
-// import { Card } from 'ui-kit/Card/Card';
-// import { Breadcrumbs } from 'ui-kit/Breadcrumbs/Breadcrumbs';
-
 import { Card } from 'ui-kit/Card/Card';
-import { ICONS } from 'theme';
 import { Breadcrumbs } from 'ui-kit/Breadcrumbs';
 
-import s from './TestsMain.module.scss';
+import s from './TestsAll.module.scss';
 
-export const TestsMain = () => {
+export const TestsAll = () => {
+  const { t } = useTranslation();
+
   return (
     <div className={s.testsPage}>
       <div className={s.testsPage__headerContainer}>
@@ -21,12 +22,13 @@ export const TestsMain = () => {
           <div className={s.testsPage__inputWrapper}>
             <Input
               name='search'
-              placeholder='Search..'
+              placeholder={t('testsMain.search')}
               button={true}
               icon={<ICONS.SEARCH fill='#9D9FB5' />}
             />
             <button className={s.testsPage__button}>
-              <ICONS.BOOK className={s.testsPage__iconBook} /> Practice
+              <ICONS.BOOK className={s.testsPage__iconBook} />
+              {t('testsMain.practice')}
             </button>
           </div>
         </div>
@@ -35,8 +37,8 @@ export const TestsMain = () => {
       <div className={s.testsPage__filters}>
         <Tabs
           tabs={[
-            { title: 'All tests', path: '/tests' },
-            { title: 'My tests', path: '/route' },
+            { title: t('testsMain.allTests'), path: '/tests' },
+            { title: t('testsMain.myTests'), path: '/route' },
           ]}
         />
         <div className={s.testsPage__btnContainer}>
@@ -48,7 +50,7 @@ export const TestsMain = () => {
           </button>
           <button className={s.testsPage__btn}>
             <ICONS.FILTER_TWO className={s.testsPage__funnel} />
-            Filter
+            {t('testsMain.filter')}
           </button>
         </div>
       </div>
@@ -59,7 +61,7 @@ export const TestsMain = () => {
               title: 'FullStack_Final Test',
               text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
               fields: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
-              number: '50 запитань',
+              number: t('testsMain.numberOfQuestions'),
               time: 2,
             }}
           />

@@ -2,14 +2,13 @@
   display: block;
   position: relative;
   width: 536px;
-
+  cursor: pointer;
   font-weight: 500;
   font-size: 17px;
   color: var(--primary-txt-cl);
   background-color: var(--components-cl);
   border-radius: 5px;
   padding: 20px 20px 20px 69px;
-  margin: 24px;
 
   &::before {
     position: absolute;
@@ -44,8 +43,8 @@
 
     display: block;
     content: '';
-    width: 9px;
-    height: 9px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     background-color: var(--primary-txt-cl);
   }

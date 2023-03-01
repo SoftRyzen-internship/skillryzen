@@ -12,12 +12,12 @@ interface IRoutes {
 
 export const ROUTES: IRoutes = {
   STUDENT: '/student',
-  DASHBOARD: 'student/dashboard',
-  CERTIFICATION: 'student/certification',
-  PETPROJECTS: 'student/pet-projects',
-  LEADERBOARD: 'student/leader-board',
-  VACANCIES: 'student/vacancies',
-  PROFILE: 'student/profile',
-  SETTINGS: 'student/settings',
-  FEEDBACK: 'student/feedback',
+  DASHBOARD: '/student/dashboard',
+  CERTIFICATION: '/student/certification',
+  PETPROJECTS: '/student/pet-projects',
+  LEADERBOARD: '/student/leader-board',
+  VACANCIES: '/student/vacancies',
+  PROFILE: '/student/profile',
+  SETTINGS: '/student/settings',
+  FEEDBACK: '/student/feedback',
 };

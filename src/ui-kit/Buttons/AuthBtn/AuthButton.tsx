@@ -4,6 +4,7 @@ interface ButtonProps {
   className?: string;
   type: 'button' | 'submit';
   text: string;
+  icon?: JSX.Element;
   onClick?: () => void;
   size: 'small' | 'large';
   color?: 'grey' | 'white' | 'blue';
@@ -14,6 +15,7 @@ interface ButtonProps {
 export const AuthButton = ({
   type = 'button',
   text,
+  icon,
   onClick,
   size = 'small',
   disabled,
@@ -28,6 +30,7 @@ export const AuthButton = ({
       type={type}
       className={`${s.authBtn} ${s[size]} ${s[color]} ${s[needBackground]} ${className}`}
     >
+      {icon}
       {text}
     </button>
   );
