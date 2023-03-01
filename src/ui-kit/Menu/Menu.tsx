@@ -17,21 +17,22 @@ interface IMenuProps {
 
 export const Menu = ({ menu }: IMenuProps) => {
   const isOpen = UseSideBarContext();
+
   return (
     <ul className={s.menu__list}>
       {menu.map((item) => {
         return (
-          <li key={item.title} className={s.menu__item}>
+          <li
+            key={item.title}
+            className={isOpen ? s.menu__itemOpen : s.menu__itemClose}
+          >
             <NavLink
               to={item.path}
               className={({ isActive }) =>
                 isActive ? s.menu__navLinkActive : s.menu__navLink
               }
             >
-              <item.icon
-                aria-label={item.iconAlt}
-                className={item.className || undefined}
-              />
+              <item.icon aria-label={item.iconAlt} className={s.menu__icon} />
               {isOpen && <p className={s.menu__title}>{item.title}</p>}
             </NavLink>
           </li>
