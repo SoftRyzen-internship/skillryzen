@@ -28,7 +28,6 @@
     "numberOfQuestions": "50 запитань",
     "time": "год"
   },
-
   "header": {
     "search": "Шукати..",
     "admin": "Адмін",
@@ -51,5 +50,15 @@
       "settings": "Налаштування",
       "logOut": "Вийти"
     }
+  },
+  "sidebar": {
+    "dashboard": "Дашборд",
+    "certification": "Атестація",
+    "petprojects": "Пет-проєкти",
+    "leaderboard": "Лідерборд",
+    "vacancies": "Вакансії",
+    "profile": "Профіль",
+    "settings": "Налаштування",
+    "feedback": "Зворотній зв'язок"
   }
 }
