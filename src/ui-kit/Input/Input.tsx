@@ -24,7 +24,7 @@ export const Input = ({
   return (
     <label className={s.inputContainer}>
       <input
-        className={className ? className : s.input}
+        className={`${s.input} ${className && className}`}
         name={name}
         placeholder={placeholder}
         type={type}

@@ -7,9 +7,8 @@
 
 .input {
   width: 100%;
-  height: 100%;
   padding: 11px 20px;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1;
   color: var(--primary-txt-cl);
   background-color: var(--components-cl);
@@ -31,7 +30,4 @@
   display: none;
 }
 
-// для тесту, поки не змінєються колір на іконках
-// .icon {
-//   background-color: #fff;
-// }
+
