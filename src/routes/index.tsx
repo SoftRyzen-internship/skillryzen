@@ -5,11 +5,11 @@ import LoginPage from 'pages/LoginPage';
 import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
+import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
 import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
-import { UnderDevelopmentPage } from 'pages/UnderDevelopmentPage';
 
 export const AppRoutes = () => {
   const routes = [

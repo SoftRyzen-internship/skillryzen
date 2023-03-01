@@ -1,6 +1,5 @@
 import { ICONS } from 'theme';
-
-import { Tag } from '../Tag';
+import { Tag } from 'ui-kit';
 
 import s from './Card.module.scss';
 
