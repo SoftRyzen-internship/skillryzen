@@ -21,7 +21,8 @@
 }
 
 .floatingLabelPhone {
-  left: 50px;
+  composes: floatingLabel;
+  left: 74px;
 }
 
 .input {
@@ -57,7 +58,8 @@
 }
 
 .inputPhone {
-  padding-left: 50px;
+  composes: input;
+  padding-left: 74px;
 }
 
 .inputError {
@@ -78,9 +80,8 @@
 
 .phoneButton {
   position: absolute;
-  top: 55%;
-  right: 280px;
-  transform: translateY(-50%);
+  top: 10px;
+  left: 14px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -93,20 +94,3 @@
 .btnSubmit {
   margin-top: 80px;
 }
-
-// .boxOr {
-//   margin-top: 16px;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   flex-direction: row;
-// }
-// .boxOrLine {
-//   display: block;
-//   height: 1px;
-//   width: 50%;
-//   background-color: var(--disabled-cl);
-// }
-// .boxOrLetters {
-//   margin: 0 19px;
-// }
