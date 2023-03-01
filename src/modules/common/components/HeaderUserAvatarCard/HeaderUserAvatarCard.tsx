@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { IMGS } from 'theme/images.const';
+
+import { useThemeContext } from 'context/themeContext';
 
 import { UserAvatarCard } from 'ui-kit/index';
 
 import { HeaderUserAvatarCardPopup } from './HeaderUserAvatarCardPopup';
 
 import s from './HeaderUserAvatarCard.module.scss';
+import { IThemeContext } from 'modules/common/types';
 
 interface HeaderUserAvatarCardProps {
   className?: string;
@@ -19,7 +23,7 @@ export const HeaderUserAvatarCard = ({
   className,
 }: HeaderUserAvatarCardProps) => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
-
+  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   const mouseEnterHandler = () => {
@@ -39,6 +43,7 @@ export const HeaderUserAvatarCard = ({
         userRole={t('header.admin')}
         userAvatarUrl={IMGS.JAVA_SCRIPT}
         userStatus='green'
+        theme={theme}
       />
       {popup ? <div className={s.popup}>{popup}</div> : null}
     </div>

@@ -17,19 +17,37 @@
   bottom: 0;
   width: 12px;
   height: 12px;
-  border: 2px solid var(--primary-cl);
+
   border-radius: 50%;
 }
-.status--green {
+.status--green-dark {
   composes: status--common;
+  border: 2px solid var(--primary-cl);
   background-color: var(--success-cl);
 }
-.status--yellow {
+.status--yellow-dark {
   composes: status--common;
+  border: 2px solid var(--primary-cl);
   background-color: var(--message-cl);
 }
-.status--gray {
+.status--gray-dark {
   composes: status--common;
+  border: 2px solid var(--primary-cl);
+  background-color: var(--secondary-txt-cl);
+}
+.status--green-light {
+  composes: status--common;
+  border: 2px solid var(--light-primary-cl);
+  background-color: var(--success-cl);
+}
+.status--yellow-light {
+  composes: status--common;
+  border: 2px solid var(--light-primary-cl);
+  background-color: var(--message-cl);
+}
+.status--gray-light {
+  composes: status--common;
+  border: 2px solid var(--light-primary-cl);
   background-color: var(--secondary-txt-cl);
 }
 
@@ -38,15 +56,29 @@
   display: flex;
   flex-direction: column;
 }
-.name {
+.name--common {
   margin-bottom: 5px;
   font-family: var(--font-family);
   font-size: var(--text-lg);
   font-weight: var(--bold);
+}
+.name--light {
+  composes: name--common;
+  color: var(---light-primary-txt-cl);
+}
+.name--dark {
+  composes: name--common;
   color: var(--primary-txt-cl);
 }
-.role {
+.role--common {
   font-family: var(--font-family);
   font-size: var(--text-sm);
+}
+.role--light {
+  composes: role--common;
+  color: var(--light-secondary-txt-cl);
+}
+.role--dark {
+  composes: role--common;
   color: var(--secondary-txt-cl);
 }

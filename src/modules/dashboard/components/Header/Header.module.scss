@@ -1,8 +1,17 @@
-.header {
+.header--common {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 4px 60px;
+}
+
+.header--light {
+  composes: header--common;
+  color: var(--light-primary-txt-cl);
+  background-color: var(--light-components-cl);
+}
+.header--dark {
+  composes: header--common;
   color: var(--primary-txt-cl);
   background-color: var(--components-cl);
 }

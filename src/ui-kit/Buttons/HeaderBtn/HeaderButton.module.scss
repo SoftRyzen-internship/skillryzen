@@ -4,13 +4,20 @@
   padding-bottom: 12px;
 }
 
-.button {
+.button--common {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+.button--light {
+  composes: button--common;
+  background-color: var(--light-primary-cl);
+}
+.button--dark {
+  composes: button--common;
   background-color: var(--secondary-cl);
 }
 

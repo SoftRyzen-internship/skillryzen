@@ -3,11 +3,15 @@ import { useState } from 'react';
 import { COLORS } from 'theme/colors.const';
 import { ICONS } from 'theme/icons.const';
 
+import { useThemeContext } from 'context/themeContext';
+
 import { HeaderButton } from 'ui-kit/index';
 
 import { HeaderPopupNotification } from './HeaderPopupNotification';
 
 export const HeaderButtonNotification = () => {
+  const { theme } = useThemeContext();
+
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const mouseEnterHandler = () => {
     setPopup(<HeaderPopupNotification />);
@@ -23,6 +27,7 @@ export const HeaderButtonNotification = () => {
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       popupContent={popup}
+      theme={theme}
     />
   );
 };
