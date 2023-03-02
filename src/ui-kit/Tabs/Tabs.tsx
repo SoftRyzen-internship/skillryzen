@@ -1,3 +1,4 @@
+import { Theme } from 'modules/common/types';
 import { NavLink } from 'react-router-dom';
 
 import s from './Tabs.module.scss';
@@ -8,9 +9,10 @@ interface ITab {
 }
 interface ITabProps {
   tabs: ITab[];
+  theme?: Theme;
 }
 
-export const Tabs = ({ tabs }: ITabProps) => {
+export const Tabs = ({tabs, theme="dark"}: ITabProps) => {
   return (
     <ul className={s.tabs__list}>
       {tabs.map(({ title, path }) => {
@@ -19,7 +21,7 @@ export const Tabs = ({ tabs }: ITabProps) => {
             <NavLink
               to={path}
               className={({ isActive }: { isActive: boolean }) =>
-                isActive ? s.tabs__navLinkActive : s.tabs__navLink
+                isActive ? `${s.tabs__navLinkActive} ${s[`tabs__navLinkActive--${theme}`]}` : `${s.tabs__navLink} ${s[`tabs__navLink--${theme}`]}`
               }
             >
               {title}

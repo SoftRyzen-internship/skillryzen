@@ -5,13 +5,14 @@
   padding: 16px 24px 100px 60px;
   background-color: var(--secondary-cl);
   transform: translateX(0);
-  transition: 0.5s;
+  transition: var(--transition);
   border-right: 1px solid var(--components-cl);
 }
 
 .sideBarIsOpenLight {
   composes: sideBarIsOpenDark;
   background-color: #fff;
+  border-right: 1px solid #fff;
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 }
 
@@ -22,13 +23,14 @@
   padding: 16px 22px 100px;
   background-color: var(--secondary-cl);
   transform: translateX(0);
-  transition: 0.5s;
+  transition: var(--transition);
   border-right: 1px solid var(--components-cl);
 }
 
 .slideBarIsClosedLight {
   composes: slideBarIsClosedDark;
   background-color: #fff;
+  border-right: 1px solid #fff;
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 }
 

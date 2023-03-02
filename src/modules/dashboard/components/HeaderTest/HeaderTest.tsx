@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ProgressBar } from 'ui-kit/ProgressBar';
 import { Timer } from 'modules/common/components/Timer';
 
