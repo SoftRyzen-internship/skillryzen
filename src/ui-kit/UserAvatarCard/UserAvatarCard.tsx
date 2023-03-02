@@ -1,16 +1,18 @@
 import s from './UserAvatarCard.module.scss';
-
+import { Theme } from 'modules/common/types';
 interface UserAvatarCardProps {
   userName: string;
   userRole: string;
   userAvatarUrl: string;
   userStatus: 'green' | 'yellow' | 'gray';
+  theme: Theme;
 }
 export const UserAvatarCard = ({
   userName,
   userRole,
   userAvatarUrl,
   userStatus,
+  theme,
 }: UserAvatarCardProps) => {
   return (
     <div className={s.card}>
@@ -22,11 +24,11 @@ export const UserAvatarCard = ({
           height={40}
           alt='avatar'
         />
-        <span className={`${s[`status--${userStatus}`]}`}></span>
+        <span className={`${s[`status--${userStatus}-${theme}`]}`}></span>
       </div>
       <div className={s.info}>
-        <p className={s.name}>{userName}</p>
-        <p className={s.role}>{userRole}</p>
+        <p className={`${s[`name--${theme}`]}`}>{userName}</p>
+        <p className={`${s[`role--${theme}`]}`}>{userRole}</p>
       </div>
     </div>
   );

@@ -1,13 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
-const themes = {
-  light: 'light',
-  dark: 'dark',
-};
-
-const ThemeContext = createContext({
-  theme: themes.light,
-  // toggleTheme: () => {},
-});
-
-export { ThemeContext, themes };
+export const ThemeContext = createContext(null);
+export const useThemeContext = () => useContext(ThemeContext);

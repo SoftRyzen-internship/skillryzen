@@ -2,9 +2,15 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'theme/icons.const';
+
+import { useThemeContext } from 'context/themeContext';
+
 import { HeaderButton, Popup } from 'ui-kit/index';
 
+import { IThemeContext } from 'modules/common/types';
+
 export const HeaderButtonLanguage = () => {
+  const { theme }: IThemeContext = useThemeContext();
   const { t, i18n } = useTranslation();
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
@@ -44,6 +50,7 @@ export const HeaderButtonLanguage = () => {
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       popupContent={popup}
+      theme={theme}
     />
   );
 };

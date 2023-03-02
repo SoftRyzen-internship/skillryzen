@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+
 import { IMGS } from 'theme/images.const';
 import { ICONS } from 'theme/icons.const';
+
+import { useThemeContext } from 'context/themeContext';
 
 import { UserAvatarCard, Popup } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
+import { IThemeContext } from 'modules/common/types';
 
 interface HeaderUserAvatarCardProps {
   className?: string;
@@ -18,7 +22,7 @@ export const HeaderUserAvatarCard = ({
   className,
 }: HeaderUserAvatarCardProps) => {
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
-
+  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   const mouseEnterHandler = () => {
@@ -38,7 +42,6 @@ export const HeaderUserAvatarCard = ({
             text: t('header.userAvatar.logOut'),
           },
         ]}
-        vievAll={t('header.viewAll')}
       />
     );
   };
@@ -56,6 +59,7 @@ export const HeaderUserAvatarCard = ({
         userRole={t('header.admin')}
         userAvatarUrl={IMGS.JAVA_SCRIPT}
         userStatus='green'
+        theme={theme}
       />
       {popup ? <div className={s.popup}>{popup}</div> : null}
     </div>

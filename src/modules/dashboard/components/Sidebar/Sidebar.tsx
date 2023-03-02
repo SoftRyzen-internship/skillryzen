@@ -1,10 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { SideBar } from 'ui-kit/SideBar/SideBar';
-import { Menu } from 'ui-kit/Menu/Menu';
+import { useThemeContext } from 'context/themeContext';
 
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'theme';
+
+import { SideBar } from 'ui-kit/SideBar/SideBar';
+import { Menu } from 'ui-kit/Menu/Menu';
+
+import { IThemeContext } from 'modules/common/types';
 
 function generateId() {
   return (
@@ -13,6 +17,7 @@ function generateId() {
 }
 
 export const Sidebar = () => {
+  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   const menu = [
@@ -75,6 +80,7 @@ export const Sidebar = () => {
         <Menu menu={userMenu} key={generateId()} />,
       ]}
       spaceBetween='space-between'
+      theme={theme}
     />
   );
 };

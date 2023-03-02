@@ -1,3 +1,4 @@
+import { Theme } from 'modules/common/types';
 import s from './HeaderButton.module.scss';
 
 interface HeaderButtonProps {
@@ -9,6 +10,7 @@ interface HeaderButtonProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   popupContent?: React.ReactNode;
+  theme: Theme;
 }
 
 export const HeaderButton = ({
@@ -20,6 +22,7 @@ export const HeaderButton = ({
   onMouseEnter,
   onMouseLeave,
   popupContent,
+  theme,
 }: HeaderButtonProps) => {
   return (
     <div
@@ -27,7 +30,11 @@ export const HeaderButton = ({
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >
-      <button className={s.button} type='button' onClick={onClick}>
+      <button
+        className={`${s[`button--${theme}`]}`}
+        type='button'
+        onClick={onClick}
+      >
         {icon}
       </button>
       {IndicatorNumber ? (
