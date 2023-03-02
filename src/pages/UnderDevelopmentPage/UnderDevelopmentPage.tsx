@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 
-import { Header, Sidebar, MainContainer } from 'modules/dashboard';
+import { Header } from 'modules/Header';
+import { Sidebar, MainContainer } from 'modules/dashboard';
 
 const LazyUnderDevelopment = lazy(async () => ({
   default: (await import('modules/dashboard/components/UnderDevelopment'))
@@ -10,7 +11,7 @@ const LazyUnderDevelopment = lazy(async () => ({
 const UnderDevelopmentPage = () => {
   return (
     <>
-      <Header />
+      <Header isTestingPage={false} />
       <MainContainer>
         <Sidebar />
         <Suspense fallback={<div>Loading...</div>}>

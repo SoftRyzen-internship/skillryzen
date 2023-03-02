@@ -1,12 +1,13 @@
 import { Outlet } from 'react-router';
 
-import { Header, Sidebar } from 'modules/dashboard';
+import { Sidebar } from 'modules/dashboard';
+import { Header } from 'modules/Header';
 import { TestsContainer } from 'modules/dashboard/components/TestsContainer';
 
 const TestsPage = () => {
   return (
     <>
-      <Header />
+      <Header isTestingPage={false} />
       <TestsContainer>
         <Sidebar />
         <Outlet />
