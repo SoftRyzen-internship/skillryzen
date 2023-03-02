@@ -104,6 +104,8 @@
 }
 
 .valid {
+  color: var(--success-cl);
+
   & .codeInput:not(:placeholder-shown) {
     border-color: var(--success-cl);
   }
@@ -120,6 +122,8 @@
 }
 
 .invalid {
+  color: var(--error-cl);
+
   & .codeInput:not(:placeholder-shown) {
     border-color: var(--error-cl);
   }

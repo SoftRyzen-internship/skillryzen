@@ -70,14 +70,6 @@
   padding-left: 74px;
 }
 
-.inputError {
-  border-color: var(--error-cl);
-}
-
-.inputValid {
-  border-color: var(--success-cl);
-}
-
 .errorMsg {
   position: absolute;
   bottom: -20px;
@@ -103,22 +95,14 @@
   margin-top: 80px;
 }
 
-.floatingLabelValid {
-  border-color: var(--success-cl);
-  path {
-    stroke: var(--success-cl);
-  }
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--success-cl);
-    -webkit-background-clip: text;
-  }
+.floatingLabelError .input {
+  color: var(--error-cl);
 }
 
-.floatingLabelError {
+.floatingLabelError * {
+
   border-color: var(--error-cl);
+
   path {
     stroke: var(--error-cl);
   }
@@ -127,6 +111,30 @@
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
     -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
+}
+
+.floatingLabelValid .input {
+  color: var(--success-cl);
+}
+
+.floatingLabelValid .inputPhone {
+  color: var(--success-cl);
+  border-color: var(--success-cl);
+}
+
+.floatingLabelValid * {
+  border-color: var(--success-cl);
+
+  path {
+    stroke: var(--success-cl);
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--success-cl);
     -webkit-background-clip: text;
   }
 }
