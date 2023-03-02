@@ -4,10 +4,10 @@ import { ICONS } from 'theme';
 
 import s from './ProgressBar.module.scss';
 
-interface IAnswer {
-  number: number;
-  isRight: boolean;
-}
+// interface IAnswer {
+//   number: number;
+//   isRight: boolean;
+// }
 
 interface IProps {
   currentNumber: number;
@@ -21,23 +21,23 @@ export const ProgressBar = ({
   isPrevRight,
 }: IProps) => {
   const array = [...Array(totalNumber)].fill(1).map((item, index) => index + 1);
-  const [arrayOfAnswers, setArrayOfAnswers] = useState<IAnswer[]>([]);
+  // const [arrayOfAnswers, setArrayOfAnswers] = useState<IAnswer[]>([]);
 
-  useEffect(() => {
-    if (currentNumber === 1) return;
-    setArrayOfAnswers((prevState) => [
-      ...prevState,
-      { number: currentNumber - 1, isRight: isPrevRight },
-    ]);
-  }, [currentNumber, isPrevRight]);
+  // useEffect(() => {
+  //   if (currentNumber === 1) return;
+  //   setArrayOfAnswers((prevState) => [
+  //     ...prevState,
+  //     { number: currentNumber - 1, isRight: isPrevRight },
+  //   ]);
+  // }, [currentNumber, isPrevRight]);
 
-  const checkRightAnswer = (item: number) => {
-    // if (item > arrayOfAnswers.length || arrayOfAnswers.length === 0) return '';
-    const foundItem = arrayOfAnswers.find((answer) => answer.number === item);
-    if (!foundItem) return;
-    if (foundItem.isRight) return 'progressBar__line--right';
-    return 'progressBar__line--false';
-  };
+  // const checkRightAnswer = (item: number) => {
+  //   if (item > arrayOfAnswers.length || arrayOfAnswers.length === 0) return '';
+  //   const foundItem = arrayOfAnswers.find((answer) => answer.number === item);
+  //   if (!foundItem) return;
+  //   if (foundItem.isRight) return 'progressBar__line--right';
+  //   return 'progressBar__line--false';
+  // };
 
   return (
     <div className={s.progressBar}>
@@ -49,9 +49,10 @@ export const ProgressBar = ({
           {array.map((item) => (
             <li
               key={item}
-              className={`${s.progressBar__line} ${
-                s[`${checkRightAnswer(item)}`]
-              }`}
+              className={`${s.progressBar__line} ${item<currentNumber && s['progressBar__line--right']}`}
+              // className={`${s.progressBar__line} ${
+              //   s[`${checkRightAnswer(item)}`]
+              // }`}
             ></li>
           ))}
         </ul>
