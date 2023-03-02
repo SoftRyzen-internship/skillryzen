@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 
@@ -76,8 +75,8 @@ export const Sidebar = () => {
   return (
     <SideBar
       children={[
-        <Menu menu={menu} key={generateId()} />,
-        <Menu menu={userMenu} key={generateId()} />,
+        <Menu menu={menu} key={generateId()} theme={theme} />,
+        <Menu menu={userMenu} key={generateId()} theme={theme} />,
       ]}
       spaceBetween='space-between'
       theme={theme}
