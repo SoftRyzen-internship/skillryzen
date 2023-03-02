@@ -49,7 +49,9 @@ export const ProgressBar = ({
           {array.map((item) => (
             <li
               key={item}
-              className={`${s.progressBar__line} ${item<currentNumber && s['progressBar__line--right']}`}
+              className={`${s.progressBar__line} ${
+                item < currentNumber && s['progressBar__line--right']
+              }`}
               // className={`${s.progressBar__line} ${
               //   s[`${checkRightAnswer(item)}`]
               // }`}

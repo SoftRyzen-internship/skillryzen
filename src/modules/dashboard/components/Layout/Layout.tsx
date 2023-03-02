@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '../Header/Header';
+import { Header } from 'modules/Header';
 
 type LayoutProps = {
   children: ReactNode;
@@ -10,7 +10,7 @@ type LayoutProps = {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <>
-      <Header />
+      <Header isTestingPage={false} />
       {children}
       <Outlet />
     </>
