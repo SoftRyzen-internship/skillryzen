@@ -11,13 +11,29 @@
 
 .tabs__navLink {
   font-size: 16px;
-  font-weight: 700;
-  color: var(--secondary-txt-cl);
+  font-weight: var(--bold);
+
+  &--light {
+    color: var(--secondary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
+
 }
 
 .tabs__navLinkActive {
   font-size: 16px;
-  font-weight: 700;
+  font-weight: var(--bold);
+
+  &--light {
+    color: var(--light-tabs-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .tabs__navLinkActive::after {

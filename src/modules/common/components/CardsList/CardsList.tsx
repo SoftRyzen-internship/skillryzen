@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+import { IThemeContext } from 'modules/common/types';
 import { Card } from 'ui-kit';
+import { useThemeContext } from 'context/themeContext';
 
 import s from './CardsList.module.scss';
+
 
 interface IItem {
   title: string;
@@ -20,6 +23,7 @@ interface ITestsList {
 }
 
 export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
+  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   return (
@@ -37,6 +41,7 @@ export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
                 number: item.number + ' ' + t('testsMain.numberOfQuestions'),
                 time: item.time,
               }}
+              theme={theme}
             />
           </Link>
         </li>

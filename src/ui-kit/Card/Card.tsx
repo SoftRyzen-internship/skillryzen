@@ -1,3 +1,4 @@
+import { Theme } from 'modules/common/types';
 import { ICONS } from 'theme';
 import { Tag } from 'ui-kit';
 
@@ -12,6 +13,7 @@ interface ICard {
   custom?: boolean;
   onClick?: () => void;
   item: IItem;
+  theme?: Theme;
 }
 
 interface IItem {
@@ -40,6 +42,7 @@ export const Card = ({
   size = 'large',
   hideNumber = false,
   custom = false,
+  theme = "dark",
   onClick,
 }: ICard) => {
   const { title, text, fields, number, time } = item;
@@ -57,7 +60,7 @@ export const Card = ({
   };
 
   return (
-    <div className={`${s[`card--${size}`]}`}>
+    <div className={`${s[`card--${size}`]} ${s[`card--${theme}`]}`}>
       <div className={s.card__infoWrapper}>
         <div className={`${s[`card__thumb--${addBackgroundColor(type)}`]}`}>
           {addIcon(type)}
@@ -65,14 +68,14 @@ export const Card = ({
         {!custom && (
           <div className={s.card__contentWrapper}>
             <div className={s.card__content}>
-              <p className={s.card__title}>{title}</p>
-              <p className={s.card__text}>{text}</p>
+              <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>{title}</p>
+              <p className={`${s.card__text} ${s[`card__text--${theme}`]}`}>{text}</p>
             </div>
             {fields && type === 'info' && (
               <ul className={s.card__list}>
                 {fields.map((item, index) => (
                   <li key={index}>
-                    <Tag type='field' label={item} />
+                    <Tag type='field' label={item} theme={theme}/>
                   </li>
                 ))}
               </ul>
@@ -89,11 +92,12 @@ export const Card = ({
         {((!hideNumber && number) || custom) && (
           <Tag
             type='number'
+            theme={theme}
             label={type === 'info' && custom ? '? запитань' : number}
           />
         )}
         {((time && type === 'info') || custom) && (
-          <Tag type='time' label={!custom ? time + '' : '?'} />
+          <Tag type='time' label={!custom ? time + '' : '?'} theme={theme}/>
         )}
         {type !== 'info' && (
           <button className={s.card__close} onClick={onClick}>
