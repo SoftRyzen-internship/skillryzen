@@ -17,8 +17,6 @@ interface ITestsList {
   type?: 'notification' | 'coin' | 'info';
   size: 'large' | 'small';
   testsArray: IItem[];
-  hideNumber?: boolean;
-  onClick?: () => void;
 }
 
 export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
