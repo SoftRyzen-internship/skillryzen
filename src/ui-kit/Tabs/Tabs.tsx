@@ -12,7 +12,7 @@ interface ITabProps {
   theme?: Theme;
 }
 
-export const Tabs = ({tabs, theme="dark"}: ITabProps) => {
+export const Tabs = ({tabs, theme='dark'}: ITabProps) => {
   return (
     <ul className={s.tabs__list}>
       {tabs.map(({ title, path }) => {
