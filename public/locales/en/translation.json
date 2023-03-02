@@ -25,10 +25,9 @@
     "search": "Search..",
     "practice": "Practice",
     "filter": "Filter",
-    "numberOfQuestions": "50 questions",
+    "numberOfQuestions": "questions",
     "time": "hrs"
   },
-
   "header": {
     "search": "Search..",
     "admin": "Admin",
@@ -56,5 +55,15 @@
       "settings": "Settings",
       "logOut": "Log out"
     }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "certification": "Certification",
+    "petprojects": "Petprojects",
+    "leaderboard": "Leaderboard",
+    "vacancies": "Vacancies",
+    "profile": "Profile",
+    "settings": "Settings",
+    "feedback": "Feedback"
   }
 }

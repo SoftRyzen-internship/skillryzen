@@ -1,15 +1,21 @@
-.sideBarIsOpen {
+.sideBarIsOpenDark {
   height: calc(100vh - 72px);
   position: relative;
   max-width: 260px;
-  padding: 16px 24px 16px 60px;
+  padding: 16px 24px 100px 60px;
   background-color: var(--secondary-cl);
   transform: translateX(0);
   transition: 0.5s;
   border-right: 1px solid var(--components-cl);
 }
 
-.slideBarIsClosed {
+.sideBarIsOpenLight {
+  composes: sideBarIsOpenDark;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+}
+
+.slideBarIsClosedDark {
   height: calc(100vh - 72px);
   position: relative;
   max-width: 100px;
@@ -18,6 +24,12 @@
   transform: translateX(0);
   transition: 0.5s;
   border-right: 1px solid var(--components-cl);
+}
+
+.slideBarIsClosedLight {
+  composes: slideBarIsClosedDark;
+  background-color: #fff;
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 }
 
 .sideBar__companyBlock {
@@ -46,7 +58,7 @@
   }
 }
 
-.sideBar__btn {
+.sideBar__btnDark {
   position: absolute;
   right: -12px;
   top: 16px;
@@ -59,7 +71,12 @@
   align-items: center;
 }
 
-.sideBar__iconOpen {
+.sideBar__btnLight {
+  composes: sideBar__btnDark;
+  background-color: #e9f0ff;
+}
+
+.sideBar__iconOpenDark {
   display: block;
   stroke: var(--secondary-txt-cl);
   fill: var(--secondary-txt-cl);
@@ -67,12 +84,24 @@
   transform: rotate(0deg);
 }
 
-.slideBar__iconClosed {
+.sideBar__iconOpenLight {
+  composes: sideBar__iconOpenDark;
+  stroke: var(--accent-cl);
+  fill: var(--accent-cl);
+}
+
+.slideBar__iconClosedDark {
   display: block;
   stroke: var(--secondary-txt-cl);
   fill: var(--secondary-txt-cl);
   width: 11px;
   transform: rotate(180deg);
+}
+
+.slideBar__iconClosedLight {
+  composes: slideBar__iconClosedDark;
+  stroke: var(--accent-cl);
+  fill: var(--accent-cl);
 }
 
 .sideBar__listWrapper {

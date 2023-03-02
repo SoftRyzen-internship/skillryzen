@@ -44,25 +44,25 @@ export const array = [
 
 export interface IInfo {
   questionId: string;
+  number: number;
   title: string;
   possibleAnswers: {
     value: string;
     title: string;
     label: string;
   }[];
-  rightAnswer: string;
   hasNextQuestion: boolean;
 }
 
 const TestingPage = () => {
-  const [testId, setTestId] = useState('');
+  const [testId, setTestId] = useState<string>('');
   const [info, setInfo] = useState<IInfo>();
 
   useEffect(() => {
     setInfo({
       questionId: array[0].questionId,
+      number: 1,
       title: array[0].title,
-      rightAnswer: array[0].rightAnswer,
       possibleAnswers: array[0].possibleAnswers,
       hasNextQuestion: array[0].hasNextQuestion,
     });
@@ -71,13 +71,13 @@ const TestingPage = () => {
 
   return (
     <>
-      <HeaderTest />
+      <HeaderTest currentNumber={info && info.number}/>
       {info && (
         <TestQuestion
+        number={info.number}
           testId={testId}
           questionId={info.questionId}
           title={info.title}
-          rightAnswer={info.rightAnswer}
           possibleAnswers={info.possibleAnswers}
           hasNextQuestion={info.hasNextQuestion}
           onNextQuestion={setInfo}
