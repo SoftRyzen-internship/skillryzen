@@ -4,23 +4,26 @@ import { NavLink } from 'react-router-dom';
 import { ICONS } from 'ui-kit/icons';
 
 import { AuthButton } from 'ui-kit/index';
+import { setRole, setStep } from 'redux/authSlice/authSlice';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
 import s from './AuthFormStep1.module.scss';
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 
-import { IAuth } from 'modules/common/types';
+export const AuthFormStep1 = () => {
+  const role = useAppSelector((state) => state.auth.role);
+  const dispatch = useAppDispatch();
 
-export const AuthFormStep1 = ({ setStep, setRole, role }: IAuth) => {
   const [code, setCode] = useState('');
   const [isValid, setIsValid] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setStep(2);
+    dispatch(setStep(2));
   };
 
   const handleRoleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setRole(e.target.value);
+    dispatch(setRole(e.target.value));
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

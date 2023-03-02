@@ -1,6 +1,6 @@
-import s from './AuthIntro.module.scss';
+import { useAppSelector } from 'hooks/hook';
 
-import { IAuth } from 'modules/common/types';
+import s from './AuthIntro.module.scss';
 
 const meta = {
   candidate: [
@@ -19,7 +19,8 @@ const meta = {
   ],
 };
 
-export const AuthIntro = ({ role }: IAuth) => {
+export const AuthIntro = () => {
+  const role = useAppSelector((state) => state.auth.role);
   const introMeta = role === 'candidate' ? meta.candidate : meta.company;
 
   return (

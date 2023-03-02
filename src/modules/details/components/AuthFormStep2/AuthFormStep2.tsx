@@ -5,13 +5,13 @@ import { useFormik } from 'formik';
 import { ICONS } from 'ui-kit/icons';
 
 import { AuthButton, Checkbox } from 'ui-kit/index';
+import { useAppDispatch } from 'hooks/hook';
+import { setStep } from 'redux/authSlice/authSlice';
 
 import { registerSchema } from 'services/validationSchema';
 
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 import s from './AuthFormStep2.module.scss';
-
-import { IAuth } from 'modules/common/types';
 
 interface MyFormValues {
   email: string;
@@ -19,7 +19,8 @@ interface MyFormValues {
   checkbox: boolean;
 }
 
-export const AuthFormStep2 = ({ setStep }: IAuth) => {
+export const AuthFormStep2 = () => {
+  const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   // const handleClickGoogle = () => {};
@@ -34,7 +35,7 @@ export const AuthFormStep2 = ({ setStep }: IAuth) => {
     validationSchema: registerSchema,
 
     onSubmit: (_values) => {
-      setStep(3);
+      dispatch(setStep(3));
     },
   });
 

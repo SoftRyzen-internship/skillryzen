@@ -5,14 +5,14 @@ interface UserAvatarCardProps {
   userRole: string;
   userAvatarUrl: string;
   userStatus: 'green' | 'yellow' | 'gray';
-  theme: Theme;
+  theme?: Theme;
 }
 export const UserAvatarCard = ({
   userName,
   userRole,
   userAvatarUrl,
   userStatus,
-  theme,
+  theme = 'dark',
 }: UserAvatarCardProps) => {
   return (
     <div className={s.card}>

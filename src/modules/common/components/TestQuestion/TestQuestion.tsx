@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { AuthButton, RadioButton } from 'ui-kit';
 
-import { IInfo, array } from 'pages/TestingPage/TestingPage';
+import { Info, array } from 'pages/TestingPage/TestingPage';
 
 import s from './TestQuestion.module.scss';
 
-interface ITestQuestionProps {
+interface TestQuestionProps {
   testId: string;
   questionId: string;
   number: number;
@@ -16,12 +16,12 @@ interface ITestQuestionProps {
     title: string;
     label: string;
   }[];
-  onNextQuestion: React.Dispatch<React.SetStateAction<IInfo>>;
+  onNextQuestion: React.Dispatch<React.SetStateAction<Info>>;
   hasNextQuestion: boolean;
 }
 
 // Ця логіка на демо-версію
-// type IState = 'checked' | 'wrong' | 'right' | '';
+// type State = 'checked' | 'wrong' | 'right' | '';
 
 export const TestQuestion = ({
   testId,
@@ -31,7 +31,7 @@ export const TestQuestion = ({
   possibleAnswers,
   onNextQuestion,
   hasNextQuestion,
-}: ITestQuestionProps) => {
+}: TestQuestionProps) => {
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   // const [sendAnswer, setSendAnswer] = useState<string | null>(null);
 
@@ -49,7 +49,7 @@ export const TestQuestion = ({
   };
 
   // Ця логіка на демо-версію
-  // const chooseState = (value: string): IState => {
+  // const chooseState = (value: string): State => {
   //   if (
   //     (sendAnswer && sendAnswer === value && rightAnswer === value) ||
   //     (sendAnswer && rightAnswer === value)

@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-
+import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './ProgressBar.module.scss';
@@ -9,7 +8,7 @@ import s from './ProgressBar.module.scss';
 //   isRight: boolean;
 // }
 
-interface IProps {
+interface Props {
   currentNumber: number;
   totalNumber: number;
   isPrevRight: boolean;
@@ -19,8 +18,8 @@ export const ProgressBar = ({
   currentNumber,
   totalNumber,
   isPrevRight,
-}: IProps) => {
-  const array = [...Array(totalNumber)].fill(1).map((item, index) => index + 1);
+}: Props) => {
+  const array = createArray(totalNumber);
   // const [arrayOfAnswers, setArrayOfAnswers] = useState<IAnswer[]>([]);
 
   // useEffect(() => {

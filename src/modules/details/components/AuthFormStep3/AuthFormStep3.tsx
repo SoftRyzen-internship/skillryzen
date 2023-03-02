@@ -6,6 +6,9 @@ import { ICONS } from 'ui-kit/icons';
 import { AuthButton } from 'ui-kit/index';
 
 import { IAuth } from 'modules/common/types';
+import { setStep } from 'redux/authSlice/authSlice';
+import { useAppDispatch } from 'hooks/hook';
+
 import { contactInfoSchema } from 'services/validationSchema';
 
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
@@ -17,7 +20,9 @@ interface FormValues {
   phone: string;
 }
 
-export const AuthFormStep3 = ({ setStep }: IAuth) => {
+export const AuthFormStep3 = () => {
+  const dispatch = useAppDispatch();
+
   const formik = useFormik<FormValues>({
     initialValues: {
       name: '',
@@ -28,7 +33,7 @@ export const AuthFormStep3 = ({ setStep }: IAuth) => {
     validationSchema: contactInfoSchema,
 
     onSubmit: (values) => {
-      setStep(4);
+      dispatch(setStep(4));
     },
   });
 

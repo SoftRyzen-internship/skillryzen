@@ -1,7 +1,12 @@
-import { Auth } from 'modules/dashboard';
+import { AuthSteps } from 'modules/details';
+import { AuthWrapper } from 'modules/wrappers/AuthWrapper/AuthWrapper';
 
 const RegisterPage = () => {
-  return <Auth />;
+  return (
+    <AuthWrapper>
+      <AuthSteps />
+    </AuthWrapper>
+  );
 };
 
 export default RegisterPage;

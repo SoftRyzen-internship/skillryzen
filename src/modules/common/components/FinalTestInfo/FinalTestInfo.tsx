@@ -1,12 +1,30 @@
-import React from 'react';
-
 import { useTranslation } from 'react-i18next';
-
+import { useThemeContext } from 'context/themeContext';
 import { AuthButton } from 'ui-kit';
+import { IThemeContext } from 'modules/common/types';
 
 import s from './FinalTestInfo.module.scss';
 
-interface IListInfoJS {
+const objectTheme = {
+  dark: {
+    title: s.titleDark,
+    icon: s.iconDark,
+    iconThumb: s.iconThumbDark,
+    subtitle: s.subtitleDark,
+    text: s.textDark,
+    textRight: s.textRightDark,
+  },
+  light: {
+    title: s.titleLight,
+    icon: s.iconLight,
+    iconThumb: s.iconThumbLight,
+    subtitle: s.subtitleLight,
+    text: s.textLight,
+    textRight: s.textRightLight,
+  },
+};
+
+interface ListInfoJS {
   topics: string;
   time: string;
   questions: number;
@@ -17,18 +35,18 @@ interface IListInfoJS {
   };
 }
 
-interface IIconProps {
+interface IconProps {
   alt: string;
   width: string;
   height: string;
 }
 
-interface IProps {
+interface Props {
   image: string;
-  imageProps: IIconProps;
+  imageProps: IconProps;
   title?: string;
   subtitle?: string;
-  listInfo?: IListInfoJS;
+  listInfo?: ListInfoJS;
   correctAnswers?: number;
   totalQuestions?: number;
   timeSpent?: number;
@@ -57,8 +75,9 @@ export const FinalTestInfo = ({
   onClickBtn,
   finishTest,
   test,
-}: IProps) => {
+}: Props) => {
   const { t } = useTranslation();
+  const { theme }: IThemeContext = useThemeContext();
 
   const { alt, width, height } = imageProps;
   return (
@@ -72,83 +91,112 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={s.title}>{t('finalTestInfo.title')}</h2>
-      {subtitle && <p className={s.subtitle}>{t('finalTestInfo.subtitle')}</p>}
+      <h2 className={objectTheme[theme].title}>{t('finalTestInfo.title')}</h2>
+      {subtitle && (
+        <p className={objectTheme[theme].subtitle}>
+          {t('finalTestInfo.subtitle')}
+        </p>
+      )}
       {listInfo ? (
         <ul className={s.list}>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.BAR fill='var(--primary-txt-cl)' />
+              <div className={objectTheme[theme].iconThumb}>
+                {theme === 'dark' ? (
+                  <listInfo.icons.BAR />
+                ) : (
+                  <listInfo.icons.BAR_LIGHT />
+                )}
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.topics')}</p>
+              <p className={objectTheme[theme].text}>
+                {t('finalTestInfo.list.topics')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.topics}`}</p>
+            <p
+              className={objectTheme[theme].textRight}
+            >{`${listInfo.topics}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.CLOCK className={s.icon} />
+              <div className={objectTheme[theme].iconThumb}>
+                <listInfo.icons.CLOCK className={objectTheme[theme].icon} />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.time')}</p>
+              <p className={objectTheme[theme].text}>
+                {t('finalTestInfo.list.time')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.time}`}</p>
+            <p className={objectTheme[theme].textRight}>{`${listInfo.time}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.QUESTION className={s.icon} />
+              <div className={objectTheme[theme].iconThumb}>
+                <listInfo.icons.QUESTION className={objectTheme[theme].icon} />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.questions')}</p>
+              <p className={objectTheme[theme].text}>
+                {t('finalTestInfo.list.questions')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.questions}`}</p>
+            <p
+              className={objectTheme[theme].textRight}
+            >{`${listInfo.questions}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.USERS className={s.icon} />
+              <div className={objectTheme[theme].iconThumb}>
+                <listInfo.icons.USERS className={objectTheme[theme].icon} />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.learners')}</p>
+              <p className={objectTheme[theme].text}>
+                {t('finalTestInfo.list.learners')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.learners}`}</p>
+            <p
+              className={objectTheme[theme].textRight}
+            >{`${listInfo.learners}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.USER className={s.icon} />
+              <div className={objectTheme[theme].iconThumb}>
+                <listInfo.icons.USER className={objectTheme[theme].icon} />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.author')}</p>
+              <p className={objectTheme[theme].text}>
+                {t('finalTestInfo.list.author')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.author}`}</p>
+            <p
+              className={objectTheme[theme].textRight}
+            >{`${listInfo.author}`}</p>
           </li>
         </ul>
       ) : (
         ''
       )}
-
       {finishTest && (
         <>
           <ul className={s.recList}>
             <li className={s.item}>
               <div className={s.iconWrapper}>
-                <div className={s.iconThumb}>
-                  <IconAnswers className={s.icon} />
+                <div className={objectTheme[theme].iconThumb}>
+                  <IconAnswers className={objectTheme[theme].icon} />
                 </div>
-                <p className={s.text}>{t('finalTestInfo.correctAnswers')}</p>
+                <p className={objectTheme[theme].text}>
+                  {t('finalTestInfo.correctAnswers')}
+                </p>
               </div>
-              <p className={s.textRight}>
+              <p className={objectTheme[theme].textRight}>
                 {`${correctAnswers}`}
                 <span className={s.textGrey}>/{`${totalQuestions}`}</span>
               </p>
             </li>
             <li className={s.item}>
               <div className={s.iconWrapper}>
-                <div className={s.iconThumb}>
-                  <IconTime className={s.icon} />
+                <div className={objectTheme[theme].iconThumb}>
+                  <IconTime className={objectTheme[theme].icon} />
                 </div>
-                <p className={s.text}>{t('finalTestInfo.timeSpent')}</p>
+                <p className={objectTheme[theme].text}>
+                  {t('finalTestInfo.timeSpent')}
+                </p>
               </div>
-              <p className={s.textRight}>
+              <p className={objectTheme[theme].textRight}>
                 {`${timeSpent}`} {t('finalTestInfo.min')}
               </p>
             </li>
@@ -166,7 +214,6 @@ export const FinalTestInfo = ({
           </div>
         </>
       )}
-
       <AuthButton
         type='button'
         text={t('finalTestInfo.startTest')}
@@ -203,7 +250,7 @@ export const FinalTestInfo = ({
 // PROPS For Start Test
 /* <FinalTestInfo
   image={IMGS.JAVA_SCRIPT}
-  imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
+  imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
   title='FullStack - Final Test'
   subtitle='JavaScript is a programming language that is one of the core
     technologies of the World Wide Web, alongside HTML and CSS.'
@@ -217,7 +264,7 @@ export const FinalTestInfo = ({
 
 // <FinalTestInfo
 //   image={IMGS.JAVA_SCRIPT}
-//   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
+//   imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
 //   title='FullStack - Final Test'
 //   correctAnswers={15}
 //   totalQuestions={50}
