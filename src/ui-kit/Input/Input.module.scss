@@ -22,7 +22,7 @@
 .input--light {
   composes: input--common;
   color: var(--light-primary-txt-cl);
-  background-color: var(--light-components-cl);
+  background-color: var(--light-primary-cl);
 }
 
 .input--dark::placeholder {
