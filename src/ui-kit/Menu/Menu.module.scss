@@ -2,7 +2,7 @@
   .menu__itemOpen {
     width: 176px;
     transform: translateX(0);
-    transition: 0.5s;
+    transition: var(--transition);
 
     :hover.menu__navLink {
       color: var(--primary-txt-cl);
@@ -21,7 +21,7 @@
   .menu__itemClose {
     width: 56px;
     transform: translateX(0);
-    transition: 0.5s;
+    transition: var(--transition);
 
     :hover.menu__navLink {
       color: var(--primary-txt-cl);

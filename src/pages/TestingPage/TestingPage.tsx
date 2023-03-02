@@ -74,7 +74,7 @@ const TestingPage = () => {
       <HeaderTest currentNumber={info && info.number}/>
       {info && (
         <TestQuestion
-        number={info.number}
+          number={info.number}
           testId={testId}
           questionId={info.questionId}
           title={info.title}
