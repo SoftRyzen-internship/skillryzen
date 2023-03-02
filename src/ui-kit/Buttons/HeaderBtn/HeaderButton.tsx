@@ -10,7 +10,8 @@ interface HeaderButtonProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   popupContent?: React.ReactNode;
-  theme: Theme;
+  theme?: Theme;
+  title?: string;
 }
 
 export const HeaderButton = ({
@@ -22,10 +23,12 @@ export const HeaderButton = ({
   onMouseEnter,
   onMouseLeave,
   popupContent,
-  theme,
+  theme = 'dark',
+  title = '',
 }: HeaderButtonProps) => {
   return (
     <div
+      title={title}
       className={className ? `${s.container} ${className}` : s.container}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}

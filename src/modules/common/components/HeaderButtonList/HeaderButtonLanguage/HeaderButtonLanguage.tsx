@@ -38,6 +38,7 @@ export const HeaderButtonLanguage = () => {
           { icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
         ]}
         handleClickItem={handleClickLanguage}
+        theme={theme}
       />
     );
   };

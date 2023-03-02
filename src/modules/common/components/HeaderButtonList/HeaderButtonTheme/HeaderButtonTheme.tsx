@@ -60,10 +60,10 @@ export const HeaderButtonTheme = () => {
     <HeaderButton
       icon={icon}
       onClick={clickHandler}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
-      popupContent={popup}
       theme={theme}
+      title={
+        theme === 'dark' ? t('header.theme.dark') : t('header.theme.light')
+      }
     />
   );
 };

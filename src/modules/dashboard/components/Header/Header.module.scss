@@ -3,12 +3,14 @@
   align-items: center;
   justify-content: space-between;
   padding: 4px 60px;
+  transition: var(--transition);
 }
 
 .header--light {
   composes: header--common;
   color: var(--light-primary-txt-cl);
   background-color: var(--light-components-cl);
+  box-shadow: var(--light-primary-shadow);
 }
 .header--dark {
   composes: header--common;
