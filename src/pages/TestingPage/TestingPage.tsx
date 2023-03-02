@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import { TestQuestion } from 'modules/common/components/TestQuestion/TestQuestion';
-import { HeaderTest } from 'modules/dashboard';
 
 import s from './TestingPage.module.scss';
 
@@ -72,8 +71,7 @@ const TestingPage = () => {
   }, []);
 
   return (
-    <div className={s.wrapper}>
-      <HeaderTest currentNumber={info && info.number} />
+    <>
       {info && (
         <TestQuestion
           number={info.number}
@@ -85,7 +83,7 @@ const TestingPage = () => {
           onNextQuestion={setInfo}
         />
       )}
-    </div>
+    </>
   );
 };
 
