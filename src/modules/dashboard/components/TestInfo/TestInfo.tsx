@@ -15,6 +15,7 @@ export const TestInfo = () => {
     author: 'GoIT',
     icons: {
       BAR: ICONS.BAR_ONE_LINE,
+      BAR_LIGHT: ICONS.BAR_ONE_LINE_LIGHT,
       CLOCK: ICONS.CLOCK,
       QUESTION: ICONS.QUESTION_CIRCLE,
       USERS: ICONS.USERS,
@@ -31,7 +32,7 @@ export const TestInfo = () => {
     <TestInfoContainer>
       <FinalTestInfo
         image={IMGS.JAVA_SCRIPT}
-        imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
+        imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
         title='FullStack - Final Test'
         subtitle='JavaScript is a programming language that is one of the core
         technologies of the World Wide Web, alongside HTML and CSS.'

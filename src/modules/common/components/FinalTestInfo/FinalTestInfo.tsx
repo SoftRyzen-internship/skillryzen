@@ -1,8 +1,7 @@
-import React from 'react';
-
 import { useTranslation } from 'react-i18next';
-
+import { useThemeContext } from 'context/themeContext';
 import { AuthButton } from 'ui-kit';
+import { IThemeContext } from 'modules/common/types';
 
 import s from './FinalTestInfo.module.scss';
 
@@ -59,6 +58,7 @@ export const FinalTestInfo = ({
   test,
 }: IProps) => {
   const { t } = useTranslation();
+  const { theme }: IThemeContext = useThemeContext();
 
   const { alt, width, height } = imageProps;
   return (
@@ -72,54 +72,112 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={s.title}>{t('finalTestInfo.title')}</h2>
-      {subtitle && <p className={s.subtitle}>{t('finalTestInfo.subtitle')}</p>}
+      <h2 className={theme === 'dark' ? s.titleDark : s.titleLight}>
+        {t('finalTestInfo.title')}
+      </h2>
+      {subtitle && (
+        <p className={theme === 'dark' ? s.subtitleDark : s.subtitleLight}>
+          {t('finalTestInfo.subtitle')}
+        </p>
+      )}
       {listInfo ? (
         <ul className={s.list}>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.BAR fill='var(--primary-txt-cl)' />
+              <div
+                className={
+                  theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                }
+              >
+                {theme === 'dark' ? (
+                  <listInfo.icons.BAR />
+                ) : (
+                  <listInfo.icons.BAR_LIGHT />
+                )}
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.topics')}</p>
+              <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                {t('finalTestInfo.list.topics')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.topics}`}</p>
+            <p
+              className={theme === 'dark' ? s.textRightDark : s.textRightLight}
+            >{`${listInfo.topics}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.CLOCK className={s.icon} />
+              <div
+                className={
+                  theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                }
+              >
+                <listInfo.icons.CLOCK
+                  className={theme === 'dark' ? s.iconDark : s.iconLight}
+                />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.time')}</p>
+              <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                {t('finalTestInfo.list.time')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.time}`}</p>
+            <p
+              className={theme === 'dark' ? s.textRightDark : s.textRightLight}
+            >{`${listInfo.time}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.QUESTION className={s.icon} />
+              <div
+                className={
+                  theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                }
+              >
+                <listInfo.icons.QUESTION
+                  className={theme === 'dark' ? s.iconDark : s.iconLight}
+                />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.questions')}</p>
+              <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                {t('finalTestInfo.list.questions')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.questions}`}</p>
+            <p
+              className={theme === 'dark' ? s.textRightDark : s.textRightLight}
+            >{`${listInfo.questions}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.USERS className={s.icon} />
+              <div
+                className={
+                  theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                }
+              >
+                <listInfo.icons.USERS
+                  className={theme === 'dark' ? s.iconDark : s.iconLight}
+                />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.learners')}</p>
+              <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                {t('finalTestInfo.list.learners')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.learners}`}</p>
+            <p
+              className={theme === 'dark' ? s.textRightDark : s.textRightLight}
+            >{`${listInfo.learners}`}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
-              <div className={s.iconThumb}>
-                <listInfo.icons.USER className={s.icon} />
+              <div
+                className={
+                  theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                }
+              >
+                <listInfo.icons.USER
+                  className={theme === 'dark' ? s.iconDark : s.iconLight}
+                />
               </div>
-              <p className={s.text}>{t('finalTestInfo.list.author')}</p>
+              <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                {t('finalTestInfo.list.author')}
+              </p>
             </div>
-            <p className={s.textRight}>{`${listInfo.author}`}</p>
+            <p
+              className={theme === 'dark' ? s.textRightDark : s.textRightLight}
+            >{`${listInfo.author}`}</p>
           </li>
         </ul>
       ) : (
@@ -131,24 +189,48 @@ export const FinalTestInfo = ({
           <ul className={s.recList}>
             <li className={s.item}>
               <div className={s.iconWrapper}>
-                <div className={s.iconThumb}>
-                  <IconAnswers className={s.icon} />
+                <div
+                  className={
+                    theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                  }
+                >
+                  <IconAnswers
+                    className={theme === 'dark' ? s.iconDark : s.iconLight}
+                  />
                 </div>
-                <p className={s.text}>{t('finalTestInfo.correctAnswers')}</p>
+                <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                  {t('finalTestInfo.correctAnswers')}
+                </p>
               </div>
-              <p className={s.textRight}>
+              <p
+                className={
+                  theme === 'dark' ? s.textRightDark : s.textRightLight
+                }
+              >
                 {`${correctAnswers}`}
                 <span className={s.textGrey}>/{`${totalQuestions}`}</span>
               </p>
             </li>
             <li className={s.item}>
               <div className={s.iconWrapper}>
-                <div className={s.iconThumb}>
-                  <IconTime className={s.icon} />
+                <div
+                  className={
+                    theme === 'dark' ? s.iconThumbDark : s.iconThumbLight
+                  }
+                >
+                  <IconTime
+                    className={theme === 'dark' ? s.iconDark : s.iconLight}
+                  />
                 </div>
-                <p className={s.text}>{t('finalTestInfo.timeSpent')}</p>
+                <p className={theme === 'dark' ? s.textDark : s.textLight}>
+                  {t('finalTestInfo.timeSpent')}
+                </p>
               </div>
-              <p className={s.textRight}>
+              <p
+                className={
+                  theme === 'dark' ? s.textRightDark : s.textRightLight
+                }
+              >
                 {`${timeSpent}`} {t('finalTestInfo.min')}
               </p>
             </li>
@@ -203,7 +285,7 @@ export const FinalTestInfo = ({
 // PROPS For Start Test
 /* <FinalTestInfo
   image={IMGS.JAVA_SCRIPT}
-  imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
+  imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
   title='FullStack - Final Test'
   subtitle='JavaScript is a programming language that is one of the core
     technologies of the World Wide Web, alongside HTML and CSS.'
@@ -217,7 +299,7 @@ export const FinalTestInfo = ({
 
 // <FinalTestInfo
 //   image={IMGS.JAVA_SCRIPT}
-//   imageProps={{ alt: 'Java Script', width: '146', height: '146' }}
+//   imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
 //   title='FullStack - Final Test'
 //   correctAnswers={15}
 //   totalQuestions={50}
