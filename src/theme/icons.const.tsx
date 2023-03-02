@@ -8,6 +8,7 @@ import IconAtEmail from 'assets/svg/at-email.svg';
 import IconAward from 'assets/svg/award.svg';
 import IconBarEmptyLine from 'assets/svg/bar-empty-line.svg';
 import IconBarOneLine from 'assets/svg/bar-one-line.svg';
+import IconBarOneLineLight from 'assets/svg/bar-one-line-light.svg';
 import IconBarTwoLine from 'assets/svg/bar-two-line.svg';
 import IconBell from 'assets/svg/bell.svg';
 import IconBellTwo from 'assets/svg/bell-2.svg';
@@ -112,6 +113,7 @@ export const ICONS: Icons = {
   AWARD: IconAward,
   BAR_EMPTY_LINE: IconBarEmptyLine,
   BAR_ONE_LINE: IconBarOneLine,
+  BAR_ONE_LINE_LIGHT: IconBarOneLineLight,
   BAR_TWO_LINE: IconBarTwoLine,
   BELL: IconBell,
   BELL_TWO: IconBellTwo,
