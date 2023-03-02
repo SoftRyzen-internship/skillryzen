@@ -1,5 +1,7 @@
-// import { ICONS } from 'theme';
 import { useTranslation } from 'react-i18next';
+
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
 import s from './Tag.module.scss';
 
 interface ITag {
@@ -9,9 +11,11 @@ interface ITag {
 }
 
 export const Tag = ({ label, type, icon = false }: ITag) => {
+  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+  
   return (
-    <p className={`${s[`tag--${type}`]} ${icon && s['tag--icon']} `}>
+    <p className={`${s[`tag--${type}`]} ${s[`tag--${type}--${theme}`]} ${icon && s['tag--icon']} `}>
       {type === 'time' && (
         <span className={s.label}>
           {label} {t('testsMain.time')}

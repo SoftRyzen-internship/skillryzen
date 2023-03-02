@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'theme';
-import { Input } from 'ui-kit';
-import { Breadcrumbs } from 'ui-kit';
+import { Input, Breadcrumbs } from 'ui-kit';
 
 import s from './TestsSearch.module.scss';
 

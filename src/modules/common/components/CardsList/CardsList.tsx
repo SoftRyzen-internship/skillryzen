@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
+
 import { Card } from 'ui-kit';
 
 import s from './CardsList.module.scss';

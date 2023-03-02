@@ -1,3 +1,5 @@
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
 import { ICONS } from 'theme';
 import { Tag } from 'ui-kit';
 
@@ -42,6 +44,7 @@ export const Card = ({
   custom = false,
   onClick,
 }: ICard) => {
+  const { theme }: IThemeContext = useThemeContext();
   const { title, text, fields, number, time } = item;
 
   const addBackgroundColor = (type: Type): string => {
@@ -57,7 +60,7 @@ export const Card = ({
   };
 
   return (
-    <div className={`${s[`card--${size}`]}`}>
+    <div className={`${s[`card--${size}`]} ${s[`card--${theme}`]}`}>
       <div className={s.card__infoWrapper}>
         <div className={`${s[`card__thumb--${addBackgroundColor(type)}`]}`}>
           {addIcon(type)}
@@ -65,8 +68,8 @@ export const Card = ({
         {!custom && (
           <div className={s.card__contentWrapper}>
             <div className={s.card__content}>
-              <p className={s.card__title}>{title}</p>
-              <p className={s.card__text}>{text}</p>
+              <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>{title}</p>
+              <p className={`${s.card__text} ${s[`card__text--${theme}`]}`}>{text}</p>
             </div>
             {fields && type === 'info' && (
               <ul className={s.card__list}>
