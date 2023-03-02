@@ -19,6 +19,17 @@
   padding: 18px 20px 18px 25px;
 }
 
+.card {
+  &--light {
+    background-color: var(--light-cards-cl);
+    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+  }
+
+  &--dark {
+    background-color: var(--components-cl);
+  }
+}
+
 .card__infoWrapper {
   .card--small & {
     width: 100%;
@@ -86,9 +97,16 @@
   font-weight: var(--bold);
   font-size: var(--text-lg);
   line-height: 1.5;
-  color: var(--primary-txt-cl);
   margin-bottom: 4px;
   word-wrap: break-word;
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .card__text {

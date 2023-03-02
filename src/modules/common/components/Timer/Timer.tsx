@@ -1,18 +1,11 @@
 import { useEffect, useState } from 'react';
+import { convertTime } from 'utils/convertTime';
 
 import s from './Timer.module.scss';
 
 interface ITimer {
   time: number;
 }
-
-const convertTime = (time: number) => {
-  const minutes = Math.floor(time / 60)
-    .toString()
-    .padStart(2, '0');
-  const seconds = (time % 60).toString().padStart(2, '0');
-  return `${minutes}:${seconds}`;
-};
 
 export const Timer: React.FC<ITimer> = ({ time }) => {
   const [seconds, setSeconds] = useState(time * 3600);

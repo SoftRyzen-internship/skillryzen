@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { TestQuestion } from 'modules/common/components/TestQuestion/TestQuestion';
 import { HeaderTest } from 'modules/dashboard';
 
+import s from './TestingPage.module.scss';
+
 export const array = [
   {
     questionId: 'hjbnmkjlm,',
@@ -42,7 +44,7 @@ export const array = [
   },
 ];
 
-export interface IInfo {
+export interface Info {
   questionId: string;
   number: number;
   title: string;
@@ -56,7 +58,7 @@ export interface IInfo {
 
 const TestingPage = () => {
   const [testId, setTestId] = useState<string>('');
-  const [info, setInfo] = useState<IInfo>();
+  const [info, setInfo] = useState<Info>();
 
   useEffect(() => {
     setInfo({
@@ -70,11 +72,11 @@ const TestingPage = () => {
   }, []);
 
   return (
-    <>
-      <HeaderTest currentNumber={info && info.number}/>
+    <div className={s.wrapper}>
+      <HeaderTest currentNumber={info && info.number} />
       {info && (
         <TestQuestion
-        number={info.number}
+          number={info.number}
           testId={testId}
           questionId={info.questionId}
           title={info.title}
@@ -83,7 +85,7 @@ const TestingPage = () => {
           onNextQuestion={setInfo}
         />
       )}
-    </>
+    </div>
   );
 };
 

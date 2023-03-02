@@ -1,3 +1,4 @@
+import { Theme } from 'modules/common/types';
 import { ICONS } from 'theme';
 
 import s from './MenuButton.module.scss';
@@ -8,6 +9,7 @@ interface ButtonProps {
   onClick?: () => void;
   color: 'blue' | 'black';
   icon: 'grid4' | 'grid2';
+  theme?: Theme;
 }
 
 export const MenuButton = ({
@@ -15,6 +17,7 @@ export const MenuButton = ({
   onClick,
   color,
   icon,
+  theme = "dark",
   className,
 }: ButtonProps) => {
   const obectIcons = {
@@ -25,7 +28,7 @@ export const MenuButton = ({
     <button
       type={type}
       onClick={onClick}
-      className={`${s.menuBtn} ${s[color]} ${className}`}
+      className={`${s.menuBtn} ${s[`${color}--${theme}`]} ${className}`}
     >
       {obectIcons[icon]}
     </button>
