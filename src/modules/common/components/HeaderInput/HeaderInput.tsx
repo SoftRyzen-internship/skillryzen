@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Input } from 'ui-kit';
-import { ICONS } from 'theme';
+
+import { ICONS } from 'ui-kit/icons';
+import { Input } from 'ui-kit/index';
 
 import s from './HeaderInput.module.scss';
 

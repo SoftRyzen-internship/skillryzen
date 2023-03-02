@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ICONS } from 'theme/icons.const';
 
 import { useThemeContext } from 'context/themeContext';
 
 import { IThemeContext } from 'modules/common/types';
+import { ICONS } from 'ui-kit/icons';
 import { HeaderButton, Popup } from 'ui-kit/index';
 
 export const HeaderButtonCoin = () => {

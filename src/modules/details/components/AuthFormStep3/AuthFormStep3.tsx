@@ -1,8 +1,10 @@
 import { useFormik } from 'formik';
 import InputMask from 'react-input-mask';
 
-import { AuthButton } from 'ui-kit';
-import { ICONS } from 'theme';
+import { ICONS } from 'ui-kit/icons';
+
+import { AuthButton } from 'ui-kit/index';
+
 import { IAuth } from 'modules/common/types';
 import { contactInfoSchema } from 'services/validationSchema';
 
