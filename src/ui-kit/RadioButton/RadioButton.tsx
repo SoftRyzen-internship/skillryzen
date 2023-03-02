@@ -1,4 +1,4 @@
-import React from 'react';
+import { Theme } from 'modules/common/types';
 
 import s from './RadioButton.module.scss';
 
@@ -12,7 +12,7 @@ type RadioButtonProps = {
 
   labelClassName?: string;
   label?: string;
-  containerClassName?: string;
+  theme?: Theme;
 };
 
 export function RadioButton({
@@ -23,10 +23,12 @@ export function RadioButton({
   checked,
   onChange,
   label,
+  labelClassName,
+  theme='dark'
 }: RadioButtonProps) {
   return (
     <label
-      className={`${s[`label${type}`]} ${state && s[`label${type}--${state}`]}`}
+      className={`${s[`label${type}`]} ${state && s[`label${type}--${state}`]} ${s[`label${type}--${theme}`]} ${labelClassName}`}
     >
       <input
         type='radio'

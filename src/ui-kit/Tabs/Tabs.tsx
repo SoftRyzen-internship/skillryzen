@@ -3,16 +3,16 @@ import { NavLink } from 'react-router-dom';
 
 import s from './Tabs.module.scss';
 
-interface ITab {
+interface Tab {
   title: string;
   path: string;
 }
-interface ITabProps {
-  tabs: ITab[];
+interface TabProps {
+  tabs: Tab[];
   theme?: Theme;
 }
 
-export const Tabs = ({tabs, theme="dark"}: ITabProps) => {
+export const Tabs = ({tabs, theme='dark'}: TabProps) => {
   return (
     <ul className={s.tabs__list}>
       {tabs.map(({ title, path }) => {
