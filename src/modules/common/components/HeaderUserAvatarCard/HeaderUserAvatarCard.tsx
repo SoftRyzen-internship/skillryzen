@@ -25,45 +25,26 @@ export const HeaderUserAvatarCard = ({
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
+  const iconColor = {
+    dark: 'var(--primary-txt-cl)',
+    light: 'var(--accent-cl)',
+  };
+
   const mouseEnterHandler = () => {
     setPopup(
       <Popup
         theme={theme}
         list={[
           {
-            icon: (
-              <ICONS.USER
-                stroke={
-                  theme === 'dark'
-                    ? 'var(--primary-txt-cl)'
-                    : 'var(--accent-cl)'
-                }
-              />
-            ),
+            icon: <ICONS.USER stroke={iconColor[theme]} />,
             text: t('header.userAvatar.profile'),
           },
           {
-            icon: (
-              <ICONS.SETTINGS
-                stroke={
-                  theme === 'dark'
-                    ? 'var(--primary-txt-cl)'
-                    : 'var(--accent-cl)'
-                }
-              />
-            ),
+            icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
             text: t('header.userAvatar.settings'),
           },
           {
-            icon: (
-              <ICONS.LOGOUT
-                stroke={
-                  theme === 'dark'
-                    ? 'var(--primary-txt-cl)'
-                    : 'var(--accent-cl)'
-                }
-              />
-            ),
+            icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
             text: t('header.userAvatar.logOut'),
           },
         ]}
