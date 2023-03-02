@@ -42,7 +42,7 @@ export const Card = ({
   size = 'large',
   hideNumber = false,
   custom = false,
-  theme = "dark",
+  theme = 'dark',
   onClick,
 }: ICard) => {
   const { title, text, fields, number, time } = item;
