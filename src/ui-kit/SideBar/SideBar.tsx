@@ -12,7 +12,7 @@ interface SideBarProps {
   theme?: Theme;
 }
 
-export const SideBar = ({ children, spaceBetween, theme }: SideBarProps) => {
+export const SideBar = ({ children, spaceBetween, theme = 'dark' }: SideBarProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const setClassnameSidebar = () => {

@@ -76,7 +76,7 @@ export const Sidebar = () => {
     <SideBar
       children={[
         <Menu menu={menu} key={generateId()} theme={theme} />,
-        <Menu menu={userMenu} key={generateId()} theme={theme }/>,
+        <Menu menu={userMenu} key={generateId()} theme={theme} />,
       ]}
       spaceBetween='space-between'
       theme={theme}

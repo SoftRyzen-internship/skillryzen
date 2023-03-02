@@ -25,7 +25,9 @@ export const HeaderButtonCoin = () => {
   ];
 
   const mouseEnterHandler = () => {
-    setPopup(<Popup list={tempList} vievAll={t('header.viewAll')} />);
+    setPopup(
+      <Popup list={tempList} vievAll={t('header.viewAll')} theme={theme} />
+    );
   };
   const mouseLeaveHandler = () => {
     setPopup(null);

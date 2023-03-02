@@ -16,8 +16,22 @@
   align-items: center;
   gap: 12px;
   border-radius: 10px;
-  color: var(--primary-txt-cl);
-  background-color: var(--components-cl);
+
+  &--light {
+    color: var(--accent-cl);
+    background-color: var(--light-components-cl);
+    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+    .testsFilter__icon path {
+      stroke: var(--accent-cl);
+    }
+
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    background-color: var(--components-cl);
+  }
 }
 
 .testsFilter__icon {

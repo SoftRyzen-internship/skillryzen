@@ -9,7 +9,7 @@
   color: var(--disabled-cl);
 }
 
-.blue {
+.blue--light, .blue--dark {
   background-color: var(--accent-cl);
 
   .iconGrid path {
@@ -21,7 +21,19 @@
   }
 }
 
-.black {
+.black--light {
+  background-color: var(--light-primary-cl);
+
+  .iconGrid path {
+    fill: var(--accent-cl);
+  }
+
+  .iconGrid4 path {
+    stroke: var(--accent-cl);
+  }
+}
+
+.black--dark {
   background-color: var(--components-cl);
 
   .iconGrid path {

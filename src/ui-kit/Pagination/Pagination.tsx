@@ -1,26 +1,22 @@
 import { useState, useEffect } from 'react';
-
+import { createArray } from 'utils/createArray';
 import { ICONS } from 'theme';
 
 import s from './Pagination.module.scss';
 
-interface IProps {
+interface Props {
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
 }
 
-export const Pagination = ({ totalPages, onPageChange }: IProps) => {
+export const Pagination = ({ totalPages, onPageChange }: Props) => {
   const [currentPage, setCurrentPage] = useState<number>(1); // Current active page number
   const [arrayOfVisiblePages, setArrayOfVisiblePages] = useState<
     Array<number | string>
   >([]); // Array of buttons what we see on the page
 
   // Set number of pages
-  const pageNumbers: Array<number> = [];
-
-  for (let i = 1; i <= totalPages; i += 1) {
-    pageNumbers.push(i);
-  }
+  const pageNumbers = createArray(totalPages);
 
   useEffect(() => {
     let tempNumberOfPages: Array<number | string> = [...arrayOfVisiblePages];

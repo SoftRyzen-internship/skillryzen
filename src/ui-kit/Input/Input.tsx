@@ -1,3 +1,4 @@
+import { Theme } from 'modules/common/types';
 import s from './Input.module.scss';
 
 interface IProps {
@@ -9,6 +10,7 @@ interface IProps {
   value?: string;
   icon?: JSX.Element;
   button?: boolean;
+  theme?: Theme;
 }
 
 export const Input = ({
@@ -20,11 +22,12 @@ export const Input = ({
   onChange,
   value,
   button,
+  theme = 'dark',
 }: IProps) => {
   return (
     <label className={s.inputContainer}>
       <input
-        className={`${s.input} ${className && className}`}
+        className={`${s[`input--${theme}`]} ${className && className}`}
         name={name}
         placeholder={placeholder}
         type={type}
@@ -33,7 +36,7 @@ export const Input = ({
       />
       {button && (
         <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
-          {icon ? <div className={s.icon}>{icon}</div> : null}
+          {icon ? icon : null}
         </button>
       )}
     </label>

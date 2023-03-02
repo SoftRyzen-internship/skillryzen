@@ -8,18 +8,26 @@
   margin-bottom: 24px;
 }
 
-.title {
+.titleDark {
   margin-bottom: 8px;
   font-weight: var(--extrabold);
   font-size: var(--title);
   line-height: 1.3;
   text-align: center;
 }
+.titleLight {
+  composes: titleDark;
+  color: var(--primary-cl);
+}
 
-.subtitle {
+.subtitleDark {
   margin-bottom: 32px;
   font-size: var(--text-lg);
   text-align: center;
+}
+.subtitleLight {
+  composes: subtitleDark;
+  color: var(--primary-cl);
 }
 
 .list {
@@ -37,7 +45,7 @@
   align-items: center;
 }
 
-.iconThumb {
+.iconThumbDark {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -47,25 +55,40 @@
   background-color: var(--components-cl);
   border-radius: 10px;
 }
-
-.icon path {
-  stroke: var(--primary-txt-cl);
+.iconThumbLight {
+  composes: iconThumbDark;
+  background-color: var(--light-primary-cl);
 }
 
-.text {
+.iconDark path {
+  stroke: var(--primary-txt-cl);
+}
+.iconLight path {
+  stroke: var(--accent-cl);
+}
+
+.textDark {
   font-size: 17px;
   font-weight: 500;
   line-height: 1.6;
 }
+.textLight {
+  composes: textDark;
+  color: var(--primary-cl);
+}
 
-.textRight {
-  composes: text;
+.textRightDark {
+  composes: textDark;
   width: 142px;
   text-align: right;
 }
+.textRightLight {
+  composes: textRightDark;
+  color: var(--primary-cl);
+}
 
 .textGrey {
-  composes: textRight;
+  composes: textRightDark;
   color: var(--disabled-cl);
 }
 
@@ -83,7 +106,7 @@
 }
 
 .recText {
-  composes: text;
+  composes: textDark;
   margin-bottom: 8px;
 }
 

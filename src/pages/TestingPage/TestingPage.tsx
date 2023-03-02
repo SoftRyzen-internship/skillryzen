@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { TestQuestion } from 'modules/common/components/TestQuestion/TestQuestion';
 
+import s from './TestingPage.module.scss';
+
 export const array = [
   {
     questionId: 'hjbnmkjlm,',
@@ -41,7 +43,7 @@ export const array = [
   },
 ];
 
-export interface IInfo {
+export interface Info {
   questionId: string;
   number: number;
   title: string;
@@ -55,7 +57,7 @@ export interface IInfo {
 
 const TestingPage = () => {
   const [testId, setTestId] = useState<string>('');
-  const [info, setInfo] = useState<IInfo>();
+  const [info, setInfo] = useState<Info>();
 
   useEffect(() => {
     setInfo({

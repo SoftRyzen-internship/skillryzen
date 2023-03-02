@@ -2,8 +2,16 @@
   width: 200px;
   min-width: 200px;
   padding: 16px;
-  background-color: var(--components-cl);
   border-radius: 4px;
+  transition: var(--transition);
+}
+.popupWrapper--dark {
+  composes: popupWrapper;
+  background-color: var(--components-cl);
+}
+.popupWrapper--light {
+  composes: popupWrapper;
+  background-color: var(--light-components-cl);
 }
 
 .vievAllHidden {
@@ -32,8 +40,16 @@
 .item {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid var(--primary-cl);
   cursor: pointer;
+  transition: var(--transition);
+}
+.item--dark {
+  composes: item;
+  border-bottom: 1px solid var(--primary-cl);
+}
+.item--light {
+  composes: item;
+  border-bottom: 1px solid var(--light-primary-cl);
 }
 
 .item:not(:last-child) {
@@ -42,7 +58,15 @@
 
 .text {
   margin-left: 8px;
+  transition: var(--transition);
+}
+.text--dark {
+  composes: text;
   color: var(--primary-txt-cl);
+}
+.text--light {
+  composes: text;
+  color: var(--light-primary-txt-cl);
 }
 
 // для тесту, поки не пр
