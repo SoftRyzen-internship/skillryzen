@@ -10,7 +10,7 @@ interface ITag {
   theme?: Theme;
 }
 
-export const Tag = ({ label, type, icon = false, theme="dark" }: ITag) => {
+export const Tag = ({ label, type, icon = false, theme='dark' }: ITag) => {
   const { t } = useTranslation();
   
   return (
