@@ -12,6 +12,7 @@
     color: var(--light-primary-txt-cl);
     background: var(--light-components-cl);
     box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    border: 2px solid transparent;
 
     &::before {
       background-color: var(--light-primary-cl);

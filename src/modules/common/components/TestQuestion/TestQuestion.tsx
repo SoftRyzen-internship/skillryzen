@@ -5,6 +5,8 @@ import { AuthButton, RadioButton } from 'ui-kit';
 import { Info, array } from 'pages/TestingPage/TestingPage';
 
 import s from './TestQuestion.module.scss';
+import { IThemeContext } from 'modules/common/types';
+import { useThemeContext } from 'context/themeContext';
 
 interface TestQuestionProps {
   testId: string;
@@ -32,6 +34,7 @@ export const TestQuestion = ({
   onNextQuestion,
   hasNextQuestion,
 }: TestQuestionProps) => {
+  const { theme }: IThemeContext = useThemeContext();
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   // const [sendAnswer, setSendAnswer] = useState<string | null>(null);
 
@@ -66,13 +69,14 @@ export const TestQuestion = ({
 
   return (
     <div className={s.testWrapper}>
-      <h2 className={s.testTitle}>{title}</h2>
+      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>{title}</h2>
       <div className={s.questionWrapper}>
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>
           {possibleAnswers.map((answer, index) => (
             <li key={index}>
               <RadioButton
+              theme={theme}
                 // state={chooseState(answer.value)}
                 state={selectedAnswer === answer.value && 'checked'}
                 type='PassTest'

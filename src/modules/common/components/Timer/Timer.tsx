@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
+
+import { Theme } from 'modules/common/types';
 import { convertTime } from 'utils/convertTime';
 
 import s from './Timer.module.scss';
 
-interface ITimer {
+interface Timer {
   time: number;
+  theme?: Theme;
 }
 
-export const Timer: React.FC<ITimer> = ({ time }) => {
+export const Timer: React.FC<Timer> = ({ time, theme='dark' }) => {
   const [seconds, setSeconds] = useState(time * 3600);
 
   useEffect(() => {
@@ -21,8 +24,8 @@ export const Timer: React.FC<ITimer> = ({ time }) => {
 
   return (
     <div>
-      <p className={s.timer__text}>Time left:</p>
-      <p className={s.timer__time}>{convertTime(seconds)}</p>
+      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>Time left:</p>
+      <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>{convertTime(seconds)}</p>
     </div>
   );
 };
