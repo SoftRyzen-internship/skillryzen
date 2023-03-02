@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import { TestQuestion } from 'modules/common/components/TestQuestion/TestQuestion';
-import { Header } from 'modules/Header';
 
 export const array = [
   {
@@ -71,7 +70,6 @@ const TestingPage = () => {
 
   return (
     <>
-      <Header isTestingPage={true} />
       {info && (
         <TestQuestion
           number={info.number}
