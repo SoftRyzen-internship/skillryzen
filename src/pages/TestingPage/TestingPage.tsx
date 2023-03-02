@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
 import { TestQuestion } from 'modules/common/components/TestQuestion/TestQuestion';
-import { HeaderTest } from 'modules/dashboard';
 
 import s from './TestingPage.module.scss';
 
@@ -76,8 +75,7 @@ const TestingPage = () => {
   }, []);
 
   return (
-    <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
-      <HeaderTest currentNumber={info && info.number} />
+    <>
       {info && (
         <TestQuestion
           number={info.number}
@@ -89,7 +87,7 @@ const TestingPage = () => {
           onNextQuestion={setInfo}
         />
       )}
-    </div>
+    </>
   );
 };
 

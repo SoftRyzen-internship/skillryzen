@@ -1,4 +1,4 @@
-import { useState, FC } from 'react';
+import React, { useState, FC } from 'react';
 
 import s from './Checkbox.module.scss';
 // import { CheckRound, DefaultCheckbox } from "../../theme";

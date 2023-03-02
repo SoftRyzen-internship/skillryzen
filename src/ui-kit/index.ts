@@ -13,4 +13,4 @@ export { AddButton } from './Buttons/AddBtn/AddButton';
 export { HeaderButton } from './Buttons/HeaderBtn/HeaderButton';
 export { UserAvatarCard } from './UserAvatarCard';
 export { Checkbox } from './Checkbox/Checkbox';
-export {Breadcrumbs} from './Breadcrumbs/Breadcrumbs';
+export { Breadcrumbs } from './Breadcrumbs/Breadcrumbs';

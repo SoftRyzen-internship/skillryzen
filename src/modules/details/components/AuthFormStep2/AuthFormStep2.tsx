@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 
+import { useAppDispatch } from 'hooks/hook';
+import { setStep } from 'redux/authSlice/authSlice';
 import { AuthButton, Checkbox } from 'ui-kit';
 
 import { ICONS } from 'theme';
@@ -10,15 +12,14 @@ import { registerSchema } from 'services/validationSchema';
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 import s from './AuthFormStep2.module.scss';
 
-import { IAuth } from 'modules/common/types';
-
 interface MyFormValues {
   email: string;
   password: string;
   checkbox: boolean;
 }
 
-export const AuthFormStep2 = ({ setStep }: IAuth) => {
+export const AuthFormStep2 = () => {
+  const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   // const handleClickGoogle = () => {};
@@ -33,7 +34,7 @@ export const AuthFormStep2 = ({ setStep }: IAuth) => {
     validationSchema: registerSchema,
 
     onSubmit: (_values) => {
-      setStep(3);
+      dispatch(setStep(3));
     },
   });
 
