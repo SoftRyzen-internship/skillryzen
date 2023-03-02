@@ -11,8 +11,8 @@ export const TestHeader = () => {
   return (
     <header className={`${s.test__header} ${s[`test__header--${theme}`]}`}>
       <div className={s.test__container}>
-        <ProgressBar currentNumber={1} totalNumber={20} isPrevRight={true} />
-        <Timer time={3} />
+        <ProgressBar currentNumber={1} totalNumber={20} isPrevRight={true} theme={theme}/>
+        <Timer time={3} theme={theme}/>
       </div>
     </header>
   );
