@@ -13,7 +13,14 @@
 .testsSearch__title {
   font-size: 30px;
   font-weight: 800;
-  color: var(--primary-txt-cl);
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .testsSearch__inputWrapper {
@@ -22,17 +29,25 @@
 }
 
 .testsSearch__button {
-  padding: 8px 22px 7px;
+  font-weight: var(--bold);
   display: flex;
   align-items: center;
   gap: 9px;
-  background-color: var(--disabled-cl);
   border-radius: 5px;
-  color: var(--secondary-txt-cl);
+  padding: 8px 22px 7px;
+
+  &--light {
+    background: var(--light-components-cl);
+    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    color: var(--accent-cl);
+  }
+
+  &--dark {
+    color: var(--secondary-txt-cl);
+    background-color: var(--disabled-cl);
+  }
 }
 
 .testsSearch__iconBook path {
   fill: var(--secondary-txt-cl);
 }
-
-

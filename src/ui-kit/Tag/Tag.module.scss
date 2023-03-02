@@ -2,7 +2,6 @@
   display: inline-block;
   font-family: var(--font-family);
   font-size: var(--text-sm);
-  border: 1px solid var(--disabled-cl);
   border-radius: 15px;
   background-color: transparent;
 }
@@ -12,15 +11,31 @@
   font-weight: var(--regular);
   line-height: 1.2;
   color: var(--accent-cl);
-  padding: 4px 8px;
+  padding: 4px 8px;  
+
+  &--light {
+    border: 1px solid var(--accent-cl);
+  }
+
+  &--dark {
+    border: 1px solid var(--disabled-cl);
+  }
 }
 
 .tag--number {
   composes: tag--common;
   font-weight: 500;
   line-height: 1;
-  color: var(--secondary-txt-cl);
   padding: 9px 18px;
+  
+  &--light {
+    color: var(--accent-cl);
+    border: 1px solid var(--accent-cl);
+  }
+
+  &--dark {
+    border: 1px solid var(--accent-cl);
+  }
 }
 
 .tag--icon {
@@ -30,6 +45,7 @@
   justify-content: center;
   gap: 11px;
   color: var(--secondary-txt-cl);
+  border: 1px solid var(--disabled-cl);
   border-radius: 20px;
   padding: 8px 15px;
 }
@@ -44,8 +60,15 @@
   font-weight: var(--bold);
   font-size: var(--text-sm);
   line-height: 2;
-  color: var(--primary-txt-cl);
   background-color: transparent;
+
+  &--light {
+    color: var(--accent-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .tag--time::before,
