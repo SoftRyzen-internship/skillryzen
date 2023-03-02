@@ -28,17 +28,42 @@ export const HeaderUserAvatarCard = ({
   const mouseEnterHandler = () => {
     setPopup(
       <Popup
+        theme={theme}
         list={[
           {
-            icon: <ICONS.USER stroke='var(--primary-txt-cl)' />,
+            icon: (
+              <ICONS.USER
+                stroke={
+                  theme === 'dark'
+                    ? 'var(--primary-txt-cl)'
+                    : 'var(--accent-cl)'
+                }
+              />
+            ),
             text: t('header.userAvatar.profile'),
           },
           {
-            icon: <ICONS.SETTINGS stroke='var(--primary-txt-cl)' />,
+            icon: (
+              <ICONS.SETTINGS
+                stroke={
+                  theme === 'dark'
+                    ? 'var(--primary-txt-cl)'
+                    : 'var(--accent-cl)'
+                }
+              />
+            ),
             text: t('header.userAvatar.settings'),
           },
           {
-            icon: <ICONS.LOGOUT stroke='var(--primary-txt-cl)' />,
+            icon: (
+              <ICONS.LOGOUT
+                stroke={
+                  theme === 'dark'
+                    ? 'var(--primary-txt-cl)'
+                    : 'var(--accent-cl)'
+                }
+              />
+            ),
             text: t('header.userAvatar.logOut'),
           },
         ]}

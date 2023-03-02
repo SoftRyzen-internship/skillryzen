@@ -16,20 +16,40 @@ export const HeaderButtonNotification = () => {
   // тимчасовий масив, далі буде приходити з бекенду
   const tempList = [
     {
-      icon: <ICONS.PIN stroke={'var(--primary-txt-cl)'} />,
+      icon: (
+        <ICONS.PIN
+          stroke={
+            theme === 'dark' ? 'var(--primary-txt-cl)' : 'var(--accent-cl)'
+          }
+        />
+      ),
       text: t('header.notifications.item1'),
     },
     {
-      icon: <ICONS.PIN stroke='var(--primary-txt-cl)' />,
+      icon: (
+        <ICONS.PIN
+          stroke={
+            theme === 'dark' ? 'var(--primary-txt-cl)' : 'var(--accent-cl)'
+          }
+        />
+      ),
       text: t('header.notifications.item2'),
     },
     {
-      icon: <ICONS.PIN stroke='var(--primary-txt-cl)' />,
+      icon: (
+        <ICONS.PIN
+          stroke={
+            theme === 'dark' ? 'var(--primary-txt-cl)' : 'var(--accent-cl)'
+          }
+        />
+      ),
       text: t('header.notifications.item2'),
     },
   ];
   const mouseEnterHandler = () => {
-    setPopup(<Popup list={tempList} vievAll={t('header.viewAll')} />);
+    setPopup(
+      <Popup list={tempList} vievAll={t('header.viewAll')} theme={theme} />
+    );
   };
   const mouseLeaveHandler = () => {
     setPopup(null);
