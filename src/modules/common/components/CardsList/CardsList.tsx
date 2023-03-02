@@ -40,7 +40,7 @@ export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
                 title: item.title,
                 text: item.text,
                 fields: item.fields,
-                number: `50 ${t('testsMain.numberOfQuestions')}`,
+                number: t('testsMain.numberOfQuestions'),
                 time: item.time,
               }}
             />
