@@ -9,7 +9,7 @@ interface IItem {
   title: string;
   text: string;
   fields?: string[];
-  number: string;
+  number: number;
   time?: number;
 }
 
@@ -25,11 +25,7 @@ export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
   const { t } = useTranslation();
 
   return (
-    <ul
-      className={
-        size === 'large' ? s['testsList--large'] : s['testsList--small']
-      }
-    >
+    <ul className={`${s[`testsList--${size}`]}`}>
       {testsArray.map((item, index) => (
         <li key={index}>
           <Link to='fullstack_final'>
@@ -40,7 +36,7 @@ export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
                 title: item.title,
                 text: item.text,
                 fields: item.fields,
-                number: t('testsMain.numberOfQuestions'),
+                number: item.number + ' ' + t('testsMain.numberOfQuestions'),
                 time: item.time,
               }}
             />
