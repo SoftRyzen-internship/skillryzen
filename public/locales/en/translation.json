@@ -3,10 +3,10 @@
     "title": "FullStack - Final Test",
     "subtitle": "JavaScript is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
     "list": {
-      "topics": "Topics", 
-      "time": "Time", 
-      "questions": "Questions", 
-      "learners": "Learners", 
+      "topics": "Topics",
+      "time": "Time",
+      "questions": "Questions",
+      "learners": "Learners",
       "author": "Author"
     },
     "correctAnswers": "Correct answers",
@@ -25,16 +25,20 @@
     "search": "Search..",
     "practice": "Practice",
     "filter": "Filter",
-    "numberOfQuestions": "50 questions",
+    "numberOfQuestions": "questions",
     "time": "hrs"
   },
-
   "header": {
     "search": "Search..",
     "admin": "Admin",
+
     "viewAll": "View all",
     "hideAll": "Hide all",
-    "coins" : {
+    "theme": {
+      "dark": "Dark theme",
+      "light": "Light theme"
+    },
+    "coins": {
       "item1": "+2 coins for test",
       "item2": "+5 coins for invite"
     },
@@ -51,6 +55,15 @@
       "settings": "Settings",
       "logOut": "Log out"
     }
+  },
+  "sidebar": {
+    "dashboard": "Dashboard",
+    "certification": "Certification",
+    "petprojects": "Petprojects",
+    "leaderboard": "Leaderboard",
+    "vacancies": "Vacancies",
+    "profile": "Profile",
+    "settings": "Settings",
+    "feedback": "Feedback"
   }
-
 }

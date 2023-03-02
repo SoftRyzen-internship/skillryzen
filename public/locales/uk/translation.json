@@ -3,10 +3,10 @@
     "title": "FullStack - фінальний тест",
     "subtitle": "JavaScript — це мова програмування, яка є однією з основних технологій Всесвітньої павутини, поряд з HTML і CSS.",
     "list": {
-      "topics": "Теми", 
-      "time": "Час проходження", 
-      "questions": "Питання", 
-      "learners": "Учні", 
+      "topics": "Теми",
+      "time": "Час проходження",
+      "questions": "Питання",
+      "learners": "Учні",
       "author": "Автор"
     },
     "correctAnswers": "Правильні відповіді",
@@ -18,23 +18,27 @@
     "section": "секція",
     "startTest": "Початок тестування"
   },
-    "testsMain": {
+  "testsMain": {
     "tests": "Тести",
     "allTests": "Усі тести",
     "myTests": "Мої тести",
     "search": "Шукати..",
     "practice": "Практика",
     "filter": "Фільтр",
-    "numberOfQuestions": "50 запитань",
+    "numberOfQuestions": "запитань",
     "time": "год"
   },
-
   "header": {
     "search": "Шукати..",
     "admin": "Адмін",
+
     "viewAll": "Дивитись всі",
     "hideAll": "Сховати всі",
-    "coins" : {
+    "theme": {
+      "dark": "Темна тема",
+      "light": "Світла тема"
+    },
+    "coins": {
       "item1": "+2 коїни за тест",
       "item2": "+5 коїнів за вхід"
     },
@@ -51,5 +55,15 @@
       "settings": "Налаштування",
       "logOut": "Вийти"
     }
+  },
+  "sidebar": {
+    "dashboard": "Дашборд",
+    "certification": "Атестація",
+    "petprojects": "Пет-проєкти",
+    "leaderboard": "Лідерборд",
+    "vacancies": "Вакансії",
+    "profile": "Профіль",
+    "settings": "Налаштування",
+    "feedback": "Зворотній зв'язок"
   }
 }
