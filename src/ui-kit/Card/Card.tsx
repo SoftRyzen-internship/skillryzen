@@ -1,5 +1,4 @@
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { Theme } from 'modules/common/types';
 import { ICONS } from 'theme';
 import { Tag } from 'ui-kit';
 
@@ -14,6 +13,7 @@ interface ICard {
   custom?: boolean;
   onClick?: () => void;
   item: IItem;
+  theme?: Theme;
 }
 
 interface IItem {
@@ -42,9 +42,9 @@ export const Card = ({
   size = 'large',
   hideNumber = false,
   custom = false,
+  theme = "dark",
   onClick,
 }: ICard) => {
-  const { theme }: IThemeContext = useThemeContext();
   const { title, text, fields, number, time } = item;
 
   const addBackgroundColor = (type: Type): string => {
@@ -75,7 +75,7 @@ export const Card = ({
               <ul className={s.card__list}>
                 {fields.map((item, index) => (
                   <li key={index}>
-                    <Tag type='field' label={item} />
+                    <Tag type='field' label={item} theme={theme}/>
                   </li>
                 ))}
               </ul>
@@ -92,11 +92,12 @@ export const Card = ({
         {((!hideNumber && number) || custom) && (
           <Tag
             type='number'
+            theme={theme}
             label={type === 'info' && custom ? '? запитань' : number}
           />
         )}
         {((time && type === 'info') || custom) && (
-          <Tag type='time' label={!custom ? time + '' : '?'} />
+          <Tag type='time' label={!custom ? time + '' : '?'} theme={theme}/>
         )}
         {type !== 'info' && (
           <button className={s.card__close} onClick={onClick}>
