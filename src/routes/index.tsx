@@ -7,6 +7,8 @@ import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
+import TestStartPage from 'pages/TestStartPage';
+import TestEndPage from 'pages/TestEndPage';
 
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
@@ -56,7 +58,7 @@ export const AppRoutes = () => {
             },
             {
               path: ':testId',
-              element: <TestInfo />,
+              element: <TestStartPage />,
             },
           ],
         },
@@ -69,9 +71,19 @@ export const AppRoutes = () => {
               showHeader={true}
               isTestingPage={true}
             >
-              <TestingPage />
+              <TestsPage />
             </MainWrapper>
           ),
+          children: [
+            {
+              path: '',
+              element: <TestingPage />,
+            },
+            {
+              path: 'test-end',
+              element: <TestEndPage />,
+            },
+          ],
         },
 
         {
