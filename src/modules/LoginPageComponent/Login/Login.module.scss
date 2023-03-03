@@ -1,25 +1,19 @@
 .section {
   margin: 0 auto;
-  padding-top: 9.77vh;
+  padding-top: 19.5vh;
 
-  display: flex;
-  flex-direction: column;
-  gap: 3.9vh;
-}
-
-.formWrapper {
   font-size: var(--text-lg);
   text-align: center;
 }
 
 .formTitle {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-size: var(--title);
   font-weight: var(--extrabold);
 }
 
 .logIn {
-  margin-bottom: 20px;
+  margin-bottom: 28px;
 }
 
 .link {

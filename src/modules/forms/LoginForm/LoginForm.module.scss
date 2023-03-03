@@ -1,23 +1,21 @@
 .form {
-  max-width: 424px;
-  min-width: 324px;
-  align-items: center;
+  min-width: 424px;
+
   text-align: left;
 }
 
 .checkboxLabel {
   padding-left: 36px;
-  color: var(--secondary-txt-cl);
+  color: var(--primary-txt-cl);
   font-size: 14px;
-  margin-top: 28px;
-  margin-bottom: 44px;
+  line-height: 1.6;
 
   cursor: pointer;
 }
 
 .floatingGroup {
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 24px;
 }
 
 .floatingLabel {
@@ -107,14 +105,20 @@
   padding: 0;
   margin: 0;
 }
+
 .iconEye {
   path {
     stroke: var(--secondary-txt-cl);
   }
 }
 
+.floatingLabelError .input {
+  color: var(--error-cl);
+}
+
 .floatingLabelError * {
   border-color: var(--error-cl);
+
   path {
     stroke: var(--error-cl);
   }
@@ -122,12 +126,18 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--error-cl);
     -webkit-background-clip: text;
   }
 }
 
+.floatingLabelValid .input {
+  color: var(--success-cl);
+}
+
 .floatingLabelValid * {
   border-color: var(--success-cl);
+
   path {
     stroke: var(--success-cl);
   }
@@ -135,6 +145,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--success-cl);
     -webkit-background-clip: text;
   }
 }
@@ -145,6 +156,22 @@
   padding: 12px 0;
   font-weight: 400;
 }
+
 .googleIcon {
   margin-right: 8px;
+}
+
+.optionalWrapper {
+  margin-bottom: 28px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  font-size: var(--text-md);
+}
+
+.forgotPassword {
+  font-weight: var(--bold);
+  color: var(--accent-cl);
 }

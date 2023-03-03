@@ -1,15 +1,24 @@
-import { AuthIntro } from 'modules/dashboard';
+import { useAppSelector } from 'hooks/hook';
+import { AuthIntro } from '../AuthIntro/AuthIntro';
+import { HeaderButtonLanguage } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonLanguage';
+import { HeaderButtonTheme } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonTheme';
 
 import s from './AuthWrapper.module.scss';
 
-interface Children {
+export interface AuthProps {
   children: React.ReactNode;
 }
 
-export const AuthWrapper = ({ children }: Children) => {
+export const AuthWrapper = ({ children }: AuthProps) => {
+  const step = useAppSelector((state) => state.auth.step);
+
   return (
     <main className={s.container}>
-      <AuthIntro />
+      <div className={s.settingsWrapper}>
+        <HeaderButtonLanguage />
+        <HeaderButtonTheme />
+      </div>
+      {step < 3 && <AuthIntro />}
       {children}
     </main>
   );

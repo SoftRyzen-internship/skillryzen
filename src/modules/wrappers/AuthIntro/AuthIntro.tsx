@@ -1,8 +1,13 @@
 import { useAppSelector } from 'hooks/hook';
+import { useLocation } from 'react-router';
 
 import s from './AuthIntro.module.scss';
 
-const meta = {
+interface IntroMeta {
+  [key: string]: string[];
+}
+
+const introMeta: IntroMeta = {
   candidate: [
     'Пройти тест з JavaScript',
     'Отримати сертифікат',
@@ -20,18 +25,18 @@ const meta = {
 };
 
 export const AuthIntro = () => {
+  const location = useLocation();
   const role = useAppSelector((state) => state.auth.role);
-  const introMeta = role === 'candidate' ? meta.candidate : meta.company;
 
-  return (
-    <section className={s.section}>
+  return location.pathname === '/register' ? (
+    <section className={s.sectionRegister}>
       <div
         className={`${
           role === 'candidate' ? s.authCandidateBg : s.authCompanyBg
         }`}
       >
         <ul className={s.introMetaList}>
-          {introMeta.map((item, idx) => (
+          {introMeta[role].map((item, idx) => (
             <li key={idx} className={s.introMetaItem}>
               {item}
             </li>
@@ -39,5 +44,7 @@ export const AuthIntro = () => {
         </ul>
       </div>
     </section>
+  ) : (
+    <section className={s.sectionLogin}></section>
   );
 };

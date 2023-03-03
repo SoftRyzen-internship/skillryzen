@@ -1,13 +1,19 @@
-.section {
-  padding-top: 11.72vh;
+.sectionRegister {
   width: 49.2vw;
   height: 100vh;
 
   background-color: var(--accent-cl);
 }
 
+.sectionLogin {
+  composes: sectionRegister;
+  background-image: url('assets/images/login.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .authIntroWrapper {
-  margin: auto;
+  margin: 11.72vh auto 0;
   padding-top: 268px;
   width: 408px;
 

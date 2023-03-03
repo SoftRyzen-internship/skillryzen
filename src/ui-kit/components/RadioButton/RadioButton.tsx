@@ -24,11 +24,13 @@ export function RadioButton({
   onChange,
   label,
   labelClassName,
-  theme='dark',
+  theme = 'dark',
 }: RadioButtonProps) {
   return (
     <label
-      className={`${s[`label${type}`]} ${state && s[`label${type}--${state}`]} ${s[`label${type}--${theme}`]} ${labelClassName}`}
+      className={`${s[`label${type}`]} ${
+        state && s[`label${type}--${state}`]
+      } ${s[`label${type}--${theme}`]} ${labelClassName}`}
     >
       <input
         type='radio'
