@@ -12,8 +12,3 @@ export const SectionEditPassword = () => {
     </div>
   );
 };
-// userName='John Doe'
-// userRole={t('header.admin')}
-// userAvatarUrl={IMAGES.JAVA_SCRIPT}
-// userStatus='green'
-// theme={theme}
