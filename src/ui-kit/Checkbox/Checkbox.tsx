@@ -1,5 +1,5 @@
 import React, { useState, FC } from 'react';
-import { COLORS } from '../../theme/colors.const';
+// import { COLORS } from '../../theme/colors.const';
 
 import s from './Checkbox.module.scss';
 // import { CheckRound, DefaultCheckbox } from "../../theme";
