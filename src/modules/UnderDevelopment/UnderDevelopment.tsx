@@ -1,10 +1,10 @@
 import s from './UnderDevelopment.module.scss';
 
-interface IUnderDevelopmentProps {
+interface UnderDevelopmentProps {
   title: string;
 }
 
-export const UnderDevelopment = ({ title }: IUnderDevelopmentProps) => {
+export const UnderDevelopment = ({ title }: UnderDevelopmentProps) => {
   return (
     <section className={s.section}>
       <div className={s.wrapper}>
