@@ -17,7 +17,7 @@ const initialState: Auth = {
     token: '',
   },
   role: 'candidate',
-  step: 3,
+  step: 1,
 };
 
 const authSlice = createSlice({

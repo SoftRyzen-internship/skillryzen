@@ -3,11 +3,11 @@ import { AuthIntro } from 'modules/dashboard';
 
 import s from './AuthWrapper.module.scss';
 
-interface Children {
+export interface AuthProps {
   children: React.ReactNode;
 }
 
-export const AuthWrapper = ({ children }: Children) => {
+export const AuthWrapper = ({ children }: AuthProps) => {
   const step = useAppSelector((state) => state.auth.step);
 
   return (
