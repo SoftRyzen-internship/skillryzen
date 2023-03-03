@@ -4,4 +4,12 @@
   display: flex;
   justify-content: center;
   flex-grow: 1;
+
+  &--light {
+    background-color: var(--light-cards-cl);
+  }
+
+  &--dark {
+    background-color: var(--primary-cl);
+  }
 }

@@ -13,6 +13,8 @@ const objectTheme = {
     subtitle: s.subtitleDark,
     text: s.textDark,
     textRight: s.textRightDark,
+    recText: s.recTextDark,
+    recomendationsWrapper: s.recomendationsWrapperDark,
   },
   light: {
     title: s.titleLight,
@@ -21,6 +23,8 @@ const objectTheme = {
     subtitle: s.subtitleLight,
     text: s.textLight,
     textRight: s.textRightLight,
+    recText: s.recTextLight,
+    recomendationsWrapper: s.recomendationsWrapperLight,
   },
 };
 
@@ -201,8 +205,10 @@ export const FinalTestInfo = ({
               </p>
             </li>
           </ul>
-          <div className={s.recomendationsWrapper}>
-            <p className={s.recText}>{t('finalTestInfo.recomendations')}:</p>
+          <div className={objectTheme[theme].recomendationsWrapper}>
+            <p className={objectTheme[theme].recText}>
+              {t('finalTestInfo.recomendations')}:
+            </p>
             <p className={s.recTextSmall}>
               {t('finalTestInfo.worstTopic')} {`${test}`} - {`${theWorstTopic}`}{' '}
               {t('finalTestInfo.section')}
@@ -216,7 +222,9 @@ export const FinalTestInfo = ({
       )}
       <AuthButton
         type='button'
-        text={t('finalTestInfo.startTest')}
+        text={
+          finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
+        }
         onClick={onClickBtn}
         size='large'
         color='blue'
@@ -262,19 +270,21 @@ export const FinalTestInfo = ({
 
 // PROPS For End Test
 
-// <FinalTestInfo
-//   image={IMGS.JAVA_SCRIPT}
-//   imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-//   title='FullStack - Final Test'
-//   correctAnswers={15}
-//   totalQuestions={50}
-//   timeSpent={20}
-//   iconAnswers={ICONS.CHECK_SMALL}
-//   iconTime={ICONS.CLOCK}
-//   theWorstTopic='“Asynchrony”'
-//   theBestTopic='"Lorem lorem lorem"'
-//   onClickBtn={handleClickBtn}
-//   textBtn='Start test'
-//   test='JS'
-//   finishTest
-// />
+{
+  /* <FinalTestInfo
+  image={IMGS.JAVA_SCRIPT}
+  imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
+  title='FullStack - Final Test'
+  correctAnswers={15}
+  totalQuestions={50}
+  timeSpent={20}
+  iconAnswers={ICONS.CHECK_SMALL}
+  iconTime={ICONS.CLOCK}
+  theWorstTopic='“Asynchrony”'
+  theBestTopic='"Lorem lorem lorem"'
+  onClickBtn={handleClickBtn}
+  textBtn='Start test'
+  test='JS'
+  finishTest
+/> */
+}

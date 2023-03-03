@@ -1,50 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useEffect} from 'react';
 
 import { TestQuestion } from './TestQuestion/TestQuestion';
-import { getRandomTest, loginUser } from 'services/axiosConfig';
-
-export interface Info {
-  questionId: string;
-  number: number;
-  title: string;
-  possibleAnswers: {
-    value: string;
-    title: string;
-    label: string;
-  }[];
-}
+import { getLoginApi} from 'services/axiosConfig';
+import { useAppDispatch } from 'hooks/hook';
+import { getRandomTest } from 'redux/testingInfo/testingInfoOperations';
 
 export const TestingPageComponent = () => {
-  const [testId, setTestId] = useState<string>('');
-  const [info, setInfo] = useState<Info>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    loginUser()
-      .then((response) => getRandomTest())
-      .then((data) => {
-        setInfo({
-          questionId: data.nextQuestion.id,
-          number: 1,
-          title: data.nextQuestion.title,
-          possibleAnswers: data.nextQuestion.possibleAnswers,
-        });
-        setTestId(data.id);
-      })
+    getLoginApi()
+      .then((response) => dispatch(getRandomTest()))
       .catch((error) => console.log(error));
   }, []);
 
   return (
-    <>
-      {info && (
-        <TestQuestion
-          number={info.number}
-          testId={testId}
-          questionId={info.questionId}
-          title={info.title}
-          possibleAnswers={info.possibleAnswers}
-          onNextQuestion={setInfo}
-        />
-      )}
-    </>
+    <TestQuestion />
   );
 };

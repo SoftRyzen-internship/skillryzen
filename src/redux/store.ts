@@ -11,10 +11,12 @@ import {
 } from 'redux-persist';
 
 import { authReducer } from './authSlice/authSlice';
+import { testingInfoReducer } from './testingInfo/testingInfoSlise';
 
 export const store = configureStore({
   reducer: {
     auth: authReducer,
+    testingInfo: testingInfoReducer,
   },
 
   middleware: (getDefaultMiddleware) =>
