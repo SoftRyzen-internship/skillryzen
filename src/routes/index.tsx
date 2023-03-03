@@ -11,6 +11,7 @@ import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
 import { MainWrapper } from 'modules/wrappers/MainWrapper';
+import { TestsPageComponent } from 'modules/TestsPageComponent';
 
 export const AppRoutes = () => {
   const routes = [
