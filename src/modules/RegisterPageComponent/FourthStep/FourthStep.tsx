@@ -5,6 +5,8 @@ import { Spinner } from 'modules/common/components';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 
+import { ROUTES } from 'routes/routes.const';
+
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const FourthStep = () => {
@@ -12,7 +14,7 @@ export const FourthStep = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const timerId = setTimeout(() => navigate('/student'), 1000);
+    const timerId = setTimeout(() => navigate(ROUTES.STUDENT), 1000);
     return () => {
       clearTimeout(timerId);
       dispatch(setStep(1));

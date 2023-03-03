@@ -20,7 +20,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
       <p
         className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
       >
-       Question {number ? number : 1}/10
+        Question {number ? number : 1}/10
       </p>
       <div className={s.progressBar__wrapper}>
         <ul className={s.progressBar__list}>

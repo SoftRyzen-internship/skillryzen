@@ -7,6 +7,8 @@ import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
 import { validationSchema } from './validationSchema';
+
+import { ROUTES } from 'routes/routes.const';
 import s from './LoginForm.module.scss';
 
 interface MyFormValues {
@@ -32,7 +34,7 @@ export const LoginForm = () => {
     validationSchema,
 
     onSubmit: (_values) => {
-      navigate('/student');
+      navigate(ROUTES.STUDENT);
     },
   });
 

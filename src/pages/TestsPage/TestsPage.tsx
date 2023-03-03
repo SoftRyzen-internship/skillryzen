@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router';
+import { TestsPageComponent } from 'modules/TestsPageComponent';
 
 const TestsPage = () => {
-  return <Outlet />;
+  return <TestsPageComponent />;
 };
 
 export default TestsPage;

@@ -5,11 +5,13 @@ import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 
+import { ROUTES } from 'routes/routes.const';
+
 export const TestEndPageComponent = () => {
   const navigate = useNavigate();
 
   const handleClickBtn = () => {
-    navigate('/student/certification');
+    navigate(ROUTES.CERTIFICATION);
   };
 
   return (

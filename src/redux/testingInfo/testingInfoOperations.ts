@@ -49,7 +49,6 @@ export const answerTest = createAsyncThunk<
   Answer,
   { rejectValue: string }
 >('testingInfo/answerTest', async (info, thunkApi) => {
-
   const { testId, questionId, selectedAnswer } = info;
 
   try {
@@ -81,7 +80,10 @@ export const finishTest = createAsyncThunk<
   const { testId, time } = info;
   try {
     const data = await finishTestApi({ testId, time });
-    return { testId, percentageOfCorrectAnswers: data.percentageOfCorrectAnswers};
+    return {
+      testId,
+      percentageOfCorrectAnswers: data.percentageOfCorrectAnswers,
+    };
   } catch (error) {
     return rejectWithValue(error.response.data.message);
   }

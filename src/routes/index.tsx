@@ -1,76 +1,109 @@
-import { Navigate, useRoutes } from 'react-router-dom';
+import { Navigate, useRoutes, Outlet } from 'react-router-dom';
 
-import RegisterPage from 'pages/RegisterPage';
+import { MainWrapper, AuthWrapper } from 'modules/wrappers';
+
 import LoginPage from 'pages/LoginPage';
-import StudentProfilePage from 'pages/StudentProfilePage';
-import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
+import CompanyPage from 'pages/CompanyPage';
 import TestingPage from 'pages/TestingPage';
-import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
-import StudentSettingsPage from 'pages/StudentSettingsPage';
-import TestStartPage from 'pages/TestStartPage';
 import TestEndPage from 'pages/TestEndPage';
+import RegisterPage from 'pages/RegisterPage';
+import TestStartPage from 'pages/TestStartPage';
+import StudentSettingsPage from 'pages/StudentSettingsPage';
+import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import StudentProfilePage from 'pages/StudentProfilePage';
 
-import { MainWrapper } from 'modules/wrappers/MainWrapper';
-import { TestsPageComponent } from 'modules/TestsPageComponent';
+import { ROUTES } from './routes.const';
 
 export const AppRoutes = () => {
   const routes = [
-    { path: '/register', element: <RegisterPage /> },
-    { path: '/login', element: <LoginPage /> },
-    { path: '/', element: <LoginPage /> },
-
-    { path: '/company', element: <CompanyPage /> },
-
     {
-      path: '/student',
+      path: '/',
+      element: (
+        <AuthWrapper>
+          <Outlet />
+        </AuthWrapper>
+      ),
       children: [
-        { path: '', element: <Navigate to='certification' replace={true} /> },
         {
-          path: 'dashboard',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
+          path: '',
+          element: <LoginPage />,
         },
-
+        { path: ROUTES.LOGIN, element: <LoginPage /> },
+        { path: ROUTES.REGISTER, element: <RegisterPage /> },
+      ],
+    },
+    {
+      path: ROUTES.STUDENT,
+      children: [
         {
-          path: 'certification',
+          path: '',
+          element: <Navigate to={ROUTES.CERTIFICATION} replace={true} />,
+        },
+        {
           element: (
             <MainWrapper
               showSidebar={true}
               showHeader={true}
               isTestingPage={false}
             >
-              <TestsPage />
+              <Outlet />
             </MainWrapper>
           ),
           children: [
             {
-              path: '',
-              element: <TestsPageComponent />,
+              path: ROUTES.DASHBOARD,
+              element: <UnderDevelopmentPage />,
             },
             {
-              path: ':testId',
-              element: <TestStartPage />,
+              path: ROUTES.CERTIFICATION,
+              element: <Outlet />,
+              children: [
+                {
+                  path: '',
+                  element: <TestsPage />,
+                },
+                {
+                  path: ':testId',
+                  element: <TestStartPage />,
+                },
+              ],
+            },
+            {
+              path: ROUTES.PETPROJECTS,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.LEADERBOARD,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.VACANCIES,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.PROFILE,
+              element: <StudentProfilePage />,
+            },
+            {
+              path: ROUTES.SETTINGS,
+              element: <StudentSettingsPage />,
+            },
+            {
+              path: ROUTES.FEEDBACK,
+              element: <UnderDevelopmentPage />,
             },
           ],
         },
-
         {
-          path: 'testing',
+          path: ROUTES.TESTING,
           element: (
             <MainWrapper
               showSidebar={false}
               showHeader={true}
               isTestingPage={true}
             >
-              <TestsPage />
+              <Outlet />
             </MainWrapper>
           ),
           children: [
@@ -79,90 +112,14 @@ export const AppRoutes = () => {
               element: <TestingPage />,
             },
             {
-              path: 'test-end',
+              path: ROUTES.TEST_END,
               element: <TestEndPage />,
             },
           ],
         },
-
-        {
-          path: 'pet-projects',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
-        },
-
-        {
-          path: 'leader-board',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
-        },
-
-        {
-          path: 'vacancies',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
-        },
-
-        {
-          path: 'profile',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <StudentProfilePage />
-            </MainWrapper>
-          ),
-        },
-
-        {
-          path: 'settings',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <StudentSettingsPage />
-            </MainWrapper>
-          ),
-        },
-        {
-          path: 'feedback',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
-        },
       ],
     },
+    { path: '/company', element: <CompanyPage /> },
     { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);

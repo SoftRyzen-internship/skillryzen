@@ -4,7 +4,6 @@ import { Answer, Finish } from 'redux/testingInfo/testingInfoOperations';
 
 axios.defaults.baseURL = 'https://skillryzen-be-dev.herokuapp.com/';
 
-
 export const getLoginApi = () =>
   axios.post(
     'auth/login',
@@ -12,12 +11,12 @@ export const getLoginApi = () =>
     { withCredentials: true }
   );
 
-export const getRandomTestApi = ()  =>
+export const getRandomTestApi = () =>
   axios
     .post('user-test/random', {}, { withCredentials: true })
     .then((response) => response.data);
 
-export const answerTestApi = ({testId, questionId, selectedAnswer}: Answer) =>
+export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
   axios
     .post(
       `user-test/${testId}/answer-question/by-label`,
