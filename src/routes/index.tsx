@@ -9,11 +9,11 @@ import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 import TestStartPage from 'pages/TestStartPage';
 import TestEndPage from 'pages/TestEndPage';
 
-import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
-import { MainWrapper } from 'modules/Wrappers/MainWrapper';
+import { MainWrapper } from 'modules/wrappers/MainWrapper';
+import { TestsPageComponent } from 'modules/TestsPageComponent';
 
 export const AppRoutes = () => {
   const routes = [
@@ -38,6 +38,15 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
@@ -51,10 +60,19 @@ export const AppRoutes = () => {
               <TestsPage />
             </MainWrapper>
           ),
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <TestsPage />
+            </MainWrapper>
+          ),
           children: [
             {
               path: '',
-              element: <TestsMain />,
+              element: <TestsPageComponent />,
             },
             {
               path: ':testId',
@@ -71,12 +89,30 @@ export const AppRoutes = () => {
               showHeader={true}
               isTestingPage={true}
             >
+              <TestingPage />
+            </MainWrapper>
+          ),
+          element: (
+            <MainWrapper
+              showSidebar={false}
+              showHeader={true}
+              isTestingPage={true}
+            >
               <TestsPage />
             </MainWrapper>
           ),
           children: [
             {
               path: '',
+              element: (
+                <MainWrapper
+                  showSidebar={true}
+                  showHeader={true}
+                  isTestingPage={false}
+                >
+                  <TestingMain />
+                </MainWrapper>
+              ),
               element: <TestingPage />,
             },
           ],
@@ -112,10 +148,28 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'leader-board',
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
           element: (
             <MainWrapper
               showSidebar={true}
@@ -138,10 +192,28 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'profile',
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
           element: (
             <MainWrapper
               showSidebar={true}
@@ -164,9 +236,27 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
         {
           path: 'feedback',
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
           element: (
             <MainWrapper
               showSidebar={true}

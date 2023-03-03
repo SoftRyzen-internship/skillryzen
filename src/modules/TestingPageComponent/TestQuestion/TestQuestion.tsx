@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
+import { Info } from '../TestingPageComponent';
+
 import { AuthButton, RadioButton } from 'ui-kit';
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
-import { Info } from 'pages/TestingPage/TestingPage';
 import { answerQuestion } from 'services/axiosConfig';
 
 import s from './TestQuestion.module.scss';

@@ -1,8 +1,7 @@
 import { Suspense, lazy } from 'react';
 
 const LazyUnderDevelopment = lazy(async () => ({
-  default: (await import('modules/dashboard/components/UnderDevelopment'))
-    .UnderDevelopment,
+  default: (await import('modules/UnderDevelopment')).UnderDevelopment,
 }));
 
 const UnderDevelopmentPage = () => {
