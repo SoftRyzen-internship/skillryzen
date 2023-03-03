@@ -16,16 +16,7 @@ import { ROUTES } from 'routes/routes.const';
 import s from './TestQuestion.module.scss';
 
 export const TestQuestion = () => {
-  const testId = useAppSelector((state) => state.testingInfo.testId);
-  const questionId = useAppSelector((state) => state.testingInfo.questionId);
-  const questionTitle = useAppSelector((state) => state.testingInfo.title);
-  const possibleAnswers = useAppSelector(
-    (state) => state.testingInfo.possibleAnswers
-  );
-  const hasNextQuestion = useAppSelector(
-    (state) => state.testingInfo.hasNextQuestion
-  );
-  const isLoading = useAppSelector((state) => state.testingInfo.isLoading);
+  const {testId, questionId, title,  possibleAnswers, hasNextQuestion, isLoading } = useAppSelector((state) => state.testingInfo);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
@@ -49,7 +40,7 @@ export const TestQuestion = () => {
   return (
     <div className={s.testWrapper}>
       <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>
-        {questionTitle}
+        {title}
       </h2>
       <div className={s.questionWrapper}>
         {/* <div className={s.questionCode}>Code</div> */}

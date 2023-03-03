@@ -1,16 +1,18 @@
 import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
 import { Theme } from 'modules/common/types';
+import { useAppSelector } from 'hooks/hook';
+import { getQuestionNumber } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './ProgressBar.module.scss';
-import { useAppSelector } from 'hooks/hook';
+
 
 interface Props {
   theme?: Theme;
 }
 
 export const ProgressBar = ({ theme = 'dark' }: Props) => {
-  const number = useAppSelector((state) => state.testingInfo.number);
+  const number = useAppSelector(getQuestionNumber);
   const array = createArray(10);
 
   return (

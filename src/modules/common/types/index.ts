@@ -16,3 +16,17 @@ export interface IThemeContext {
   theme: Theme;
   setTheme: (action: Theme | ((prevState: Theme) => Theme)) => void;
 }
+
+export interface SocialItem {
+  url: string;
+  icon: JSX.Element;
+}
+export interface UserInfo {
+  name: string;
+  role: string;
+  social: SocialItem[];
+  avatarUrl: string;
+  companyName: string;
+  groupName: string;
+  testsAmount: number;
+}

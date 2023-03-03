@@ -1,0 +1,109 @@
+.container {
+  padding: 20px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.container--dark {
+  composes: container;
+  background-color: var(--components-cl);
+}
+.container--light {
+  composes: container;
+  background-color: var(--light-components-cl);
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  margin-bottom: 22px;
+  transition: var(--transition);
+}
+.title--dark {
+  composes: title;
+  color: var(--primary-txt-cl);
+}
+.title--light {
+  composes: title;
+  color: var(--light-primary-txt-cl);
+}
+
+.flexWrapper {
+  display: flex;
+  align-items: end;
+}
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+.user {
+  margin-left: 16px;
+}
+.name {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  margin-bottom: 8px;
+  transition: var(--transition);
+}
+.name--dark {
+  composes: name;
+  color: var(--primary-txt-cl);
+}
+.name--light {
+  composes: name;
+  color: var(--light-primary-txt-cl);
+}
+
+.role {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--text-lg);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+.role--dark {
+  composes: role;
+  color: var(--primary-txt-cl);
+}
+.role--light {
+  composes: role;
+  color: var(--light-primary-txt-cl);
+}
+
+.list {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-evenly;
+}
+
+.listTitle {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  margin-bottom: 8px;
+  transition: var(--transition);
+}
+.listTitle--dark {
+  composes: listTitle;
+  color: var(--primary-txt-cl);
+}
+.listTitle--light {
+  composes: listTitle;
+  color: var(--light-primary-txt-cl);
+}
+.label {
+  font-family: var(--font-family);
+  font-weight: var(--regular);
+  font-size: var(--text-lg);
+  transition: var(--transition);
+}
+.label--dark {
+  composes: label;
+  color: var(--primary-txt-cl);
+}
+.label--light {
+  composes: label;
+  color: var(--light-primary-txt-cl);
+}

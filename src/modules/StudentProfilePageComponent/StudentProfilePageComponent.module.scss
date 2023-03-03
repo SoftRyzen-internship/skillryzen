@@ -1,0 +1,15 @@
+.profilePage {
+  padding: 22px 60px 15px 24px;
+  height: calc(100vh - 72px);
+  width: 100%;
+
+  &--light {
+    transition: var(--transition);
+    background-color: var(--light-cards-cl);
+  }
+
+  &--dark {
+    transition: var(--transition);
+    background-color: var(--primary-cl);
+  }
+}

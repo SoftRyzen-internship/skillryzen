@@ -1,0 +1,26 @@
+.list {
+  display: flex;
+}
+.item + .item {
+  margin-left: 20px;
+}
+.link {
+  display: block;
+}
+
+.icon--dark svg {
+  display: block;
+  fill: var(--secondary-txt-cl);
+  transition: var(--transition);
+  &:hover {
+    fill: var(--accent-cl);
+  }
+}
+.icon--light svg {
+  display: block;
+  fill: var(--accent-cl);
+  transition: var(--transition);
+  &:hover {
+    fill: var(--secondary-txt-cl);
+  }
+}
