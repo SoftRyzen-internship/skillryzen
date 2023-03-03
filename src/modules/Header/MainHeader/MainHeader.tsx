@@ -1,13 +1,13 @@
 import { useThemeContext } from 'context/themeContext';
-import { HeaderInput } from 'modules/common/components/HeaderInput';
-import { HeaderButtonList } from 'modules/common/components/HeaderButtonList';
-import { HeaderUserAvatarCard } from 'modules/common/components/HeaderUserAvatarCard';
+import { HeaderInput } from './HeaderInput';
+import { HeaderButtonList } from './HeaderButtonList';
+import { HeaderUserAvatarCard } from './HeaderUserAvatarCard';
 import { Logo } from 'ui-kit/index';
 
 import { IThemeContext } from 'modules/common/types';
-import s from './Header.module.scss';
+import s from './MainHeader.module.scss';
 
-export const Header = () => {
+export const MainHeader = () => {
   const { theme }: IThemeContext = useThemeContext();
   return (
     <header className={`${s[`header--${theme}`]}`}>
