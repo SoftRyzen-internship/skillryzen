@@ -11,6 +11,7 @@ import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import StudentProfilePage from 'pages/StudentProfilePage';
 
 import { ROUTES } from './routes.const';
 
@@ -82,7 +83,7 @@ export const AppRoutes = () => {
             },
             {
               path: ROUTES.PROFILE,
-              element: <UnderDevelopmentPage />,
+              element: <StudentProfilePage />,
             },
             {
               path: ROUTES.SETTINGS,
