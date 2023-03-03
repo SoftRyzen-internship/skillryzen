@@ -3,7 +3,6 @@ import {
   answerTest,
   finishTest,
   getRandomTest,
-  FinishResponse,
 } from './testingInfoOperations';
 
 interface Results {
