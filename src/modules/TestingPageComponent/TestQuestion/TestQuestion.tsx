@@ -11,7 +11,7 @@ import {
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
 
-import { ROUTES } from 'routes/routes.const'
+import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
 

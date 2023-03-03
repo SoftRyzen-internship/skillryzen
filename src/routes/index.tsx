@@ -1,6 +1,6 @@
 import { Navigate, useRoutes, Outlet } from 'react-router-dom';
 
-import { MainWrapper } from 'modules/wrappers/MainWrapper';
+import { MainWrapper, AuthWrapper } from 'modules/wrappers';
 
 import LoginPage from 'pages/LoginPage';
 import TestsPage from 'pages/TestsPage';
@@ -16,9 +16,22 @@ import { ROUTES } from './routes.const';
 
 export const AppRoutes = () => {
   const routes = [
-    { path: '/register', element: <RegisterPage /> },
-    { path: '/login', element: <LoginPage /> },
-    { path: '/', element: <LoginPage /> },
+    {
+      path: '/',
+      element: (
+        <AuthWrapper>
+          <Outlet />
+        </AuthWrapper>
+      ),
+      children: [
+        {
+          path: '',
+          element: <LoginPage />,
+        },
+        { path: ROUTES.LOGIN, element: <LoginPage /> },
+        { path: ROUTES.REGISTER, element: <RegisterPage /> },
+      ],
+    },
     {
       path: ROUTES.STUDENT,
       children: [

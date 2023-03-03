@@ -23,4 +23,3 @@ export const validationSchema = Yup.object({
     .required("Пароль є обов'язковим"),
   checkbox: Yup.boolean().oneOf([true]).required(),
 });
-

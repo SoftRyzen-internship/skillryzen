@@ -5,6 +5,8 @@ interface Routes {
 }
 
 export const ROUTES: Routes = {
+  LOGIN: '/login',
+  REGISTER: '/register',
   STUDENT: '/student',
   DASHBOARD: '/student/dashboard',
   CERTIFICATION: '/student/certification',

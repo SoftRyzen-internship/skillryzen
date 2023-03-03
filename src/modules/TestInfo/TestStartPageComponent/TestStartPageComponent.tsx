@@ -5,7 +5,7 @@ import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 
-import { ROUTES } from 'routes/routes.const'
+import { ROUTES } from 'routes/routes.const';
 
 export const TestStartPageComponent = () => {
   const listInfoJS = {
