@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IMGS } from 'theme/images.const';
-import { ICONS } from 'theme/icons.const';
-
 import { useThemeContext } from 'context/themeContext';
 
+import { ICONS } from 'ui-kit/icons';
+import { IMAGES } from 'ui-kit/images';
 import { UserAvatarCard, Popup } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
@@ -63,7 +62,7 @@ export const HeaderUserAvatarCard = ({
       <UserAvatarCard
         userName='John Doe'
         userRole={t('header.admin')}
-        userAvatarUrl={IMGS.JAVA_SCRIPT}
+        userAvatarUrl={IMAGES.JAVA_SCRIPT}
         userStatus='green'
         theme={theme}
       />

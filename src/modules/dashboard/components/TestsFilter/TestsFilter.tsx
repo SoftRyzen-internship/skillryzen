@@ -1,9 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
+import { ICONS } from 'ui-kit/icons';
+
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
-import { MenuButton, Tabs } from 'ui-kit';
-import { ICONS } from 'theme';
+import { MenuButton, Tabs } from 'ui-kit/index';
 
 import s from './TestsFilter.module.scss';
 
