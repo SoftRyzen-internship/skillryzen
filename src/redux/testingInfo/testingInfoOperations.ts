@@ -11,7 +11,7 @@ export interface Answer {
   selectedAnswer: string;
 }
 
-interface AnsweResponse {
+interface AnswerResponse {
   questionId: string;
   title: string;
   possibleAnswers: {
@@ -45,7 +45,7 @@ export const getRandomTest = createAsyncThunk(
 );
 
 export const answerTest = createAsyncThunk<
-  AnsweResponse,
+  AnswerResponse,
   Answer,
   { rejectValue: string }
 >('testingInfo/answerTest', async (info, thunkApi) => {
