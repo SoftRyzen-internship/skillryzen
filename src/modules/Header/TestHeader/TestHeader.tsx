@@ -1,4 +1,4 @@
-import { ProgressBar } from 'ui-kit/ProgressBar';
+import { ProgressBar } from 'ui-kit';
 import { Timer } from 'modules/common/components/Timer';
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
