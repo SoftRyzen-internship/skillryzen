@@ -16,7 +16,8 @@
     "worstTopic": "The worst topic in",
     "bestTopic": "The best topic in",
     "section": "section",
-    "startTest": "Start Test"
+    "startTest": "Start Test",
+    "endTest": "Finish the test"
   },
   "testsMain": {
     "tests": "Tests",

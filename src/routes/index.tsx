@@ -6,6 +6,8 @@ import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import TestStartPage from 'pages/TestStartPage';
+import TestEndPage from 'pages/TestEndPage';
 
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
@@ -56,7 +58,7 @@ export const AppRoutes = () => {
             },
             {
               path: ':testId',
-              element: <TestInfo />,
+              element: <TestStartPage />,
             },
           ],
         },
@@ -69,21 +71,17 @@ export const AppRoutes = () => {
               showHeader={true}
               isTestingPage={true}
             >
-              <TestingPage />
+              <TestsPage />
             </MainWrapper>
           ),
           children: [
             {
               path: '',
-              element: (
-                <MainWrapper
-                  showSidebar={true}
-                  showHeader={true}
-                  isTestingPage={false}
-                >
-                  <TestingMain />
-                </MainWrapper>
-              ),
+              element: <TestingPage />,
+            },
+            {
+              path: 'test-end',
+              element: <TestEndPage />,
             },
           ],
         },

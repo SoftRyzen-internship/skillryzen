@@ -7,8 +7,7 @@ import { useThemeContext } from 'context/themeContext';
 
 import s from './CardsList.module.scss';
 
-
-interface IItem {
+interface Item {
   title: string;
   text: string;
   fields?: string[];
@@ -16,13 +15,13 @@ interface IItem {
   time?: number;
 }
 
-interface ITestsList {
+interface TestsList {
   type?: 'notification' | 'coin' | 'info';
   size: 'large' | 'small';
-  testsArray: IItem[];
+  testsArray: Item[];
 }
 
-export const CardsList = ({ type = 'info', size, testsArray }: ITestsList) => {
+export const CardsList = ({ type = 'info', size, testsArray }: TestsList) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 

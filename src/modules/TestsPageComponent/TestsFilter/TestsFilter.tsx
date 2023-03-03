@@ -8,12 +8,12 @@ import { MenuButton, Tabs } from 'ui-kit/index';
 
 import s from './TestsFilter.module.scss';
 
-interface ITestFilter {
+interface TestFilterProps {
   size: string;
   setSize: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export const TestsFilter = ({ size, setSize }: ITestFilter) => {
+export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 

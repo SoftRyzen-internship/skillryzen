@@ -2,11 +2,10 @@ import { useNavigate } from 'react-router';
 
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
-// import { FinalTestInfo } from 'modules/common/components/FinalTestInfo/FinalTestInfo';
+import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
+import { TestInfoContainer } from '../TestInfoContainer';
 
-import { TestInfoContainer } from '../../../TestInfo/TestInfoContainer';
-
-export const TestInfo = () => {
+export const TestStartPageComponent = () => {
   const listInfoJS = {
     topics: 'HTML, CSS, JavaScript, React',
     time: '2:00:00',
@@ -30,7 +29,7 @@ export const TestInfo = () => {
 
   return (
     <TestInfoContainer>
-      {/* <FinalTestInfo
+      <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
         imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
         title='FullStack - Final Test'
@@ -40,7 +39,7 @@ export const TestInfo = () => {
         onClickBtn={handleClickBtn}
         textBtn='Start test'
         test='JS'
-      /> */}
+      />
     </TestInfoContainer>
   );
 };
