@@ -10,8 +10,6 @@ import StudentSettingsPage from 'pages/StudentSettingsPage';
 import TestStartPage from 'pages/TestStartPage';
 import TestEndPage from 'pages/TestEndPage';
 
-import { TestInfo } from 'modules/dashboard/components/TestInfo';
-
 import { MainWrapper } from 'modules/wrappers/MainWrapper';
 import { TestsPageComponent } from 'modules/TestsPageComponent';
 
