@@ -1,12 +1,14 @@
 .labelPassTest {
-  display: block;
   position: relative;
+  display: flex;
+  align-items: center;
   width: 536px;
   cursor: pointer;
   font-weight: 500;
   font-size: 17px;
   border-radius: 5px;
   padding: 20px 20px 20px 69px;
+  height: 100%;
 
   &--light {
     color: var(--light-primary-txt-cl);
