@@ -9,16 +9,19 @@ interface IProps {
   children: React.ReactNode;
 }
 
-export const MainWrapper = ({showSidebar,showHeader,isTestingPage, children }: IProps) => {
+export const MainWrapper = ({
+  showSidebar,
+  showHeader,
+  isTestingPage,
+  children,
+}: IProps) => {
   return (
     <>
-        {showHeader && <Header isTestingPage={isTestingPage}/>}
-        <div className={s.container}>
-        {showSidebar &&  <Sidebar/>}
-        <div className={s.content}>
-        {children}
-        </div>
-        </div>
+      {showHeader && <Header isTestingPage={isTestingPage} />}
+      <div className={s.container}>
+        {showSidebar && <Sidebar />}
+        <div className={s.content}>{children}</div>
+      </div>
     </>
   );
 };

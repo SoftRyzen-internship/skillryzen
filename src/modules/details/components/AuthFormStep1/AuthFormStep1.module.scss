@@ -83,19 +83,15 @@
 }
 
 .buttonsList {
-  min-height: 160px;
   display: flex;
   flex-direction: column;
   gap: 32px;
 
   font-size: var(--text-md);
 
-  & > li:first-child {
-    font-size: 16px;
-  }
-
   & > li:last-child {
     margin-top: auto;
+    font-size: 14px;
   }
 }
 

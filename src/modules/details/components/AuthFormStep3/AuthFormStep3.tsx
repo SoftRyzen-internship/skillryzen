@@ -20,6 +20,10 @@ interface FormValues {
 export const AuthFormStep3 = () => {
   const dispatch = useAppDispatch();
 
+  const handleClickSkipBtn = () => {
+    dispatch(setStep(4));
+  };
+
   const formik = useFormik<FormValues>({
     initialValues: {
       name: '',
@@ -141,7 +145,7 @@ export const AuthFormStep3 = () => {
           disabled={!isValid || !dirty}
         />
       </form>
-      <button onClick={() => setStep(4)} className={s.skipBtn} type='button'>
+      <button onClick={handleClickSkipBtn} className={s.skipBtn} type='button'>
         Do this later
       </button>
     </div>

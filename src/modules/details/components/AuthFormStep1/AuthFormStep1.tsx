@@ -93,7 +93,10 @@ export const AuthFormStep1 = () => {
             <span className={s.inputTitle}>Введіть код компанії</span>
           </label>
         )}
-        <ul className={s.buttonsList}>
+        <ul
+          style={{ minHeight: role === 'candidate' ? '160px' : '64px' }}
+          className={s.buttonsList}
+        >
           {isValid && role === 'candidate' && (
             <li>
               <p className={s.buttonsTitle}>Your company is</p>
@@ -112,7 +115,7 @@ export const AuthFormStep1 = () => {
               text='Create account'
               type='submit'
               color='blue'
-              disabled={!isValid}
+              disabled={!isValid && role === 'candidate'}
             />
           </li>
         </ul>
