@@ -6,10 +6,10 @@ import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import StudentSettingsPage from 'pages/StudentSettingsPage';
 import TestStartPage from 'pages/TestStartPage';
 import TestEndPage from 'pages/TestEndPage';
 
-import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
 import { MainWrapper } from 'modules/wrappers/MainWrapper';
@@ -146,7 +146,7 @@ export const AppRoutes = () => {
               showHeader={true}
               isTestingPage={false}
             >
-              <UnderDevelopmentPage />
+              <StudentSettingsPage />
             </MainWrapper>
           ),
         },
