@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 
 // import { useAppDispatch } from 'hooks/hook';
 import { AuthButton, Checkbox } from 'ui-kit';
-import { ICONS } from 'theme';
+import { ICONS } from 'ui-kit/icons';
 
 import { validationSchema } from './validationSchema';
 import s from './LoginForm.module.scss';
