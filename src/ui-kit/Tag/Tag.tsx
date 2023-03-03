@@ -1,16 +1,17 @@
-import { Theme } from 'modules/common/types';
 import { useTranslation } from 'react-i18next';
+
+import { Theme } from 'modules/common/types';
 
 import s from './Tag.module.scss';
 
-interface ITag {
+interface Tag {
   type: 'field' | 'number' | 'time';
   label: string;
   icon?: boolean;
   theme?: Theme;
 }
 
-export const Tag = ({ label, type, icon = false, theme="dark" }: ITag) => {
+export const Tag = ({ label, type, icon = false, theme='dark' }: Tag) => {
   const { t } = useTranslation();
   
   return (

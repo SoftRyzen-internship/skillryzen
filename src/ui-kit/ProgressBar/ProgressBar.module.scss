@@ -1,7 +1,13 @@
 .progressBar__info {
   font-weight: var(--bold);
   font-size: var(--text-lg);
-  color: var(--primary-txt-cl);
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .progressBar__wrapper {
@@ -33,4 +39,8 @@
 
 .progressBar__icon path {
   stroke: var(--primary-txt-cl);
+}
+
+.progressBar__icon--light path {
+  stroke: var(--accent-cl);
 }

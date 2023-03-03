@@ -1,5 +1,9 @@
-.test__header {
+.test__header--dark {
   background-color: var(--components-cl);
+}
+
+.test__header--light {
+  background-color: var(--light-components-cl);
 }
 
 .test__container {
