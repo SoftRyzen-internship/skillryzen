@@ -1,9 +1,11 @@
 import { createArray } from 'utils/createArray';
+import { Theme } from 'modules/common/types';
 import { ICONS } from 'theme';
 
 import s from './ProgressBar.module.scss';
 
-// interface IAnswer {
+
+// interface Answer {
 //   number: number;
 //   isRight: boolean;
 // }
@@ -12,15 +14,18 @@ interface Props {
   currentNumber: number;
   totalNumber: number;
   isPrevRight: boolean;
+  theme?: Theme;
 }
 
 export const ProgressBar = ({
   currentNumber,
   totalNumber,
   isPrevRight,
+  theme='dark',
 }: Props) => {
   const array = createArray(totalNumber);
-  // const [arrayOfAnswers, setArrayOfAnswers] = useState<IAnswer[]>([]);
+  
+  // const [arrayOfAnswers, setArrayOfAnswers] = useState<Answer[]>([]);
 
   // useEffect(() => {
   //   if (currentNumber === 1) return;
@@ -40,7 +45,7 @@ export const ProgressBar = ({
 
   return (
     <div className={s.progressBar}>
-      <p className={s.progressBar__info}>
+      <p className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}>
         Question {currentNumber}/{totalNumber}
       </p>
       <div className={s.progressBar__wrapper}>
@@ -57,7 +62,7 @@ export const ProgressBar = ({
             ></li>
           ))}
         </ul>
-        <ICONS.FLAG_ONE className={s.progressBar__icon} />
+        <ICONS.FLAG_ONE className={`${s.progressBar__icon} ${s[`progressBar__icon--${theme}`]}`} />
       </div>
     </div>
   );
