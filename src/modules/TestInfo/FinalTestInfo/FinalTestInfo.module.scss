@@ -92,11 +92,13 @@
   color: var(--disabled-cl);
 }
 
-.recomendationsWrapper {
+.recomendationsWrapperDark,
+.recomendationsWrapperLight {
   margin-bottom: 60px;
 }
 
-.recomendationsWrapper::before {
+.recomendationsWrapperDark::before,
+.recomendationsWrapperLight::before {
   content: '';
   display: block;
   width: 100%;
@@ -105,9 +107,17 @@
   border: 1px solid #464962;
 }
 
-.recText {
+.recomendationsWrapperLight::before {
+  border: 2px solid #e9f0ff;
+}
+
+.recTextDark {
   composes: textDark;
   margin-bottom: 8px;
+}
+.recTextLight {
+  composes: recTextDark;
+  color: var(--primary-cl);
 }
 
 .recTextSmall {

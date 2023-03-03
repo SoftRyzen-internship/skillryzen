@@ -6,6 +6,8 @@ import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import TestStartPage from 'pages/TestStartPage';
+import TestEndPage from 'pages/TestEndPage';
 
 import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
@@ -27,12 +29,28 @@ export const AppRoutes = () => {
         { path: '', element: <Navigate to='certification' replace={true} /> },
         {
           path: 'dashboard',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'certification',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><TestsPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <TestsPage />
+            </MainWrapper>
+          ),
           children: [
             {
               path: '',
@@ -40,49 +58,124 @@ export const AppRoutes = () => {
             },
             {
               path: ':testId',
-              element: <TestInfo />,
+              element: <TestStartPage />,
             },
           ],
         },
 
         {
           path: 'testing',
-          element: <MainWrapper showSidebar={false} showHeader={true} isTestingPage={true}><TestingPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={false}
+              showHeader={true}
+              isTestingPage={true}
+            >
+              <TestsPage />
+            </MainWrapper>
+          ),
           children: [
             {
               path: '',
-              element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><TestingMain /></MainWrapper>,
+              element: <TestingPage />,
+            },
+          ],
+        },
+
+        {
+          path: 'testing',
+          element: (
+            <MainWrapper
+              showSidebar={false}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <TestsPage />
+            </MainWrapper>
+          ),
+          children: [
+            {
+              path: 'test-end',
+              element: <TestEndPage />,
             },
           ],
         },
 
         {
           path: 'pet-projects',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'leader-board',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'vacancies',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'profile',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'settings',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
         {
           path: 'feedback',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
       ],
     },

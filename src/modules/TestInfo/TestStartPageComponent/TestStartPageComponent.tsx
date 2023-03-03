@@ -1,8 +1,9 @@
 import { useNavigate } from 'react-router';
 
-import { ICONS } from 'theme/icons.const';
-import { IMGS } from 'theme/images.const';
+import { ICONS } from 'ui-kit/icons';
+import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
+import { TestInfoContainer } from '../TestInfoContainer';
 
 export const TestStartPageComponent = () => {
   const listInfoJS = {
@@ -27,16 +28,18 @@ export const TestStartPageComponent = () => {
   };
 
   return (
-    <FinalTestInfo
-      image={IMGS.JAVA_SCRIPT}
-      imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-      title='FullStack - Final Test'
-      subtitle='JavaScript is a programming language that is one of the core
+    <TestInfoContainer>
+      <FinalTestInfo
+        image={IMAGES.JAVA_SCRIPT}
+        imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
+        title='FullStack - Final Test'
+        subtitle='JavaScript is a programming language that is one of the core
         technologies of the World Wide Web, alongside HTML and CSS.'
-      listInfo={listInfoJS}
-      onClickBtn={handleClickBtn}
-      textBtn='Start test'
-      test='JS'
-    />
+        listInfo={listInfoJS}
+        onClickBtn={handleClickBtn}
+        textBtn='Start test'
+        test='JS'
+      />
+    </TestInfoContainer>
   );
 };

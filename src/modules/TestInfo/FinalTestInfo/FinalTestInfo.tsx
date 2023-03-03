@@ -13,6 +13,8 @@ const objectTheme = {
     subtitle: s.subtitleDark,
     text: s.textDark,
     textRight: s.textRightDark,
+    recText: s.recTextDark,
+    recomendationsWrapper: s.recomendationsWrapperDark,
   },
   light: {
     title: s.titleLight,
@@ -21,6 +23,8 @@ const objectTheme = {
     subtitle: s.subtitleLight,
     text: s.textLight,
     textRight: s.textRightLight,
+    recText: s.recTextLight,
+    recomendationsWrapper: s.recomendationsWrapperLight,
   },
 };
 
@@ -201,8 +205,10 @@ export const FinalTestInfo = ({
               </p>
             </li>
           </ul>
-          <div className={s.recomendationsWrapper}>
-            <p className={s.recText}>{t('finalTestInfo.recomendations')}:</p>
+          <div className={objectTheme[theme].recomendationsWrapper}>
+            <p className={objectTheme[theme].recText}>
+              {t('finalTestInfo.recomendations')}:
+            </p>
             <p className={s.recTextSmall}>
               {t('finalTestInfo.worstTopic')} {`${test}`} - {`${theWorstTopic}`}{' '}
               {t('finalTestInfo.section')}
@@ -216,7 +222,9 @@ export const FinalTestInfo = ({
       )}
       <AuthButton
         type='button'
-        text={t('finalTestInfo.startTest')}
+        text={
+          finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
+        }
         onClick={onClickBtn}
         size='large'
         color='blue'

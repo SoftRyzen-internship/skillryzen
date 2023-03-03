@@ -9,7 +9,6 @@ import { answerQuestion } from 'services/axiosConfig';
 
 import s from './TestQuestion.module.scss';
 
-
 interface TestQuestionProps {
   testId: string;
   questionId: string;
@@ -34,7 +33,6 @@ export const TestQuestion = ({
   possibleAnswers,
   onNextQuestion,
 }: TestQuestionProps) => {
-  
   const navigate = useNavigate();
   const { theme }: IThemeContext = useThemeContext();
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
@@ -56,7 +54,7 @@ export const TestQuestion = ({
         });
         setSelectedAnswer('');
       })
-      .catch(error => console.log(error));
+      .catch((error) => console.log(error));
   };
 
   // Ця логіка на демо-версію
