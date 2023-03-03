@@ -4,10 +4,12 @@
   width: 100%;
 
   &--light {
+    transition: var(--transition);
     background-color: var(--light-cards-cl);
   }
 
   &--dark {
+    transition: var(--transition);
     background-color: var(--primary-cl);
   }
 }

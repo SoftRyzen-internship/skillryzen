@@ -1,6 +1,5 @@
 export type Img = { [key: string]: string };
 export type Theme = 'dark' | 'light';
-export type SocialList = SocialItem[];
 
 export interface IAuth {
   role?: string;
@@ -25,7 +24,7 @@ export interface SocialItem {
 export interface UserInfo {
   name: string;
   role: string;
-  social: SocialList;
+  social: SocialItem[];
   avatarUrl: string;
   companyName: string;
   groupName: string;
