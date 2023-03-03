@@ -1,5 +1,3 @@
-import { useLocation } from 'react-router';
-
 import { useAppSelector } from 'hooks/hook';
 
 import s from './AuthIntro.module.scss';
@@ -25,11 +23,10 @@ const introMeta: IntroMeta = {
   ],
 };
 
-export const AuthIntro = () => {
-  const location = useLocation();
+export const AuthIntro = ({ page = 'register' }) => {
   const role = useAppSelector((state) => state.auth.role);
 
-  return location.pathname === '/register' ? (
+  return page === 'register' ? (
     <section className={s.sectionRegister}>
       <div
         className={`${

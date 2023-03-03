@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 
-import { useAppDispatch } from 'hooks/hook';
-import { setStep } from 'redux/authSlice/authSlice';
+// import { useAppDispatch } from 'hooks/hook';
 import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'theme';
 
@@ -17,7 +16,8 @@ interface MyFormValues {
 }
 
 export const LoginForm = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
   // const handleClickGoogle = () => {};
@@ -32,7 +32,7 @@ export const LoginForm = () => {
     validationSchema,
 
     onSubmit: (_values) => {
-      dispatch(setStep(3));
+      navigate('/student');
     },
   });
 
