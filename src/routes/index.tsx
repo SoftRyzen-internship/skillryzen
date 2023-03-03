@@ -2,6 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 
 import RegisterPage from 'pages/RegisterPage';
 import LoginPage from 'pages/LoginPage';
+import StudentProfilePage from 'pages/StudentProfilePage';
 import CompanyPage from 'pages/CompanyPage';
 import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
@@ -131,7 +132,7 @@ export const AppRoutes = () => {
               showHeader={true}
               isTestingPage={false}
             >
-              <UnderDevelopmentPage />
+              <StudentProfilePage />
             </MainWrapper>
           ),
         },

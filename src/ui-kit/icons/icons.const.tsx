@@ -32,6 +32,7 @@ import IconGrid from 'assets/svg/grid.svg';
 import IconHeart from 'assets/svg/heart.svg';
 import IconHome from 'assets/svg/home.svg';
 import IconLink from 'assets/svg/link.svg';
+import IconLinkedin from 'assets/svg/linkedin.svg';
 import IconList from 'assets/svg/list.svg';
 import IconLogout from 'assets/svg/logout.svg';
 import IconMail from 'assets/svg/mail.svg';
@@ -49,6 +50,7 @@ import IconSearch from 'assets/svg/search.svg';
 import IconSettings from 'assets/svg/settings.svg';
 import IconStar from 'assets/svg/star.svg';
 import IconSun from 'assets/svg/sun.svg';
+import IconTelegram from 'assets/svg/telegram.svg';
 import IconTrophy from 'assets/svg/trophy.svg';
 import IconUkraine from 'assets/svg/ukraine.svg';
 import IconUK from 'assets/svg/united-kingdom.svg';
@@ -137,6 +139,7 @@ export const ICONS: Icons = {
   HEART: IconHeart,
   HOME: IconHome,
   LINK: IconLink,
+  LINKEDIN: IconLinkedin,
   LIST: IconList,
   LOGOUT: IconLogout,
   MAIL: IconMail,
@@ -154,6 +157,7 @@ export const ICONS: Icons = {
   SETTINGS: IconSettings,
   STAR: IconStar,
   SUN: IconSun,
+  TELEGRAM: IconTelegram,
   TROPHY: IconTrophy,
   UKRAINE: IconUkraine,
   UK: IconUK,
