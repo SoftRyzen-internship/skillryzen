@@ -1,8 +1,10 @@
 .form {
-  max-width: 424px;
-  min-width: 324px;
+  min-width: 424px;
+  min-height: 394px;
   align-items: center;
-  text-align: left;
+
+  display: flex;
+  flex-direction: column;
 }
 
 .floatingGroup {
@@ -23,6 +25,10 @@
 .floatingLabelPhone {
   composes: floatingLabel;
   left: 74px;
+}
+
+.inputsList {
+  width: 100%;
 }
 
 .input {
@@ -91,10 +97,6 @@
   border-right: 1px solid var(--disabled-cl);
 }
 
-.btnSubmit {
-  margin-top: 7.8vh;
-}
-
 .floatingLabelError .input {
   color: var(--error-cl);
 }
@@ -137,6 +139,10 @@
     -webkit-text-fill-color: var(--success-cl);
     -webkit-background-clip: text;
   }
+}
+
+.btnSubmit {
+  margin-top: auto;
 }
 
 .skipBtn{

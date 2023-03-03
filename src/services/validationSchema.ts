@@ -25,6 +25,9 @@ export const registerSchema = Yup.object({
 });
 
 export const contactInfoSchema = Yup.object({
+  companyName: Yup.string()
+    .min(2, 'Повинно містити біле 2 символів')
+    .max(50, 'Повинно містити не більше 50 символів'),
   name: Yup.string()
     .required('Ім\'я є обовязковим')
     .min(2, 'Повинно містити біле 2 символів')
