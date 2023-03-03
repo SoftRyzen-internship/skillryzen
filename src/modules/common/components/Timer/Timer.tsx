@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { setTime } from 'redux/testingInfo/testingInfoSlise';
 import { Theme } from 'modules/common/types';
 import { convertTime } from 'utils/convertTime';
+import { getHasNextQuestion } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
 
@@ -10,7 +13,9 @@ interface Timer {
 }
 
 export const Timer: React.FC<Timer> = ({ theme = 'dark' }) => {
-  const [seconds, setSeconds] = useState(0);
+  const hasNextQuestion = useAppSelector(getHasNextQuestion);
+  const dispatch = useAppDispatch();
+  const [seconds, setSeconds] = useState<number>(0);
 
   useEffect(() => {
     // if (seconds > 0) {
@@ -26,11 +31,14 @@ export const Timer: React.FC<Timer> = ({ theme = 'dark' }) => {
     return () => clearInterval(intervalId);
   }, [seconds]);
 
+  useEffect(() => {
+    if (hasNextQuestion) return;
+    dispatch(setTime(seconds))
+  }, [hasNextQuestion]);
+
   return (
     <div>
-      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
-        Time:
-      </p>
+      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>Time:</p>
       <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
         {convertTime(seconds)}
       </p>

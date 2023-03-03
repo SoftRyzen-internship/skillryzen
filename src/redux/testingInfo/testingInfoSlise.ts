@@ -1,7 +1,17 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { answerTest, finishTest, getRandomTest, FinishResponse } from './testingInfoOperations';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {
+  answerTest,
+  finishTest,
+  getRandomTest,
+} from './testingInfoOperations';
 
-interface TestingInfo {
+interface Results {
+  testId: string;
+  percentageOfCorrectAnswers: number;
+  time: number;
+}
+
+export interface TestingInfo {
   testId: string;
   questionId: string;
   number: number;
@@ -12,7 +22,7 @@ interface TestingInfo {
     label: string;
   }[];
   hasNextQuestion: boolean;
-  results: FinishResponse;
+  results: Results;
   isLoading: boolean;
   error: string | unknown;
 }
@@ -24,7 +34,7 @@ const initialState: TestingInfo = {
   title: '',
   possibleAnswers: [],
   hasNextQuestion: true,
-  results: { testId: '', percentageOfCorrectAnswers: 0},
+  results: { testId: '', percentageOfCorrectAnswers: 0, time: 0 },
   isLoading: false,
   error: '',
 };
@@ -32,7 +42,11 @@ const initialState: TestingInfo = {
 const testingInfoSlice = createSlice({
   name: 'testingInfo',
   initialState,
-  reducers: {},
+  reducers: {
+    setTime(state, action: PayloadAction<number>) {
+      state.results.time = action.payload;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(getRandomTest.pending, (state) => {
@@ -86,6 +100,5 @@ const testingInfoSlice = createSlice({
   },
 });
 
+export const { setTime } = testingInfoSlice.actions;
 export const testingInfoReducer = testingInfoSlice.reducer;
-
-
