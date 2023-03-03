@@ -20,7 +20,6 @@
   &--dark {
     color: var(--primary-txt-cl);
   }
-
 }
 
 .tabs__navLinkActive {
@@ -28,7 +27,7 @@
   font-weight: var(--bold);
 
   &--light {
-    color: var(--light-tabs-cl);
+    color: var(--light-primary-txt-cl);
   }
 
   &--dark {

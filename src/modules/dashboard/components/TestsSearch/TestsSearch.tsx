@@ -29,6 +29,7 @@ export const TestsSearch = () => {
             placeholder={t('testsMain.search')}
             button={true}
             icon={<ICONS.SEARCH fill='#9D9FB5' />}
+            theme={theme}
           />
           <button
             className={`${s.testsSearch__button} ${

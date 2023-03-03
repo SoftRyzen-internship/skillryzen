@@ -7,17 +7,17 @@ import s from './Card.module.scss';
 
 type Type = 'notification' | 'coin' | 'info';
 
-interface ICard {
+interface Card {
   type?: Type;
   size?: 'large' | 'small';
   hideNumber?: boolean;
   custom?: boolean;
   onClick?: () => void;
-  item: IItem;
+  item: Item;
   theme?: Theme;
 }
 
-interface IItem {
+interface Item {
   title: string;
   text?: string;
   fields?: string[];
@@ -45,7 +45,7 @@ export const Card = ({
   custom = false,
   theme = 'dark',
   onClick,
-}: ICard) => {
+}: Card) => {
   const { title, text, fields, number, time } = item;
 
   const addBackgroundColor = (type: Type): string => {
