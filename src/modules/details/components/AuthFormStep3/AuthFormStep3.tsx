@@ -137,6 +137,9 @@ export const AuthFormStep3 = ({ setStep }: IAuth) => {
           disabled={!isValid || !dirty}
         />
       </form>
+      <button onClick={() => setStep(4)} className={s.skipBtn} type='button'>
+        Do this later
+      </button>
     </div>
   );
 };

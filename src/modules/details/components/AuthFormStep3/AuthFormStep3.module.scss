@@ -92,7 +92,7 @@
 }
 
 .btnSubmit {
-  margin-top: 80px;
+  margin-top: 7.8vh;
 }
 
 .floatingLabelError .input {
@@ -137,4 +137,14 @@
     -webkit-text-fill-color: var(--success-cl);
     -webkit-background-clip: text;
   }
+}
+
+.skipBtn{
+  margin-top: 32px;
+
+  font-size: (--text-md);
+  font-weight: var(--bold);
+  color: var(--accent-cl);
+
+  background-color: transparent;
 }
