@@ -21,7 +21,7 @@ export const ProgressBar = ({
   currentNumber,
   totalNumber,
   isPrevRight,
-  theme='dark'
+  theme='dark',
 }: Props) => {
   const array = createArray(totalNumber);
   

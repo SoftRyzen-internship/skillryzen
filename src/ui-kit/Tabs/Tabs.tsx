@@ -12,7 +12,7 @@ interface TabProps {
   theme?: Theme;
 }
 
-export const Tabs = ({tabs, theme='dark'}: TabProps) => {
+export const Tabs = ({ tabs, theme = 'dark' }: TabProps) => {
   return (
     <ul className={s.tabs__list}>
       {tabs.map(({ title, path }) => {
@@ -21,7 +21,11 @@ export const Tabs = ({tabs, theme='dark'}: TabProps) => {
             <NavLink
               to={path}
               className={({ isActive }: { isActive: boolean }) =>
-                isActive ? `${s.tabs__navLinkActive} ${s[`tabs__navLinkActive--${theme}`]}` : `${s.tabs__navLink} ${s[`tabs__navLink--${theme}`]}`
+                isActive
+                  ? `${s.tabs__navLinkActive} ${
+                    s[`tabs__navLinkActive--${theme}`]
+                  }`
+                  : `${s.tabs__navLink} ${s[`tabs__navLink--${theme}`]}`
               }
             >
               {title}

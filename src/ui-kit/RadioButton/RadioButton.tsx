@@ -24,7 +24,7 @@ export function RadioButton({
   onChange,
   label,
   labelClassName,
-  theme='dark'
+  theme='dark',
 }: RadioButtonProps) {
   return (
     <label
