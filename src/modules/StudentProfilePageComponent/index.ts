@@ -1,0 +1,1 @@
+export { StudentProfilePageComponent } from './StudentProfilePageComponent';

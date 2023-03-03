@@ -1,0 +1,18 @@
+.list {
+  display: flex;
+}
+.item + .item {
+  margin-left: 20px;
+}
+.link {
+  display: block;
+}
+
+.icon--dark svg {
+  display: block;
+  fill: var(--secondary-txt-cl);
+}
+.icon--light svg {
+  display: block;
+  fill: var(--accent-cl);
+}
