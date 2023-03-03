@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useFormik } from 'formik';
 import { ICONS } from 'ui-kit/icons';
 
-import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
 import s from './EditPasswordForm.module.scss';
 import { validationSchema } from './validationSchema';
 
@@ -37,7 +36,7 @@ export const EditPasswordForm = () => {
   } = formik;
 
   return (
-    <div className={container.formWrapper}>
+    <div className={s.formWrapper}>
       <form onSubmit={handleSubmit} className={s.form}>
         <div
           className={`${s.floatingGroup} ${

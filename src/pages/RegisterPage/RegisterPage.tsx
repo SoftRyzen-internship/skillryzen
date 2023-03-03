@@ -1,12 +1,5 @@
-import { AuthSteps } from 'modules/details';
-import { AuthWrapper } from 'modules/wrappers/AuthWrapper/AuthWrapper';
+import { RegisterPageComponent } from 'modules/RegisterPageComponent/RegisterPageComponent';
 
-const RegisterPage = () => {
-  return (
-    <AuthWrapper>
-      <AuthSteps />
-    </AuthWrapper>
-  );
-};
+const RegisterPage = () => <RegisterPageComponent />;
 
 export default RegisterPage;

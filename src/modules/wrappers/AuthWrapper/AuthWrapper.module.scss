@@ -1,5 +1,28 @@
 .container {
   display: flex;
+  position: relative;
+
+  overflow: hidden;
 
   background-color: var(--primary-cl);
+}
+
+.languageBtn {
+  position: absolute;
+}
+
+.settings {
+  position: absolute;
+  right: 60px;
+
+  display: flex;
+  gap: 12px;
+}
+
+.settingsWrapper {
+  position: absolute;
+  right: 60px;
+
+  display: flex;
+  gap: 12px;
 }
