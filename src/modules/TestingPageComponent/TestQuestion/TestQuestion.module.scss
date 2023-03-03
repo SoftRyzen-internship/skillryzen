@@ -3,6 +3,11 @@
   margin: 0 auto;
   padding-top: 50px;
   height: calc(100vh - 100px);
+
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;  
 }
 
 .testTitle {
