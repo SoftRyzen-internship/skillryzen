@@ -9,7 +9,6 @@ import TestingPage from 'pages/TestingPage';
 import TestEndPage from 'pages/TestEndPage';
 import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
-import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
@@ -83,7 +82,7 @@ export const AppRoutes = () => {
             },
             {
               path: ROUTES.PROFILE,
-              element: <StudentProfilePage />,
+              element: <UnderDevelopmentPage />,
             },
             {
               path: ROUTES.SETTINGS,
