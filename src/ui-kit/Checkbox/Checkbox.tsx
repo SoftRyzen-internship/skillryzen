@@ -1,5 +1,4 @@
 import React, { useState, FC } from 'react';
-import { COLORS } from '../../theme/colors.const';
 
 import s from './Checkbox.module.scss';
 // import { CheckRound, DefaultCheckbox } from "../../theme";
@@ -35,16 +34,16 @@ export const Checkbox: FC<CheckboxProps> = ({
 
   const labelClass = (type: 'form' | 'filter' | 'custom' | '') => {
     switch (type) {
-      case 'form':
-        return `${s.label} ${s.labelForm}`;
-      case 'filter':
-        return `${s.label} ${s.labelFilter}`;
+    case 'form':
+      return `${s.label} ${s.labelForm}`;
+    case 'filter':
+      return `${s.label} ${s.labelFilter}`;
 
-      case 'custom':
-        return `${s.label} ${labelClassName}`;
+    case 'custom':
+      return `${s.label} ${labelClassName}`;
 
-      default:
-        return `${s.label}`;
+    default:
+      return `${s.label}`;
     }
   };
   return (

@@ -5,29 +5,42 @@
   min-width: 334px;
 }
 
-.input {
+.input--common {
   width: 100%;
   padding: 11px 20px;
   font-size: 14px;
   line-height: 1;
-  color: var(--primary-txt-cl);
-  background-color: var(--components-cl);
   border-radius: 5px;
   outline: none;
+  transition: var(--transition);
+}
+.input--dark {
+  composes: input--common;
+  color: var(--primary-txt-cl);
+  background-color: var(--components-cl);
+}
+.input--light {
+  composes: input--common;
+  color: var(--light-primary-txt-cl);
+  background-color: var(--light-components-cl);
 }
 
-.input::placeholder {
+.input--dark::placeholder {
   color: var(--secondary-txt-cl);
+}
+.input--light::placeholder {
+  color: var(--light-secondary-txt-cl);
 }
 
 .iconVisible {
+  display: block;
+  width: 24px;
+  height: 24px;
   position: absolute;
   right: 20px;
-  cursor: pointer;
+  // cursor: pointer;
 }
 
 .iconHidden {
   display: none;
 }
-
-

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { SideBarContext } from 'context/sideBarContext';
+import { SideBarContext } from 'modules/Sidebar/context/sideBarContext';
 import { Theme } from 'modules/common/types';
 import { ICONS } from 'theme';
 
@@ -12,7 +12,7 @@ interface SideBarProps {
   theme?: Theme;
 }
 
-export const SideBar = ({ children, spaceBetween, theme }: SideBarProps) => {
+export const SideBar = ({ children, spaceBetween, theme = 'dark' }: SideBarProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
   const setClassnameSidebar = () => {

@@ -17,8 +17,8 @@
   bottom: 0;
   width: 12px;
   height: 12px;
-
   border-radius: 50%;
+  transition: var(--transition);
 }
 .status--green-dark {
   composes: status--common;
@@ -61,6 +61,7 @@
   font-family: var(--font-family);
   font-size: var(--text-lg);
   font-weight: var(--bold);
+  transition: var(--transition);
 }
 .name--light {
   composes: name--common;
