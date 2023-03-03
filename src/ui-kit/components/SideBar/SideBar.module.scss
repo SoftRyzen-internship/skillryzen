@@ -1,6 +1,6 @@
 .sideBarIsOpenDark {
   height: calc(100vh - 72px);
-  position: relative;
+  position: sticky;
   max-width: 260px;
   padding: 16px 24px 100px 60px;
   background-color: var(--secondary-cl);
@@ -18,7 +18,7 @@
 
 .slideBarIsClosedDark {
   height: calc(100vh - 72px);
-  position: relative;
+  position: sticky;
   max-width: 100px;
   padding: 16px 22px 100px;
   background-color: var(--secondary-cl);

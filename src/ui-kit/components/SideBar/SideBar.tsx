@@ -10,12 +10,16 @@ interface SideBarProps {
   children: React.ReactNode[];
   spaceBetween?: string;
   theme?: Theme;
+  sticky?: boolean;
+  top?: string;
 }
 
 export const SideBar = ({
   children,
   spaceBetween,
   theme = 'dark',
+  sticky,
+  top = '0',
 }: SideBarProps) => {
   const [isOpen, setIsOpen] = useState(true);
 
@@ -60,30 +64,38 @@ export const SideBar = ({
   };
 
   return (
-    <div className={setClassnameSidebar()}>
-      {/* <div className={s.sideBar__companyBlock}>
-                <img height='32' width='32'/>
-                {isOpen && <p className={s.sideBar__companyTitle}>Name of company</p>}
-                <button className={s.sideBar__companyBtn}>
-                    <img height='24' width='24'/>
-                </button>
-            </div> */}
-      <button
-        className={theme === 'dark' ? s.sideBar__btnDark : s.sideBar__btnLight}
-        onClick={() => {
-          setIsOpen(!isOpen);
-        }}
-      >
-        <ICONS.ARROW_LEFT className={setClassnameIconArrow()} />
-      </button>
-      <SideBarContext.Provider value={isOpen}>
-        <div
-          className={s.sideBar__listWrapper}
-          style={{ justifyContent: spaceBetween }}
+    <div
+      style={
+        sticky ? { height: 'auto' } : { height: '100%' }
+      }
+    >
+      <div className={setClassnameSidebar()} style={{top: top}}>
+        {/* <div className={s.sideBar__companyBlock}>
+                  <img height='32' width='32'/>
+                  {isOpen && <p className={s.sideBar__companyTitle}>Name of company</p>}
+                  <button className={s.sideBar__companyBtn}>
+                      <img height='24' width='24'/>
+                  </button>
+              </div> */}
+        <button
+          className={
+            theme === 'dark' ? s.sideBar__btnDark : s.sideBar__btnLight
+          }
+          onClick={() => {
+            setIsOpen(!isOpen);
+          }}
         >
-          {children}
-        </div>
-      </SideBarContext.Provider>
+          <ICONS.ARROW_LEFT className={setClassnameIconArrow()} />
+        </button>
+        <SideBarContext.Provider value={isOpen}>
+          <div
+            className={s.sideBar__listWrapper}
+            style={{ justifyContent: spaceBetween }}
+          >
+            {children}
+          </div>
+        </SideBarContext.Provider>
+      </div>
     </div>
   );
 };
