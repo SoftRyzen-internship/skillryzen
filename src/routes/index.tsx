@@ -7,11 +7,11 @@ import TestsPage from 'pages/TestsPage';
 import TestingPage from 'pages/TestingPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
-import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
 import { MainWrapper } from 'modules/wrappers/MainWrapper';
+import { TestsPageComponent } from 'modules/TestsPageComponent';
 
 export const AppRoutes = () => {
   const routes = [
@@ -52,7 +52,7 @@ export const AppRoutes = () => {
           children: [
             {
               path: '',
-              element: <TestsMain />,
+              element: <TestsPageComponent />,
             },
             {
               path: ':testId',
