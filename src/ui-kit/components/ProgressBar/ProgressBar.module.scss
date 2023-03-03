@@ -1,0 +1,46 @@
+.progressBar__info {
+  font-weight: var(--bold);
+  font-size: var(--text-lg);
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
+}
+
+.progressBar__wrapper {
+  display: flex;
+  align-items: end;
+  gap: 14px;
+}
+
+.progressBar__list {
+  max-width: 946px;
+  display: flex;
+  gap: 4px;
+}
+
+.progressBar__line {
+  width: clamp(350px, 15px, 5px);
+  height: 4px;
+  background-color: var(--disabled-cl);
+  border-radius: 4px;
+}
+
+.progressBar__line--right {
+  background-color: var(--accent-cl);
+}
+
+.progressBar__line--false {
+  background-color: var(--wrong-cl);
+}
+
+.progressBar__icon path {
+  stroke: var(--primary-txt-cl);
+}
+
+.progressBar__icon--light path {
+  stroke: var(--accent-cl);
+}

@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+
+  &--dark {
+    background-color: var(--primary-cl);
+  }
+
+  &--dark::after {
+    background-color: var(--components-cl);
+  }
+
+  &--light {
+    background-color: var(--light-cards-cl);
+  }
+
+  &--light::after {
+    background-color: var(--light-components-cl);
+    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+  }
+}
+
+.wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+}

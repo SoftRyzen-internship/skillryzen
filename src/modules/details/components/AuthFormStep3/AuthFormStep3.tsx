@@ -1,11 +1,14 @@
 import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
 
+import { ICONS } from 'ui-kit/icons';
+
+import { AuthButton } from 'ui-kit/index';
+
+import { IAuth } from 'modules/common/types';
 import { setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
-import { AuthButton } from 'ui-kit';
-import { ICONS } from 'theme';
 import { contactInfoSchema } from 'services/validationSchema';
 
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';

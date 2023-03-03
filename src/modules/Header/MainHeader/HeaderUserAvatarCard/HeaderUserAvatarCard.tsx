@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IMGS } from 'theme/images.const';
-import { ICONS } from 'theme/icons.const';
-
 import { useThemeContext } from 'context/themeContext';
 
+import { ICONS } from 'ui-kit/icons';
+import { IMAGES } from 'ui-kit/images';
 import { UserAvatarCard, Popup } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
@@ -25,45 +24,26 @@ export const HeaderUserAvatarCard = ({
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
+  const iconColor = {
+    dark: 'var(--primary-txt-cl)',
+    light: 'var(--accent-cl)',
+  };
+
   const mouseEnterHandler = () => {
     setPopup(
       <Popup
         theme={theme}
         list={[
           {
-            icon: (
-              <ICONS.USER
-                stroke={
-                  theme === 'dark'
-                    ? 'var(--primary-txt-cl)'
-                    : 'var(--accent-cl)'
-                }
-              />
-            ),
+            icon: <ICONS.USER stroke={iconColor[theme]} />,
             text: t('header.userAvatar.profile'),
           },
           {
-            icon: (
-              <ICONS.SETTINGS
-                stroke={
-                  theme === 'dark'
-                    ? 'var(--primary-txt-cl)'
-                    : 'var(--accent-cl)'
-                }
-              />
-            ),
+            icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
             text: t('header.userAvatar.settings'),
           },
           {
-            icon: (
-              <ICONS.LOGOUT
-                stroke={
-                  theme === 'dark'
-                    ? 'var(--primary-txt-cl)'
-                    : 'var(--accent-cl)'
-                }
-              />
-            ),
+            icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
             text: t('header.userAvatar.logOut'),
           },
         ]}
@@ -82,7 +62,7 @@ export const HeaderUserAvatarCard = ({
       <UserAvatarCard
         userName='John Doe'
         userRole={t('header.admin')}
-        userAvatarUrl={IMGS.JAVA_SCRIPT}
+        userAvatarUrl={IMAGES.JAVA_SCRIPT}
         userStatus='green'
         theme={theme}
       />

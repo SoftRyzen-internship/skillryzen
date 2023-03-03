@@ -2,10 +2,9 @@ import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 
 import { ROUTES } from 'routes/routes.const';
-import { ICONS } from 'theme';
+import { ICONS } from 'ui-kit/icons';
 
-import { SideBar } from 'ui-kit/SideBar/SideBar';
-import { Menu } from 'ui-kit/Menu/Menu';
+import { SideBar, Menu } from 'ui-kit/index';
 
 import { IThemeContext } from 'modules/common/types';
 
@@ -80,6 +79,8 @@ export const Sidebar = () => {
       ]}
       spaceBetween='space-between'
       theme={theme}
+      sticky={true}
+      top='72px'
     />
   );
 };

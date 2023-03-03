@@ -11,7 +11,7 @@ import { TestsMain } from 'modules/dashboard/components/TestsMain';
 import { TestingMain } from 'modules/dashboard/components/TestingMain';
 import { TestInfo } from 'modules/dashboard/components/TestInfo';
 
-import { MainWrapper } from 'modules/Wrappers/MainWrapper';
+import { MainWrapper } from 'modules/wrappers/MainWrapper';
 
 export const AppRoutes = () => {
   const routes = [
@@ -27,12 +27,28 @@ export const AppRoutes = () => {
         { path: '', element: <Navigate to='certification' replace={true} /> },
         {
           path: 'dashboard',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'certification',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><TestsPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <TestsPage />
+            </MainWrapper>
+          ),
           children: [
             {
               path: '',
@@ -47,42 +63,106 @@ export const AppRoutes = () => {
 
         {
           path: 'testing',
-          element: <MainWrapper showSidebar={false} showHeader={true} isTestingPage={true}><TestingPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={false}
+              showHeader={true}
+              isTestingPage={true}
+            >
+              <TestingPage />
+            </MainWrapper>
+          ),
           children: [
             {
               path: '',
-              element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><TestingMain /></MainWrapper>,
+              element: (
+                <MainWrapper
+                  showSidebar={true}
+                  showHeader={true}
+                  isTestingPage={false}
+                >
+                  <TestingMain />
+                </MainWrapper>
+              ),
             },
           ],
         },
 
         {
           path: 'pet-projects',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'leader-board',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'vacancies',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'profile',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
 
         {
           path: 'settings',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
         {
           path: 'feedback',
-          element: <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}><UnderDevelopmentPage /></MainWrapper>,
+          element: (
+            <MainWrapper
+              showSidebar={true}
+              showHeader={true}
+              isTestingPage={false}
+            >
+              <UnderDevelopmentPage />
+            </MainWrapper>
+          ),
         },
       ],
     },

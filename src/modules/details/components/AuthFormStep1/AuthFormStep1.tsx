@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 
+import { ICONS } from 'ui-kit/icons';
+
+import { AuthButton } from 'ui-kit/index';
 import { setRole, setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import { ICONS } from 'theme';
-import { AuthButton } from 'ui-kit';
 
 import s from './AuthFormStep1.module.scss';
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';

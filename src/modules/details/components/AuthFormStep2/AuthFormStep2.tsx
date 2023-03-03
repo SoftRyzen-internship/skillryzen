@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useFormik } from 'formik';
 
+import { ICONS } from 'ui-kit/icons';
+
+import { AuthButton, Checkbox } from 'ui-kit/index';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
-import { AuthButton, Checkbox } from 'ui-kit';
 
-import { ICONS } from 'theme';
 import { registerSchema } from 'services/validationSchema';
 
 import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
