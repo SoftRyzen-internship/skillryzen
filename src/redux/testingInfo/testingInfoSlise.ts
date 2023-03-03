@@ -11,7 +11,7 @@ interface Results {
   time: number;
 }
 
-interface TestingInfo {
+export interface TestingInfo {
   testId: string;
   questionId: string;
   number: number;

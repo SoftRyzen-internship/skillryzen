@@ -4,18 +4,16 @@ import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setTime } from 'redux/testingInfo/testingInfoSlise';
 import { Theme } from 'modules/common/types';
 import { convertTime } from 'utils/convertTime';
+import { getHasNextQuestion } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
-
 
 interface Timer {
   theme?: Theme;
 }
 
 export const Timer: React.FC<Timer> = ({ theme = 'dark' }) => {
-  const hasNextQuestion = useAppSelector(
-    (state) => state.testingInfo.hasNextQuestion
-  );
+  const hasNextQuestion = useAppSelector(getHasNextQuestion);
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(0);
 
