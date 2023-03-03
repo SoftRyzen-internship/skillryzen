@@ -1,0 +1,15 @@
+.container {
+  padding-top: 40px;
+  padding-bottom: 206px;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+
+  &--light {
+    background-color: var(--light-cards-cl);
+  }
+
+  &--dark {
+    background-color: var(--primary-cl);
+  }
+}

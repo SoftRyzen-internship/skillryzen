@@ -23,8 +23,8 @@ export const Tabs = ({ tabs, theme = 'dark' }: TabProps) => {
               className={({ isActive }: { isActive: boolean }) =>
                 isActive
                   ? `${s.tabs__navLinkActive} ${
-                    s[`tabs__navLinkActive--${theme}`]
-                  }`
+                      s[`tabs__navLinkActive--${theme}`]
+                    }`
                   : `${s.tabs__navLink} ${s[`tabs__navLink--${theme}`]}`
               }
             >

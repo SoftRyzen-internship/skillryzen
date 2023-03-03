@@ -6,7 +6,7 @@ interface Auth {
   user: {
     email: string;
     token: string;
-  }
+  };
   role: string;
   step: number;
 }
@@ -41,7 +41,4 @@ const persistConfig = {
 };
 
 export const { setStep, setRole } = authSlice.actions;
-export const authReducer = persistReducer(
-  persistConfig,
-  authSlice.reducer
-);
+export const authReducer = persistReducer(persistConfig, authSlice.reducer);

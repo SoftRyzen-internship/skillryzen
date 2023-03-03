@@ -1,0 +1,1 @@
+export { TestsPageComponent } from './TestsPageComponent';
