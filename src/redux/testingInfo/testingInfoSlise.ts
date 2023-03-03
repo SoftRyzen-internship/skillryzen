@@ -40,12 +40,12 @@ const testingInfoSlice = createSlice({
         state.error = null;
       })
       .addCase(getRandomTest.fulfilled, (state, { payload }) => {
-        (state.testId = payload.id),
-          (state.questionId = payload.nextQuestion.id),
-          (state.number = 1),
-          (state.title = payload.nextQuestion.title),
-          (state.possibleAnswers = payload.nextQuestion.possibleAnswers),
-          (state.isLoading = false);
+        state.testId = payload.id;
+        state.questionId = payload.nextQuestion.id;
+        state.number = 1;
+        state.title = payload.nextQuestion.title;
+        state.possibleAnswers = payload.nextQuestion.possibleAnswers;
+        state.isLoading = false;
       })
       .addCase(getRandomTest.rejected, (state, { payload }) => {
         state.error = payload;
