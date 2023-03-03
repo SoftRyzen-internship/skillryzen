@@ -1,4 +1,4 @@
-import { EditProfileForm } from 'form/ProfileSettingsForm/EditProfileForm/EditProfileForm';
+import { EditProfileForm } from 'forms/ProfileSettingsForm/EditProfileForm/EditProfileForm';
 import s from './SectionEditProfile.module.scss';
 
 export const SectionEditProfile = () => {
