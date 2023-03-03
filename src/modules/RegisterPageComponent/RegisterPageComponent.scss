@@ -26,3 +26,13 @@
   font-weight: var(--bold);
   text-decoration: underline;
 }
+
+.skipBtn {
+  margin-top: 32px;
+
+  font-size: (--text-md);
+  font-weight: var(--bold);
+  color: var(--accent-cl);
+
+  background-color: transparent;
+}

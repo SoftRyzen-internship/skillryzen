@@ -9,7 +9,6 @@ import { CardsList } from 'modules/common/components/CardsList/CardsList';
 
 import s from './TestsMain.module.scss';
 
-
 const testsArray = [
   {
     title: 'FullStuck_Final_Test',

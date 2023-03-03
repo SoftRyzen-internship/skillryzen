@@ -16,7 +16,7 @@ interface IMenuProps {
   theme?: Theme;
 }
 
-export const Menu = ({ menu, theme = 'dark'}: IMenuProps) => {
+export const Menu = ({ menu, theme = 'dark' }: IMenuProps) => {
   const isOpen = UseSideBarContext();
 
   return (

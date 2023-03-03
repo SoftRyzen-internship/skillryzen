@@ -1,5 +1,5 @@
 import { useAppSelector } from 'hooks/hook';
-import { AuthIntro } from 'modules/dashboard';
+import { AuthIntro } from '../AuthIntro/AuthIntro';
 import { HeaderButtonLanguage } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonLanguage';
 import { HeaderButtonTheme } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonTheme';
 

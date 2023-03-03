@@ -140,7 +140,6 @@
 }
 
 .floatingLabelError * {
-
   border-color: var(--error-cl);
 
   path {
@@ -160,7 +159,6 @@
 }
 
 .floatingLabelValid * {
-
   border-color: var(--success-cl);
 
   path {
@@ -186,7 +184,7 @@
   margin-right: 8px;
 }
 
-.optionalWrapper{
+.optionalWrapper {
   margin-bottom: 28px;
 
   display: flex;
@@ -196,7 +194,7 @@
   font-size: var(--text-md);
 }
 
-.forgotPassword{
+.forgotPassword {
   font-weight: var(--bold);
   color: var(--accent-cl);
 }

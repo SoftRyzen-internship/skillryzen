@@ -7,7 +7,6 @@ import { useThemeContext } from 'context/themeContext';
 
 import s from './CardsList.module.scss';
 
-
 interface IItem {
   title: string;
   text: string;

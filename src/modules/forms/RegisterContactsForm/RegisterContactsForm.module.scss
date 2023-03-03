@@ -102,7 +102,6 @@
 }
 
 .floatingLabelError * {
-
   border-color: var(--error-cl);
 
   path {
@@ -143,14 +142,4 @@
 
 .btnSubmit {
   margin-top: auto;
-}
-
-.skipBtn{
-  margin-top: 32px;
-
-  font-size: (--text-md);
-  font-weight: var(--bold);
-  color: var(--accent-cl);
-
-  background-color: transparent;
 }

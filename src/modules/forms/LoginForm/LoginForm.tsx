@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
-import { validationSchema } from './validationSchema';
+import { validationSchema } from './validationLoginSchema';
 import s from './LoginForm.module.scss';
 
 interface MyFormValues {

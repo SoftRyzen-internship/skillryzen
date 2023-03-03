@@ -1,13 +1,13 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
 import { Spinner } from 'modules/common/components';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 
-import container from 'modules/dashboard/components/AuthSteps/AuthSteps.module.scss';
-import { useEffect } from 'react';
+import s from '../RegisterSteps/RegisterSteps.module.scss';
 
-export const AuthFormStep4 = () => {
+export const FourthStep = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -20,9 +20,9 @@ export const AuthFormStep4 = () => {
   }, [navigate, dispatch]);
 
   return (
-    <div className={container.formWrapper}>
-      <h2 className={container.formTitle}>Congratulations, Lorem!</h2>
-      <p className={container.logIn}>lorem lorem lorem</p>
+    <div className={s.formWrapper}>
+      <h2 className={s.formTitle}>Congratulations, Lorem!</h2>
+      <p className={s.logIn}>lorem lorem lorem</p>
       <Spinner />
     </div>
   );
