@@ -5,7 +5,7 @@ import { ICONS } from 'theme';
 import s from './ProgressBar.module.scss';
 
 
-// interface IAnswer {
+// interface Answer {
 //   number: number;
 //   isRight: boolean;
 // }
@@ -25,7 +25,7 @@ export const ProgressBar = ({
 }: Props) => {
   const array = createArray(totalNumber);
   
-  // const [arrayOfAnswers, setArrayOfAnswers] = useState<IAnswer[]>([]);
+  // const [arrayOfAnswers, setArrayOfAnswers] = useState<Answer[]>([]);
 
   // useEffect(() => {
   //   if (currentNumber === 1) return;
