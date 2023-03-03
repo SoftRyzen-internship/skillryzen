@@ -12,13 +12,13 @@ interface IProps {
 export const MainWrapper = ({showSidebar,showHeader,isTestingPage, children }: IProps) => {
   return (
     <>
-        {showHeader && <Header isTestingPage={isTestingPage}/>}
-        <div className={s.container}>
+      {showHeader && <Header isTestingPage={isTestingPage}/>}
+      <div className={s.container}>
         {showSidebar &&  <Sidebar/>}
         <div className={s.content}>
-        {children}
+          {children}
         </div>
-        </div>
+      </div>
     </>
   );
 };

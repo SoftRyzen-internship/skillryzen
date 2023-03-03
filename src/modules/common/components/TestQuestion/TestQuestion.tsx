@@ -1,10 +1,14 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 import { AuthButton, RadioButton } from 'ui-kit';
-
-import { Info, array } from 'pages/TestingPage/TestingPage';
+import { IThemeContext } from 'modules/common/types';
+import { useThemeContext } from 'context/themeContext';
+import { Info } from 'pages/TestingPage/TestingPage';
+import { answerQuestion } from 'services/axiosConfig';
 
 import s from './TestQuestion.module.scss';
+
 
 interface TestQuestionProps {
   testId: string;
@@ -17,7 +21,6 @@ interface TestQuestionProps {
     label: string;
   }[];
   onNextQuestion: React.Dispatch<React.SetStateAction<Info>>;
-  hasNextQuestion: boolean;
 }
 
 // Ця логіка на демо-версію
@@ -30,22 +33,30 @@ export const TestQuestion = ({
   title,
   possibleAnswers,
   onNextQuestion,
-  hasNextQuestion,
 }: TestQuestionProps) => {
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
+  
+  const navigate = useNavigate();
+  const { theme }: IThemeContext = useThemeContext();
+  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   // const [sendAnswer, setSendAnswer] = useState<string | null>(null);
 
   const handleAnswer = () => {
-    if (selectedAnswer) {
-      onNextQuestion({
-        number: number + 1,
-        questionId: array[number].questionId,
-        title: array[number].title,
-        possibleAnswers: array[number].possibleAnswers,
-        hasNextQuestion: array[number].hasNextQuestion,
-      });
-      setSelectedAnswer('');
-    }
+    answerQuestion({ testId, questionId, selectedAnswer })
+      .then((data) => {
+        if (!data.hasNextQuestion) {
+          navigate('/student/certification');
+        }
+        console.log(number);
+        console.log(data);
+        onNextQuestion({
+          number: number + 1,
+          questionId: data.nextQuestion.id,
+          title: data.nextQuestion.title,
+          possibleAnswers: data.nextQuestion.possibleAnswers,
+        });
+        setSelectedAnswer('');
+      })
+      .catch(error => console.log(error));
   };
 
   // Ця логіка на демо-версію
@@ -66,19 +77,20 @@ export const TestQuestion = ({
 
   return (
     <div className={s.testWrapper}>
-      <h2 className={s.testTitle}>{title}</h2>
+      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>{title}</h2>
       <div className={s.questionWrapper}>
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>
           {possibleAnswers.map((answer, index) => (
             <li key={index}>
               <RadioButton
+                theme={theme}
                 // state={chooseState(answer.value)}
-                state={selectedAnswer === answer.value && 'checked'}
+                state={selectedAnswer === answer.label && 'checked'}
                 type='PassTest'
                 name='answers'
-                value={answer.value}
-                checked={selectedAnswer === answer.value}
+                value={answer.label}
+                checked={selectedAnswer === answer.label}
                 onChange={(e) => setSelectedAnswer(e.target.value)}
                 label={answer.value}
               />
@@ -96,7 +108,6 @@ export const TestQuestion = ({
           disabled={!selectedAnswer}
         />
       </div>
-      {!hasNextQuestion && <p>The end(here must be next page)</p>}
     </div>
   );
 };

@@ -5,10 +5,28 @@
   cursor: pointer;
   font-weight: 500;
   font-size: 17px;
-  color: var(--primary-txt-cl);
-  background-color: var(--components-cl);
   border-radius: 5px;
   padding: 20px 20px 20px 69px;
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+    background: var(--light-components-cl);
+    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    border: 2px solid transparent;
+
+    &::before {
+      background-color: var(--light-primary-cl);
+    }
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    background-color: var(--components-cl);
+
+    &::before {
+      background-color: var(--disabled-cl);
+    }
+  }
 
   &::before {
     position: absolute;
@@ -21,7 +39,6 @@
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background-color: var(--disabled-cl);
   }
 }
 
@@ -47,6 +64,18 @@
     height: 10px;
     border-radius: 50%;
     background-color: var(--primary-txt-cl);
+  }
+}
+
+.labelPassTest--checked.labelPassTest--light {
+  border: 2px solid var(--accent-cl);
+
+  &::before {
+    border: 2px solid var(--accent-cl);
+  }
+
+  &::after {
+    background-color: var(--accent-cl);
   }
 }
 

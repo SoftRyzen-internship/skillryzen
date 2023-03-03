@@ -8,9 +8,9 @@ const LazyUnderDevelopment = lazy(async () => ({
 const UnderDevelopmentPage = () => {
   return (
     <>
-        <Suspense fallback={<div>Loading...</div>}>
-          <LazyUnderDevelopment title='Ця сторінка в розробці' />
-        </Suspense>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyUnderDevelopment title='Ця сторінка в розробці' />
+      </Suspense>
     </>
   );
 };

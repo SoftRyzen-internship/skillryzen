@@ -17,7 +17,7 @@ export const MenuButton = ({
   onClick,
   color,
   icon,
-  theme = "dark",
+  theme = 'dark',
   className,
 }: ButtonProps) => {
   const obectIcons = {
