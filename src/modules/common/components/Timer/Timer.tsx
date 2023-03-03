@@ -28,9 +28,7 @@ export const Timer: React.FC<Timer> = ({ theme = 'dark' }) => {
 
   return (
     <div>
-      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
-        Time:
-      </p>
+      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>Time:</p>
       <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
         {convertTime(seconds)}
       </p>

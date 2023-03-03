@@ -5,6 +5,8 @@ import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 
+import { ROUTES } from 'routes/routes.const'
+
 export const TestStartPageComponent = () => {
   const listInfoJS = {
     topics: 'HTML, CSS, JavaScript, React',
@@ -24,7 +26,7 @@ export const TestStartPageComponent = () => {
   const navigate = useNavigate();
 
   const handleClickBtn = () => {
-    navigate('/student/testing');
+    navigate(ROUTES.TESTING);
   };
 
   return (

@@ -1,16 +1,10 @@
-interface IRoutes {
-  STUDENT: string;
-  DASHBOARD: string;
-  CERTIFICATION: string;
-  PETPROJECTS: string;
-  LEADERBOARD: string;
-  VACANCIES: string;
-  PROFILE: string;
-  SETTINGS: string;
-  FEEDBACK: string;
+type AllowedPath = string;
+
+interface Routes {
+  [key: string]: AllowedPath;
 }
 
-export const ROUTES: IRoutes = {
+export const ROUTES: Routes = {
   STUDENT: '/student',
   DASHBOARD: '/student/dashboard',
   CERTIFICATION: '/student/certification',
@@ -20,4 +14,6 @@ export const ROUTES: IRoutes = {
   PROFILE: '/student/profile',
   SETTINGS: '/student/settings',
   FEEDBACK: '/student/feedback',
+  TESTING: '/student/testing',
+  TEST_END: '/student/testing/test-end',
 };

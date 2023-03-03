@@ -11,6 +11,8 @@ import {
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
 
+import { ROUTES } from 'routes/routes.const'
+
 import s from './TestQuestion.module.scss';
 
 export const TestQuestion = () => {
@@ -41,7 +43,7 @@ export const TestQuestion = () => {
   useEffect(() => {
     if (hasNextQuestion) return;
     dispatch(finishTest({ testId, time: new Date() }));
-    navigate('/student/certification');
+    navigate(ROUTES.TEST_END);
   }, [hasNextQuestion]);
 
   return (

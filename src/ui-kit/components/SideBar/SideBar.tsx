@@ -64,12 +64,8 @@ export const SideBar = ({
   };
 
   return (
-    <div
-      style={
-        sticky ? { height: 'auto' } : { height: '100%' }
-      }
-    >
-      <div className={setClassnameSidebar()} style={{top: top}}>
+    <div style={sticky ? { height: 'auto' } : { height: '100%' }}>
+      <div className={setClassnameSidebar()} style={{ top: top }}>
         {/* <div className={s.sideBar__companyBlock}>
                   <img height='32' width='32'/>
                   {isOpen && <p className={s.sideBar__companyTitle}>Name of company</p>}

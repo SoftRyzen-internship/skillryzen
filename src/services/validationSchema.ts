@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 export const registerSchema = Yup.object({
   email: Yup.string()
     .email('Некоректна адреса електронної пошти')
-    .required('Електронна пошта є обов\'язковою')
+    .required("Електронна пошта є обов'язковою")
     .max(63, 'Електронна адреса має містити не більше 63 символів')
     .matches(
       /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
@@ -20,13 +20,13 @@ export const registerSchema = Yup.object({
       'Пробіли заборонені в паролі',
       (value) => !/\s/.test(value)
     )
-    .required('Пароль є обов\'язковим'),
+    .required("Пароль є обов'язковим"),
   checkbox: Yup.boolean().oneOf([true]).required(),
 });
 
 export const contactInfoSchema = Yup.object({
   name: Yup.string()
-    .required('Ім\'я є обовязковим')
+    .required("Ім'я є обовязковим")
     .min(2, 'Повинно містити біле 2 символів')
     .max(50, 'Повинно містити не більше 50 символів'),
   surname: Yup.string()
@@ -43,5 +43,5 @@ export const contactInfoSchema = Yup.object({
       /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/,
       'Невірний формат телефону'
     )
-    .required('Номер телефону є обов\'язковим'),
+    .required("Номер телефону є обов'язковим"),
 });

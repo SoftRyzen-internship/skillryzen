@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { answerTest, finishTest, getRandomTest, FinishResponse } from './testingInfoOperations';
+import {
+  answerTest,
+  finishTest,
+  getRandomTest,
+  FinishResponse,
+} from './testingInfoOperations';
 
 interface TestingInfo {
   testId: string;
@@ -24,7 +29,7 @@ const initialState: TestingInfo = {
   title: '',
   possibleAnswers: [],
   hasNextQuestion: true,
-  results: { testId: '', percentageOfCorrectAnswers: 0},
+  results: { testId: '', percentageOfCorrectAnswers: 0 },
   isLoading: false,
   error: '',
 };
@@ -87,5 +92,3 @@ const testingInfoSlice = createSlice({
 });
 
 export const testingInfoReducer = testingInfoSlice.reducer;
-
-
