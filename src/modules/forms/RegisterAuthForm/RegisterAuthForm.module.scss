@@ -5,6 +5,16 @@
   text-align: left;
 }
 
+.checkboxLabel {
+  padding-left: 36px;
+  color: var(--secondary-txt-cl);
+  font-size: 14px;
+  margin-top: 28px;
+  margin-bottom: 44px;
+
+  cursor: pointer;
+}
+
 .floatingGroup {
   position: relative;
   margin-bottom: 30px;
@@ -18,11 +28,6 @@
   transform: translateY(-50%);
   font-size: 16px;
   transition: color 250ms ease-in-out, top 250ms ease-in-out;
-}
-
-.floatingLabelPhone {
-  composes: floatingLabel;
-  left: 74px;
 }
 
 .input {
@@ -51,11 +56,6 @@
     background-color: var(--primary-cl);
     padding: 0px 4px;
   }
-
-  &:not(:placeholder-shown) + .floatingLabelPhone {
-    left: 17px;
-  }
-
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
@@ -63,19 +63,6 @@
     -webkit-text-fill-color: var(--primary-txt-cl);
     -webkit-background-clip: text;
   }
-}
-
-.inputPhone {
-  composes: input;
-  padding-left: 74px;
-}
-
-.inputError {
-  border-color: var(--error-cl);
-}
-
-.inputValid {
-  border-color: var(--success-cl);
 }
 
 .errorMsg {
@@ -86,25 +73,72 @@
   color: var(--error-cl);
 }
 
-.phoneButton {
+.boxOr {
+  margin: 16px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 50%;
+    background-color: var(--disabled-cl);
+  }
+  &::before {
+    margin-right: 19px;
+  }
+  &::after {
+    margin-left: 19px;
+  }
+}
+
+.showPasswordButton {
   position: absolute;
-  top: 10px;
-  left: 14px;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
   background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
-  padding-right: 10px;
+  padding: 0;
   margin: 0;
-  border-right: 1px solid var(--disabled-cl);
+}
+.iconEye {
+  path {
+    stroke: var(--secondary-txt-cl);
+  }
 }
 
-.btnSubmit {
-  margin-top: 80px;
+.floatingLabelError .input {
+  color: var(--error-cl);
 }
 
-.floatingLabelValid {
+.floatingLabelError * {
+  border-color: var(--error-cl);
+
+  path {
+    stroke: var(--error-cl);
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
+}
+
+.floatingLabelValid .input {
+  color: var(--success-cl);
+}
+
+.floatingLabelValid * {
   border-color: var(--success-cl);
+
   path {
     stroke: var(--success-cl);
   }
@@ -116,17 +150,13 @@
     -webkit-background-clip: text;
   }
 }
-
-.floatingLabelError {
-  border-color: var(--error-cl);
-  path {
-    stroke: var(--error-cl);
-  }
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus,
-  &:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--error-cl);
-    -webkit-background-clip: text;
-  }
+.googleButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+  font-weight: 400;
+}
+.googleIcon {
+  margin-right: 8px;
 }
