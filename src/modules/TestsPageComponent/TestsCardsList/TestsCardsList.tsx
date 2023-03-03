@@ -1,10 +1,10 @@
 import { CardsList } from 'modules/common/components/CardsList/CardsList';
 
 interface TestsListProps {
-    size?: 'large' | 'small';
+  size?: 'large' | 'small';
 }
 
-export const TestsCardsList = ({size}: TestsListProps) => {
+export const TestsCardsList = ({ size }: TestsListProps) => {
   const testsArray = [
     {
       title: 'FullStuck_Final_Test',

@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { RegisterRoleForm } from 'modules/forms/RegisterRoleForm/RegisterRoleFrom';
+import { RegisterRoleForm } from 'modules/Forms/RegisterRoleForm/RegisterRoleFrom';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 

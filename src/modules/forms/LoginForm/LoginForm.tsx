@@ -6,7 +6,7 @@ import { useFormik } from 'formik';
 import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
-import { validationSchema } from './validationLoginSchema';
+import { validationSchema } from './validationSchema';
 import s from './LoginForm.module.scss';
 
 interface MyFormValues {
@@ -48,105 +48,96 @@ export const LoginForm = () => {
   } = formik;
 
   return (
-    <section className={s.section}>
-      <h2 className={s.formTitle}>Welcome back</h2>
-      <p className={s.logIn}>
-        Don’t have an account?{' '}
-        <NavLink to='/register' className={s.link}>
-          Start for free
-        </NavLink>
-      </p>
-      <form onSubmit={handleSubmit} className={s.form}>
-        <AuthButton
-          // onClick={handleClickGoogle}
-          size='large'
-          text='Google'
+    <form onSubmit={handleSubmit} className={s.form}>
+      <AuthButton
+        // onClick={handleClickGoogle}
+        size='large'
+        text='Google'
+        type='button'
+        needBackground='noBackgroundGray'
+        icon={<ICONS.GOOGLE className={s.googleIcon} />}
+        className={s.googleButton}
+        disabled
+      />
+      <div className={s.boxOr}>or</div>
+      <div
+        className={`${s.floatingGroup} ${
+          touched.email &&
+          (errors.email ? s.floatingLabelError : s.floatingLabelValid)
+        }`}
+      >
+        {touched.email && errors.email && (
+          <p className={s.errorMsg}>{errors.email}</p>
+        )}
+        <input
+          className={s.input}
+          name='email'
+          type='email'
+          id='email'
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={email}
+          autoComplete='email'
+          placeholder='Email address'
+        />
+        <label className={s.floatingLabel} htmlFor='email'>
+          Email address
+        </label>
+      </div>
+      <div
+        className={`${s.floatingGroup} ${
+          touched.password &&
+          (errors.password ? s.floatingLabelError : s.floatingLabelValid)
+        }`}
+      >
+        {touched.password && errors.password && (
+          <p className={s.errorMsg}>{errors.password}</p>
+        )}
+        <input
+          className={s.input}
+          name='password'
+          type={showPassword ? 'text' : 'password'}
+          id='password'
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={password}
+          autoComplete='off'
+          placeholder='Password'
+        />
+        <label className={s.floatingLabel} htmlFor='password'>
+          Password
+        </label>
+        <button
           type='button'
-          needBackground='noBackgroundGray'
-          icon={<ICONS.GOOGLE className={s.googleIcon} />}
-          className={s.googleButton}
-          disabled
-        />
-        <div className={s.boxOr}>or</div>
-        <div
-          className={`${s.floatingGroup} ${
-            touched.email &&
-            (errors.email ? s.floatingLabelError : s.floatingLabelValid)
-          }`}
+          onClick={() => setShowPassword(!showPassword)}
+          className={s.showPasswordButton}
         >
-          {touched.email && errors.email && (
-            <p className={s.errorMsg}>{errors.email}</p>
+          {showPassword ? (
+            <ICONS.EYE_CLOSED className={s.iconEye} />
+          ) : (
+            <ICONS.EYE_OPEN className={s.iconEye} />
           )}
-          <input
-            className={s.input}
-            name='email'
-            type='email'
-            id='email'
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={email}
-            autoComplete='email'
-            placeholder='Email address'
-          />
-          <label className={s.floatingLabel} htmlFor='email'>
-            Email address
-          </label>
-        </div>
-        <div
-          className={`${s.floatingGroup} ${
-            touched.password &&
-            (errors.password ? s.floatingLabelError : s.floatingLabelValid)
-          }`}
-        >
-          {touched.password && errors.password && (
-            <p className={s.errorMsg}>{errors.password}</p>
-          )}
-          <input
-            className={s.input}
-            name='password'
-            type={showPassword ? 'text' : 'password'}
-            id='password'
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={password}
-            autoComplete='off'
-            placeholder='Password'
-          />
-          <label className={s.floatingLabel} htmlFor='password'>
-            Password
-          </label>
-          <button
-            type='button'
-            onClick={() => setShowPassword(!showPassword)}
-            className={s.showPasswordButton}
-          >
-            {showPassword ? (
-              <ICONS.EYE_CLOSED className={s.iconEye} />
-            ) : (
-              <ICONS.EYE_OPEN className={s.iconEye} />
-            )}
-          </button>
-        </div>
-        <div className={s.optionalWrapper}>
-          <Checkbox
-            id='checkbox'
-            name='checkbox'
-            type='custom'
-            label='Remember me'
-            onChange={handleChange}
-            labelClassName={s.checkboxLabel}
-          />
-          <NavLink to='/' className={s.forgotPassword}>
-            Forgot password?
-          </NavLink>
-        </div>
-        <AuthButton
-          size='large'
-          text='Continue'
-          type='submit'
-          disabled={!isValid || !dirty}
+        </button>
+      </div>
+      <div className={s.optionalWrapper}>
+        <Checkbox
+          id='checkbox'
+          name='checkbox'
+          type='custom'
+          label='Remember me'
+          onChange={handleChange}
+          labelClassName={s.checkboxLabel}
         />
-      </form>
-    </section>
+        <NavLink to='/' className={s.forgotPassword}>
+          Forgot password?
+        </NavLink>
+      </div>
+      <AuthButton
+        size='large'
+        text='Continue'
+        type='submit'
+        disabled={!isValid || !dirty}
+      />
+    </form>
   );
 };

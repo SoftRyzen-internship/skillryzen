@@ -1,7 +1,7 @@
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 
-import { RegisterContactsForm } from 'modules/forms/RegisterContactsForm/RegisterContactsForm';
+import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/RegisterContactsForm';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 

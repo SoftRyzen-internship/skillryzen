@@ -1,7 +1,5 @@
 import { RegisterPageComponent } from 'modules/RegisterPageComponent/RegisterPageComponent';
 
-const RegisterPage = () => {
-  return <RegisterPageComponent />;
-};
+const RegisterPage = () => <RegisterPageComponent />;
 
 export default RegisterPage;

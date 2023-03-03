@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { RegisterAuthForm } from 'modules/forms';
+import { RegisterAuthForm } from 'modules/Forms';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 

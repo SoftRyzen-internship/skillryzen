@@ -16,7 +16,7 @@ export const TestsPageComponent = () => {
     <div className={`${s.testsPage} ${s[`testsPage--${theme}`]}`}>
       <TestsSearch />
       <TestsFilter setSize={setSize} size={size} />
-      <TestsCardsList size={size}/>
+      <TestsCardsList size={size} />
     </div>
   );
 };

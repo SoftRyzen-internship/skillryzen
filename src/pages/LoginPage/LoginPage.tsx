@@ -1,12 +1,5 @@
-import { AuthWrapper } from 'modules/wrappers/AuthWrapper/AuthWrapper';
-import { LoginForm } from 'modules/forms';
+import { LoginPageComponent } from 'modules/LoginPageComponent/LoginPageComponent';
 
-const LoginPage = () => {
-  return (
-    <AuthWrapper>
-      <LoginForm />
-    </AuthWrapper>
-  );
-};
+const LoginPage = () => <LoginPageComponent />;
 
 export default LoginPage;
