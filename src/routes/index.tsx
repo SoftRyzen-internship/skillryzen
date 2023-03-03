@@ -38,28 +38,10 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
         },
 
         {
           path: 'certification',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <TestsPage />
-            </MainWrapper>
-          ),
           element: (
             <MainWrapper
               showSidebar={true}
@@ -89,47 +71,14 @@ export const AppRoutes = () => {
               showHeader={true}
               isTestingPage={true}
             >
-              <TestingPage />
-            </MainWrapper>
-          ),
-          element: (
-            <MainWrapper
-              showSidebar={false}
-              showHeader={true}
-              isTestingPage={true}
-            >
               <TestsPage />
             </MainWrapper>
           ),
           children: [
             {
               path: '',
-              element: (
-                <MainWrapper
-                  showSidebar={true}
-                  showHeader={true}
-                  isTestingPage={false}
-                >
-                  <TestingMain />
-                </MainWrapper>
-              ),
               element: <TestingPage />,
             },
-          ],
-        },
-
-        {
-          path: 'testing',
-          element: (
-            <MainWrapper
-              showSidebar={false}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <TestsPage />
-            </MainWrapper>
-          ),
-          children: [
             {
               path: 'test-end',
               element: <TestEndPage />,
@@ -139,15 +88,6 @@ export const AppRoutes = () => {
 
         {
           path: 'pet-projects',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
           element: (
             <MainWrapper
               showSidebar={true}
@@ -170,28 +110,10 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
         },
 
         {
           path: 'vacancies',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
           element: (
             <MainWrapper
               showSidebar={true}
@@ -214,15 +136,6 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
         },
 
         {
@@ -236,27 +149,9 @@ export const AppRoutes = () => {
               <UnderDevelopmentPage />
             </MainWrapper>
           ),
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
         },
         {
           path: 'feedback',
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <UnderDevelopmentPage />
-            </MainWrapper>
-          ),
           element: (
             <MainWrapper
               showSidebar={true}
