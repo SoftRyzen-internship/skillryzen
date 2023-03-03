@@ -5,8 +5,8 @@ import s from './SectionEditPassword.module.scss';
 
 export const SectionEditPassword = () => {
   return (
-    <div className={s.editPasswordWrapper}>
-      <h2>SectionEditPassword</h2>
+    <div className={s.wrapper}>
+      <h2 className={s.title}>EditPassword</h2>
       <UserAvatar userAvatarUrl={IMAGES.JAVA_SCRIPT} />
       <EditPasswordForm />
     </div>
