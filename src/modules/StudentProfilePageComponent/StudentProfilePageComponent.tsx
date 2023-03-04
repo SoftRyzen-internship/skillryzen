@@ -19,7 +19,7 @@ export const StudentProfilePageComponent = () => {
 
   const USER_INFO: UserInfo = {
     name: 'Maksim Kozlov',
-    role: 'Student',
+    role: t('userProfile.userRole.student'),
     social: [
       {
         url: 'https://web.telegram.org/',

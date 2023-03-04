@@ -66,5 +66,14 @@
     "profile": "Profile",
     "settings": "Settings",
     "feedback": "Feedback"
+  },
+  "userProfile": {
+    "cardTitle": "My profile",
+    "userRole": {
+      "student": "Student"
+    },
+    "companyLabel": "Company",
+    "groupLabel": "Group",
+    "testsLabel": "Complited tests"
   }
 }

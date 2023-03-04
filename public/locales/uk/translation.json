@@ -66,5 +66,14 @@
     "profile": "Профіль",
     "settings": "Налаштування",
     "feedback": "Зворотній зв'язок"
+  },
+  "userProfile": {
+    "cardTitle": "Мій профіль",
+    "userRole": {
+      "student": "Студент"
+    },
+    "companyLabel": "Компанія",
+    "groupLabel": "Група",
+    "testsLabel": "Виконані тести"
   }
 }
