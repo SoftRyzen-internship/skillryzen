@@ -6,9 +6,26 @@ import { AuthButton } from 'ui-kit/index';
 import { setRole, setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import s from './RegisterRoleForm.module.scss';
 
+const objectTheme = {
+  dark: {
+    roleBtn: s.roleBtnDark,
+    codeInput: s.codeInputDark,
+    companyName: s.companyNameDark,
+  },
+  light: {
+    roleBtn: s.roleBtnLight,
+    codeInput: s.codeInputLight,
+    companyName: s.companyNameLight,
+  },
+};
+
 export const RegisterRoleForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
   const role = useAppSelector((state) => state.auth.role);
   const dispatch = useAppDispatch();
 
@@ -34,6 +51,7 @@ export const RegisterRoleForm = () => {
 
     setIsValid(false);
   };
+
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <fieldset>
@@ -49,7 +67,10 @@ export const RegisterRoleForm = () => {
               checked={role === 'candidate'}
               onChange={handleRoleChange}
             />
-            <label htmlFor='candidate' className={s.roleBtn}>
+            <label
+              htmlFor='candidate'
+              className={`${s.roleBtn} ${objectTheme[theme].roleBtn}`}
+            >
               <ICONS.USER className={s.icon} />
               Candidate
             </label>
@@ -64,7 +85,10 @@ export const RegisterRoleForm = () => {
               checked={role === 'company'}
               onChange={handleRoleChange}
             />
-            <label htmlFor='company' className={s.roleBtn}>
+            <label
+              htmlFor='company'
+              className={`${s.roleBtn} ${objectTheme[theme].roleBtn}`}
+            >
               <ICONS.USERS className={s.icon} />
               Company
             </label>
@@ -75,7 +99,7 @@ export const RegisterRoleForm = () => {
         <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
           <input
             onChange={handleChange}
-            className={s.codeInput}
+            className={objectTheme[theme].codeInput}
             name='code'
             value={code}
             placeholder='&#32;'
@@ -91,7 +115,7 @@ export const RegisterRoleForm = () => {
           <li>
             <p className={s.buttonsTitle}>Your company is</p>
             <AuthButton
-              className={s.company}
+              className={objectTheme[theme].companyName}
               size='large'
               text='GoIT'
               type='button'

@@ -31,9 +31,18 @@
   height: 32px;
   border-radius: 50%;
   font-weight: var(--bold);
+}
+
+.inactiveCircleDark {
   color: var(--secondary-txt-cl);
   background-color: var(--secondary-cl);
   border: 1px solid var(--disabled-cl);
+}
+
+.inactiveCircleLight {
+  color: var(--accent-cl);
+  background-color: var(--light-primary-cl);
+  border: 1px solid var(--light-primary-cl);
 }
 
 .prevCircle {
@@ -58,7 +67,14 @@
 .inactiveLine {
   width: 52px;
   height: 2px;
+}
+
+.inactiveLineDark {
   background-color: var(--disabled-cl);
+}
+
+.inactiveLineLight {
+  background-color: var(--light-primary-cl);
 }
 
 .blueLine {
@@ -66,12 +82,21 @@
   background-color: var(--accent-cl);
 }
 
-.halfBlueLine {
+.halfBlueLineDark {
   composes: inactiveLine;
   background-image: linear-gradient(
     to right,
     var(--accent-cl) 50%,
     var(--disabled-cl) 50%
+  );
+}
+
+.halfBlueLineLight {
+  composes: inactiveLine;
+  background-image: linear-gradient(
+    to right,
+    var(--accent-cl) 50%,
+    var(--light-primary-cl) 50%
   );
 }
 

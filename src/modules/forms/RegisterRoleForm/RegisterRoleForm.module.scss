@@ -10,9 +10,15 @@
 
   color: var(--secondary-txt-cl);
 
-  input:checked + .roleBtn {
+  input:checked + .roleBtnDark {
     color: var(--primary-txt-cl);
     border-color: var(--accent-cl);
+  }
+
+  input:checked + .roleBtnLight {
+    color: var(--accent-cl);
+    border-color: var(--accent-cl);
+    background: rgba(42, 85, 246, 0.03);
   }
 }
 
@@ -52,7 +58,7 @@
   transition: transform var(--transition), font-size var(--transition);
 }
 
-.codeInput {
+.codeInputDark {
   position: relative;
   margin-bottom: 12px;
   width: 100%;
@@ -73,6 +79,18 @@
     font-size: var(--text-sm);
 
     background-color: var(--primary-cl);
+  }
+}
+
+.codeInputLight {
+  composes: codeInputDark;
+
+  border: 1px solid var(--light-primary-cl);
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+  &:not(:placeholder-shown) + .inputTitle,
+  &:focus + .inputTitle {
+    background-color: var(--light-cards-cl);
   }
 }
 
@@ -145,9 +163,14 @@
   // }
 }
 
-.company {
+.companyNameDark {
   padding: 13px 0;
   font-weight: inherit;
   color: inherit;
   border-width: 1px;
+}
+
+.companyNameLight {
+  composes: companyNameDark;
+  background: var(--light-primary-cl);
 }

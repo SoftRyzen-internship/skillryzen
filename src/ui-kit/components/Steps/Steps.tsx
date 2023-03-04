@@ -1,12 +1,29 @@
 import { ICONS } from 'ui-kit/icons';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import s from './Steps.module.scss';
+
+const objectTheme = {
+  dark: {
+    halfBlueLine: s.halfBlueLineDark,
+    inactiveCircle: s.inactiveCircleDark,
+    inactiveLine: s.inactiveLineDark,
+  },
+  light: {
+    halfBlueLine: s.halfBlueLineLight,
+    inactiveCircle: s.inactiveCircleLight,
+    inactiveLine: s.inactiveLineLight,
+  },
+};
 
 interface ICurrentStep {
   currentStep: number;
 }
 
 export const Steps = ({ currentStep }: ICurrentStep) => {
+  const { theme }: IThemeContext = useThemeContext();
   const steps = [1, 2, 3, 4];
 
   // Classname контейнера для кружечків (синя обводка активного степу)
@@ -27,7 +44,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
       return s.prevCircle;
     }
 
-    return s.inactiveCircle;
+    return `${s.inactiveCircle} ${objectTheme[theme].inactiveCircle}`;
   };
 
   // Classname для ліній
@@ -39,9 +56,9 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
 
     // після активного степу
     if (idx === currentStep - 1) {
-      return s.halfBlueLine;
+      return objectTheme[theme].halfBlueLine;
     }
-    return s.inactiveLine;
+    return `${s.inactiveLine} ${objectTheme[theme].inactiveLine}`;
   };
 
   return (
