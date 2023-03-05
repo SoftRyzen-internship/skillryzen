@@ -7,6 +7,9 @@ import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { ICONS } from 'ui-kit/icons';
 import { AuthButton } from 'ui-kit';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import { validationSchema } from './validationSchema';
 
 import s from './RegisterContactsForm.module.scss';
@@ -18,7 +21,21 @@ interface FormValues {
   companyName?: string;
 }
 
+const objectTheme = {
+  dark: {
+    input: s.inputDark,
+    inputPhone: s.inputPhoneDark,
+    phoneButton: s.phoneButtonDark,
+  },
+  light: {
+    input: s.inputLight,
+    inputPhone: s.inputPhoneLight,
+    phoneButton: s.phoneButtonLight,
+  },
+};
+
 export const RegisterContactsForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
   const role = useAppSelector((state) => state.auth.role);
 
@@ -61,7 +78,7 @@ export const RegisterContactsForm = () => {
               <p className={s.errorMsg}>{errors.companyName}</p>
             )}
             <input
-              className={s.input}
+              className={objectTheme[theme].input}
               name='companyName'
               type='text'
               id='companyName'
@@ -86,7 +103,7 @@ export const RegisterContactsForm = () => {
             <p className={s.errorMsg}>{errors.name}</p>
           )}
           <input
-            className={s.input}
+            className={objectTheme[theme].input}
             name='name'
             type='text'
             id='name'
@@ -110,7 +127,7 @@ export const RegisterContactsForm = () => {
             <p className={s.errorMsg}>{errors.surname}</p>
           )}
           <input
-            className={s.input}
+            className={objectTheme[theme].input}
             name='surname'
             type='text'
             id='surname'
@@ -134,7 +151,7 @@ export const RegisterContactsForm = () => {
             <p className={s.errorMsg}>{errors.phone}</p>
           )}
           <InputMask
-            className={s.inputPhone}
+            className={objectTheme[theme].inputPhone}
             name='phone'
             type='phone'
             mask='+380 99 999 99 99'
@@ -148,7 +165,7 @@ export const RegisterContactsForm = () => {
           <label className={s.floatingLabelPhone} htmlFor='phone'>
             Phone
           </label>
-          <button type='button' className={s.phoneButton}>
+          <button type='button' className={objectTheme[theme].phoneButton}>
             <ICONS.UKRAINE />
           </button>
         </li>

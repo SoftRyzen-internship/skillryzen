@@ -7,6 +7,9 @@ import { AuthButton, Checkbox } from 'ui-kit';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import { validationSchema } from './validationSchema';
 
 import s from './RegisterAuthForm.module.scss';
@@ -17,7 +20,21 @@ interface MyFormValues {
   checkbox: boolean;
 }
 
+const objectTheme = {
+  dark: {
+    boxOr: s.boxOrDark,
+    googleButton: s.googleButtonDark,
+    input: s.inputDark,
+  },
+  light: {
+    boxOr: s.boxOrLight,
+    googleButton: s.googleButtonLight,
+    input: s.inputLight,
+  },
+};
+
 export const RegisterAuthForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -57,10 +74,10 @@ export const RegisterAuthForm = () => {
         type='button'
         needBackground='noBackgroundGray'
         icon={<ICONS.GOOGLE className={s.googleIcon} />}
-        className={s.googleButton}
+        className={objectTheme[theme].googleButton}
         disabled
       />
-      <div className={s.boxOr}>or</div>
+      <div className={objectTheme[theme].boxOr}>or</div>
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
@@ -71,7 +88,7 @@ export const RegisterAuthForm = () => {
           <p className={s.errorMsg}>{errors.email}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='email'
           type='email'
           id='email'
@@ -95,7 +112,7 @@ export const RegisterAuthForm = () => {
           <p className={s.errorMsg}>{errors.password}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='password'
           type={showPassword ? 'text' : 'password'}
           id='password'

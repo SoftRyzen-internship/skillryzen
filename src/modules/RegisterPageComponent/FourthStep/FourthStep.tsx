@@ -10,16 +10,16 @@ import { ROUTES } from 'routes/routes.const';
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const FourthStep = () => {
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+  // const dispatch = useAppDispatch();
+  // const navigate = useNavigate();
 
-  useEffect(() => {
-    const timerId = setTimeout(() => navigate(ROUTES.STUDENT), 1000);
-    return () => {
-      clearTimeout(timerId);
-      dispatch(setStep(1));
-    };
-  }, [navigate, dispatch]);
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => navigate(ROUTES.STUDENT), 1000);
+  //   return () => {
+  //     clearTimeout(timerId);
+  //     dispatch(setStep(1));
+  //   };
+  // }, [navigate, dispatch]);
 
   return (
     <div className={s.formWrapper}>

@@ -6,6 +6,9 @@ import { useFormik } from 'formik';
 import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import { validationSchema } from './validationSchema';
 
 import { ROUTES } from 'routes/routes.const';
@@ -17,7 +20,21 @@ interface MyFormValues {
   checkbox: boolean;
 }
 
+const objectTheme = {
+  dark: {
+    boxOr: s.boxOrDark,
+    googleButton: s.googleButtonDark,
+    input: s.inputDark,
+  },
+  light: {
+    boxOr: s.boxOrLight,
+    googleButton: s.googleButtonLight,
+    input: s.inputLight,
+  },
+};
+
 export const LoginForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
   // const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -58,10 +75,10 @@ export const LoginForm = () => {
         type='button'
         needBackground='noBackgroundGray'
         icon={<ICONS.GOOGLE className={s.googleIcon} />}
-        className={s.googleButton}
-        disabled
+        className={objectTheme[theme].googleButton}
+        // disabled
       />
-      <div className={s.boxOr}>or</div>
+      <div className={objectTheme[theme].boxOr}>or</div>
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
@@ -72,7 +89,7 @@ export const LoginForm = () => {
           <p className={s.errorMsg}>{errors.email}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='email'
           type='email'
           id='email'
@@ -96,7 +113,7 @@ export const LoginForm = () => {
           <p className={s.errorMsg}>{errors.password}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='password'
           type={showPassword ? 'text' : 'password'}
           id='password'
