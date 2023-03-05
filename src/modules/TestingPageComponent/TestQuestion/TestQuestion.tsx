@@ -14,9 +14,11 @@ import { useThemeContext } from 'context/themeContext';
 import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
+import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
 
 export const TestQuestion = () => {
-  const {testId, questionId, title,  possibleAnswers, hasNextQuestion, isLoading } = useAppSelector((state) => state.testingInfo);
+  const {testId, questionId, title,  possibleAnswers, isLoading } = useAppSelector((state) => state.testingInfo);
+  const time = useAppSelector(getTimeTest);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
@@ -32,10 +34,10 @@ export const TestQuestion = () => {
   }, [questionId]);
 
   useEffect(() => {
-    if (hasNextQuestion) return;
+    if (!time) return;
     dispatch(finishTest({ testId, time: new Date() }));
     navigate(ROUTES.TEST_END);
-  }, [hasNextQuestion]);
+  }, [time]);
 
   return (
     <div className={s.testWrapper}>
