@@ -11,7 +11,7 @@ interface MyProfileProps {
 }
 
 export const MyProfile = ({ userInfo, theme }: MyProfileProps) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { name, role, social, avatarUrl, companyName, groupName, testsAmount } =
     userInfo;
   return (

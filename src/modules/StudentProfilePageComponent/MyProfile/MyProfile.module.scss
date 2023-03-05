@@ -1,4 +1,5 @@
 .container {
+  width: 100%;
   padding: 20px;
   border-radius: 4px;
   transition: var(--transition);
@@ -16,7 +17,7 @@
   font-family: var(--font-family);
   font-weight: var(--bold);
   font-size: var(--subtitle);
-  margin-bottom: 22px;
+  margin-bottom: 20px;
   transition: var(--transition);
 }
 .title--dark {

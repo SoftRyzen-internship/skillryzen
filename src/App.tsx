@@ -1,7 +1,7 @@
 import { Suspense, useState } from 'react';
 
 import { ThemeContext } from 'context/themeContext';
-import { getLocaleStorageItem } from 'services/localStorage';
+import { getLocaleStorageItem } from 'utils/getLocaleStorageItem';
 
 import { AppRoutes } from 'routes';
 

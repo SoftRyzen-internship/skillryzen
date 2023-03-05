@@ -74,6 +74,13 @@
     },
     "companyLabel": "Company",
     "groupLabel": "Group",
-    "testsLabel": "Complited tests"
+    "testsLabel": "Complited tests",
+    "infoTitle": "Info",
+    "testsTitle": "Tests",
+    "achievements": {
+      "scoreTitle": "Your score",
+      "coinsTitle": "Your coins",
+      "timeTitle": "Your best time"
+    }
   }
 }

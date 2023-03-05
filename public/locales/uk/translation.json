@@ -74,6 +74,13 @@
     },
     "companyLabel": "Компанія",
     "groupLabel": "Група",
-    "testsLabel": "Виконані тести"
+    "testsLabel": "Виконані тести",
+    "infoTitle": "Інформація",
+    "testsTitle": "Тести",
+    "achievements": {
+      "scoreTitle": "Ваш рахунок",
+      "coinsTitle": "Ваші монети",
+      "timeTitle": "Ваш найкращий час"
+    }
   }
 }

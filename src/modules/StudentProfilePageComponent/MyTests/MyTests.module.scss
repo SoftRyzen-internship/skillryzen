@@ -1,0 +1,14 @@
+.container {
+  flex-grow: 1;
+  padding: 20px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.container--dark {
+  composes: container;
+  background-color: var(--components-cl);
+}
+.container--light {
+  composes: container;
+  background-color: var(--light-components-cl);
+}

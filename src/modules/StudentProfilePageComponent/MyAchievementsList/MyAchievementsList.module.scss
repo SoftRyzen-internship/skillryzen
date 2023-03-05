@@ -1,0 +1,59 @@
+.container {
+  width: 100%;
+  display: flex;
+  column-gap: 28px;
+  justify-content: center;
+}
+
+.item {
+  width: 284px;
+  padding-top: 62px;
+  padding-bottom: 62px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.item--dark {
+  composes: item;
+  background-color: var(--components-cl);
+}
+.item--light {
+  composes: item;
+  background-color: var(--light-components-cl);
+}
+
+.listTitle {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  text-align: center;
+  margin-bottom: 11px;
+  transition: var(--transition);
+}
+.listTitle--dark {
+  composes: listTitle;
+  color: var(--primary-txt-cl);
+}
+.listTitle--light {
+  composes: listTitle;
+  color: var(--light-primary-txt-cl);
+}
+
+.achievementValue {
+  font-family: var(--font-family);
+  font-weight: var(--extrabold);
+  font-size: var(--title);
+  text-align: center;
+}
+
+.scoreValue {
+  composes: achievementValue;
+  color: var(--accent-cl);
+}
+.coinsValue {
+  composes: achievementValue;
+  color: var(--message-cl);
+}
+.timeValue {
+  composes: achievementValue;
+  color: var(--right-cl);
+}

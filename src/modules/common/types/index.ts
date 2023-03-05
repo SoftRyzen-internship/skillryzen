@@ -23,8 +23,16 @@ export interface SocialItem {
 }
 export interface UserInfo {
   name: string;
+  email: string;
+  phone: string;
+  location: string;
   role: string;
   social: SocialItem[];
+  achievements: {
+    score: string;
+    coins: number;
+    time: string;
+  };
   avatarUrl: string;
   companyName: string;
   groupName: string;
