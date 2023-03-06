@@ -4,15 +4,28 @@
   width: 100%;
 }
 
-.wrapper {
+.wrapperDark {
   background-image: url('assets/images/not-found.png');
   background-repeat: no-repeat;
-  background-position: center 190px;
-  min-height: 510px;
+  background-position: center 80px;
+  background-size: 388px 208px;
+  width: 424px;
+  margin: 0 auto;
 }
 
-.title {
+.wrapperLight {
+  composes: wrapperDark;
+  background-image: url('assets/images/not-found-light.png');
+}
+
+.titleDark {
   font-weight: 800;
   font-size: 36px;
   line-height: calc(40 / 36);
+  margin-bottom: 288px;
+}
+
+.titleLight {
+  composes: titleDark;
+  color: var(--primary-cl);
 }
