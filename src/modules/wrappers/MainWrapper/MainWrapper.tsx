@@ -1,8 +1,22 @@
-import s from './MainWrapper.module.scss';
 import { Header } from 'modules/Header';
 import { Sidebar } from 'modules/Sidebar';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
 
-interface IProps {
+import s from './MainWrapper.module.scss';
+
+const objectTheme = {
+  dark: {
+    wrapper: s.wrapperDark,
+    testingWrapper: s.testingWrapperDark,
+  },
+  light: {
+    wrapper: s.wrapperLight,
+    testingWrapper: s.testingWrapperLight,
+  },
+};
+
+interface Props {
   showSidebar: boolean;
   showHeader: boolean;
   isTestingPage: boolean;
@@ -14,11 +28,19 @@ export const MainWrapper = ({
   showHeader,
   isTestingPage,
   children,
-}: IProps) => {
+}: Props) => {
+  const { theme }: IThemeContext = useThemeContext();
+
   return (
     <>
       {showHeader && <Header isTestingPage={isTestingPage} />}
-      <div className={s.container}>
+      <div
+        className={
+          isTestingPage
+            ? `${objectTheme[theme].testingWrapper}`
+            : `${objectTheme[theme].wrapper}`
+        }
+      >
         {showSidebar && <Sidebar />}
         <div className={s.content}>{children}</div>
       </div>
