@@ -1,8 +1,8 @@
 .sideBarIsOpenDark {
+  padding: 48px 0 80px;
   height: calc(100vh - 72px);
   position: sticky;
-  max-width: 260px;
-  padding: 16px 24px 100px 60px;
+  width: 200px;
   background-color: var(--secondary-cl);
   transform: translateX(0);
   transition: var(--transition);
@@ -17,10 +17,10 @@
 }
 
 .slideBarIsClosedDark {
+  padding: 48px 0 80px;
   height: calc(100vh - 72px);
   position: sticky;
-  max-width: 100px;
-  padding: 16px 22px 100px;
+  width: 96px;
   background-color: var(--secondary-cl);
   transform: translateX(0);
   transition: var(--transition);
@@ -61,6 +61,7 @@
 }
 
 .sideBar__btnDark {
+  z-index: 1;
   position: absolute;
   right: -12px;
   top: 16px;
