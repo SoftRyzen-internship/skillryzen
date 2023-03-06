@@ -1,12 +1,20 @@
 import s from './UserAvatar.module.scss';
 import { Theme } from 'modules/common/types';
+import { ICONS } from 'ui-kit/icons';
 interface UserAvatarProps {
   userAvatarUrl: string;
+  changeIcon?: JSX.Element;
   theme?: Theme;
+  className?: string;
+  onClick?: () => void;
 }
-export const UserAvatar = ({ userAvatarUrl }: UserAvatarProps) => {
+export const UserAvatar = ({
+  userAvatarUrl,
+  onClick,
+  className,
+}: UserAvatarProps) => {
   return (
-    <div className={s.avatarWrapper}>
+    <div className={`${s.wrapper} ${className}`}>
       <div className={s.imgThumb}>
         <img
           className={s.avatar}
@@ -16,6 +24,9 @@ export const UserAvatar = ({ userAvatarUrl }: UserAvatarProps) => {
           alt='avatar'
         />
       </div>
+      <button type='button' className={s.iconWrapper} onClick={onClick}>
+        <ICONS.EDIT className={s.iconEdit} />
+      </button>
     </div>
   );
 };

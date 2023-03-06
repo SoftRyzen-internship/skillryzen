@@ -1,5 +1,14 @@
 .editProfileWrapper {
   background-color: var(--components-cl);
-  height: 650px;
-  width: 464px;
+  height: auto;
+  width: 492px;
+  border-radius: 4px;
+  padding: 20px 34px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+}
+.title {
+  font-size: 20px;
+  font-weight: 700;
 }
