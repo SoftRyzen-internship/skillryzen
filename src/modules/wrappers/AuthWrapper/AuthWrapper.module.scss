@@ -1,10 +1,19 @@
-.container {
+.authWrapperDark {
   display: flex;
   position: relative;
+  min-height: 100vh;
 
   overflow: hidden;
 
+  color: var(--primary-txt-cl);
   background-color: var(--primary-cl);
+}
+
+.authWrapperLight {
+  composes: authWrapperDark;
+
+  color: var(--light-primary-txt-cl);
+  background-color: var(--light-cards-cl);
 }
 
 .languageBtn {

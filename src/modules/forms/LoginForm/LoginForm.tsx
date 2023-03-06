@@ -1,14 +1,18 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 // import { useAppDispatch } from 'hooks/hook';
+import { ROUTES } from 'routes/routes.const';
 import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import { validationSchema } from './validationSchema';
 
-import { ROUTES } from 'routes/routes.const';
 import s from './LoginForm.module.scss';
 
 interface MyFormValues {
@@ -17,7 +21,22 @@ interface MyFormValues {
   checkbox: boolean;
 }
 
+const objectTheme = {
+  dark: {
+    boxOr: s.boxOrDark,
+    googleButton: s.googleButtonDark,
+    input: s.inputDark,
+  },
+  light: {
+    boxOr: s.boxOrLight,
+    googleButton: s.googleButtonLight,
+    input: s.inputLight,
+  },
+};
+
 export const LoginForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
   // const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
@@ -58,10 +77,10 @@ export const LoginForm = () => {
         type='button'
         needBackground='noBackgroundGray'
         icon={<ICONS.GOOGLE className={s.googleIcon} />}
-        className={s.googleButton}
-        disabled
+        className={objectTheme[theme].googleButton}
+        // disabled
       />
-      <div className={s.boxOr}>or</div>
+      <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
@@ -72,7 +91,7 @@ export const LoginForm = () => {
           <p className={s.errorMsg}>{errors.email}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='email'
           type='email'
           id='email'
@@ -80,10 +99,10 @@ export const LoginForm = () => {
           onBlur={handleBlur}
           value={email}
           autoComplete='email'
-          placeholder='Email address'
+          placeholder={t('auth.emailPlaceholder')}
         />
         <label className={s.floatingLabel} htmlFor='email'>
-          Email address
+          {t('auth.emailPlaceholder')}
         </label>
       </div>
       <div
@@ -96,7 +115,7 @@ export const LoginForm = () => {
           <p className={s.errorMsg}>{errors.password}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='password'
           type={showPassword ? 'text' : 'password'}
           id='password'
@@ -104,10 +123,10 @@ export const LoginForm = () => {
           onBlur={handleBlur}
           value={password}
           autoComplete='off'
-          placeholder='Password'
+          placeholder={t('auth.passwordPlaceholder')}
         />
         <label className={s.floatingLabel} htmlFor='password'>
-          Password
+          {t('auth.passwordPlaceholder')}
         </label>
         <button
           type='button'
@@ -126,17 +145,17 @@ export const LoginForm = () => {
           id='checkbox'
           name='checkbox'
           type='custom'
-          label='Remember me'
+          label={t('auth.rememberLabel')}
           onChange={handleChange}
           labelClassName={s.checkboxLabel}
         />
         <NavLink to='/' className={s.forgotPassword}>
-          Forgot password?
+          {t('auth.passwordLabel')}
         </NavLink>
       </div>
       <AuthButton
         size='large'
-        text='Continue'
+        text={t('auth.continueBtn')}
         type='submit'
         disabled={!isValid || !dirty}
       />
