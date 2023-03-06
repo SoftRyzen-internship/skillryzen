@@ -1,1 +1,1 @@
-export { default } from './CompanyPage';
+export { default } from './CompanyLazyPage';

@@ -1,1 +1,1 @@
-export { default } from './UnderDevelopmentPage';
+export { default } from './UnderDevelopmentLazyPage';
