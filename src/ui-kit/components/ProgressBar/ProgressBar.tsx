@@ -37,7 +37,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
       >
         {total ? `Question ${returnCurrentNumber(number)}/${total}` : ''}
       </p>
-      {array && array.length>0 && <><div className={s.progressBar__wrapper}>
+      {array && array.length>0 && <div className={s.progressBar__wrapper}>
         <ul className={s.progressBar__list}>
           {array.map((item) => (
               <li
@@ -53,7 +53,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
             number > total && s.progressBar__iconFinish
           }`}
         />
-      </div></>}
+      </div>}
     </div>
   );
 };
