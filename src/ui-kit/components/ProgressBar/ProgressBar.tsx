@@ -6,7 +6,6 @@ import { getQuestionNumber } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './ProgressBar.module.scss';
 
-
 interface Props {
   theme?: Theme;
 }
@@ -15,12 +14,18 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
   const number = useAppSelector(getQuestionNumber);
   const array = createArray(10);
 
+  const returnCurrentNumber = (number: number) => {
+    if (number > array.length) return array.length;
+    if (number) return number;
+    return 1;
+  }
+
   return (
     <div className={s.progressBar}>
       <p
         className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
       >
-        Question {number ? number : 1}/10
+        Question {returnCurrentNumber(number)}/{array.length}
       </p>
       <div className={s.progressBar__wrapper}>
         <ul className={s.progressBar__list}>
@@ -34,8 +39,8 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
           ))}
         </ul>
         <ICONS.FLAG_ONE
-          className={`${s.progressBar__icon} ${
-            s[`progressBar__icon--${theme}`]
+          className={`${s[`progressBar__icon--${theme}`]} ${
+            number > array.length && s.progressBar__iconFinish
           }`}
         />
       </div>
