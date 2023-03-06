@@ -1,3 +1,29 @@
+.fadeIn {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+.fadeOut {
+  animation: fade-out 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -27,31 +53,17 @@
 
 .closeModalBtn {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 16px;
+  right: 16px;
 
+  width: 40px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: transparent;
   border: none;
   cursor: pointer;
-  /* z-index: 999; */
-}
-
-.text {
-  margin: 0;
-  margin-bottom: 20px;
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-  color: red;
-}
-
-.textRest {
-  color: blue;
 }
 
 .btnContainer {

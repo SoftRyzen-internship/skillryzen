@@ -1,7 +1,13 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from 'routes/routes.const';
+
+import { ICONS } from 'ui-kit/icons';
+
 import s from './Modal.module.scss';
 
 interface ModalProps {
+  isShowModal: boolean;
   onClick: () => void;
   title1?: { text: string; className: string };
   title2?: { text: string; className: string };
@@ -19,6 +25,7 @@ interface ModalProps {
 }
 
 export const Modal = ({
+  isShowModal,
   onClick,
   title1,
   title2,
@@ -48,11 +55,10 @@ export const Modal = ({
 
   return (
     <div className={s.backdrop} onClick={handleBackdropClick}>
-      <div className={s.modal}>
+      <div className={`${s.modal} ${isShowModal ? s.fadeIn : s.fadeOut}`}>
         <button type='button' className={s.closeModalBtn} onClick={onClick}>
-          {/* <CloseModal /> */}
+          <ICONS.CROSS_SMALL />
         </button>
-        {/* <div className={s.imgThumb}> */}
         <img
           src={image.src}
           alt={image.alt}
@@ -60,24 +66,22 @@ export const Modal = ({
           height={image.height}
           className={image.className}
         />
-        {/* </div> */}
         <p className={title1.className}>{title1.text}</p>
         <p className={title2.className}>{title2.text}</p>
         <p className={subtitle.className}>
           {subtitle.text}
           <span>
-            <a className={link.className} href=''>
+            <Link
+              className={link.className}
+              to={ROUTES.PROFILE}
+              onClick={onClick}
+            >
               {link.text}
-            </a>
+            </Link>
           </span>
         </p>
 
-        <div className={s.btnContainer}>
-          {button}
-          {/* <button className={s.btn} type='button' onClick={onClick}>
-            no
-          </button> */}
-        </div>
+        <div className={s.btnContainer}>{button}</div>
       </div>
     </div>
   );
