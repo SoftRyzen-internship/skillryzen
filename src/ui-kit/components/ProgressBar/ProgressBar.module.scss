@@ -37,10 +37,10 @@
   background-color: var(--wrong-cl);
 }
 
-.progressBar__icon path {
+.progressBar__icon--dark path {
   stroke: var(--primary-txt-cl);
 }
 
-.progressBar__icon--light path {
+.progressBar__icon--light path, .progressBar__iconFinish path {
   stroke: var(--accent-cl);
 }
