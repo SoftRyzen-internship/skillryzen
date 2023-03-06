@@ -1,9 +1,7 @@
-import {UnderDevelopment} from 'modules/UnderDevelopment';
+import { UnderDevelopment } from 'modules/UnderDevelopment';
 
 const UnderDevelopmentPage = () => {
-  return (
-        <UnderDevelopment title='Ця сторінка в розробці' />
-  );
+  return <UnderDevelopment />;
 };
 
 export default UnderDevelopmentPage;
