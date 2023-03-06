@@ -83,5 +83,56 @@
       "coinsTitle": "Your coins",
       "timeTitle": "Your best time"
     }
+  },
+  "auth": {
+    "roleTitle": "Choose your role",
+    "contactTitle": "Give us more information about you!",
+    "loginTitle": "Welcome back",
+    "authTitle": "Get started for free",
+
+    "contactLabel": "Lorem lorem",
+    "loginLabel": "Already have an account?",
+    "roleLabel": "Please choose lorem lorem lorem",
+    "agreementLabel": "By signing up, I agree to Lorem’s Terms of Service & Privacy Policy.",
+    "registerLabel": "Don’t have an account?",
+    "rememberLabel": "Remember me",
+    "passwordLabel": "Forgot password?",
+    "companyLabel": "Your company is",
+
+    "registerLink": "Start for free",
+    "loginLink": "Log in",
+
+    "candidate": "Candidate",
+    "company": "Company",
+    "or": "or",
+    "step": "STEP",
+
+    "codePlaceholder": "Enter company code",
+    "emailPlaceholder": "Email address",
+    "passwordPlaceholder": "Password",
+    "namePlaceholder": "Name",
+    "surnamePlaceholder": "Surname",
+    "phonePlaceholder": "Phone",
+    "companyNamePlaceholder": "Company name",
+
+    "accountBtn": "Create account",
+    "continueBtn": "Continue",
+    "skipBtn": "Do this later",
+
+    "candidateIntro": [
+      "Take a test in JavaScript",
+      "Obtain a certificate",
+      "Updated passing once every 10 days",
+      "Obtain a certificate",
+      "Obtain"
+    ],
+
+    "companyIntro": [
+      "Creating your own tests",
+      "Unlimited number of participants",
+      "Possibility to grant team access",
+      "Issuing certificates",
+      "Receiving feedback from participants"
+    ]
   }
 }

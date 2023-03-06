@@ -1,34 +1,12 @@
-.labelPassTest {
+.label input {
+  display: none;
+}
+
+.label {
   position: relative;
   display: flex;
   align-items: center;
-  width: 536px;
   cursor: pointer;
-  font-weight: 500;
-  font-size: 17px;
-  border-radius: 5px;
-  padding: 20px 20px 20px 69px;
-  height: 100%;
-
-  &--light {
-    color: var(--light-primary-txt-cl);
-    background: var(--light-components-cl);
-    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
-    border: 2px solid transparent;
-
-    &::before {
-      background-color: var(--light-primary-cl);
-    }
-  }
-
-  &--dark {
-    color: var(--primary-txt-cl);
-    background-color: var(--components-cl);
-
-    &::before {
-      background-color: var(--disabled-cl);
-    }
-  }
 
   &::before {
     position: absolute;
@@ -44,14 +22,40 @@
   }
 }
 
-.labelPassTest input {
-  display: none;
+.labelPassTest {
+  composes: label;
+  width: 536px;
+  font-weight: 500;
+  font-size: 17px;
+  border-radius: 5px;
+  border: 2px solid transparent;
+  padding: 20px 20px 20px 69px;
+  height: 100%;
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+    background: var(--light-components-cl);
+    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+    &::before {
+      background-color: var(--light-primary-cl);
+    }
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    background-color: var(--components-cl);
+
+    &::before {
+      background-color: var(--disabled-cl);
+    }
+  }
 }
 
-.labelPassTest--checked {
+.label--checked {
   &::before {
     background-color: transparent;
-    border: 2px solid var(--primary-txt-cl);
+    border: 2px solid var(--accent-cl);
   }
 
   &::after {
@@ -65,38 +69,38 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: var(--primary-txt-cl);
-  }
-}
-
-.labelPassTest--checked.labelPassTest--light {
-  border: 2px solid var(--accent-cl);
-
-  &::before {
-    border: 2px solid var(--accent-cl);
-  }
-
-  &::after {
     background-color: var(--accent-cl);
   }
 }
 
+.labelPassTest--checked {
+  composes: label--checked;
+  border: 2px solid var(--accent-cl);
+}
+
 .labelPassTest--wrong {
-  background-color: var(--wrong-cl);
+  composes: label--checked;
+  border: 2px solid var(--wrong-cl);
 
   &::before {
-    background-color: transparent;
-    border: 2px solid var(--primary-txt-cl);
-    background-image: url('assets/images/javascript.png');
+    border: 2px solid var(--wrong-cl);
+  }
+
+  &::after {
+    background-color: var(--wrong-cl);
   }
 }
 
 .labelPassTest--right {
-  background-color: var(--right-cl);
+  composes: label--checked;
+  border: 2px solid var(--right-cl);
 
   &::before {
-    background-color: transparent;
-    border: 2px solid var(--primary-txt-cl);
-    background-image: url('assets/images/javascript.png');
+    border: 2px solid var(--right-cl);
+  }
+
+  &::after {
+    background-color: var(--right-cl);
   }
 }
+

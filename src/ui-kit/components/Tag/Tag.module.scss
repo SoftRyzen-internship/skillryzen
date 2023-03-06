@@ -34,7 +34,8 @@
   }
 
   &--dark {
-    border: 1px solid var(--accent-cl);
+    color: var(--secondary-txt-cl);
+    border: 1px solid var(--secondary-txt-cl);
   }
 }
 

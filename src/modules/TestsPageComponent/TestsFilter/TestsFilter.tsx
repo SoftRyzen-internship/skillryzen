@@ -23,7 +23,6 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
         theme={theme}
         tabs={[
           { title: t('testsMain.allTests'), path: '' },
-          { title: t('testsMain.myTests'), path: 'fullstack_final' },
         ]}
       />
       <div className={s.testsFilter__wrapper}>

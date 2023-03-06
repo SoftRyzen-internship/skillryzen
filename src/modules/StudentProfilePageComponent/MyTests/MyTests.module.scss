@@ -120,14 +120,14 @@
   }
   &[disabled] {
     cursor: default;
-    background-color: var(--disabled-cl);
+    background-color: var(--secondary-txt-cl);
     & svg path {
       stroke: var(--primary-txt-cl);
     }
   }
   &[disabled]:hover {
     cursor: default;
-    background-color: var(--disabled-cl);
+    background-color: var(--secondary-txt-cl);
     & svg path {
       stroke: var(--primary-txt-cl);
     }

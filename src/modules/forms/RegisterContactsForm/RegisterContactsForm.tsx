@@ -1,11 +1,15 @@
 import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
 import { ICONS } from 'ui-kit/icons';
 import { AuthButton } from 'ui-kit';
+
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
 
 import { validationSchema } from './validationSchema';
 
@@ -18,7 +22,23 @@ interface FormValues {
   companyName?: string;
 }
 
+const objectTheme = {
+  dark: {
+    input: s.inputDark,
+    inputPhone: s.inputPhoneDark,
+    phoneButton: s.phoneButtonDark,
+  },
+  light: {
+    input: s.inputLight,
+    inputPhone: s.inputPhoneLight,
+    phoneButton: s.phoneButtonLight,
+  },
+};
+
 export const RegisterContactsForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const role = useAppSelector((state) => state.auth.role);
 
@@ -27,6 +47,7 @@ export const RegisterContactsForm = () => {
       name: '',
       surname: '',
       phone: '',
+      companyName: '',
     },
 
     validationSchema,
@@ -61,7 +82,7 @@ export const RegisterContactsForm = () => {
               <p className={s.errorMsg}>{errors.companyName}</p>
             )}
             <input
-              className={s.input}
+              className={objectTheme[theme].input}
               name='companyName'
               type='text'
               id='companyName'
@@ -69,10 +90,10 @@ export const RegisterContactsForm = () => {
               onBlur={handleBlur}
               value={companyName}
               autoComplete='company'
-              placeholder='Company name'
+              placeholder={t('auth.companyNamePlaceholder')}
             />
             <label className={s.floatingLabel} htmlFor='companyName'>
-              Company name
+              {t('auth.companyNamePlaceholder')}
             </label>
           </li>
         )}
@@ -86,7 +107,7 @@ export const RegisterContactsForm = () => {
             <p className={s.errorMsg}>{errors.name}</p>
           )}
           <input
-            className={s.input}
+            className={objectTheme[theme].input}
             name='name'
             type='text'
             id='name'
@@ -94,10 +115,10 @@ export const RegisterContactsForm = () => {
             onBlur={handleBlur}
             value={name}
             autoComplete='name'
-            placeholder='Name'
+            placeholder={t('auth.namePlaceholder')}
           />
           <label className={s.floatingLabel} htmlFor='name'>
-            Name
+            {t('auth.namePlaceholder')}
           </label>
         </li>
         <li
@@ -110,7 +131,7 @@ export const RegisterContactsForm = () => {
             <p className={s.errorMsg}>{errors.surname}</p>
           )}
           <input
-            className={s.input}
+            className={objectTheme[theme].input}
             name='surname'
             type='text'
             id='surname'
@@ -118,10 +139,10 @@ export const RegisterContactsForm = () => {
             onBlur={handleBlur}
             value={surname}
             autoComplete='surname'
-            placeholder='Surname'
+            placeholder={t('auth.surnamePlaceholder')}
           />
           <label className={s.floatingLabel} htmlFor='surname'>
-            Surname
+            {t('auth.surnamePlaceholder')}
           </label>
         </li>
         <li
@@ -134,7 +155,7 @@ export const RegisterContactsForm = () => {
             <p className={s.errorMsg}>{errors.phone}</p>
           )}
           <InputMask
-            className={s.inputPhone}
+            className={objectTheme[theme].inputPhone}
             name='phone'
             type='phone'
             mask='+380 99 999 99 99'
@@ -143,12 +164,12 @@ export const RegisterContactsForm = () => {
             onBlur={handleBlur}
             value={phone}
             autoComplete='off'
-            placeholder='Phone'
+            placeholder={t('auth.phonePlaceholder')}
           />
           <label className={s.floatingLabelPhone} htmlFor='phone'>
-            Phone
+            {t('auth.phonePlaceholder')}
           </label>
-          <button type='button' className={s.phoneButton}>
+          <button type='button' className={objectTheme[theme].phoneButton}>
             <ICONS.UKRAINE />
           </button>
         </li>
@@ -157,7 +178,7 @@ export const RegisterContactsForm = () => {
         className={s.btnSubmit}
         onClick={handleSubmit}
         size='large'
-        text='Continue'
+        text={t('auth.continueBtn')}
         type='submit'
         disabled={!isValid || !dirty}
       />

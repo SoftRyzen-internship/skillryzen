@@ -1,5 +1,7 @@
-import { useAppSelector } from 'hooks/hook';
 import { useLocation } from 'react-router';
+
+import { ROUTES } from 'routes/routes.const';
+import { useAppSelector } from 'hooks/hook';
 
 import s from './AuthIntro.module.scss';
 
@@ -28,7 +30,7 @@ export const AuthIntro = () => {
   const location = useLocation();
   const role = useAppSelector((state) => state.auth.role);
 
-  return location.pathname === '/register' ? (
+  return location.pathname === ROUTES.REGISTER ? (
     <section className={s.sectionRegister}>
       <div
         className={`${

@@ -1,5 +1,32 @@
+.wrapper {
+  display: inline-block;
+  position: relative;
+}
 .avatar {
   width: 200px;
   height: 200px;
   border-radius: 50%;
+}
+
+.iconWrapper {
+  position: absolute;
+  top: 16px;
+  right: 9px;
+}
+.iconWrapper::before {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--components-cl);
+}
+.iconEdit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  path {
+    stroke: var(--primary-txt-cl);
+  }
 }
