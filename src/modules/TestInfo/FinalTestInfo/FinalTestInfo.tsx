@@ -205,19 +205,21 @@ export const FinalTestInfo = ({
               </p>
             </li>
           </ul>
-          <div className={objectTheme[theme].recomendationsWrapper}>
-            <p className={objectTheme[theme].recText}>
-              {t('finalTestInfo.recomendations')}:
-            </p>
-            <p className={s.recTextSmall}>
-              {t('finalTestInfo.worstTopic')} {`${test}`} - {`${theWorstTopic}`}{' '}
-              {t('finalTestInfo.section')}
-            </p>
-            <p className={s.recTextSmall}>
-              {t('finalTestInfo.bestTopic')} {`${test}`} - {`${theBestTopic}`}{' '}
-              {t('finalTestInfo.section')}
-            </p>
-          </div>
+          {theWorstTopic && theBestTopic && (
+            <div className={objectTheme[theme].recomendationsWrapper}>
+              <p className={objectTheme[theme].recText}>
+                {t('finalTestInfo.recomendations')}:
+              </p>
+              <p className={s.recTextSmall}>
+                {t('finalTestInfo.worstTopic')} {`${test}`} -{' '}
+                {`${theWorstTopic}`} {t('finalTestInfo.section')}
+              </p>
+              <p className={s.recTextSmall}>
+                {t('finalTestInfo.bestTopic')} {`${test}`} - {`${theBestTopic}`}{' '}
+                {t('finalTestInfo.section')}
+              </p>
+            </div>
+          )}
         </>
       )}
       <AuthButton
@@ -228,6 +230,7 @@ export const FinalTestInfo = ({
         onClick={onClickBtn}
         size='large'
         color='blue'
+        className={!(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''}
       />
     </div>
   );
@@ -280,8 +283,8 @@ export const FinalTestInfo = ({
   timeSpent={20}
   iconAnswers={ICONS.CHECK_SMALL}
   iconTime={ICONS.CLOCK}
-  theWorstTopic='“Asynchrony”'
-  theBestTopic='"Lorem lorem lorem"'
+  // theWorstTopic='“Asynchrony”' // для фінального тесту не передавати!
+  // theBestTopic='"Lorem lorem lorem"' // для фінального тесту не передавати!
   onClickBtn={handleClickBtn}
   textBtn='Start test'
   test='JS'

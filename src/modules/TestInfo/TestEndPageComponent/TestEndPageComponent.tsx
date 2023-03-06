@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 
+import { removeResults } from 'redux/testingInfo/testingInfoSlise';
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
@@ -11,8 +12,11 @@ import {
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import { ROUTES } from 'routes/routes.const';
+import { useAppDispatch } from 'hooks/hook';
 
 export const TestEndPageComponent = () => {
+  const dispatch = useAppDispatch();
+
   const testTime = useSelector(getTimeTest);
   const correctAnswersPercentage = useSelector(getPercentageOfCorrectAnswers);
   const totalQuestions = 10;
@@ -20,6 +24,7 @@ export const TestEndPageComponent = () => {
   const navigate = useNavigate();
 
   const handleClickBtn = () => {
+    dispatch(removeResults());
     navigate(ROUTES.CERTIFICATION);
   };
 
@@ -34,8 +39,8 @@ export const TestEndPageComponent = () => {
         timeSpent={testTime}
         iconAnswers={ICONS.CHECK_SMALL}
         iconTime={ICONS.CLOCK}
-        theWorstTopic='“Asynchrony”'
-        theBestTopic='"Lorem lorem lorem"'
+        // theWorstTopic='“Asynchrony”'
+        // theBestTopic='"Lorem lorem lorem"'
         onClickBtn={handleClickBtn}
         textBtn='End test'
         test='JS'
