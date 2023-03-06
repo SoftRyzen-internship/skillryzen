@@ -8,6 +8,7 @@ import { useThemeContext } from 'context/themeContext';
 import s from './CardsList.module.scss';
 
 interface Item {
+  id: number;
   title: string;
   text: string;
   fields?: string[];
@@ -27,8 +28,8 @@ export const CardsList = ({ type = 'info', size, testsArray }: TestsList) => {
 
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
-      {testsArray.map((item, index) => (
-        <li key={index}>
+      {testsArray.map((item) => (
+        <li key={item.id}>
           <Link to='fullstack_final'>
             <Card
               type={type}
