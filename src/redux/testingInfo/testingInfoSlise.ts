@@ -22,6 +22,7 @@ export interface TestingInfo {
     label: string;
   }[];
   hasNextQuestion: boolean;
+  questionsTotalCount: number;
   results: Results;
   isLoading: boolean;
   error: string | unknown;
@@ -34,6 +35,7 @@ const initialState: TestingInfo = {
   title: '',
   possibleAnswers: [],
   hasNextQuestion: true,
+  questionsTotalCount: 0,
   results: { testId: '', percentageOfCorrectAnswers: 0, time: 0 },
   isLoading: false,
   error: '',
@@ -45,6 +47,12 @@ const testingInfoSlice = createSlice({
   reducers: {
     setTime(state, action: PayloadAction<number>) {
       state.results.time = action.payload;
+    },
+    removeResults(state) {
+      state.number = null;
+      state.results.testId = '';
+      state.results.percentageOfCorrectAnswers = 0;
+      state.results.time = 0;
     },
   },
   extraReducers: (builder) => {
@@ -59,6 +67,7 @@ const testingInfoSlice = createSlice({
         state.number = 1;
         state.title = payload.nextQuestion.title;
         state.possibleAnswers = payload.nextQuestion.possibleAnswers;
+        state.questionsTotalCount = payload.questionsTotalCount;
         state.isLoading = false;
       })
       .addCase(getRandomTest.rejected, (state, { payload }) => {
@@ -99,5 +108,5 @@ const testingInfoSlice = createSlice({
   },
 });
 
-export const { setTime } = testingInfoSlice.actions;
+export const { setTime, removeResults } = testingInfoSlice.actions;
 export const testingInfoReducer = testingInfoSlice.reducer;

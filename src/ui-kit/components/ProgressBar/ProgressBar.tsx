@@ -2,9 +2,13 @@ import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
 import { Theme } from 'modules/common/types';
 import { useAppSelector } from 'hooks/hook';
-import { getQuestionNumber } from 'redux/testingInfo/testingInfoSelectors';
+import {
+  getQuestionNumber,
+  getTotalCount,
+} from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './ProgressBar.module.scss';
+import { useEffect, useState } from 'react';
 
 interface Props {
   theme?: Theme;
@@ -12,38 +16,46 @@ interface Props {
 
 export const ProgressBar = ({ theme = 'dark' }: Props) => {
   const number = useAppSelector(getQuestionNumber);
-  const array = createArray(10);
+  const total = useAppSelector(getTotalCount);
+  const [array, setArray] = useState<number[]>([]);
+
+  useEffect(() => {
+    if (!total) return;
+    setArray(createArray(total));
+  }, [total]);
 
   const returnCurrentNumber = (number: number) => {
     if (number > array.length) return array.length;
     if (number) return number;
     return 1;
-  }
+  };
 
   return (
     <div className={s.progressBar}>
       <p
         className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
       >
-        Question {returnCurrentNumber(number)}/{array.length}
+        {total ? `Question ${returnCurrentNumber(number)}/${total}` : ''}
       </p>
-      <div className={s.progressBar__wrapper}>
+      {array && array.length>0 && <div className={s.progressBar__wrapper}>
         <ul className={s.progressBar__list}>
           {array.map((item) => (
-            <li
-              key={item}
-              className={`${s.progressBar__line} ${
-                item < number && s['progressBar__line--right']
-              }`}
-            ></li>
-          ))}
+              <li
+                key={item}
+                className={`${s.progressBar__line} ${
+                  item < number && s['progressBar__line--done']
+                } ${
+                  item === number && s['progressBar__line--current']
+                }`}
+              ></li>
+            ))}
         </ul>
         <ICONS.FLAG_ONE
           className={`${s[`progressBar__icon--${theme}`]} ${
-            number > array.length && s.progressBar__iconFinish
+            number > total && s.progressBar__iconFinish
           }`}
         />
-      </div>
+      </div>}
     </div>
   );
 };

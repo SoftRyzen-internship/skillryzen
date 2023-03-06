@@ -1,17 +1,7 @@
-import { Suspense, lazy } from 'react';
-
-const LazyUnderDevelopment = lazy(async () => ({
-  default: (await import('modules/UnderDevelopment')).UnderDevelopment,
-}));
+import { UnderDevelopment } from 'modules/UnderDevelopment';
 
 const UnderDevelopmentPage = () => {
-  return (
-    <>
-      <Suspense fallback={<div>Loading...</div>}>
-        <LazyUnderDevelopment />
-      </Suspense>
-    </>
-  );
+  return <UnderDevelopment />;
 };
 
 export default UnderDevelopmentPage;

@@ -5,11 +5,10 @@
 
   background-color: var(--components-cl);
   border-radius: 10px;
-  padding: 24px 12px;
+  padding: 86px 12px 24px;
 }
 
 .card--large {
-  min-width: 1096px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,17 +31,21 @@
 
 .card__infoWrapper {
   .card--small & {
+    display: flex;
+    flex-direction: column-reverse;
     width: 100%;
   }
 
   .card--large & {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
+    width: 80%;
   }
 }
 
-.card__thumb {
+.card__iconThumb {
   width: 50px;
   height: 50px;
   display: flex;
@@ -51,22 +54,24 @@
   border-radius: 51px;
 
   &--green {
-    composes: card__thumb;
+    composes: card__iconThumb;
     background-color: var(--success-cl);
   }
 
   &--yellow {
-    composes: card__thumb;
+    composes: card__iconThumb;
     background-color: var(--message-cl);
   }
 
   &--blue {
-    composes: card__thumb;
+    composes: card__iconThumb;
     background-color: var(--copy-btn-cl);
   }
 
   .card--small & {
-    margin-bottom: 12px;
+    position: absolute;
+    top: 24px;
+    left: 12px;
   }
 }
 
@@ -75,21 +80,10 @@
 }
 
 .card__contentWrapper {
-  display: flex;
-
-  .card--small & {
-    flex-direction: column-reverse;
-  }
-
   .card--large & {
+    display: flex;
     align-items: center;
     gap: 21px;
-  }
-}
-
-.card__content {
-  .card--large & {
-    width: 624px;
   }
 }
 
@@ -130,9 +124,9 @@
   }
 
   .card--large & {
-    max-width: 20%;
     column-gap: 4px;
     row-gap: 8px;
+    justify-content: end;
   }
 }
 
@@ -157,6 +151,7 @@
 
   .card--small & {
     position: absolute;
+    top: 24px;
     right: 12px;
     gap: 20px;
   }

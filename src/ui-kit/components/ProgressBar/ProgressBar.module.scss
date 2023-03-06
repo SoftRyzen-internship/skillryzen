@@ -19,6 +19,7 @@
 .progressBar__list {
   max-width: 946px;
   display: flex;
+  align-items: center;
   gap: 4px;
 }
 
@@ -29,8 +30,15 @@
   border-radius: 4px;
 }
 
-.progressBar__line--right {
+.progressBar__line--done {
   background-color: var(--accent-cl);
+}
+
+.progressBar__line--current {
+  height: 6px;
+  border-radius: 8px;
+  box-shadow: 0px 1px 8px #0027FF;
+  background-color: var(--current-cl);
 }
 
 .progressBar__line--false {
