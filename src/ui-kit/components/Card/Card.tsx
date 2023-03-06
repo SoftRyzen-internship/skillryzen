@@ -63,11 +63,13 @@ export const Card = ({
   return (
     <div className={`${s[`card--${size}`]} ${s[`card--${theme}`]}`}>
       <div className={s.card__infoWrapper}>
-        <div className={`${s[`card__thumb--${addBackgroundColor(type)}`]}`}>
-          {addIcon(type)}
-        </div>
-        {!custom && (
-          <div className={s.card__contentWrapper}>
+        <div className={s.card__contentWrapper}>
+          <span
+            className={`${s[`card__iconThumb--${addBackgroundColor(type)}`]}`}
+          >
+            {addIcon(type)}
+          </span>
+          {!custom && (
             <div className={s.card__content}>
               <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>
                 {title}
@@ -76,16 +78,16 @@ export const Card = ({
                 {text}
               </p>
             </div>
-            {fields && type === 'info' && (
-              <ul className={s.card__list}>
-                {fields.map((item, index) => (
-                  <li key={index}>
-                    <Tag type='field' label={item} theme={theme} />
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+          )}
+        </div>
+        {fields && type === 'info' && (
+          <ul className={s.card__list}>
+            {fields.map((item, index) => (
+              <li key={index}>
+                <Tag type='field' label={item} theme={theme} />
+              </li>
+            ))}
+          </ul>
         )}
         {custom && <p className={s.card__template}>{title}</p>}
       </div>
