@@ -43,7 +43,9 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
               <li
                 key={item}
                 className={`${s.progressBar__line} ${
-                  item < number && s['progressBar__line--right']
+                  item < number && s['progressBar__line--done']
+                } ${
+                  item === number && s['progressBar__line--current']
                 }`}
               ></li>
             ))}
