@@ -8,9 +8,11 @@ import s from './MainWrapper.module.scss';
 const objectTheme = {
   dark: {
     wrapper: s.wrapperDark,
+    testingWrapper: s.testingWrapperDark,
   },
   light: {
     wrapper: s.wrapperLight,
+    testingWrapper: s.testingWrapperLight,
   },
 };
 
@@ -32,7 +34,13 @@ export const MainWrapper = ({
   return (
     <>
       {showHeader && <Header isTestingPage={isTestingPage} />}
-      <div className={objectTheme[theme].wrapper}>
+      <div
+        className={
+          isTestingPage
+            ? `${objectTheme[theme].testingWrapper}`
+            : `${objectTheme[theme].wrapper}`
+        }
+      >
         {showSidebar && <Sidebar />}
         <div className={s.content}>{children}</div>
       </div>

@@ -11,3 +11,27 @@
 .content {
   width: 100%;
 }
+
+.testingWrapperDark {
+  composes: wrapperDark;
+  position: relative;
+}
+
+.testingWrapperDark::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  background-color: var(--components-cl);
+}
+
+.testingWrapperLight {
+  composes: testingWrapperDark;
+  position: relative;
+  background-color: var(--light-cards-cl);
+}
+
+.testingWrapperLight::after {
+  background-color: var(--light-components-cl);
+}
