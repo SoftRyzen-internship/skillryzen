@@ -9,7 +9,6 @@
 }
 
 .card--large {
-  min-width: 1096px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -39,6 +38,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    width: 80%;
   }
 }
 
@@ -87,12 +87,6 @@
   }
 }
 
-.card__content {
-  .card--large & {
-    width: 624px;
-  }
-}
-
 .card__title {
   font-weight: var(--bold);
   font-size: var(--text-lg);
@@ -130,7 +124,6 @@
   }
 
   .card--large & {
-    max-width: 20%;
     column-gap: 4px;
     row-gap: 8px;
   }
