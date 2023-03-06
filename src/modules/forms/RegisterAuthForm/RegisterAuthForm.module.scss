@@ -30,7 +30,7 @@
   transition: color 250ms ease-in-out, top 250ms ease-in-out;
 }
 
-.input {
+.inputDark {
   width: 100%;
   height: 100%;
   padding: 13px 16px;
@@ -49,6 +49,8 @@
   &:focus {
     outline: none;
   }
+
+  &:focus + label,
   &:not(:placeholder-shown) + label {
     top: 0%;
     font-size: 12px;
@@ -65,6 +67,27 @@
   }
 }
 
+.inputLight {
+  composes: inputDark;
+  color: inherit;
+  border: 1px solid var(--light-primary-cl);
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    color: inherit;
+    background-color: var(--primary-txt-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: inherit;
+    -webkit-background-clip: text;
+  }
+}
+
 .errorMsg {
   position: absolute;
   bottom: -20px;
@@ -73,7 +96,7 @@
   color: var(--error-cl);
 }
 
-.boxOr {
+.boxOrDark {
   margin: 16px auto;
   display: flex;
   justify-content: center;
@@ -95,6 +118,14 @@
   }
 }
 
+.boxOrLight {
+  composes: boxOrDark;
+  &::before,
+  &::after {
+    background-color: var(--light-primary-cl);
+  }
+}
+
 .showPasswordButton {
   position: absolute;
   top: 50%;
@@ -113,7 +144,7 @@
   }
 }
 
-.floatingLabelError .input {
+.floatingLabelError input{
   color: var(--error-cl);
 }
 
@@ -132,7 +163,7 @@
   }
 }
 
-.floatingLabelValid .input {
+.floatingLabelValid input {
   color: var(--success-cl);
 }
 
@@ -150,13 +181,22 @@
     -webkit-background-clip: text;
   }
 }
-.googleButton {
+
+.googleButtonDark {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 12px 0;
   font-weight: 400;
 }
+
+.googleButtonLight {
+  composes: googleButtonDark;
+  color: inherit;
+  border: 1px solid #E9F0FF;
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+}
+
 .googleIcon {
   margin-right: 8px;
 }

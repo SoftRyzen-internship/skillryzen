@@ -96,7 +96,6 @@ const testingInfoSlice = createSlice({
         state.results.percentageOfCorrectAnswers =
           payload.percentageOfCorrectAnswers;
         state.testId = '';
-        state.number = null;
         state.isLoading = false;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {

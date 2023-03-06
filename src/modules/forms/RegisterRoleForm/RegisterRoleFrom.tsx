@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
@@ -6,9 +7,28 @@ import { AuthButton } from 'ui-kit/index';
 import { setRole, setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import s from './RegisterRoleForm.module.scss';
 
+const objectTheme = {
+  dark: {
+    roleBtn: s.roleBtnDark,
+    codeInput: s.codeInputDark,
+    companyName: s.companyNameDark,
+  },
+  light: {
+    roleBtn: s.roleBtnLight,
+    codeInput: s.codeInputLight,
+    companyName: s.companyNameLight,
+  },
+};
+
 export const RegisterRoleForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   const role = useAppSelector((state) => state.auth.role);
   const dispatch = useAppDispatch();
 
@@ -34,10 +54,11 @@ export const RegisterRoleForm = () => {
 
     setIsValid(false);
   };
+
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <fieldset>
-        <legend className={s.formTitle}>Please choose your role</legend>
+        <legend className={s.formTitle}>{t('auth.roleLabel')}</legend>
         <ul className={s.roleList}>
           <li>
             <input
@@ -49,9 +70,12 @@ export const RegisterRoleForm = () => {
               checked={role === 'candidate'}
               onChange={handleRoleChange}
             />
-            <label htmlFor='candidate' className={s.roleBtn}>
+            <label
+              htmlFor='candidate'
+              className={`${s.roleBtn} ${objectTheme[theme].roleBtn}`}
+            >
               <ICONS.USER className={s.icon} />
-              Candidate
+              {t('auth.candidate')}
             </label>
           </li>
           <li>
@@ -64,9 +88,12 @@ export const RegisterRoleForm = () => {
               checked={role === 'company'}
               onChange={handleRoleChange}
             />
-            <label htmlFor='company' className={s.roleBtn}>
+            <label
+              htmlFor='company'
+              className={`${s.roleBtn} ${objectTheme[theme].roleBtn}`}
+            >
               <ICONS.USERS className={s.icon} />
-              Company
+              {t('auth.company')}
             </label>
           </li>
         </ul>
@@ -75,12 +102,12 @@ export const RegisterRoleForm = () => {
         <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
           <input
             onChange={handleChange}
-            className={s.codeInput}
+            className={objectTheme[theme].codeInput}
             name='code'
             value={code}
             placeholder='&#32;'
           />
-          <span className={s.inputTitle}>Введіть код компанії</span>
+          <span className={s.inputTitle}>{t('auth.codePlaceholder')}</span>
         </label>
       )}
       <ul
@@ -89,9 +116,9 @@ export const RegisterRoleForm = () => {
       >
         {isValid && role === 'candidate' && (
           <li>
-            <p className={s.buttonsTitle}>Your company is</p>
+            <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
             <AuthButton
-              className={s.company}
+              className={objectTheme[theme].companyName}
               size='large'
               text='GoIT'
               type='button'
@@ -102,7 +129,7 @@ export const RegisterRoleForm = () => {
         <li>
           <AuthButton
             size='large'
-            text='Create account'
+            text={t('auth.accountBtn')}
             type='submit'
             color='blue'
             disabled={!isValid && role === 'candidate'}
