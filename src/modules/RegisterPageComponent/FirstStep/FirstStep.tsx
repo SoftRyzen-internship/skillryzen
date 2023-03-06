@@ -1,18 +1,24 @@
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
+import { ROUTES } from 'routes/routes.const';
 import { RegisterRoleForm } from 'modules/Forms/RegisterRoleForm/RegisterRoleFrom';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
-export const FirstStep = () => (
-  <div className={s.formWrapper}>
-    <h2 className={s.formTitle}>Choose your role</h2>
-    <p className={s.logIn}>
-      Already have an account?{' '}
-      <NavLink to='/login' className={s.link}>
-        Log in
-      </NavLink>
-    </p>
-    <RegisterRoleForm />
-  </div>
-);
+export const FirstStep = () => {
+  const { t } = useTranslation();
+
+  return (
+    <div className={s.formWrapper}>
+      <h2 className={s.formTitle}>{t('auth.roleTitle')}</h2>
+      <p className={s.logIn}>
+        {t('auth.loginLabel')}{' '}
+        <NavLink to={ROUTES.LOGIN} className={s.link}>
+          {t('auth.loginLink')}
+        </NavLink>
+      </p>
+      <RegisterRoleForm />
+    </div>
+  );
+};

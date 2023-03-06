@@ -1,13 +1,33 @@
+import { useTranslation } from 'react-i18next';
+
 import { ICONS } from 'ui-kit/icons';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+
 import s from './Steps.module.scss';
+
+const objectTheme = {
+  dark: {
+    halfBlueLine: s.halfBlueLineDark,
+    inactiveCircle: s.inactiveCircleDark,
+    inactiveLine: s.inactiveLineDark,
+  },
+  light: {
+    halfBlueLine: s.halfBlueLineLight,
+    inactiveCircle: s.inactiveCircleLight,
+    inactiveLine: s.inactiveLineLight,
+  },
+};
 
 interface ICurrentStep {
   currentStep: number;
 }
 
 export const Steps = ({ currentStep }: ICurrentStep) => {
-  const steps = [1, 2, 3, 4];
+  const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+  const steps = [1, 2, 3];
 
   // Classname контейнера для кружечків (синя обводка активного степу)
   const setClassnameCircleContainer = (idx: number) => {
@@ -27,7 +47,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
       return s.prevCircle;
     }
 
-    return s.inactiveCircle;
+    return `${s.inactiveCircle} ${objectTheme[theme].inactiveCircle}`;
   };
 
   // Classname для ліній
@@ -39,9 +59,9 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
 
     // після активного степу
     if (idx === currentStep - 1) {
-      return s.halfBlueLine;
+      return objectTheme[theme].halfBlueLine;
     }
-    return s.inactiveLine;
+    return `${s.inactiveLine} ${objectTheme[theme].inactiveLine}`;
   };
 
   return (
@@ -59,13 +79,15 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
                   )}
                 </div>
               </div>
-              {step < 4 && (
+              {step < 3 && (
                 <div className={s.lineWrapper}>
                   <div className={setClassnameLine(idx)}></div>
                 </div>
               )}
             </div>
-            <p className={s.text}>Step {`${step}`}</p>
+            <p className={s.text}>
+              {t('auth.step')} {`${step}`}
+            </p>
           </li>
         ))}
       </ul>

@@ -1,11 +1,15 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
 import { AuthButton, Checkbox } from 'ui-kit';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
+
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
 
 import { validationSchema } from './validationSchema';
 
@@ -17,7 +21,23 @@ interface MyFormValues {
   checkbox: boolean;
 }
 
+const objectTheme = {
+  dark: {
+    boxOr: s.boxOrDark,
+    googleButton: s.googleButtonDark,
+    input: s.inputDark,
+  },
+  light: {
+    boxOr: s.boxOrLight,
+    googleButton: s.googleButtonLight,
+    input: s.inputLight,
+  },
+};
+
 export const RegisterAuthForm = () => {
+  const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -57,10 +77,10 @@ export const RegisterAuthForm = () => {
         type='button'
         needBackground='noBackgroundGray'
         icon={<ICONS.GOOGLE className={s.googleIcon} />}
-        className={s.googleButton}
+        className={objectTheme[theme].googleButton}
         disabled
       />
-      <div className={s.boxOr}>or</div>
+      <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
@@ -71,7 +91,7 @@ export const RegisterAuthForm = () => {
           <p className={s.errorMsg}>{errors.email}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='email'
           type='email'
           id='email'
@@ -79,10 +99,10 @@ export const RegisterAuthForm = () => {
           onBlur={handleBlur}
           value={email}
           autoComplete='email'
-          placeholder='Email address'
+          placeholder={t('auth.emailPlaceholder')}
         />
         <label className={s.floatingLabel} htmlFor='email'>
-          Email address
+          {t('auth.emailPlaceholder')}
         </label>
       </div>
       <div
@@ -95,7 +115,7 @@ export const RegisterAuthForm = () => {
           <p className={s.errorMsg}>{errors.password}</p>
         )}
         <input
-          className={s.input}
+          className={objectTheme[theme].input}
           name='password'
           type={showPassword ? 'text' : 'password'}
           id='password'
@@ -103,10 +123,10 @@ export const RegisterAuthForm = () => {
           onBlur={handleBlur}
           value={password}
           autoComplete='off'
-          placeholder='Password'
+          placeholder={t('auth.passwordPlaceholder')}
         />
         <label className={s.floatingLabel} htmlFor='password'>
-          Password
+          {t('auth.passwordPlaceholder')}
         </label>
         <button
           type='button'
@@ -124,14 +144,13 @@ export const RegisterAuthForm = () => {
         id='checkbox'
         name='checkbox'
         type='custom'
-        label='By signing up, I agree to Lorem`s Terms of Service & Privacy
-              Policy.'
+        label={t('auth.agreementLabel')}
         onChange={handleChange}
         labelClassName={s.checkboxLabel}
       />
       <AuthButton
         size='large'
-        text='Continue'
+        text={t('auth.continueBtn')}
         type='submit'
         disabled={!isValid || !dirty}
       />
