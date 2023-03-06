@@ -1,1 +1,1 @@
-export { default } from './StudentProfilePage';
+export { default } from './StudentProfileLazyPage';
