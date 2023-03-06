@@ -30,12 +30,29 @@
   color: var(--light-primary-txt-cl);
 }
 
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item + .item {
+  margin-top: 20px;
+}
+
 .link {
   display: flex;
   align-items: center;
-
-  &:last-child {
-    pointer-events: none;
+  &:hover {
+    & .icon--dark svg path {
+      display: block;
+      stroke: var(--accent-cl);
+      transition: var(--transition);
+    }
+    & .icon--light svg path {
+      display: block;
+      stroke: var(--secondary-txt-cl);
+      transition: var(--transition);
+    }
   }
 }
 
@@ -60,7 +77,6 @@
 .icon--dark svg path {
   display: block;
   stroke: var(--secondary-txt-cl);
-
   transition: var(--transition);
 }
 .icon--light svg path {

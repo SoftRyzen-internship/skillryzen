@@ -29,7 +29,7 @@ export const MyProfile = ({ userInfo, theme }: MyProfileProps) => {
         <div className={s.user}>
           <p className={`${s[`name--${theme}`]}`}>{name}</p>
           <p className={`${s[`role--${theme}`]}`}>{role}</p>
-          <SocialList socialList={social} theme={theme} />
+          <SocialList social={social} theme={theme} />
         </div>
         <ul className={s.list}>
           <li className={s.item}>

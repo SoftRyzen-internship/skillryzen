@@ -1,7 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
 import { IMAGES } from 'ui-kit/images';
-import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
 
@@ -24,25 +23,49 @@ export const StudentProfilePageComponent = () => {
     phone: '+380501234567',
     location: 'Ukraine',
     role: t('userProfile.userRole.student'),
-    social: [
-      {
-        url: 'https://web.telegram.org/',
-        icon: <ICONS.TELEGRAM />,
-      },
-      {
-        url: 'https://www.linkedin.com/',
-        icon: <ICONS.LINKEDIN />,
-      },
-    ],
+    avatarUrl: IMAGES.JAVA_SCRIPT,
+    companyName: 'SoftRyzen',
+    groupName: 'JS48',
+    testsAmount: 3,
+    social: {
+      telegram: 'https://web.telegram.org/',
+      linkedin: 'https://www.linkedin.com/',
+    },
     achievements: {
       score: '98%',
       coins: 25,
       time: '01:15:36',
     },
-    avatarUrl: IMAGES.JAVA_SCRIPT,
-    companyName: 'SoftRyzen',
-    groupName: 'JS48',
-    testsAmount: 3,
+    tests: [
+      {
+        title: 'FullStuck_Final_Test',
+        text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+        fields: ['HTML', 'CSS', 'React', 'Javascript'],
+        number: 50,
+        time: 3,
+      },
+      {
+        title: 'FullStuck_Final_Test',
+        text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+        fields: ['HTML', 'CSS', 'React', 'Javascript'],
+        number: 50,
+        time: 3,
+      },
+      {
+        title: 'FullStuck_Final_Test',
+        text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+        fields: ['HTML', 'CSS', 'React', 'Javascript'],
+        number: 50,
+        time: 3,
+      },
+      {
+        title: 'FullStuck_Final_Test',
+        text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+        fields: ['HTML', 'CSS', 'React', 'Javascript'],
+        number: 50,
+        time: 3,
+      },
+    ],
   };
 
   return (

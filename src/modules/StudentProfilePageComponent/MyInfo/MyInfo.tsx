@@ -21,7 +21,7 @@ export const MyInfo = ({ userInfo, theme }: MyInfoProps) => {
       <p className={`${s[`title--${theme}`]}`}>{t('userProfile.infoTitle')}</p>
       <ul className={s.list}>
         <li className={s.item}>
-          <a className={s.link} href={'/'}>
+          <a className={s.link} href={`mailto:${email}`}>
             <div className={`${s[`icon--${theme}`]}`}>
               <ICONS.AT_EMAIL />
             </div>
@@ -30,7 +30,7 @@ export const MyInfo = ({ userInfo, theme }: MyInfoProps) => {
         </li>
 
         <li className={s.item}>
-          <a className={s.link} href={'/'}>
+          <a className={s.link} href={`tel:${phone}`}>
             <div className={`${s[`icon--${theme}`]}`}>
               <ICONS.MESSAGE_CIRCLE />
             </div>
@@ -41,7 +41,12 @@ export const MyInfo = ({ userInfo, theme }: MyInfoProps) => {
         </li>
 
         <li className={s.item}>
-          <a className={s.link} href={'/'}>
+          <a
+            className={s.link}
+            href={`https://www.google.com.ua/maps/place/${location}`}
+            target='_blank'
+            rel='noreferrer noopener'
+          >
             <div className={`${s[`icon--${theme}`]}`}>
               <ICONS.HOME />
             </div>

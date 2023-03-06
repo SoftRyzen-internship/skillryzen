@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   flex-grow: 1;
   padding: 20px;
   border-radius: 4px;
@@ -11,4 +12,124 @@
 .container--light {
   composes: container;
   background-color: var(--light-components-cl);
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+.title--dark {
+  composes: title;
+  color: var(--primary-txt-cl);
+}
+.title--light {
+  composes: title;
+  color: var(--light-primary-txt-cl);
+}
+
+.noDataText {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  text-align: center;
+  transition: var(--transition);
+}
+.noDataText--dark {
+  composes: noDataText;
+  color: var(--primary-txt-cl);
+}
+.noDataText--light {
+  composes: noDataText;
+  color: var(--light-primary-txt-cl);
+}
+
+.slider {
+  width: 596px;
+  height: 216px;
+  overflow: hidden;
+}
+.cardList {
+  display: flex;
+  column-gap: 28px;
+  transition: var(--transition);
+}
+
+.card {
+  width: 284px;
+}
+.card--dark {
+  composes: card;
+  background-color: var(--secondary-cl);
+}
+.card--light {
+  composes: card;
+  background-color: var(--light-cards-cl);
+}
+
+.buttonList {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.buttonItem + .buttonItem {
+  margin-left: 16px;
+}
+
+.button {
+  transition: var(--transition);
+}
+.button--dark {
+  composes: button;
+  background-color: var(--secondary-cl);
+  & svg path {
+    stroke: var(--primary-txt-cl);
+  }
+  &:hover {
+    &.button--dark {
+      background-color: var(--accent-cl);
+    }
+  }
+  &[disabled] {
+    cursor: default;
+    background-color: var(--disabled-cl);
+  }
+  &[disabled]:hover {
+    cursor: default;
+    background-color: var(--disabled-cl);
+  }
+}
+.button--light {
+  composes: button;
+  background-color: var(--light-primary-cl);
+  & svg path {
+    stroke: var(--accent-cl);
+  }
+  &:hover {
+    &.button--light {
+      background-color: var(--accent-cl);
+      & svg path {
+        stroke: var(--primary-txt-cl);
+      }
+    }
+  }
+  &[disabled] {
+    cursor: default;
+    background-color: var(--disabled-cl);
+    & svg path {
+      stroke: var(--primary-txt-cl);
+    }
+  }
+  &[disabled]:hover {
+    cursor: default;
+    background-color: var(--disabled-cl);
+    & svg path {
+      stroke: var(--primary-txt-cl);
+    }
+  }
 }

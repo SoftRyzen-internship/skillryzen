@@ -3,7 +3,7 @@ export { AddButton } from './components/Buttons/AddButton';
 export { AuthButton } from './components/Buttons/AuthButton';
 export { CopyButton } from './components/Buttons/CopyButton';
 export { HeaderButton } from './components/Buttons/HeaderButton';
-export { MenuButton } from './components/Buttons/MenuButton';
+export { IconButton } from './components/Buttons/IconButton';
 export { Card } from './components/Card/Card';
 export { Checkbox } from './components/Checkbox';
 export { Input } from './components/Input';

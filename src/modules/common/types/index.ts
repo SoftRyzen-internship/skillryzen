@@ -17,9 +17,21 @@ export interface IThemeContext {
   setTheme: (action: Theme | ((prevState: Theme) => Theme)) => void;
 }
 
-export interface SocialItem {
-  url: string;
-  icon: JSX.Element;
+export interface UserSocial {
+  telegram: string;
+  linkedin: string;
+}
+export interface UserAchievements {
+  score: string;
+  coins: number;
+  time: string;
+}
+export interface UserTests {
+  title: string;
+  text: string;
+  fields?: string[];
+  number: number;
+  time?: number;
 }
 export interface UserInfo {
   name: string;
@@ -27,14 +39,11 @@ export interface UserInfo {
   phone: string;
   location: string;
   role: string;
-  social: SocialItem[];
-  achievements: {
-    score: string;
-    coins: number;
-    time: string;
-  };
+  social: UserSocial;
+  achievements: UserAchievements;
   avatarUrl: string;
   companyName: string;
   groupName: string;
   testsAmount: number;
+  tests: UserTests[];
 }

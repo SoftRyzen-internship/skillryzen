@@ -77,6 +77,7 @@
     "testsLabel": "Виконані тести",
     "infoTitle": "Інформація",
     "testsTitle": "Тести",
+    "noDataText": "Тестів поки немає",
     "achievements": {
       "scoreTitle": "Ваш рахунок",
       "coinsTitle": "Ваші монети",
