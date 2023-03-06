@@ -1,0 +1,72 @@
+.fadeIn {
+  animation: fade-in 0.3s ease-in-out;
+}
+
+.fadeOut {
+  animation: fade-out 0.3s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fade-out {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 14, 41, 0.7);
+  z-index: 20;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 536px;
+  min-height: 535px;
+
+  background-color: var(--components-cl);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}

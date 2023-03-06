@@ -48,6 +48,12 @@ const testingInfoSlice = createSlice({
     setTime(state, action: PayloadAction<number>) {
       state.results.time = action.payload;
     },
+    removeResults(state) {
+      state.number = null;
+      state.results.testId = '';
+      state.results.percentageOfCorrectAnswers = 0;
+      state.results.time = 0;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -102,5 +108,5 @@ const testingInfoSlice = createSlice({
   },
 });
 
-export const { setTime } = testingInfoSlice.actions;
+export const { setTime, removeResults } = testingInfoSlice.actions;
 export const testingInfoReducer = testingInfoSlice.reducer;

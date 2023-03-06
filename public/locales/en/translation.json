@@ -117,5 +117,11 @@
       "Issuing certificates",
       "Receiving feedback from participants"
     ]
+  },
+  "modal": {
+    "title1": "Congratulations,",
+    "title2": "you have successfully registered in the system!",
+    "sumtitle": "We recommend going to the profile and ",
+    "link": "configure personal data"
   }
 }
