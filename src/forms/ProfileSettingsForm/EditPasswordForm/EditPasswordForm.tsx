@@ -4,37 +4,61 @@ import { ICONS } from 'ui-kit/icons';
 
 import s from './EditPasswordForm.module.scss';
 import { validationSchema } from './validationSchema';
+import { AuthButton } from 'ui-kit';
 
-interface MyFormValues {
+interface FormValues {
   email: string;
-  password: string;
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+  urlAvatar: string;
 }
-
-export const EditPasswordForm = () => {
+interface Props {
+  onCancel: () => void;
+  handleChangeAvatar: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  userAvatarUrl: string;
+}
+export const EditPasswordForm: React.FC<Props> = ({
+  onCancel,
+  handleChangeAvatar,
+  userAvatarUrl,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [showEmail, setShowEmail] = useState(true);
+  // const { userAvatarUrl, handleChangeAvatar, onCancel } = props;
+  const [urlAvatarOld, seturlAvatarOld] = useState(userAvatarUrl);
 
-  const formik = useFormik<MyFormValues>({
+  const formik = useFormik<FormValues>({
     initialValues: {
-      email: '',
-      password: '',
+      email: 'student511@blabla.com',
+      currentPassword: 'secret123',
+      newPassword: '',
+      confirmPassword: '',
+      urlAvatar: userAvatarUrl,
     },
 
     validationSchema,
 
-    onSubmit: (_values) => {
-      //   console.log('first');
+    onSubmit: (values: FormValues) => {
+      console.log(values);
     },
   });
-
   const {
-    values: { email, password },
+    values: { email, currentPassword, newPassword, confirmPassword, urlAvatar },
     errors,
     touched,
+    isValid,
+    dirty,
     handleBlur,
     handleChange,
     handleSubmit,
+    resetForm,
   } = formik;
-
+  const handleCancel = () => {
+    resetForm();
+    setShowEmail(true);
+    onCancel();
+  };
   return (
     <div className={s.formWrapper}>
       <form onSubmit={handleSubmit} className={s.form}>
@@ -48,7 +72,7 @@ export const EditPasswordForm = () => {
             <p className={s.errorMsg}>{errors.email}</p>
           )}
           <input
-            className={s.input}
+            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
             name='email'
             type='email'
             id='email'
@@ -57,33 +81,44 @@ export const EditPasswordForm = () => {
             value={email}
             autoComplete='email'
             placeholder='Email address'
+            disabled={showEmail}
           />
           <label className={s.floatingLabel} htmlFor='email'>
             Email address
           </label>
+          <button
+            type='button'
+            onClick={() => setShowEmail(!showEmail)}
+            className={s.showEmailButton}
+          >
+            <ICONS.EDIT className={s.iconEdit} />
+          </button>
         </div>
         <div
           className={`${s.floatingGroup} ${
-            touched.password &&
-            (errors.password ? s.floatingLabelError : s.floatingLabelValid)
+            touched.currentPassword &&
+            (errors.currentPassword
+              ? s.floatingLabelError
+              : s.floatingLabelValid)
           }`}
         >
-          {touched.password && errors.password && (
-            <p className={s.errorMsg}>{errors.password}</p>
+          {touched.currentPassword && errors.currentPassword && (
+            <p className={s.errorMsg}>{errors.currentPassword}</p>
           )}
           <input
-            className={s.input}
-            name='password'
+            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            name='currentPassword'
             type={showPassword ? 'text' : 'password'}
-            id='password'
+            id='currentPassword'
             onChange={handleChange}
             onBlur={handleBlur}
-            value={password}
+            value={currentPassword}
             autoComplete='off'
-            placeholder='Password'
+            placeholder='Current password'
+            disabled={showEmail}
           />
-          <label className={s.floatingLabel} htmlFor='password'>
-            Password
+          <label className={s.floatingLabel} htmlFor='currentPassword'>
+            Current password
           </label>
           <button
             type='button'
@@ -96,6 +131,104 @@ export const EditPasswordForm = () => {
               <ICONS.EYE_OPEN className={s.iconEye} />
             )}
           </button>
+        </div>
+        <div
+          className={`${s.floatingGroup} ${
+            touched.newPassword &&
+            (errors.newPassword ? s.floatingLabelError : s.floatingLabelValid)
+          }`}
+        >
+          {touched.newPassword && errors.newPassword && (
+            <p className={s.errorMsg}>{errors.newPassword}</p>
+          )}
+          <input
+            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            name='newPassword'
+            type={showPassword ? 'text' : 'password'}
+            id='newPassword'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={newPassword}
+            autoComplete='off'
+            placeholder='New password'
+            disabled={showEmail}
+          />
+          <label className={s.floatingLabel} htmlFor='newPassword'>
+            New password
+          </label>
+          <button
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className={s.showPasswordButton}
+          >
+            {showPassword ? (
+              <ICONS.EYE_CLOSED className={s.iconEye} />
+            ) : (
+              <ICONS.EYE_OPEN className={s.iconEye} />
+            )}
+          </button>
+        </div>
+        <div
+          className={`${s.floatingGroup} ${
+            touched.confirmPassword &&
+            (errors.confirmPassword
+              ? s.floatingLabelError
+              : s.floatingLabelValid)
+          }`}
+        >
+          {touched.confirmPassword && errors.confirmPassword && (
+            <p className={s.errorMsg}>{errors.confirmPassword}</p>
+          )}
+          <input
+            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            name='confirmPassword'
+            type={showPassword ? 'text' : 'password'}
+            id='confirmPassword'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={confirmPassword}
+            autoComplete='off'
+            placeholder='Confirm password'
+            disabled={showEmail}
+          />
+          <label className={s.floatingLabel} htmlFor='confirmPassword'>
+            Confirm password
+          </label>
+          <button
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className={s.showPasswordButton}
+          >
+            {showPassword ? (
+              <ICONS.EYE_CLOSED className={s.iconEye} />
+            ) : (
+              <ICONS.EYE_OPEN className={s.iconEye} />
+            )}
+          </button>
+        </div>
+        <input
+          id='avatar-input'
+          type='file'
+          accept='image/*'
+          onChange={handleChangeAvatar}
+          style={{ display: 'none' }}
+        />
+        <div className={s.buttonGroup}>
+          <AuthButton
+            size='large'
+            text='Save'
+            type='submit'
+            disabled={!isValid || !dirty}
+            className={s.btn}
+          />
+          <AuthButton
+            size='large'
+            text='Cancel'
+            type='button'
+            onClick={handleCancel}
+            className={`${s.btn} ${!showEmail ? s.btnCancel : ''}`}
+            disabled={showEmail && urlAvatarOld === userAvatarUrl}
+          />
         </div>
       </form>
     </div>
