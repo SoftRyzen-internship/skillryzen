@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { AuthButton } from 'ui-kit';
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
@@ -15,20 +17,21 @@ const objectTheme = {
   },
 };
 
-interface UnderDevelopmentProps {
-  title: string;
-}
-
-export const UnderDevelopment = ({ title }: UnderDevelopmentProps) => {
+export const UnderDevelopment = () => {
   const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   return (
     <section className={s.section}>
       <div className={objectTheme[theme].wrapper}>
-        <h2 className={objectTheme[theme].title}>{title}</h2>
+        <h2 className={objectTheme[theme].title}>
+          {t('underDevelopment.title')}
+        </h2>
         <AuthButton
           type='submit'
-          text='Побажання та рекомендації'
+          text={t('underDevelopment.button')}
           size='large'
+          className={s.button}
         />
       </div>
     </section>

@@ -9,7 +9,6 @@
   background-repeat: no-repeat;
   background-position: center 80px;
   background-size: 388px 208px;
-  width: 424px;
   margin: 0 auto;
 }
 
@@ -28,4 +27,8 @@
 .titleLight {
   composes: titleDark;
   color: var(--primary-cl);
+}
+
+.button {
+  width: 424px;
 }

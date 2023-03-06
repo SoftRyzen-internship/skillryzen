@@ -8,7 +8,7 @@ const UnderDevelopmentPage = () => {
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <LazyUnderDevelopment title='Сторінка в розробці' />
+        <LazyUnderDevelopment />
       </Suspense>
     </>
   );
