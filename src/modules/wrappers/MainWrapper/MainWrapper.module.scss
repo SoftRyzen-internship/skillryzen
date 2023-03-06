@@ -1,5 +1,11 @@
-.container {
+.wrapperDark {
+  background-color: var(--primary-cl);
   display: flex;
+}
+
+.wrapperLight {
+  composes: wrapperDark;
+  background-color: var(--light-cards-cl);
 }
 
 .content {
