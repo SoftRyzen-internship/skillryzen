@@ -19,13 +19,6 @@ export const MyProfile = ({ userInfo, theme }: MyProfileProps) => {
       <p className={`${s[`title--${theme}`]}`}>{t('userProfile.cardTitle')}</p>
       <div className={s.flexWrapper}>
         <UserAvatar userAvatarUrl={avatarUrl} />
-        {/* <img
-          className={s.avatar}
-          src={avatarUrl}
-          width={200}
-          height={200}
-          alt='avatar'
-        /> */}
         <div className={s.user}>
           <p className={`${s[`name--${theme}`]}`}>{name}</p>
           <p className={`${s[`role--${theme}`]}`}>{role}</p>
