@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next';
+
 import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
@@ -24,7 +26,8 @@ interface ICurrentStep {
 
 export const Steps = ({ currentStep }: ICurrentStep) => {
   const { theme }: IThemeContext = useThemeContext();
-  const steps = [1, 2, 3, 4];
+  const { t } = useTranslation();
+  const steps = [1, 2, 3];
 
   // Classname контейнера для кружечків (синя обводка активного степу)
   const setClassnameCircleContainer = (idx: number) => {
@@ -76,13 +79,15 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
                   )}
                 </div>
               </div>
-              {step < 4 && (
+              {step < 3 && (
                 <div className={s.lineWrapper}>
                   <div className={setClassnameLine(idx)}></div>
                 </div>
               )}
             </div>
-            <p className={s.text}>Step {`${step}`}</p>
+            <p className={s.text}>
+              {t('auth.step')} {`${step}`}
+            </p>
           </li>
         ))}
       </ul>

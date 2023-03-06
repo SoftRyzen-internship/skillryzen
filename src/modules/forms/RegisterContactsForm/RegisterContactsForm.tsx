@@ -1,5 +1,6 @@
 import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
@@ -36,6 +37,8 @@ const objectTheme = {
 
 export const RegisterContactsForm = () => {
   const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const role = useAppSelector((state) => state.auth.role);
 
@@ -44,6 +47,7 @@ export const RegisterContactsForm = () => {
       name: '',
       surname: '',
       phone: '',
+      companyName: '',
     },
 
     validationSchema,
@@ -86,10 +90,10 @@ export const RegisterContactsForm = () => {
               onBlur={handleBlur}
               value={companyName}
               autoComplete='company'
-              placeholder='Company name'
+              placeholder={t('auth.companyNamePlaceholder')}
             />
             <label className={s.floatingLabel} htmlFor='companyName'>
-              Company name
+              {t('auth.companyNamePlaceholder')}
             </label>
           </li>
         )}
@@ -111,10 +115,10 @@ export const RegisterContactsForm = () => {
             onBlur={handleBlur}
             value={name}
             autoComplete='name'
-            placeholder='Name'
+            placeholder={t('auth.namePlaceholder')}
           />
           <label className={s.floatingLabel} htmlFor='name'>
-            Name
+            {t('auth.namePlaceholder')}
           </label>
         </li>
         <li
@@ -135,10 +139,10 @@ export const RegisterContactsForm = () => {
             onBlur={handleBlur}
             value={surname}
             autoComplete='surname'
-            placeholder='Surname'
+            placeholder={t('auth.surnamePlaceholder')}
           />
           <label className={s.floatingLabel} htmlFor='surname'>
-            Surname
+            {t('auth.surnamePlaceholder')}
           </label>
         </li>
         <li
@@ -160,10 +164,10 @@ export const RegisterContactsForm = () => {
             onBlur={handleBlur}
             value={phone}
             autoComplete='off'
-            placeholder='Phone'
+            placeholder={t('auth.phonePlaceholder')}
           />
           <label className={s.floatingLabelPhone} htmlFor='phone'>
-            Phone
+            {t('auth.phonePlaceholder')}
           </label>
           <button type='button' className={objectTheme[theme].phoneButton}>
             <ICONS.UKRAINE />
@@ -174,7 +178,7 @@ export const RegisterContactsForm = () => {
         className={s.btnSubmit}
         onClick={handleSubmit}
         size='large'
-        text='Continue'
+        text={t('auth.continueBtn')}
         type='submit'
         disabled={!isValid || !dirty}
       />

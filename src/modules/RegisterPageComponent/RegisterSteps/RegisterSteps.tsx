@@ -4,7 +4,6 @@ import {
   FirstStep,
   SecondStep,
   ThirdStep,
-  FourthStep,
 } from 'modules/RegisterPageComponent';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
@@ -19,7 +18,6 @@ export const RegisterSteps = () => {
       {step === 1 && <FirstStep />}
       {step === 2 && <SecondStep />}
       {step === 3 && <ThirdStep />}
-      {step === 4 && <FourthStep />}
     </section>
   );
 };

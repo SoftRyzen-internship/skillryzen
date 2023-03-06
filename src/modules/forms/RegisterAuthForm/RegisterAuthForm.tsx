@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
@@ -35,6 +36,8 @@ const objectTheme = {
 
 export const RegisterAuthForm = () => {
   const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
@@ -77,7 +80,7 @@ export const RegisterAuthForm = () => {
         className={objectTheme[theme].googleButton}
         disabled
       />
-      <div className={objectTheme[theme].boxOr}>or</div>
+      <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
@@ -96,10 +99,10 @@ export const RegisterAuthForm = () => {
           onBlur={handleBlur}
           value={email}
           autoComplete='email'
-          placeholder='Email address'
+          placeholder={t('auth.emailPlaceholder')}
         />
         <label className={s.floatingLabel} htmlFor='email'>
-          Email address
+          {t('auth.emailPlaceholder')}
         </label>
       </div>
       <div
@@ -120,10 +123,10 @@ export const RegisterAuthForm = () => {
           onBlur={handleBlur}
           value={password}
           autoComplete='off'
-          placeholder='Password'
+          placeholder={t('auth.passwordPlaceholder')}
         />
         <label className={s.floatingLabel} htmlFor='password'>
-          Password
+          {t('auth.passwordPlaceholder')}
         </label>
         <button
           type='button'
@@ -141,14 +144,13 @@ export const RegisterAuthForm = () => {
         id='checkbox'
         name='checkbox'
         type='custom'
-        label='By signing up, I agree to Lorem`s Terms of Service & Privacy
-              Policy.'
+        label={t('auth.agreementLabel')}
         onChange={handleChange}
         labelClassName={s.checkboxLabel}
       />
       <AuthButton
         size='large'
-        text='Continue'
+        text={t('auth.continueBtn')}
         type='submit'
         disabled={!isValid || !dirty}
       />

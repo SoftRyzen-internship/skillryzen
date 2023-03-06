@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
@@ -26,6 +27,8 @@ const objectTheme = {
 
 export const RegisterRoleForm = () => {
   const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
+
   const role = useAppSelector((state) => state.auth.role);
   const dispatch = useAppDispatch();
 
@@ -55,7 +58,7 @@ export const RegisterRoleForm = () => {
   return (
     <form className={s.form} onSubmit={handleSubmit}>
       <fieldset>
-        <legend className={s.formTitle}>Please choose your role</legend>
+        <legend className={s.formTitle}>{t('auth.roleLabel')}</legend>
         <ul className={s.roleList}>
           <li>
             <input
@@ -72,7 +75,7 @@ export const RegisterRoleForm = () => {
               className={`${s.roleBtn} ${objectTheme[theme].roleBtn}`}
             >
               <ICONS.USER className={s.icon} />
-              Candidate
+              {t('auth.candidate')}
             </label>
           </li>
           <li>
@@ -90,7 +93,7 @@ export const RegisterRoleForm = () => {
               className={`${s.roleBtn} ${objectTheme[theme].roleBtn}`}
             >
               <ICONS.USERS className={s.icon} />
-              Company
+              {t('auth.company')}
             </label>
           </li>
         </ul>
@@ -104,7 +107,7 @@ export const RegisterRoleForm = () => {
             value={code}
             placeholder='&#32;'
           />
-          <span className={s.inputTitle}>Введіть код компанії</span>
+          <span className={s.inputTitle}>{t('auth.codePlaceholder')}</span>
         </label>
       )}
       <ul
@@ -113,7 +116,7 @@ export const RegisterRoleForm = () => {
       >
         {isValid && role === 'candidate' && (
           <li>
-            <p className={s.buttonsTitle}>Your company is</p>
+            <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
             <AuthButton
               className={objectTheme[theme].companyName}
               size='large'
@@ -126,7 +129,7 @@ export const RegisterRoleForm = () => {
         <li>
           <AuthButton
             size='large'
-            text='Create account'
+            text={t('auth.accountBtn')}
             type='submit'
             color='blue'
             disabled={!isValid && role === 'candidate'}
