@@ -8,8 +8,9 @@
   padding: 86px 12px 24px;
   transition: box-shadow var(--transition);
 
-  &:hover, &:focus {
-    box-shadow: var(--hover-shadow);
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow-blue);
   }
 }
 
@@ -23,8 +24,9 @@
   padding: 18px 20px 18px 25px;
   transition: box-shadow var(--transition);
 
-  &:hover, &:focus  {
-    box-shadow: var(--hover-shadow);
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow-blue);
   }
 }
 

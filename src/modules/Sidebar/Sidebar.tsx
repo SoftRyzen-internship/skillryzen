@@ -62,7 +62,7 @@ export const Sidebar = () => {
       title: t('sidebar.settings'),
       icon: ICONS.SETTINGS,
       iconAlt: 'Settings',
-      path: ROUTES.SETTINGS,
+      path: ROUTES.PROFILE_SETTINGS,
     },
     {
       title: t('sidebar.feedback'),

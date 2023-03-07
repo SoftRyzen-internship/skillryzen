@@ -12,14 +12,24 @@ export const SocialList = ({ social, theme = 'dark' }: SocialListProps) => {
     <ul className={s.list}>
       {social.telegram && (
         <li className={s.item} key={social.telegram}>
-          <a className={s.link} href={social.telegram}>
+          <a
+            className={s.link}
+            href={social.telegram}
+            target='_blank'
+            rel='noreferrer noopener'
+          >
             <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />
           </a>
         </li>
       )}
       {social.linkedin && (
         <li className={s.item} key={social.linkedin}>
-          <a className={s.link} href={social.linkedin}>
+          <a
+            className={s.link}
+            href={social.linkedin}
+            target='_blank'
+            rel='noreferrer noopener'
+          >
             <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />
           </a>
         </li>
