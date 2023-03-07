@@ -5,7 +5,7 @@ import { HeaderButtonLanguage } from 'modules/Header/MainHeader/HeaderButtonList
 import { HeaderButtonTheme } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonTheme';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import s from './AuthWrapper.module.scss';
 

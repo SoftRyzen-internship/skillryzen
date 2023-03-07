@@ -33,8 +33,9 @@
   height: 100%;
   transition: box-shadow var(--transition);
 
-  &:hover, &:focus {
-    box-shadow: var(--hover-shadow);
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow-blue);
   }
 
   &--light {

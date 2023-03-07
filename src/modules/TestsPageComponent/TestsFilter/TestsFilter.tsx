@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { IconButton, Tabs } from 'ui-kit/index';
 

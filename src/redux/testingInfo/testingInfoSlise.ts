@@ -1,4 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
 import { answerTest, finishTest, getRandomTest } from './testingInfoOperations';
 
 interface Results {
@@ -105,5 +108,11 @@ const testingInfoSlice = createSlice({
   },
 });
 
+const persistConfig = {
+  key: 'testingInfo',
+  storage,
+  whitelist: ['testId', 'questionId', 'number', 'title', 'possibleAnswers', 'questionsTotalCount'],
+};
+
 export const { setTime, removeResults } = testingInfoSlice.actions;
-export const testingInfoReducer = testingInfoSlice.reducer;
+export const testingInfoReducer = persistReducer(persistConfig, testingInfoSlice.reducer);

@@ -1,4 +1,4 @@
-import { CardsList } from 'modules/common/CardsList/CardsList';
+import { CardsList } from 'modules/common';
 
 interface TestsListProps {
   size?: 'large' | 'small';

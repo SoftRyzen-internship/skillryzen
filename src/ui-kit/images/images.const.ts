@@ -8,7 +8,7 @@ import ImgReact from 'assets/images/react.png';
 import ImgCompany from 'assets/images/registration-company.png';
 import ImgUser from 'assets/images/registration-monitor-user.png';
 
-import { Img } from 'modules/common/types';
+import { Img } from 'constans/types';
 
 export const IMAGES: Img = {
   DONE: ImgDone,

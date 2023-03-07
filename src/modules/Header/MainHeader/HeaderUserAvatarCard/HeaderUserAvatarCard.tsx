@@ -8,7 +8,7 @@ import { IMAGES } from 'ui-kit/images';
 import { UserAvatarCard, Popup } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 interface HeaderUserAvatarCardProps {
   className?: string;
