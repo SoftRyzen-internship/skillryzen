@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import { ICONS } from 'ui-kit/icons';
-
+import { useTranslation } from 'react-i18next';
 import s from './EditPasswordForm.module.scss';
-import { validationSchema } from './validationSchema';
+import { useValidationSchema } from './useValidationSchema';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
+// import { validationSchema } from './validationSchema';
 import { AuthButton } from 'ui-kit';
 
 interface FormValues {
@@ -27,7 +30,9 @@ export const EditPasswordForm: React.FC<Props> = ({
   const [showEmail, setShowEmail] = useState(true);
   // const { userAvatarUrl, handleChangeAvatar, onCancel } = props;
   const [urlAvatarOld, seturlAvatarOld] = useState(userAvatarUrl);
-
+  const validationSchema = useValidationSchema();
+  const { t } = useTranslation();
+  const { theme }: IThemeContext = useThemeContext();
   const formik = useFormik<FormValues>({
     initialValues: {
       email: 'student511@blabla.com',
@@ -72,7 +77,9 @@ export const EditPasswordForm: React.FC<Props> = ({
             <p className={s.errorMsg}>{errors.email}</p>
           )}
           <input
-            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            className={`${s.input} ${
+              !showEmail ? s[`inputEdit--${theme}`] : ''
+            }`}
             name='email'
             type='email'
             id='email'
@@ -80,11 +87,11 @@ export const EditPasswordForm: React.FC<Props> = ({
             onBlur={handleBlur}
             value={email}
             autoComplete='email'
-            placeholder='Email address'
+            placeholder={t('editPasswordForm.email.address')}
             disabled={showEmail}
           />
           <label className={s.floatingLabel} htmlFor='email'>
-            Email address
+            {t('editPasswordForm.email.address')}
           </label>
           <button
             type='button'
@@ -106,7 +113,9 @@ export const EditPasswordForm: React.FC<Props> = ({
             <p className={s.errorMsg}>{errors.currentPassword}</p>
           )}
           <input
-            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            className={`${s.input} ${
+              !showEmail ? s[`inputEdit--${theme}`] : ''
+            }`}
             name='currentPassword'
             type={showPassword ? 'text' : 'password'}
             id='currentPassword'
@@ -114,11 +123,11 @@ export const EditPasswordForm: React.FC<Props> = ({
             onBlur={handleBlur}
             value={currentPassword}
             autoComplete='off'
-            placeholder='Current password'
+            placeholder={t('editPasswordForm.current.password')}
             disabled={showEmail}
           />
           <label className={s.floatingLabel} htmlFor='currentPassword'>
-            Current password
+            {t('editPasswordForm.current.password')}
           </label>
           <button
             type='button'
@@ -142,7 +151,9 @@ export const EditPasswordForm: React.FC<Props> = ({
             <p className={s.errorMsg}>{errors.newPassword}</p>
           )}
           <input
-            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            className={`${s.input} ${
+              !showEmail ? s[`inputEdit--${theme}`] : ''
+            }`}
             name='newPassword'
             type={showPassword ? 'text' : 'password'}
             id='newPassword'
@@ -150,11 +161,11 @@ export const EditPasswordForm: React.FC<Props> = ({
             onBlur={handleBlur}
             value={newPassword}
             autoComplete='off'
-            placeholder='New password'
+            placeholder={t('editPasswordForm.new.password')}
             disabled={showEmail}
           />
           <label className={s.floatingLabel} htmlFor='newPassword'>
-            New password
+            {t('editPasswordForm.new.password')}
           </label>
           <button
             type='button'
@@ -180,7 +191,9 @@ export const EditPasswordForm: React.FC<Props> = ({
             <p className={s.errorMsg}>{errors.confirmPassword}</p>
           )}
           <input
-            className={`${s.input} ${!showEmail ? s.inputEdit : ''}`}
+            className={`${s.input} ${
+              !showEmail ? s[`inputEdit--${theme}`] : ''
+            }`}
             name='confirmPassword'
             type={showPassword ? 'text' : 'password'}
             id='confirmPassword'
@@ -188,11 +201,11 @@ export const EditPasswordForm: React.FC<Props> = ({
             onBlur={handleBlur}
             value={confirmPassword}
             autoComplete='off'
-            placeholder='Confirm password'
+            placeholder={t('editPasswordForm.confirm.password')}
             disabled={showEmail}
           />
           <label className={s.floatingLabel} htmlFor='confirmPassword'>
-            Confirm password
+            {t('editPasswordForm.confirm.password')}
           </label>
           <button
             type='button'
@@ -216,14 +229,14 @@ export const EditPasswordForm: React.FC<Props> = ({
         <div className={s.buttonGroup}>
           <AuthButton
             size='large'
-            text='Save'
+            text={t('editPasswordForm.button.save')}
             type='submit'
             disabled={!isValid || !dirty}
             className={s.btn}
           />
           <AuthButton
             size='large'
-            text='Cancel'
+            text={t('editPasswordForm.button.cancel')}
             type='button'
             onClick={handleCancel}
             className={`${s.btn} ${!showEmail ? s.btnCancel : ''}`}

@@ -73,10 +73,20 @@
   }
 }
 .inputEdit {
-  color: var(--primary-txt-cl);
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
 }
 .inputDisabled {
-  color: var(--secondary-txt-cl);
+  &--dark {
+    color: var(--secondary-txt-cl);
+  }
+  &--light {
+    color: var(--light-secondary-txt-cl);
+  }
 }
 .inputPhone {
   composes: input;
