@@ -113,26 +113,54 @@ export const AppRoutes = () => {
               ],
             },
             {
-              path: ROUTES.TESTING,
-              element: (
-                <MainWrapper
-                  showSidebar={false}
-                  showHeader={true}
-                  isTestingPage={true}
-                >
-                  <Outlet />
-                </MainWrapper>
-              ),
-              children: [
-                {
-                  path: '',
-                  element: <TestingPage />,
-                },
-                {
-                  path: ROUTES.TEST_END,
-                  element: <TestEndPage />,
-                },
-              ],
+              path: ROUTES.PETPROJECTS,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.LEADERBOARD,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.VACANCIES,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.PROFILE,
+              element: <StudentProfilePage />,
+            },
+            {
+              path: ROUTES.SETTINGS,
+              element: <StudentSettingsPage />,
+            },
+            {
+              path: ROUTES.FEEDBACK,
+              element: <UnderDevelopmentPage />,
+            },
+            {
+              path: ROUTES.TEAM,
+              element: <UnderDevelopmentPage />,
+            },
+          ],
+        },
+        {
+          path: ROUTES.TESTING,
+          element: (
+            <MainWrapper
+              showSidebar={false}
+              showHeader={true}
+              isTestingPage={true}
+            >
+              <Outlet />
+            </MainWrapper>
+          ),
+          children: [
+            {
+              path: '',
+              element: <TestingPage />,
+            },
+            {
+              path: ROUTES.TEST_END,
+              element: <TestEndPage />,
             },
           ],
         },

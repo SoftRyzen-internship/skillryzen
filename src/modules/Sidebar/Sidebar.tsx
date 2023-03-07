@@ -70,12 +70,12 @@ export const Sidebar = () => {
       iconAlt: 'Feedback',
       path: ROUTES.FEEDBACK,
     },
-    /* {
+    {
       title: t('sidebar.team'),
       icon: ICONS.USER_GROUP,
       iconAlt: 'Team',
-      path: ROUTES.FEEDBACK,
-    }, */
+      path: ROUTES.TEAM,
+    },
   ];
   return (
     <SideBar
