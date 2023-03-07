@@ -52,16 +52,17 @@ export const RegisterAuthForm = () => {
 
     validationSchema,
 
-    onSubmit: async (values) => {
+    onSubmit: (values) => {
       const { email, password } = values;
 
-      try {
-        await dispatch(register({ email, password, displayName: 'coolName' }));
-        await dispatch(logIn({ email, password }));
-        dispatch(setStep(3));
-      } catch (err) {
-        console.log(err);
-      }
+      dispatch(register({ email, password, displayName: 'coolName' })).then(
+        ({ meta }) =>
+          meta.requestStatus === 'fulfilled' &&
+          dispatch(logIn({ email, password })).then(
+            ({ meta }) =>
+              meta.requestStatus === 'fulfilled' && dispatch(setStep(3))
+          )
+      );
     },
   });
 

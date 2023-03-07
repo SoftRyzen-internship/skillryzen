@@ -3,7 +3,7 @@ import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks/hook';
 
 import { ICONS } from 'ui-kit/icons';
 import { AuthButton } from 'ui-kit';
@@ -41,7 +41,6 @@ export const RegisterContactsForm = () => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
   const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik<FormValues>({

@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axiosInstance } from 'services/axiosConfig';
 
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
@@ -13,7 +13,7 @@ interface registerPayload extends loginPayload  {
 
 const register = createAsyncThunk('auth/register', async (registerData:registerPayload, thunkApi) => {
   try {
-    await axios.post('auth/register', registerData, { withCredentials: true });
+    await axiosInstance.post('auth/register', registerData);
   } catch (err) {
     return thunkApi.rejectWithValue(err.message);
   }
@@ -21,10 +21,7 @@ const register = createAsyncThunk('auth/register', async (registerData:registerP
 
 const logIn = createAsyncThunk('auth/logIn', async ({email, password}: loginPayload, thunkApi) => {
   try {
-    await axios.post('auth/login', {email, password}, { withCredentials: true });
-
-    const { data } = await axios.get('auth', { withCredentials: true } );
-    return data;
+    await axiosInstance.post('auth/login', {email, password});
   } catch (err) {
     return thunkApi.rejectWithValue(err.message);
   }
@@ -32,7 +29,7 @@ const logIn = createAsyncThunk('auth/logIn', async ({email, password}: loginPayl
 
 const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
   try {
-    await axios.post('auth/logout', { withCredentials: true });
+    await axiosInstance.post('auth/logout');
   } catch (err) {
     return thunkApi.rejectWithValue(err.message);
   }
@@ -40,7 +37,7 @@ const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
 
 const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
   try {
-    await axios.post('auth/refresh', { withCredentials: true } );
+    await axiosInstance.post('auth/refresh');
   } catch (err) {
     return thunkApi.rejectWithValue(err.message);
   }
@@ -48,7 +45,7 @@ const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
 
 const auth = createAsyncThunk('auth/auth', async (_, thunkApi) => {
   try {
-    const { data } = await axios.get('auth', { withCredentials: true } );
+    const { data } = await axiosInstance.get('auth');
     return data;
   } catch (err) {
     return thunkApi.rejectWithValue(err.message);

@@ -14,15 +14,18 @@ import './theme/styles/variables.scss';
 import './ui-kit/scrollbar.scss';
 
 export const App = () => {
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const [theme, setTheme] = useState(
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
   );
 
-  // const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
 
-  // useEffect(() => {
-  //   dispatch(auth());
-  // }, [dispatch]);
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(auth());
+    }
+  }, [dispatch, isLoggedIn]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

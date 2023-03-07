@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { logIn, auth } from './operations';
+import { logIn, auth, logOut } from './operations';
 
 interface User {
   email: string;
@@ -12,7 +12,7 @@ interface User {
 
 interface Auth {
   user: User;
-  isAuth: boolean;
+  isLoggedIn: boolean;
   isLoading: boolean;
   isError: boolean;
   step: number;
@@ -24,7 +24,7 @@ const initialState: Auth = {
     displayName: '',
     role: 'STUDENT',
   },
-  isAuth: false,
+  isLoggedIn: false,
   isLoading: false,
   isError: false,
   step: 1,
@@ -44,21 +44,31 @@ const authSlice = createSlice({
   },
   extraReducers: builder =>
     builder
-      .addCase(logIn.fulfilled, (state, action: PayloadAction<User>) => {
+      .addCase(logIn.fulfilled, (state) => {
         state.isLoading = false;
         state.isError = false;
+        state.isLoggedIn = true;
+      })
+      .addCase(auth.fulfilled, (state, action: PayloadAction<User>) => {
         state.user.email = action.payload.email;
         state.user.role = action.payload.role;
-
       })
-      .addCase(auth.fulfilled, (state) => {
-        state.isAuth = true;
+      .addCase(logOut.fulfilled, (state) => {
+        state.user = initialState.user;
+        state.isLoggedIn = false;
+        state.isLoading = false;
+        state.isError = false;
+      })
+      .addCase(logIn.pending, (state) => {
+        state.isLoading = true;
+        state.isError = false;
+        state.isLoggedIn = false;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), (state) => {
         state.isLoading= true;
       })
       .addMatcher((action) => action.type.endsWith('/rejected'), (state) => {
-        state.isAuth = false;
+        state.isLoggedIn = false;
         state.isLoading= false;
         state.isError = true;
       })
@@ -71,7 +81,7 @@ const authSlice = createSlice({
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['user'],
+  whitelist: ['isLoggedIn'],
 };
 
 export const { setStep, setRole } = authSlice.actions;

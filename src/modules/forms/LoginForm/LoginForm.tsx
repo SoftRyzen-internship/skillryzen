@@ -54,7 +54,10 @@ export const LoginForm = () => {
     validationSchema,
 
     onSubmit: ({ email, password }) => {
-      dispatch(logIn({ email, password })).then(() => navigate(ROUTES.STUDENT));
+      dispatch(logIn({ email, password })).then(
+        ({ meta }) =>
+          meta.requestStatus === 'fulfilled' && navigate(ROUTES.STUDENT)
+      );
     },
   });
 
