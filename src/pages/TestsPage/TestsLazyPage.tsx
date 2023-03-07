@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 
-const LazyTestsPage = lazy(() => import('./TestsPage'))
+const LazyTestsPage = lazy(() => import('./TestsPage'));
 
 
 const TestsLazyPage = () => <LazyTestsPage/>;

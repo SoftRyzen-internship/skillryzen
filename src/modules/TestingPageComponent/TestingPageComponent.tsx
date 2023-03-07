@@ -12,6 +12,7 @@ export const TestingPageComponent = () => {
     getLoginApi()
       .then((response) => dispatch(getRandomTest()))
       .catch((error) => console.log(error));
+    // eslint-disable-next-line
   }, []);
 
   return <TestQuestion />;

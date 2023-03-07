@@ -40,15 +40,15 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
       {array && array.length>0 && <div className={s.progressBar__wrapper}>
         <ul className={s.progressBar__list}>
           {array.map((item) => (
-              <li
-                key={item}
-                className={`${s.progressBar__line} ${
-                  item < number && s['progressBar__line--done']
-                } ${
-                  item === number && s['progressBar__line--current']
-                }`}
-              ></li>
-            ))}
+            <li
+              key={item}
+              className={`${s.progressBar__line} ${
+                item < number && s['progressBar__line--done']
+              } ${
+                item === number && s['progressBar__line--current']
+              }`}
+            ></li>
+          ))}
         </ul>
         <ICONS.FLAG_ONE
           className={`${s[`progressBar__icon--${theme}`]} ${

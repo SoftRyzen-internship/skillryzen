@@ -39,6 +39,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   useEffect(() => {
     if (hasNextQuestion) return;
     dispatch(setTime(seconds));
+    // eslint-disable-next-line
   }, [hasNextQuestion]);
 
   return (
