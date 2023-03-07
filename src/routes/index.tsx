@@ -137,10 +137,7 @@ export const AppRoutes = () => {
         },
         { path: '/company', element: <CompanyPage /> },
       ],
-    },],
-  },
-
-
+    },
     { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);
