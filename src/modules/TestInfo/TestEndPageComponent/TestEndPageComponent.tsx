@@ -8,6 +8,7 @@ import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 import {
   getTimeTest,
+  getTotalCount,
   getPercentageOfCorrectAnswers,
 } from 'redux/testingInfo/testingInfoSelectors';
 
@@ -19,7 +20,7 @@ export const TestEndPageComponent = () => {
 
   const testTime = useSelector(getTimeTest);
   const correctAnswersPercentage = useSelector(getPercentageOfCorrectAnswers);
-  const totalQuestions = 10;
+  const totalQuestions = useSelector(getTotalCount);
 
   const navigate = useNavigate();
 
@@ -36,7 +37,7 @@ export const TestEndPageComponent = () => {
         title='FullStack - Final Test'
         correctAnswers={(correctAnswersPercentage * totalQuestions) / 100}
         totalQuestions={totalQuestions}
-        timeSpent={testTime}
+        timeSpent={Math.floor(testTime / 60)}
         iconAnswers={ICONS.CHECK_SMALL}
         iconTime={ICONS.CLOCK}
         // theWorstTopic='“Asynchrony”'
