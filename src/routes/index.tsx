@@ -8,6 +8,7 @@ import CompanyPage from 'pages/CompanyPage';
 import TestingPage from 'pages/TestingPage';
 import TestEndPage from 'pages/TestEndPage';
 import RegisterPage from 'pages/RegisterPage';
+import NotFoundPage from 'pages/NotFoundPage';
 import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
@@ -119,8 +120,22 @@ export const AppRoutes = () => {
         },
       ],
     },
+    {
+      path: ROUTES.NOT_FOUND,
+      element: (
+        <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}>
+          <Outlet />
+        </MainWrapper>
+      ),
+      children: [
+        {
+          path: '*',
+          element: <NotFoundPage />,
+        },
+      ],
+    },
     { path: '/company', element: <CompanyPage /> },
-    { path: '*', element: <h1>404 Not Found</h1> },
+    // { path: '*', element: <NotFoundPage /> },
   ];
   const routing = useRoutes(routes);
 

@@ -1,0 +1,41 @@
+.section {
+  padding-top: 90px;
+  text-align: center;
+  width: 100%;
+}
+
+.wrapperDark {
+  background-image: url('assets/images/page-404.png');
+  background-repeat: no-repeat;
+  background-position: center 80px;
+  background-size: 492px 286px;
+  margin: 0 auto;
+}
+
+.wrapperLight {
+  composes: wrapperDark;
+  background-image: url('assets/images/page-404.png');
+}
+
+.titleDark {
+  font-weight: 800;
+  font-size: 36px;
+  line-height: calc(40 / 36);
+  margin-bottom: 366px;
+}
+
+.titleLight {
+  composes: titleDark;
+  color: var(--primary-cl);
+}
+
+.link {
+  display: inline-block;
+  min-width: 200px;
+  padding: 16px 0;
+  border-radius: 5px;
+  border: none;
+  font-weight: var(--bold);
+  color: var(--primary-txt-cl);
+  background-color: var(--accent-cl);
+}
