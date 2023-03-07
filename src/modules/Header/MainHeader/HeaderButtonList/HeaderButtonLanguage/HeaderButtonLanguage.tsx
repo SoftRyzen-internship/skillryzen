@@ -6,7 +6,7 @@ import { useThemeContext } from 'context/themeContext';
 import { ICONS } from 'ui-kit/icons';
 import { HeaderButton, Popup } from 'ui-kit/index';
 
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 export const HeaderButtonLanguage = () => {
   const { theme }: IThemeContext = useThemeContext();

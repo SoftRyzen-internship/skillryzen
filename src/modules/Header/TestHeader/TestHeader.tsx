@@ -1,6 +1,6 @@
 import { ProgressBar } from 'ui-kit';
-import { Timer } from 'modules/common/components/Timer';
-import { IThemeContext } from 'modules/common/types';
+import { Timer } from 'modules/common';
+import { IThemeContext } from 'constans/types';
 
 import { useThemeContext } from 'context/themeContext';
 

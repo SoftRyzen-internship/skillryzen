@@ -1,6 +1,6 @@
 import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 import { useAppSelector } from 'hooks/hook';
 import {
   getQuestionNumber,

@@ -5,7 +5,7 @@ import { useThemeContext } from 'context/themeContext';
 
 import { ICONS } from 'ui-kit/icons';
 import { HeaderButton, Popup } from 'ui-kit/index';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 export const HeaderButtonTheme = () => {
   const SunIcon = <ICONS.SUN stroke={'var(--accent-cl)'} />;

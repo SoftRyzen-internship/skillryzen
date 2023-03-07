@@ -1,5 +1,5 @@
 import s from './UserAvatarCard.module.scss';
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 interface UserAvatarCardProps {
   userName: string;
   userRole: string;

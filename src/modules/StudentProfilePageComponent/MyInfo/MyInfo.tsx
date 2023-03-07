@@ -4,7 +4,7 @@ import { ICONS } from 'ui-kit/icons';
 
 import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 
-import { Theme, UserInfo } from 'modules/common/types';
+import { Theme, UserInfo } from 'constans/types';
 
 import s from './MyInfo.module.scss';
 

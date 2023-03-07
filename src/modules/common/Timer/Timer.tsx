@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setTime } from 'redux/testingInfo/testingInfoSlise';
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 import { convertTime } from 'utils/convertTime';
 import {
   getHasNextQuestion,

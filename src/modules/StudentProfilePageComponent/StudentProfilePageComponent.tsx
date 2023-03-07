@@ -9,7 +9,7 @@ import { MyInfo } from './MyInfo';
 import { MyTests } from './MyTests';
 import { MyAchievementsList } from './MyAchievementsList';
 
-import { IThemeContext, UserInfo } from 'modules/common/types';
+import { IThemeContext, UserInfo } from 'constans/types';
 
 import s from './StudentProfilePageComponent.module.scss';
 

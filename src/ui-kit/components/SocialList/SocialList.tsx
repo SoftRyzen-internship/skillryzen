@@ -1,4 +1,4 @@
-import { Theme, UserSocial } from 'modules/common/types';
+import { Theme, UserSocial } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './SocialList.module.scss';

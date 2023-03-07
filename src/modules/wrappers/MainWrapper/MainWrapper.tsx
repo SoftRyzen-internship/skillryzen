@@ -1,7 +1,7 @@
 import { Header } from 'modules/Header';
 import { Sidebar } from 'modules/Sidebar';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import s from './MainWrapper.module.scss';
 

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Theme, UserInfo } from 'modules/common/types';
+import { Theme, UserInfo } from 'constans/types';
 
 import { SocialList, UserAvatar } from 'ui-kit/index';
 import s from './MyProfile.module.scss';

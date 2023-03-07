@@ -8,7 +8,7 @@ import { setRole, setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import s from './RegisterRoleForm.module.scss';
 
