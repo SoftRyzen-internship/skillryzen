@@ -1,5 +1,5 @@
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import s from './Skeleton.module.scss';
 
 interface SkeletonProps {

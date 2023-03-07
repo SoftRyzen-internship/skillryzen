@@ -7,7 +7,7 @@ import { throttle } from 'utils/throtle';
 import { Card, PaginationButton } from 'ui-kit';
 
 import { ROUTES } from 'routes/routes.const';
-import { Theme, UserTests } from 'modules/common/types';
+import { Theme, UserTests } from 'constans/types';
 
 import s from './CardSlider.module.scss';
 

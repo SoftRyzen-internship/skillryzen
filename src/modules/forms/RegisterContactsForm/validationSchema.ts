@@ -5,7 +5,7 @@ export const validationSchema = Yup.object({
     .min(2, 'Повинно містити біле 2 символів')
     .max(30, 'Повинно містити не більше 30 символів'),
   name: Yup.string()
-    .required("Ім'я є обовязковим")
+    .required('Ім`я є обовязковим')
     .min(2, 'Повинно містити біле 2 символів')
     .max(30, 'Повинно містити не більше 50 символів'),
   surname: Yup.string()
@@ -19,8 +19,9 @@ export const validationSchema = Yup.object({
         : '';
     })
     .matches(
+      // eslint-disable-next-line
       /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/,
       'Невірний формат телефону'
     )
-    .required("Номер телефону є обов'язковим"),
+    .required('Номер телефону є обов`язковим'),
 });

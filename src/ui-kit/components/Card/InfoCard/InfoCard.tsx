@@ -1,4 +1,4 @@
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 
 import { ICONS } from 'ui-kit/icons';
 import { Tag } from 'ui-kit/index';
@@ -49,9 +49,7 @@ export const InfoCard = ({
   return (
     <div className={`${s[`card--${size}`]} ${s[`card--${theme}`]}`}>
       <div className={s.card__infoWrapper}>
-        <div
-          className={`${s[`card__iconThumb--${addBackgroundColor(type)}`]}`}
-        >
+        <div className={`${s[`card__iconThumb--${addBackgroundColor(type)}`]}`}>
           {addIcon(type)}
         </div>
         <div className={s.card__contentWrapper}>
