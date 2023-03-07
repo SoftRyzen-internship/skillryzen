@@ -20,6 +20,9 @@
 .button--dark {
   composes: button--common;
   background-color: var(--secondary-cl);
+  &:hover {
+    box-shadow: var(--shadow-blue);
+  }
 }
 
 .icon {

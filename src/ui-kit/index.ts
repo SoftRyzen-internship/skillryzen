@@ -4,6 +4,7 @@ export { AuthButton } from './components/Buttons/AuthButton';
 export { CopyButton } from './components/Buttons/CopyButton';
 export { HeaderButton } from './components/Buttons/HeaderButton';
 export { IconButton } from './components/Buttons/IconButton';
+export { PaginationButton } from './components/Buttons/PaginationButton';
 export { Card } from './components/Card/Card';
 export { InfoCard } from './components/Card/Infocard';
 export { Checkbox } from './components/Checkbox';
