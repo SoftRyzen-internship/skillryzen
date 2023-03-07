@@ -111,7 +111,7 @@ const testingInfoSlice = createSlice({
 const persistConfig = {
   key: 'testingInfo',
   storage,
-  whitelist: ['testId', 'questionId', 'number', 'title', 'possibleAnswers', 'hasNextQuestion', 'questionsTotalCount'],
+  whitelist: ['testId', 'questionId', 'number', 'title', 'possibleAnswers', 'questionsTotalCount'],
 };
 
 export const { setTime, removeResults } = testingInfoSlice.actions;
