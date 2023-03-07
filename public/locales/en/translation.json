@@ -201,5 +201,9 @@
     "phone": "Phone",
     "telegram": "Social media Telegram",
     "linkedin": "Social media LinkedIn"
+  },
+  "notFound": {
+    "title": "Oops, the page not found",
+    "button": "Go home"
   }
 }

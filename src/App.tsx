@@ -7,7 +7,7 @@ import { auth } from 'redux/authSlice/operations';
 
 import { AppRoutes } from 'routes';
 
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 
 import './theme/styles/global.scss';
 import './theme/styles/variables.scss';

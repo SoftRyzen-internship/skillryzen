@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 import { AuthButton } from 'ui-kit';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import s from './FinalTestInfo.module.scss';
 

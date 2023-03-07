@@ -1,0 +1,1 @@
+export { NotFoundPageComponent } from './NotFoundPageComponent';

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { AuthButton, RadioButton } from 'ui-kit';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import {
   answerTest,
@@ -10,6 +10,7 @@ import {
 } from 'redux/testingInfo/testingInfoOperations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
+import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
 import { ROUTES } from 'routes/routes.const';
 
@@ -42,11 +43,20 @@ export const TestQuestion = () => {
 
   return (
     <div className={s.testWrapper}>
-      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>{title}</h2>
+      <h2
+        className={
+          isLoading
+            ? s.testTitleHidden
+            : `${s.testTitle} ${s[`testTitle--${theme}`]}`
+        }
+      >
+        {title}
+      </h2>
       <div className={s.questionWrapper}>
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>
           {possibleAnswers &&
+            !isLoading &&
             possibleAnswers.map((answer, index) => (
               <li key={index}>
                 <RadioButton
@@ -61,10 +71,11 @@ export const TestQuestion = () => {
                 />
               </li>
             ))}
+          {isLoading && <Skeleton length={4} value='skeleton' />}
         </ul>
       </div>
       {questionId && (
-        <div className={s.buttonWrapper}>
+        <div className={isLoading ? s.buttonWrapperHidden : s.buttonWrapper}>
           <AuthButton
             type='button'
             text='Answer'

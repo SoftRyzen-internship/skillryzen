@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import { Card } from 'ui-kit';
 import { useThemeContext } from 'context/themeContext';
 

@@ -25,8 +25,8 @@ import { ROUTES } from './routes.const';
 export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const routes = [
-    {
-      path: '/',
+    {path: ROUTES.HOME,
+    children: [{
       element: (
         <PublickRoute isLoggedIn={isLoggedIn}>
           <AuthWrapper>
@@ -51,12 +51,7 @@ export const AppRoutes = () => {
       ),
       children: [
         {
-          path: ROUTES.STUDENT,
           children: [
-            {
-              path: '',
-              element: <Navigate to={ROUTES.CERTIFICATION} replace={true} />,
-            },
             {
               element: (
                 <MainWrapper
@@ -103,42 +98,18 @@ export const AppRoutes = () => {
                   element: <StudentProfilePage />,
                 },
                 {
-                  path: ROUTES.SETTINGS,
+                  path: ROUTES.PROFILE_SETTINGS,
                   element: <StudentSettingsPage />,
                 },
                 {
                   path: ROUTES.FEEDBACK,
                   element: <UnderDevelopmentPage />,
                 },
+                {
+                  path: ROUTES.TEAM,
+                  element: <UnderDevelopmentPage />,
+                },
               ],
-            },
-            {
-              path: ROUTES.PETPROJECTS,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.LEADERBOARD,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.VACANCIES,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.PROFILE,
-              element: <StudentProfilePage />,
-            },
-            {
-              path: ROUTES.SETTINGS,
-              element: <StudentSettingsPage />,
-            },
-            {
-              path: ROUTES.FEEDBACK,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.TEAM,
-              element: <UnderDevelopmentPage />,
             },
           ],
         },
@@ -167,7 +138,6 @@ export const AppRoutes = () => {
         { path: '/company', element: <CompanyPage /> },
       ],
     },
-
     { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);
