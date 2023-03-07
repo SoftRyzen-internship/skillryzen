@@ -31,30 +31,28 @@ axiosInstance.interceptors.response.use(
 );
 
 export const getLoginApi = () =>
-  axios.post(
+  axiosInstance.post(
     'auth/login',
-    { email: 'student511@blabla.com', password: 'secret123' },
+    { email: 'student511@blabla.com', password: 'secret123' }
   );
 
 export const getRandomTestApi = () =>
-  axios
+  axiosInstance
     .post('user-test/random', {}, { withCredentials: true })
     .then((response) => response.data);
 
 export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
-  axios
+  axiosInstance
     .post(
       `user-test/${testId}/answer-question/by-label`,
-      { questionId: questionId, labels: [selectedAnswer] },
-      { withCredentials: true }
+      { questionId: questionId, labels: [selectedAnswer] }
     )
     .then((response) => response.data);
 
 export const finishTestApi = ({ testId, time }: Finish) =>
-  axios
+  axiosInstance
     .post(
       `user-test/${testId}/finish`,
-      { finishedAt: time },
-      { withCredentials: true }
+      { finishedAt: time }
     )
     .then((response) => response.data);
