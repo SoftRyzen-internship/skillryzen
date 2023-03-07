@@ -2,11 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { logIn } from './operations';
+import { logIn, auth } from './operations';
 
 interface User {
   email: string;
-  password: string;
   displayName?: string;
   role: string;
 }
@@ -22,7 +21,6 @@ interface Auth {
 const initialState: Auth = {
   user: {
     email: '',
-    password: '',
     displayName: '',
     role: 'STUDENT',
   },
@@ -49,16 +47,18 @@ const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state, action: PayloadAction<User>) => {
         state.isLoading = false;
         state.isError = false;
-        state.isAuth = true;
         state.user.email = action.payload.email;
-        state.user.password = action.payload.password;
         state.user.role = action.payload.role;
 
+      })
+      .addCase(auth.fulfilled, (state) => {
+        state.isAuth = true;
       })
       .addMatcher((action) => action.type.endsWith('/pending'), (state) => {
         state.isLoading= true;
       })
       .addMatcher((action) => action.type.endsWith('/rejected'), (state) => {
+        state.isAuth = false;
         state.isLoading= false;
         state.isError = true;
       })

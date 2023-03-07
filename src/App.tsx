@@ -3,6 +3,7 @@ import { Suspense, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { ThemeContext } from 'context/themeContext';
 import { getLocaleStorageItem } from 'services/localStorage';
+import { auth } from 'redux/authSlice/operations';
 
 import { AppRoutes } from 'routes';
 
@@ -17,14 +18,11 @@ export const App = () => {
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
   );
 
-  const dispatch = useAppDispatch();
-  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  // const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    if (isAuth) {
-      console.log('Should be authorization');
-    }
-  }, [dispatch, isAuth]);
+  // useEffect(() => {
+  //   dispatch(auth());
+  // }, [dispatch]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
