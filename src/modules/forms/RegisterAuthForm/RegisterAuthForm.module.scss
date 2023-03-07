@@ -144,7 +144,7 @@
   }
 }
 
-.floatingLabelError input{
+.floatingLabelError input {
   color: var(--error-cl);
 }
 
@@ -193,7 +193,7 @@
 .googleButtonLight {
   composes: googleButtonDark;
   color: inherit;
-  border: 1px solid #E9F0FF;
+  border: 1px solid #e9f0ff;
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 }
 

@@ -1,7 +1,9 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { ThemeContext } from 'context/themeContext';
 import { getLocaleStorageItem } from 'utils/getLocaleStorageItem';
+import { auth } from 'redux/authSlice/operations';
 
 import { AppRoutes } from 'routes';
 
@@ -12,9 +14,18 @@ import './theme/styles/variables.scss';
 import './ui-kit/scrollbar.scss';
 
 export const App = () => {
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const [theme, setTheme] = useState(
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
   );
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(auth());
+    }
+  }, [dispatch, isLoggedIn]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

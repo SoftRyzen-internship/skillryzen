@@ -3,10 +3,10 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
-
 import { AuthButton, Checkbox } from 'ui-kit';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
+import { register, logIn } from 'redux/authSlice/operations';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'modules/common/types';
@@ -52,8 +52,17 @@ export const RegisterAuthForm = () => {
 
     validationSchema,
 
-    onSubmit: (_values) => {
-      dispatch(setStep(3));
+    onSubmit: (values) => {
+      const { email, password } = values;
+
+      dispatch(register({ email, password, displayName: 'coolName' })).then(
+        ({ meta }) =>
+          meta.requestStatus === 'fulfilled' &&
+          dispatch(logIn({ email, password })).then(
+            ({ meta }) =>
+              meta.requestStatus === 'fulfilled' && dispatch(setStep(3))
+          )
+      );
     },
   });
 

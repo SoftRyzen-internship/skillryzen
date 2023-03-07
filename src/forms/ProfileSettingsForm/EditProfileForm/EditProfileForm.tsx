@@ -59,7 +59,7 @@ export const EditProfileForm = () => {
     resetForm();
     setChangeProfile(true);
   };
-  const role = useAppSelector((state) => state.auth.role);
+  const role = useAppSelector((state) => state.auth.user.role);
   return (
     <div className={s.formWrapper}>
       <form onSubmit={handleSubmit} className={s.form}>

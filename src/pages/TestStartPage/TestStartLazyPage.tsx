@@ -1,8 +1,7 @@
 import { lazy } from 'react';
 
-const LazyTestStartPage = lazy(() => import('./TestStartPage'))
+const LazyTestStartPage = lazy(() => import('./TestStartPage'));
 
-
-const TestStartLazyPage = () => <LazyTestStartPage/>;
+const TestStartLazyPage = () => <LazyTestStartPage />;
 
 export default TestStartLazyPage;

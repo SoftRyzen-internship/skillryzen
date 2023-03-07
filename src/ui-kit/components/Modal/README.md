@@ -9,43 +9,43 @@
    };
 
 3. Передаємо пропси в компонент Modal
-  <!-- {isShowModal && (
-    <Modal
-      isShowModal={isShowModal}
-      onClick={handleClickModal}
-      title1={{ text: t('modal.title1'), className: `${s.title}` }}
-      title2={{
-        text: t('modal.title2'),
-        className: `${s.titleRest}`,
-      }}
-      subtitle={{
-        text: t('modal.subtitle'),
-        className: `${s.subtitle}`,
-      }}
-      link={{
-        text: t('modal.link'),
-        className: `${s.link}`,
-      }}
-      image={{
-        src: `${IMAGES.DONE}`,
-        alt: 'Done registration',
-        width: '220',
-        height: '150',
-        className: `${s.image}`,
-      }}
-      icon={<ICONS.CROSS_SMALL />}
-      button={
-        <AuthButton
-          type='button'
-          text='OK'
-          onClick={handleClickModal}
-          size='small'
-          color='blue'
-          className={s.modalBtn}
-        />
-      }
-    />
-  )} -->
+<!-- {isShowModal && (
+  <Modal
+    isShowModal={isShowModal}
+    onClick={handleClickModal}
+    title1={{ text: t('modal.title1'), className: `${s.title}` }}
+    title2={{
+      text: t('modal.title2'),
+      className: `${s.titleRest}`,
+    }}
+    subtitle={{
+      text: t('modal.subtitle'),
+      className: `${s.subtitle}`,
+    }}
+    link={{
+      text: t('modal.link'),
+      className: `${s.link}`,
+    }}
+    image={{
+      src: `${IMAGES.DONE}`,
+      alt: 'Done registration',
+      width: '220',
+      height: '150',
+      className: `${s.image}`,
+    }}
+    icon={<ICONS.CROSS_SMALL />}
+    button={
+      <AuthButton
+        type='button'
+        text='OK'
+        onClick={handleClickModal}
+        size='small'
+        color='blue'
+        className={s.modalBtn}
+      />
+    }
+  />
+)} -->
 
 4. Описуємо стилі для модалки в своєму компоненті
 <!-- .image {
