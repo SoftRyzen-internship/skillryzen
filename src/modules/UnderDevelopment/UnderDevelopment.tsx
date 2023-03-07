@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
 
@@ -27,7 +27,7 @@ export const UnderDevelopment = () => {
         <h2 className={objectTheme[theme].title}>
           {t('underDevelopment.title')}
         </h2>
-        <AuthButton
+        <MainButton
           type='submit'
           text={t('underDevelopment.button')}
           size='large'

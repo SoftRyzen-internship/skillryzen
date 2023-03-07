@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppSelector } from 'hooks/hook';
 
 import { ICONS } from 'ui-kit/icons';
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
@@ -175,7 +175,7 @@ export const RegisterContactsForm = () => {
           </button>
         </li>
       </ul>
-      <AuthButton
+      <MainButton
         className={s.btnSubmit}
         onClick={handleSubmit}
         size='large'

@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
-import { AuthButton, Checkbox } from 'ui-kit';
+import { MainButton, Checkbox } from 'ui-kit';
 import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 import { register, logIn } from 'redux/authSlice/operations';
@@ -79,7 +79,7 @@ export const RegisterAuthForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <AuthButton
+      <MainButton
         // onClick={handleClickGoogle}
         size='large'
         text='Google'
@@ -157,7 +157,7 @@ export const RegisterAuthForm = () => {
         onChange={handleChange}
         labelClassName={s.checkboxLabel}
       />
-      <AuthButton
+      <MainButton
         size='large'
         text={t('auth.continueBtn')}
         type='submit'

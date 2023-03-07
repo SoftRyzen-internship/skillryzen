@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import { AuthButton, RadioButton } from 'ui-kit';
+import { MainButton, RadioButton } from 'ui-kit';
 import { IThemeContext } from 'modules/common/types';
 
 import {
@@ -65,7 +65,7 @@ export const TestQuestion = () => {
       </div>
       {questionId && (
         <div className={s.buttonWrapper}>
-          <AuthButton
+          <MainButton
             type='button'
             text='Answer'
             onClick={handleAnswer}
