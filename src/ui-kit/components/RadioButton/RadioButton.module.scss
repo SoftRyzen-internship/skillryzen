@@ -31,11 +31,16 @@
   border: 2px solid transparent;
   padding: 20px 20px 20px 69px;
   height: 100%;
+  transition: box-shadow var(--transition);
+
+  &:hover, &:focus {
+    box-shadow: var(--hover-shadow);
+  }
 
   &--light {
     color: var(--light-primary-txt-cl);
     background: var(--light-components-cl);
-    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    box-shadow: var(--light-primary-shadow);
 
     &::before {
       background-color: var(--light-primary-cl);
