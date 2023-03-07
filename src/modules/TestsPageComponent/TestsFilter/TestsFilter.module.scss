@@ -20,7 +20,7 @@
   &--light {
     color: var(--accent-cl);
     background-color: var(--light-components-cl);
-    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    box-shadow: var(--light-primary-shadow);
 
     .testsFilter__icon path {
       stroke: var(--accent-cl);
@@ -30,6 +30,15 @@
   &--dark {
     color: var(--primary-txt-cl);
     background-color: var(--components-cl);
+    transition: color var(--transition);
+  }
+}
+
+.testsFilter__filter--dark:hover, .testsFilter__filter--dark:focus {
+  color: var(--accent-cl);
+  
+  .testsFilter__icon path {
+    stroke: var(--accent-cl);
   }
 }
 
@@ -39,5 +48,6 @@
 
   path {
     stroke: var(--primary-txt-cl);
+    transition: stroke var(--transition);
   }
 }
