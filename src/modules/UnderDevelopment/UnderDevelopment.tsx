@@ -1,8 +1,9 @@
 import { useTranslation } from 'react-i18next';
 
 import { AuthButton } from 'ui-kit';
+import { IThemeContext } from 'constans/types';
+
 import { ICONS } from 'ui-kit/icons';
-import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './UnderDevelopment.module.scss';

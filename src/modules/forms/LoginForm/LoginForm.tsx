@@ -9,7 +9,7 @@ import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import { validationSchema } from './validationSchema';
 

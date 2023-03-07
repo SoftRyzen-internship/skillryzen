@@ -108,7 +108,7 @@ import IconUnderDevelopmentMain from 'assets/svg/under-development-main.svg';
 
 //  IconCorrect
 
-import { Icons } from 'modules/common/types/index';
+import { Icons } from 'constans/types';
 
 export const ICONS: Icons = {
   ALERT: IconAlert,

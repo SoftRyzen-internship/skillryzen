@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { EditPasswordForm } from 'forms/ProfileSettingsForm/EditPasswordForm/EditPasswordForm';
+import { EditPasswordForm } from 'modules/Forms';
 import { UserAvatar } from 'ui-kit/components/UserAvatar';
 import { IMAGES } from 'ui-kit/images';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import s from './SectionEditPassword.module.scss';
 export const SectionEditPassword = () => {
   const [userAvatarUrl, setUserAvatarUrl] = useState(IMAGES.JAVA_SCRIPT);

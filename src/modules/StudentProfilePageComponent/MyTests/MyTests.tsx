@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { CardSlider } from './CardSlider';
 
-import { Theme, UserInfo } from 'modules/common/types';
+import { Theme, UserInfo } from 'constans/types';
 
 import s from './MyTests.module.scss';
 

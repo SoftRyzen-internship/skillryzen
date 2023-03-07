@@ -10,7 +10,7 @@ import { AuthButton } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import { validationSchema } from './validationSchema';
 

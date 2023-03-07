@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
 import { AuthButton, RadioButton } from 'ui-kit';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import {
   answerTest,

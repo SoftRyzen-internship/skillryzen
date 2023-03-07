@@ -6,7 +6,7 @@ import { ICONS } from 'ui-kit/icons';
 
 import { SideBar, Menu } from 'ui-kit/index';
 
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 function generateId() {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { SideBarContext } from 'modules/Sidebar/context/sideBarContext';
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './SideBar.module.scss';

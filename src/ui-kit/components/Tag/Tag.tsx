@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 
 import s from './Tag.module.scss';
 
