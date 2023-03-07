@@ -2,7 +2,7 @@ import { Suspense, useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { ThemeContext } from 'context/themeContext';
-import { getLocaleStorageItem } from 'services/localStorage';
+import { getLocaleStorageItem } from 'utils/getLocaleStorageItem';
 import { auth } from 'redux/authSlice/operations';
 
 import { AppRoutes } from 'routes';
