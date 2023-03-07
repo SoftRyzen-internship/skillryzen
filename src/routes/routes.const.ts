@@ -19,5 +19,4 @@ export const ROUTES: Routes = {
   TEAM: '/student/team',
   TESTING: '/student/testing',
   TEST_END: '/student/testing/test-end',
-  NOT_FOUND: '*',
 };

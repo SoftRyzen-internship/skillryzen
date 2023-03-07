@@ -15,7 +15,6 @@ import CompanyPage from 'pages/CompanyPage';
 import TestingPage from 'pages/TestingPage';
 import TestEndPage from 'pages/TestEndPage';
 import RegisterPage from 'pages/RegisterPage';
-import NotFoundPage from 'pages/NotFoundPage';
 import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
@@ -168,6 +167,7 @@ export const AppRoutes = () => {
         { path: '/company', element: <CompanyPage /> },
       ],
     },
+    { path: '/company', element: <CompanyPage /> },
     { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);
