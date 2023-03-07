@@ -10,14 +10,14 @@ interface IntroMeta {
 }
 
 const introMeta: IntroMeta = {
-  candidate: [
+  STUDENT: [
     'Пройти тест з JavaScript',
     'Отримати сертифікат',
     'Оновлене проходження раз у 10 днів',
     'Отримати сертифікат',
     'Отримати',
   ],
-  company: [
+  COMPANY: [
     'Створення власних тестів',
     'Необмежена кількість учасників',
     'Можливість надавати доступ до команди',
@@ -28,13 +28,13 @@ const introMeta: IntroMeta = {
 
 export const AuthIntro = () => {
   const location = useLocation();
-  const role = useAppSelector((state) => state.auth.role);
+  const role = useAppSelector((state) => state.auth.user.role);
 
   return location.pathname === ROUTES.REGISTER ? (
     <section className={s.sectionRegister}>
       <div
         className={`${
-          role === 'candidate' ? s.authCandidateBg : s.authCompanyBg
+          role === 'STUDENT' ? s.authCandidateBg : s.authCompanyBg
         }`}
       >
         <ul className={s.introMetaList}>

@@ -1,6 +1,13 @@
 import { Navigate, useRoutes, Outlet } from 'react-router-dom';
 
-import { MainWrapper, AuthWrapper } from 'modules/wrappers';
+import { useAppSelector } from 'hooks/hook';
+
+import {
+  MainWrapper,
+  AuthWrapper,
+  PublickRoute,
+  ProtectedRoute,
+} from 'modules/wrappers';
 
 import LoginPage from 'pages/LoginPage';
 import TestsPage from 'pages/TestsPage';
@@ -17,56 +24,92 @@ import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 import { ROUTES } from './routes.const';
 
 export const AppRoutes = () => {
+  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const routes = [
     {
       path: '/',
       element: (
-        <AuthWrapper>
-          <Outlet />
-        </AuthWrapper>
+        <PublickRoute isLoggedIn={isLoggedIn}>
+          <AuthWrapper>
+            <Outlet />
+          </AuthWrapper>
+        </PublickRoute>
       ),
       children: [
         {
           path: '',
-          element: <LoginPage />,
+          element: <Navigate to={ROUTES.LOGIN} replace={true} />,
         },
         { path: ROUTES.LOGIN, element: <LoginPage /> },
         { path: ROUTES.REGISTER, element: <RegisterPage /> },
       ],
     },
     {
-      path: ROUTES.STUDENT,
+      element: (
+        <ProtectedRoute isLoggedIn={isLoggedIn}>
+          <Outlet />
+        </ProtectedRoute>
+      ),
       children: [
         {
-          path: '',
-          element: <Navigate to={ROUTES.CERTIFICATION} replace={true} />,
-        },
-        {
-          element: (
-            <MainWrapper
-              showSidebar={true}
-              showHeader={true}
-              isTestingPage={false}
-            >
-              <Outlet />
-            </MainWrapper>
-          ),
+          path: ROUTES.STUDENT,
           children: [
             {
-              path: ROUTES.DASHBOARD,
-              element: <UnderDevelopmentPage />,
+              path: '',
+              element: <Navigate to={ROUTES.CERTIFICATION} replace={true} />,
             },
             {
-              path: ROUTES.CERTIFICATION,
-              element: <Outlet />,
+              element: (
+                <MainWrapper
+                  showSidebar={true}
+                  showHeader={true}
+                  isTestingPage={false}
+                >
+                  <Outlet />
+                </MainWrapper>
+              ),
               children: [
                 {
-                  path: '',
-                  element: <TestsPage />,
+                  path: ROUTES.DASHBOARD,
+                  element: <UnderDevelopmentPage />,
                 },
                 {
-                  path: ':testId',
-                  element: <TestStartPage />,
+                  path: ROUTES.CERTIFICATION,
+                  element: <Outlet />,
+                  children: [
+                    {
+                      path: '',
+                      element: <TestsPage />,
+                    },
+                    {
+                      path: ':testId',
+                      element: <TestStartPage />,
+                    },
+                  ],
+                },
+                {
+                  path: ROUTES.PETPROJECTS,
+                  element: <UnderDevelopmentPage />,
+                },
+                {
+                  path: ROUTES.LEADERBOARD,
+                  element: <UnderDevelopmentPage />,
+                },
+                {
+                  path: ROUTES.VACANCIES,
+                  element: <UnderDevelopmentPage />,
+                },
+                {
+                  path: ROUTES.PROFILE,
+                  element: <StudentProfilePage />,
+                },
+                {
+                  path: ROUTES.SETTINGS,
+                  element: <StudentSettingsPage />,
+                },
+                {
+                  path: ROUTES.FEEDBACK,
+                  element: <UnderDevelopmentPage />,
                 },
               ],
             },
@@ -94,6 +137,10 @@ export const AppRoutes = () => {
               path: ROUTES.FEEDBACK,
               element: <UnderDevelopmentPage />,
             },
+            {
+              path: ROUTES.TEAM,
+              element: <UnderDevelopmentPage />,
+            },
           ],
         },
         {
@@ -118,24 +165,10 @@ export const AppRoutes = () => {
             },
           ],
         },
+        { path: '/company', element: <CompanyPage /> },
       ],
     },
-    {
-      path: ROUTES.NOT_FOUND,
-      element: (
-        <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}>
-          <Outlet />
-        </MainWrapper>
-      ),
-      children: [
-        {
-          path: '*',
-          element: <NotFoundPage />,
-        },
-      ],
-    },
-    { path: '/company', element: <CompanyPage /> },
-    // { path: '*', element: <NotFoundPage /> },
+    { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);
 

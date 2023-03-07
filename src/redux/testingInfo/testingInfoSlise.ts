@@ -1,9 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import {
-  answerTest,
-  finishTest,
-  getRandomTest,
-} from './testingInfoOperations';
+import { answerTest, finishTest, getRandomTest } from './testingInfoOperations';
 
 interface Results {
   testId: string;

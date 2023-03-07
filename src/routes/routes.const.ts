@@ -16,6 +16,7 @@ export const ROUTES: Routes = {
   PROFILE: '/student/profile',
   SETTINGS: '/student/settings',
   FEEDBACK: '/student/feedback',
+  TEAM: '/student/team',
   TESTING: '/student/testing',
   TEST_END: '/student/testing/test-end',
   NOT_FOUND: '*',

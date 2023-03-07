@@ -7,6 +7,7 @@
   border-radius: 10px;
   border: none;
   color: var(--disabled-cl);
+
 }
 
 .blue--light,
@@ -38,10 +39,22 @@
   background-color: var(--components-cl);
 
   .iconGrid path {
-    fill: var(--secondary-txt-cl);
+  fill: var(--secondary-txt-cl);
+  transition: fill var(--transition);
   }
 
   .iconGrid4 path {
     stroke: var(--secondary-txt-cl);
+    transition: fill var(--transition);
+  }
+}
+
+.black--dark:hover, .black--dark:focus {
+  .iconGrid path {
+    fill: var(--accent-cl);
+  }
+
+  .iconGrid4 path {
+    stroke: var(--accent-cl);
   }
 }

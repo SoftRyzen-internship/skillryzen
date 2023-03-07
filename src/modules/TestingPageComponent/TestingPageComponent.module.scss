@@ -15,7 +15,7 @@
 
   &--light::after {
     background-color: var(--light-components-cl);
-    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    box-shadow: var(--light-primary-shadow);
   }
 }
 

@@ -1,19 +1,19 @@
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
 import { useAppDispatch } from 'hooks/hook';
-import { setStep } from 'redux/authSlice/authSlice';
+import { ROUTES } from 'routes/routes.const';
 
 import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/RegisterContactsForm';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const ThirdStep = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const dispatch = useAppDispatch();
-
   const handleClickSkipBtn = () => {
-    dispatch(setStep(4));
+    navigate(ROUTES.STUDENT);
   };
 
   return (
