@@ -93,6 +93,10 @@ export const AppRoutes = () => {
               path: ROUTES.FEEDBACK,
               element: <UnderDevelopmentPage />,
             },
+            {
+              path: ROUTES.TEAM,
+              element: <UnderDevelopmentPage />,
+            },
           ],
         },
         {
