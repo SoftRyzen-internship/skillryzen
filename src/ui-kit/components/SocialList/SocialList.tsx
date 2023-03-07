@@ -1,23 +1,29 @@
-import { SocialItem, Theme } from 'modules/common/types';
+import { Theme, UserSocial } from 'modules/common/types';
+import { ICONS } from 'ui-kit/icons';
 
 import s from './SocialList.module.scss';
 
 interface SocialListProps {
-  socialList: SocialItem[];
+  social: UserSocial;
   theme?: Theme;
 }
-export const SocialList = ({ socialList, theme = 'dark' }: SocialListProps) => {
+export const SocialList = ({ social, theme = 'dark' }: SocialListProps) => {
   return (
     <ul className={s.list}>
-      {socialList.map((socialItem) => {
-        return (
-          <li className={s.item} key={socialItem.url}>
-            <a className={s.link} href={socialItem.url}>
-              <div className={`${s[`icon--${theme}`]}`}>{socialItem.icon}</div>
-            </a>
-          </li>
-        );
-      })}
+      {social.telegram && (
+        <li className={s.item} key={social.telegram}>
+          <a className={s.link} href={social.telegram}>
+            <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />
+          </a>
+        </li>
+      )}
+      {social.linkedin && (
+        <li className={s.item} key={social.linkedin}>
+          <a className={s.link} href={social.linkedin}>
+            <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />
+          </a>
+        </li>
+      )}
     </ul>
   );
 };

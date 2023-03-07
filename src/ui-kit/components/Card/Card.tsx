@@ -8,6 +8,7 @@ import s from './Card.module.scss';
 type Type = 'notification' | 'coin' | 'info';
 
 interface Card {
+  className?: string;
   type?: Type;
   size?: 'large' | 'small';
   hideNumber?: boolean;
@@ -38,6 +39,7 @@ const imageObject = {
 };
 
 export const Card = ({
+  className = '',
   type = 'info',
   item,
   size = 'large',
@@ -61,7 +63,9 @@ export const Card = ({
   };
 
   return (
-    <div className={`${s[`card--${size}`]} ${s[`card--${theme}`]}`}>
+    <div
+      className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className}`}
+    >
       <div className={s.card__infoWrapper}>
         <div className={s.card__contentWrapper}>
           <span

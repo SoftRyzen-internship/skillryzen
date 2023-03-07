@@ -1,6 +1,6 @@
 # Назва компонента
 
-MenuButton
+IconButton
 
 # Опис компонента
 
@@ -11,12 +11,12 @@ MenuButton
 type - тип кнопки. Може бути button або submit. За замовчуванням - button.
 onClick - функція, яка виконується при кліку на кнопку.
 color - колір кнопки. Може бути blue або black.
-icon - тип іконки. Може бути grid4 або grid2.
+icon - тип іконки. Може бути grid4, grid2, left, right.
 className - определяет пользовательский класс CSS для кнопки.
 
 # Приклад використання
 
-<MenuButton
+<IconButton
 className={s.margin} - задавання додаткового стилю для прикладу з вашого компонента s - назва файлу; margin- назва класу
 type="button"
 onClick={...}
