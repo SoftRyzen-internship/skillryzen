@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+
+import { throttle } from 'utils/throtle';
 
 import { Card, PaginationButton } from 'ui-kit';
 
+import { ROUTES } from 'routes/routes.const';
 import { Theme, UserTests } from 'modules/common/types';
 
 import s from './CardSlider.module.scss';
-import { Link } from 'react-router-dom';
-import { ROUTES } from 'routes/routes.const';
 
 interface CardSliderProps {
   cards: UserTests[];
@@ -31,27 +33,6 @@ export const CardSlider = ({
   const [sliderWidth, setSliderWidth] = useState(0);
   const [visibleCards, setVisibleCards] = useState(0);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setWidth(window.innerWidth);
-      setSliderWidth(0);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    const slider = containerRef.current;
-    if (slider) {
-      const visibleCards = Math.floor(slider.offsetWidth / cardOffset);
-      const sliderWidth = visibleCards * cardOffset - cardGap;
-      setSliderWidth(sliderWidth);
-      setVisibleCards(visibleCards);
-    }
-  }, [cardGap, cardOffset, width]);
-
   const handleNextSlide = () => {
     if (currentIndex >= cards.length - 1) {
       setCurrentIndex(0);
@@ -67,6 +48,31 @@ export const CardSlider = ({
       setCurrentIndex((prev) => prev - 1);
     }
   };
+
+  const handleResize = () => {
+    setWidth(window.innerWidth);
+    setSliderWidth(0);
+  };
+
+  const throttledHandleResize = throttle(handleResize, 300);
+
+  useEffect(() => {
+    window.addEventListener('resize', throttledHandleResize);
+    return () => {
+      window.removeEventListener('resize', throttledHandleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const slider = containerRef.current;
+    if (slider) {
+      const visibleCards = Math.floor(slider.offsetWidth / cardOffset);
+      const sliderWidth = visibleCards * cardOffset - cardGap;
+      setSliderWidth(sliderWidth);
+      setVisibleCards(visibleCards);
+    }
+  }, [cardGap, cardOffset, width]);
+
   return (
     <div ref={containerRef} className={s.sliderContainer}>
       <div
