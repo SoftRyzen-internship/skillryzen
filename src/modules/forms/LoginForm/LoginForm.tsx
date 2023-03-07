@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-// import { useAppDispatch } from 'hooks/hook';
 import { ROUTES } from 'routes/routes.const';
+import { useAppDispatch } from 'hooks/hook';
 import { AuthButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
@@ -14,6 +14,7 @@ import { IThemeContext } from 'modules/common/types';
 import { validationSchema } from './validationSchema';
 
 import s from './LoginForm.module.scss';
+import { logIn } from 'redux/authSlice/operations';
 
 interface MyFormValues {
   email: string;
@@ -37,11 +38,11 @@ const objectTheme = {
 export const LoginForm = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
-  // const dispatch = useAppDispatch();
-  const navigate = useNavigate();
-  const [showPassword, setShowPassword] = useState(false);
 
-  // const handleClickGoogle = () => {};
+  const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const [showPassword, setShowPassword] = useState(false);
 
   const formik = useFormik<MyFormValues>({
     initialValues: {
@@ -52,8 +53,8 @@ export const LoginForm = () => {
 
     validationSchema,
 
-    onSubmit: (_values) => {
-      navigate(ROUTES.STUDENT);
+    onSubmit: ({ email, password }) => {
+      dispatch(logIn({ email, password })).then(() => navigate(ROUTES.STUDENT));
     },
   });
 
@@ -71,14 +72,13 @@ export const LoginForm = () => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <AuthButton
-        // onClick={handleClickGoogle}
         size='large'
         text='Google'
         type='button'
         needBackground='noBackgroundGray'
         icon={<ICONS.GOOGLE className={s.googleIcon} />}
         className={objectTheme[theme].googleButton}
-        // disabled
+        disabled
       />
       <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
       <div
