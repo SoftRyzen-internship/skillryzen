@@ -7,25 +7,31 @@ interface loginPayload {
   password: string;
 }
 
-interface registerPayload extends loginPayload  {
+interface registerPayload extends loginPayload {
   displayName?: string;
 }
 
-const register = createAsyncThunk('auth/register', async (registerData:registerPayload, thunkApi) => {
-  try {
-    await axiosInstance.post('auth/register', registerData);
-  } catch (err) {
-    return thunkApi.rejectWithValue(err.message);
+const register = createAsyncThunk(
+  'auth/register',
+  async (registerData: registerPayload, thunkApi) => {
+    try {
+      await axiosInstance.post('auth/register', registerData);
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.message);
+    }
   }
-});
+);
 
-const logIn = createAsyncThunk('auth/logIn', async ({email, password}: loginPayload, thunkApi) => {
-  try {
-    await axiosInstance.post('auth/login', {email, password});
-  } catch (err) {
-    return thunkApi.rejectWithValue(err.message);
+const logIn = createAsyncThunk(
+  'auth/logIn',
+  async ({ email, password }: loginPayload, thunkApi) => {
+    try {
+      await axiosInstance.post('auth/login', { email, password });
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.message);
+    }
   }
-});
+);
 
 const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
   try {

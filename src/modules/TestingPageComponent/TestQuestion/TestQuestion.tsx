@@ -17,7 +17,8 @@ import s from './TestQuestion.module.scss';
 import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
 
 export const TestQuestion = () => {
-  const {testId, questionId, title,  possibleAnswers, isLoading } = useAppSelector((state) => state.testingInfo);
+  const { testId, questionId, title, possibleAnswers, isLoading } =
+    useAppSelector((state) => state.testingInfo);
   const time = useAppSelector(getTimeTest);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
@@ -41,9 +42,7 @@ export const TestQuestion = () => {
 
   return (
     <div className={s.testWrapper}>
-      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>
-        {title}
-      </h2>
+      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>{title}</h2>
       <div className={s.questionWrapper}>
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>

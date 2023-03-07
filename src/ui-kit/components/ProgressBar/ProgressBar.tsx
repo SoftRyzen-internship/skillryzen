@@ -37,25 +37,25 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
       >
         {total ? `Question ${returnCurrentNumber(number)}/${total}` : ''}
       </p>
-      {array && array.length>0 && <div className={s.progressBar__wrapper}>
-        <ul className={s.progressBar__list}>
-          {array.map((item) => (
+      {array && array.length > 0 && (
+        <div className={s.progressBar__wrapper}>
+          <ul className={s.progressBar__list}>
+            {array.map((item) => (
               <li
                 key={item}
                 className={`${s.progressBar__line} ${
                   item < number && s['progressBar__line--done']
-                } ${
-                  item === number && s['progressBar__line--current']
-                }`}
+                } ${item === number && s['progressBar__line--current']}`}
               ></li>
             ))}
-        </ul>
-        <ICONS.FLAG_ONE
-          className={`${s[`progressBar__icon--${theme}`]} ${
-            number > total && s.progressBar__iconFinish
-          }`}
-        />
-      </div>}
+          </ul>
+          <ICONS.FLAG_ONE
+            className={`${s[`progressBar__icon--${theme}`]} ${
+              number > total && s.progressBar__iconFinish
+            }`}
+          />
+        </div>
+      )}
     </div>
   );
 };

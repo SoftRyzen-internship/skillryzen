@@ -42,7 +42,7 @@ const authSlice = createSlice({
       state.user.role = action.payload;
     },
   },
-  extraReducers: builder =>
+  extraReducers: (builder) =>
     builder
       .addCase(logIn.fulfilled, (state) => {
         state.isLoading = false;
@@ -64,18 +64,27 @@ const authSlice = createSlice({
         state.isError = false;
         state.isLoggedIn = false;
       })
-      .addMatcher((action) => action.type.endsWith('/pending'), (state) => {
-        state.isLoading= true;
-      })
-      .addMatcher((action) => action.type.endsWith('/rejected'), (state) => {
-        state.isLoggedIn = false;
-        state.isLoading= false;
-        state.isError = true;
-      })
-      .addMatcher((action) => action.type.endsWith('/fulfilled'), (state) => {
-        state.isLoading= false;
-        state.isError = false;
-      }),
+      .addMatcher(
+        (action) => action.type.endsWith('/pending'),
+        (state) => {
+          state.isLoading = true;
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith('/rejected'),
+        (state) => {
+          state.isLoggedIn = false;
+          state.isLoading = false;
+          state.isError = true;
+        }
+      )
+      .addMatcher(
+        (action) => action.type.endsWith('/fulfilled'),
+        (state) => {
+          state.isLoading = false;
+          state.isError = false;
+        }
+      ),
 });
 
 const persistConfig = {
