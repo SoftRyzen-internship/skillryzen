@@ -43,7 +43,6 @@ export const TestQuestion = () => {
 
   return (
     <div className={s.testWrapper}>
-      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>{title}</h2>
       <h2
         className={
           isLoading
