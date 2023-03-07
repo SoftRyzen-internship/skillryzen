@@ -5,6 +5,7 @@ export { CopyButton } from './components/Buttons/CopyButton';
 export { HeaderButton } from './components/Buttons/HeaderButton';
 export { IconButton } from './components/Buttons/IconButton';
 export { Card } from './components/Card/Card';
+export { InfoCard } from './components/Card/Infocard';
 export { Checkbox } from './components/Checkbox';
 export { Input } from './components/Input';
 export { Logo } from './components/Logo';
@@ -20,3 +21,4 @@ export { Tabs } from './components/Tabs';
 export { Tag } from './components/Tag';
 export { UserAvatar } from './components/UserAvatar';
 export { UserAvatarCard } from './components/UserAvatarCard';
+
