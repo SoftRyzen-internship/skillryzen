@@ -49,10 +49,11 @@ const testingInfoSlice = createSlice({
       state.results.time = action.payload;
     },
     removeResults(state) {
+      state.questionsTotalCount = 0; 
       state.number = null;
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
-      state.results.time = 0;
+      state.results.time = 0;   
     },
   },
   extraReducers: (builder) => {
