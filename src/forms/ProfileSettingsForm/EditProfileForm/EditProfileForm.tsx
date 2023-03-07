@@ -1,12 +1,14 @@
 import { useFormik } from 'formik';
 import InputMask from 'react-input-mask';
-import { validationSchema } from './validationSchema';
-
-import s from './EditProfileForm.module.scss';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import s from './EditProfileForm.module.scss';
+import { useValidationSchema } from './useValidationSchema';
 import { ICONS } from 'ui-kit/icons';
 import { AuthButton } from 'ui-kit';
 import { useAppSelector } from 'hooks/hook';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'modules/common/types';
 interface FormValues {
   name?: string;
   surname?: string;
@@ -22,6 +24,9 @@ interface FormValues {
 export const EditProfileForm = () => {
   const [changeProfile, setChangeProfile] = useState(true);
   const [company, setCompany] = useState('Lorem');
+  const { t } = useTranslation();
+  const { theme }: IThemeContext = useThemeContext();
+  const validationSchema = useValidationSchema();
   const formik = useFormik<FormValues>({
     initialValues: {
       name: '',
@@ -80,10 +85,10 @@ export const EditProfileForm = () => {
                 onBlur={handleBlur}
                 value={companyName}
                 autoComplete='company'
-                placeholder='Company name'
+                placeholder={t('editProfileForm.company.name')}
               />
               <label className={s.floatingLabel} htmlFor='companyName'>
-                Company name
+                {t('editProfileForm.company.name')}
               </label>
             </li>
           )}
@@ -97,7 +102,9 @@ export const EditProfileForm = () => {
               <p className={s.errorMsg}>{errors.name}</p>
             )}
             <input
-              className={s.input}
+              className={`${s.input} ${
+                !changeProfile ? s[`inputEdit--${theme}`] : ''
+              }`}
               name='name'
               type='text'
               id='name'
@@ -105,11 +112,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={name}
               autoComplete='name'
-              placeholder='Name'
+              placeholder={t('editProfileForm.name')}
               disabled={changeProfile}
             />
             <label className={s.floatingLabel} htmlFor='name'>
-              Name
+              {t('editProfileForm.name')}
             </label>
             <button
               type='button'
@@ -122,7 +129,9 @@ export const EditProfileForm = () => {
           <li className={`${s.floatingGroup}`}>
             <input
               className={`${s.input} ${
-                role === 'admin' ? s.inputEdit : s.inputDisabled
+                role === 'admin'
+                  ? s[`inputEdit--${theme}`]
+                  : s[`inputDisabled--${theme}`]
               }`}
               name='position'
               type='text'
@@ -131,11 +140,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={role === 'admin' ? 'admin' : 'user'}
               autoComplete='off'
-              placeholder='Position'
+              placeholder={t('editProfileForm.position')}
               disabled={role === 'user'}
             />
             <label className={s.floatingLabel} htmlFor='position'>
-              Position
+              {t('editProfileForm.position')}
             </label>
             <button
               type='button'
@@ -148,7 +157,9 @@ export const EditProfileForm = () => {
           <li className={`${s.floatingGroup}`}>
             <input
               className={`${s.input} ${
-                role === 'admin' ? s.inputEdit : s.inputDisabled
+                role === 'admin'
+                  ? s[`inputEdit--${theme}`]
+                  : s[`inputDisabled--${theme}`]
               }`}
               name='company'
               type='text'
@@ -157,11 +168,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={company}
               autoComplete='off'
-              placeholder='Company'
+              placeholder={t('editProfileForm.company')}
               disabled={role === 'user'}
             />
             <label className={s.floatingLabel} htmlFor='company'>
-              Company
+              {t('editProfileForm.company')}
             </label>
             <button
               type='button'
@@ -181,7 +192,9 @@ export const EditProfileForm = () => {
               <p className={s.errorMsg}>{errors.surname}</p>
             )}
             <input
-              className={s.input}
+              className={`${s.input} ${
+                !changeProfile ? s[`inputEdit--${theme}`] : ''
+              }`}
               name='surname'
               type='text'
               id='surname'
@@ -189,11 +202,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={surname}
               autoComplete='surname'
-              placeholder='Surname'
+              placeholder={t('editProfileForm.surname')}
               disabled={changeProfile}
             />
             <label className={s.floatingLabel} htmlFor='surname'>
-              Surname
+              {t('editProfileForm.surname')}
             </label>
             <button
               type='button'
@@ -222,11 +235,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={phone}
               autoComplete='off'
-              placeholder='Phone'
+              placeholder={t('editProfileForm.phone')}
               disabled={changeProfile}
             />
             <label className={s.floatingLabelPhone} htmlFor='phone'>
-              Phone
+              {t('editProfileForm.phone')}
             </label>
             <button type='button' className={s.phoneButton}>
               <ICONS.UKRAINE />
@@ -249,7 +262,9 @@ export const EditProfileForm = () => {
               <p className={s.errorMsg}>{errors.telegram}</p>
             )}
             <input
-              className={s.input}
+              className={`${s.input} ${
+                !changeProfile ? s[`inputEdit--${theme}`] : ''
+              }`}
               name='telegram'
               type='text'
               id='telegram'
@@ -257,11 +272,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={telegram}
               autoComplete='off'
-              placeholder='Social media Telegram'
+              placeholder={t('editProfileForm.telegram')}
               disabled={changeProfile}
             />
             <label className={s.floatingLabel} htmlFor='telegram'>
-              Social media Telegram
+              {t('editProfileForm.telegram')}
             </label>
             <button
               type='button'
@@ -281,7 +296,9 @@ export const EditProfileForm = () => {
               <p className={s.errorMsg}>{errors.linkedin}</p>
             )}
             <input
-              className={s.input}
+              className={`${s.input} ${
+                !changeProfile ? s[`inputEdit--${theme}`] : ''
+              }`}
               name='linkedin'
               type='text'
               id='linkedin'
@@ -289,11 +306,11 @@ export const EditProfileForm = () => {
               onBlur={handleBlur}
               value={linkedin}
               autoComplete='off'
-              placeholder='Social media LinkdIn'
+              placeholder={t('editProfileForm.linkedin')}
               disabled={changeProfile}
             />
             <label className={s.floatingLabel} htmlFor='linkedin'>
-              Social media LinkdIn
+              {t('editProfileForm.linkedin')}
             </label>
             <button
               type='button'
@@ -308,14 +325,14 @@ export const EditProfileForm = () => {
         <div className={s.buttonGroup}>
           <AuthButton
             size='large'
-            text='Update'
+            text={t('editProfileForm.button.update')}
             type='submit'
             disabled={!isValid || !dirty}
             className={s.btn}
           />
           <AuthButton
             size='large'
-            text='Cancel'
+            text={t('editProfileForm.button.cancel')}
             type='button'
             onClick={handleCancel}
             className={`${s.btn} ${!changeProfile ? s.btnCancel : ''}`}
