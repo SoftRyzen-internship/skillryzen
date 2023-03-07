@@ -4,19 +4,19 @@ import { Theme } from 'modules/common/types';
 
 import s from './Menu.module.scss';
 
-interface IMenu {
+interface Menu {
   title: string;
   icon: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   iconAlt: string;
   path: string;
   className?: string;
 }
-interface IMenuProps {
-  menu: IMenu[];
+interface MenuProps {
+  menu: Menu[];
   theme?: Theme;
 }
 
-export const Menu = ({ menu, theme = 'dark' }: IMenuProps) => {
+export const Menu = ({ menu, theme = 'dark' }: MenuProps) => {
   const isOpen = UseSideBarContext();
 
   return (

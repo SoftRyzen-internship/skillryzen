@@ -29,7 +29,7 @@ export const RegisterRoleForm = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
-  const role = useAppSelector((state) => state.auth.role);
+  const role = useAppSelector((state) => state.auth.user.role);
   const dispatch = useAppDispatch();
 
   const [code, setCode] = useState('');
@@ -66,8 +66,8 @@ export const RegisterRoleForm = () => {
               type='radio'
               name='role'
               id='candidate'
-              value='candidate'
-              checked={role === 'candidate'}
+              value='STUDENT'
+              checked={role === 'STUDENT'}
               onChange={handleRoleChange}
             />
             <label
@@ -84,8 +84,8 @@ export const RegisterRoleForm = () => {
               type='radio'
               name='role'
               id='company'
-              value='company'
-              checked={role === 'company'}
+              value='COMPANY'
+              checked={role === 'COMPANY'}
               onChange={handleRoleChange}
             />
             <label
@@ -98,7 +98,7 @@ export const RegisterRoleForm = () => {
           </li>
         </ul>
       </fieldset>
-      {role === 'candidate' && (
+      {role === 'STUDENT' && (
         <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
           <input
             onChange={handleChange}
@@ -111,10 +111,10 @@ export const RegisterRoleForm = () => {
         </label>
       )}
       <ul
-        style={{ minHeight: role === 'candidate' ? '160px' : '64px' }}
+        style={{ minHeight: role === 'STUDENT' ? '160px' : '64px' }}
         className={s.buttonsList}
       >
-        {isValid && role === 'candidate' && (
+        {isValid && role === 'STUDENT' && (
           <li>
             <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
             <AuthButton
@@ -132,7 +132,7 @@ export const RegisterRoleForm = () => {
             text={t('auth.accountBtn')}
             type='submit'
             color='blue'
-            disabled={!isValid && role === 'candidate'}
+            disabled={!isValid && role === 'STUDENT'}
           />
         </li>
       </ul>

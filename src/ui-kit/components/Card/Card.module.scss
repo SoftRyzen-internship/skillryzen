@@ -6,6 +6,12 @@
   background-color: var(--components-cl);
   border-radius: 10px;
   padding: 86px 12px 24px;
+  transition: box-shadow var(--transition);
+
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow-blue);
+  }
 }
 
 .card--large {
@@ -16,12 +22,18 @@
   background-color: var(--components-cl);
   border-radius: 10px;
   padding: 18px 20px 18px 25px;
+  transition: box-shadow var(--transition);
+
+  &:hover,
+  &:focus {
+    box-shadow: var(--shadow-blue);
+  }
 }
 
 .card {
   &--light {
     background-color: var(--light-cards-cl);
-    box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+    box-shadow: var(--light-primary-shadow);
   }
 
   &--dark {

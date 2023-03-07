@@ -3,15 +3,15 @@ import * as Yup from 'yup';
 export const validationSchema = Yup.object({
   companyName: Yup.string()
     .min(2, 'Повинно містити біле 2 символів')
-    .max(50, 'Повинно містити не більше 50 символів'),
+    .max(30, 'Повинно містити не більше 30 символів'),
   name: Yup.string()
     .required("Ім'я є обовязковим")
     .min(2, 'Повинно містити біле 2 символів')
-    .max(50, 'Повинно містити не більше 50 символів'),
+    .max(30, 'Повинно містити не більше 50 символів'),
   surname: Yup.string()
     .required('Прізвище є обовязковим')
     .min(2, 'Повинно містити біле 2 символів')
-    .max(50, 'Повинно містити не більше 50 символів'),
+    .max(30, 'Повинно містити не більше 50 символів'),
   phone: Yup.string()
     .transform((value, originalValue) => {
       return originalValue

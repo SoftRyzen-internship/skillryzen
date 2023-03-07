@@ -8,18 +8,22 @@ import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 import {
   getTimeTest,
+  getTotalCount,
   getPercentageOfCorrectAnswers,
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import { ROUTES } from 'routes/routes.const';
 import { useAppDispatch } from 'hooks/hook';
+import { convertTime } from 'utils/convertTime';
 
 export const TestEndPageComponent = () => {
   const dispatch = useAppDispatch();
 
-  const testTime = useSelector(getTimeTest);
+  const testSeconds = useSelector(getTimeTest);
   const correctAnswersPercentage = useSelector(getPercentageOfCorrectAnswers);
-  const totalQuestions = 10;
+  const totalQuestions = useSelector(getTotalCount);
+
+  const testTime = convertTime(testSeconds);
 
   const navigate = useNavigate();
 
