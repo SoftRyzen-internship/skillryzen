@@ -10,6 +10,7 @@ import {
 } from 'redux/testingInfo/testingInfoOperations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
+import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
 import { ROUTES } from 'routes/routes.const';
 
@@ -17,8 +18,13 @@ import s from './TestQuestion.module.scss';
 import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
 
 export const TestQuestion = () => {
-  const {testId, questionId, title,  possibleAnswers, isLoading } = useAppSelector((state) => state.testingInfo);
+  const { testId, questionId, title, possibleAnswers, isLoading } =
+    useAppSelector((state) => state.testingInfo);
   const time = useAppSelector(getTimeTest);
+
+  // const skeletonPossibleAnswers = Array.from({ length: 4 }, () => ({
+  //   value: 'test',
+  // }));
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
@@ -41,13 +47,20 @@ export const TestQuestion = () => {
 
   return (
     <div className={s.testWrapper}>
-      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>
+      <h2
+        className={
+          isLoading
+            ? s.testTitleHidden
+            : `${s.testTitle} ${s[`testTitle--${theme}`]}`
+        }
+      >
         {title}
       </h2>
       <div className={s.questionWrapper}>
         {/* <div className={s.questionCode}>Code</div> */}
         <ul className={s.questionList}>
           {possibleAnswers &&
+            !isLoading &&
             possibleAnswers.map((answer, index) => (
               <li key={index}>
                 <RadioButton
@@ -62,10 +75,23 @@ export const TestQuestion = () => {
                 />
               </li>
             ))}
+          {
+            isLoading && <Skeleton length={4} value='skeleton' />
+            //   skeletonPossibleAnswers.map((answer, index) => (
+            //     <li
+            //       key={index}
+            //       className={
+            //         theme === 'dark' ? s.skeletonItemDark : s.skeletonItemLight
+            //       }
+            //     >
+            //       <p className={s.skeletonText}>{answer.value}</p>
+            //     </li>
+            // ))
+          }
         </ul>
       </div>
       {questionId && (
-        <div className={s.buttonWrapper}>
+        <div className={isLoading ? s.buttonWrapperHidden : s.buttonWrapper}>
           <AuthButton
             type='button'
             text='Answer'
