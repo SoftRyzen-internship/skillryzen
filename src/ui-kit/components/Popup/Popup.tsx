@@ -1,10 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { Theme } from 'modules/common/types';
 import s from './Popup.module.scss';
+import { Link } from 'react-router-dom';
 
 type TItem = {
   icon?: JSX.Element;
   text?: string;
+  path?: string;
 };
 
 interface IProps {
@@ -30,14 +32,16 @@ export const Popup = ({
         {vievAll}
       </button>
       <ul>
-        {list.map(({ icon, text }, idx) => (
+        {list.map(({ icon, text, path }, idx) => (
           <li
             key={idx}
-            className={`${s[`item--${theme}`]}`}
             onClick={() => handleClickItem(text)}
+            className={`${s[`item--${theme}`]}`}
           >
-            <div>{icon}</div>
-            <p className={`${s[`text--${theme}`]}`}>{text}</p>
+            <Link to={path} className={s.link}>
+              <div>{icon}</div>
+              <p className={`${s[`text--${theme}`]}`}>{text}</p>
+            </Link >
           </li>
         ))}
       </ul>

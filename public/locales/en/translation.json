@@ -54,7 +54,9 @@
     "userAvatar": {
       "profile": "Profile",
       "settings": "Settings",
-      "logOut": "Log out"
+      "coins": "Coins",
+      "logOut": "Log out",
+      "notifications": "Notifications"
     }
   },
   "sidebar": {

@@ -38,8 +38,6 @@
 }
 
 .item {
-  display: flex;
-  align-items: center;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -54,6 +52,11 @@
 
 .item:not(:last-child) {
   margin-bottom: 8px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
 }
 
 .text {
