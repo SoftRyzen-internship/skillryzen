@@ -54,7 +54,7 @@ export const RegisterContactsForm = () => {
     validationSchema,
 
     onSubmit: (values) => {
-      navigate(ROUTES.STUDENT);
+      navigate(ROUTES.CERTIFICATION);
     },
   });
 

@@ -56,7 +56,7 @@ export const LoginForm = () => {
     onSubmit: ({ email, password }) => {
       dispatch(logIn({ email, password })).then(
         ({ meta }) =>
-          meta.requestStatus === 'fulfilled' && navigate(ROUTES.STUDENT)
+          meta.requestStatus === 'fulfilled' && navigate(ROUTES.CERTIFICATION)
       );
     },
   });
