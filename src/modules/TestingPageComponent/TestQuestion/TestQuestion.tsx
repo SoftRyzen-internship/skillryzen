@@ -22,10 +22,6 @@ export const TestQuestion = () => {
     useAppSelector((state) => state.testingInfo);
   const time = useAppSelector(getTimeTest);
 
-  // const skeletonPossibleAnswers = Array.from({ length: 4 }, () => ({
-  //   value: 'test',
-  // }));
-
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
   const navigate = useNavigate();
@@ -47,6 +43,7 @@ export const TestQuestion = () => {
 
   return (
     <div className={s.testWrapper}>
+      <h2 className={`${s.testTitle} ${s[`testTitle--${theme}`]}`}>{title}</h2>
       <h2
         className={
           isLoading
@@ -75,19 +72,7 @@ export const TestQuestion = () => {
                 />
               </li>
             ))}
-          {
-            isLoading && <Skeleton length={4} value='skeleton' />
-            //   skeletonPossibleAnswers.map((answer, index) => (
-            //     <li
-            //       key={index}
-            //       className={
-            //         theme === 'dark' ? s.skeletonItemDark : s.skeletonItemLight
-            //       }
-            //     >
-            //       <p className={s.skeletonText}>{answer.value}</p>
-            //     </li>
-            // ))
-          }
+          {isLoading && <Skeleton length={4} value='skeleton' />}
         </ul>
       </div>
       {questionId && (

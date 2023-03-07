@@ -1,12 +1,13 @@
+import { useNavigate } from 'react-router';
 import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
-import { setStep } from 'redux/authSlice/authSlice';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks/hook';
 
 import { ICONS } from 'ui-kit/icons';
 import { AuthButton } from 'ui-kit';
+import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'modules/common/types';
@@ -39,8 +40,8 @@ export const RegisterContactsForm = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
-  const dispatch = useAppDispatch();
-  const role = useAppSelector((state) => state.auth.role);
+  const navigate = useNavigate();
+  const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik<FormValues>({
     initialValues: {
@@ -53,7 +54,7 @@ export const RegisterContactsForm = () => {
     validationSchema,
 
     onSubmit: (values) => {
-      dispatch(setStep(4));
+      navigate(ROUTES.STUDENT);
     },
   });
 
@@ -71,7 +72,7 @@ export const RegisterContactsForm = () => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <ul className={s.inputsList}>
-        {role === 'company' && (
+        {role === 'COMPANY' && (
           <li
             className={`${s.floatingGroup} ${
               touched.companyName &&
