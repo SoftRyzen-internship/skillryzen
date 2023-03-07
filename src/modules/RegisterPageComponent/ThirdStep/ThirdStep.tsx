@@ -13,7 +13,7 @@ export const ThirdStep = () => {
   const { t } = useTranslation();
 
   const handleClickSkipBtn = () => {
-    navigate(ROUTES.STUDENT);
+    navigate(ROUTES.CERTIFICATION);
   };
 
   return (
