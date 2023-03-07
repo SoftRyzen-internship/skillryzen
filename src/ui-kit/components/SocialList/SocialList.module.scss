@@ -8,7 +8,7 @@
   display: block;
 }
 
-.icon--dark svg {
+.icon--dark {
   display: block;
   fill: var(--secondary-txt-cl);
   transition: var(--transition);
@@ -16,7 +16,7 @@
     fill: var(--accent-cl);
   }
 }
-.icon--light svg {
+.icon--light {
   display: block;
   fill: var(--accent-cl);
   transition: var(--transition);

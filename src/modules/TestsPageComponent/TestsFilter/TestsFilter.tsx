@@ -4,7 +4,7 @@ import { ICONS } from 'ui-kit/icons';
 
 import { IThemeContext } from 'modules/common/types';
 import { useThemeContext } from 'context/themeContext';
-import { MenuButton, Tabs } from 'ui-kit/index';
+import { IconButton, Tabs } from 'ui-kit/index';
 
 import s from './TestsFilter.module.scss';
 
@@ -24,13 +24,13 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
         tabs={[{ title: t('testsMain.allTests'), path: '' }]}
       />
       <div className={s.testsFilter__wrapper}>
-        <MenuButton
+        <IconButton
           theme={theme}
           onClick={() => setSize('small')}
           color={size === 'small' ? 'blue' : 'black'}
           icon='grid2'
         />
-        <MenuButton
+        <IconButton
           theme={theme}
           onClick={() => setSize('large')}
           color={size === 'large' ? 'blue' : 'black'}

@@ -67,6 +67,23 @@
     "settings": "Налаштування",
     "feedback": "Зворотній зв'язок"
   },
+  "userProfile": {
+    "cardTitle": "Мій профіль",
+    "userRole": {
+      "student": "Студент"
+    },
+    "companyLabel": "Компанія",
+    "groupLabel": "Група",
+    "testsLabel": "Виконані тести",
+    "infoTitle": "Інформація",
+    "testsTitle": "Тести",
+    "noDataText": "Тестів поки немає",
+    "achievements": {
+      "scoreTitle": "Ваш рахунок",
+      "coinsTitle": "Ваші монети",
+      "timeTitle": "Ваш найкращий час"
+    }
+  },
 
   "auth": {
     "roleTitle": "Оберіть вашу роль",
@@ -128,5 +145,58 @@
     "title2": "ви успішно зареєструвались в системі!",
     "sumtitle": "Рекомендуємо перейти в профіль та",
     "link": "налаштувати персональні дані"
+  },
+  "editPasswordForm": {
+    "validation.email.invalid": "Некоректна адреса електронної пошти",
+    "validation.email.required": "Електронна пошта є обов`язковою",
+    "validation.email.max": "Електронна адреса має містити не більше 63 символів",
+    "validation.email.regex": "Невірна адреса електронної пошти",
+    "validation.email.startsWithEndsWith": "Електронна пошта не повинна починатися або закінчуватися крапкою чи дефісом",
+    "validation.currentPassword.required": "Поле є обов`язковим",
+    "validation.currentPassword.min": "Мінімальна довжина пароля - 8 символів",
+    "validation.newPassword.min": "Мінімальна довжина пароля - 8 символів",
+    "validation.newPassword.required": "Поле є обов`язковим",
+    "validation.confirmPassword.oneOf": "Паролі не співпадають",
+    "validation.confirmPassword.required": "Поле є обов`язковим",
+    "email.address": "Адреса електронної пошти",
+    "current.password": "Поточний пароль",
+    "new.password": "Новий пароль",
+    "confirm.password": "Підтвердіть пароль",
+    "button.save": "Зберегти",
+    "button.cancel": "Відмінити",
+    "button.update": "Оновити",
+    "edit.password": "Змінити пароль"
+  },
+  "editProfileForm": {
+    "edit.profile": "Змінити профіль",
+    "button.cancel": "Відмінити",
+    "button.update": "Оновити",
+    "edit.password": "Змінити пароль",
+    "validation.companyName.min": "Повинно містити більше 2 символів",
+    "validation.companyName.max": "Повинно містити не більше 50 символів",
+    "validation.name.required": "Ім'я є обов'язковим",
+    "validation.name.min": "Повинно містити більше 2 символів",
+    "validation.name.max": "Повинно містити не більше 50 символів",
+    "validation.surname.required": "Прізвище є обов'язковим",
+    "validation.surname.min": "Повинно містити більше 2 символів",
+    "validation.surname.max": "Повинно містити не більше 50 символів",
+    "validation.phone.format": "Невірний формат телефону",
+    "validation.phone.required": "Номер телефону є обов'язковим",
+    "validation.linkedin.url": "LinkedIn URL повинна бути дійсним URL",
+    "validation.linkedin.pattern": "Будь ласка, введіть дійсну LinkedIn URL профілю",
+    "validation.telegram.start": "Telegram-адреса повинна починатися з літери або знаку підкреслення.",
+    "validation.telegram.end": "Telegram-адреса повинна закінчуватися літерою, цифрою або знаком підкреслення.",
+    "validation.telegram.at": "Telegram-адреса не повинна містити символ @.",
+    "validation.telegram.letter": "Telegram-адреса повинна містити як мінімум одну літеру.",
+    "validation.telegram.min": "Telegram-адреса повинна містити не менше 5 символів.",
+    "validation.telegram.max": "Telegram-адреса повинна містити не більше 32 символів.",
+    "company.name": "Назва компанії",
+    "company": "Компанія",
+    "name": "Ім`я",
+    "surname": "Прізвище",
+    "position": "Позиція",
+    "phone": "Телефон",
+    "telegram": "Телеграм",
+    "linkedin": "LinkedIn"
   }
 }

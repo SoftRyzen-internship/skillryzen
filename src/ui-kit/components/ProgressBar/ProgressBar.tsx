@@ -25,7 +25,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
   }, [total]);
 
   const returnCurrentNumber = (number: number) => {
-    if (number > array.length) return array.length;
+    if (number > total) return total;
     if (number) return number;
     return 1;
   };

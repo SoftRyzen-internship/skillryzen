@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 export const validationSchema = Yup.object({
   email: Yup.string()
     .email('Некоректна адреса електронної пошти')
-    .required("Електронна пошта є обов'язковою")
+    .required('Електронна пошта є обов`язковою')
     .max(63, 'Електронна адреса має містити не більше 63 символів')
     .matches(
       /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
@@ -20,6 +20,6 @@ export const validationSchema = Yup.object({
       'Пробіли заборонені в паролі',
       (value) => !/\s/.test(value)
     )
-    .required("Пароль є обов'язковим"),
+    .required('Пароль є обов`язковим'),
   checkbox: Yup.boolean().oneOf([true]).required(),
 });

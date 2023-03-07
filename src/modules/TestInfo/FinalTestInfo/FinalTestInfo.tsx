@@ -53,7 +53,7 @@ interface Props {
   listInfo?: ListInfoJS;
   correctAnswers?: number;
   totalQuestions?: number;
-  timeSpent?: number;
+  timeSpent?: string;
   iconAnswers?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   iconTime?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
