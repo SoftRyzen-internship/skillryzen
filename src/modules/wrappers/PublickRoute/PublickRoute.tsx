@@ -8,9 +8,9 @@ interface Props {
 }
 
 export const PublickRoute = ({ isLoggedIn, children }: Props) => {
-  if (isLoggedIn) {
-    return <Navigate to={ROUTES.CERTIFICATION} replace />;
-  }
+  // if (isLoggedIn) {
+  //   return <Navigate to={ROUTES.CERTIFICATION} replace />;
+  // }
 
   return children;
 };
