@@ -5,7 +5,7 @@ import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { useValidationSchema } from './useValidationSchema';
 import axios from 'axios';
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 
 interface FormValues {
   message: string;
@@ -104,7 +104,7 @@ export const FeedbackForm = ({
           </div>
         </div>
 
-        <AuthButton
+        <MainButton
           size='small'
           text={t('feedbackForm.button.send')}
           type='submit'

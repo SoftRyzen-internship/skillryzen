@@ -8,7 +8,6 @@ import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 // import { validationSchema } from './validationSchema';
 
-import { AuthButton } from 'ui-kit';
 import { useSelector } from 'react-redux';
 import { getUserEmail } from 'redux/authSlice/authSelectors';
 import { MainButton } from 'ui-kit';
