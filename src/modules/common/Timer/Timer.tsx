@@ -48,15 +48,16 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     // eslint disable next line
   }, [hasNextQuestion]);
 
-
   useEffect(() => {
     if (!totalTime) return;
     setSeconds(totalTime);
+    // eslint disable next line
   }, [totalTime]);
 
   useEffect(() => {
     if (!questionId) return;
     dispatch(setCurrentTime(number === 1 ? totalTime : seconds));
+    // eslint disable next line
   }, [questionId]);
 
   return (
