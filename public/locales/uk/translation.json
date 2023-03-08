@@ -123,7 +123,7 @@
     "continueBtn": "Продовжити",
     "skipBtn": "Заповнити пізніше",
 
-    "candidateIntro": [
+    "studentIntro": [
       "Пройти тест з JavaScript",
       "Отримати сертифікат",
       "Оновлене проходження раз у 10 днів",
@@ -168,7 +168,8 @@
     "button.save": "Зберегти",
     "button.cancel": "Відмінити",
     "button.update": "Оновити",
-    "edit.password": "Змінити пароль"
+    "edit.password": "Змінити пароль",
+    "validation.currentPassword.spaces": "Пробіли заборонені в паролі"
   },
   "editProfileForm": {
     "edit.profile": "Змінити профіль",

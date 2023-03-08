@@ -122,7 +122,7 @@
     "continueBtn": "Continue",
     "skipBtn": "Do this later",
 
-    "candidateIntro": [
+    "studentIntro": [
       "Take a test in JavaScript",
       "Obtain a certificate",
       "Updated passing once every 10 days",
@@ -167,7 +167,8 @@
     "button.save": "Save",
     "button.cancel": "Cancel",
     "button.update": "Update",
-    "edit.password": "Edit password"
+    "edit.password": "Edit password",
+    "validation.currentPassword.spaces": "Spaces are not allowed in the password"
   },
   "editProfileForm": {
     "edit.profile": "Edit profile",
