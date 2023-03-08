@@ -26,43 +26,42 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
     if (!total) return;
     if (total && !questionId) return;
     setArray(createArray(total));
+    // eslint disable next line
   }, [total, number]);
 
   const returnCurrentNumber = (number: number) => {
-    if (number > total) return total;
-    if (number) return number;
-  };
-
-  const returnTitle = () => {
-    if (total && !questionId) return '';
-    if (total) return `Question ${returnCurrentNumber(number)}/${total}`;
+    return number > total ? total : number;
   };
 
   return (
     <div className={s.progressBar}>
-      <p
-        className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
-      >
-        {returnTitle()}
-      </p>
       {array && array.length > 0 && (
-        <div className={s.progressBar__wrapper}>
-          <ul className={s.progressBar__list}>
-            {array.map((item) => (
-              <li
-                key={item}
-                className={`${s.progressBar__line} ${
-                  item < number && s['progressBar__line--done']
-                } ${item === number && s['progressBar__line--current']}`}
-              ></li>
-            ))}
-          </ul>
-          <ICONS.FLAG_ONE
-            className={`${s[`progressBar__icon--${theme}`]} ${
-              number > total && s.progressBar__iconFinish
+        <>
+          <p
+            className={`${s.progressBar__info} ${
+              s[`progressBar__info--${theme}`]
             }`}
-          />
-        </div>
+          >
+            Question {returnCurrentNumber(number)}/{total}
+          </p>
+          <div className={s.progressBar__wrapper}>
+            <ul className={s.progressBar__list}>
+              {array.map((item) => (
+                <li
+                  key={item}
+                  className={`${s.progressBar__line} ${
+                    item < number && s['progressBar__line--done']
+                  } ${item === number && s['progressBar__line--current']}`}
+                ></li>
+              ))}
+            </ul>
+            <ICONS.FLAG_ONE
+              className={`${s[`progressBar__icon--${theme}`]} ${
+                number > total && s.progressBar__iconFinish
+              }`}
+            />
+          </div>
+        </>
       )}
     </div>
   );

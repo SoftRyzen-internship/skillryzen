@@ -51,12 +51,17 @@ const testingInfoSlice = createSlice({
     setTime(state, action: PayloadAction<number>) {
       state.results.time = action.payload;
     },
+    setCurrentTime(state, action: PayloadAction<number>) {
+      state.currentTime = action.payload;
+    },
     removeResults(state) {
       state.questionsTotalCount = 0;
       state.number = null;
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
       state.results.time = 0;
+      state.totalTime = 0;
+      state.currentTime = 0;
     },
   },
   extraReducers: (builder) => {
@@ -72,8 +77,8 @@ const testingInfoSlice = createSlice({
         state.title = payload.nextQuestion.title;
         state.possibleAnswers = payload.nextQuestion.possibleAnswers;
         state.questionsTotalCount = payload.questionsTotalCount;
-        state.totalTime = 180;
-        state.currentTime = 180;
+        state.totalTime = 30;
+        state.currentTime = 30;
         state.isLoading = false;
       })
       .addCase(getRandomTest.rejected, (state, { payload }) => {
@@ -106,6 +111,9 @@ const testingInfoSlice = createSlice({
           payload.percentageOfCorrectAnswers;
         state.hasNextQuestion = true;
         state.testId = '';
+        state.questionId = '';
+        state.title = '';
+        state.possibleAnswers = [];
         state.isLoading = false;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {
@@ -125,10 +133,12 @@ const persistConfig = {
     'title',
     'possibleAnswers',
     'questionsTotalCount',
+    'currentTime',
+    'totalTime'
   ],
 };
 
-export const { setTime, removeResults } = testingInfoSlice.actions;
+export const { setTime, removeResults, setCurrentTime } = testingInfoSlice.actions;
 export const testingInfoReducer = persistReducer(
   persistConfig,
   testingInfoSlice.reducer
