@@ -44,5 +44,5 @@ export const TestsCardsList = ({ size }: TestsListProps) => {
     },
   ];
 
-  return <CardsList type='info' size={size} testsArray={testsArray} />;
+  return <CardsList size={size} testsArray={testsArray} />;
 };

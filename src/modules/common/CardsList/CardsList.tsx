@@ -12,18 +12,17 @@ interface Item {
   author: string;
   title: string;
   text: string;
-  fields?: string[];
+  fields: string[];
   number: number;
-  time?: number;
+  time: number;
 }
 
 interface TestsList {
-  type?: 'notification' | 'coin' | 'info';
   size: 'large' | 'small';
   testsArray: Item[];
 }
 
-export const CardsList = ({ type = 'info', size, testsArray }: TestsList) => {
+export const CardsList = ({size, testsArray }: TestsList) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 

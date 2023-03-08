@@ -35,7 +35,8 @@ export const TestCard = ({
     <div
       className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className}`}
     >
-      <div className={s.card__infoWrapper}>
+      <div>
+        <p className={s.card__author}>{author}</p>
         <div className={s.card__content}>
           <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>
             {title}
@@ -44,21 +45,29 @@ export const TestCard = ({
             {text}
           </p>
         </div>
-        <ul className={s.card__list}>
-          {fields.map((item, index) => (
-            <li key={index}>
-              <Tag type='field' label={item} theme={theme} />
-            </li>
-          ))}
-        </ul>
       </div>
-      <div className={s.card__addInfoWrapper}>
-        <Tag
-          type='number'
-          theme={theme}
-          label={number + ' ' + t('testsMain.numberOfQuestions')}
-        />
-        <Tag type='time' label={time + ''} theme={theme} />
+      <div className={s.card__wrapper}>
+        <div className={s.card__listWrapper}>
+          <ul className={s.card__list}>
+            {fields.map((item, index) => (
+              <li key={index}>
+                <Tag type='field' label={item} theme={theme} />
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className={s.card__addWrapper}>
+          <div className={s.card__number}>
+            <Tag
+              type='number'
+              theme={theme}
+              label={number + ' ' + t('testsMain.numberOfQuestions')}
+            />
+          </div>
+          <div className={s.card__time}>
+            <Tag type='time' label={time + ''} theme={theme} />
+          </div>
+        </div>
       </div>
     </div>
   );
