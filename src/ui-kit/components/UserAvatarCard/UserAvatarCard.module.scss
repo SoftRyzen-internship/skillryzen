@@ -57,10 +57,14 @@
   flex-direction: column;
 }
 .name--common {
-  margin-bottom: 5px;
   font-family: var(--font-family);
   font-size: var(--text-lg);
   font-weight: var(--bold);
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 110px;
+  max-height: 42px;
   transition: var(--transition);
 }
 .name--light {
