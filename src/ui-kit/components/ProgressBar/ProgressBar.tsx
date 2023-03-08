@@ -1,32 +1,41 @@
+import { useEffect, useState } from 'react';
+
 import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
 import { Theme } from 'constans/types';
 import { useAppSelector } from 'hooks/hook';
 import {
+  getQuestionId,
   getQuestionNumber,
   getTotalCount,
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './ProgressBar.module.scss';
-import { useEffect, useState } from 'react';
 
 interface Props {
   theme?: Theme;
 }
 
 export const ProgressBar = ({ theme = 'dark' }: Props) => {
+  const questionId = useAppSelector(getQuestionId);
   const number = useAppSelector(getQuestionNumber);
   const total = useAppSelector(getTotalCount);
   const [array, setArray] = useState<number[]>([]);
 
   useEffect(() => {
     if (!total) return;
+    if (total && !questionId) return;
     setArray(createArray(total));
-  }, [total]);
+  }, [total, number]);
 
   const returnCurrentNumber = (number: number) => {
     if (number > total) return total;
     if (number) return number;
+  };
+
+  const returnTitle = () => {
+    if (total && !questionId) return '';
+    if (total) return `Question ${returnCurrentNumber(number)}/${total}`;
   };
 
   return (
@@ -34,7 +43,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
       <p
         className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
       >
-        {total ? `Question ${returnCurrentNumber(number)}/${total}` : ''}
+        {returnTitle()}
       </p>
       {array && array.length > 0 && (
         <div className={s.progressBar__wrapper}>

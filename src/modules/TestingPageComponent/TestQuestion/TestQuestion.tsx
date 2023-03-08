@@ -9,13 +9,14 @@ import {
   finishTest,
 } from 'redux/testingInfo/testingInfoOperations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
 import { useThemeContext } from 'context/themeContext';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
 import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
-import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
+
 
 export const TestQuestion = () => {
   const { testId, questionId, title, possibleAnswers, isLoading, number, questionsTotalCount } =
@@ -31,10 +32,6 @@ export const TestQuestion = () => {
     dispatch(answerTest({ testId, questionId, selectedAnswer }));
     setSelectedAnswer('');
   };
-
-  // useEffect(() => {
-  //   setSelectedAnswer('');
-  // }, [questionId]);
 
   useEffect(() => {
     if (!time) return;
@@ -75,7 +72,7 @@ export const TestQuestion = () => {
           {isLoading && number < questionsTotalCount && <Skeleton length={4} value='skeleton' />}
         </ul>
       </div>
-      {questionId && (
+      {questionId && !isLoading && (
         <div className={s.buttonWrapper}>
           <MainButton
             type='button'
@@ -83,7 +80,7 @@ export const TestQuestion = () => {
             onClick={handleAnswer}
             size='small'
             color='blue'
-            disabled={!selectedAnswer || isLoading}
+            disabled={!selectedAnswer}
           />
         </div>
       )}
