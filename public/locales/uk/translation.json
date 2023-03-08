@@ -205,5 +205,21 @@
   "notFound": {
     "title": "Упс, сторінка не знайдена",
     "button": "На головну"
+  },
+  "feedbackForm": {
+    "button.send": "Відправити",
+    "count.start": "Залишилося",
+    "count.end1": " символ",
+    "count.end2": " символи",
+    "count.end3": " символів",
+    "validation.message.maxStart": "Повідомлення має містити небільше",
+    "validation.message.maxEnd1": " символ",
+    "validation.message.maxEnd2": " символи",
+    "validation.message.maxEnd3": " символів",
+    "validation.message.required": "Будь ласка, введіть своє повідомлення"
+  },
+  "feedbackModal": {
+    "title1": "Ваше повідомлення",
+    "title2": "успішно надіслано!"
   }
 }

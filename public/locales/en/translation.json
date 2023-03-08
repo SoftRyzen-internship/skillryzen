@@ -205,5 +205,19 @@
   "notFound": {
     "title": "Oops, the page not found",
     "button": "Go home"
+  },
+  "feedbackForm": {
+    "button.send": "Send",
+    "count.start": "Remaining",
+    "count.end1": " character",
+    "count.end2": " characters",
+    "count.end3": " characters",
+    "validation.message.maxStart": "Message must be at most",
+    "validation.message.maxEnd": "characters long",
+    "validation.message.required": "Please enter your message"
+  },
+  "feedbackModal": {
+    "title1": "Your Message",
+    "title2": "submitted successfully!"
   }
 }

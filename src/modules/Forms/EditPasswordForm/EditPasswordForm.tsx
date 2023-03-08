@@ -7,8 +7,11 @@ import { useValidationSchema } from './useValidationSchema';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 // import { validationSchema } from './validationSchema';
-import { MainButton } from 'ui-kit';
 
+import { AuthButton } from 'ui-kit';
+import { useSelector } from 'react-redux';
+import { getUserEmail } from 'redux/authSlice/authSelectors';
+import { MainButton } from 'ui-kit';
 interface FormValues {
   email: string;
   currentPassword: string;
@@ -33,10 +36,11 @@ export const EditPasswordForm: React.FC<Props> = ({
   const validationSchema = useValidationSchema();
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
+  const userEmail = useSelector(getUserEmail);
   const formik = useFormik<FormValues>({
     initialValues: {
-      email: 'student511@blabla.com',
-      currentPassword: 'secret123',
+      email: userEmail,
+      currentPassword: '',
       newPassword: '',
       confirmPassword: '',
       urlAvatar: userAvatarUrl,
@@ -44,12 +48,12 @@ export const EditPasswordForm: React.FC<Props> = ({
 
     validationSchema,
 
-    onSubmit: (values: FormValues) => {
-      console.log(values);
+    onSubmit: (_values: FormValues) => {
+      // console.log(values);
     },
   });
   const {
-    values: { email, currentPassword, newPassword, confirmPassword, urlAvatar },
+    values: { email, currentPassword, newPassword, confirmPassword },
     errors,
     touched,
     isValid,

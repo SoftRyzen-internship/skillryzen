@@ -21,6 +21,7 @@ import StudentSettingsPage from 'pages/StudentSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
 import { ROUTES } from './routes.const';
+import FeedbackPage from 'pages/FeedbackPage';
 
 export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
@@ -105,7 +106,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.FEEDBACK,
-                      element: <UnderDevelopmentPage />,
+                      element: <FeedbackPage />,
                     },
                     {
                       path: ROUTES.TEAM,
