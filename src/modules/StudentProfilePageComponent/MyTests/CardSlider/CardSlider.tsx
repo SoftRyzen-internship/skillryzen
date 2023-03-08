@@ -73,6 +73,8 @@ export const CardSlider = ({
     }
   }, [cardGap, cardOffset, width]);
 
+  // console.log('render');
+
   return (
     <div ref={containerRef} className={s.sliderContainer}>
       <div
