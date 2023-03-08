@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next';
 
 import { MainButton } from 'ui-kit';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
+
+import { ICONS } from 'ui-kit/icons';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './UnderDevelopment.module.scss';
 
 const objectTheme = {
   dark: {
-    wrapper: s.wrapperDark,
     title: s.titleDark,
   },
   light: {
-    wrapper: s.wrapperLight,
     title: s.titleLight,
   },
 };
@@ -23,7 +23,7 @@ export const UnderDevelopment = () => {
 
   return (
     <section className={s.section}>
-      <div className={objectTheme[theme].wrapper}>
+      <div>
         <h2 className={objectTheme[theme].title}>
           {t('underDevelopment.title')}
         </h2>

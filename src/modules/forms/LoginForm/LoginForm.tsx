@@ -9,7 +9,7 @@ import { MainButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import { validationSchema } from './validationSchema';
 
@@ -56,7 +56,7 @@ export const LoginForm = () => {
     onSubmit: ({ email, password }) => {
       dispatch(logIn({ email, password })).then(
         ({ meta }) =>
-          meta.requestStatus === 'fulfilled' && navigate(ROUTES.STUDENT)
+          meta.requestStatus === 'fulfilled' && navigate(ROUTES.CERTIFICATION)
       );
     },
   });

@@ -1,9 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  getRandomTestApi,
-  answerTestApi,
-  finishTestApi,
-} from 'services/axiosConfig';
+import { axiosInstance } from 'services/axiosConfig';
 
 export interface Answer {
   testId: string;
@@ -31,6 +27,24 @@ export interface FinishResponse {
   testId: string;
   percentageOfCorrectAnswers: number;
 }
+
+export const getRandomTestApi = () =>
+  axiosInstance
+    .post('user-test/random', {}, { withCredentials: true })
+    .then((response) => response.data);
+
+export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
+  axiosInstance
+    .post(`user-test/${testId}/answer-question/by-label`, {
+      questionId: questionId,
+      labels: [selectedAnswer],
+    })
+    .then((response) => response.data);
+
+export const finishTestApi = ({ testId, time }: Finish) =>
+  axiosInstance
+    .post(`user-test/${testId}/finish`, { finishedAt: time })
+    .then((response) => response.data);
 
 export const getRandomTest = createAsyncThunk(
   'testingInfo/getRandomTest',

@@ -9,7 +9,7 @@ import { setStep } from 'redux/authSlice/authSlice';
 import { register, logIn } from 'redux/authSlice/operations';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import { validationSchema } from './validationSchema';
 

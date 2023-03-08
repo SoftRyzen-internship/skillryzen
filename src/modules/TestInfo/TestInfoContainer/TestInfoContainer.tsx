@@ -1,4 +1,4 @@
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './TestInfoContainer.module.scss';

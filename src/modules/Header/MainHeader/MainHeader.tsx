@@ -4,7 +4,7 @@ import { HeaderButtonList } from './HeaderButtonList';
 import { HeaderUserAvatarCard } from './HeaderUserAvatarCard';
 import { Logo } from 'ui-kit/index';
 
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import s from './MainHeader.module.scss';
 
 export const MainHeader = () => {

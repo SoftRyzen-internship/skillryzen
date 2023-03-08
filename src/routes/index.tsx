@@ -26,148 +26,122 @@ export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
   const routes = [
     {
-      path: '/',
-      element: (
-        <PublickRoute isLoggedIn={isLoggedIn}>
-          <AuthWrapper>
-            <Outlet />
-          </AuthWrapper>
-        </PublickRoute>
-      ),
+      path: ROUTES.HOME,
       children: [
         {
-          path: '',
-          element: <Navigate to={ROUTES.LOGIN} replace={true} />,
-        },
-        { path: ROUTES.LOGIN, element: <LoginPage /> },
-        { path: ROUTES.REGISTER, element: <RegisterPage /> },
-      ],
-    },
-    {
-      element: (
-        <ProtectedRoute isLoggedIn={isLoggedIn}>
-          <Outlet />
-        </ProtectedRoute>
-      ),
-      children: [
-        {
-          path: ROUTES.STUDENT,
+          element: (
+            <PublickRoute isLoggedIn={isLoggedIn}>
+              <AuthWrapper>
+                <Outlet />
+              </AuthWrapper>
+            </PublickRoute>
+          ),
           children: [
             {
               path: '',
-              element: <Navigate to={ROUTES.CERTIFICATION} replace={true} />,
+              element: <Navigate to={ROUTES.LOGIN} replace={true} />,
+            },
+            { path: ROUTES.LOGIN, element: <LoginPage /> },
+            { path: ROUTES.REGISTER, element: <RegisterPage /> },
+          ],
+        },
+        {
+          element: (
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Outlet />
+            </ProtectedRoute>
+          ),
+          children: [
+            {
+              children: [
+                {
+                  element: (
+                    <MainWrapper
+                      showSidebar={true}
+                      showHeader={true}
+                      isTestingPage={false}
+                    >
+                      <Outlet />
+                    </MainWrapper>
+                  ),
+                  children: [
+                    {
+                      path: ROUTES.DASHBOARD,
+                      element: <UnderDevelopmentPage />,
+                    },
+                    {
+                      path: ROUTES.CERTIFICATION,
+                      element: <Outlet />,
+                      children: [
+                        {
+                          path: '',
+                          element: <TestsPage />,
+                        },
+                        {
+                          path: ':testId',
+                          element: <TestStartPage />,
+                        },
+                      ],
+                    },
+                    {
+                      path: ROUTES.PETPROJECTS,
+                      element: <UnderDevelopmentPage />,
+                    },
+                    {
+                      path: ROUTES.LEADERBOARD,
+                      element: <UnderDevelopmentPage />,
+                    },
+                    {
+                      path: ROUTES.VACANCIES,
+                      element: <UnderDevelopmentPage />,
+                    },
+                    {
+                      path: ROUTES.PROFILE,
+                      element: <StudentProfilePage />,
+                    },
+                    {
+                      path: ROUTES.PROFILE_SETTINGS,
+                      element: <StudentSettingsPage />,
+                    },
+                    {
+                      path: ROUTES.FEEDBACK,
+                      element: <UnderDevelopmentPage />,
+                    },
+                    {
+                      path: ROUTES.TEAM,
+                      element: <UnderDevelopmentPage />,
+                    },
+                  ],
+                },
+              ],
             },
             {
+              path: ROUTES.TESTING,
               element: (
                 <MainWrapper
-                  showSidebar={true}
+                  showSidebar={false}
                   showHeader={true}
-                  isTestingPage={false}
+                  isTestingPage={true}
                 >
                   <Outlet />
                 </MainWrapper>
               ),
               children: [
                 {
-                  path: ROUTES.DASHBOARD,
-                  element: <UnderDevelopmentPage />,
+                  path: '',
+                  element: <TestingPage />,
                 },
                 {
-                  path: ROUTES.CERTIFICATION,
-                  element: <Outlet />,
-                  children: [
-                    {
-                      path: '',
-                      element: <TestsPage />,
-                    },
-                    {
-                      path: ':testId',
-                      element: <TestStartPage />,
-                    },
-                  ],
-                },
-                {
-                  path: ROUTES.PETPROJECTS,
-                  element: <UnderDevelopmentPage />,
-                },
-                {
-                  path: ROUTES.LEADERBOARD,
-                  element: <UnderDevelopmentPage />,
-                },
-                {
-                  path: ROUTES.VACANCIES,
-                  element: <UnderDevelopmentPage />,
-                },
-                {
-                  path: ROUTES.PROFILE,
-                  element: <StudentProfilePage />,
-                },
-                {
-                  path: ROUTES.SETTINGS,
-                  element: <StudentSettingsPage />,
-                },
-                {
-                  path: ROUTES.FEEDBACK,
-                  element: <UnderDevelopmentPage />,
+                  path: ROUTES.TEST_END,
+                  element: <TestEndPage />,
                 },
               ],
             },
-            {
-              path: ROUTES.PETPROJECTS,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.LEADERBOARD,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.VACANCIES,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.PROFILE,
-              element: <StudentProfilePage />,
-            },
-            {
-              path: ROUTES.SETTINGS,
-              element: <StudentSettingsPage />,
-            },
-            {
-              path: ROUTES.FEEDBACK,
-              element: <UnderDevelopmentPage />,
-            },
-            {
-              path: ROUTES.TEAM,
-              element: <UnderDevelopmentPage />,
-            },
+            { path: '/company', element: <CompanyPage /> },
           ],
         },
-        {
-          path: ROUTES.TESTING,
-          element: (
-            <MainWrapper
-              showSidebar={false}
-              showHeader={true}
-              isTestingPage={true}
-            >
-              <Outlet />
-            </MainWrapper>
-          ),
-          children: [
-            {
-              path: '',
-              element: <TestingPage />,
-            },
-            {
-              path: ROUTES.TEST_END,
-              element: <TestEndPage />,
-            },
-          ],
-        },
-        { path: '/company', element: <CompanyPage /> },
       ],
     },
-
     { path: '*', element: <h1>404 Not Found</h1> },
   ];
   const routing = useRoutes(routes);

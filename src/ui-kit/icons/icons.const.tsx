@@ -100,9 +100,15 @@ import IconPython from 'assets/svg/python.svg';
 import IconNest from 'assets/svg/nest.svg';
 import IconUx from 'assets/svg/ux.svg';
 
+import IconGearBlue from 'assets/svg/gear-blue.svg';
+import IconGearGray from 'assets/svg/gear-gray.svg';
+import IconCircleBlue from 'assets/svg/circle-blue.svg';
+import IconCircleGray from 'assets/svg/circle-gray.svg';
+import IconUnderDevelopmentMain from 'assets/svg/under-development-main.svg';
+
 //  IconCorrect
 
-import { Icons } from 'modules/common/types/index';
+import { Icons } from 'constans/types';
 
 export const ICONS: Icons = {
   ALERT: IconAlert,
@@ -203,4 +209,9 @@ export const ICONS: Icons = {
   PYTHON: IconPython,
   NEST: IconNest,
   UX: IconUx,
+  GEAR_BLUE: IconGearBlue,
+  GEAR_GRAY: IconGearGray,
+  CIRCLE_BLUE: IconCircleBlue,
+  CIRCLE_GRAY: IconCircleGray,
+  UNDER_DEVELOPMENT_MAIN: IconUnderDevelopmentMain,
 };

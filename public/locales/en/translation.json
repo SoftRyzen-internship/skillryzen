@@ -54,7 +54,9 @@
     "userAvatar": {
       "profile": "Profile",
       "settings": "Settings",
-      "logOut": "Log out"
+      "coins": "Coins",
+      "logOut": "Log out",
+      "notifications": "Notifications"
     }
   },
   "sidebar": {
@@ -199,5 +201,9 @@
     "phone": "Phone",
     "telegram": "Social media Telegram",
     "linkedin": "Social media LinkedIn"
+  },
+  "notFound": {
+    "title": "Oops, the page not found",
+    "button": "Go home"
   }
 }

@@ -1,4 +1,4 @@
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 import { NavLink } from 'react-router-dom';
 
 import s from './Tabs.module.scss';

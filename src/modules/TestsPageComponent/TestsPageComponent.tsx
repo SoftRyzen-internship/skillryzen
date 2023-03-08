@@ -1,5 +1,5 @@
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 import { useState } from 'react';
 
 import { TestsSearch } from './TestsSearch/TestsSearch';

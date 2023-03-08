@@ -1,4 +1,4 @@
-import { Theme } from 'modules/common/types';
+import { Theme } from 'constans/types';
 
 import s from './RadioButton.module.scss';
 

@@ -8,7 +8,7 @@ import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 import { useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 interface FormValues {
   name?: string;
   surname?: string;

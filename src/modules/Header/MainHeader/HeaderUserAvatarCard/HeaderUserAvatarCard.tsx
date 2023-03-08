@@ -8,7 +8,10 @@ import { IMAGES } from 'ui-kit/images';
 import { UserAvatarCard, Popup } from 'ui-kit/index';
 
 import s from './HeaderUserAvatarCard.module.scss';
-import { IThemeContext } from 'modules/common/types';
+
+import { ROUTES } from 'routes/routes.const';
+import { IThemeContext } from 'constans/types';
+
 
 interface HeaderUserAvatarCardProps {
   className?: string;
@@ -37,10 +40,22 @@ export const HeaderUserAvatarCard = ({
           {
             icon: <ICONS.USER stroke={iconColor[theme]} />,
             text: t('header.userAvatar.profile'),
+            path: ROUTES.PROFILE,
           },
           {
             icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
             text: t('header.userAvatar.settings'),
+            path: ROUTES.SETTINGS,
+          },
+          {
+            icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
+            text: t('header.userAvatar.notifications'),
+            path: ROUTES.NOTIFICATIONS,
+          },
+          {
+            icon: <ICONS.COIN fill={iconColor[theme]} />,
+            text: t('header.userAvatar.coins'),
+            path: ROUTES.COINS,
           },
           {
             icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,

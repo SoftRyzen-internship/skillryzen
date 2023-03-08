@@ -54,7 +54,9 @@
     "userAvatar": {
       "profile": "Профіль",
       "settings": "Налаштування",
-      "logOut": "Вийти"
+      "logOut": "Вийти",
+      "coins": "Коїни",
+      "notifications": "Повідомлення"
     }
   },
   "sidebar": {
@@ -199,5 +201,9 @@
     "phone": "Телефон",
     "telegram": "Телеграм",
     "linkedin": "LinkedIn"
+  },
+  "notFound": {
+    "title": "Упс, сторінка не знайдена",
+    "button": "На головну"
   }
 }

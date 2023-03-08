@@ -10,7 +10,7 @@ import { MainButton } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import { validationSchema } from './validationSchema';
 
@@ -54,7 +54,7 @@ export const RegisterContactsForm = () => {
     validationSchema,
 
     onSubmit: (values) => {
-      navigate(ROUTES.STUDENT);
+      navigate(ROUTES.CERTIFICATION);
     },
   });
 
