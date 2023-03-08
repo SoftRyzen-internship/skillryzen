@@ -7,7 +7,7 @@ import { useValidationSchema } from './useValidationSchema';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 // import { validationSchema } from './validationSchema';
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 
 interface FormValues {
   email: string;
@@ -227,14 +227,14 @@ export const EditPasswordForm: React.FC<Props> = ({
           style={{ display: 'none' }}
         />
         <div className={s.buttonGroup}>
-          <AuthButton
+          <MainButton
             size='large'
             text={t('editPasswordForm.button.save')}
             type='submit'
             disabled={!isValid || !dirty}
             className={s.btn}
           />
-          <AuthButton
+          <MainButton
             size='large'
             text={t('editPasswordForm.button.cancel')}
             type='button'

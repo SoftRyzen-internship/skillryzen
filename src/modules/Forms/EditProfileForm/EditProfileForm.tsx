@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import s from './EditProfileForm.module.scss';
 import { useValidationSchema } from './useValidationSchema';
 import { ICONS } from 'ui-kit/icons';
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 import { useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
@@ -323,14 +323,14 @@ export const EditProfileForm = () => {
         </ul>
 
         <div className={s.buttonGroup}>
-          <AuthButton
+          <MainButton
             size='large'
             text={t('editProfileForm.button.update')}
             type='submit'
             disabled={!isValid || !dirty}
             className={s.btn}
           />
-          <AuthButton
+          <MainButton
             size='large'
             text={t('editProfileForm.button.cancel')}
             type='button'

@@ -1,6 +1,7 @@
+import { MainButton } from './components/Buttons/MainButton/MainButton';
 export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export { AddButton } from './components/Buttons/AddButton';
-export { AuthButton } from './components/Buttons/AuthButton';
+export { MainButton } from './components/Buttons/MainButton';
 export { CopyButton } from './components/Buttons/CopyButton';
 export { HeaderButton } from './components/Buttons/HeaderButton';
 export { IconButton } from './components/Buttons/IconButton';

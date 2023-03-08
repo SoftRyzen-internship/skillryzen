@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
 import s from './FinalTestInfo.module.scss';
@@ -222,7 +222,7 @@ export const FinalTestInfo = ({
           )}
         </>
       )}
-      <AuthButton
+      <MainButton
         type='button'
         text={
           finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')

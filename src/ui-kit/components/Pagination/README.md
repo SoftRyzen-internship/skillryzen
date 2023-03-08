@@ -13,7 +13,7 @@ setCurrentPage(pageNumber);
 В компоненті, де використовується Pagination currentPage зберігається в стейті і робиться запит на бекенд за потрібним номером сторінки
 const [currentPage, setCurrentPage] = useState(1);
 
-Приклад викор. в компоненті
+# Приклад викор. в компоненті
 
 const [currentPage, setCurrentPage] = useState(1);
 const totalPages = 10;

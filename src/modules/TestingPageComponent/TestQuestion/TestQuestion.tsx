@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
-import { AuthButton, RadioButton } from 'ui-kit';
+import { MainButton, RadioButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
 import {
@@ -75,8 +75,8 @@ export const TestQuestion = () => {
         </ul>
       </div>
       {questionId && (
-        <div className={isLoading ? s.buttonWrapperHidden : s.buttonWrapper}>
-          <AuthButton
+        <div className={s.buttonWrapper}>
+          <MainButton
             type='button'
             text='Answer'
             onClick={handleAnswer}
