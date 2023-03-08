@@ -12,7 +12,6 @@ import s from './HeaderUserAvatarCard.module.scss';
 import { ROUTES } from 'routes/routes.const';
 import { IThemeContext } from 'constans/types';
 
-
 interface HeaderUserAvatarCardProps {
   className?: string;
   onMouseEnter?: () => void;

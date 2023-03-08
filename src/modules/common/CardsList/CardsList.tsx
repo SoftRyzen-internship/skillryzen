@@ -22,7 +22,7 @@ interface TestsList {
   testsArray: Item[];
 }
 
-export const CardsList = ({size, testsArray }: TestsList) => {
+export const CardsList = ({ size, testsArray }: TestsList) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 

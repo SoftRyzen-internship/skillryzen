@@ -41,7 +41,7 @@ export const Popup = ({
             <Link to={path} className={s.link}>
               <div>{icon}</div>
               <p className={`${s[`text--${theme}`]}`}>{text}</p>
-            </Link >
+            </Link>
           </li>
         ))}
       </ul>

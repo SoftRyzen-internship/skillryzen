@@ -1,0 +1,66 @@
+.label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  & label {
+    min-width: 404px;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.input {
+  height: 48px;
+  font-weight: 400;
+  font-size: 16px;
+  border: 1px solid #464962;
+  border-radius: 4px;
+  background: #080b25;
+}
+
+.removeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #080b25;
+  border-radius: 10px;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 19px;
+  margin-bottom: 15px;
+  color: #3653f2;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.addIcon {
+  path {
+    fill: #3653f2;
+  }
+}
+
+.mr20 {
+  margin-bottom: 20px;
+}
+
+.submitButton {
+  display: block;
+  width: 200px;
+  margin-top: 40px;
+  margin-left: auto;
+}

@@ -5,7 +5,7 @@ import s from './Tabs.module.scss';
 
 interface Tab {
   title: string;
-  path: string;
+  path?: string;
 }
 interface TabProps {
   tabs: Tab[];

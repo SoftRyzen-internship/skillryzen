@@ -1,0 +1,1 @@
+export { InvaiteStudentBlock } from './InvaiteStudentBlock';

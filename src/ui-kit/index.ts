@@ -24,4 +24,4 @@ export { Tabs } from './components/Tabs';
 export { Tag } from './components/Tag';
 export { UserAvatar } from './components/UserAvatar';
 export { UserAvatarCard } from './components/UserAvatarCard';
-
+export { Select } from './components/Select';

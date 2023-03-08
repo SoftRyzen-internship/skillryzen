@@ -34,9 +34,10 @@
   }
 }
 
-.testsFilter__filter--dark:hover, .testsFilter__filter--dark:focus {
+.testsFilter__filter--dark:hover,
+.testsFilter__filter--dark:focus {
   color: var(--accent-cl);
-  
+
   .testsFilter__icon path {
     stroke: var(--accent-cl);
   }

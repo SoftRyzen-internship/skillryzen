@@ -19,6 +19,7 @@ import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import InviteModulePage from 'pages/InviteModulePage';
 
 import { ROUTES } from './routes.const';
 import FeedbackPage from 'pages/FeedbackPage';
@@ -135,6 +136,24 @@ export const AppRoutes = () => {
                 {
                   path: ROUTES.TEST_END,
                   element: <TestEndPage />,
+                },
+              ],
+            },
+            // This block for admin user
+            {
+              element: (
+                <MainWrapper
+                  showSidebar={true}
+                  showHeader={true}
+                  isTestingPage={false}
+                >
+                  <Outlet />
+                </MainWrapper>
+              ),
+              children: [
+                {
+                  path: ROUTES.INVITE_MODULE,
+                  element: <InviteModulePage />,
                 },
               ],
             },
