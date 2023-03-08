@@ -60,6 +60,8 @@ const testingInfoSlice = createSlice({
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
       state.results.time = 0;
+      state.totalTime = 0;
+      state.currentTime = 0;
     },
   },
   extraReducers: (builder) => {
@@ -75,8 +77,8 @@ const testingInfoSlice = createSlice({
         state.title = payload.nextQuestion.title;
         state.possibleAnswers = payload.nextQuestion.possibleAnswers;
         state.questionsTotalCount = payload.questionsTotalCount;
-        state.totalTime = 180;
-        state.currentTime = 180;
+        state.totalTime = 30;
+        state.currentTime = 30;
         state.isLoading = false;
       })
       .addCase(getRandomTest.rejected, (state, { payload }) => {
@@ -113,8 +115,6 @@ const testingInfoSlice = createSlice({
         state.title = '';
         state.possibleAnswers = [];
         state.isLoading = false;
-        state.totalTime = 0;
-        state.currentTime = 0;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {
         state.error = payload;
