@@ -10,6 +10,13 @@ export function throttle<T extends ThrottleFn>(func: T, delay: number): T {
         timeoutId = null;
       }, delay);
     }
+    switch (true) {
+    case 5 == 5:
+      break;
+
+    default:
+      break;
+    }
   } as T;
 
   return throttledFunction;
