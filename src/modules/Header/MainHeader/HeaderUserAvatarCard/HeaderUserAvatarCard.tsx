@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useThemeContext } from 'context/themeContext';
+import { useAppSelector } from 'hooks/hook';
 
+import { useThemeContext } from 'context/themeContext';
+import { getRandomInt } from 'utils/getRandomInt';
+
+import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
 import { UserAvatarCard, Popup } from 'ui-kit/index';
-
-import s from './HeaderUserAvatarCard.module.scss';
-
-import { ROUTES } from 'routes/routes.const';
 import { IThemeContext } from 'constans/types';
 
+import s from './HeaderUserAvatarCard.module.scss';
 
 interface HeaderUserAvatarCardProps {
   className?: string;
@@ -26,6 +27,35 @@ export const HeaderUserAvatarCard = ({
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+
+  const user = useAppSelector((state) => state.auth.user);
+
+  const defaultAvatars = [
+    IMAGES.BLUE_AVATAR,
+    IMAGES.GREEN_AVATAR,
+    IMAGES.RED_AVATAR,
+    IMAGES.YELLOW_AVATAR,
+  ];
+
+  const defaultNames = [
+    'Тіньовий QA',
+    'Скритий Девелопер',
+    'Анонімний Дизайнер',
+    'Невідомий Тестувальник',
+    'Секретний Кодер',
+    'Неіменований Графічний дизайнер',
+    'Прихований Розробник',
+    'Невідомий UX/UI дизайнер',
+    'Анонімний Архітектор',
+    'Загадковий Аналітик',
+  ];
+
+  const [name, setName] = useState(
+    defaultNames[getRandomInt(defaultNames.length - 1)]
+  );
+  const [avatar, setAvatar] = useState(
+    defaultAvatars[getRandomInt(defaultAvatars.length - 1)]
+  );
 
   const iconColor = {
     dark: 'var(--primary-txt-cl)',
@@ -45,7 +75,7 @@ export const HeaderUserAvatarCard = ({
           {
             icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
             text: t('header.userAvatar.settings'),
-            path: ROUTES.SETTINGS,
+            path: ROUTES.PROFILE_SETTINGS,
           },
           {
             icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
@@ -75,9 +105,8 @@ export const HeaderUserAvatarCard = ({
       onMouseLeave={mouseLeaveHandler}
     >
       <UserAvatarCard
-        userName='John Doe'
-        userRole={t('header.admin')}
-        userAvatarUrl={IMAGES.JAVA_SCRIPT}
+        userName={name}
+        userAvatarUrl={avatar}
         userStatus='green'
         theme={theme}
       />

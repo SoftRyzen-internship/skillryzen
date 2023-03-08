@@ -35,13 +35,13 @@ export const Popup = ({
         {list.map(({ icon, text, path }, idx) => (
           <li
             key={idx}
-            onClick={() => handleClickItem(text)}
+            onClick={handleClickItem ? () => handleClickItem(text) : null}
             className={`${s[`item--${theme}`]}`}
           >
             <Link to={path} className={s.link}>
               <div>{icon}</div>
               <p className={`${s[`text--${theme}`]}`}>{text}</p>
-            </Link >
+            </Link>
           </li>
         ))}
       </ul>
