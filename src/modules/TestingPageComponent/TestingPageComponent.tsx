@@ -12,7 +12,7 @@ export const TestingPageComponent = () => {
   useEffect(() => {
     if (questionId) return;
     dispatch(getRandomTest());
-    // eslint disable next line
+    // eslint-disable-next-line
   }, []);
 
   return <TestQuestion />;
