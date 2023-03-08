@@ -35,7 +35,6 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
   };
 
   const returnTitle = () => {
-    if (total && !questionId) return '';
     if (total) return `Question ${returnCurrentNumber(number)}/${total}`;
   };
 
