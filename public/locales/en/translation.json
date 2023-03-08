@@ -9,6 +9,7 @@
       "learners": "Learners",
       "author": "Author"
     },
+    "warning": "To start the test, go to the desktop version",
     "correctAnswers": "Correct answers",
     "timeSpent": "Time spent",
     "min": "min",

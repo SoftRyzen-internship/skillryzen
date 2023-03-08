@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router';
 import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 import { useAppSelector } from 'hooks/hook';
 
@@ -41,6 +42,7 @@ export const RegisterContactsForm = () => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
+  const location = useLocation();
   const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik<FormValues>({
@@ -54,7 +56,8 @@ export const RegisterContactsForm = () => {
     validationSchema,
 
     onSubmit: (values) => {
-      navigate(ROUTES.CERTIFICATION);
+      // navigate(ROUTES.CERTIFICATION);
+      navigate(ROUTES.CERTIFICATION, { state: { from: location } });
     },
   });
 
