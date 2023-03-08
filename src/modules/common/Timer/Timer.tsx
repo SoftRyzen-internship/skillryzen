@@ -34,12 +34,14 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     }, 1000);
 
     return () => clearInterval(intervalId);
+    // eslint disable next line
   }, [seconds]);
 
   useEffect(() => {
     if (hasNextQuestion) return;
     dispatch(setTime(seconds));
-  }, [dispatch, hasNextQuestion, seconds]);
+    // eslint disable next line
+  }, [hasNextQuestion]);
 
   return (
     <div>
