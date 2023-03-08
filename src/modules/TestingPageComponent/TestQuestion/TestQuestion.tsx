@@ -18,8 +18,15 @@ import s from './TestQuestion.module.scss';
 import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
 
 export const TestQuestion = () => {
-  const { testId, questionId, title, possibleAnswers, isLoading, number, questionsTotalCount } =
-    useAppSelector((state) => state.testingInfo);
+  const {
+    testId,
+    questionId,
+    title,
+    possibleAnswers,
+    isLoading,
+    number,
+    questionsTotalCount,
+  } = useAppSelector((state) => state.testingInfo);
   const time = useAppSelector(getTimeTest);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
@@ -40,7 +47,7 @@ export const TestQuestion = () => {
     if (!time) return;
     dispatch(finishTest({ testId, time: new Date() }));
     navigate(ROUTES.TEST_END);
-  }, [time]);
+  }, [dispatch, navigate, testId, time]);
 
   return (
     <div className={s.testWrapper}>
@@ -72,7 +79,9 @@ export const TestQuestion = () => {
                 />
               </li>
             ))}
-          {isLoading && number < questionsTotalCount && <Skeleton length={4} value='skeleton' />}
+          {isLoading && number < questionsTotalCount && (
+            <Skeleton length={4} value='skeleton' />
+          )}
         </ul>
       </div>
       {questionId && (

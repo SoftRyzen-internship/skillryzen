@@ -1,8 +1,10 @@
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type ThrottleFn = (...args: any[]) => void;
 
 export function throttle<T extends ThrottleFn>(func: T, delay: number): T {
   let timeoutId: ReturnType<typeof setTimeout> | null;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const throttledFunction = function (this: any, ...args: Parameters<T>) {
     if (!timeoutId) {
       timeoutId = setTimeout(() => {
