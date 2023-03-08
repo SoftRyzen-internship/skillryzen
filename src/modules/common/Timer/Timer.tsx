@@ -6,7 +6,7 @@ import { Theme } from 'constans/types';
 import { convertTime } from 'utils/convertTime';
 import {
   getHasNextQuestion,
-  getTimeTest,
+  getResultTime,
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
@@ -17,7 +17,7 @@ interface Timer {
 
 export const Timer = ({ theme = 'dark' }: Timer) => {
   const hasNextQuestion = useAppSelector(getHasNextQuestion);
-  const timeResult = useAppSelector(getTimeTest);
+  const timeResult = useAppSelector(getResultTime);
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(0);
 
