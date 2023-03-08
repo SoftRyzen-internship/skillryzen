@@ -85,7 +85,7 @@ export const FinalTestInfo = ({
 
   const { alt, width, height } = imageProps;
   return (
-    <div className={s.container}>
+    <div className={finishTest ? s.containerFinish : s.containerStart}>
       <div className={s.imageThumb}>
         <img
           className={s.image}

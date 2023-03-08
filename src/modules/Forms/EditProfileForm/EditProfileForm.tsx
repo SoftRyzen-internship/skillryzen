@@ -40,7 +40,7 @@ export const EditProfileForm = () => {
 
     validationSchema,
     onSubmit: (values: FormValues) => {
-      console.log(values);
+      // console.log(values);
     },
   });
 

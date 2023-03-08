@@ -43,7 +43,7 @@ export const TestQuestion = () => {
     if (!time) return;
     dispatch(finishTest({ testId, time: new Date() }));
     navigate(ROUTES.TEST_END);
-  }, [time]);
+  }, [dispatch, navigate, testId, time]);
 
   return (
     <div className={s.testWrapper}>

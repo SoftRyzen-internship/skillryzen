@@ -1,5 +1,9 @@
-.container {
+.containerStart {
   width: 424px;
+}
+
+.containerFinish {
+  composes: containerStart;
   height: calc(100vh - 100px);
 }
 
