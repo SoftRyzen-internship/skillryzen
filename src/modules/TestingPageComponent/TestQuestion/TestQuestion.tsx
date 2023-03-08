@@ -9,7 +9,7 @@ import {
   finishTest,
 } from 'redux/testingInfo/testingInfoOperations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
+import { getResultTime } from 'redux/testingInfo/testingInfoSelectors';
 import { useThemeContext } from 'context/themeContext';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
@@ -27,7 +27,7 @@ export const TestQuestion = () => {
     number,
     questionsTotalCount,
   } = useAppSelector((state) => state.testingInfo);
-  const time = useAppSelector(getTimeTest);
+  const time = useAppSelector(getResultTime);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();

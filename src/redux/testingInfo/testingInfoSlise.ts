@@ -22,6 +22,8 @@ export interface TestingInfo {
   }[];
   hasNextQuestion: boolean;
   questionsTotalCount: number;
+  totalTime: number,
+  currentTime: number;
   results: Results;
   isLoading: boolean;
   error: string | unknown;
@@ -35,6 +37,8 @@ const initialState: TestingInfo = {
   possibleAnswers: [],
   hasNextQuestion: true,
   questionsTotalCount: 0,
+  totalTime: 0,
+  currentTime: 0,
   results: { testId: '', percentageOfCorrectAnswers: 0, time: 0 },
   isLoading: false,
   error: '',
@@ -68,6 +72,8 @@ const testingInfoSlice = createSlice({
         state.title = payload.nextQuestion.title;
         state.possibleAnswers = payload.nextQuestion.possibleAnswers;
         state.questionsTotalCount = payload.questionsTotalCount;
+        state.totalTime = 180;
+        state.currentTime = 180;
         state.isLoading = false;
       })
       .addCase(getRandomTest.rejected, (state, { payload }) => {
