@@ -64,7 +64,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     <div>
       <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>Time left:</p>
       <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
-        {timeResult ? convertTime(timeResult) : convertTime(seconds)}
+        {timeResult ? convertTime(totalTime - timeResult) : convertTime(seconds)}
       </p>
     </div>
   );
