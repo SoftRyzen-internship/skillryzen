@@ -7,6 +7,10 @@ import ImgNotFound from 'assets/images/not-found.png';
 import ImgReact from 'assets/images/react.png';
 import ImgCompany from 'assets/images/registration-company.png';
 import ImgUser from 'assets/images/registration-monitor-user.png';
+import ImgBlueAvatar from 'assets/images/DefaultAvatars/avatar-blue.png';
+import ImgGreenAvatar from 'assets/images/DefaultAvatars/avatar-green.png';
+import ImgRedAvatar from 'assets/images/DefaultAvatars/avatar-red.png';
+import ImgYellowAvatar from 'assets/images/DefaultAvatars/avatar-yellow.png';
 
 import { Img } from 'constans/types';
 
@@ -20,4 +24,8 @@ export const IMAGES: Img = {
   REACT: ImgReact,
   COMPANY: ImgCompany,
   USER: ImgUser,
+  BLUE_AVATAR: ImgBlueAvatar,
+  GREEN_AVATAR: ImgGreenAvatar,
+  RED_AVATAR: ImgRedAvatar,
+  YELLOW_AVATAR: ImgYellowAvatar,
 };
