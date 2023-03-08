@@ -43,7 +43,8 @@ export const TestQuestion = () => {
     if (!time) return;
     dispatch(finishTest({ testId, time: new Date() }));
     navigate(ROUTES.TEST_END);
-  }, [dispatch, navigate, testId, time]);
+    // eslint-disable-next-line
+  }, [time]);
 
   return (
     <div className={s.testWrapper}>
