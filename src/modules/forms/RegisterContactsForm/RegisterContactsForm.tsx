@@ -12,7 +12,7 @@ import { ROUTES } from 'routes/routes.const';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 
-import { validationSchema } from './validationSchema';
+import { useValidationSchema } from './validationSchema';
 
 import s from './RegisterContactsForm.module.scss';
 
@@ -51,7 +51,7 @@ export const RegisterContactsForm = () => {
       companyName: '',
     },
 
-    validationSchema,
+    validationSchema: useValidationSchema(),
 
     onSubmit: (values) => {
       navigate(ROUTES.CERTIFICATION);
@@ -72,32 +72,6 @@ export const RegisterContactsForm = () => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <ul className={s.inputsList}>
-        {role === 'COMPANY' && (
-          <li
-            className={`${s.floatingGroup} ${
-              touched.companyName &&
-              (errors.companyName ? s.floatingLabelError : s.floatingLabelValid)
-            }`}
-          >
-            {touched.companyName && errors.companyName && (
-              <p className={s.errorMsg}>{errors.companyName}</p>
-            )}
-            <input
-              className={objectTheme[theme].input}
-              name='companyName'
-              type='text'
-              id='companyName'
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={companyName}
-              autoComplete='company'
-              placeholder={t('auth.companyNamePlaceholder')}
-            />
-            <label className={s.floatingLabel} htmlFor='companyName'>
-              {t('auth.companyNamePlaceholder')}
-            </label>
-          </li>
-        )}
         <li
           className={`${s.floatingGroup} ${
             touched.name &&
@@ -146,6 +120,32 @@ export const RegisterContactsForm = () => {
             {t('auth.surnamePlaceholder')}
           </label>
         </li>
+        {role === 'COMPANY' && (
+          <li
+            className={`${s.floatingGroup} ${
+              touched.companyName &&
+              (errors.companyName ? s.floatingLabelError : s.floatingLabelValid)
+            }`}
+          >
+            {touched.companyName && errors.companyName && (
+              <p className={s.errorMsg}>{errors.companyName}</p>
+            )}
+            <input
+              className={objectTheme[theme].input}
+              name='companyName'
+              type='text'
+              id='companyName'
+              onChange={handleChange}
+              onBlur={handleBlur}
+              value={companyName}
+              autoComplete='company'
+              placeholder={t('auth.companyNamePlaceholder')}
+            />
+            <label className={s.floatingLabel} htmlFor='companyName'>
+              {t('auth.companyNamePlaceholder')}
+            </label>
+          </li>
+        )}
         <li
           className={`${s.floatingGroup} ${
             touched.phone &&

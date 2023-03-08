@@ -6,25 +6,29 @@
 
 .checkboxLabel {
   padding-left: 36px;
-  color: var(--secondary-txt-cl);
+
   font-size: 14px;
   line-height: 1.6;
+
+  color: var(--secondary-txt-cl);
 
   cursor: pointer;
 }
 
 .floatingGroup {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .floatingLabel {
   position: absolute;
-  color: var(--secondary-txt-cl);
   top: 50%;
   left: 16px;
-  transform: translateY(-50%);
+
   font-size: 16px;
+
+  color: inherit;
+  transform: translateY(-50%);
   transition: color 250ms ease-in-out, top 250ms ease-in-out;
 }
 
@@ -91,17 +95,18 @@
 .errorMsg {
   position: absolute;
   bottom: -20px;
-  left: 20px;
+  left: 16px;
+
   font-size: 12px;
   color: var(--error-cl);
 }
 
 .boxOrDark {
-  margin: 16px auto;
+  margin: 12px auto 20px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: row;
+
   &::before,
   &::after {
     content: '';
@@ -110,9 +115,11 @@
     width: 50%;
     background-color: var(--disabled-cl);
   }
+
   &::before {
     margin-right: 19px;
   }
+
   &::after {
     margin-left: 19px;
   }
@@ -120,6 +127,7 @@
 
 .boxOrLight {
   composes: boxOrDark;
+
   &::before,
   &::after {
     background-color: var(--light-primary-cl);
@@ -203,7 +211,7 @@
 }
 
 .optionalWrapper {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 
   display: flex;
   justify-content: space-between;

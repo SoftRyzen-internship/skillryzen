@@ -13,8 +13,8 @@ export const Login = () => {
   return (
     <section className={s.section}>
       <Logo content='SkillRyzen' />
-      <h2 className={s.formTitle}>{t('auth.loginTitle')}</h2>
-      <p className={s.logIn}>
+      <h2 className={s.loginTitle}>{t('auth.loginTitle')}</h2>
+      <p className={s.loginSubtitle}>
         {t('auth.registerLabel')}{' '}
         <NavLink to={ROUTES.REGISTER} className={s.link}>
           {t('auth.registerLink')}

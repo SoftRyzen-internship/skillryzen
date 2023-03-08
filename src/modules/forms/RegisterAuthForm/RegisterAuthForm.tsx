@@ -11,8 +11,7 @@ import { register, logIn } from 'redux/authSlice/operations';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 
-import { validationSchema } from './validationSchema';
-
+import { useValidationSchema } from './useValidationSchema';
 import s from './RegisterAuthForm.module.scss';
 
 interface MyFormValues {
@@ -50,7 +49,7 @@ export const RegisterAuthForm = () => {
       checkbox: false,
     },
 
-    validationSchema,
+    validationSchema: useValidationSchema(),
 
     onSubmit: (values) => {
       const { email, password } = values;

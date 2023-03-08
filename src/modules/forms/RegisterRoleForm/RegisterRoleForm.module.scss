@@ -1,11 +1,18 @@
+.form {
+  min-height: 374px;
+
+  display: flex;
+  flex-direction: column;
+}
+
 .formTitle {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .roleList {
-  margin-bottom: 26px;
+  margin-bottom: 24px;
+
   display: flex;
-  justify-content: space-between;
   gap: 24px;
 
   color: var(--secondary-txt-cl);
@@ -33,9 +40,10 @@
 .roleBtn {
   padding: 20px;
   min-width: 200px;
+
   display: flex;
-  gap: 10px;
   flex-direction: column;
+  gap: 10px;
 
   font-weight: var(--bold);
   text-align: left;
@@ -46,23 +54,26 @@
   cursor: pointer;
 }
 
-.inputTitle {
+.placeholder{
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 16px;
 
   display: inline-block;
 
-  color: var(--secondary-txt-cl);
+  color: inherit;
 
   transition: transform var(--transition), font-size var(--transition);
 }
 
 .codeInputDark {
-  position: relative;
-  margin-bottom: 12px;
+  padding: 15px;
+  margin-bottom: 22px;
   width: 100%;
-  padding: 14px 16px;
+
+  position: relative;
+
+  line-height: 1;
 
   border: 1px solid var(--disabled-cl);
   border-radius: 4px;
@@ -71,8 +82,8 @@
 
   background-color: transparent;
 
-  &:not(:placeholder-shown) + .inputTitle,
-  &:focus + .inputTitle {
+  &:not(:placeholder-shown) + .placeholder,
+  &:focus + .placeholder {
     padding: 0 4px;
     transform: translateY(-23px);
 
@@ -88,8 +99,8 @@
   border: 1px solid var(--light-primary-cl);
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 
-  &:not(:placeholder-shown) + .inputTitle,
-  &:focus + .inputTitle {
+  &:not(:placeholder-shown) + .placeholder,
+  &:focus + .placeholder {
     background-color: var(--light-cards-cl);
   }
 }
@@ -101,9 +112,11 @@
 }
 
 .buttonsList {
+  margin-top: auto;
+
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 
   font-size: var(--text-md);
 
@@ -118,16 +131,16 @@
 }
 
 .valid {
-  color: var(--success-cl);
 
   & > input:not(:placeholder-shown) {
     border-color: var(--success-cl);
+    color: var(--success-cl);
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 14px;
     right: 12px;
     width: 24px;
     height: 24px;
@@ -135,12 +148,12 @@
   }
 }
 
-.invalid {
-  color: var(--error-cl);
+// .invalid {
+  // color: var(--error-cl);
 
-  & > input:not(:placeholder-shown) {
-    border-color: var(--error-cl);
-  }
+  // & > input:not(:placeholder-shown) {
+  //   border-color: var(--error-cl);
+  // }
 
   // &::before{
   //   content: 'Спробуйте інший код';
@@ -161,7 +174,7 @@
   //   height: 24px;
   //   background-image: url('assets/svg/warning-circle.svg');
   // }
-}
+// }
 
 .companyNameDark {
   padding: 13px 0;

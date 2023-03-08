@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import { NavLink } from 'react-router-dom';
 
-import { useAppDispatch } from 'hooks/hook';
 import { ROUTES } from 'routes/routes.const';
 
 import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/RegisterContactsForm';
@@ -12,18 +12,14 @@ export const ThirdStep = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const handleClickSkipBtn = () => {
-    navigate(ROUTES.CERTIFICATION);
-  };
-
   return (
     <div className={s.formWrapper}>
-      <h2 className={s.formTitle}>{t('auth.contactTitle')}</h2>
-      <p className={s.logIn}>{t('auth.contactLabel')}</p>
+      <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
+      <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
       <RegisterContactsForm />
-      <button onClick={handleClickSkipBtn} className={s.skipBtn} type='button'>
+      <NavLink to={ROUTES.CERTIFICATION} className={s.skip}>
         {t('auth.skipBtn')}
-      </button>
+      </NavLink>
     </div>
   );
 };

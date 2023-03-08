@@ -11,7 +11,7 @@ import { ICONS } from 'ui-kit/icons';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 
-import { validationSchema } from './validationSchema';
+import { useValidationSchema } from './useValidationSchema';
 
 import s from './LoginForm.module.scss';
 import { logIn } from 'redux/authSlice/operations';
@@ -51,7 +51,7 @@ export const LoginForm = () => {
       checkbox: false,
     },
 
-    validationSchema,
+    validationSchema: useValidationSchema(),
 
     onSubmit: ({ email, password }) => {
       dispatch(logIn({ email, password })).then(

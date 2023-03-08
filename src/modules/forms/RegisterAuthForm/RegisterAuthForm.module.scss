@@ -1,16 +1,17 @@
 .form {
+  margin-top: 20px;
   max-width: 424px;
-  min-width: 324px;
-  align-items: center;
-  text-align: left;
 }
 
 .checkboxLabel {
+  margin-top: 22px;
+  margin-bottom: 26px;
   padding-left: 36px;
-  color: var(--secondary-txt-cl);
+
   font-size: 14px;
-  margin-top: 28px;
-  margin-bottom: 44px;
+  text-align: left;
+
+  color: var(--secondary-txt-cl);
 
   cursor: pointer;
 }
@@ -22,9 +23,11 @@
 
 .floatingLabel {
   position: absolute;
-  color: var(--secondary-txt-cl);
   top: 50%;
   left: 16px;
+
+  color: inherit;
+
   transform: translateY(-50%);
   font-size: 16px;
   transition: color 250ms ease-in-out, top 250ms ease-in-out;
@@ -91,17 +94,18 @@
 .errorMsg {
   position: absolute;
   bottom: -20px;
-  left: 20px;
+  left: 16px;
+
   font-size: 12px;
   color: var(--error-cl);
 }
 
 .boxOrDark {
-  margin: 16px auto;
+  margin: 12px auto 20px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: row;
+
   &::before,
   &::after {
     content: '';
@@ -110,9 +114,11 @@
     width: 50%;
     background-color: var(--disabled-cl);
   }
+
   &::before {
     margin-right: 19px;
   }
+
   &::after {
     margin-left: 19px;
   }
@@ -120,6 +126,7 @@
 
 .boxOrLight {
   composes: boxOrDark;
+
   &::before,
   &::after {
     background-color: var(--light-primary-cl);
@@ -138,6 +145,7 @@
   padding: 0;
   margin: 0;
 }
+
 .iconEye {
   path {
     stroke: var(--secondary-txt-cl);

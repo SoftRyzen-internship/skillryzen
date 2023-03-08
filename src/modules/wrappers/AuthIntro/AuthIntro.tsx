@@ -1,34 +1,18 @@
 import { useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { useAppSelector } from 'hooks/hook';
 
 import s from './AuthIntro.module.scss';
 
-interface IntroMeta {
-  [key: string]: string[];
-}
-
-const introMeta: IntroMeta = {
-  STUDENT: [
-    'Пройти тест з JavaScript',
-    'Отримати сертифікат',
-    'Оновлене проходження раз у 10 днів',
-    'Отримати сертифікат',
-    'Отримати',
-  ],
-  COMPANY: [
-    'Створення власних тестів',
-    'Необмежена кількість учасників',
-    'Можливість надавати доступ до команди',
-    'Видача сертифікатів',
-    'Отримання зворотнього зв’язку від учасників',
-  ],
-};
-
 export const AuthIntro = () => {
   const location = useLocation();
-  const role = useAppSelector((state) => state.auth.user.role);
+  const role = useAppSelector((state) => state.auth.user.role).toLowerCase();
+
+  const { t } = useTranslation();
+
+  const introMeta = t(`auth.${role}Intro`, { returnObjects: true });
 
   return location.pathname === ROUTES.REGISTER ? (
     <section className={s.sectionRegister}>
@@ -38,9 +22,9 @@ export const AuthIntro = () => {
         }`}
       >
         <ul className={s.introMetaList}>
-          {introMeta[role].map((item, idx) => (
-            <li key={idx} className={s.introMetaItem}>
-              {item}
+          {Object.entries(introMeta).map((item) => (
+            <li key={item[0]} className={s.introMetaItem}>
+              {item[1]}
             </li>
           ))}
         </ul>

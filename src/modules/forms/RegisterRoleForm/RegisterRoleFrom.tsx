@@ -107,13 +107,10 @@ export const RegisterRoleForm = () => {
             value={code}
             placeholder='&#32;'
           />
-          <span className={s.inputTitle}>{t('auth.codePlaceholder')}</span>
+          <span className={s.placeholder}>{t('auth.codePlaceholder')}</span>
         </label>
       )}
-      <ul
-        style={{ minHeight: role === 'STUDENT' ? '160px' : '64px' }}
-        className={s.buttonsList}
-      >
+      <ul className={s.buttonsList}>
         {isValid && role === 'STUDENT' && (
           <li>
             <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
