@@ -34,6 +34,7 @@ import IconHeart from 'assets/svg/heart.svg';
 import IconHome from 'assets/svg/home.svg';
 import IconLink from 'assets/svg/link.svg';
 import IconLinkedin from 'assets/svg/linkedin.svg';
+import IconLinkedinBlue from 'assets/svg/linkedin-blue.svg';
 import IconList from 'assets/svg/list.svg';
 import IconLogout from 'assets/svg/logout.svg';
 import IconMail from 'assets/svg/mail.svg';
@@ -107,6 +108,10 @@ import IconCircleBlue from 'assets/svg/circle-blue.svg';
 import IconCircleGray from 'assets/svg/circle-gray.svg';
 import IconUnderDevelopmentMain from 'assets/svg/under-development-main.svg';
 
+import IconBehance from 'assets/svg/behance.svg';
+import IconDribble from 'assets/svg/dribble.svg';
+import IconGithub from 'assets/svg/github.svg';
+
 //  IconCorrect
 
 import { Icons } from 'constans/types';
@@ -148,6 +153,7 @@ export const ICONS: Icons = {
   HOME: IconHome,
   LINK: IconLink,
   LINKEDIN: IconLinkedin,
+  LINKEDIN_BLUE: IconLinkedinBlue,
   LIST: IconList,
   LOGOUT: IconLogout,
   MAIL: IconMail,
@@ -216,4 +222,7 @@ export const ICONS: Icons = {
   CIRCLE_BLUE: IconCircleBlue,
   CIRCLE_GRAY: IconCircleGray,
   UNDER_DEVELOPMENT_MAIN: IconUnderDevelopmentMain,
+  BEHANCE: IconBehance,
+  DRIBBLE: IconDribble,
+  GITHUB: IconGithub,
 };
