@@ -30,8 +30,9 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   const [seconds, setSeconds] = useState<number>(currentTime);
 
   useEffect(() => {
+    if (timeResult) return;
     if (!seconds && !totalTime) return;
-    if (seconds === 0 && totalTime) {
+    if (seconds === 0 && totalTime && questionId) {
       dispatch(setTime(totalTime));
       return;
     }
