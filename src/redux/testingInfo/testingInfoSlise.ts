@@ -51,6 +51,9 @@ const testingInfoSlice = createSlice({
     setTime(state, action: PayloadAction<number>) {
       state.results.time = action.payload;
     },
+    setCurrentTime(state, action: PayloadAction<number>) {
+      state.currentTime = action.payload;
+    },
     removeResults(state) {
       state.questionsTotalCount = 0;
       state.number = null;
@@ -125,10 +128,12 @@ const persistConfig = {
     'title',
     'possibleAnswers',
     'questionsTotalCount',
+    'currentTime',
+    'totalTime'
   ],
 };
 
-export const { setTime, removeResults } = testingInfoSlice.actions;
+export const { setTime, removeResults, setCurrentTime } = testingInfoSlice.actions;
 export const testingInfoReducer = persistReducer(
   persistConfig,
   testingInfoSlice.reducer
