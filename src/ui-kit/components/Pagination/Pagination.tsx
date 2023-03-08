@@ -4,7 +4,7 @@ import { ICONS } from 'ui-kit/icons';
 import { createArray } from 'utils/createArray';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'modules/common/types';
+import { IThemeContext } from 'constans/types';
 
 import s from './Pagination.module.scss';
 

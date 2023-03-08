@@ -5,7 +5,7 @@ import s from './FeedbackPageComponent.module.scss';
 import { useTranslation } from 'react-i18next';
 import { IMAGES } from 'ui-kit/images';
 import { ICONS } from 'ui-kit/icons';
-import { AuthButton, UserAvatarCard } from 'ui-kit';
+import { MainButton, UserAvatarCard } from 'ui-kit';
 import { Spinner } from 'ui-kit/components/Spinner/Spinner';
 import { useSelector } from 'react-redux';
 import { getUserEmail, getUserRole } from 'redux/authSlice/authSelectors';
@@ -61,7 +61,7 @@ export const FeedbackPageComponent = () => {
             }}
             icon={<ICONS.CROSS_SMALL />}
             button={
-              <AuthButton
+              <MainButton
                 type='button'
                 text='OK'
                 onClick={handleClickModal}
