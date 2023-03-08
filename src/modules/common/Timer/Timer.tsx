@@ -32,7 +32,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   useEffect(() => {
     if (timeResult) return;
     if (!seconds && !totalTime) return;
-    if (seconds === 0 && totalTime) {
+    if (seconds === 0 && totalTime && questionId) {
       dispatch(setTime(totalTime));
       return;
     }
