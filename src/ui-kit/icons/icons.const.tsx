@@ -14,6 +14,7 @@ import IconBell from 'assets/svg/bell.svg';
 import IconBellTwo from 'assets/svg/bell-2.svg';
 import IconBook from 'assets/svg/book.svg';
 import IconCheckMark from 'assets/svg/checkmark.svg';
+import IconCheckValidation from 'assets/svg/check-validation.svg';
 import IconCheckRound from 'assets/svg/check-round.svg';
 import IconCheckSmall from 'assets/svg/check-small.svg';
 import IconCoin from 'assets/svg/coin.svg';
@@ -127,6 +128,7 @@ export const ICONS: Icons = {
   BELL_TWO: IconBellTwo,
   BOOK: IconBook,
   CHECK_MARK: IconCheckMark,
+  CHECK_VALIDATION: IconCheckValidation,
   CHECK_ROUND: IconCheckRound,
   CHECK_SMALL: IconCheckSmall,
   COIN: IconCoin,
