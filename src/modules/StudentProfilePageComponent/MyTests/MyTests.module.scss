@@ -1,13 +1,12 @@
 .container {
-  position: relative;
-  flex-grow: 1;
+  width: 100%;
   padding: 20px;
   border-radius: 4px;
   transition: var(--transition);
 }
 .container--dark {
   composes: container;
-  background-color: var(--components-cl);
+  background-color: var(--primary-cl);
 }
 .container--light {
   composes: container;
@@ -44,4 +43,29 @@
 .noDataText--light {
   composes: noDataText;
   color: var(--light-primary-txt-cl);
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 4px;
+  column-gap: 28px;
+  row-gap: 20px;
+  transition: var(--transition);
+}
+
+.card {
+  width: 258px;
+  &:hover {
+    box-shadow: var(--shadow-blue-small);
+  }
+}
+.card--dark {
+  composes: card;
+  background-color: var(--secondary-cl);
+}
+.card--light {
+  composes: card;
+  background-color: var(--light-cards-cl);
 }

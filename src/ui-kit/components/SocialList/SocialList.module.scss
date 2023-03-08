@@ -2,25 +2,33 @@
   display: flex;
 }
 .item + .item {
-  margin-left: 20px;
+  margin-left: 16px;
 }
 .link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+.link--dark {
+  composes: link;
+  background-color: var(--secondary-cl);
+  &:hover {
+    box-shadow: var(--shadow-blue);
+  }
+}
+.link--light {
+  composes: link;
+  background-color: var(--light-cards-cl);
+}
+.icon {
   display: block;
 }
-
 .icon--dark {
-  display: block;
-  fill: var(--secondary-txt-cl);
-  transition: var(--transition);
-  &:hover {
-    fill: var(--accent-cl);
-  }
+  composes: icon;
 }
 .icon--light {
-  display: block;
-  fill: var(--accent-cl);
-  transition: var(--transition);
-  &:hover {
-    fill: var(--secondary-txt-cl);
-  }
+  composes: icon;
 }

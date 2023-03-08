@@ -71,15 +71,15 @@
     "team": "Команда"
   },
   "userProfile": {
-    "cardTitle": "Мій профіль",
+    "profileCardTitle": "Мій профіль",
     "userRole": {
       "student": "Студент"
     },
-    "companyLabel": "Компанія",
-    "groupLabel": "Група",
-    "testsLabel": "Виконані тести",
+    "companyTitle": "Компанія",
     "infoTitle": "Інформація",
-    "testsTitle": "Тести",
+    "groupTitle": "Група",
+    "testsTitle": "Виконані тести",
+    "testsCardTitle": "Тести",
     "noDataText": "Тестів поки немає",
     "achievements": {
       "scoreTitle": "Ваш рахунок",

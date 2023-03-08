@@ -1,5 +1,12 @@
 export type Img = { [key: string]: string };
 export type Theme = 'dark' | 'light';
+export type SocialName =
+  | 'telegram'
+  | 'linkedin'
+  | 'github'
+  | 'discord'
+  | 'behance'
+  | 'dribble';
 
 export interface IAuth {
   role?: string;
@@ -18,19 +25,21 @@ export interface IThemeContext {
 }
 
 export interface UserSocial {
-  telegram: string;
-  linkedin: string;
+  name: SocialName;
+  url: string;
 }
 export interface UserAchievements {
-  score: string;
-  coins: number;
-  time: string;
+  score?: string;
+  coins?: number;
+  time?: string;
 }
 export interface UserTests {
+  id: number;
   title: string;
-  text: string;
+  author: string;
+  text?: string;
   fields?: string[];
-  number: number;
+  number?: number;
   time?: number;
 }
 export interface UserInfo {
@@ -39,10 +48,13 @@ export interface UserInfo {
   phone: string;
   location: string;
   role: string;
-  social: UserSocial;
+  social: UserSocial[];
   achievements: UserAchievements;
   avatarUrl: string;
-  companyName: string;
+  company: {
+    name: string;
+    avatarUrl: string;
+  };
   groupName: string;
   testsAmount: number;
   tests: UserTests[];

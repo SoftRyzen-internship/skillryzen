@@ -11,6 +11,7 @@ import ImgBlueAvatar from 'assets/images/DefaultAvatars/avatar-blue.png';
 import ImgGreenAvatar from 'assets/images/DefaultAvatars/avatar-green.png';
 import ImgRedAvatar from 'assets/images/DefaultAvatars/avatar-red.png';
 import ImgYellowAvatar from 'assets/images/DefaultAvatars/avatar-yellow.png';
+import ImgGoItAvatar from 'assets/images/goit-avatar.png';
 
 import { Img } from 'constans/types';
 
@@ -28,4 +29,5 @@ export const IMAGES: Img = {
   GREEN_AVATAR: ImgGreenAvatar,
   RED_AVATAR: ImgRedAvatar,
   YELLOW_AVATAR: ImgYellowAvatar,
+  GOIT_AVATAR: ImgGoItAvatar,
 };

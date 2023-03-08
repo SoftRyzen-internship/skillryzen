@@ -10,6 +10,7 @@ import IconBarEmptyLine from 'assets/svg/bar-empty-line.svg';
 import IconBarOneLine from 'assets/svg/bar-one-line.svg';
 import IconBarOneLineLight from 'assets/svg/bar-one-line-light.svg';
 import IconBarTwoLine from 'assets/svg/bar-two-line.svg';
+import IconBehance from 'assets/svg/behance.svg';
 import IconBell from 'assets/svg/bell.svg';
 import IconBellTwo from 'assets/svg/bell-2.svg';
 import IconBook from 'assets/svg/book.svg';
@@ -20,6 +21,8 @@ import IconCheckSmall from 'assets/svg/check-small.svg';
 import IconCoin from 'assets/svg/coin.svg';
 import CrossSmall from 'assets/svg/cross-small.svg';
 import IconDefaultCheckbox from 'assets/svg/default-checkbox.svg';
+import IconDiscord from 'assets/svg/discord.svg';
+import IconDribble from 'assets/svg/dribble.svg';
 import IconEdit from 'assets/svg/edit.svg';
 import IconEyeClosed from 'assets/svg/eye-closed.svg';
 import IconEyeOpen from 'assets/svg/eye-open.svg';
@@ -29,6 +32,7 @@ import IconFiltersTwo from 'assets/svg/filters-2.svg';
 import IconFlagOne from 'assets/svg/flag-1.svg';
 import IconFlash from 'assets/svg/flash.svg';
 import IconFunnel from 'assets/svg/funnel.svg';
+import IconGithub from 'assets/svg/github.svg';
 import IconGrid from 'assets/svg/grid.svg';
 import IconHeart from 'assets/svg/heart.svg';
 import IconHome from 'assets/svg/home.svg';
@@ -126,6 +130,7 @@ export const ICONS: Icons = {
   BAR_TWO_LINE: IconBarTwoLine,
   BELL: IconBell,
   BELL_TWO: IconBellTwo,
+  BEHANCE: IconBehance,
   BOOK: IconBook,
   CHECK_MARK: IconCheckMark,
   CHECK_VALIDATION: IconCheckValidation,
@@ -134,6 +139,8 @@ export const ICONS: Icons = {
   COIN: IconCoin,
   CROSS_SMALL: CrossSmall,
   DEFAULT_CHECKBOX: IconDefaultCheckbox,
+  DISCORD: IconDiscord,
+  DRIBBLE: IconDribble,
   EDIT: IconEdit,
   EYE_CLOSED: IconEyeClosed,
   EYE_OPEN: IconEyeOpen,
@@ -143,6 +150,7 @@ export const ICONS: Icons = {
   FLAG_ONE: IconFlagOne,
   FLASH: IconFlash,
   FUNNEL: IconFunnel,
+  GITHUB: IconGithub,
   GRID: IconGrid,
   HEART: IconHeart,
   HOME: IconHome,
