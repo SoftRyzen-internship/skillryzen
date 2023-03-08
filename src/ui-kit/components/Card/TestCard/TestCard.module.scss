@@ -142,8 +142,6 @@
   position: relative;
 
   &::before {
-    // position: absolute;
-    // left: 0;
     display: block;
     content: '';
     height: 76px;
@@ -159,7 +157,6 @@
   display: flex;
   align-items: center;
   gap: 16px;
-//   padding-left: 16px;
 }
 
 .card--large .card__number,
