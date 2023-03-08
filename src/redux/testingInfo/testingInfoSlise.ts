@@ -109,6 +109,9 @@ const testingInfoSlice = createSlice({
           payload.percentageOfCorrectAnswers;
         state.hasNextQuestion = true;
         state.testId = '';
+        state.questionId = '';
+        state.title = '';
+        state.possibleAnswers = [];
         state.isLoading = false;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {
