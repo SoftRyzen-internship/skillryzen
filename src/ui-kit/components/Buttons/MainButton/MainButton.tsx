@@ -1,4 +1,4 @@
-import s from './AuthButton.module.scss';
+import s from './MainButton.module.scss';
 
 interface ButtonProps {
   className?: string;
@@ -12,7 +12,7 @@ interface ButtonProps {
   needBackground?: 'noBackgroundAccent' | 'noBackgroundGray'; // робить кнопку прозорою, та додає акцент колір на бордер та текст або сірий бордер
 }
 
-export const AuthButton = ({
+export const MainButton = ({
   type = 'button',
   text,
   icon,
@@ -28,7 +28,7 @@ export const AuthButton = ({
       disabled={disabled}
       onClick={onClick}
       type={type}
-      className={`${s.authBtn} ${s[size]} ${s[color]} ${s[needBackground]} ${className}`}
+      className={`${s.mainBtn} ${s[size]} ${s[color]} ${s[needBackground]} ${className}`}
     >
       {icon}
       {text}

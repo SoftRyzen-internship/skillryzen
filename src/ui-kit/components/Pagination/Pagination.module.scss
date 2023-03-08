@@ -7,30 +7,45 @@
 .pageBtn {
   width: 40px;
   height: 40px;
-  margin: 0px 12px;
-  font-family: 'Inter';
+  margin: 0px 4px;
   font-weight: 700;
-  font-size: 14px;
-  line-height: 1.3;
-  color: #ffffff;
+  border-radius: 10px;
+
+  &--dark {
+    color: var(--light-components-cl);
+    background-color: var(--components-cl);
+  }
+
+  &--light {
+    background-color: #e9f0ff;
+    color: var(--secondary-txt-cl);
+  }
+
+  &:hover {
+    box-shadow: 1px 2px 8px rgba(1, 37, 233, 0.54);
+  }
 }
 
 .activePageBtn {
   composes: pageBtn;
-  color: var(--accent-cl);
+  background-color: var(--accent-cl);
 }
 
 .arrowBtn {
+  composes: pageBtn;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid var(--accent-cl);
 }
 
 .arrowBtnDisabled {
   composes: arrowBtn;
-  border: 1px solid var(--secondary-txt-cl);
+
+  & path {
+    stroke: var(--secondary-txt-cl);
+  }
+
+  &:hover {
+    box-shadow: none;
+  }
 }

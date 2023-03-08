@@ -1,12 +1,14 @@
+import { MainButton } from './components/Buttons/MainButton/MainButton';
 export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export { AddButton } from './components/Buttons/AddButton';
-export { AuthButton } from './components/Buttons/AuthButton';
+export { MainButton } from './components/Buttons/MainButton';
 export { CopyButton } from './components/Buttons/CopyButton';
 export { HeaderButton } from './components/Buttons/HeaderButton';
 export { IconButton } from './components/Buttons/IconButton';
 export { PaginationButton } from './components/Buttons/PaginationButton';
 export { Card } from './components/Card/Card';
 export { InfoCard } from './components/Card/Infocard';
+export { TestCard } from './components/Card/TestCard';
 export { Checkbox } from './components/Checkbox';
 export { Input } from './components/Input';
 export { Logo } from './components/Logo';
