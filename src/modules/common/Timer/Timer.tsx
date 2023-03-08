@@ -28,6 +28,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   const number = useAppSelector(getQuestionNumber);
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(currentTime);
+  console.log("seconds", seconds)
 
   useEffect(() => {
     if (!seconds && !totalTime) return;

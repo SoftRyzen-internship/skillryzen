@@ -40,11 +40,11 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
 
   return (
     <div className={s.progressBar}>
-      <p
+      {array && array.length > 0 && <p
         className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
       >
         {returnTitle()}
-      </p>
+      </p>}
       {array && array.length > 0 && (
         <div className={s.progressBar__wrapper}>
           <ul className={s.progressBar__list}>
