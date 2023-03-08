@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { IThemeContext } from 'constans/types';
-import { Card } from 'ui-kit';
+import { Card, TestCard } from 'ui-kit';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './CardsList.module.scss';
 
 interface Item {
   id: number;
+  author: string;
   title: string;
   text: string;
   fields?: string[];
@@ -31,14 +32,14 @@ export const CardsList = ({ type = 'info', size, testsArray }: TestsList) => {
       {testsArray.map((item) => (
         <li key={item.id}>
           <Link to='fullstack_final'>
-            <Card
-              type={type}
+            <TestCard
               size={size}
               item={{
+                author: item.author,
                 title: item.title,
                 text: item.text,
                 fields: item.fields,
-                number: item.number + ' ' + t('testsMain.numberOfQuestions'),
+                number: item.number,
                 time: item.time,
               }}
               theme={theme}

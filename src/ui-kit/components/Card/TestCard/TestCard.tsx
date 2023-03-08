@@ -1,0 +1,65 @@
+import { Theme } from 'constans/types';
+import { useTranslation } from 'react-i18next';
+
+import { Tag } from 'ui-kit/index';
+
+import s from './TestCard.module.scss';
+
+interface Card {
+  size?: 'large' | 'small';
+  item: Item;
+  className?: string;
+  theme?: Theme;
+}
+
+interface Item {
+  title: string;
+  author: string;
+  text?: string;
+  fields?: string[];
+  number?: number;
+  time?: number;
+}
+
+export const TestCard = ({
+  size = 'large',
+  item,
+  className = '',
+  theme = 'dark',
+}: Card) => {
+  const { t } = useTranslation();
+
+  const { title, author, text, fields, number, time } = item;
+
+  return (
+    <div
+      className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className}`}
+    >
+      <div className={s.card__infoWrapper}>
+        <div className={s.card__content}>
+          <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>
+            {title}
+          </p>
+          <p className={`${s.card__text} ${s[`card__text--${theme}`]}`}>
+            {text}
+          </p>
+        </div>
+        <ul className={s.card__list}>
+          {fields.map((item, index) => (
+            <li key={index}>
+              <Tag type='field' label={item} theme={theme} />
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className={s.card__addInfoWrapper}>
+        <Tag
+          type='number'
+          theme={theme}
+          label={number + ' ' + t('testsMain.numberOfQuestions')}
+        />
+        <Tag type='time' label={time + ''} theme={theme} />
+      </div>
+    </div>
+  );
+};

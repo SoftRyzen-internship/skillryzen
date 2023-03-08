@@ -7,6 +7,7 @@ export { IconButton } from './components/Buttons/IconButton';
 export { PaginationButton } from './components/Buttons/PaginationButton';
 export { Card } from './components/Card/Card';
 export { InfoCard } from './components/Card/Infocard';
+export { TestCard } from './components/Card/TestCard';
 export { Checkbox } from './components/Checkbox';
 export { Input } from './components/Input';
 export { Logo } from './components/Logo';
