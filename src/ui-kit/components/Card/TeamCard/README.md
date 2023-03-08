@@ -15,7 +15,7 @@ social - об'єкт, що зберігає в собі соцмережі: beha
 
 # Приклад використання
 
-      <TeamCard
+    <TeamCard
       name='John Doe'
       position='Front-End Developer'
       image={IMAGES.HTML}
@@ -25,3 +25,4 @@ social - об'єкт, що зберігає в собі соцмережі: beha
         github: 'https://google.com/',
         linkedin: 'https://google.com/',
       }}
+    />

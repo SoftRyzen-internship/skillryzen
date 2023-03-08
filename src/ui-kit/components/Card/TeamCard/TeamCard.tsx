@@ -14,7 +14,15 @@ interface TeamCardProps {
   };
 }
 
-export const TeamCard = ({ image, name, position, social }: TeamCardProps) => {
+export const TeamCard = ({
+  // треба додати дефолтну картинку
+  image,
+  name,
+  position,
+  social = {},
+}: TeamCardProps) => {
+  const { behance, dribble, github, linkedin } = social;
+
   return (
     <div className={s.card}>
       <div className={s.imageWrapper}>
@@ -23,30 +31,30 @@ export const TeamCard = ({ image, name, position, social }: TeamCardProps) => {
       <p className={s.name}>{name}</p>
       <p className={s.position}>{position}</p>
       <ul className={s.list}>
-        {social.behance && (
+        {behance && (
           <li>
-            <a href={social.behance} target='_blank' rel='noreferrer'>
+            <a href={behance} target='_blank' rel='noopener noreferrer'>
               <ICONS.BEHANCE />
             </a>
           </li>
         )}
-        {social.dribble && (
+        {dribble && (
           <li>
-            <a href={social.dribble} target='_blank' rel='noreferrer'>
+            <a href={dribble} target='_blank' rel='noopener noreferrer'>
               <ICONS.DRIBBLE />
             </a>
           </li>
         )}
-        {social.github && (
+        {github && (
           <li>
-            <a href={social.github} target='_blank' rel='noreferrer'>
+            <a href={github} target='_blank' rel='noopener noreferrer'>
               <ICONS.GITHUB />
             </a>
           </li>
         )}
-        {social.linkedin && (
+        {linkedin && (
           <li>
-            <a href={social.linkedin} target='_blank' rel='noreferrer'>
+            <a href={linkedin} target='_blank' rel='noopener noreferrer'>
               <ICONS.LINKEDIN_BLUE />
             </a>
           </li>
