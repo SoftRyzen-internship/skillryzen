@@ -48,11 +48,11 @@ const testingInfoSlice = createSlice({
       state.results.time = action.payload;
     },
     removeResults(state) {
-      state.questionsTotalCount = 0; 
+      state.questionsTotalCount = 0;
       state.number = null;
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
-      state.results.time = 0;   
+      state.results.time = 0;
     },
   },
   extraReducers: (builder) => {
@@ -98,6 +98,7 @@ const testingInfoSlice = createSlice({
         state.results.testId = payload.testId;
         state.results.percentageOfCorrectAnswers =
           payload.percentageOfCorrectAnswers;
+        state.hasNextQuestion = true;
         state.testId = '';
         state.isLoading = false;
       })
@@ -111,8 +112,18 @@ const testingInfoSlice = createSlice({
 const persistConfig = {
   key: 'testingInfo',
   storage,
-  whitelist: ['testId', 'questionId', 'number', 'title', 'possibleAnswers', 'questionsTotalCount'],
+  whitelist: [
+    'testId',
+    'questionId',
+    'number',
+    'title',
+    'possibleAnswers',
+    'questionsTotalCount',
+  ],
 };
 
 export const { setTime, removeResults } = testingInfoSlice.actions;
-export const testingInfoReducer = persistReducer(persistConfig, testingInfoSlice.reducer);
+export const testingInfoReducer = persistReducer(
+  persistConfig,
+  testingInfoSlice.reducer
+);

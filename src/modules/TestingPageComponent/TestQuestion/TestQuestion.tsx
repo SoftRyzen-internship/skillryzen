@@ -18,7 +18,7 @@ import s from './TestQuestion.module.scss';
 import { getTimeTest } from 'redux/testingInfo/testingInfoSelectors';
 
 export const TestQuestion = () => {
-  const { testId, questionId, title, possibleAnswers, isLoading } =
+  const { testId, questionId, title, possibleAnswers, isLoading, number, questionsTotalCount } =
     useAppSelector((state) => state.testingInfo);
   const time = useAppSelector(getTimeTest);
 
@@ -29,11 +29,12 @@ export const TestQuestion = () => {
 
   const handleAnswer = () => {
     dispatch(answerTest({ testId, questionId, selectedAnswer }));
+    setSelectedAnswer('');
   };
 
-  useEffect(() => {
-    setSelectedAnswer('');
-  }, [questionId]);
+  // useEffect(() => {
+  //   setSelectedAnswer('');
+  // }, [questionId]);
 
   useEffect(() => {
     if (!time) return;
@@ -71,7 +72,7 @@ export const TestQuestion = () => {
                 />
               </li>
             ))}
-          {isLoading && <Skeleton length={4} value='skeleton' />}
+          {isLoading && number < questionsTotalCount && <Skeleton length={4} value='skeleton' />}
         </ul>
       </div>
       {questionId && (
