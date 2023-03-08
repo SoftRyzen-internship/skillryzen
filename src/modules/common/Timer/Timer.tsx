@@ -28,7 +28,6 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   const number = useAppSelector(getQuestionNumber);
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(currentTime);
-  console.log("seconds", seconds)
 
   useEffect(() => {
     if (!seconds && !totalTime) return;
@@ -48,12 +47,6 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     dispatch(setTime(totalTime - seconds));
     // eslint disable next line
   }, [hasNextQuestion]);
-
-  useEffect(() => {
-    if (!totalTime) return;
-    setSeconds(totalTime);
-    // eslint disable next line
-  }, [totalTime]);
 
   useEffect(() => {
     if (!questionId) return;

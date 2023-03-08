@@ -113,6 +113,8 @@ const testingInfoSlice = createSlice({
         state.title = '';
         state.possibleAnswers = [];
         state.isLoading = false;
+        state.totalTime = 0;
+        state.currentTime = 0;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {
         state.error = payload;
