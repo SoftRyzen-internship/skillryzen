@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import { useAppSelector } from 'hooks/hook';
 
 import { useThemeContext } from 'context/themeContext';
 import { getRandomInt } from 'utils/getRandomInt';
@@ -27,8 +25,6 @@ export const HeaderUserAvatarCard = ({
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
-
-  const user = useAppSelector((state) => state.auth.user);
 
   const defaultAvatars = [
     IMAGES.BLUE_AVATAR,
@@ -107,7 +103,7 @@ export const HeaderUserAvatarCard = ({
       <UserAvatarCard
         userName={name}
         userAvatarUrl={avatar}
-        userStatus='green'
+        // userStatus='green'
         theme={theme}
       />
       {popup ? <div className={s.popup}>{popup}</div> : null}
