@@ -27,6 +27,13 @@ export const UnderDevelopment = () => {
         <h2 className={objectTheme[theme].title}>
           {t('underDevelopment.title')}
         </h2>
+        <div className={s.imageWrapper}>
+          <ICONS.UNDER_DEVELOPMENT_MAIN width='388' height='208' />
+          <ICONS.GEAR_BLUE className={s.gearBlue} />
+          <ICONS.GEAR_GRAY className={s.gearGray} />
+          <ICONS.CIRCLE_BLUE className={s.circleBlue} />
+          <ICONS.CIRCLE_GRAY className={s.circleGray} />
+        </div>
         <MainButton
           type='submit'
           text={t('underDevelopment.button')}
