@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import { logOut } from 'redux/authSlice/operations';
+import { useAppDispatch } from 'hooks/hook';
+
 import { useThemeContext } from 'context/themeContext';
 import { getRandomInt } from 'utils/getRandomInt';
 
@@ -25,6 +28,7 @@ export const HeaderUserAvatarCard = ({
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
 
   const defaultAvatars = [
     IMAGES.BLUE_AVATAR,
@@ -58,10 +62,17 @@ export const HeaderUserAvatarCard = ({
     light: 'var(--accent-cl)',
   };
 
+  const handleClickPopupItem = (text: string) => {
+    if (text === t('header.userAvatar.logOut')) {
+      dispatch(logOut());
+    }
+  };
+
   const mouseEnterHandler = () => {
     setPopup(
       <Popup
         theme={theme}
+        handleClickItem={handleClickPopupItem}
         list={[
           {
             icon: <ICONS.USER stroke={iconColor[theme]} />,
