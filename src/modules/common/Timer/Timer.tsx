@@ -39,7 +39,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   useEffect(() => {
     if (hasNextQuestion) return;
     dispatch(setTime(seconds));
-  }, [hasNextQuestion]);
+  }, [dispatch, hasNextQuestion, seconds]);
 
   return (
     <div>
