@@ -13,12 +13,12 @@ export const TeamList = () => {
             name={item.name}
             position={item.position}
             image={IMAGES[item.image]}
-            social={{
-              behance: `${item.social.behance}}`,
-              dribble: `${item.social.dribble}}`,
-              github: `${item.social.github}}`,
-              linkedin: `${item.social.linkedin}}`,
-            }}
+            social={[
+              { name: 'behance', url: `${item.social.behance}}` },
+              { name: 'dribble', url: `${item.social.dribble}}` },
+              { name: 'github', url: `${item.social.github}}` },
+              { name: 'linkedin', url: `${item.social.linkedin}}` },
+            ]}
           />
         </li>
       ))}
