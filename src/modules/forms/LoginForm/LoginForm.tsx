@@ -76,6 +76,7 @@ export const LoginForm = () => {
     errors,
     touched,
     isValid,
+    isSubmitting,
     dirty,
     handleBlur,
     handleChange,
@@ -178,7 +179,7 @@ export const LoginForm = () => {
         size='large'
         text={t('auth.continueBtn')}
         type='submit'
-        disabled={!isValid || !dirty}
+        disabled={!isValid || !dirty || isSubmitting}
       />
     </form>
   );

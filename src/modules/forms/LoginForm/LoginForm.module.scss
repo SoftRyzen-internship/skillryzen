@@ -70,8 +70,6 @@
     caret-color: var(--light-primary-cl);
     -webkit-text-fill-color: var(--light-primary-cl);
     -webkit-background-clip: text;
-    -webkit-animation: autofill 0s forwards;
-    animation: autofill 0s forwards;
   }
 
   &:not(:placeholder-shown) ~ label,
@@ -99,8 +97,6 @@
     caret-color: inherit;
     -webkit-text-fill-color: inherit;
     -webkit-background-clip: text;
-    -webkit-animation: autofill 0s forwards;
-    animation: autofill 0s forwards;
   }
 }
 
@@ -235,16 +231,4 @@
 .forgotPassword {
   font-weight: var(--bold);
   color: var(--accent-cl);
-}
-
-@keyframes autofill {
-  100% {
-    font-size: 16px;
-  }
-}
-
-@-webkit-keyframes autofill {
-  100% {
-    font-size: 16px;
-  }
 }

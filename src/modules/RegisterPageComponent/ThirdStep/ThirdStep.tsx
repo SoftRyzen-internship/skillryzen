@@ -15,7 +15,9 @@ export const ThirdStep = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const handleClickSkipBtn = () => {
+  const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+
     navigate(ROUTES.CERTIFICATION, { state: { from: location } });
   };
 
@@ -24,9 +26,9 @@ export const ThirdStep = () => {
       <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
       <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
       <RegisterContactsForm />
-      <NavLink to={ROUTES.CERTIFICATION} className={s.skip}>
+      <a href='#' onClick={handleClickSkipBtn} className={s.skip}>
         {t('auth.skipBtn')}
-      </NavLink>
+      </a>
     </div>
   );
 };

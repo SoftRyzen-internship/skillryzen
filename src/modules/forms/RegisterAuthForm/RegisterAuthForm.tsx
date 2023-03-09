@@ -80,6 +80,7 @@ export const RegisterAuthForm = () => {
     touched,
     isValid,
     dirty,
+    isSubmitting,
     handleBlur,
     handleChange,
     handleSubmit,
@@ -172,7 +173,7 @@ export const RegisterAuthForm = () => {
         size='large'
         text={t('auth.continueBtn')}
         type='submit'
-        disabled={!isValid || !dirty}
+        disabled={!isValid || !dirty || isSubmitting}
       />
     </form>
   );

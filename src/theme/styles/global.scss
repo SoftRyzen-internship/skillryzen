@@ -79,9 +79,6 @@ input {
     caret-color: inherit;
     -webkit-text-fill-color: inherit;
     -webkit-background-clip: text;
-
-    -webkit-animation: autofill 0s forwards;
-    animation: autofill 0s forwards;
   }
 }
 
@@ -96,16 +93,4 @@ input {
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
-}
-
-@keyframes autofill {
-  100% {
-    font-size: inherit;
-  }
-}
-
-@-webkit-keyframes autofill {
-  100% {
-    font-size: inherit;
-  }
 }

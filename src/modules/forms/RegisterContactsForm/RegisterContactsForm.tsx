@@ -64,6 +64,7 @@ export const RegisterContactsForm = () => {
   const {
     values: { name, surname, phone, companyName },
     isValid,
+    isSubmitting,
     dirty,
     errors,
     touched,
@@ -180,11 +181,10 @@ export const RegisterContactsForm = () => {
       </ul>
       <MainButton
         className={s.btnSubmit}
-        onClick={handleSubmit}
         size='large'
         text={t('auth.continueBtn')}
         type='submit'
-        disabled={!isValid || !dirty}
+        disabled={!isValid || !dirty || isSubmitting}
       />
     </form>
   );

@@ -199,6 +199,12 @@
   font-weight: inherit;
   color: inherit;
   border-width: 1px;
+
+  &:hover,
+  &:active,
+  &:focus{
+    background-color: transparent;
+  }
 }
 
 .companyNameLight {
