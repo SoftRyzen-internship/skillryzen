@@ -9,11 +9,12 @@ import { IThemeContext } from 'constans/types';
 import s from './Pagination.module.scss';
 
 interface Props {
+  className?: string;
   totalPages: number;
   onPageChange: (pageNumber: number) => void;
 }
 
-export const Pagination = ({ totalPages, onPageChange }: Props) => {
+export const Pagination = ({ totalPages, onPageChange, className }: Props) => {
   const { theme }: IThemeContext = useThemeContext();
 
   const [currentPage, setCurrentPage] = useState<number>(1); // Current active page number
@@ -74,7 +75,7 @@ export const Pagination = ({ totalPages, onPageChange }: Props) => {
   };
 
   return (
-    <div className={s.paginationContainer}>
+    <div className={`${s.paginationContainer} ${className}`}>
       <button
         onClick={() => setCurrentPage(currentPage - 1)}
         className={currentPage <= 1 ? s.arrowBtnDisabled : s.arrowBtn}
