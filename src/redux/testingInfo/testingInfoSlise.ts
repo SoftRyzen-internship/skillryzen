@@ -137,7 +137,7 @@ const persistConfig = {
     'possibleAnswers',
     'questionsTotalCount',
     'currentTime',
-    'totalTime'
+    'totalTime',
   ],
 };
 
