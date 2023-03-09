@@ -1,30 +1,43 @@
-.tabs__list {
+.tabsList {
   display: flex;
-  gap: 4px;
+  gap: 12px;
   color: var(--primary-txt-cl);
 }
 
-.tabs__item {
+.tabsItem {
   padding: 0 8px 12px;
   position: relative;
-}
-
-.tabs__navLink {
   font-size: 16px;
   font-weight: var(--bold);
+  cursor: pointer;
 
   &--light {
     color: var(--secondary-txt-cl);
   }
 
   &--dark {
-    color: var(--primary-txt-cl);
+    color: var(--secondary-txt-cl);
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--secondary-txt-cl);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
   }
 }
 
-.tabs__navLinkActive {
+.tabsItemActive {
+  padding: 0 8px 12px;
+  position: relative;
   font-size: 16px;
   font-weight: var(--bold);
+  cursor: pointer;
 
   &--light {
     color: var(--light-primary-txt-cl);
@@ -33,16 +46,16 @@
   &--dark {
     color: var(--primary-txt-cl);
   }
-}
 
-.tabs__navLinkActive::after {
-  content: '';
-  display: block;
-  height: 2px;
-  width: 100%;
-  background-color: var(--accent-cl);
-  border-radius: 10px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
+  &::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--accent-cl);
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
 }

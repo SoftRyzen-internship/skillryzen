@@ -19,9 +19,11 @@ import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import InviteModulePage from 'pages/InviteModulePage';
 
 import { ROUTES } from './routes.const';
 import FeedbackPage from 'pages/FeedbackPage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
@@ -138,12 +140,30 @@ export const AppRoutes = () => {
                 },
               ],
             },
+            // This block for admin user
+            {
+              element: (
+                <MainWrapper
+                  showSidebar={true}
+                  showHeader={true}
+                  isTestingPage={false}
+                >
+                  <Outlet />
+                </MainWrapper>
+              ),
+              children: [
+                {
+                  path: ROUTES.INVITE_MODULE,
+                  element: <InviteModulePage />,
+                },
+              ],
+            },
             { path: '/company', element: <CompanyPage /> },
           ],
         },
       ],
     },
-    { path: '*', element: <h1>404 Not Found</h1> },
+    { path: '*', element: <NotFoundPage /> },
   ];
   const routing = useRoutes(routes);
 
