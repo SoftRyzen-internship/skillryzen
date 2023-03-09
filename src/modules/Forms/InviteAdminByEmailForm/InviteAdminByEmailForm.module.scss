@@ -1,0 +1,65 @@
+.label {
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.list {
+  margin-bottom: 25px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  width: 133px;
+  font-weight: 400;
+  font-size: 14px;
+
+  &:not(:last-child) {
+    margin-bottom: 18px;
+  }
+
+  & p {
+    margin-top: 3px;
+  }
+}
+
+.input {
+  height: 48px;
+  font-weight: 400;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 4px;
+
+  &--dark {
+    background-color: var(--secondary-cl);
+    border-color: var(--disabled-cl);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+    border-color: var(--light-primary-cl);
+    color: var(--primary-cl);
+  }
+}
+
+.asterixIcon {
+  path {
+    stroke: var(--wrong-cl);
+    fill: var(--wrong-cl);
+  }
+}
+
+.mr20 {
+  margin-bottom: 20px;
+}
+
+.mr17 {
+  margin-bottom: 17px;
+}
+
+.submitButton {
+  display: block;
+  width: 200px;
+  margin-top: 40px;
+  margin-left: auto;
+}

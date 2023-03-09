@@ -6,22 +6,28 @@ import { validationSchema } from './validationSchema';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 
-import { MainButton, Input } from 'ui-kit';
+import { MainButton, Input, Checkbox } from 'ui-kit';
 
-import s from './InviteStudentByEmailForm.module.scss';
+import s from './InviteAdminByEmailForm.module.scss';
 
 interface FormValues {
-  emails: string[];
+  email: string;
+  createTest: boolean;
+  addUsers: boolean;
+  deleteUsers: boolean;
   text: string;
   code: string;
 }
 
-export const InviteStudentByEmailForm = () => {
+export const InviteAdminByEmailForm = () => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
   const formik = useFormik<FormValues>({
     initialValues: {
-      emails: ['', '', '', ''],
+      email: '',
+      createTest: false,
+      addUsers: false,
+      deleteUsers: false,
       text: '',
       code: '',
     },
@@ -32,7 +38,7 @@ export const InviteStudentByEmailForm = () => {
     },
   });
   const {
-    values: { emails, text, code },
+    values: { email, createTest, addUsers, deleteUsers, text, code },
     errors,
     touched,
     isValid,
@@ -40,44 +46,50 @@ export const InviteStudentByEmailForm = () => {
     handleBlur,
     handleChange,
     handleSubmit,
-    setFieldValue,
   } = formik;
-  const removeEmail = (arr: string[], index: number) => {
-    arr.splice(index, 1);
-    return arr;
-  };
+
   return (
     <form onSubmit={handleSubmit}>
       <div>
         <h3 className={s.label}>E-mail</h3>
-        <ul>
-          {emails.map((el, i) => (
-            <li key={i} className={s.item}>
-              <Input
-                onChange={handleChange}
-                name={`emails[${i}]`}
-                value={el}
-                placeholder='Lorem lorem'
-                className={`${s.input} ${s[`input--${theme}`]}`}
-              />
-              <button
-                onClick={() => setFieldValue('emails', removeEmail(emails, i))}
-                className={`${s.removeButton} ${s[`removeButton--${theme}`]}`}
-                type='button'
-              >
-                <ICONS.CROSS_SMALL className={`${s[`removeIcon--${theme}`]}`} />
-              </button>
-            </li>
-          ))}
+
+        <Input
+          onChange={handleChange}
+          name='email'
+          value={email}
+          placeholder='Lorem lorem'
+          className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
+        />
+        <h3 className={`${s.label} ${s.mr17}`}>Role</h3>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <p>Create test</p>{' '}
+            <Checkbox
+              name='createTest'
+              id='createTest'
+              initialState={createTest}
+              onChange={handleChange}
+            />
+          </li>
+          <li className={s.item}>
+            <p>Add users</p>{' '}
+            <Checkbox
+              name='addUsers'
+              id='addUsers'
+              initialState={addUsers}
+              onChange={handleChange}
+            />
+          </li>
+          <li className={s.item}>
+            <p>Delete users</p>{' '}
+            <Checkbox
+              name='deleteUsers'
+              id='deleteUsers'
+              initialState={deleteUsers}
+              onChange={handleChange}
+            />
+          </li>
         </ul>
-        <button
-          onClick={() => setFieldValue('emails', emails.concat(''))}
-          type='button'
-          className={s.addButton}
-        >
-          <ICONS.PLUS_SMALL className={s.addIcon} />
-          Add another user
-        </button>
         <h3 className={s.label}>Супровідний текст</h3>
         <Input
           onChange={handleChange}

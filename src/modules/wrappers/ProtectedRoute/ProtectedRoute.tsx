@@ -8,9 +8,9 @@ interface Props {
 }
 
 export const ProtectedRoute = ({ isLoggedIn, children }: Props) => {
-  if (!isLoggedIn) {
-    return <Navigate to={ROUTES.LOGIN} replace />;
-  }
+  // if (!isLoggedIn) {
+  //   return <Navigate to={ROUTES.LOGIN} replace />;
+  // }
 
   return children;
 };

@@ -31,8 +31,8 @@
   }
   &--light {
     background-color: var(--light-primary-cl);
-    border-color:var(--light-primary-cl);
-    color:var(--primary-cl);
+    border-color: var(--light-primary-cl);
+    color: var(--primary-cl);
   }
 }
 
@@ -52,7 +52,7 @@
   }
 }
 
-.removeIcon{
+.removeIcon {
   &--dark {
     path {
       stroke: var(--secondary-txt-cl);
@@ -79,6 +79,13 @@
 .addIcon {
   path {
     stroke: var(--accent-cl);
+  }
+}
+
+.asterixIcon {
+  path {
+    stroke: var(--wrong-cl);
+    fill: var(--wrong-cl);
   }
 }
 

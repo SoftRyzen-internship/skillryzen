@@ -14,7 +14,10 @@ export const Select = () => {
   const handleToogleMenu = () => setOpenMenu((prev) => !prev);
 
   return (
-    <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`} onClick={handleToogleMenu}>
+    <div
+      className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}
+      onClick={handleToogleMenu}
+    >
       Final Test Frontend
       {openMenu ? (
         <ICONS.CHEVRON_UP className={s.icon} />

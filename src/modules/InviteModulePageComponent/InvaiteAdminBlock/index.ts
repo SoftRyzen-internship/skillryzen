@@ -1,0 +1,1 @@
+export { InvaiteAdminBlock } from './InvaiteAdminBlock';
