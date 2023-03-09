@@ -6,6 +6,7 @@ import { IThemeContext } from 'constans/types';
 import { useValidationSchema } from './useValidationSchema';
 import axios from 'axios';
 import { MainButton } from 'ui-kit';
+import { useLocation } from 'react-router';
 
 interface FormValues {
   message: string;
@@ -26,7 +27,7 @@ export const FeedbackForm = ({
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
   const validationSchema = useValidationSchema();
-
+  const { pathname } = useLocation();
   const formik = useFormik<FormValues>({
     initialValues: {
       message: '',
@@ -39,10 +40,11 @@ export const FeedbackForm = ({
       const formData = new FormData();
       formData.set('email', userEmail);
       formData.set('message', values.message);
+      formData.set('pathname', pathname);
       updateLoading(true);
       axios
         .post(
-          'https://script.google.com/macros/s/AKfycbw8xjZg1xVclswFVvlvM2goPJRQ47VPOPPsuIe6RkYvOBtRg_6IQGONJRNzafiU7BOiOA/exec',
+          'https://script.google.com/macros/s/AKfycby4QpPKho_WqAdT2jYau30umxb5i9Elfj6WkPg6fw0WDZLJfim9jKX31_1mUsPZjETRAw/exec',
           formData
         )
         .then((res) => {
