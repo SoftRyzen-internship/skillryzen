@@ -22,6 +22,7 @@ import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
 import { ROUTES } from './routes.const';
 import FeedbackPage from 'pages/FeedbackPage';
+import TeamPage from 'pages/TeamPage';
 
 export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
@@ -110,7 +111,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.TEAM,
-                      element: <UnderDevelopmentPage />,
+                      element: <TeamPage />,
                     },
                   ],
                 },
