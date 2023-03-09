@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
 import { ICONS } from 'ui-kit/icons';
@@ -34,7 +34,7 @@ export const UnderDevelopment = () => {
           <ICONS.CIRCLE_BLUE className={s.circleBlue} />
           <ICONS.CIRCLE_GRAY className={s.circleGray} />
         </div>
-        <AuthButton
+        <MainButton
           type='submit'
           text={t('underDevelopment.button')}
           size='large'

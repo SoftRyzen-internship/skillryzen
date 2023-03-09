@@ -9,6 +9,7 @@
       "learners": "Учні",
       "author": "Автор"
     },
+    "warning": "Для старту тесту перейдіть в десктопну версію",
     "correctAnswers": "Правильні відповіді",
     "timeSpent": "Затрачений час",
     "min": "хв",
@@ -71,15 +72,15 @@
     "team": "Команда"
   },
   "userProfile": {
-    "cardTitle": "Мій профіль",
+    "profileCardTitle": "Мій профіль",
     "userRole": {
       "student": "Студент"
     },
-    "companyLabel": "Компанія",
-    "groupLabel": "Група",
-    "testsLabel": "Виконані тести",
+    "companyTitle": "Компанія",
     "infoTitle": "Інформація",
-    "testsTitle": "Тести",
+    "groupTitle": "Група",
+    "testsTitle": "Виконані тести",
+    "testsCardTitle": "Тести",
     "noDataText": "Тестів поки немає",
     "achievements": {
       "scoreTitle": "Ваш рахунок",
@@ -206,5 +207,21 @@
   "notFound": {
     "title": "Упс, сторінка не знайдена",
     "button": "На головну"
+  },
+  "feedbackForm": {
+    "button.send": "Відправити",
+    "count.start": "Залишилося",
+    "count.end1": " символ",
+    "count.end2": " символи",
+    "count.end3": " символів",
+    "validation.message.maxStart": "Повідомлення має містити небільше",
+    "validation.message.maxEnd1": " символ",
+    "validation.message.maxEnd2": " символи",
+    "validation.message.maxEnd3": " символів",
+    "validation.message.required": "Будь ласка, введіть своє повідомлення"
+  },
+  "feedbackModal": {
+    "title1": "Ваше повідомлення",
+    "title2": "успішно надіслано!"
   }
 }

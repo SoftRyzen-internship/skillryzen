@@ -3,6 +3,9 @@ import { useState, useEffect } from 'react';
 import { ICONS } from 'ui-kit/icons';
 import { createArray } from 'utils/createArray';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
+
 import s from './Pagination.module.scss';
 
 interface Props {
@@ -11,6 +14,8 @@ interface Props {
 }
 
 export const Pagination = ({ totalPages, onPageChange }: Props) => {
+  const { theme }: IThemeContext = useThemeContext();
+
   const [currentPage, setCurrentPage] = useState<number>(1); // Current active page number
   const [arrayOfVisiblePages, setArrayOfVisiblePages] = useState<
     Array<number | string>
@@ -74,8 +79,7 @@ export const Pagination = ({ totalPages, onPageChange }: Props) => {
         className={currentPage <= 1 ? s.arrowBtnDisabled : s.arrowBtn}
         disabled={currentPage <= 1}
       >
-        <ICONS.ARROW_LEFT />
-        {/* <img src={ICONS.ARROW_LEFT} alt='Preview Page' /> */}
+        <ICONS.CHEVRON_LEFT />
       </button>
 
       {arrayOfVisiblePages.map((page, index) => (
@@ -83,7 +87,11 @@ export const Pagination = ({ totalPages, onPageChange }: Props) => {
           key={index}
           onClick={() => handleClickPage(page)}
           disabled={page === '...'}
-          className={page === currentPage ? s.activePageBtn : s.pageBtn}
+          className={
+            page === currentPage
+              ? s.activePageBtn
+              : `${s.pageBtn} ${s[`pageBtn--${theme}`]}`
+          }
         >
           {page}
         </button>
@@ -94,8 +102,7 @@ export const Pagination = ({ totalPages, onPageChange }: Props) => {
         className={currentPage === totalPages ? s.arrowBtnDisabled : s.arrowBtn}
         disabled={currentPage === totalPages}
       >
-        <ICONS.ARROW_RIGHT />
-        {/* <img src={ICONS.ARROW_RIGHT} alt='Next Page' /> */}
+        <ICONS.CHEVRON_RIGHT />
       </button>
     </div>
   );

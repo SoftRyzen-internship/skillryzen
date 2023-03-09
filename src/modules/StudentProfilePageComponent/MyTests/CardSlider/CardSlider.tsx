@@ -61,7 +61,7 @@ export const CardSlider = ({
     return () => {
       window.removeEventListener('resize', throttledHandleResize);
     };
-  }, []);
+  }, [throttledHandleResize]);
 
   useEffect(() => {
     const slider = containerRef.current;

@@ -8,6 +8,16 @@
   padding: 8px 18px;
   gap: 5px;
   color: var(--primary-txt-cl);
+
+  &:hover,
+  &:focus {
+    color: var(--accent-cl);
+  }
+
+  &:active {
+    background-color: var(--accent-cl);
+    color: var(--light-components-cl);
+  }
 }
 
 .black {

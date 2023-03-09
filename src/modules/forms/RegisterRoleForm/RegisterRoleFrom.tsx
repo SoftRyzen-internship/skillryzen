@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
-import { AuthButton } from 'ui-kit/index';
+import { MainButton } from 'ui-kit';
 import { setRole, setStep } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
@@ -114,7 +114,7 @@ export const RegisterRoleForm = () => {
         {isValid && role === 'STUDENT' && (
           <li>
             <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
-            <AuthButton
+            <MainButton
               className={objectTheme[theme].companyName}
               size='large'
               text='GoIT'
@@ -124,7 +124,7 @@ export const RegisterRoleForm = () => {
           </li>
         )}
         <li>
-          <AuthButton
+          <MainButton
             size='large'
             text={t('auth.accountBtn')}
             type='submit'

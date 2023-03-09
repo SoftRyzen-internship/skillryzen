@@ -7,7 +7,7 @@ import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 import {
-  getTimeTest,
+  getResultTime,
   getTotalCount,
   getPercentageOfCorrectAnswers,
 } from 'redux/testingInfo/testingInfoSelectors';
@@ -19,7 +19,7 @@ import { convertTime } from 'utils/convertTime';
 export const TestEndPageComponent = () => {
   const dispatch = useAppDispatch();
 
-  const testSeconds = useSelector(getTimeTest);
+  const testSeconds = useSelector(getResultTime);
   const correctAnswersPercentage = useSelector(getPercentageOfCorrectAnswers);
   const totalQuestions = useSelector(getTotalCount);
 

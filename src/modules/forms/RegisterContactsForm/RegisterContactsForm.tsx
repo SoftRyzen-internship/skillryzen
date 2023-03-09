@@ -2,11 +2,12 @@ import { useNavigate } from 'react-router';
 import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
 
 import { useAppSelector } from 'hooks/hook';
 
 import { ICONS } from 'ui-kit/icons';
-import { AuthButton } from 'ui-kit';
+import { MainButton } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
@@ -41,6 +42,7 @@ export const RegisterContactsForm = () => {
   const { t } = useTranslation();
 
   const navigate = useNavigate();
+  const location = useLocation();
   const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik<FormValues>({
@@ -54,7 +56,8 @@ export const RegisterContactsForm = () => {
     validationSchema: useValidationSchema(),
 
     onSubmit: (values) => {
-      navigate(ROUTES.CERTIFICATION);
+      // navigate(ROUTES.CERTIFICATION);
+      navigate(ROUTES.CERTIFICATION, { state: { from: location } });
     },
   });
 
@@ -175,7 +178,7 @@ export const RegisterContactsForm = () => {
           </button>
         </li>
       </ul>
-      <AuthButton
+      <MainButton
         className={s.btnSubmit}
         onClick={handleSubmit}
         size='large'

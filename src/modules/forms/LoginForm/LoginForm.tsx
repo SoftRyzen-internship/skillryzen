@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { useAppDispatch } from 'hooks/hook';
-import { AuthButton, Checkbox } from 'ui-kit';
+import { MainButton, Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
@@ -84,7 +84,7 @@ export const LoginForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <AuthButton
+      <MainButton
         size='large'
         text='Google'
         type='button'
@@ -172,7 +172,7 @@ export const LoginForm = () => {
           {t('auth.passwordLabel')}
         </NavLink>
       </div>
-      <AuthButton
+      <MainButton
         size='large'
         text={t('auth.continueBtn')}
         type='submit'

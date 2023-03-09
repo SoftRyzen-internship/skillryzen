@@ -54,19 +54,6 @@ export const Sidebar = () => {
   const userMenu = [
     {
 
-      title: t('sidebar.profile'),
-      icon: ICONS.USER,
-      iconAlt: 'Profile',
-      path: ROUTES.PROFILE,
-    },
-    {
-      title: t('sidebar.settings'),
-      icon: ICONS.SETTINGS,
-      iconAlt: 'Settings',
-      path: ROUTES.PROFILE_SETTINGS,
-    },
-    {
-
       title: t('sidebar.feedback'),
       icon: ICONS.MESSAGE_CIRCLE,
       iconAlt: 'Feedback',

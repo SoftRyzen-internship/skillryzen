@@ -22,6 +22,8 @@ export interface TestingInfo {
   }[];
   hasNextQuestion: boolean;
   questionsTotalCount: number;
+  totalTime: number,
+  currentTime: number;
   results: Results;
   isLoading: boolean;
   error: string | unknown;
@@ -35,6 +37,8 @@ const initialState: TestingInfo = {
   possibleAnswers: [],
   hasNextQuestion: true,
   questionsTotalCount: 0,
+  totalTime: 0,
+  currentTime: 0,
   results: { testId: '', percentageOfCorrectAnswers: 0, time: 0 },
   isLoading: false,
   error: '',
@@ -47,12 +51,17 @@ const testingInfoSlice = createSlice({
     setTime(state, action: PayloadAction<number>) {
       state.results.time = action.payload;
     },
+    setCurrentTime(state, action: PayloadAction<number>) {
+      state.currentTime = action.payload;
+    },
     removeResults(state) {
-      state.questionsTotalCount = 0; 
+      state.questionsTotalCount = 0;
       state.number = null;
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
-      state.results.time = 0;   
+      state.results.time = 0;
+      state.totalTime = 0;
+      state.currentTime = 0;
     },
   },
   extraReducers: (builder) => {
@@ -68,6 +77,8 @@ const testingInfoSlice = createSlice({
         state.title = payload.nextQuestion.title;
         state.possibleAnswers = payload.nextQuestion.possibleAnswers;
         state.questionsTotalCount = payload.questionsTotalCount;
+        state.totalTime = 30;
+        state.currentTime = 30;
         state.isLoading = false;
       })
       .addCase(getRandomTest.rejected, (state, { payload }) => {
@@ -98,7 +109,11 @@ const testingInfoSlice = createSlice({
         state.results.testId = payload.testId;
         state.results.percentageOfCorrectAnswers =
           payload.percentageOfCorrectAnswers;
+        state.hasNextQuestion = true;
         state.testId = '';
+        state.questionId = '';
+        state.title = '';
+        state.possibleAnswers = [];
         state.isLoading = false;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {
@@ -111,8 +126,20 @@ const testingInfoSlice = createSlice({
 const persistConfig = {
   key: 'testingInfo',
   storage,
-  whitelist: ['testId', 'questionId', 'number', 'title', 'possibleAnswers', 'questionsTotalCount'],
+  whitelist: [
+    'testId',
+    'questionId',
+    'number',
+    'title',
+    'possibleAnswers',
+    'questionsTotalCount',
+    'currentTime',
+    'totalTime'
+  ],
 };
 
-export const { setTime, removeResults } = testingInfoSlice.actions;
-export const testingInfoReducer = persistReducer(persistConfig, testingInfoSlice.reducer);
+export const { setTime, removeResults, setCurrentTime } = testingInfoSlice.actions;
+export const testingInfoReducer = persistReducer(
+  persistConfig,
+  testingInfoSlice.reducer
+);

@@ -1,5 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { NavLink } from 'react-router-dom';
+
+import { useNavigate } from 'react-router';
+import { useLocation, NavLink } from 'react-router-dom';
 
 import { ROUTES } from 'routes/routes.const';
 
@@ -8,7 +10,14 @@ import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/Registe
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const ThirdStep = () => {
+  const location = useLocation();
+
+  const navigate = useNavigate();
   const { t } = useTranslation();
+
+  const handleClickSkipBtn = () => {
+    navigate(ROUTES.CERTIFICATION, { state: { from: location } });
+  };
 
   return (
     <div className={s.formWrapper}>

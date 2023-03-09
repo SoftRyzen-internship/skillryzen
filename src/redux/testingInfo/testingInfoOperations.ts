@@ -70,17 +70,17 @@ export const answerTest = createAsyncThunk<
     const { hasNextQuestion, nextQuestion } = data;
     return hasNextQuestion
       ? {
-          questionId: nextQuestion.id,
-          title: nextQuestion.title,
-          possibleAnswers: nextQuestion.possibleAnswers,
-          hasNextQuestion: hasNextQuestion,
-        }
+        questionId: nextQuestion.id,
+        title: nextQuestion.title,
+        possibleAnswers: nextQuestion.possibleAnswers,
+        hasNextQuestion: hasNextQuestion,
+      }
       : {
-          questionId: '',
-          title: '',
-          possibleAnswers: [],
-          hasNextQuestion: false,
-        };
+        questionId: '',
+        title: '',
+        possibleAnswers: [],
+        hasNextQuestion: false,
+      };
   } catch (error) {
     return thunkApi.rejectWithValue(error.response.data.message);
   }
