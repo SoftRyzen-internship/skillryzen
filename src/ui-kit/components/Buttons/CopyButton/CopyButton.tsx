@@ -22,3 +22,5 @@ export const CopyButton = memo(
     );
   }
 );
+
+CopyButton.displayName = 'CopyButton';
