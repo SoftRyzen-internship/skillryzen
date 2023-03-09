@@ -53,7 +53,6 @@ export const Sidebar = () => {
 
   const userMenu = [
     {
-
       title: t('sidebar.feedback'),
       icon: ICONS.MESSAGE_CIRCLE,
       iconAlt: 'Feedback',

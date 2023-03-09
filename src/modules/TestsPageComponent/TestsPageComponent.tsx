@@ -1,31 +1,25 @@
-import { useThemeContext } from 'context/themeContext';
-import { useTranslation } from 'react-i18next';
-import { IThemeContext } from 'constans/types';
 import { useState, useEffect } from 'react';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { useLocation } from 'react-router-dom';
 
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 import { getStep } from 'redux/authSlice/authSelectors';
 
+import { ModalCongrats } from 'modules/Modals/ModalCongrats';
 import { TestsSearch } from './TestsSearch/TestsSearch';
 import { TestsFilter } from './TestsFilter/TestsFilter';
 import { TestsCardsList } from './TestsCardsList/TestsCardsList';
-import { Modal } from 'ui-kit/components/Modal/Modal';
-import { MainButton } from 'ui-kit';
-import { ICONS } from 'ui-kit/icons';
-import { IMAGES } from 'ui-kit/images';
-
-// import { logOut } from 'redux/authSlice/operations';
-import { useSelector } from 'react-redux';
+import { Modal } from 'ui-kit';
 
 import s from './TestsPageComponent.module.scss';
-import { useAppDispatch } from 'hooks/hook';
 
 export const TestsPageComponent = () => {
   const dispatch = useAppDispatch();
 
   const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
 
   const [size, setSize] = useState<'large' | 'small'>('large');
   const [isShowModal, setIsShowModal] = useState(false);
@@ -53,43 +47,10 @@ export const TestsPageComponent = () => {
       <TestsSearch />
       <TestsFilter setSize={setSize} size={size} />
       <TestsCardsList size={size} />
-      {/* <button onClick={() => dispatch(logOut())}>LogOut</button> */}
       {isShowModal && (
-        <Modal
-          isShowModal={isShowModal}
-          onClick={handleClickModal}
-          title1={{ text: t('modal.title1'), className: `${s.title}` }}
-          title2={{
-            text: t('modal.title2'),
-            className: `${s.titleRest}`,
-          }}
-          subtitle={{
-            text: t('modal.subtitle'),
-            className: `${s.subtitle}`,
-          }}
-          link={{
-            text: t('modal.link'),
-            className: `${s.link}`,
-          }}
-          image={{
-            src: `${IMAGES.DONE}`,
-            alt: 'Done registration',
-            width: '220',
-            height: '150',
-            className: `${s.image}`,
-          }}
-          icon={<ICONS.CROSS_SMALL />}
-          button={
-            <MainButton
-              type='button'
-              text='OK'
-              onClick={handleClickModal}
-              size='small'
-              color='blue'
-              className={s.modalBtn}
-            />
-          }
-        />
+        <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
+          <ModalCongrats onClick={handleClickModal} />
+        </Modal>
       )}
     </div>
   );

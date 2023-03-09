@@ -37,3 +37,8 @@
   flex-wrap: wrap;
   gap: 16px;
 }
+
+svg {
+  background-color: var(--secondary-cl);
+  border-radius: 4px;
+}

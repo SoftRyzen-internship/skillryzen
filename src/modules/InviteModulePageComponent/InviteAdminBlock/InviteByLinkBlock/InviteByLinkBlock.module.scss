@@ -1,0 +1,82 @@
+.wrapper {
+  width: 596px;
+  height: 100%;
+  padding: 20px 152px 31px 20px;
+  border-radius: 4px;
+
+  &--dark {
+    background-color: var(--components-cl);
+  }
+  &--light {
+    background-color: var(--light-components-cl);
+    color: var(--components-cl);
+  }
+}
+
+.title {
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.description {
+  margin-bottom: 24px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.linkWrapper {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+
+  & label {
+    min-width: 231px;
+  }
+}
+
+.input {
+  height: 48px;
+  font-weight: 400;
+  font-size: 16px;
+  border: 1px solid;
+  border-radius: 4px;
+
+  &--dark {
+    background-color: var(--secondary-cl);
+    border-color: var(--disabled-cl);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+    border-color: var(--light-primary-cl);
+  }
+}
+
+.codeWrapper {
+  margin-bottom: 22px;
+
+  & label {
+    width: 424px;
+  }
+}
+
+.subTitle {
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 14px;
+
+  path {
+    stroke: var(--wrong-cl);
+    fill: var(--wrong-cl);
+  }
+}
+
+.qrCodeWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--accent-cl);
+  cursor: pointer;
+}
