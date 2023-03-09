@@ -16,10 +16,19 @@ interface TestFilterProps {
   setSize: React.Dispatch<React.SetStateAction<string>>;
 }
 
+const tabs = [
+  {
+    id: 1,
+    name: 'testsMain.allTests',
+    component: '',
+  },
+];
+
 export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const [showFilter, setShowFilter] = useState<boolean>(false);
+  const [currentTab, setCurrentTab] = useState(tabs[0].id);
   const accordionRef = useRef<HTMLDivElement>(null);
   const handleFilter = () => {
     setShowFilter(!showFilter);
@@ -40,11 +49,15 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, [accordionRef]);
+  const handleChangeTab = (tab: number) => setCurrentTab(tab);
+
   return (
     <div className={s.testsFilter}>
       <Tabs
+        currentTab={currentTab}
+        tabs={tabs}
+        changeTab={handleChangeTab}
         theme={theme}
-        tabs={[{ title: t('testsMain.allTests'), path: '' }]}
       />
       <div className={s.testsFilter__wrapper} ref={accordionRef}>
         <IconButton

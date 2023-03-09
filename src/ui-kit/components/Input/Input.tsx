@@ -11,6 +11,7 @@ interface IProps {
   icon?: JSX.Element;
   button?: boolean;
   theme?: Theme;
+  readOnly?: boolean;
 }
 
 export const Input = ({
@@ -23,6 +24,7 @@ export const Input = ({
   value,
   button,
   theme = 'dark',
+  readOnly,
 }: IProps) => {
   return (
     <label className={s.inputContainer}>
@@ -33,6 +35,7 @@ export const Input = ({
         type={type}
         value={value}
         onChange={onChange}
+        readOnly={readOnly}
       />
       {button && (
         <button className={icon ? s.iconVisible : s.iconHidden} type='button'>

@@ -77,6 +77,7 @@ import IconImgOne from 'assets/svg/image-1.svg';
 import IconFullscreen from 'assets/svg/fullscreen.svg';
 import IconBrokecheckRound from 'assets/svg/brokechek-round.svg';
 import IconLock from 'assets/svg/lock.svg';
+import IconDownload from 'assets/svg/download.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -226,4 +227,5 @@ export const ICONS: Icons = {
   CIRCLE_BLUE: IconCircleBlue,
   CIRCLE_GRAY: IconCircleGray,
   UNDER_DEVELOPMENT_MAIN: IconUnderDevelopmentMain,
+  DOWNLOAD: IconDownload,
 };

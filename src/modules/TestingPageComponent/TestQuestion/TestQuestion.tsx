@@ -27,7 +27,9 @@ export const TestQuestion = () => {
     number,
     questionsTotalCount,
   } = useAppSelector((state) => state.testingInfo);
+
   const time = useAppSelector(getResultTime);
+
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();

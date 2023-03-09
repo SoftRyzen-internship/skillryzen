@@ -1,0 +1,1 @@
+export { InviteStudentBlock } from './InviteStudentBlock';
