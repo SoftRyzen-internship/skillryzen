@@ -26,7 +26,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
     if (!total) return;
     if (total && !questionId) return;
     setArray(createArray(total));
-    // eslint disable next line
+    // eslint-disable-next-line
   }, [total, number]);
 
   const returnCurrentNumber = (number: number) => {

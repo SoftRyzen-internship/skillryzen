@@ -6,7 +6,7 @@ import { Tag } from 'ui-kit/index';
 import s from './TestCard.module.scss';
 
 interface Card {
-  size?: 'large' | 'small';
+  size: 'large' | 'small';
   item: Item;
   className?: string;
   theme?: Theme;
@@ -15,14 +15,14 @@ interface Card {
 interface Item {
   title: string;
   author: string;
-  text?: string;
-  fields?: string[];
-  number?: number;
-  time?: number;
+  text: string;
+  fields: string[];
+  number: number;
+  time: number;
 }
 
 export const TestCard = ({
-  size = 'large',
+  size,
   item,
   className = '',
   theme = 'dark',
