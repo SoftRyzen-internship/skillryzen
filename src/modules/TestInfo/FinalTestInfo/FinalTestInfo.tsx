@@ -4,6 +4,7 @@ import { MainButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
 import s from './FinalTestInfo.module.scss';
+import { useEffect, useState } from 'react';
 
 const objectTheme = {
   dark: {
@@ -82,8 +83,19 @@ export const FinalTestInfo = ({
 }: Props) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
-
   const { alt, width, height } = imageProps;
+
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <div className={finishTest ? s.containerFinish : s.containerStart}>
       <div className={s.imageThumb}>
@@ -227,11 +239,15 @@ export const FinalTestInfo = ({
         text={
           finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
         }
+        disabled={!finishTest && windowWidth <= 1280 && true}
         onClick={onClickBtn}
         size='large'
         color='blue'
         className={!(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''}
       />
+      {!finishTest && windowWidth <= 1280 && (
+        <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
+      )}
     </div>
   );
 };

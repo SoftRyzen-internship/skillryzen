@@ -5,12 +5,8 @@ import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlise';
 import { Theme } from 'constans/types';
 import { convertTime } from 'utils/convertTime';
 import {
-  getCurrentTime,
-  getHasNextQuestion,
-  getQuestionId,
-  getQuestionNumber,
   getResultTime,
-  getTotalTime,
+  getTimeLeft,
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
@@ -20,43 +16,45 @@ interface Timer {
 }
 
 export const Timer = ({ theme = 'dark' }: Timer) => {
-  const hasNextQuestion = useAppSelector(getHasNextQuestion);
-  const questionId = useAppSelector(getQuestionId);
-  const totalTime = useAppSelector(getTotalTime);
-  const currentTime = useAppSelector(getCurrentTime);
+  const { hasNextQuestion, questionId, totalTime, currentTime, number } =
+    useAppSelector((state) => state.testingInfo);
   const timeResult = useAppSelector(getResultTime);
-  const number = useAppSelector(getQuestionNumber);
+  const timeLeft = useAppSelector(getTimeLeft);
+
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(currentTime);
 
   useEffect(() => {
-    if (!seconds && !totalTime) return;
-    if (seconds === 0 && totalTime) {
-      dispatch(setTime(totalTime));
+    if (timeResult) return;
+    if (!totalTime) return;
+
+    if (seconds === 0 && questionId) {
+      dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
       return;
     }
     const intervalId = setInterval(() => {
       setSeconds((seconds) => seconds - 1);
     }, 1000);
+
     return () => clearInterval(intervalId);
     // eslint-disable-next-line
   }, [seconds]);
 
   useEffect(() => {
     if (hasNextQuestion) return;
-    dispatch(setTime(totalTime - seconds));
+    dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
     // eslint-disable-next-line
   }, [hasNextQuestion]);
 
   useEffect(() => {
     if (!totalTime) return;
-    setSeconds(totalTime);
-    // eslint disable next line
+    setSeconds(currentTime);
+    // eslint-disable-next-line
   }, [totalTime]);
 
   useEffect(() => {
-    if (!questionId) return;
-    dispatch(setCurrentTime(number === 1 ? totalTime : seconds));
+    if (!questionId || number === 1) return;
+    dispatch(setCurrentTime(seconds));
     // eslint-disable-next-line
   }, [questionId]);
 
@@ -66,9 +64,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
         Time left:
       </p>
       <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
-        {timeResult
-          ? convertTime(totalTime - timeResult)
-          : convertTime(seconds)}
+        {timeResult ? convertTime(timeLeft) : convertTime(seconds)}
       </p>
     </div>
   );

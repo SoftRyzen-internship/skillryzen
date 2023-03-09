@@ -9,6 +9,7 @@
       "learners": "Learners",
       "author": "Author"
     },
+    "warning": "To start the test, go to the desktop version",
     "correctAnswers": "Correct answers",
     "timeSpent": "Time spent",
     "min": "min",
@@ -71,15 +72,15 @@
     "team": "Team"
   },
   "userProfile": {
-    "cardTitle": "My profile",
+    "profileCardTitle": "My profile",
     "userRole": {
       "student": "Student"
     },
-    "companyLabel": "Company",
-    "groupLabel": "Group",
-    "testsLabel": "Complited tests",
     "infoTitle": "Info",
-    "testsTitle": "Tests",
+    "companyTitle": "Company",
+    "groupTitle": "Group",
+    "testsTitle": "Complited tests",
+    "testsCardTitle": "Tests",
     "noDataText": "No tests yet",
     "achievements": {
       "scoreTitle": "Your score",

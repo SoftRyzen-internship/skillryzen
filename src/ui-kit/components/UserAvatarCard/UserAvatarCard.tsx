@@ -22,7 +22,7 @@ export const UserAvatarCard = ({
           src={userAvatarUrl}
           width={40}
           height={40}
-          alt='avatar'
+          alt='user-avatar'
         />
         {userStatus && (
           <span className={`${s[`status--${userStatus}-${theme}`]}`}></span>

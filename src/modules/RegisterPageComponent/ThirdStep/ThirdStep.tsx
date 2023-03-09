@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
-import { useAppDispatch } from 'hooks/hook';
 import { ROUTES } from 'routes/routes.const';
 
 import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/RegisterContactsForm';
@@ -9,11 +9,13 @@ import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/Registe
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const ThirdStep = () => {
+  const location = useLocation();
+
   const navigate = useNavigate();
   const { t } = useTranslation();
 
   const handleClickSkipBtn = () => {
-    navigate(ROUTES.CERTIFICATION);
+    navigate(ROUTES.CERTIFICATION, { state: { from: location } });
   };
 
   return (

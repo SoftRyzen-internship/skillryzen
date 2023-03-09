@@ -8,6 +8,7 @@ interface Results {
   testId: string;
   percentageOfCorrectAnswers: number;
   time: number;
+  timeLeft: number;
 }
 
 export interface TestingInfo {
@@ -39,7 +40,7 @@ const initialState: TestingInfo = {
   questionsTotalCount: 0,
   totalTime: 0,
   currentTime: 0,
-  results: { testId: '', percentageOfCorrectAnswers: 0, time: 0 },
+  results: { testId: '', percentageOfCorrectAnswers: 0, time: 0, timeLeft: 0 },
   isLoading: false,
   error: '',
 };
@@ -48,8 +49,9 @@ const testingInfoSlice = createSlice({
   name: 'testingInfo',
   initialState,
   reducers: {
-    setTime(state, action: PayloadAction<number>) {
-      state.results.time = action.payload;
+    setTime(state, action: PayloadAction<{ time: number; timeLeft: number }>) {
+      state.results.time = action.payload.time;
+      state.results.timeLeft = action.payload.timeLeft;
     },
     setCurrentTime(state, action: PayloadAction<number>) {
       state.currentTime = action.payload;
@@ -60,8 +62,7 @@ const testingInfoSlice = createSlice({
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
       state.results.time = 0;
-      state.totalTime = 0;
-      state.currentTime = 0;
+      state.results.timeLeft = 0;
     },
   },
   extraReducers: (builder) => {
@@ -114,6 +115,8 @@ const testingInfoSlice = createSlice({
         state.questionId = '';
         state.title = '';
         state.possibleAnswers = [];
+        state.totalTime = 0;
+        state.currentTime = 0;
         state.isLoading = false;
       })
       .addCase(finishTest.rejected, (state, { payload }) => {

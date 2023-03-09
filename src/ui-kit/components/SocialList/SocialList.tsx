@@ -4,36 +4,39 @@ import { ICONS } from 'ui-kit/icons';
 import s from './SocialList.module.scss';
 
 interface SocialListProps {
-  social: UserSocial;
+  social: UserSocial[];
+  className?: string;
   theme?: Theme;
 }
-export const SocialList = ({ social, theme = 'dark' }: SocialListProps) => {
+export const SocialList = ({
+  social,
+  className = '',
+  theme = 'dark',
+}: SocialListProps) => {
+  const objectIcons = {
+    telegram: <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />,
+    linkedin: <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />,
+    discord: <ICONS.DISCORD className={`${s[`icon--${theme}`]}`} />,
+    github: <ICONS.GITHUB className={`${s[`icon--${theme}`]}`} />,
+    behance: <ICONS.BEHANCE className={`${s[`icon--${theme}`]}`} />,
+    dribble: <ICONS.DRIBBLE className={`${s[`icon--${theme}`]}`} />,
+  };
   return (
-    <ul className={s.list}>
-      {social.telegram && (
-        <li className={s.item} key={social.telegram}>
-          <a
-            className={s.link}
-            href={social.telegram}
-            target='_blank'
-            rel='noreferrer noopener'
-          >
-            <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />
-          </a>
-        </li>
-      )}
-      {social.linkedin && (
-        <li className={s.item} key={social.linkedin}>
-          <a
-            className={s.link}
-            href={social.linkedin}
-            target='_blank'
-            rel='noreferrer noopener'
-          >
-            <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />
-          </a>
-        </li>
-      )}
+    <ul className={`${s.list} ${className}`}>
+      {social.map((item) => {
+        return (
+          <li className={s.item} key={item.url}>
+            <a
+              className={`${s[`link--${theme}`]}`}
+              href={item.url}
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              {objectIcons[item.name]}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 };
