@@ -20,6 +20,7 @@ import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 import InviteModulePage from 'pages/InviteModulePage';
+import TeamPage from 'pages/TeamPage';
 
 import { ROUTES } from './routes.const';
 import FeedbackPage from 'pages/FeedbackPage';
@@ -112,7 +113,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.TEAM,
-                      element: <UnderDevelopmentPage />,
+                      element: <TeamPage />,
                     },
                   ],
                 },
