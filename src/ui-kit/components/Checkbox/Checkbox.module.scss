@@ -35,7 +35,9 @@ input[type='checkbox'] + .checkbox {
 .labelFilter {
   font-size: 16px;
   padding-left: 35px;
+  align-items: center;
   color: var(----primary-txt-cl);
+  cursor: pointer;
 }
 
 .checkboxColor {
