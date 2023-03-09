@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
+import { useState } from 'react';
 import { MainButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
@@ -7,6 +8,8 @@ import { ICONS } from 'ui-kit/icons';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './UnderDevelopment.module.scss';
+
+import { FeedbackModalPageComponent } from 'modules/common/FeedbackModalPageComponent/FeedbackModalPageComponent';
 
 const objectTheme = {
   dark: {
@@ -20,6 +23,10 @@ const objectTheme = {
 export const UnderDevelopment = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const handleClickModal = () => {
+    setIsShowModal((prevState) => !prevState);
+  };
 
   return (
     <section className={s.section}>
@@ -39,8 +46,12 @@ export const UnderDevelopment = () => {
           text={t('underDevelopment.button')}
           size='large'
           className={s.button}
+          onClick={handleClickModal}
         />
       </div>
+      {isShowModal && (
+        <FeedbackModalPageComponent updateClickModal={handleClickModal} />
+      )}
     </section>
   );
 };
