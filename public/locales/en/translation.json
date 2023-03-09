@@ -143,7 +143,7 @@
     "title": "The page is under construction",
     "button": "Wishes and suggestions"
   },
-  "modal": {
+  "modalCongrats": {
     "title1": "Congratulations,",
     "title2": "you have successfully registered in the system!",
     "subtitle": "We recommend going to the profile and ",
@@ -220,5 +220,11 @@
   "feedbackModal": {
     "title1": "Your Message",
     "title2": "submitted successfully!"
+  },
+  "logOutModal": {
+    "subtitle": "Are you sure you want to log out?",
+    "cancel": "Cancel",
+    "logOut": "Log out",
+    "successLogOut": "You have successfully logged out!"
   }
 }
