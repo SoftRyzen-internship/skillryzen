@@ -14,9 +14,7 @@ export const InviteByEmailBlock = () => {
   return (
     <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
       <h3 className={s.title}>{t('invite.invite.email')}</h3>
-      <p className={s.description}>
-        {t('invite.description')}
-      </p>
+      <p className={s.description}>{t('invite.description')}</p>
       <InviteStudentByEmailForm />
     </div>
   );

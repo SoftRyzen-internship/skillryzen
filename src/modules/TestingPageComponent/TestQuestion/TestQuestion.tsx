@@ -30,7 +30,6 @@ export const TestQuestion = () => {
 
   const time = useAppSelector(getResultTime);
 
-
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
   const navigate = useNavigate();

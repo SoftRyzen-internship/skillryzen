@@ -34,7 +34,9 @@ export const InviteModulePageComponent = () => {
   return (
     <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
       <Breadcrumbs />
-      <h2 className={`${s.title} ${s[`title--${theme}`]}`}>{t('invite.title')}</h2>
+      <h2 className={`${s.title} ${s[`title--${theme}`]}`}>
+        {t('invite.title')}
+      </h2>
       <Tabs
         tabs={tabs}
         currentTab={currentTab}

@@ -99,7 +99,7 @@ export const InviteAdminByEmailForm = () => {
           className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
         />
         <h3 className={s.label}>
-        {t('invite.acces.code')} <ICONS.ASTERIX className={s.asterixIcon} />
+          {t('invite.acces.code')} <ICONS.ASTERIX className={s.asterixIcon} />
         </h3>
         <Input
           onChange={handleChange}

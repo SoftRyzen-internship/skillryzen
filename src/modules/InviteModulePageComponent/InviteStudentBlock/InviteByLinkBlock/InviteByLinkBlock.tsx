@@ -23,9 +23,7 @@ export const InviteByLinkBlock = () => {
   return (
     <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
       <h3 className={s.title}>{t('invite.invite.link')}</h3>
-      <p className={s.description}>
-      {t('invite.description')}
-      </p>
+      <p className={s.description}>{t('invite.description')}</p>
       <div className={s.linkWrapper}>
         <Input
           className={`${s.input} ${s[`input--${theme}`]}`}
@@ -39,7 +37,7 @@ export const InviteByLinkBlock = () => {
       </div>
       <div className={s.codeWrapper}>
         <h4 className={s.subTitle}>
-        {t('invite.acces.code')} <ICONS.ASTERIX />
+          {t('invite.acces.code')} <ICONS.ASTERIX />
         </h4>
         <Input
           className={`${s.input} ${s[`input--${theme}`]}`}
