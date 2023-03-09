@@ -38,7 +38,7 @@
   padding: 13px 16px;
   font-size: 16px;
   line-height: 1;
-  color: var(--primary-txt-cl);
+  color: inherit;
   border-radius: 5px;
   outline: none;
   border: 1px solid var(--disabled-cl);
@@ -62,24 +62,29 @@
     background-color: var(--primary-cl);
     padding: 0px 4px;
   }
+
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--primary-txt-cl);
+    -webkit-text-fill-color: var(--light-primary-cl);
     -webkit-background-clip: text;
+  }
+
+  &:not(:placeholder-shown) ~ label,
+  &:-webkit-autofill ~ label {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 }
 
 .inputLight {
   composes: inputDark;
-  color: inherit;
   border: 1px solid var(--light-primary-cl);
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 
   &:focus + label,
   &:not(:placeholder-shown) + label {
-    color: inherit;
     background-color: var(--primary-txt-cl);
   }
 

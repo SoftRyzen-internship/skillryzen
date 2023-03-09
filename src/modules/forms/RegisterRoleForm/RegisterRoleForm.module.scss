@@ -91,6 +91,14 @@
 
     background-color: var(--primary-cl);
   }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--light-primary-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .codeInputLight {
@@ -102,6 +110,14 @@
   &:not(:placeholder-shown) + .placeholder,
   &:focus + .placeholder {
     background-color: var(--light-cards-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: inherit;
+    -webkit-background-clip: text;
   }
 }
 
