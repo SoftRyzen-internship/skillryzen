@@ -18,10 +18,11 @@ import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
+import StudentNotificationsPage from 'pages/StudentNotificationsPage';
+import FeedbackPage from 'pages/FeedbackPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
 import { ROUTES } from './routes.const';
-import FeedbackPage from 'pages/FeedbackPage';
 
 export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
@@ -103,6 +104,32 @@ export const AppRoutes = () => {
                     {
                       path: ROUTES.PROFILE_SETTINGS,
                       element: <StudentSettingsPage />,
+                    },
+                    {
+                      path: ROUTES.NOTIFICATIONS,
+                      children: [
+                        {
+                          path: '',
+                          element: (
+                            <Navigate
+                              to={ROUTES.NOTIFICATIONS_NEW}
+                              replace={true}
+                            />
+                          ),
+                        },
+                        {
+                          path: ROUTES.NOTIFICATIONS_NEW,
+                          element: <StudentNotificationsPage />,
+                        },
+                        {
+                          path: ROUTES.NOTIFICATIONS_ALL,
+                          element: <StudentNotificationsPage />,
+                        },
+                      ],
+                    },
+                    {
+                      path: ROUTES.COINS,
+                      element: <UnderDevelopmentPage />,
                     },
                     {
                       path: ROUTES.FEEDBACK,

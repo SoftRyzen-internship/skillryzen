@@ -1,0 +1,34 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.crumbs {
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  color: var(--secondary-txt-cl);
+  & .link {
+    color: var(--secondary-txt-cl);
+  }
+}
+.crumbs:last-child {
+  & .link {
+    pointer-events: none;
+    color: var(--disabled-cl);
+  }
+}
+
+.crumbs::before {
+  content: '/';
+  margin-left: 10px;
+  margin-right: 10px;
+  color: var(--disabled-cl);
+}
+
+.crumbs:first-child::before {
+  content: none;
+  opacity: 0;
+}
