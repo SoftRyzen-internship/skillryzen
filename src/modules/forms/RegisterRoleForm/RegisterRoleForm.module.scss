@@ -96,6 +96,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
+    caret-color: var(--light-primary-cl);
     -webkit-text-fill-color: var(--light-primary-cl);
     -webkit-background-clip: text;
   }
@@ -116,6 +117,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
+    caret-color: inherit;
     -webkit-text-fill-color: inherit;
     -webkit-background-clip: text;
   }
