@@ -1,4 +1,4 @@
-import { MainButton } from './components/Buttons/MainButton/MainButton';
+export { Modal } from './components/Modal';
 export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export { AddButton } from './components/Buttons/AddButton';
 export { MainButton } from './components/Buttons/MainButton';
@@ -24,4 +24,3 @@ export { Tabs } from './components/Tabs';
 export { Tag } from './components/Tag';
 export { UserAvatar } from './components/UserAvatar';
 export { UserAvatarCard } from './components/UserAvatarCard';
-
