@@ -1,17 +1,13 @@
-import { ICONS } from 'ui-kit/icons';
+import { UserSocial } from 'constans/types';
 
 import s from './TeamCard.module.scss';
+import { SocialList } from 'ui-kit/components/SocialList';
 
 interface TeamCardProps {
   image?: string;
   name: string;
   position: string;
-  social?: {
-    behance?: string;
-    dribble?: string;
-    github?: string;
-    linkedin?: string;
-  };
+  social?: UserSocial[];
 }
 
 export const TeamCard = ({
@@ -19,10 +15,8 @@ export const TeamCard = ({
   image,
   name,
   position,
-  social = {},
+  social,
 }: TeamCardProps) => {
-  const { behance, dribble, github, linkedin } = social;
-
   return (
     <div className={s.card}>
       <div className={s.imageWrapper}>
@@ -30,36 +24,7 @@ export const TeamCard = ({
       </div>
       <p className={s.name}>{name}</p>
       <p className={s.position}>{position}</p>
-      <ul className={s.list}>
-        {behance && (
-          <li>
-            <a href={behance} target='_blank' rel='noopener noreferrer'>
-              <ICONS.BEHANCE />
-            </a>
-          </li>
-        )}
-        {dribble && (
-          <li>
-            <a href={dribble} target='_blank' rel='noopener noreferrer'>
-              <ICONS.DRIBBLE />
-            </a>
-          </li>
-        )}
-        {github && (
-          <li>
-            <a href={github} target='_blank' rel='noopener noreferrer'>
-              <ICONS.GITHUB />
-            </a>
-          </li>
-        )}
-        {linkedin && (
-          <li>
-            <a href={linkedin} target='_blank' rel='noopener noreferrer'>
-              <ICONS.LINKEDIN_BLUE />
-            </a>
-          </li>
-        )}
-      </ul>
+      <SocialList social={social} />
     </div>
   );
 };
