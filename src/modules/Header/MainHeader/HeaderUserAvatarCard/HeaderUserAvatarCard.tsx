@@ -1,16 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { useThemeContext } from 'context/themeContext';
+import { logOut } from 'redux/authSlice/operations';
+import { useAppDispatch } from 'hooks/hook';
 
+import { useThemeContext } from 'context/themeContext';
+import { getRandomInt } from 'utils/getRandomInt';
+
+import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
 import { UserAvatarCard, Popup } from 'ui-kit/index';
+import { IThemeContext } from 'constans/types';
 
 import s from './HeaderUserAvatarCard.module.scss';
-
-import { ROUTES } from 'routes/routes.const';
-import { IThemeContext } from 'constans/types';
 
 interface HeaderUserAvatarCardProps {
   className?: string;
@@ -25,16 +28,51 @@ export const HeaderUserAvatarCard = ({
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
+  const defaultAvatars = [
+    IMAGES.BLUE_AVATAR,
+    IMAGES.GREEN_AVATAR,
+    IMAGES.RED_AVATAR,
+    IMAGES.YELLOW_AVATAR,
+  ];
+
+  const defaultNames = [
+    'Тіньовий QA',
+    'Скритий Девелопер',
+    'Анонімний Дизайнер',
+    'Невідомий Тестувальник',
+    'Секретний Кодер',
+    'Неіменований Графічний дизайнер',
+    'Прихований Розробник',
+    'Невідомий UX/UI дизайнер',
+    'Анонімний Архітектор',
+    'Загадковий Аналітик',
+  ];
+
+  const [name, setName] = useState(
+    defaultNames[getRandomInt(defaultNames.length - 1)]
+  );
+  const [avatar, setAvatar] = useState(
+    defaultAvatars[getRandomInt(defaultAvatars.length - 1)]
+  );
 
   const iconColor = {
     dark: 'var(--primary-txt-cl)',
     light: 'var(--accent-cl)',
   };
 
+  const handleClickPopupItem = (text: string) => {
+    if (text === t('header.userAvatar.logOut')) {
+      dispatch(logOut());
+    }
+  };
+
   const mouseEnterHandler = () => {
     setPopup(
       <Popup
         theme={theme}
+        handleClickItem={handleClickPopupItem}
         list={[
           {
             icon: <ICONS.USER stroke={iconColor[theme]} />,
@@ -44,7 +82,7 @@ export const HeaderUserAvatarCard = ({
           {
             icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
             text: t('header.userAvatar.settings'),
-            path: ROUTES.SETTINGS,
+            path: ROUTES.PROFILE_SETTINGS,
           },
           {
             icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
@@ -74,10 +112,9 @@ export const HeaderUserAvatarCard = ({
       onMouseLeave={mouseLeaveHandler}
     >
       <UserAvatarCard
-        userName='John Doe'
-        userRole={t('header.admin')}
-        userAvatarUrl={IMAGES.JAVA_SCRIPT}
-        userStatus='green'
+        userName={name}
+        userAvatarUrl={avatar}
+        // userStatus='green'
         theme={theme}
       />
       {popup ? <div className={s.popup}>{popup}</div> : null}

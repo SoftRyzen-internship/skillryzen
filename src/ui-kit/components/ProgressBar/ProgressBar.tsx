@@ -1,59 +1,67 @@
+import { useEffect, useState } from 'react';
+
 import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
 import { Theme } from 'constans/types';
 import { useAppSelector } from 'hooks/hook';
 import {
+  getQuestionId,
   getQuestionNumber,
   getTotalCount,
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './ProgressBar.module.scss';
-import { useEffect, useState } from 'react';
 
 interface Props {
   theme?: Theme;
 }
 
 export const ProgressBar = ({ theme = 'dark' }: Props) => {
+  const questionId = useAppSelector(getQuestionId);
   const number = useAppSelector(getQuestionNumber);
   const total = useAppSelector(getTotalCount);
   const [array, setArray] = useState<number[]>([]);
 
   useEffect(() => {
     if (!total) return;
+    if (total && !questionId) return;
     setArray(createArray(total));
-  }, [total]);
+    // eslint-disable-next-line
+  }, [total, number]);
 
   const returnCurrentNumber = (number: number) => {
-    if (number > total) return total;
-    if (number) return number;
+    return number > total ? total : number;
   };
 
   return (
     <div className={s.progressBar}>
-      <p
-        className={`${s.progressBar__info} ${s[`progressBar__info--${theme}`]}`}
-      >
-        {total ? `Question ${returnCurrentNumber(number)}/${total}` : ''}
-      </p>
       {array && array.length > 0 && (
-        <div className={s.progressBar__wrapper}>
-          <ul className={s.progressBar__list}>
-            {array.map((item) => (
-              <li
-                key={item}
-                className={`${s.progressBar__line} ${
-                  item < number && s['progressBar__line--done']
-                } ${item === number && s['progressBar__line--current']}`}
-              ></li>
-            ))}
-          </ul>
-          <ICONS.FLAG_ONE
-            className={`${s[`progressBar__icon--${theme}`]} ${
-              number > total && s.progressBar__iconFinish
+        <>
+          <p
+            className={`${s.progressBar__info} ${
+              s[`progressBar__info--${theme}`]
             }`}
-          />
-        </div>
+          >
+            Question {returnCurrentNumber(number)}/{total}
+          </p>
+          <div className={s.progressBar__wrapper}>
+            <ul className={s.progressBar__list}>
+              {array.map((item) => (
+                <li
+                  key={item}
+                  className={`${s.progressBar__line} ${
+                    item < number && s['progressBar__line--done']
+                  } ${item === number && s['progressBar__line--current']}`}
+                ></li>
+              ))}
+            </ul>
+            <ICONS.FLAG_ONE
+              className={`${s[`progressBar__icon--${theme}`]} ${
+                number > total && s.progressBar__iconFinish
+              }`}
+            />
+          </div>
+        </>
       )}
     </div>
   );

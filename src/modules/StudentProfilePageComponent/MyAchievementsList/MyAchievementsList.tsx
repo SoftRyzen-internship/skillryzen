@@ -26,13 +26,13 @@ export const MyAchievementsList = ({
       </li>
       <li className={`${s[`item--${theme}`]}`}>
         <p className={`${s[`listTitle--${theme}`]}`}>
-          {t('userProfile.achievements.scoreTitle')}
+          {t('userProfile.achievements.coinsTitle')}
         </p>
         <p className={s.coinsValue}>{achievements.coins}</p>
       </li>
       <li className={`${s[`item--${theme}`]}`}>
         <p className={`${s[`listTitle--${theme}`]}`}>
-          {t('userProfile.achievements.scoreTitle')}
+          {t('userProfile.achievements.timeTitle')}
         </p>
         <p className={s.timeValue}>{achievements.time}</p>
       </li>

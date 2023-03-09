@@ -1,17 +1,25 @@
 .container {
-  width: 100%;
+  flex-grow: 1;
   display: flex;
+  flex-wrap: wrap;
   column-gap: 28px;
+  row-gap: 16px;
   justify-content: center;
 }
 
 .item {
-  width: 284px;
-  padding-top: 62px;
-  padding-bottom: 62px;
+  width: 100%;
+  flex-grow: 2;
+  padding-top: 32px;
+  padding-bottom: 32px;
   border-radius: 4px;
   transition: var(--transition);
+  &:not(:last-child) {
+    width: auto;
+    flex-grow: 1;
+  }
 }
+
 .item--dark {
   composes: item;
   background-color: var(--components-cl);
@@ -26,7 +34,7 @@
   font-weight: var(--bold);
   font-size: var(--subtitle);
   text-align: center;
-  margin-bottom: 11px;
+  margin-bottom: 12px;
   transition: var(--transition);
 }
 .listTitle--dark {

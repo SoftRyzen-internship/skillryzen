@@ -4,11 +4,14 @@
 }
 
 .testsFilter__wrapper {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  // gap: 10px;
 }
-
+.itemButton {
+  margin-left: 10px;
+}
 .testsFilter__filter {
   padding: 11px;
   display: flex;

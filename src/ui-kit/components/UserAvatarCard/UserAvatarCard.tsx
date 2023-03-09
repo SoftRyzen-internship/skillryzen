@@ -2,9 +2,9 @@ import s from './UserAvatarCard.module.scss';
 import { Theme } from 'constans/types';
 interface UserAvatarCardProps {
   userName: string;
-  userRole: string;
+  userRole?: string;
   userAvatarUrl: string;
-  userStatus: 'green' | 'yellow' | 'gray';
+  userStatus?: 'green' | 'yellow' | 'gray';
   theme?: Theme;
 }
 export const UserAvatarCard = ({
@@ -22,13 +22,15 @@ export const UserAvatarCard = ({
           src={userAvatarUrl}
           width={40}
           height={40}
-          alt='avatar'
+          alt='user-avatar'
         />
-        <span className={`${s[`status--${userStatus}-${theme}`]}`}></span>
+        {userStatus && (
+          <span className={`${s[`status--${userStatus}-${theme}`]}`}></span>
+        )}
       </div>
       <div className={s.info}>
         <p className={`${s[`name--${theme}`]}`}>{userName}</p>
-        <p className={`${s[`role--${theme}`]}`}>{userRole}</p>
+        {userRole && <p className={`${s[`role--${theme}`]}`}>{userRole}</p>}
       </div>
     </div>
   );

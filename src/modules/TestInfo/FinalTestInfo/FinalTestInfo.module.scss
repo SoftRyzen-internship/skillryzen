@@ -1,5 +1,9 @@
-.container {
+.containerStart {
   width: 424px;
+}
+
+.containerFinish {
+  composes: containerStart;
   height: calc(100vh - 100px);
 }
 
@@ -127,4 +131,11 @@
 
 .btn {
   margin-top: 84px;
+}
+
+.textWarning {
+  font-weight: var(--bold);
+  color: var(--wrong-cl);
+  text-align: center;
+  margin-top: 16px;
 }

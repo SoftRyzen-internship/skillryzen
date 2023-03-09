@@ -6,7 +6,7 @@ import s from './Tabs.module.scss';
 interface Tabs {
   id: number;
   name: string;
-  component: JSX.Element;
+  component: string | JSX.Element;
 }
 
 interface TabProps {
