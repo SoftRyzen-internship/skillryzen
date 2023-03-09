@@ -219,5 +219,9 @@
   "feedbackModal": {
     "title1": "Your Message",
     "title2": "submitted successfully!"
+  },
+  "invite":{
+    "student.tab":"Invite student",
+    "admin.tab":"Invite admin"
   }
 }

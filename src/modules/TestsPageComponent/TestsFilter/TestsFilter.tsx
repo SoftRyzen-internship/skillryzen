@@ -19,7 +19,7 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
 
   return (
     <div className={s.testsFilter}>
-      <Tabs theme={theme} tabs={[t('testsMain.allTests')]} />
+      {/* <Tabs theme={theme} tabs={[t('testsMain.allTests')]} /> */}
       <div className={s.testsFilter__wrapper}>
         <IconButton
           theme={theme}

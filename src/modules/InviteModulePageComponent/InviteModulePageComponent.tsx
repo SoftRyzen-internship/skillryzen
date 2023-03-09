@@ -10,13 +10,22 @@ import { useThemeContext } from 'context/themeContext';
 
 import s from './InviteModulePageComponent.module.scss';
 
-const tabs = ['Запрошення студента', 'Запрошення адміна'];
+const tabs = [{
+  id:1,
+  name:'invite.student.tab',
+  component:<InviteStudentBlock />,
+},{
+  id:2,
+  name:'invite.admin.tab',
+  component:<InviteAdminBlock />,
+}]
+
 
 export const InviteModulePageComponent = () => {
-  const [currentTab, setCurrentTab] = useState(tabs[0]);
+  const [currentTab, setCurrentTab] = useState(tabs[0].id);
   const { theme }: IThemeContext = useThemeContext();
 
-  const handleChangeTab = (tab: string) => setCurrentTab(tab);
+  const handleChangeTab = (tab: number) => setCurrentTab(tab);
 
   return (
     <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
@@ -28,11 +37,10 @@ export const InviteModulePageComponent = () => {
         changeTab={handleChangeTab}
         theme={theme}
       />
-      {currentTab === 'Запрошення студента' ? (
-        <InviteStudentBlock />
-      ) : (
-        <InviteAdminBlock />
-      )}
+      {tabs.map(el=>{
+        if(el.id !== currentTab) return null
+        return el.component
+      })}
     </div>
   );
 };

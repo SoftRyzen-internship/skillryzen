@@ -1,12 +1,18 @@
 import { Theme } from 'constans/types';
-import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import s from './Tabs.module.scss';
 
+interface Tabs{
+  id:number,
+  name:string,
+  component: JSX.Element
+}
+
 interface TabProps {
-  tabs: string[];
-  currentTab?: string;
-  changeTab?: (tab: string) => void;
+  tabs: Tabs[];
+  currentTab?: number;
+  changeTab?: (tab: number) => void;
   theme?: Theme;
 }
 
@@ -16,20 +22,21 @@ export const Tabs = ({
   changeTab,
   theme = 'dark',
 }: TabProps) => {
+  const { t } = useTranslation();
   return (
     <ul className={s.tabsList}>
       {tabs.map((el) => {
         return (
           <li
             className={
-              currentTab === el
+              currentTab === el.id
                 ? `${s.tabsItemActive} ${s[`tabsItemActive--${theme}`]}`
                 : `${s.tabsItem} ${s[`tabsItem--${theme}`]}`
             }
-            key={el}
-            onClick={() => changeTab(el)}
+            key={el.id}
+            onClick={() => changeTab(el.id)}
           >
-            {el}
+            {t(el.name)}
           </li>
         );
       })}
