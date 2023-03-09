@@ -23,6 +23,7 @@ import InviteModulePage from 'pages/InviteModulePage';
 
 import { ROUTES } from './routes.const';
 import FeedbackPage from 'pages/FeedbackPage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 export const AppRoutes = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
@@ -162,7 +163,7 @@ export const AppRoutes = () => {
         },
       ],
     },
-    { path: '*', element: <h1>404 Not Found</h1> },
+    { path: '*', element: <NotFoundPage /> },
   ];
   const routing = useRoutes(routes);
 
