@@ -13,6 +13,18 @@
     },
     {
       "id": 2,
+      "name": "Daria Serhiienko",
+      "position": "Designer",
+      "image": "SERHIIENKO",
+      "social": {
+        "behance": "https://www.behance.net/dariaserhiienko",
+        "dribble": "https://dribbble.com/dariaSerhiienko",
+        "github": "",
+        "linkedin": ""
+      }
+    },
+    {
+      "id": 3,
       "name": "Artem Mytrofanov",
       "position": "QA",
       "image": "MYTROFANOV",
@@ -24,7 +36,7 @@
       }
     },
     {
-      "id": 3,
+      "id": 4,
       "name": "Oksana Kuznietsova",
       "position": "Front-End Developer",
       "image": "KUZNIETSOVA",
@@ -36,7 +48,7 @@
       }
     },
     {
-      "id": 4,
+      "id": 5,
       "name": "Anna Gubarieva",
       "position": "Front-End Developer",
       "image": "GUBARIEVA",
@@ -48,7 +60,7 @@
       }
     },
     {
-      "id": 5,
+      "id": 6,
       "name": "Vita Kostiuk",
       "position": "Front-End Developer",
       "image": "KOSTIUK",
@@ -60,7 +72,7 @@
       }
     },
     {
-      "id": 6,
+      "id": 7,
       "name": "Ihor Khabuzov",
       "position": "Front-End Developer",
       "image": "KHABUZOV",
@@ -72,7 +84,7 @@
       }
     },
     {
-      "id": 7,
+      "id": 8,
       "name": "Aleksander Nikolaenko",
       "position": "Front-End Developer",
       "image": "NIKOLAENKO",
@@ -84,15 +96,27 @@
       }
     },
     {
-      "id": 8,
+      "id": 9,
       "name": "Vitalii Kretsul",
       "position": "Front-End Developer",
       "image": "KRETSUL",
       "social": {
         "behance": "",
         "dribble": "",
-        "github": "https://github.com/Kretsul-Vitaliy ",
-        "linkedin": "https://www.linkedin.com/in/vitalii-kretsul-442213b6/ "
+        "github": "https://github.com/Kretsul-Vitaliy",
+        "linkedin": "https://www.linkedin.com/in/vitalii-kretsul-442213b6/"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Vlad Moskalenko",
+      "position": "Front-End Developer",
+      "image": "MOSKALENKO",
+      "social": {
+        "behance": "",
+        "dribble": "",
+        "github": "https://github.com/Vlad-Moskalenko/",
+        "linkedin": "https://www.linkedin.com/in/vlad-moskalenko/"
       }
     }
   ]

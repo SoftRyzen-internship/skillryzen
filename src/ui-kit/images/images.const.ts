@@ -19,6 +19,8 @@ import ImgKretsul from "assets/images/team/Kretsul.png";
 import ImgKuznietsova from "assets/images/team/Kuznietsova.jpg";
 import ImgMytrofanov from "assets/images/team/Mytrofanov.jpg";
 import ImgNikolaenko from "assets/images/team/Nikolaenko.jpg";
+import ImgMoskalenko from "assets/images/team/Moskalenko.jpg";
+import ImgSerhiienko from "assets/images/team/Serhiienko.jpg";
 
 import { Img } from 'constans/types';
 
@@ -43,5 +45,7 @@ export const IMAGES: Img = {
   KRETSUL: ImgKretsul,
   KUZNIETSOVA: ImgKuznietsova,
   MYTROFANOV: ImgMytrofanov,
-  NIKOLAENKO: ImgNikolaenko
+  NIKOLAENKO: ImgNikolaenko,
+  MOSKALENKO: ImgMoskalenko,
+  SERHIIENKO: ImgSerhiienko
 };
