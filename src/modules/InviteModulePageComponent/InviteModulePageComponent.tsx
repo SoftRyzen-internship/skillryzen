@@ -10,16 +10,18 @@ import { useThemeContext } from 'context/themeContext';
 
 import s from './InviteModulePageComponent.module.scss';
 
-const tabs = [{
-  id:1,
-  name:'invite.student.tab',
-  component:<InviteStudentBlock />,
-},{
-  id:2,
-  name:'invite.admin.tab',
-  component:<InviteAdminBlock />,
-}]
-
+const tabs = [
+  {
+    id: 1,
+    name: 'invite.student.tab',
+    component: <InviteStudentBlock key='invite.student.tab' />,
+  },
+  {
+    id: 2,
+    name: 'invite.admin.tab',
+    component: <InviteAdminBlock key='invite.admin.tab' />,
+  },
+];
 
 export const InviteModulePageComponent = () => {
   const [currentTab, setCurrentTab] = useState(tabs[0].id);
@@ -37,9 +39,9 @@ export const InviteModulePageComponent = () => {
         changeTab={handleChangeTab}
         theme={theme}
       />
-      {tabs.map(el=>{
-        if(el.id !== currentTab) return null
-        return el.component
+      {tabs.map((el) => {
+        if (el.id !== currentTab) return null;
+        return el.component;
       })}
     </div>
   );
