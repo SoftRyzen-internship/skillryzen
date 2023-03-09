@@ -11,18 +11,18 @@ TeamCard
 image - треба передати src для картинки
 name - ім'я, обов'язковий параметр
 position - позиція (розробник, дизайнер, тестувальник і т.д.)
-social - об'єкт, що зберігає в собі соцмережі: behance, dribble, github, linkedin. Якщо якась з соцмереж не передана, вона не відмальовується в картці
+social - масив об'єктів, що зберігає в собі соцмережі: behance, dribble, github, linkedin та ін. Якщо якась з соцмереж не передана, вона не відмальовується в картці
 
 # Приклад використання
 
     <TeamCard
-      name='John Doe'
-      position='Front-End Developer'
-      image={IMAGES.HTML}
-      social={{
-        behance: 'https://google.com/',
-        dribble: 'https://google.com/',
-        github: 'https://google.com/',
-        linkedin: 'https://google.com/',
-      }}
+      name={item.name}
+      position={item.position}
+      image={IMAGES[item.image]}
+      social={[
+        { name: 'behance', url: `${item.social.behance}}` },
+        { name: 'dribble', url: `${item.social.dribble}}` },
+        { name: 'github', url: `${item.social.github}}` },
+        { name: 'linkedin', url: `${item.social.linkedin}}` },
+      ]}
     />
