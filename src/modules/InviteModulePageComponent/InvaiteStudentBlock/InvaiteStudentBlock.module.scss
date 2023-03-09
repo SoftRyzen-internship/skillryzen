@@ -1,5 +1,11 @@
 .wrapper {
   display: flex;
   gap: 28px;
-  margin-top: 24px;
+  margin-top: 20px;
+}
+
+.subWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }

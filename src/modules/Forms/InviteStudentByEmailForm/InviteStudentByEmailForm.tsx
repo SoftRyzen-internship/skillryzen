@@ -58,14 +58,14 @@ export const InviteStudentByEmailForm = () => {
                 name={`emails[${i}]`}
                 value={el}
                 placeholder='Lorem lorem'
-                className={s.input}
+                className={`${s.input} ${s[`input--${theme}`]}`}
               />
               <button
                 onClick={() => setFieldValue('emails', removeEmail(emails, i))}
-                className={s.removeButton}
+                className={`${s.removeButton} ${s[`removeButton--${theme}`]}`}
                 type='button'
               >
-                <ICONS.CROSS_SMALL />
+                <ICONS.CROSS_SMALL className={`${s[`removeIcon--${theme}`]}`}/>
               </button>
             </li>
           ))}
@@ -75,22 +75,24 @@ export const InviteStudentByEmailForm = () => {
           type='button'
           className={s.addButton}
         >
-          <ICONS.PLUS className={s.addIcon} />
+          <ICONS.PLUS_SMALL className={s.addIcon} />
           Add another user
         </button>
         <h3 className={s.label}>Супровідний текст</h3>
         <Input
           onChange={handleChange}
           name='text'
+          value={text}
           placeholder='Lorem lorem'
-          className={`${s.input} ${s.mr20}`}
+          className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
         />
         <h3 className={s.label}>Код для доступу</h3>
         <Input
           onChange={handleChange}
           name='code'
+          value={code}
           placeholder='Lorem lorem'
-          className={s.input}
+          className={`${s.input} ${s[`input--${theme}`]}`}
         />
       </div>
       <MainButton

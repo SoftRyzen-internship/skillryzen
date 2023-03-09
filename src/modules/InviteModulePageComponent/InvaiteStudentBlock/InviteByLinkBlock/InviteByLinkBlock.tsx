@@ -17,7 +17,7 @@ export const InviteByLinkBlock = () => {
       </p>
       <div className={s.linkWrapper}>
         <Input
-          className={s.input}
+          className={`${s.input} ${s[`input--${theme}`]}`}
           name='link'
           placeholder='Lorem lorem'
           theme={theme}
@@ -26,10 +26,10 @@ export const InviteByLinkBlock = () => {
       </div>
       <div className={s.codeWrapper}>
         <h4 className={s.subTitle}>
-          Invite by link <ICONS.ASTERIX />
+        Код для доступу  <ICONS.ASTERIX />
         </h4>
         <Input
-          className={s.input}
+          className={`${s.input} ${s[`input--${theme}`]}`}
           name='link'
           placeholder='Lorem lorem'
           theme={theme}

@@ -7,7 +7,7 @@ import s from './InvaiteStudentBlock.module.scss';
 export const InvaiteStudentBlock = () => {
   return (
     <div className={s.wrapper}>
-      <div>
+      <div className={s.subWrapper}>
         <SelectTestBlock />
         <InviteByLinkBlock />
       </div>

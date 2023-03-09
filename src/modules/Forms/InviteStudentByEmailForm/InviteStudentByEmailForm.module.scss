@@ -22,9 +22,18 @@
   height: 48px;
   font-weight: 400;
   font-size: 16px;
-  border: 1px solid #464962;
+  border: 1px solid;
   border-radius: 4px;
-  background: #080b25;
+
+  &--dark {
+    background-color: var(--secondary-cl);
+    border-color: var(--disabled-cl);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+    border-color:var(--light-primary-cl);
+    color:var(--primary-cl);
+  }
 }
 
 .removeButton {
@@ -33,24 +42,43 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: #080b25;
   border-radius: 10px;
+
+  &--dark {
+    background-color: var(--secondary-cl);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+  }
+}
+
+.removeIcon{
+  &--dark {
+    path {
+      stroke: var(--secondary-txt-cl);
+    }
+  }
+  &--light {
+    path {
+      stroke: var(--accent-cl);
+    }
+  }
 }
 
 .addButton {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 8px;
   margin-top: 19px;
   margin-bottom: 15px;
-  color: #3653f2;
+  color: var(--accent-cl);
   font-weight: 400;
   font-size: 14px;
 }
 
 .addIcon {
   path {
-    fill: #3653f2;
+    stroke: var(--accent-cl);
   }
 }
 

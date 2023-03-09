@@ -3,33 +3,20 @@ import { NavLink } from 'react-router-dom';
 
 import s from './Tabs.module.scss';
 
-interface Tab {
-  title: string;
-  path?: string;
-}
 interface TabProps {
-  tabs: Tab[];
+  tabs: string[];
+  currentTab?:string;
+  changeTab?:(tab:string)=>void;
   theme?: Theme;
 }
 
-export const Tabs = ({ tabs, theme = 'dark' }: TabProps) => {
+export const Tabs = ({ tabs, currentTab,changeTab,theme = 'dark' }: TabProps) => {
   return (
-    <ul className={s.tabs__list}>
-      {tabs.map(({ title, path }) => {
+    <ul className={s.tabsList}>
+      {tabs.map((el) => {
         return (
-          <li className={s.tabs__item} key={title}>
-            <NavLink
-              to={path}
-              className={({ isActive }: { isActive: boolean }) =>
-                isActive
-                  ? `${s.tabs__navLinkActive} ${
-                      s[`tabs__navLinkActive--${theme}`]
-                    }`
-                  : `${s.tabs__navLink} ${s[`tabs__navLink--${theme}`]}`
-              }
-            >
-              {title}
-            </NavLink>
+          <li className={currentTab === el ? `${s.tabsItemActive} ${s[`tabsItemActive--${theme}`]}` : `${s.tabsItem} ${s[`tabsItem--${theme}`]}`} key={el} onClick={()=>changeTab(el)}>
+            {el}
           </li>
         );
       })}

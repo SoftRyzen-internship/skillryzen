@@ -3,11 +3,17 @@
   padding: 11px 20px;
   font-weight: 400;
   font-size: 14px;
-  background: #080b25;
-  color: #3653f2;
+  color: var(--accent-cl);
   border-radius: 5px;
   position: relative;
   cursor: pointer;
+
+  &--dark {
+    background-color: var(--secondary-cl);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+  }
 }
 
 .icon {
@@ -16,6 +22,6 @@
   right: 24px;
 
   path {
-    stroke: #3653f2;
+    stroke: var(--accent-cl);
   }
 }

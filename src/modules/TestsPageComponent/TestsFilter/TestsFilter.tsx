@@ -19,10 +19,7 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
 
   return (
     <div className={s.testsFilter}>
-      <Tabs
-        theme={theme}
-        tabs={[{ title: t('testsMain.allTests'), path: '' }]}
-      />
+      <Tabs theme={theme} tabs={[t('testsMain.allTests')]} />
       <div className={s.testsFilter__wrapper}>
         <IconButton
           theme={theme}
