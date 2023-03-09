@@ -41,6 +41,7 @@ export const LoginForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [errorMsg, setErrorMsg] = useState('');
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -53,11 +54,20 @@ export const LoginForm = () => {
 
     validationSchema: useValidationSchema(),
 
-    onSubmit: ({ email, password }) => {
-      dispatch(logIn({ email, password })).then(
-        ({ meta }) =>
-          meta.requestStatus === 'fulfilled' && navigate(ROUTES.CERTIFICATION)
-      );
+    onSubmit: async ({ email, password }) => {
+      const resp: any = await dispatch(logIn({ email, password }));
+
+      if (resp.meta.requestStatus === 'fulfilled') {
+        navigate(ROUTES.CERTIFICATION);
+      }
+
+      if (resp.meta.requestStatus === 'rejected') {
+        const msg = resp.payload.data.errors.code.replaceAll('_', ' ');
+
+        msg.includes('CREDENTIAL')
+          ? setErrorMsg('WRONG PASSWORD')
+          : setErrorMsg(msg);
+      }
     },
   });
 
@@ -87,12 +97,15 @@ export const LoginForm = () => {
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
-          (errors.email ? s.floatingLabelError : s.floatingLabelValid)
+          (errors.email || errorMsg
+            ? s.floatingLabelError
+            : s.floatingLabelValid)
         }`}
       >
-        {touched.email && errors.email && (
+        {touched.email && errors.email && !errorMsg && (
           <p className={s.errorMsg}>{errors.email}</p>
         )}
+        {errorMsg && <p className={s.errorMsg}>{errorMsg}</p>}
         <input
           className={objectTheme[theme].input}
           name='email'
@@ -111,12 +124,15 @@ export const LoginForm = () => {
       <div
         className={`${s.floatingGroup} ${
           touched.password &&
-          (errors.password ? s.floatingLabelError : s.floatingLabelValid)
+          (errors.password || errorMsg
+            ? s.floatingLabelError
+            : s.floatingLabelValid)
         }`}
       >
-        {touched.password && errors.password && (
+        {touched.password && errors.password && !errorMsg && (
           <p className={s.errorMsg}>{errors.password}</p>
         )}
+        {errorMsg && <p className={s.errorMsg}>{errorMsg}</p>}
         <input
           className={objectTheme[theme].input}
           name='password'

@@ -17,7 +17,7 @@ const register = createAsyncThunk(
     try {
       await axiosInstance.post('auth/register', registerData);
     } catch (err) {
-      return thunkApi.rejectWithValue(err.message);
+      return thunkApi.rejectWithValue(err.response);
     }
   }
 );
@@ -28,7 +28,7 @@ const logIn = createAsyncThunk(
     try {
       await axiosInstance.post('auth/login', { email, password });
     } catch (err) {
-      return thunkApi.rejectWithValue(err.message);
+      return thunkApi.rejectWithValue(err.response);
     }
   }
 );
@@ -37,7 +37,7 @@ const logOut = createAsyncThunk('auth/logOut', async (_, thunkApi) => {
   try {
     await axiosInstance.post('auth/logout');
   } catch (err) {
-    return thunkApi.rejectWithValue(err.message);
+    return thunkApi.rejectWithValue(err.response);
   }
 });
 
@@ -45,7 +45,7 @@ const refresh = createAsyncThunk('auth/refresh', async (_, thunkApi) => {
   try {
     await axiosInstance.post('auth/refresh');
   } catch (err) {
-    return thunkApi.rejectWithValue(err.message);
+    return thunkApi.rejectWithValue(err.response);
   }
 });
 
@@ -54,7 +54,7 @@ const auth = createAsyncThunk('auth/auth', async (_, thunkApi) => {
     const { data } = await axiosInstance.get('auth');
     return data;
   } catch (err) {
-    return thunkApi.rejectWithValue(err.message);
+    return thunkApi.rejectWithValue(err.response);
   }
 });
 

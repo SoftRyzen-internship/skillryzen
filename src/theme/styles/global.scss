@@ -79,12 +79,6 @@ input {
     -webkit-text-fill-color: inherit;
     -webkit-background-clip: text;
   }
-
-  &:not(:placeholder-shown) ~ label,
-  &:-webkit-autofill ~ label {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-  }
 }
 
 .visually-hidden {

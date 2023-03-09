@@ -39,6 +39,7 @@ export const RegisterAuthForm = () => {
 
   const dispatch = useAppDispatch();
   const [showPassword, setShowPassword] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   // const handleClickGoogle = () => {};
 
@@ -51,17 +52,25 @@ export const RegisterAuthForm = () => {
 
     validationSchema: useValidationSchema(),
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const { email, password } = values;
 
-      dispatch(register({ email, password, displayName: 'coolName' })).then(
-        ({ meta }) =>
-          meta.requestStatus === 'fulfilled' &&
-          dispatch(logIn({ email, password })).then(
-            ({ meta }) =>
-              meta.requestStatus === 'fulfilled' && dispatch(setStep(3))
-          )
+      const resp: any = await dispatch(
+        register({ email, password, displayName: 'coolName' })
       );
+
+      if (resp.meta.requestStatus === 'fulfilled') {
+        dispatch(logIn({ email, password })).then(
+          ({ meta }) =>
+            meta.requestStatus === 'fulfilled' && dispatch(setStep(3))
+        );
+      }
+
+      if (resp.meta.requestStatus === 'rejected') {
+        const msg = resp.payload.data.errors.code.replaceAll('_', ' ');
+
+        setErrorMsg(msg);
+      }
     },
   });
 
@@ -92,12 +101,15 @@ export const RegisterAuthForm = () => {
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
-          (errors.email ? s.floatingLabelError : s.floatingLabelValid)
+          (errors.email || errorMsg
+            ? s.floatingLabelError
+            : s.floatingLabelValid)
         }`}
       >
-        {touched.email && errors.email && (
+        {touched.email && errors.email && !errorMsg && (
           <p className={s.errorMsg}>{errors.email}</p>
         )}
+        {errorMsg && <p className={s.errorMsg}>{errorMsg}</p>}
         <input
           className={objectTheme[theme].input}
           name='email'

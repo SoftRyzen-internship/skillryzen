@@ -10,10 +10,6 @@
 
 .floatingGroup {
   position: relative;
-
-  &:last-child{
-    margin-bottom: 16px;
-  }
 }
 
 .floatingLabel {
@@ -32,6 +28,7 @@
 }
 
 .inputsList {
+  margin-bottom: 30px;
   width: 100%;
 
   display: flex;
@@ -119,7 +116,7 @@
 
 .errorMsg {
   position: absolute;
-  bottom: -16px;
+  bottom: -20px;
   left: 15px;
   font-size: 12px;
   color: var(--error-cl);

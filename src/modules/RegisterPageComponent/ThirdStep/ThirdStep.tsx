@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
 
 import { ROUTES } from 'routes/routes.const';
@@ -9,7 +8,6 @@ import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/Registe
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const ThirdStep = () => {
-  const navigate = useNavigate();
   const { t } = useTranslation();
 
   return (
