@@ -51,7 +51,7 @@ export const InviteAdminByEmailForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h3 className={s.label}>E-mail</h3>
+        <h3 className={s.label}>{t('invite.email')}</h3>
 
         <Input
           onChange={handleChange}
@@ -60,10 +60,10 @@ export const InviteAdminByEmailForm = () => {
           placeholder='Lorem lorem'
           className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
         />
-        <h3 className={`${s.label} ${s.mr17}`}>Role</h3>
+        <h3 className={`${s.label} ${s.mr17}`}>{t('invite.role')}</h3>
         <ul className={s.list}>
           <li className={s.item}>
-            <p>Create test</p>{' '}
+            <p>{t('invite.create.tests')}</p>
             <Checkbox
               name='createTest'
               id='createTest'
@@ -72,7 +72,7 @@ export const InviteAdminByEmailForm = () => {
             />
           </li>
           <li className={s.item}>
-            <p>Add users</p>{' '}
+            <p>{t('invite.add.users')}</p>
             <Checkbox
               name='addUsers'
               id='addUsers'
@@ -81,7 +81,7 @@ export const InviteAdminByEmailForm = () => {
             />
           </li>
           <li className={s.item}>
-            <p>Delete users</p>{' '}
+            <p>{t('invite.delete.users')}</p>
             <Checkbox
               name='deleteUsers'
               id='deleteUsers'
@@ -90,7 +90,7 @@ export const InviteAdminByEmailForm = () => {
             />
           </li>
         </ul>
-        <h3 className={s.label}>Супровідний текст</h3>
+        <h3 className={s.label}>{t('invite.sup.text')}</h3>
         <Input
           onChange={handleChange}
           name='text'
@@ -99,7 +99,7 @@ export const InviteAdminByEmailForm = () => {
           className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
         />
         <h3 className={s.label}>
-          Код для доступу <ICONS.ASTERIX className={s.asterixIcon} />
+        {t('invite.acces.code')} <ICONS.ASTERIX className={s.asterixIcon} />
         </h3>
         <Input
           onChange={handleChange}
@@ -111,7 +111,7 @@ export const InviteAdminByEmailForm = () => {
       </div>
       <MainButton
         size='large'
-        text='Create invite'
+        text={t('invite.create.invite')}
         type='submit'
         disabled={!isValid}
         className={s.submitButton}

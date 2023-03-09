@@ -49,7 +49,7 @@ export const InviteStudentByEmailForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <h3 className={s.label}>E-mail</h3>
+        <h3 className={s.label}>{t('invite.email')}</h3>
         <ul>
           {emails.map((el, i) => (
             <li key={i} className={s.item}>
@@ -76,9 +76,9 @@ export const InviteStudentByEmailForm = () => {
           className={s.addButton}
         >
           <ICONS.PLUS_SMALL className={s.addIcon} />
-          Add another user
+          {t('invite.another.user')}
         </button>
-        <h3 className={s.label}>Супровідний текст</h3>
+        <h3 className={s.label}>{t('invite.sup.text')}</h3>
         <Input
           onChange={handleChange}
           name='text'
@@ -87,7 +87,7 @@ export const InviteStudentByEmailForm = () => {
           className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
         />
         <h3 className={s.label}>
-          Код для доступу <ICONS.ASTERIX className={s.asterixIcon} />
+        {t('invite.acces.code')} <ICONS.ASTERIX className={s.asterixIcon} />
         </h3>
         <Input
           onChange={handleChange}
@@ -99,7 +99,7 @@ export const InviteStudentByEmailForm = () => {
       </div>
       <MainButton
         size='large'
-        text='Create invite'
+        text={t('invite.create.invite')}
         type='submit'
         disabled={!isValid}
         className={s.submitButton}

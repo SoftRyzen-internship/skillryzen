@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { InviteAdminBlock } from './InviteAdminBlock';
 import { InviteStudentBlock } from './InviteStudentBlock';
@@ -26,13 +27,14 @@ const tabs = [
 export const InviteModulePageComponent = () => {
   const [currentTab, setCurrentTab] = useState(tabs[0].id);
   const { theme }: IThemeContext = useThemeContext();
+  const { t } = useTranslation();
 
   const handleChangeTab = (tab: number) => setCurrentTab(tab);
 
   return (
     <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
       <Breadcrumbs />
-      <h2 className={`${s.title} ${s[`title--${theme}`]}`}>Invite module</h2>
+      <h2 className={`${s.title} ${s[`title--${theme}`]}`}>{t('invite.title')}</h2>
       <Tabs
         tabs={tabs}
         currentTab={currentTab}
