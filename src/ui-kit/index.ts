@@ -1,4 +1,3 @@
-import { MainButton } from './components/Buttons/MainButton/MainButton';
 export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export { AddButton } from './components/Buttons/AddButton';
 export { MainButton } from './components/Buttons/MainButton';

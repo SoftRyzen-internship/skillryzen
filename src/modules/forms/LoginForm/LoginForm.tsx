@@ -102,10 +102,10 @@ export const LoginForm = () => {
             : s.floatingLabelValid)
         }`}
       >
-        {touched.email && errors.email && !errorMsg && (
+        {touched.email && errors.email && (
           <p className={s.errorMsg}>{errors.email}</p>
         )}
-        {errorMsg && <p className={s.errorMsg}>{errorMsg}</p>}
+        {errorMsg && !errors.email && <p className={s.errorMsg}>{errorMsg}</p>}
         <input
           className={objectTheme[theme].input}
           name='email'
@@ -129,10 +129,12 @@ export const LoginForm = () => {
             : s.floatingLabelValid)
         }`}
       >
-        {touched.password && errors.password && !errorMsg && (
+        {touched.password && errors.password && (
           <p className={s.errorMsg}>{errors.password}</p>
         )}
-        {errorMsg && <p className={s.errorMsg}>{errorMsg}</p>}
+        {errorMsg && !errors.password && (
+          <p className={s.errorMsg}>{errorMsg}</p>
+        )}
         <input
           className={objectTheme[theme].input}
           name='password'
