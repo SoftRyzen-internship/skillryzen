@@ -14,9 +14,23 @@ import { FeedbackModalPageComponent } from 'modules/common/FeedbackModalPageComp
 const objectTheme = {
   dark: {
     title: s.titleDark,
+    icons: {
+      UNDER_DEVELOPMENT_MAIN: ICONS.UNDER_DEVELOPMENT_MAIN,
+      GEAR_BLUE: ICONS.GEAR_BLUE,
+      GEAR_GRAY: ICONS.GEAR_GRAY,
+      CIRCLE_BLUE: ICONS.CIRCLE_BLUE,
+      CIRCLE_GRAY: ICONS.CIRCLE_GRAY,
+    },
   },
   light: {
     title: s.titleLight,
+    icons: {
+      UNDER_DEVELOPMENT_MAIN: ICONS.UNDER_DEVELOPMENT_MAIN_LIGHT,
+      GEAR_BLUE: ICONS.GEAR_BLUE_LIGHT,
+      GEAR_GRAY: ICONS.GEAR_GRAY_LIGHT,
+      CIRCLE_BLUE: ICONS.CIRCLE_BLUE_LIGHT,
+      CIRCLE_GRAY: ICONS.CIRCLE_GRAY_LIGHT,
+    },
   },
 };
 
@@ -35,11 +49,14 @@ export const UnderDevelopment = () => {
           {t('underDevelopment.title')}
         </h2>
         <div className={s.imageWrapper}>
-          <ICONS.UNDER_DEVELOPMENT_MAIN width='388' height='208' />
-          <ICONS.GEAR_BLUE className={s.gearBlue} />
-          <ICONS.GEAR_GRAY className={s.gearGray} />
-          <ICONS.CIRCLE_BLUE className={s.circleBlue} />
-          <ICONS.CIRCLE_GRAY className={s.circleGray} />
+          {objectTheme[theme].icons.UNDER_DEVELOPMENT_MAIN({
+            width: '388',
+            height: '208',
+          })}
+          {objectTheme[theme].icons.GEAR_BLUE({ className: s.gearBlue })}
+          {objectTheme[theme].icons.GEAR_GRAY({ className: s.gearGray })}
+          {objectTheme[theme].icons.CIRCLE_BLUE({ className: s.circleBlue })}
+          {objectTheme[theme].icons.CIRCLE_GRAY({ className: s.circleGray })}
         </div>
         <MainButton
           type='submit'
