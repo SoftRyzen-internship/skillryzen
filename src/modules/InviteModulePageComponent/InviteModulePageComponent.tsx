@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { InvaiteAdminBlock } from './InvaiteAdminBlock';
-import { InvaiteStudentBlock } from './InvaiteStudentBlock';
+import { InviteAdminBlock } from './InviteAdminBlock';
+import { InviteStudentBlock } from './InviteStudentBlock';
 
 import { Breadcrumbs, Tabs } from 'ui-kit/index';
 
@@ -29,9 +29,9 @@ export const InviteModulePageComponent = () => {
         theme={theme}
       />
       {currentTab === 'Запрошення студента' ? (
-        <InvaiteStudentBlock />
+        <InviteStudentBlock />
       ) : (
-        <InvaiteAdminBlock />
+        <InviteAdminBlock />
       )}
     </div>
   );

@@ -1,9 +1,9 @@
 import { InviteByEmailBlock } from './InviteByEmailBlock';
 import { InviteByLinkBlock } from './InviteByLinkBlock';
 
-import s from './InvaiteAdminBlock.module.scss';
+import s from './InviteAdminBlock.module.scss';
 
-export const InvaiteAdminBlock = () => {
+export const InviteAdminBlock = () => {
   return (
     <div className={s.wrapper}>
       <InviteByEmailBlock />
