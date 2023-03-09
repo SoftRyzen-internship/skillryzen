@@ -5,6 +5,9 @@ import { CardSlider } from './CardSlider';
 import { Theme, UserInfo } from 'constans/types';
 
 import s from './MyTests.module.scss';
+import { Link } from 'react-router-dom';
+import { Card, TestCard } from 'ui-kit';
+import { ROUTES } from 'routes/routes.const';
 
 interface MyTestsProps {
   userInfo: UserInfo;
@@ -17,14 +20,38 @@ export const MyTests = ({ userInfo, theme }: MyTestsProps) => {
 
   return (
     <div className={`${s[`container--${theme}`]}`}>
-      <p className={`${s[`title--${theme}`]}`}>{t('userProfile.testsTitle')}</p>
+      <p className={`${s[`title--${theme}`]}`}>
+        {t('userProfile.testsCardTitle')}
+      </p>
 
       {!tests || tests.length === 0 ? (
         <div className={`${s[`noDataText--${theme}`]}`}>
           {t('userProfile.noDataText')}
         </div>
       ) : (
-        <CardSlider cards={tests} cardWidth={284} cardGap={28} theme={theme} />
+        <ul className={s.cardList}>
+          {tests.map((test, index) => {
+            return (
+              <li key={test.id}>
+                <Link to={`${ROUTES.CERTIFICATION}/fullstack_final`}>
+                  <TestCard
+                    className={`${s[`card--${theme}`]}`}
+                    size={'small'}
+                    item={{
+                      author: test.author,
+                      title: test.title,
+                      text: test.text,
+                      fields: test.fields,
+                      number: test.number,
+                      time: test.time,
+                    }}
+                    theme={theme}
+                  />
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       )}
     </div>
   );

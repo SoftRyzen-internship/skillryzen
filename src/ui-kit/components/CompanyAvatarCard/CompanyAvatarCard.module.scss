@@ -1,0 +1,29 @@
+.card {
+  display: flex;
+  align-items: center;
+}
+.avatar {
+  width: 52px;
+  height: 52px;
+  margin-right: 8px;
+  border-radius: 50%;
+}
+.name--common {
+  font-family: var(--font-family);
+  font-size: var(--text-md);
+  font-weight: var(--regular);
+  white-space: normal;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 96px;
+  max-height: 36px;
+  transition: var(--transition);
+}
+.name--light {
+  composes: name--common;
+  color: var(---light-primary-txt-cl);
+}
+.name--dark {
+  composes: name--common;
+  color: var(--primary-txt-cl);
+}
