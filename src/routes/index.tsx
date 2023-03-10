@@ -52,9 +52,9 @@ export const AppRoutes = () => {
         },
         {
           element: (
-            // <ProtectedRoute isLoggedIn={isLoggedIn}>
-            <Outlet />
-            // </ProtectedRoute>
+            <ProtectedRoute isLoggedIn={isLoggedIn}>
+              <Outlet />
+            </ProtectedRoute>
           ),
           children: [
             {
