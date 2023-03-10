@@ -191,7 +191,16 @@ export const AppRoutes = () => {
         },
       ],
     },
-    { path: '*', element: <NotFoundPage /> },
+    {
+      path: '*',
+      element: isLoggedIn ? (
+        <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}>
+          <NotFoundPage />
+        </MainWrapper>
+      ) : (
+        <NotFoundPage />
+      ),
+    },
   ];
   const routing = useRoutes(routes);
 
