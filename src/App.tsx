@@ -15,7 +15,7 @@ import './ui-kit/scrollbar.scss';
 
 export const App = () => {
   const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
-  const step = useAppSelector((state) => state.auth.step);
+
   const [theme, setTheme] = useState(
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
   );
@@ -26,7 +26,7 @@ export const App = () => {
     if (isLoggedIn) {
       dispatch(auth());
     }
-  }, [dispatch, isLoggedIn, step]);
+  }, [dispatch, isLoggedIn]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
