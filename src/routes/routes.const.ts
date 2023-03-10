@@ -15,8 +15,13 @@ export const ROUTES: Routes = {
   VACANCIES: '/vacancies',
   PROFILE: '/profile',
   PROFILE_SETTINGS: '/profile-settings',
+  NOTIFICATIONS: '/notifications',
+  NOTIFICATIONS_NEW: '/notifications/new-notifications',
+  NOTIFICATIONS_ALL: '/notifications/all-notifications',
+  COINS: '/coins',
   FEEDBACK: '/feedback',
   TEAM: '/team',
   TESTING: '/testing',
   TEST_END: '/testing/test-end',
+  INVITE_MODULE: '/invite-module',
 };

@@ -1,0 +1,53 @@
+.container {
+  // width: 536px;
+  // min-height: 517px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 92px;
+}
+
+.image {
+  margin-bottom: 40px;
+}
+
+.title {
+  width: 351px;
+
+  font-weight: var(--extrabold);
+  font-size: var(--title);
+  text-align: center;
+}
+
+.titleRest {
+  composes: title;
+  margin-bottom: 40px;
+
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+}
+
+.subtitle {
+  composes: title;
+  width: 292px;
+  margin-bottom: 56px;
+  font-weight: var(--bold);
+  font-size: var(--text-lg);
+  text-align: center;
+  // text-align: left;
+}
+
+.link {
+  composes: subtitle;
+  color: var(--accent-cl);
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.modalBtn {
+  min-width: 130px;
+  // margin-bottom: 40px;
+}

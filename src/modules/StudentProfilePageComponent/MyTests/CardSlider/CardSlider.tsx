@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { throttle } from 'utils/throtle';
 
-import { Card, PaginationButton } from 'ui-kit';
+import { PaginationButton } from 'ui-kit';
 
 import { ROUTES } from 'routes/routes.const';
 import { Theme, UserTests } from 'constans/types';
@@ -91,7 +91,7 @@ export const CardSlider = ({
             return (
               <li key={index}>
                 <Link to={`${ROUTES.CERTIFICATION}/fullstack_final`}>
-                  <Card
+                  {/* <Card
                     className={`${s[`card--${theme}`]}`}
                     type='info'
                     size='small'
@@ -104,7 +104,7 @@ export const CardSlider = ({
                       time: test.time,
                     }}
                     theme={theme}
-                  />
+                  /> */}
                 </Link>
               </li>
             );

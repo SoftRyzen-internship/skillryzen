@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 63px 40px 63px;
+}
+
+.image {
+  margin-bottom: 36px;
+}
+
+.subtitle {
+  width: 292px;
+  margin-bottom: 56px;
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  text-align: center;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.cancelBtn {
+  min-width: 200px;
+  margin-right: 10px;
+}
+
+.logOutBtn {
+  composes: cancelBtn;
+  margin-right: 0;
+  background-color: transparent;
+  border: 2px solid var(--accent-cl);
+  color: var(--accent-cl);
+}

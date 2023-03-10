@@ -1,3 +1,4 @@
+export { Modal } from './components/Modal';
 export { Breadcrumbs } from './components/Breadcrumbs/Breadcrumbs';
 export { AddButton } from './components/Buttons/AddButton';
 export { MainButton } from './components/Buttons/MainButton';
@@ -5,7 +6,6 @@ export { CopyButton } from './components/Buttons/CopyButton';
 export { HeaderButton } from './components/Buttons/HeaderButton';
 export { IconButton } from './components/Buttons/IconButton';
 export { PaginationButton } from './components/Buttons/PaginationButton';
-export { Card } from './components/Card/Card';
 export { InfoCard } from './components/Card/Infocard';
 export { TestCard } from './components/Card/TestCard';
 export { Checkbox } from './components/Checkbox';
@@ -24,3 +24,4 @@ export { Tag } from './components/Tag';
 export { UserAvatar } from './components/UserAvatar';
 export { UserAvatarCard } from './components/UserAvatarCard';
 export { Notification } from './components/Notification/Notification';
+export { Select } from './components/Select';

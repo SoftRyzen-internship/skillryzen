@@ -38,6 +38,7 @@ import IconHeart from 'assets/svg/heart.svg';
 import IconHome from 'assets/svg/home.svg';
 import IconLink from 'assets/svg/link.svg';
 import IconLinkedin from 'assets/svg/linkedin.svg';
+import IconLinkedinBlue from 'assets/svg/linkedin-blue.svg';
 import IconList from 'assets/svg/list.svg';
 import IconLogout from 'assets/svg/logout.svg';
 import IconMail from 'assets/svg/mail.svg';
@@ -76,6 +77,7 @@ import IconImgOne from 'assets/svg/image-1.svg';
 import IconFullscreen from 'assets/svg/fullscreen.svg';
 import IconBrokecheckRound from 'assets/svg/brokechek-round.svg';
 import IconLock from 'assets/svg/lock.svg';
+import IconDownload from 'assets/svg/download.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -110,6 +112,11 @@ import IconGearGray from 'assets/svg/gear-gray.svg';
 import IconCircleBlue from 'assets/svg/circle-blue.svg';
 import IconCircleGray from 'assets/svg/circle-gray.svg';
 import IconUnderDevelopmentMain from 'assets/svg/under-development-main.svg';
+import IconGearBlueLight from 'assets/svg/gear-blue-light.svg';
+import IconGearGrayLight from 'assets/svg/gear-gray-light.svg';
+import IconCircleBlueLight from 'assets/svg/circle-blue-light.svg';
+import IconCircleGrayLight from 'assets/svg/circle-gray-light.svg';
+import IconUnderDevelopmentMainLight from 'assets/svg/under-development-main-light.svg';
 
 //  IconCorrect
 
@@ -156,6 +163,7 @@ export const ICONS: Icons = {
   HOME: IconHome,
   LINK: IconLink,
   LINKEDIN: IconLinkedin,
+  LINKEDIN_BLUE: IconLinkedinBlue,
   LIST: IconList,
   LOGOUT: IconLogout,
   MAIL: IconMail,
@@ -224,4 +232,10 @@ export const ICONS: Icons = {
   CIRCLE_BLUE: IconCircleBlue,
   CIRCLE_GRAY: IconCircleGray,
   UNDER_DEVELOPMENT_MAIN: IconUnderDevelopmentMain,
+  GEAR_BLUE_LIGHT: IconGearBlueLight,
+  GEAR_GRAY_LIGHT: IconGearGrayLight,
+  CIRCLE_BLUE_LIGHT: IconCircleBlueLight,
+  CIRCLE_GRAY_LIGHT: IconCircleGrayLight,
+  UNDER_DEVELOPMENT_MAIN_LIGHT: IconUnderDevelopmentMainLight,
+  DOWNLOAD: IconDownload,
 };

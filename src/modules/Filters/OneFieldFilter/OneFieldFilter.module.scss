@@ -1,0 +1,64 @@
+.filter {
+  position: relative;
+}
+
+.filter__button {
+  padding: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+
+  &--light {
+    color: var(--accent-cl);
+    background-color: var(--light-components-cl);
+    box-shadow: var(--light-primary-shadow);
+
+    .filter__icon path {
+      stroke: var(--accent-cl);
+    }
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    background-color: var(--components-cl);
+    transition: color var(--transition);
+  }
+}
+
+.filter__button--active {
+  color: var(--accent-cl);
+
+  .filter__icon path {
+    stroke: var(--accent-cl);
+  }
+}
+
+.filter__button--dark:hover {
+  color: var(--accent-cl);
+
+  .filter__icon path {
+    stroke: var(--accent-cl);
+  }
+}
+
+.filter__icon {
+  width: 22px;
+  height: 22px;
+
+  path {
+    stroke: var(--primary-txt-cl);
+    transition: stroke var(--transition);
+  }
+}
+
+.filter__list {
+  position: absolute;
+  top: 45px;
+  right: 0;
+
+  background: var(--components-cl);
+  padding: 16px;
+  border-radius: 4px;
+}

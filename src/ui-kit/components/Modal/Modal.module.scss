@@ -31,7 +31,7 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(10, 14, 41, 0.7);
-  z-index: 20;
+  z-index: 100;
 }
 
 .modal {
@@ -40,15 +40,18 @@
   left: 50%;
   transform: translate(-50%, -50%);
 
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  width: 536px;
-  min-height: 535px;
+  // display: flex;
+  // align-items: center;
+  // flex-direction: column;
+  // min-width: 536px;
+  // min-height: 378px;
+  // padding: 20px;
 
   background-color: var(--components-cl);
   border-radius: 12px;
-  padding: 16px;
+
+  border: 1px solid var(--accent-cl);
+  box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
 }
 
 .closeModalBtn {
@@ -64,9 +67,4 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
-}
-
-.btnContainer {
-  display: flex;
-  justify-content: center;
 }

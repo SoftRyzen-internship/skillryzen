@@ -88,6 +88,12 @@
       "timeTitle": "Your best time"
     }
   },
+  "userNotifications": {
+    "pageTitle": "Notifications",
+    "search": "Search..",
+    "newNotifications": "New notifications",
+    "allNotifications": "All notifications"
+  },
   "auth": {
     "roleTitle": "Choose your role",
     "contactTitle": "Give us more information about you!",
@@ -146,10 +152,10 @@
     "title": "The page is under construction",
     "button": "Wishes and suggestions"
   },
-  "modal": {
+  "modalCongrats": {
     "title1": "Congratulations,",
     "title2": "you have successfully registered in the system!",
-    "sumtitle": "We recommend going to the profile and ",
+    "subtitle": "We recommend going to the profile and ",
     "link": "configure personal data"
   },
   "editPasswordForm": {
@@ -224,5 +230,30 @@
   "feedbackModal": {
     "title1": "Your Message",
     "title2": "submitted successfully!"
+  },
+  "logOutModal": {
+    "subtitle": "Are you sure you want to log out?",
+    "cancel": "Cancel",
+    "logOut": "Log out",
+    "successLogOut": "You have successfully logged out!"
+  },
+  "invite":{
+    "title":"Invite module",
+    "student.tab":"Invite student",
+    "admin.tab":"Invite admin",
+    "choose.test":"Choose test",
+    "description":"JavaScript is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
+    "download.button":"Download QR code",
+    "acces.code":"Acces code",
+    "invite.link":"Invite by link",
+    "invite.email":"Invite by email",
+    "email":"E-mail",
+    "sup.text":"Supporting text",
+    "another.user":"Add another user",
+    "role":"Role",
+    "create.invite":"Create invite",
+    "create.tests":"Create tets",
+    "add.users":"Add users",
+    "delete.users":"Delete users"
   }
 }
