@@ -31,7 +31,6 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
     };
   }, []);
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.checked
       ? setPositions((prev) => [...prev, e.target.id])

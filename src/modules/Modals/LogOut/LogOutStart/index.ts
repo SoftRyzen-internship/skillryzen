@@ -1,1 +1,1 @@
-export {LogOutStart} from './LogOutStart';
+export { LogOutStart } from './LogOutStart';

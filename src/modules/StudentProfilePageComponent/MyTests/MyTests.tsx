@@ -1,11 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
-
 import { Theme, UserInfo } from 'constans/types';
 
 import s from './MyTests.module.scss';
 import { Link } from 'react-router-dom';
-import {TestCard } from 'ui-kit';
+import { TestCard } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 interface MyTestsProps {
