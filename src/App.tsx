@@ -14,7 +14,8 @@ import './theme/styles/variables.scss';
 import './ui-kit/scrollbar.scss';
 
 export const App = () => {
-  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+  const displayName = useAppSelector((state) => state.auth.user.displayName);
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
 
   const [theme, setTheme] = useState(
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
@@ -23,10 +24,10 @@ export const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (isLoggedIn) {
+    if (isAuth && !displayName) {
       dispatch(auth());
     }
-  }, [dispatch, isLoggedIn]);
+  }, [isAuth, dispatch, displayName]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

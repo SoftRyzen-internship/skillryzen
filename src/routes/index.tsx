@@ -29,14 +29,14 @@ import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { ROUTES } from './routes.const';
 
 export const AppRoutes = () => {
-  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
+  const isAuth = useAppSelector((state) => state.auth.isAuth);
   const routes = [
     {
       path: ROUTES.HOME,
       children: [
         {
           element: (
-            <PublickRoute isLoggedIn={isLoggedIn}>
+            <PublickRoute isAuth={isAuth}>
               <AuthWrapper>
                 <Outlet />
               </AuthWrapper>
@@ -53,7 +53,7 @@ export const AppRoutes = () => {
         },
         {
           element: (
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <ProtectedRoute isAuth={isAuth}>
               <Outlet />
             </ProtectedRoute>
           ),
@@ -176,7 +176,7 @@ export const AppRoutes = () => {
     },
     {
       path: '*',
-      element: isLoggedIn ? (
+      element: isAuth ? (
         <MainWrapper showSidebar={true} showHeader={true} isTestingPage={false}>
           <NotFoundPage />
         </MainWrapper>

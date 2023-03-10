@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { useAppDispatch } from 'hooks/hook';
 import { ROUTES } from 'routes/routes.const';
 import { setName } from 'redux/authSlice/authSlice';
+import { auth } from 'redux/authSlice/operations';
 
 import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/RegisterContactsForm';
 import { randomName } from 'utils/randomName';
@@ -22,10 +23,14 @@ export const ThirdStep = () => {
   const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    const displayName = randomName();
-    dispatch(setName(displayName));
+    // const displayName = randomName();
+    // dispatch(setName(displayName));
 
-    navigate(ROUTES.CERTIFICATION, { state: { from: location } });
+    dispatch(auth()).then((resp) => {
+      if (resp.meta.requestStatus === 'fulfilled') {
+        navigate(ROUTES.CERTIFICATION, { state: { from: location } });
+      }
+    });
   };
 
   return (

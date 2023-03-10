@@ -4,7 +4,8 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
-import { useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { auth } from 'redux/authSlice/operations';
 
 import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
@@ -43,6 +44,7 @@ export const RegisterContactsForm = () => {
 
   const navigate = useNavigate();
   const location = useLocation();
+  const dispatch = useAppDispatch();
   const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik<FormValues>({
@@ -56,7 +58,7 @@ export const RegisterContactsForm = () => {
     validationSchema: useValidationSchema(),
 
     onSubmit: (values) => {
-      // navigate(ROUTES.CERTIFICATION);
+      dispatch(auth());
       navigate(ROUTES.CERTIFICATION, { state: { from: location } });
     },
   });
