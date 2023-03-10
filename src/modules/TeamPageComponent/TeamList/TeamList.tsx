@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Pagination } from 'ui-kit';
 import { TeamCard } from 'ui-kit/components/Card/TeamCard';
 import { IMAGES } from 'ui-kit/images';
@@ -7,10 +7,10 @@ import team from 'utils/team.json';
 import s from './TeamList.module.scss';
 
 interface Links {
-  behance: string,
-  dribble: string,
-  github: string,
-  linkedin: string
+  behance: string;
+  dribble: string;
+  github: string;
+  linkedin: string;
 }
 
 interface TeamList {
@@ -21,38 +21,53 @@ interface TeamList {
   social: Links;
 }
 
-const itemsForPage = 4;
-const totalPages = Math.ceil(team.length / itemsForPage);
+interface TeamListProps {
+  search: string;
+}
 
-export const TeamList = () => {
+const itemsForPage = 4;
+
+export const TeamList = ({ search }: TeamListProps) => {
+  const [totalPages, setTotalPages] = useState<number>(null);
   const [array, setArray] = useState<TeamList[]>([]);
 
-const onPageChange = (currentPage: number) => {
-  const start = itemsForPage * (currentPage - 1);
-  const end = start + itemsForPage;
-  setArray(team.slice(start, end));
-};
+  const onPageChange = (currentPage: number) => {
+    const filteredTeamArray = team.filter((item) => item.name.includes(search));
+    const totalPages = Math.ceil(filteredTeamArray.length / itemsForPage);
+    const start = itemsForPage * (currentPage - 1);
+    const end = start + itemsForPage;
+    setTotalPages(totalPages);
+    setArray(filteredTeamArray.slice(start, end));
+  };
+
+  useEffect(() => {
+    onPageChange(1);
+  }, [search]);
 
   return (
     <>
-    <ul className={s.teamList}>
-      {array.map((item) => (
-        <li key={item.id}>
-          <TeamCard
-            name={item.name}
-            position={item.position}
-            image={IMAGES[item.image]}
-            social={[
-              { name: 'behance', url: `${item.social.behance}}` },
-              { name: 'dribble', url: `${item.social.dribble}}` },
-              { name: 'github', url: `${item.social.github}}` },
-              { name: 'linkedin', url: `${item.social.linkedin}}` },
-            ]}
-          />
-        </li>
-      ))}
-    </ul>
-    <Pagination totalPages={totalPages} onPageChange={onPageChange} className={s.teamList__pagination}/>
+      <ul className={s.teamList}>
+        {array.map((item) => (
+          <li key={item.id}>
+            <TeamCard
+              name={item.name}
+              position={item.position}
+              image={IMAGES[item.image]}
+              social={[
+                { name: 'behance', url: `${item.social.behance}}` },
+                { name: 'dribble', url: `${item.social.dribble}}` },
+                { name: 'github', url: `${item.social.github}}` },
+                { name: 'linkedin', url: `${item.social.linkedin}}` },
+              ]}
+            />
+          </li>
+        ))}
+      </ul>
+      <Pagination
+        totalPages={totalPages}
+        onPageChange={onPageChange}
+        className={s.teamList__pagination}
+      />
     </>
   );
 };
