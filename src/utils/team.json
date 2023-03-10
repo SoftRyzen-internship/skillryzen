@@ -1,18 +1,6 @@
 [
     {
       "id": 1,
-      "name": "Vitalii Filchenko",
-      "position": "Front-End Developer",
-      "image": "MYTROFANOV",
-      "social": {
-        "behance": "",
-        "dribble": "",
-        "github": "https://github.com/FortizFil",
-        "linkedin": "https://www.linkedin.com/in/vitalii-filchenko/"
-      }
-    },
-    {
-      "id": 2,
       "name": "Daria Serhiienko",
       "position": "Designer",
       "image": "SERHIIENKO",
@@ -24,7 +12,7 @@
       }
     },
     {
-      "id": 3,
+      "id": 2,
       "name": "Artem Mytrofanov",
       "position": "QA",
       "image": "MYTROFANOV",
@@ -33,6 +21,18 @@
         "dribble": "",
         "github": "https://github.com/mitrofin",
         "linkedin": "https://www.linkedin.com/in/artem-mytrofanov/"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Vitalii Filchenko",
+      "position": "Front-End Developer",
+      "image": "MYTROFANOV",
+      "social": {
+        "behance": "",
+        "dribble": "",
+        "github": "https://github.com/FortizFil",
+        "linkedin": "https://www.linkedin.com/in/vitalii-filchenko/"
       }
     },
     {
