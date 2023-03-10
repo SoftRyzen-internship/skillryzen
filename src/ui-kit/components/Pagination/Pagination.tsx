@@ -63,7 +63,8 @@ export const Pagination = ({ totalPages, onPageChange }: Props) => {
 
     setArrayOfVisiblePages(tempNumberOfPages);
     onPageChange(currentPage);
-  }, [currentPage, arrayOfVisiblePages, onPageChange, pageNumbers]);
+    // eslint-disable-next-line
+  }, [currentPage]);
 
   const handleClickPage = (page: number | string) => {
     if (typeof page === 'string') {

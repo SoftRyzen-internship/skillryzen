@@ -13,6 +13,7 @@ import { Breadcrumbs } from './Breadcrumbs';
 import { NotificationCardList } from './NotificationCardList';
 
 import s from './StudentNotificationsPageComponent.module.scss';
+import { useNavigate } from 'react-router';
 const testsArray = [
   {
     id: 1,
@@ -22,10 +23,39 @@ const testsArray = [
   },
 ];
 
+const tabs = [
+  {
+    id: 1,
+    name: 'userNotifications.newNotifications',
+    component: '',
+  },
+  {
+    id: 2,
+    name: 'userNotifications.allNotifications',
+    component: '',
+  },
+];
+
+interface ROUTES {
+  [key: number]: string;
+}
+
+const routes: ROUTES = {
+  1: ROUTES.NOTIFICATIONS_NEW,
+  2: ROUTES.NOTIFICATIONS_ALL,
+};
+
 export const StudentNotificationsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const [size, setSize] = useState<'large' | 'small'>('large');
+  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+  const navigate = useNavigate();
+
+  const handleChangeTab = (tab: number) => {
+    setCurrentTab(tab);
+    navigate(routes[tab]);
+  };
 
   return (
     <div className={`${s.notificationsPage} ${s[`testsPage--${theme}`]}`}>
@@ -44,17 +74,10 @@ export const StudentNotificationsPageComponent = () => {
       </div>
       <div className={s.flexContainerTabs}>
         <Tabs
+          currentTab={currentTab}
+          tabs={tabs}
+          changeTab={handleChangeTab}
           theme={theme}
-          tabs={[
-            {
-              title: t('userNotifications.newNotifications'),
-              path: ROUTES.NOTIFICATIONS_NEW,
-            },
-            {
-              title: t('userNotifications.allNotifications'),
-              path: ROUTES.NOTIFICATIONS_ALL,
-            },
-          ]}
         />
 
         <div className={s.buttonsContainer}>

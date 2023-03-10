@@ -1,0 +1,1 @@
+export { InviteModulePageComponent } from './InviteModulePageComponent';

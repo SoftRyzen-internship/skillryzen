@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 import { IThemeContext } from 'constans/types';
-import { Card, TestCard } from 'ui-kit';
+import { TestCard } from 'ui-kit';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './CardsList.module.scss';
@@ -22,7 +22,7 @@ interface TestsList {
   testsArray: Item[];
 }
 
-export const CardsList = ({size, testsArray }: TestsList) => {
+export const CardsList = ({ size, testsArray }: TestsList) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 

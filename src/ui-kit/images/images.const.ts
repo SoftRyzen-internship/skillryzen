@@ -12,6 +12,15 @@ import ImgGreenAvatar from 'assets/images/DefaultAvatars/avatar-green.png';
 import ImgRedAvatar from 'assets/images/DefaultAvatars/avatar-red.png';
 import ImgYellowAvatar from 'assets/images/DefaultAvatars/avatar-yellow.png';
 import ImgGoItAvatar from 'assets/images/goit-avatar.png';
+import ImgGubarieva from "assets/images/team/Gubarieva.jpg";
+import ImgKhabuzov from "assets/images/team/Khabuzov.jpg";
+import ImgKostiuk from "assets/images/team/Kostiuk.jpg";
+import ImgKretsul from "assets/images/team/Kretsul.png";
+import ImgKuznietsova from "assets/images/team/Kuznietsova.jpg";
+import ImgMytrofanov from "assets/images/team/Mytrofanov.jpg";
+import ImgNikolaenko from "assets/images/team/Nikolaenko.jpg";
+import ImgMoskalenko from "assets/images/team/Moskalenko.jpg";
+import ImgSerhiienko from "assets/images/team/Serhiienko.jpg";
 
 import { Img } from 'constans/types';
 
@@ -30,4 +39,13 @@ export const IMAGES: Img = {
   RED_AVATAR: ImgRedAvatar,
   YELLOW_AVATAR: ImgYellowAvatar,
   GOIT_AVATAR: ImgGoItAvatar,
+  GUBARIEVA: ImgGubarieva,
+  KHABUZOV: ImgKhabuzov,
+  KOSTIUK: ImgKostiuk,
+  KRETSUL: ImgKretsul,
+  KUZNIETSOVA: ImgKuznietsova,
+  MYTROFANOV: ImgMytrofanov,
+  NIKOLAENKO: ImgNikolaenko,
+  MOSKALENKO: ImgMoskalenko,
+  SERHIIENKO: ImgSerhiienko
 };

@@ -23,4 +23,5 @@ export const ROUTES: Routes = {
   TEAM: '/team',
   TESTING: '/testing',
   TEST_END: '/testing/test-end',
+  INVITE_MODULE: '/invite-module',
 };

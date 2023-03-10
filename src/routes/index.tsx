@@ -21,6 +21,9 @@ import StudentSettingsPage from 'pages/StudentSettingsPage';
 import StudentNotificationsPage from 'pages/StudentNotificationsPage';
 import FeedbackPage from 'pages/FeedbackPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import InviteModulePage from 'pages/InviteModulePage';
+import TeamPage from 'pages/TeamPage';
+import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
 import { ROUTES } from './routes.const';
 
@@ -49,9 +52,9 @@ export const AppRoutes = () => {
         },
         {
           element: (
-            <ProtectedRoute isLoggedIn={isLoggedIn}>
-              <Outlet />
-            </ProtectedRoute>
+            // <ProtectedRoute isLoggedIn={isLoggedIn}>
+            <Outlet />
+            // </ProtectedRoute>
           ),
           children: [
             {
@@ -137,7 +140,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.TEAM,
-                      element: <UnderDevelopmentPage />,
+                      element: <TeamPage />,
                     },
                   ],
                 },
@@ -165,12 +168,30 @@ export const AppRoutes = () => {
                 },
               ],
             },
+            // This block for admin user
+            {
+              element: (
+                <MainWrapper
+                  showSidebar={true}
+                  showHeader={true}
+                  isTestingPage={false}
+                >
+                  <Outlet />
+                </MainWrapper>
+              ),
+              children: [
+                {
+                  path: ROUTES.INVITE_MODULE,
+                  element: <InviteModulePage />,
+                },
+              ],
+            },
             { path: '/company', element: <CompanyPage /> },
           ],
         },
       ],
     },
-    { path: '*', element: <h1>404 Not Found</h1> },
+    { path: '*', element: <NotFoundPage /> },
   ];
   const routing = useRoutes(routes);
 
