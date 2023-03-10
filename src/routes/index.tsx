@@ -18,6 +18,7 @@ import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
 import StudentSettingsPage from 'pages/StudentSettingsPage';
+import StudentCoinsPage from 'pages/StudentCoinsPage';
 import StudentNotificationsPage from 'pages/StudentNotificationsPage';
 import FeedbackPage from 'pages/FeedbackPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
@@ -110,29 +111,11 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.NOTIFICATIONS,
-                      children: [
-                        {
-                          path: '',
-                          element: (
-                            <Navigate
-                              to={ROUTES.NOTIFICATIONS_NEW}
-                              replace={true}
-                            />
-                          ),
-                        },
-                        {
-                          path: ROUTES.NOTIFICATIONS_NEW,
-                          element: <StudentNotificationsPage />,
-                        },
-                        {
-                          path: ROUTES.NOTIFICATIONS_ALL,
-                          element: <StudentNotificationsPage />,
-                        },
-                      ],
+                      element: <StudentNotificationsPage />,
                     },
                     {
                       path: ROUTES.COINS,
-                      element: <UnderDevelopmentPage />,
+                      element: <StudentCoinsPage />,
                     },
                     {
                       path: ROUTES.FEEDBACK,

@@ -71,8 +71,11 @@
   }
 }
 
-.card__icon path {
+.notification__icon path {
   stroke: var(--primary-txt-cl);
+}
+.coin__icon path {
+  fill: var(--message-cl);
 }
 
 .card__title {

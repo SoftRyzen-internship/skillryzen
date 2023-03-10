@@ -1,0 +1,1 @@
+export { CoinsCardList } from './CoinsCardList';

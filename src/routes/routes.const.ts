@@ -16,8 +16,6 @@ export const ROUTES: Routes = {
   PROFILE: '/profile',
   PROFILE_SETTINGS: '/profile-settings',
   NOTIFICATIONS: '/notifications',
-  NOTIFICATIONS_NEW: '/notifications/new-notifications',
-  NOTIFICATIONS_ALL: '/notifications/all-notifications',
   COINS: '/coins',
   FEEDBACK: '/feedback',
   TEAM: '/team',

@@ -3,7 +3,7 @@ import { Theme } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import { Tag } from 'ui-kit/index';
 
-import s from './infoCard.module.scss';
+import s from './InfoCard.module.scss';
 
 type Type = 'notification' | 'coin';
 
@@ -24,9 +24,9 @@ interface Item {
 const imageObject = {
   notification: {
     background: 'green',
-    icon: <ICONS.WARNING_CIRCLE className={s.card__icon} />,
+    icon: <ICONS.WARNING_CIRCLE className={s.notification__icon} />,
   },
-  coin: { background: 'blue', icon: <ICONS.COIN className={s.card__icon} /> },
+  coin: { background: 'blue', icon: <ICONS.COIN className={s.coin__icon} /> },
 };
 
 export const InfoCard = ({

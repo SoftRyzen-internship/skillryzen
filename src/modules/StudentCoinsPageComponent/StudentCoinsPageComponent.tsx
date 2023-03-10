@@ -8,14 +8,14 @@ import { IThemeContext } from 'constans/types';
 
 import { Breadcrumbs, IconButton, Input, Tabs } from 'ui-kit/index';
 
-import { NotificationsCardList } from './NotificationsCardList';
+import { CoinsCardList } from './CoinsCardList';
 
-import s from './StudentNotificationsPageComponent.module.scss';
+import s from './StudentCoinsPageComponent.module.scss';
 
 const testsArray = [
   {
     id: 1,
-    title: 'You were added to company',
+    title: '+ 2 coins',
     text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
     number: 3,
   },
@@ -24,17 +24,17 @@ const testsArray = [
 const tabs = [
   {
     id: 1,
-    name: 'userNotifications.newNotifications',
+    name: 'userCoins.newCoins',
     component: '',
   },
   {
     id: 2,
-    name: 'userNotifications.allNotifications',
+    name: 'userCoins.myCoins',
     component: '',
   },
 ];
 
-export const StudentNotificationsPageComponent = () => {
+export const StudentCoinsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const [size, setSize] = useState<'large' | 'small'>('large');
@@ -45,17 +45,15 @@ export const StudentNotificationsPageComponent = () => {
   };
 
   return (
-    <div
-      className={`${s.notificationsPage} ${s[`notificationsPage--${theme}`]}`}
-    >
+    <div className={`${s.coinsPage} ${s[`coinsPage--${theme}`]}`}>
       <Breadcrumbs />
       <div className={s.flexContainerTitle}>
         <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
-          {t('userNotifications.pageTitle')}
+          {t('userCoins.pageTitle')}
         </h2>
         <Input
           name='search'
-          placeholder={t('userNotifications.search')}
+          placeholder={t('userCoins.search')}
           button={true}
           icon={<ICONS.SEARCH className={s.inputIcon} />}
           theme={theme}
@@ -94,7 +92,7 @@ export const StudentNotificationsPageComponent = () => {
           </button>
         </div>
       </div>
-      <NotificationsCardList size={size} testsArray={testsArray} />
+      <CoinsCardList size={size} testsArray={testsArray} />
     </div>
   );
 };

@@ -88,6 +88,12 @@
       "timeTitle": "Your best time"
     }
   },
+  "userCoins": {
+    "pageTitle": "Coins",
+    "search": "Search..",
+    "newCoins": "New coins",
+    "myCoins": "My coins"
+  },
   "userNotifications": {
     "pageTitle": "Notifications",
     "search": "Search..",
@@ -233,23 +239,23 @@
     "logOut": "Log out",
     "successLogOut": "You have successfully logged out!"
   },
-  "invite":{
-    "title":"Invite module",
-    "student.tab":"Invite student",
-    "admin.tab":"Invite admin",
-    "choose.test":"Choose test",
-    "description":"JavaScript is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
-    "download.button":"Download QR code",
-    "acces.code":"Acces code",
-    "invite.link":"Invite by link",
-    "invite.email":"Invite by email",
-    "email":"E-mail",
-    "sup.text":"Supporting text",
-    "another.user":"Add another user",
-    "role":"Role",
-    "create.invite":"Create invite",
-    "create.tests":"Create tets",
-    "add.users":"Add users",
-    "delete.users":"Delete users"
+  "invite": {
+    "title": "Invite module",
+    "student.tab": "Invite student",
+    "admin.tab": "Invite admin",
+    "choose.test": "Choose test",
+    "description": "JavaScript is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS.",
+    "download.button": "Download QR code",
+    "acces.code": "Acces code",
+    "invite.link": "Invite by link",
+    "invite.email": "Invite by email",
+    "email": "E-mail",
+    "sup.text": "Supporting text",
+    "another.user": "Add another user",
+    "role": "Role",
+    "create.invite": "Create invite",
+    "create.tests": "Create tets",
+    "add.users": "Add users",
+    "delete.users": "Delete users"
   }
 }

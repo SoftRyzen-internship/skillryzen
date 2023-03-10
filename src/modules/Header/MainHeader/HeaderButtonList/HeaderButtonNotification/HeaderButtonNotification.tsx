@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
 
@@ -12,6 +15,7 @@ export const HeaderButtonNotification = () => {
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const iconColor = {
     dark: 'var(--primary-txt-cl)',
     light: 'var(--accent-cl)',
@@ -34,7 +38,12 @@ export const HeaderButtonNotification = () => {
   ];
   const mouseEnterHandler = () => {
     setPopup(
-      <Popup list={tempList} vievAll={t('header.viewAll')} theme={theme} />
+      <Popup
+        handleClickLink={() => navigate(ROUTES.NOTIFICATIONS)}
+        list={tempList}
+        vievAll={t('header.viewAll')}
+        theme={theme}
+      />
     );
   };
   const mouseLeaveHandler = () => {

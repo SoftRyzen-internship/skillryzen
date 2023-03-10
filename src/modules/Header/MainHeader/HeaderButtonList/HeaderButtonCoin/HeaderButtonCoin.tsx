@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
+
+import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
 
@@ -11,6 +14,7 @@ export const HeaderButtonCoin = () => {
   const { theme }: IThemeContext = useThemeContext();
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   // тимчасовий масив, далі буде приходити з бекенду
   const tempList = [
@@ -26,7 +30,12 @@ export const HeaderButtonCoin = () => {
 
   const mouseEnterHandler = () => {
     setPopup(
-      <Popup list={tempList} vievAll={t('header.viewAll')} theme={theme} />
+      <Popup
+        handleClickLink={() => navigate(ROUTES.COINS)}
+        list={tempList}
+        vievAll={t('header.viewAll')}
+        theme={theme}
+      />
     );
   };
   const mouseLeaveHandler = () => {
