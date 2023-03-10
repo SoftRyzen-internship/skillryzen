@@ -1,20 +1,21 @@
 .section {
   margin: 0 auto;
-  padding-top: 80px;
+  padding-top: 30px;
 
   font-size: var(--text-lg);
   text-align: center;
 }
 
-.formTitle {
-  margin-top: 80px;
-  margin-bottom: 16px;
+.loginTitle {
+  margin-top: 150px;
+  margin-bottom: 12px;
+
   font-size: var(--title);
   font-weight: var(--extrabold);
 }
 
-.logIn {
-  margin-bottom: 28px;
+.loginSubtitle {
+  margin-bottom: 20px;
 }
 
 .link {

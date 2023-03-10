@@ -7,6 +7,7 @@ import { logIn, auth, logOut } from './operations';
 interface User {
   email: string;
   displayName?: string;
+  registrationInvitationToken: string;
   role: string;
 }
 
@@ -22,7 +23,8 @@ const initialState: Auth = {
   user: {
     email: '',
     displayName: '',
-    role: 'STUDENT',
+    registrationInvitationToken: '',
+    role: 'CANDIDATE',
   },
   isLoggedIn: false,
   isLoading: false,
@@ -40,6 +42,12 @@ const authSlice = createSlice({
 
     setRole(state, action: PayloadAction<string>) {
       state.user.role = action.payload;
+    },
+    setToken(state, action: PayloadAction<string>) {
+      state.user.registrationInvitationToken = action.payload;
+    },
+    setName(state, action: PayloadAction<string>) {
+      state.user.displayName = action.payload;
     },
   },
   extraReducers: (builder) =>
@@ -93,5 +101,5 @@ const persistConfig = {
   whitelist: ['isLoggedIn'],
 };
 
-export const { setStep, setRole } = authSlice.actions;
+export const { setStep, setRole, setToken, setName } = authSlice.actions;
 export const authReducer = persistReducer(persistConfig, authSlice.reducer);

@@ -1,1 +1,1 @@
-export {LogOutFinish} from './LogOutFinish';
+export { LogOutFinish } from './LogOutFinish';

@@ -129,6 +129,9 @@
     "continueBtn": "Продовжити",
     "skipBtn": "Заповнити пізніше",
 
+    "codeValidation": "Спробуйте інший код",
+    "codeRequired": "Код компанії є обов'язковим",
+
     "candidateIntro": [
       "Пройти тест з JavaScript",
       "Отримати сертифікат",
@@ -137,7 +140,7 @@
       "Отримати"
     ],
 
-    "companyIntro": [
+    "company_ownerIntro": [
       "Створення власних тестів",
       "Необмежена кількість учасників",
       "Можливість надавати доступ до команди",
@@ -174,7 +177,8 @@
     "button.save": "Зберегти",
     "button.cancel": "Відмінити",
     "button.update": "Оновити",
-    "edit.password": "Змінити пароль"
+    "edit.password": "Змінити пароль",
+    "validation.currentPassword.spaces": "Пробіли заборонені в паролі"
   },
   "editProfileForm": {
     "edit.profile": "Змінити профіль",

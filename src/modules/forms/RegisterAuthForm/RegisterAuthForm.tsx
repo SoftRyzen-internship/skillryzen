@@ -4,16 +4,16 @@ import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 import { MainButton, Checkbox } from 'ui-kit';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 import { register, logIn } from 'redux/authSlice/operations';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 
-import { validationSchema } from './validationSchema';
-
+import { useValidationSchema } from './useValidationSchema';
 import s from './RegisterAuthForm.module.scss';
+import { handleError } from 'utils/handleError';
 
 interface MyFormValues {
   email: string;
@@ -39,6 +39,9 @@ export const RegisterAuthForm = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
+  const { role, registrationInvitationToken } = useAppSelector(
+    (state) => state.auth.user
+  );
   const [showPassword, setShowPassword] = useState(false);
 
   // const handleClickGoogle = () => {};
@@ -50,19 +53,25 @@ export const RegisterAuthForm = () => {
       checkbox: false,
     },
 
-    validationSchema,
+    validationSchema: useValidationSchema(),
 
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
       const { email, password } = values;
 
-      dispatch(register({ email, password, displayName: 'coolName' })).then(
-        ({ meta }) =>
-          meta.requestStatus === 'fulfilled' &&
-          dispatch(logIn({ email, password })).then(
-            ({ meta }) =>
-              meta.requestStatus === 'fulfilled' && dispatch(setStep(3))
-          )
+      const resp = await dispatch(
+        register({ email, password, role, registrationInvitationToken })
       );
+
+      if (resp.meta.requestStatus === 'fulfilled') {
+        dispatch(logIn({ email, password })).then(
+          ({ meta }) =>
+            meta.requestStatus === 'fulfilled' && dispatch(setStep(3))
+        );
+      }
+
+      if (resp.meta.requestStatus === 'rejected') {
+        setErrors(handleError({ resp, email, password }));
+      }
     },
   });
 
@@ -72,9 +81,11 @@ export const RegisterAuthForm = () => {
     touched,
     isValid,
     dirty,
+    isSubmitting,
     handleBlur,
     handleChange,
     handleSubmit,
+    setErrors,
   } = formik;
 
   return (
@@ -161,7 +172,7 @@ export const RegisterAuthForm = () => {
         size='large'
         text={t('auth.continueBtn')}
         type='submit'
-        disabled={!isValid || !dirty}
+        disabled={!isValid || !dirty || isSubmitting}
       />
     </form>
   );

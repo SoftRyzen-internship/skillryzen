@@ -1,10 +1,10 @@
 .section {
   margin: 0 auto;
-  padding-top: 9.77vh;
+  padding-top: 30px;
 
   display: flex;
   flex-direction: column;
-  gap: 3.9vh;
+  gap: 40px;
 }
 
 .formWrapper {
@@ -12,16 +12,16 @@
   text-align: center;
 }
 
-.formTitle {
-  margin: 0 auto 14px;
+.stepTitle {
+  margin: 0 auto 12px;
   max-width: 369px;
 
   font-size: var(--title);
   font-weight: var(--extrabold);
 }
 
-.logIn {
-  margin-bottom: 20px;
+.stepSubtitle {
+  margin-bottom: 12px;
 }
 
 .link {
@@ -29,10 +29,11 @@
   text-decoration: underline;
 }
 
-.skipBtn {
-  margin-top: 32px;
+.skip {
+  display: block;
+  margin-top: 16px;
 
-  font-size: (--text-md);
+  font-size: var(--text-md);
   font-weight: var(--bold);
   color: var(--accent-cl);
 
