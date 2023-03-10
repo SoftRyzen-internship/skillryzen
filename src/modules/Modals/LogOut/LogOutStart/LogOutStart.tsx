@@ -1,5 +1,3 @@
-// import { useThemeContext } from 'context/themeContext';
-// import { IThemeContext } from 'constans/types';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'routes/routes.const';
@@ -18,7 +16,6 @@ export const LogOutStart = ({
   onClick,
   handleClickLogOutBtn,
 }: LogOutStartProps) => {
-  // const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   const onClickLogOutBtn = () => {

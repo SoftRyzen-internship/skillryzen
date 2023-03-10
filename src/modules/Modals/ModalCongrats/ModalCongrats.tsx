@@ -1,5 +1,5 @@
-// import { useThemeContext } from 'context/themeContext';
-// import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'routes/routes.const';
@@ -14,7 +14,7 @@ interface ModalCongratsProps {
 }
 
 export const ModalCongrats = ({ onClick }: ModalCongratsProps) => {
-  // const { theme }: IThemeContext = useThemeContext();
+  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   return (
     <div className={s.container}>
@@ -25,9 +25,13 @@ export const ModalCongrats = ({ onClick }: ModalCongratsProps) => {
         height='84'
         className={s.image}
       />
-      <p className={s.title}>{t('modalCongrats.title1')}</p>
-      <p className={s.titleRest}>{t('modalCongrats.title2')}</p>
-      <p className={s.subtitle}>
+      <p className={theme === 'dark' ? s.titleDark : s.titleLight}>
+        {t('modalCongrats.title1')}
+      </p>
+      <p className={theme === 'dark' ? s.titleRestDark : s.titleRestLight}>
+        {t('modalCongrats.title2')}
+      </p>
+      <p className={theme === 'dark' ? s.subtitleDark : s.subtitleLight}>
         {t('modalCongrats.subtitle')}
         <span>
           <Link className={s.link} to={ROUTES.PROFILE} onClick={onClick}>

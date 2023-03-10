@@ -33,4 +33,9 @@
   background-color: transparent;
   border: 2px solid var(--accent-cl);
   color: var(--accent-cl);
+
+  &:hover {
+    filter: drop-shadow(1px 2px 8px rgba(1, 37, 233, 0.54));
+    background-color: transparent;
+  }
 }

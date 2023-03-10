@@ -1,6 +1,4 @@
 .container {
-  // width: 536px;
-  // min-height: 517px;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -11,34 +9,43 @@
   margin-bottom: 40px;
 }
 
-.title {
+.titleDark {
   width: 351px;
-
   font-weight: var(--extrabold);
   font-size: var(--title);
   text-align: center;
 }
+.titleLight {
+  composes: titleDark;
+  color: var(--primary-cl);
+}
 
-.titleRest {
-  composes: title;
+.titleRestDark {
+  composes: titleDark;
   margin-bottom: 40px;
-
   font-weight: var(--bold);
   font-size: var(--subtitle);
 }
+.titleRestLight {
+  composes: titleRestDark;
+  color: var(--primary-cl);
+}
 
-.subtitle {
-  composes: title;
+.subtitleDark {
+  composes: titleDark;
   width: 292px;
   margin-bottom: 56px;
   font-weight: var(--bold);
   font-size: var(--text-lg);
   text-align: center;
-  // text-align: left;
+}
+.subtitleLight {
+  composes: subtitleDark;
+  color: var(--primary-cl);
 }
 
 .link {
-  composes: subtitle;
+  composes: subtitleDark;
   color: var(--accent-cl);
 }
 
@@ -49,5 +56,4 @@
 
 .modalBtn {
   min-width: 130px;
-  // margin-bottom: 40px;
 }
