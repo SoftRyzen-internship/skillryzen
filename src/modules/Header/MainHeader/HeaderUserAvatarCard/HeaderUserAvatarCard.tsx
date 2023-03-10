@@ -4,13 +4,16 @@ import { useTranslation } from 'react-i18next';
 import { logOut } from 'redux/authSlice/operations';
 import { useAppDispatch } from 'hooks/hook';
 
+import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
+import { LogOutFinish } from 'modules/Modals/LogOut/LogOutFinish';
+
 import { useThemeContext } from 'context/themeContext';
 import { getRandomInt } from 'utils/getRandomInt';
 
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
-import { UserAvatarCard, Popup } from 'ui-kit/index';
+import { UserAvatarCard, Popup, Modal } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
 
 import s from './HeaderUserAvatarCard.module.scss';
@@ -25,6 +28,8 @@ interface HeaderUserAvatarCardProps {
 export const HeaderUserAvatarCard = ({
   className,
 }: HeaderUserAvatarCardProps) => {
+  const [isShowModal, setIsShowModal] = useState(false);
+  const [isClickLogOutBtn, setIsClickLogOutBtn] = useState(false);
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
@@ -62,10 +67,20 @@ export const HeaderUserAvatarCard = ({
     light: 'var(--accent-cl)',
   };
 
+  const handleClickModal = () => {
+    setIsShowModal((prevState) => !prevState);
+  };
+
   const handleClickPopupItem = (text: string) => {
     if (text === t('header.userAvatar.logOut')) {
-      dispatch(logOut());
+      handleClickModal();
     }
+  };
+
+  const handleClickLogOutBtn = () => {
+    setIsClickLogOutBtn(true);
+    dispatch(logOut());
+    // console.log('YOU ARE LOGOUT');
   };
 
   const mouseEnterHandler = () => {
@@ -118,6 +133,18 @@ export const HeaderUserAvatarCard = ({
         theme={theme}
       />
       {popup ? <div className={s.popup}>{popup}</div> : null}
+      {isShowModal && (
+        <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
+          {!isClickLogOutBtn ? (
+            <LogOutStart
+              onClick={handleClickModal}
+              handleClickLogOutBtn={handleClickLogOutBtn}
+            />
+          ) : (
+            <LogOutFinish onClick={handleClickModal} />
+          )}
+        </Modal>
+      )}
     </div>
   );
 };
