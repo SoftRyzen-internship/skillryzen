@@ -24,7 +24,7 @@
   }
 }
 
-.backdrop {
+.backdropDark {
   position: fixed;
   top: 0;
   left: 0;
@@ -33,19 +33,16 @@
   background-color: rgba(10, 14, 41, 0.7);
   z-index: 100;
 }
+.backdropLight {
+  composes: backdropDark;
+  background-color: rgba(157, 159, 181, 0.7);
+}
 
-.modal {
+.modalDark {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  // display: flex;
-  // align-items: center;
-  // flex-direction: column;
-  // min-width: 536px;
-  // min-height: 378px;
-  // padding: 20px;
 
   background-color: var(--components-cl);
   border-radius: 12px;
@@ -53,8 +50,14 @@
   border: 1px solid var(--accent-cl);
   box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
 }
+.modalLight {
+  composes: modalDark;
+  background-color: var(--light-components-cl);
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
 
-.closeModalBtn {
+.closeModalBtnDark {
   position: absolute;
   top: 16px;
   right: 16px;
@@ -67,4 +70,10 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+}
+.closeModalBtnLight {
+  composes: closeModalBtnDark;
+  & path {
+    stroke: var(--accent-cl);
+  }
 }

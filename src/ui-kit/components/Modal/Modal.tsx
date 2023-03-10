@@ -1,4 +1,6 @@
 import { useEffect } from 'react';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import s from './Modal.module.scss';
 
@@ -15,6 +17,8 @@ export const Modal = ({
   isCloseIcon,
   children,
 }: ModalProps) => {
+  const { theme }: IThemeContext = useThemeContext();
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isCloseIcon) return;
@@ -36,10 +40,23 @@ export const Modal = ({
   };
 
   return (
-    <div className={s.backdrop} onClick={isCloseIcon && handleBackdropClick}>
-      <div className={`${s.modal} ${isShowModal ? s.fadeIn : s.fadeOut}`}>
+    <div
+      className={theme === 'dark' ? s.backdropDark : s.backdropLight}
+      onClick={isCloseIcon && handleBackdropClick}
+    >
+      <div
+        className={`${theme === 'dark' ? s.modalDark : s.modalLight} ${
+          isShowModal ? s.fadeIn : s.fadeOut
+        }`}
+      >
         {isCloseIcon && (
-          <button type='button' className={s.closeModalBtn} onClick={onClick}>
+          <button
+            type='button'
+            className={
+              theme === 'dark' ? s.closeModalBtnDark : s.closeModalBtnLight
+            }
+            onClick={onClick}
+          >
             <ICONS.CROSS_SMALL />
           </button>
         )}
