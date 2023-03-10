@@ -49,8 +49,7 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
         <ICONS.FILTER_TWO className={s.filter__icon} />
         <span>{t('testsMain.filter')}</span>
       </button>
-      {isOpen && (
-        <ul className={s.filter__list}>
+        <ul className={`${s.filter__list} ${!isOpen && s[`filter__list--hidden`]}`}>
           {data.map((item, index) => (
             <li key={index}>
               <Checkbox
@@ -63,7 +62,6 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
             </li>
           ))}
         </ul>
-      )}
     </div>
   );
 };

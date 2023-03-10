@@ -25,6 +25,7 @@ import ImgMytrofanov from 'assets/images/team/Mytrofanov.jpg';
 import ImgNikolaenko from 'assets/images/team/Nikolaenko.jpg';
 import ImgMoskalenko from 'assets/images/team/Moskalenko.jpg';
 import ImgSerhiienko from 'assets/images/team/Serhiienko.jpg';
+import ImgFilchenko from 'assets/images/team/Filchenko.jpg';
 
 import { Img } from 'constans/types';
 
@@ -56,4 +57,5 @@ export const IMAGES: Img = {
   NIKOLAENKO: ImgNikolaenko,
   MOSKALENKO: ImgMoskalenko,
   SERHIIENKO: ImgSerhiienko,
+  FILCHENKO: ImgFilchenko,
 };

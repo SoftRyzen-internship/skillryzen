@@ -27,7 +27,7 @@ export const team = [
     id: 3,
     name: 'Vitalii Filchenko',
     position: 'Front-End Developer',
-    image: 'MYTROFANOV',
+    image: 'FILCHENKO',
     social: {
       behance: '',
       dribble: '',

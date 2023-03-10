@@ -33,7 +33,11 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
   const [array, setArray] = useState<TeamList[]>([]);
 
   const onPageChange = (currentPage: number) => {
-    const filteredTeamArray = team.filter((item) => item.name.toLowerCase().includes(name.toLowerCase()));
+    const filteredTeamArray = team.filter(
+      (item) =>
+        item.name.toLowerCase().includes(name.toLowerCase()) &&
+        (positions.length === 0 || positions.includes(item.position))
+    );
     const totalPages = Math.ceil(filteredTeamArray.length / itemsForPage);
     const start = itemsForPage * (currentPage - 1);
     const end = start + itemsForPage;
@@ -56,10 +60,22 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
               position={item.position}
               image={IMAGES[item.image]}
               social={[
-                item.social.behance && { name: 'behance', url: `${item.social.behance}` },
-                item.social.dribble && { name: 'dribble', url: `${item.social.dribble}` },
-                item.social.github && { name: 'github', url: `${item.social.github}` },
-                item.social.linkedin && { name: 'linkedin', url: `${item.social.linkedin}` },
+                item.social.behance && {
+                  name: 'behance',
+                  url: `${item.social.behance}`,
+                },
+                item.social.dribble && {
+                  name: 'dribble',
+                  url: `${item.social.dribble}`,
+                },
+                item.social.github && {
+                  name: 'github',
+                  url: `${item.social.github}`,
+                },
+                item.social.linkedin && {
+                  name: 'linkedin',
+                  url: `${item.social.linkedin}`,
+                },
               ]}
             />
           </li>
