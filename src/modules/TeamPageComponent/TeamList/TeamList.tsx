@@ -1,3 +1,5 @@
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
 import { useEffect, useState } from 'react';
 import { Pagination } from 'ui-kit';
 import { TeamCard } from 'ui-kit/components/Card/TeamCard';
@@ -29,6 +31,7 @@ interface TeamListProps {
 const itemsForPage = 4;
 
 export const TeamList = ({ name, positions }: TeamListProps) => {
+  const { theme }: IThemeContext = useThemeContext();
   const [totalPages, setTotalPages] = useState<number>(null);
   const [array, setArray] = useState<TeamList[]>([]);
 
@@ -56,6 +59,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
         {array.map((item) => (
           <li key={item.id}>
             <TeamCard
+              theme={theme}
               name={item.name}
               position={item.position}
               image={IMAGES[item.image]}

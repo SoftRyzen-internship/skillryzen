@@ -3,7 +3,7 @@
 }
 
 .filter__button {
-  padding: 11px;
+  padding: 9px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,11 +28,11 @@
 }
 
 .filter__button--active {
-    color: var(--accent-cl);
+  color: var(--accent-cl);
 
-    .filter__icon path {
-      stroke: var(--accent-cl);
-    }
+  .filter__icon path {
+    stroke: var(--accent-cl);
+  }
 }
 
 .filter__button--dark:hover {
@@ -55,14 +55,54 @@
 
 .filter__list {
   position: absolute;
-  top: 45px;
+  z-index: 999;
+  top: 42px;
   right: 0;
 
-  background: var(--components-cl);
   padding: 16px;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &--dark {
+    background-color: var(--components-cl);
+  }
+
+  &--light {
+    background: var(--light-components-cl);
+    box-shadow: var(--light-primary-shadow);
+  }
 }
 
 .filter__list--hidden {
   display: none;
+}
+
+.filter__item {
+  min-width: 180px;
+  padding-bottom: 4px;
+
+  &--dark {
+    border-bottom: 1px solid var(--light-primary-txt-cl);
+  }
+
+  &--light {
+    border-bottom: 1px solid var(--light-primary-cl);
+  }
+}
+
+.filter__checkbox {
+  font-size: 14px;
+  background-color: transparent;
+}
+
+.filter__checkbox--light {
+  composes: filter__checkbox;
+  color: var(--light-primary-txt-cl);
+}
+
+.filter__checkbox--dark {
+  composes: filter__checkbox;
+  color: var(--primary-txt-cl);
 }

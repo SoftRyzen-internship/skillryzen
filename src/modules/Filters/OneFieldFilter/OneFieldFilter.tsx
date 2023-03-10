@@ -31,7 +31,6 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
     };
   }, []);
 
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.checked
       ? setPositions((prev) => [...prev, e.target.id])
@@ -49,19 +48,24 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
         <ICONS.FILTER_TWO className={s.filter__icon} />
         <span>{t('testsMain.filter')}</span>
       </button>
-        <ul className={`${s.filter__list} ${!isOpen && s[`filter__list--hidden`]}`}>
-          {data.map((item, index) => (
-            <li key={index}>
-              <Checkbox
-                name='filterPosition'
-                id={item}
-                label={item}
-                type='filter'
-                onChange={handleChange}
-              />
-            </li>
-          ))}
-        </ul>
+      <ul
+        className={`${s.filter__list} ${!isOpen && s[`filter__list--hidden`]} ${
+          s[`filter__list--${theme}`]
+        }`}
+      >
+        {data.map((item, index) => (
+          <li key={index} className={`${s.filter__item} ${s[`filter__item--${theme}`]}`}>
+            <Checkbox
+              name='filterPosition'
+              id={item}
+              label={item}
+              type='filter'
+              onChange={handleChange}
+              labelClassName={`${s[`filter__checkbox--${theme}`]}`}
+            />
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };
