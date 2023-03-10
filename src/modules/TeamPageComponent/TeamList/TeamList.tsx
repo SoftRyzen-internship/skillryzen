@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Pagination } from 'ui-kit';
 import { TeamCard } from 'ui-kit/components/Card/TeamCard';
 import { IMAGES } from 'ui-kit/images';
-import team from 'utils/team.json';
+import { team } from 'utils/team.js';
 
 import s from './TeamList.module.scss';
 
@@ -43,6 +43,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
 
   useEffect(() => {
     onPageChange(1);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name, positions]);
 
   return (
