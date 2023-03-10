@@ -13,7 +13,7 @@ export const Breadcrumbs = () => {
   const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
 
   useEffect(() => {
-    const paths = pathname.split('/').filter((p) => p);
+    const paths = pathname.split('/').filter(Boolean);
     const newBreadcrumbs = paths.map((path, i) => {
       const routePath = `/${paths.slice(0, i + 1).join('/')}`;
       const label = ROUTES[routePath] ?? path;
