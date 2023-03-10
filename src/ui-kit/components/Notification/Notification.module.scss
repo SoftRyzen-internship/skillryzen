@@ -1,0 +1,64 @@
+.notification {
+  position: relative;
+  padding: 8px 16px 8px 60px;
+  min-width: 400px;
+
+  position: absolute;
+  right: 16px;
+  bottom: 24px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+
+  font-size: var(--text-md);
+  font-weight: var(--bold);
+  text-align: left;
+
+  border-radius: 8px;
+  overflow: hidden;
+
+  color: var(--light-primary-cl);
+  background-color: var(--disabled-cl);
+
+  .context {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    span {
+      font-size: var(--text-sm);
+      font-weight: var(--regular);
+
+      color: var(--secondary-txt-cl);
+    }
+  }
+
+  button {
+    height: 24px;
+  }
+}
+
+.notification::before {
+  content: '';
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  display: block;
+  width: 48px;
+  height: 100%;
+
+  background-color: var(--wrong-cl);
+  background-image: url('assets/svg/shield-check.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.cross {
+  path {
+    stroke: var(--wrong-cl);
+  }
+}

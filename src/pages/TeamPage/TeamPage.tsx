@@ -1,7 +1,7 @@
 import { TeamPageComponent } from 'modules/TeamPageComponent/TeamPageComponent';
 
 const TeamPage = () => {
-  return <TeamPageComponent/>;
+  return <TeamPageComponent />;
 };
 
 export default TeamPage;

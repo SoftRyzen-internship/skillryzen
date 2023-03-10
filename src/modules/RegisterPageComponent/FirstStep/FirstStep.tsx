@@ -11,8 +11,8 @@ export const FirstStep = () => {
 
   return (
     <div className={s.formWrapper}>
-      <h2 className={s.formTitle}>{t('auth.roleTitle')}</h2>
-      <p className={s.logIn}>
+      <h2 className={s.stepTitle}>{t('auth.roleTitle')}</h2>
+      <p className={s.stepSubtitle}>
         {t('auth.loginLabel')}{' '}
         <NavLink to={ROUTES.LOGIN} className={s.link}>
           {t('auth.loginLink')}
