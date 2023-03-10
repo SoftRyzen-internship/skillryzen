@@ -6,19 +6,17 @@ import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { Input, Breadcrumbs } from 'ui-kit/index';
 
-import s from './TestsSearch.module.scss';
+import s from './TeamSearch.module.scss';
 
-export const TestsSearch = () => {
+export const TesamSearch = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   return (
-    <div className={s.teamSearch}>
-      <Breadcrumbs />
-      <div className={s.teamSearch__wrapper}>
+      <div className={s.teamSearch}>
         <h2
           className={`${s.teamSearch__title} ${
-            s[`testsSearch__title--${theme}`]
+            s[`teamSearch__title--${theme}`]
           }`}
         >
           Our team
@@ -31,6 +29,5 @@ export const TestsSearch = () => {
           theme={theme}
         />
       </div>
-    </div>
   );
 };

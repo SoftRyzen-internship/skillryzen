@@ -1,17 +1,19 @@
 .teamSearch {
   display: flex;
-  flex-direction: column;
-  gap: 6px;
-  margin-bottom: 40px;
-}
-
-.teamSearch__wrapper {
-  display: flex;
   justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 20px;
 }
 
-.testsSearch__title {
+.teamSearch__title {
   font-size: 30px;
   font-weight: 800;
-  color: var(--primary-txt-cl);
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
