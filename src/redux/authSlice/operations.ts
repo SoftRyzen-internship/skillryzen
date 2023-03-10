@@ -8,6 +8,8 @@ interface loginPayload {
 }
 
 interface registerPayload extends loginPayload {
+  role: string;
+  registrationInvitationToken: string;
   displayName?: string;
 }
 

@@ -56,7 +56,8 @@
   }
 
   &:focus + label,
-  &:not(:placeholder-shown) + label {
+  &:not(:placeholder-shown) + label,
+  &:-webkit-autofill + label {
     top: 0%;
     font-size: 12px;
     margin: 0px 4px;
@@ -71,12 +72,6 @@
     caret-color: var(--light-primary-cl);
     -webkit-text-fill-color: var(--light-primary-cl);
     -webkit-background-clip: text;
-  }
-
-  &:not(:placeholder-shown) ~ label,
-  &:-webkit-autofill ~ label {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
   }
 }
 
@@ -105,10 +100,12 @@
   bottom: -20px;
   left: 16px;
 
-  text-transform: capitalize;
-
   font-size: 12px;
   color: var(--error-cl);
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
 .boxOrDark {

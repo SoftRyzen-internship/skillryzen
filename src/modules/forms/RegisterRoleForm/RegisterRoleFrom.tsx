@@ -1,10 +1,11 @@
+import { axiosInstance } from 'services/axiosConfig';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 
 import { MainButton } from 'ui-kit';
-import { setRole, setStep } from 'redux/authSlice/authSlice';
+import { setRole, setStep, setToken } from 'redux/authSlice/authSlice';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 
 import { useThemeContext } from 'context/themeContext';
@@ -33,10 +34,16 @@ export const RegisterRoleForm = () => {
   const dispatch = useAppDispatch();
 
   const [code, setCode] = useState('');
-  const [isValid, setIsValid] = useState(false);
+  const [isValid, setIsValid] = useState(null);
+  const [companyName, setCompanyName] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (role === 'CANDIDATE') {
+      dispatch(setToken(code));
+    }
+
     dispatch(setStep(2));
   };
 
@@ -45,14 +52,29 @@ export const RegisterRoleForm = () => {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCode(e.target.value);
+    const value = e.target.value.trim();
 
-    if (e.target.value.length === 5) {
-      setIsValid(true);
-      return;
+    setCode(value);
+
+    const regex = /^[A-Z0-9]{22}$/;
+
+    if (value.match(regex)) {
+      axiosInstance
+        .get('company/get-by-token', { params: { token: e.target.value } })
+        .then(({ data }) => setCompanyName(data.companyName))
+        .then(() => setIsValid(true))
+        .catch(() => {
+          setCompanyName('');
+          setIsValid(false);
+        });
     }
+  };
 
-    setIsValid(false);
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (e.target.value.length !== 22) {
+      setCompanyName('');
+      setIsValid(false);
+    }
   };
 
   return (
@@ -66,8 +88,8 @@ export const RegisterRoleForm = () => {
               type='radio'
               name='role'
               id='candidate'
-              value='STUDENT'
-              checked={role === 'STUDENT'}
+              value='CANDIDATE'
+              checked={role === 'CANDIDATE'}
               onChange={handleRoleChange}
             />
             <label
@@ -84,8 +106,8 @@ export const RegisterRoleForm = () => {
               type='radio'
               name='role'
               id='company'
-              value='COMPANY'
-              checked={role === 'COMPANY'}
+              value='COMPANY_OWNER'
+              checked={role === 'COMPANY_OWNER'}
               onChange={handleRoleChange}
             />
             <label
@@ -98,26 +120,37 @@ export const RegisterRoleForm = () => {
           </li>
         </ul>
       </fieldset>
-      {role === 'STUDENT' && (
-        <label className={`${s.label} ${isValid ? s.valid : s.invalid}`}>
+      {role === 'CANDIDATE' && (
+        <label
+          className={`${s.label} ${
+            (isValid === false && s.invalid) || (isValid === true && s.valid)
+          }`}
+        >
           <input
             onChange={handleChange}
+            onBlur={handleBlur}
             className={objectTheme[theme].codeInput}
             name='code'
             value={code}
             placeholder='&#32;'
           />
           <span className={s.placeholder}>{t('auth.codePlaceholder')}</span>
+          <p className={s.errMsg}>
+            {isValid === false &&
+              (code.length > 0
+                ? t('auth.codeValidation')
+                : t('auth.codeRequired'))}
+          </p>
         </label>
       )}
       <ul className={s.buttonsList}>
-        {isValid && role === 'STUDENT' && (
+        {companyName && role === 'CANDIDATE' && (
           <li>
             <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
             <MainButton
               className={objectTheme[theme].companyName}
               size='large'
-              text='GoIT'
+              text={companyName}
               type='button'
               needBackground='noBackgroundAccent'
             />
@@ -129,7 +162,7 @@ export const RegisterRoleForm = () => {
             text={t('auth.accountBtn')}
             type='submit'
             color='blue'
-            disabled={!isValid && role === 'STUDENT'}
+            disabled={!isValid && role === 'CANDIDATE'}
           />
         </li>
       </ul>

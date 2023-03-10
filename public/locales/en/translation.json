@@ -123,7 +123,10 @@
     "continueBtn": "Continue",
     "skipBtn": "Do this later",
 
-    "studentIntro": [
+    "codeValidation": "Try another code",
+    "codeRequired": "Company code is required",
+
+    "candidateIntro": [
       "Take a test in JavaScript",
       "Obtain a certificate",
       "Updated passing once every 10 days",
@@ -131,7 +134,7 @@
       "Obtain"
     ],
 
-    "companyIntro": [
+    "company_ownerIntro": [
       "Creating your own tests",
       "Unlimited number of participants",
       "Possibility to grant team access",

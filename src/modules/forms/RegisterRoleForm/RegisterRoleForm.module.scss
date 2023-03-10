@@ -54,7 +54,7 @@
   cursor: pointer;
 }
 
-.placeholder{
+.placeholder {
   position: absolute;
   top: 15px;
   left: 16px;
@@ -83,7 +83,8 @@
   background-color: transparent;
 
   &:not(:placeholder-shown) + .placeholder,
-  &:focus + .placeholder {
+  &:focus + .placeholder,
+  &:-webkit-autofill + .placeholder {
     padding: 0 4px;
     transform: translateY(-23px);
 
@@ -149,7 +150,6 @@
 }
 
 .valid {
-
   & > input:not(:placeholder-shown) {
     border-color: var(--success-cl);
     color: var(--success-cl);
@@ -164,35 +164,51 @@
     height: 24px;
     background-image: url('assets/svg/check-validation.svg');
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    caret-color: var(--success-cl);
+    -webkit-text-fill-color: var(--success-cl);
+    -webkit-background-clip: text;
+  }
 }
 
-// .invalid {
-  // color: var(--error-cl);
+.invalid {
+  input {
+    color: var(--error-cl);
+    border-color: var(--error-cl);
+  }
 
-  // & > input:not(:placeholder-shown) {
-  //   border-color: var(--error-cl);
-  // }
+  .errMsg {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
 
-  // &::before{
-  //   content: 'Спробуйте інший код';
-  //   position: absolute;
-  //   bottom: -34px;
-  //   left: 16px;
-  //   display: inline-block;
-  //   font-size: var(--text-sm);
-  //   color: var(--error-cl);
-  // }
+    font-size: var(--text-sm);
+    color: var(--error-cl);
+  }
 
-  // &::after{
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 12px;
-  //   width: 24px;
-  //   height: 24px;
-  //   background-image: url('assets/svg/warning-circle.svg');
-  // }
-// }
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background-image: url('assets/svg/warning-circle.svg');
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    caret-color: var(--error-cl);
+    -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
+}
 
 .companyNameDark {
   padding: 13px 0;
@@ -200,9 +216,11 @@
   color: inherit;
   border-width: 1px;
 
+  cursor: default;
+
   &:hover,
   &:active,
-  &:focus{
+  &:focus {
     background-color: transparent;
   }
 }

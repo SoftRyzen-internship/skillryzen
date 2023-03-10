@@ -124,7 +124,7 @@ export const RegisterContactsForm = () => {
             {t('auth.surnamePlaceholder')}
           </label>
         </li>
-        {role === 'COMPANY' && (
+        {role === 'COMPANY_OWNER' && (
           <li
             className={`${s.floatingGroup} ${
               touched.companyName &&

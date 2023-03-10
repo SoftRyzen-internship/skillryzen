@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
 import { MainButton, Checkbox } from 'ui-kit';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 import { register, logIn } from 'redux/authSlice/operations';
 
@@ -13,6 +13,7 @@ import { IThemeContext } from 'constans/types';
 
 import { useValidationSchema } from './useValidationSchema';
 import s from './RegisterAuthForm.module.scss';
+import { handleError } from 'utils/handleError';
 
 interface MyFormValues {
   email: string;
@@ -38,8 +39,10 @@ export const RegisterAuthForm = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
+  const { role, registrationInvitationToken } = useAppSelector(
+    (state) => state.auth.user
+  );
   const [showPassword, setShowPassword] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
 
   // const handleClickGoogle = () => {};
 
@@ -55,8 +58,8 @@ export const RegisterAuthForm = () => {
     onSubmit: async (values) => {
       const { email, password } = values;
 
-      const resp: any = await dispatch(
-        register({ email, password, displayName: 'coolName' })
+      const resp = await dispatch(
+        register({ email, password, role, registrationInvitationToken })
       );
 
       if (resp.meta.requestStatus === 'fulfilled') {
@@ -67,9 +70,7 @@ export const RegisterAuthForm = () => {
       }
 
       if (resp.meta.requestStatus === 'rejected') {
-        const msg = resp.payload.data.errors.code.replaceAll('_', ' ');
-
-        setErrorMsg(msg);
+        setErrors(handleError({ resp, email, password }));
       }
     },
   });
@@ -84,6 +85,7 @@ export const RegisterAuthForm = () => {
     handleBlur,
     handleChange,
     handleSubmit,
+    setErrors,
   } = formik;
 
   return (
@@ -102,15 +104,12 @@ export const RegisterAuthForm = () => {
       <div
         className={`${s.floatingGroup} ${
           touched.email &&
-          (errors.email || errorMsg
-            ? s.floatingLabelError
-            : s.floatingLabelValid)
+          (errors.email ? s.floatingLabelError : s.floatingLabelValid)
         }`}
       >
-        {touched.email && errors.email && !errorMsg && (
+        {touched.email && errors.email && (
           <p className={s.errorMsg}>{errors.email}</p>
         )}
-        {errorMsg && <p className={s.errorMsg}>{errorMsg}</p>}
         <input
           className={objectTheme[theme].input}
           name='email'

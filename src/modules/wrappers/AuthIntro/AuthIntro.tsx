@@ -18,7 +18,7 @@ export const AuthIntro = () => {
     <section className={s.sectionRegister}>
       <div
         className={`${
-          role === 'student' ? s.authCandidateBg : s.authCompanyBg
+          role === 'candidate' ? s.authCandidateBg : s.authCompanyBg
         }`}
       >
         <ul className={s.introMetaList}>

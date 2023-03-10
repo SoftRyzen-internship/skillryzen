@@ -56,7 +56,8 @@
   }
 
   &:focus + label,
-  &:not(:placeholder-shown) + label {
+  &:not(:placeholder-shown) + label,
+  &:-webkit-autofill + label {
     top: 0%;
     font-size: 12px;
     margin: 0px 4px;
@@ -65,7 +66,8 @@
   }
 
   &:focus + .floatingLabelPhone,
-  &:not(:placeholder-shown) + .floatingLabelPhone {
+  &:not(:placeholder-shown) + .floatingLabelPhone,
+  &:-webkit-autofill + .floatingLabelPhone {
     left: 17px;
   }
 
@@ -76,12 +78,6 @@
     caret-color: var(--light-primary-cl);
     -webkit-text-fill-color: var(--primary-txt-cl);
     -webkit-background-clip: text;
-  }
-
-  &:not(:placeholder-shown) ~ label,
-  &:-webkit-autofill ~ label {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
   }
 }
 

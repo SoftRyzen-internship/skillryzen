@@ -55,12 +55,15 @@
   }
 
   &:focus + label,
-  &:not(:placeholder-shown) + label {
-    top: 0%;
-    font-size: 12px;
+  &:not(:placeholder-shown) + label,
+  &:-webkit-autofill + label {
     margin: 0px 4px;
-    background-color: var(--primary-cl);
     padding: 0px 4px;
+    top: 0%;
+
+    font-size: 12px;
+
+    background-color: var(--primary-cl);
   }
 
   &:-webkit-autofill,
@@ -70,13 +73,6 @@
     caret-color: var(--light-primary-cl);
     -webkit-text-fill-color: var(--light-primary-cl);
     -webkit-background-clip: text;
-  }
-
-  &:not(:placeholder-shown) ~ label,
-  &:-webkit-autofill ~ label {
-    font-size: 16px;
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
   }
 }
 
@@ -107,6 +103,10 @@
 
   font-size: 12px;
   color: var(--error-cl);
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
 .boxOrDark {

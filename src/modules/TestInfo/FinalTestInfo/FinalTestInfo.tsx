@@ -96,7 +96,6 @@ export const FinalTestInfo = ({
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
   return (
     <div className={finishTest ? s.containerFinish : s.containerStart}>
       <div className={s.imageThumb}>
@@ -246,7 +245,9 @@ export const FinalTestInfo = ({
         color='blue'
         className={!(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''}
       />
-      {!finishTest && windowWidth <= 1280 && <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>}
+      {!finishTest && windowWidth <= 1280 && (
+        <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
+      )}
     </div>
   );
 };

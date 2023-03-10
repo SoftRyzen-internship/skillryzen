@@ -5,7 +5,7 @@ interface Routes {
 }
 
 export const ROUTES: Routes = {
-  HOME:'/',
+  HOME: '/',
   LOGIN: '/login',
   REGISTER: '/register',
   DASHBOARD: '/dashboard',

@@ -17,10 +17,10 @@ interface Timer {
 
 export const Timer = ({ theme = 'dark' }: Timer) => {
   const { hasNextQuestion, questionId, totalTime, currentTime, number } =
-  useAppSelector((state) => state.testingInfo);
+    useAppSelector((state) => state.testingInfo);
   const timeResult = useAppSelector(getResultTime);
   const timeLeft = useAppSelector(getTimeLeft);
- 
+
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(currentTime);
 
@@ -28,7 +28,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     if (timeResult) return;
     if (!totalTime) return;
 
-    if (seconds === 0  && questionId) {
+    if (seconds === 0 && questionId) {
       dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
       return;
     }
@@ -60,7 +60,9 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
 
   return (
     <div>
-      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>Time left:</p>
+      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
+        Time left:
+      </p>
       <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
         {timeResult ? convertTime(timeLeft) : convertTime(seconds)}
       </p>

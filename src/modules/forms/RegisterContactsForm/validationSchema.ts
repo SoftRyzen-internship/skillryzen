@@ -23,7 +23,7 @@ export const useValidationSchema = () => {
           : '';
       })
       .matches(
-      // eslint-disable-next-line no-useless-escape
+        // eslint-disable-next-line no-useless-escape
         /((\+38)\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))/,
         t('editProfileForm.validation.phone.format')
       )

@@ -12,7 +12,11 @@
     "baseUrl": ".",
     "paths": {
       "*": ["./src/*"]
-    }
+    },
+    "lib": [
+      "es2021",
+      "DOM"
+    ],
   },
   "ts-node": {
     "compilerOptions": {

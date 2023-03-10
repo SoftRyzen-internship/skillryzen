@@ -23,7 +23,7 @@ export interface TestingInfo {
   }[];
   hasNextQuestion: boolean;
   questionsTotalCount: number;
-  totalTime: number,
+  totalTime: number;
   currentTime: number;
   results: Results;
   isLoading: boolean;
@@ -49,7 +49,7 @@ const testingInfoSlice = createSlice({
   name: 'testingInfo',
   initialState,
   reducers: {
-    setTime(state, action: PayloadAction<{time: number, timeLeft: number}>) {
+    setTime(state, action: PayloadAction<{ time: number; timeLeft: number }>) {
       state.results.time = action.payload.time;
       state.results.timeLeft = action.payload.timeLeft;
     },
@@ -141,7 +141,8 @@ const persistConfig = {
   ],
 };
 
-export const { setTime, removeResults, setCurrentTime } = testingInfoSlice.actions;
+export const { setTime, removeResults, setCurrentTime } =
+  testingInfoSlice.actions;
 export const testingInfoReducer = persistReducer(
   persistConfig,
   testingInfoSlice.reducer
