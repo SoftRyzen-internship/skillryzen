@@ -15,7 +15,7 @@ axiosInstance.interceptors.response.use(
         try {
           await axiosInstance({
             ...originalConfig,
-            method: 'get',
+            method: 'post',
             url: 'auth/refresh',
           });
           return axiosInstance(originalConfig);
