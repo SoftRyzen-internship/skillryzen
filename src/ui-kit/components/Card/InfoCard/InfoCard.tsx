@@ -63,8 +63,8 @@ export const InfoCard = ({
       </div>
       <div className={s.card__addInfoWrapper}>
         <Tag type='number' theme={theme} label={number + ' min ago'} />
-        <button className={s.card__close} onClick={onClick}>
-          {<ICONS.CROSS_SMALL className={s.card__closeIcon} />}
+        <button className={`${s.card__close} ${s[`card__close--${theme}`]}`} onClick={onClick}>
+          {<ICONS.CROSS_SMALL className={`${s.card__closeIcon} ${s[`card__closeIcon--${theme}`]}`} />}
         </button>
       </div>
     </div>
