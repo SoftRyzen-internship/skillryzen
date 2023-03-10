@@ -88,6 +88,12 @@
       "timeTitle": "Your best time"
     }
   },
+  "userNotifications": {
+    "pageTitle": "Notifications",
+    "search": "Search..",
+    "newNotifications": "New notifications",
+    "allNotifications": "All notifications"
+  },
   "auth": {
     "roleTitle": "Choose your role",
     "contactTitle": "Give us more information about you!",
