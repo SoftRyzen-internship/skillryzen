@@ -23,9 +23,9 @@ export const SocialList = ({
   };
   return (
     <ul className={`${s.list} ${className}`}>
-      {social.map((item) => {
+      {social.filter(item => item).map((item, index) => {
         return (
-          <li className={s.item} key={item.url}>
+          <li className={s.item} key={index}>
             <a
               className={`${s[`link--${theme}`]}`}
               href={item.url}
