@@ -1,11 +1,11 @@
-.teamSearch {
+.teamFilter {
   display: flex;
   justify-content: space-between;
   margin-top: 8px;
   margin-bottom: 20px;
 }
 
-.teamSearch__title {
+.teamFilter__title {
   font-size: 30px;
   font-weight: 800;
 
@@ -16,4 +16,9 @@
   &--dark {
     color: var(--primary-txt-cl);
   }
+}
+
+.teamFilter__wrapper {
+  display: flex;
+  gap: 12px;
 }
