@@ -30,7 +30,7 @@ export const Checkbox = ({
     case 'form':
       return `${s.label} ${s.labelForm}`;
     case 'filter':
-      return `${s.label} ${s.labelFilter}`;
+      return `${s.label} ${s.labelFilter} ${labelClassName}`;
 
     case 'custom':
       return `${s.label} ${labelClassName}`;
@@ -53,13 +53,11 @@ export const Checkbox = ({
           }
         }}
       />
-      <span className={s.checkbox}>
         {checked ? (
-          <ICONS.CHECK_ROUND />
+          <ICONS.CHECK_ROUND className={s.checkbox}/>
         ) : (
-          <ICONS.DEFAULT_CHECKBOX className={s.checkboxColor} />
+          <ICONS.DEFAULT_CHECKBOX className={`${s.checkbox} ${s.checkboxColor}`} />
         )}
-      </span>
       {label}
     </label>
   );

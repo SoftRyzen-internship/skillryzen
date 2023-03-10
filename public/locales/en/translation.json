@@ -237,6 +237,7 @@
     "title1": "Your Message",
     "title2": "submitted successfully!"
   },
+  "team": { "title": "Our team" },
   "logOutModal": {
     "subtitle": "Are you sure you want to log out?",
     "cancel": "Cancel",

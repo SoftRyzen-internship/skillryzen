@@ -125,10 +125,22 @@
   align-items: center;
   justify-content: center;
 
-  background-color: var(--primary-cl);
   border-radius: 10px;
+
+  &--dark {
+    background-color: var(--primary-cl);
+  }
+
+  &--light {
+    background-color: var(--light-primary-cl);
+  }
 }
 
-.card__closeIcon path {
+.card__closeIcon--dark path {
   stroke: var(--secondary-txt-cl);
 }
+
+.card__closeIcon--light path {
+  stroke: var(--accent-cl);
+}
+

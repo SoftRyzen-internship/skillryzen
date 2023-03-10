@@ -8,7 +8,7 @@ import s from './TeamPageComponent.module.scss';
 export const TeamPageComponent = () => {
   const [name, setName] = useState('');
   const [positions, setPositions] = useState<string[]>([]);
-
+  
   return (
     <div className={s.teamPage}>
       <Breadcrumbs />

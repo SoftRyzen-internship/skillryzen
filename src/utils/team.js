@@ -1,8 +1,29 @@
+export const positionsData = {
+  OWNER: 'Owner',
+  FRONT_END: 'Front-End Developer',
+  BACK_END: 'Back-End Developer',
+  DESIGNER: 'Designer',
+  QA: 'QA',
+  PM: 'Project manager',
+};
+
 export const team = [
   {
     id: 1,
+    name: 'Alexander Khomenko',
+    position: positionsData.BACK_END,
+    image: 'KHOMENKO',
+    social: {
+      behance: '',
+      dribble: '',
+      github: 'https://github.com/AlexKhomenko00',
+      linkedin: 'https://www.linkedin.com/in/khomenkooleksandr/',
+    },
+  },
+  {
+    id: 2,
     name: 'Daria Serhiienko',
-    position: 'Designer',
+    position: positionsData.DESIGNER,
     image: 'SERHIIENKO',
     social: {
       behance: 'https://www.behance.net/dariaserhiienko',
@@ -12,9 +33,9 @@ export const team = [
     },
   },
   {
-    id: 2,
+    id: 3,
     name: 'Artem Mytrofanov',
-    position: 'QA',
+    position: positionsData.QA,
     image: 'MYTROFANOV',
     social: {
       behance: '',
@@ -24,10 +45,10 @@ export const team = [
     },
   },
   {
-    id: 3,
+    id: 4,
     name: 'Vitalii Filchenko',
-    position: 'Front-End Developer',
-    image: 'MYTROFANOV',
+    position: positionsData.FRONT_END,
+    image: 'FILCHENKO',
     social: {
       behance: '',
       dribble: '',
@@ -36,9 +57,9 @@ export const team = [
     },
   },
   {
-    id: 4,
+    id: 5,
     name: 'Oksana Kuznietsova',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'KUZNIETSOVA',
     social: {
       behance: '',
@@ -48,9 +69,9 @@ export const team = [
     },
   },
   {
-    id: 5,
+    id: 6,
     name: 'Anna Gubarieva',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'GUBARIEVA',
     social: {
       behance: '',
@@ -60,9 +81,9 @@ export const team = [
     },
   },
   {
-    id: 6,
+    id: 7,
     name: 'Vita Kostiuk',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'KOSTIUK',
     social: {
       behance: '',
@@ -72,9 +93,9 @@ export const team = [
     },
   },
   {
-    id: 7,
+    id: 8,
     name: 'Ihor Khabuzov',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'KHABUZOV',
     social: {
       behance: '',
@@ -84,9 +105,9 @@ export const team = [
     },
   },
   {
-    id: 8,
+    id: 9,
     name: 'Aleksander Nikolaenko',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'NIKOLAENKO',
     social: {
       behance: '',
@@ -96,9 +117,9 @@ export const team = [
     },
   },
   {
-    id: 9,
+    id: 10,
     name: 'Vitalii Kretsul',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'KRETSUL',
     social: {
       behance: '',
@@ -108,9 +129,9 @@ export const team = [
     },
   },
   {
-    id: 10,
+    id: 11,
     name: 'Vlad Moskalenko',
-    position: 'Front-End Developer',
+    position: positionsData.FRONT_END,
     image: 'MOSKALENKO',
     social: {
       behance: '',

@@ -6,14 +6,17 @@ import { Input } from 'ui-kit/index';
 import { OneFieldFilter } from 'modules/Filters/OneFieldFilter/OneFieldFilter';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
-import { filterData } from './filterData';
+import { positionsData } from 'utils/team';
 
 import s from './TeamFilter.module.scss';
+
 
 interface TeamsearchProps {
   setName: React.Dispatch<React.SetStateAction<string>>;
   setPositions: React.Dispatch<React.SetStateAction<string[]>>;
 }
+
+const positionsList = Object.values(positionsData);
 
 export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
   const [input, setInput] = useState('');
@@ -37,9 +40,9 @@ export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
   return (
     <div className={s.teamFilter}>
       <h2
-        className={`${s.teamFilter__title} ${s[`teamSearch__title--${theme}`]}`}
+        className={`${s.teamFilter__title} ${s[`teamFilter__title--${theme}`]}`}
       >
-        Our team
+        {t('team.title')}
       </h2>
       <div className={s.teamFilter__wrapper}>
         <Input
@@ -52,7 +55,7 @@ export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
           onChange={handleChange}
           onClick={handleClick}
         />
-        <OneFieldFilter data={filterData} setPositions={setPositions} />
+        <OneFieldFilter data={positionsList} setPositions={setPositions}/>
       </div>
     </div>
   );
