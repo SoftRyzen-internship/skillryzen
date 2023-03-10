@@ -11,11 +11,21 @@ import s from './LogOutStart.module.scss';
 
 interface LogOutStartProps {
   onClick: () => void;
+  handleClickLogOutBtn: () => void;
 }
 
-export const LogOutStart = ({ onClick }: LogOutStartProps) => {
+export const LogOutStart = ({
+  onClick,
+  handleClickLogOutBtn,
+}: LogOutStartProps) => {
   // const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+
+  const onClickLogOutBtn = () => {
+    // console.log('click on log out btn');
+    handleClickLogOutBtn();
+  };
+
   return (
     <div className={s.container}>
       <img
@@ -38,7 +48,7 @@ export const LogOutStart = ({ onClick }: LogOutStartProps) => {
         <MainButton
           type='button'
           text={t('logOutModal.logOut')}
-          onClick={onClick}
+          onClick={onClickLogOutBtn}
           size='small'
           color='blue'
           className={s.logOutBtn}
