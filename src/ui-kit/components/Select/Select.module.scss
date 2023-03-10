@@ -1,0 +1,27 @@
+.wrapper {
+  width: 334px;
+  padding: 11px 20px;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--accent-cl);
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+
+  &--dark {
+    background-color: var(--secondary-cl);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 8px;
+  right: 24px;
+
+  path {
+    stroke: var(--accent-cl);
+  }
+}

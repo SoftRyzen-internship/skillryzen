@@ -63,15 +63,15 @@ export const StudentProfilePageComponent = () => {
       time: '01:15:36',
     },
     tests: [
-      // {
-      //   id: 1,
-      //   title: 'FullStuck_Final_Test',
-      //   text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
-      //   fields: ['HTML', 'CSS', 'React', 'Javascript'],
-      //   author: 'GoIt',
-      //   number: 50,
-      //   time: 3,
-      // },
+      {
+        id: 1,
+        title: 'FullStuck_Final_Test',
+        text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+        fields: ['HTML', 'CSS', 'React', 'Javascript'],
+        author: 'GoIt',
+        number: 50,
+        time: 3,
+      },
       // {
       //   id: 2,
       //   title: 'FullStuck_Final_Test',

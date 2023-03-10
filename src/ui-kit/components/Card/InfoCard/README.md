@@ -8,9 +8,9 @@ InfoCard
 
 # Властивості
 
-type - тип картки. Може бути 'notification' або 'coin'. 
+type - тип картки. Може бути 'notification' або 'coin'.
 size - розмір картки. Може бути 'large' або 'small'.
-item - це об'єкт з властивостями: title, text, number. 
+item - це об'єкт з властивостями: title, text, number.
 onClick - функція, яка виконується при кліку на кнопку закриття.
 
 # Приклад використання
