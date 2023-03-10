@@ -88,6 +88,12 @@
       "timeTitle": "Your best time"
     }
   },
+  "userCoins": {
+    "pageTitle": "Coins",
+    "search": "Search..",
+    "newCoins": "New coins",
+    "myCoins": "My coins"
+  },
   "userNotifications": {
     "pageTitle": "Notifications",
     "search": "Search..",

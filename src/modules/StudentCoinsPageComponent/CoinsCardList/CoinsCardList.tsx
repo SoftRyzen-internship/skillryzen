@@ -4,35 +4,31 @@ import { IThemeContext } from 'constans/types';
 import { InfoCard } from 'ui-kit';
 import { useThemeContext } from 'context/themeContext';
 
-import s from './NotificationCardList.module.scss';
+import s from './CoinsCardList.module.scss';
 
-interface TestsListProps {
-  size?: 'large' | 'small';
-}
-
-interface Item {
+interface Card {
   id: number;
   title: string;
   text: string;
   number: number;
 }
 
-interface TestsList {
+interface CoinsCardListProps {
   size: 'large' | 'small';
-  testsArray: Item[];
+  testsArray: Card[];
 }
 
-export const NotificationCardList = ({ size, testsArray }: TestsList) => {
+export const CoinsCardList = ({ size, testsArray }: CoinsCardListProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   return (
-    <ul className={`${s[`notificationsList--${size}`]}`}>
+    <ul className={`${s[`coinsList--${size}`]}`}>
       {testsArray.map((item) => (
         <li key={item.id}>
           <InfoCard
             size={size}
-            type='notification'
+            type='coin'
             item={{
               title: item.title,
               text: item.text,

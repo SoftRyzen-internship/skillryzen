@@ -1,0 +1,97 @@
+.coinsPage {
+  padding: 32px 60px 52px 64px;
+  width: 100%;
+
+  &--light {
+    transition: var(--transition);
+    background-color: var(--light-cards-cl);
+  }
+
+  &--dark {
+    transition: var(--transition);
+    background-color: var(--primary-cl);
+  }
+}
+
+.flexContainerTitle {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+
+.pageTitle {
+  font-family: var(--font-family);
+  font-weight: var(--extrabold);
+  font-size: var(--title);
+  transition: var(--transition);
+}
+.pageTitle--dark {
+  color: var(--primary-txt-cl);
+}
+.pageTitle--light {
+  color: var(--light-primary-txt-cl);
+}
+.inputIcon {
+  display: block;
+  fill: var(--secondary-txt-cl);
+}
+
+.flexContainerTabs {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  margin-bottom: 22px;
+}
+
+.buttonsContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.itemButton {
+  margin-left: 10px;
+}
+.filterButton {
+  padding: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  border-radius: 10px;
+
+  &--light {
+    color: var(--accent-cl);
+    background-color: var(--light-components-cl);
+    box-shadow: var(--light-primary-shadow);
+
+    .filterIcon path {
+      stroke: var(--accent-cl);
+    }
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    background-color: var(--components-cl);
+    transition: color var(--transition);
+  }
+}
+
+.filterButton--dark:hover,
+.filterButton--dark:focus {
+  color: var(--accent-cl);
+
+  .filterIcon path {
+    stroke: var(--accent-cl);
+  }
+}
+
+.filterIcon {
+  width: 22px;
+  height: 22px;
+
+  path {
+    stroke: var(--primary-txt-cl);
+    transition: stroke var(--transition);
+  }
+}

@@ -13,6 +13,7 @@ interface IProps {
   list: TItem[];
   vievAll?: string;
   handleClickItem?: (text: string) => void;
+  handleClickLink?: () => void;
   theme?: Theme;
 }
 
@@ -20,6 +21,7 @@ export const Popup = ({
   list,
   vievAll,
   handleClickItem,
+  handleClickLink,
   theme = 'dark',
 }: IProps) => {
   const { t } = useTranslation();
@@ -28,6 +30,7 @@ export const Popup = ({
       <button
         className={vievAll ? s.vievAllVisible : s.vievAllHidden}
         type='button'
+        onClick={handleClickLink ? () => handleClickLink() : null}
       >
         {vievAll}
       </button>
