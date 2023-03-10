@@ -15,7 +15,7 @@ import { handleError } from 'utils/handleError';
 import { useValidationSchema } from './useValidationSchema';
 
 import s from './LoginForm.module.scss';
-import { logIn } from 'redux/authSlice/operations';
+import { logIn, auth } from 'redux/authSlice/operations';
 
 interface MyFormValues {
   email: string;
@@ -57,7 +57,11 @@ export const LoginForm = () => {
       const resp = await dispatch(logIn({ email, password }));
 
       if (resp.meta.requestStatus === 'fulfilled') {
-        navigate(ROUTES.CERTIFICATION);
+        dispatch(auth()).then((resp) => {
+          if (resp.meta.requestStatus === 'fulfilled') {
+            navigate(ROUTES.CERTIFICATION);
+          }
+        });
       }
 
       if (resp.meta.requestStatus === 'rejected') {

@@ -13,7 +13,7 @@ interface User {
 
 interface Auth {
   user: User;
-  isLoggedIn: boolean;
+  isAuth: boolean;
   isLoading: boolean;
   isError: boolean;
   step: number;
@@ -26,7 +26,7 @@ const initialState: Auth = {
     registrationInvitationToken: '',
     role: 'CANDIDATE',
   },
-  isLoggedIn: false,
+  isAuth: false,
   isLoading: false,
   isError: false,
   step: 1,
@@ -55,22 +55,22 @@ const authSlice = createSlice({
       .addCase(logIn.fulfilled, (state) => {
         state.isLoading = false;
         state.isError = false;
-        state.isLoggedIn = true;
       })
       .addCase(auth.fulfilled, (state, action: PayloadAction<User>) => {
         state.user.email = action.payload.email;
         state.user.role = action.payload.role;
+        state.isAuth = true;
       })
       .addCase(logOut.fulfilled, (state) => {
         state.user = initialState.user;
-        state.isLoggedIn = false;
+        state.isAuth = false;
         state.isLoading = false;
         state.isError = false;
       })
       .addCase(logIn.pending, (state) => {
         state.isLoading = true;
         state.isError = false;
-        state.isLoggedIn = false;
+        state.isAuth = false;
       })
       .addMatcher(
         (action) => action.type.endsWith('/pending'),
@@ -81,7 +81,7 @@ const authSlice = createSlice({
       .addMatcher(
         (action) => action.type.endsWith('/rejected'),
         (state) => {
-          state.isLoggedIn = false;
+          state.isAuth = false;
           state.isLoading = false;
           state.isError = true;
         }
@@ -98,7 +98,7 @@ const authSlice = createSlice({
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['isLoggedIn'],
+  whitelist: ['isAuth'],
 };
 
 export const { setStep, setRole, setToken, setName } = authSlice.actions;
