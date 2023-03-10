@@ -1,42 +1,50 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-
-import TestsPage from 'pages/TestsPage/TestsPage';
-
+import { useEffect, useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { ROUTES } from 'routes/routes.const';
 import s from './Breadcrumbs.module.scss';
 
-// Маршрути не дійсні, це заглушка для відображення
-const routes = [
-  { path: '/tests', element: <TestsPage /> },
-  { path: '/allTests', element: <TestsPage /> },
-];
-
-interface routes {
-  path: string;
-  element: JSX.Element;
-}
-
-export interface BreadcrumbsProps {
-  breadcrumbs?: routes[];
-}
-
 function convertTitle(title: string) {
-  return title?.split('/')[1]?.charAt(0)?.toUpperCase() + title?.slice(2);
+  return title.charAt(0).toUpperCase() + title.slice(1);
+}
+
+interface Breadcrumb {
+  label: string;
+  path: string;
 }
 
 export const Breadcrumbs = () => {
+  const { pathname } = useLocation();
+  const [breadcrumbs, setBreadcrumbs] = useState<Breadcrumb[]>([]);
+
+  useEffect(() => {
+    const paths = pathname.split('/').filter((p) => p);
+    const newBreadcrumbs = paths.map((path, i) => {
+      const routePath = `/${paths.slice(0, i + 1).join('/')}`;
+      const prelabel = ROUTES[routePath] ?? path;
+      const label = convertTitle(prelabel);
+      return { label, path: routePath };
+    });
+    setBreadcrumbs(newBreadcrumbs);
+  }, [pathname]);
+
   return (
-    <ul className={s.breadcrumbs}>
-      {routes?.map(({ path }) => (
-        <li key={path} className={s.crumbs}>
-          <NavLink
-            to={path}
-            className={({ isActive }) => (isActive ? s.active : undefined)}
-          >
-            {convertTitle(path)}
-          </NavLink>
-        </li>
-      ))}
-    </ul>
+    <nav>
+      <ul className={s.breadcrumbs}>
+        {breadcrumbs.map(({ path, label }, i) => (
+          <li key={path} className={s.crumbs}>
+            {i === breadcrumbs.length - 1 ? (
+              label
+            ) : (
+              <NavLink
+                to={path}
+                className={({ isActive }) => (isActive ? s.active : undefined)}
+              >
+                {label}
+              </NavLink>
+            )}
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 };

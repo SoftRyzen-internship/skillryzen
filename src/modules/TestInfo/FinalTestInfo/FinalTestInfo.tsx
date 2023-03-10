@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
-import { MainButton } from 'ui-kit';
+import { Breadcrumbs, MainButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
 import s from './FinalTestInfo.module.scss';
@@ -98,6 +98,7 @@ export const FinalTestInfo = ({
 
   return (
     <div className={finishTest ? s.containerFinish : s.containerStart}>
+      <Breadcrumbs />
       <div className={s.imageThumb}>
         <img
           className={s.image}
