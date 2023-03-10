@@ -12,8 +12,8 @@ export const TeamPageComponent = () => {
   return (
     <div className={s.teamPage}>
       <Breadcrumbs />
-      <TeamFilter setName={setName} setPositions={setPositions}/>
-      <TeamList name={name} positions={positions}/>
+      <TeamFilter setName={setName} setPositions={setPositions} />
+      <TeamList name={name} positions={positions} />
     </div>
   );
 };

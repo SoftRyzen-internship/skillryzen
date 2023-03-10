@@ -1,1 +1,1 @@
-export {ModalCongrats} from './ModalCongrats';
+export { ModalCongrats } from './ModalCongrats';

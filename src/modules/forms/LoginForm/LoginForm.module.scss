@@ -6,25 +6,29 @@
 
 .checkboxLabel {
   padding-left: 36px;
-  color: var(--secondary-txt-cl);
+
   font-size: 14px;
   line-height: 1.6;
+
+  color: var(--secondary-txt-cl);
 
   cursor: pointer;
 }
 
 .floatingGroup {
   position: relative;
-  margin-bottom: 24px;
+  margin-bottom: 30px;
 }
 
 .floatingLabel {
   position: absolute;
-  color: var(--secondary-txt-cl);
   top: 50%;
   left: 16px;
-  transform: translateY(-50%);
+
   font-size: 16px;
+
+  color: inherit;
+  transform: translateY(-50%);
   transition: color 250ms ease-in-out, top 250ms ease-in-out;
 }
 
@@ -34,7 +38,7 @@
   padding: 13px 16px;
   font-size: 16px;
   line-height: 1;
-  color: var(--primary-txt-cl);
+  color: inherit;
   border-radius: 5px;
   outline: none;
   border: 1px solid var(--disabled-cl);
@@ -51,31 +55,34 @@
   }
 
   &:focus + label,
-  &:not(:placeholder-shown) + label {
-    top: 0%;
-    font-size: 12px;
+  &:not(:placeholder-shown) + label,
+  &:-webkit-autofill + label {
     margin: 0px 4px;
-    background-color: var(--primary-cl);
     padding: 0px 4px;
+    top: 0%;
+
+    font-size: 12px;
+
+    background-color: var(--primary-cl);
   }
+
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
-    -webkit-text-fill-color: var(--primary-txt-cl);
+    caret-color: var(--light-primary-cl);
+    -webkit-text-fill-color: var(--light-primary-cl);
     -webkit-background-clip: text;
   }
 }
 
 .inputLight {
   composes: inputDark;
-  color: inherit;
   border: 1px solid var(--light-primary-cl);
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 
   &:focus + label,
   &:not(:placeholder-shown) + label {
-    color: inherit;
     background-color: var(--primary-txt-cl);
   }
 
@@ -83,6 +90,7 @@
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active {
+    caret-color: inherit;
     -webkit-text-fill-color: inherit;
     -webkit-background-clip: text;
   }
@@ -91,17 +99,22 @@
 .errorMsg {
   position: absolute;
   bottom: -20px;
-  left: 20px;
+  left: 16px;
+
   font-size: 12px;
   color: var(--error-cl);
+
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
 .boxOrDark {
-  margin: 16px auto;
+  margin: 12px auto 20px;
+
   display: flex;
-  justify-content: center;
   align-items: center;
-  flex-direction: row;
+
   &::before,
   &::after {
     content: '';
@@ -110,9 +123,11 @@
     width: 50%;
     background-color: var(--disabled-cl);
   }
+
   &::before {
     margin-right: 19px;
   }
+
   &::after {
     margin-left: 19px;
   }
@@ -120,6 +135,7 @@
 
 .boxOrLight {
   composes: boxOrDark;
+
   &::before,
   &::after {
     background-color: var(--light-primary-cl);
@@ -203,7 +219,7 @@
 }
 
 .optionalWrapper {
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 
   display: flex;
   justify-content: space-between;

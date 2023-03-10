@@ -1,11 +1,18 @@
+.form {
+  min-height: 374px;
+
+  display: flex;
+  flex-direction: column;
+}
+
 .formTitle {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .roleList {
-  margin-bottom: 26px;
+  margin-bottom: 24px;
+
   display: flex;
-  justify-content: space-between;
   gap: 24px;
 
   color: var(--secondary-txt-cl);
@@ -33,9 +40,10 @@
 .roleBtn {
   padding: 20px;
   min-width: 200px;
+
   display: flex;
-  gap: 10px;
   flex-direction: column;
+  gap: 10px;
 
   font-weight: var(--bold);
   text-align: left;
@@ -46,23 +54,26 @@
   cursor: pointer;
 }
 
-.inputTitle {
+.placeholder {
   position: absolute;
-  top: 0;
+  top: 15px;
   left: 16px;
 
   display: inline-block;
 
-  color: var(--secondary-txt-cl);
+  color: inherit;
 
   transition: transform var(--transition), font-size var(--transition);
 }
 
 .codeInputDark {
-  position: relative;
-  margin-bottom: 12px;
+  padding: 15px;
+  margin-bottom: 22px;
   width: 100%;
-  padding: 14px 16px;
+
+  position: relative;
+
+  line-height: 1;
 
   border: 1px solid var(--disabled-cl);
   border-radius: 4px;
@@ -71,14 +82,24 @@
 
   background-color: transparent;
 
-  &:not(:placeholder-shown) + .inputTitle,
-  &:focus + .inputTitle {
+  &:not(:placeholder-shown) + .placeholder,
+  &:focus + .placeholder,
+  &:-webkit-autofill + .placeholder {
     padding: 0 4px;
     transform: translateY(-23px);
 
     font-size: var(--text-sm);
 
     background-color: var(--primary-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    caret-color: var(--light-primary-cl);
+    -webkit-text-fill-color: var(--light-primary-cl);
+    -webkit-background-clip: text;
   }
 }
 
@@ -88,9 +109,18 @@
   border: 1px solid var(--light-primary-cl);
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 
-  &:not(:placeholder-shown) + .inputTitle,
-  &:focus + .inputTitle {
+  &:not(:placeholder-shown) + .placeholder,
+  &:focus + .placeholder {
     background-color: var(--light-cards-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    caret-color: inherit;
+    -webkit-text-fill-color: inherit;
+    -webkit-background-clip: text;
   }
 }
 
@@ -101,9 +131,11 @@
 }
 
 .buttonsList {
+  margin-top: auto;
+
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 16px;
 
   font-size: var(--text-md);
 
@@ -118,49 +150,64 @@
 }
 
 .valid {
-  color: var(--success-cl);
-
   & > input:not(:placeholder-shown) {
     border-color: var(--success-cl);
+    color: var(--success-cl);
   }
 
   &::after {
     content: '';
     position: absolute;
-    top: 0;
+    top: 14px;
     right: 12px;
     width: 24px;
     height: 24px;
     background-image: url('assets/svg/check-validation.svg');
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    caret-color: var(--success-cl);
+    -webkit-text-fill-color: var(--success-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .invalid {
-  color: var(--error-cl);
-
-  & > input:not(:placeholder-shown) {
+  input {
+    color: var(--error-cl);
     border-color: var(--error-cl);
   }
 
-  // &::before{
-  //   content: 'Спробуйте інший код';
-  //   position: absolute;
-  //   bottom: -34px;
-  //   left: 16px;
-  //   display: inline-block;
-  //   font-size: var(--text-sm);
-  //   color: var(--error-cl);
-  // }
+  .errMsg {
+    position: absolute;
+    bottom: 0;
+    left: 16px;
 
-  // &::after{
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   right: 12px;
-  //   width: 24px;
-  //   height: 24px;
-  //   background-image: url('assets/svg/warning-circle.svg');
-  // }
+    font-size: var(--text-sm);
+    color: var(--error-cl);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: 12px;
+    width: 24px;
+    height: 24px;
+    background-image: url('assets/svg/warning-circle.svg');
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  input:-webkit-autofill:active {
+    caret-color: var(--error-cl);
+    -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
 }
 
 .companyNameDark {
@@ -168,6 +215,14 @@
   font-weight: inherit;
   color: inherit;
   border-width: 1px;
+
+  cursor: default;
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: transparent;
+  }
 }
 
 .companyNameLight {

@@ -129,6 +129,9 @@
     "continueBtn": "Continue",
     "skipBtn": "Do this later",
 
+    "codeValidation": "Try another code",
+    "codeRequired": "Company code is required",
+
     "candidateIntro": [
       "Take a test in JavaScript",
       "Obtain a certificate",
@@ -137,7 +140,7 @@
       "Obtain"
     ],
 
-    "companyIntro": [
+    "company_ownerIntro": [
       "Creating your own tests",
       "Unlimited number of participants",
       "Possibility to grant team access",
@@ -174,7 +177,8 @@
     "button.save": "Save",
     "button.cancel": "Cancel",
     "button.update": "Update",
-    "edit.password": "Edit password"
+    "edit.password": "Edit password",
+    "validation.currentPassword.spaces": "Spaces are not allowed in the password"
   },
   "editProfileForm": {
     "edit.profile": "Edit profile",

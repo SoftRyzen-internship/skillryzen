@@ -47,7 +47,7 @@ export const IMAGES: Img = {
   GOIT_AVATAR: ImgGoItAvatar,
   LOG_OUT: ImgLogOut,
   HAND: ImgHand,
-  STAR:ImgStar,
+  STAR: ImgStar,
   HEART: ImgHeart,
   GUBARIEVA: ImgGubarieva,
   KHABUZOV: ImgKhabuzov,
