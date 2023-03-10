@@ -6,12 +6,13 @@ interface IProps {
   name: string;
   placeholder: string;
   type?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   value?: string;
   icon?: JSX.Element;
   button?: boolean;
   theme?: Theme;
   readOnly?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?:  React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Input = ({
@@ -20,11 +21,12 @@ export const Input = ({
   placeholder,
   type,
   icon,
-  onChange,
   value,
   button,
   theme = 'dark',
   readOnly,
+  onChange,
+  onClick,
 }: IProps) => {
   return (
     <label className={s.inputContainer}>
@@ -38,7 +40,7 @@ export const Input = ({
         readOnly={readOnly}
       />
       {button && (
-        <button className={icon ? s.iconVisible : s.iconHidden} type='button'>
+        <button className={icon ? s.iconVisible : s.iconHidden} type='button' onClick={onClick}>
           {icon ? icon : null}
         </button>
       )}

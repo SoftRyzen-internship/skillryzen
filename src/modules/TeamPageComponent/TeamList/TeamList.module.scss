@@ -1,5 +1,11 @@
 .teamList {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 28px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.teamList__pagination {
+  position: absolute;
+  right: 60px;
+  bottom: 35px;
 }
