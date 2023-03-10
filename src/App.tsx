@@ -23,7 +23,7 @@ export const App = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    if (isLoggedIn && step !== 2) {
+    if (isLoggedIn) {
       dispatch(auth());
     }
   }, [dispatch, isLoggedIn, step]);
