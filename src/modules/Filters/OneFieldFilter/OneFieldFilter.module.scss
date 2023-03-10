@@ -28,11 +28,11 @@
 }
 
 .filter__button--active {
-    color: var(--accent-cl);
+  color: var(--accent-cl);
 
-    .filter__icon path {
-      stroke: var(--accent-cl);
-    }
+  .filter__icon path {
+    stroke: var(--accent-cl);
+  }
 }
 
 .filter__button--dark:hover {

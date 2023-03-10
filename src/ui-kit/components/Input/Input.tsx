@@ -12,7 +12,7 @@ interface IProps {
   theme?: Theme;
   readOnly?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onClick?:  React.MouseEventHandler<HTMLButtonElement>;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export const Input = ({
@@ -40,7 +40,11 @@ export const Input = ({
         readOnly={readOnly}
       />
       {button && (
-        <button className={icon ? s.iconVisible : s.iconHidden} type='button' onClick={onClick}>
+        <button
+          className={icon ? s.iconVisible : s.iconHidden}
+          type='button'
+          onClick={onClick}
+        >
           {icon ? icon : null}
         </button>
       )}

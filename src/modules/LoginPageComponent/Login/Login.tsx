@@ -3,18 +3,27 @@ import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { LoginForm } from 'modules/Forms';
+import { useAppDispatch } from 'hooks/hook';
+import { setStep } from 'redux/authSlice/authSlice';
 
 import s from './Login.module.scss';
 import { Logo } from 'ui-kit';
+import { useEffect } from 'react';
 
 export const Login = () => {
   const { t } = useTranslation();
 
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(setStep(1));
+  }, [dispatch]);
+
   return (
     <section className={s.section}>
       <Logo content='SkillRyzen' />
-      <h2 className={s.formTitle}>{t('auth.loginTitle')}</h2>
-      <p className={s.logIn}>
+      <h2 className={s.loginTitle}>{t('auth.loginTitle')}</h2>
+      <p className={s.loginSubtitle}>
         {t('auth.registerLabel')}{' '}
         <NavLink to={ROUTES.REGISTER} className={s.link}>
           {t('auth.registerLink')}
