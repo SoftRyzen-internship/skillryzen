@@ -7,42 +7,41 @@ import { ROUTES } from 'routes/routes.const';
 import { MainButton } from 'ui-kit';
 import { IMAGES } from 'ui-kit/images';
 
-import s from './ModalCongrats.module.scss';
+import s from './LogOutStart.module.scss';
 
-interface ModalCongratsProps {
+interface LogOutStartProps {
   onClick: () => void;
 }
 
-export const ModalCongrats = ({ onClick }: ModalCongratsProps) => {
+export const LogOutStart = ({ onClick }: LogOutStartProps) => {
   // const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   return (
     <div className={s.container}>
       <img
-        src={IMAGES.DONE}
-        alt='Done registration'
-        width='99'
-        height='84'
+        src={IMAGES.LOG_OUT}
+        alt='Log Out'
+        width='160'
+        height='104'
         className={s.image}
       />
-      <p className={s.title}>{t('modalCongrats.title1')}</p>
-      <p className={s.titleRest}>{t('modalCongrats.title2')}</p>
-      <p className={s.subtitle}>
-        {t('modalCongrats.subtitle')}
-        <span>
-          <Link className={s.link} to={ROUTES.PROFILE} onClick={onClick}>
-            {t('modalCongrats.link')}
-          </Link>
-        </span>
-      </p>
+      <p className={s.subtitle}>{t('logOutModal.subtitle')}</p>
       <div className={s.btnContainer}>
         <MainButton
           type='button'
-          text='OK'
+          text={t('logOutModal.cancel')}
           onClick={onClick}
           size='small'
           color='blue'
-          className={s.modalBtn}
+          className={s.cancelBtn}
+        />
+        <MainButton
+          type='button'
+          text={t('logOutModal.logOut')}
+          onClick={onClick}
+          size='small'
+          color='blue'
+          className={s.logOutBtn}
         />
       </div>
     </div>
