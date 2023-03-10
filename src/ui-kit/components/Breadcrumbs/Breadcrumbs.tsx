@@ -3,10 +3,6 @@ import { NavLink, useLocation } from 'react-router-dom';
 import { ROUTES } from 'routes/routes.const';
 import s from './Breadcrumbs.module.scss';
 
-function convertTitle(title: string) {
-  return title.charAt(0).toUpperCase() + title.slice(1);
-}
-
 interface Breadcrumb {
   label: string;
   path: string;
@@ -20,8 +16,7 @@ export const Breadcrumbs = () => {
     const paths = pathname.split('/').filter((p) => p);
     const newBreadcrumbs = paths.map((path, i) => {
       const routePath = `/${paths.slice(0, i + 1).join('/')}`;
-      const prelabel = ROUTES[routePath] ?? path;
-      const label = convertTitle(prelabel);
+      const label = ROUTES[routePath] ?? path;
       return { label, path: routePath };
     });
     setBreadcrumbs(newBreadcrumbs);

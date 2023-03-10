@@ -12,6 +12,10 @@
   color: var(--secondary-txt-cl);
 }
 
+.crumbs::first-letter {
+  text-transform: capitalize;
+}
+
 .crumbs::after {
   content: '/';
   margin-left: 10px;
