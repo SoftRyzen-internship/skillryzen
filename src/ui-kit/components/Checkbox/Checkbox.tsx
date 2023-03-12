@@ -10,7 +10,8 @@ type CheckboxProps = {
   type?: 'form' | 'filter' | 'custom' | '';
   labelClassName?: string;
   label?: string;
-  id: string;
+  id?: string;
+  value?: string;
   name: string;
 };
 
@@ -22,6 +23,7 @@ export const Checkbox = ({
   label,
   id,
   name,
+  value
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(initialState);
 
@@ -45,7 +47,8 @@ export const Checkbox = ({
         id={id}
         name={name}
         type='checkbox'
-        checked={checked}
+        checked={checked}    
+        value={value}    
         onChange={(e) => {
           setChecked((prev) => !prev);
           if (onChange) {

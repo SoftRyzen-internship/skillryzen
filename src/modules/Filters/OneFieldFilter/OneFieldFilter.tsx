@@ -10,10 +10,11 @@ import s from './OneFieldFilter.module.scss';
 
 interface OneFieldFilterProps {
   data: string[];
-  setPositions: React.Dispatch<React.SetStateAction<string[]>>;
+  name: string;
+  setFilter: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
+export const OneFieldFilter = ({ data, name, setFilter }: OneFieldFilterProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
@@ -33,8 +34,8 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.checked
-      ? setPositions((prev) => [...prev, e.target.id])
-      : setPositions((prev) => prev.filter((item) => item !== e.target.id));
+      ? setFilter((prev) => [...prev, e.target.value])
+      : setFilter((prev) => prev.filter((item) => item !== e.target.value));
   };
 
   return (
@@ -56,8 +57,8 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
         {data.map((item, index) => (
           <li key={index} className={`${s.filter__item} ${s[`filter__item--${theme}`]}`}>
             <Checkbox
-              name='filterPosition'
-              id={item}
+              name={`filter${name}`}
+              value={item}
               label={item}
               type='filter'
               onChange={handleChange}

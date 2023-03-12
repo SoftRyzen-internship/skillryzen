@@ -13,6 +13,7 @@ export const SocialList = ({
   className = '',
   theme = 'dark',
 }: SocialListProps) => {
+
   const objectIcons = {
     telegram: <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />,
     linkedin: <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />,
@@ -23,22 +24,20 @@ export const SocialList = ({
   };
   return (
     <ul className={`${s.list} ${className}`}>
-      {social
-        .filter((item) => item)
-        .map((item, index) => {
-          return (
-            <li className={s.item} key={index}>
-              <a
-                className={`${s[`link--${theme}`]}`}
-                href={item.url}
-                target='_blank'
-                rel='noreferrer noopener'
-              >
-                {objectIcons[item.name]}
-              </a>
-            </li>
-          );
-        })}
+      {social.map((item, index) => {
+        return (
+          <li className={s.item} key={index}>
+            <a
+              className={`${s[`link--${theme}`]}`}
+              href={item.url}
+              target='_blank'
+              rel='noreferrer noopener'
+            >
+              {objectIcons[item.name]}
+            </a>
+          </li>
+        );
+      })}
     </ul>
   );
 };
