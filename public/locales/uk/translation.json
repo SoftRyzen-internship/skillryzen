@@ -141,6 +141,8 @@
     "passwordInvalid": "Невірний пароль",
     "userExists": "Користувач вже існує",
     "serverError": "Ой, щось пішло не так. Спробуйте знову пізніше",
+    "companyName.required": "Назва компанії є обов'язковою",
+    "companyName.exists": "Компанія з такою назвою вже існує",
 
     "candidateIntro": [
       "Пройти тест з JavaScript",

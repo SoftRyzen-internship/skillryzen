@@ -13,13 +13,12 @@ import { randomName } from 'utils/randomName';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
-export const ThirdStep = () => {
+export const FourthStep = () => {
   const { t } = useTranslation();
 
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const role = useAppSelector(getUserRole);
 
   const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -34,22 +33,12 @@ export const ThirdStep = () => {
 
   return (
     <div className={s.formWrapper}>
-      {role === 'CANDIDATE' ? (
-        <>
-          <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
-          <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
-          <RegisterContactsForm />
-          <a href='#' onClick={handleClickSkipBtn} className={s.skip}>
-            {t('auth.skipBtn')}
-          </a>
-        </>
-      ) : (
-        <>
-          <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
-          <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
-          <RegisterCompanyForm />
-        </>
-      )}
+      <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
+      <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
+      <RegisterContactsForm />
+      <a href='#' onClick={handleClickSkipBtn} className={s.skip}>
+        {t('auth.skipBtn')}
+      </a>
     </div>
   );
 };

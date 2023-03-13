@@ -1,12 +1,14 @@
-import { axiosInstance } from 'services/axiosConfig';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
-
 import { MainButton } from 'ui-kit';
-import { setRole, setStep, setToken } from 'redux/authSlice/authSlice';
+
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
+
+import { getUserRole, getCompanyName } from 'redux/authSlice/authSelectors';
+import { setRole, setStep, setToken } from 'redux/authSlice/authSlice';
+import { getCompanyByToken } from 'redux/authSlice/operations';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
@@ -26,16 +28,18 @@ const objectTheme = {
   },
 };
 
+const regex = /^[A-Z0-9]{22}$/;
+
 export const RegisterRoleForm = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
-  const role = useAppSelector((state) => state.auth.user.role);
+  const role = useAppSelector(getUserRole);
   const dispatch = useAppDispatch();
+  const companyName = useAppSelector(getCompanyName);
 
   const [code, setCode] = useState('');
   const [isValid, setIsValid] = useState(null);
-  const [companyName, setCompanyName] = useState('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -51,28 +55,26 @@ export const RegisterRoleForm = () => {
     dispatch(setRole(e.target.value));
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.trim();
+  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const token = e.target.value.trim();
 
-    setCode(value);
+    setCode(token);
 
-    const regex = /^[A-Z0-9]{22}$/;
+    if (token.match(regex)) {
+      const resp = await dispatch(getCompanyByToken(token));
 
-    if (value.match(regex)) {
-      axiosInstance
-        .get('company/get-by-token', { params: { token: e.target.value } })
-        .then(({ data }) => setCompanyName(data.companyName))
-        .then(() => setIsValid(true))
-        .catch(() => {
-          setCompanyName('');
-          setIsValid(false);
-        });
+      if (resp.meta.requestStatus === 'fulfilled') {
+        setIsValid(true);
+      } else {
+        setIsValid(false);
+      }
     }
   };
 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    if (e.target.value.length !== 22) {
-      setCompanyName('');
+    const token = e.target.value;
+
+    if (!token.match(regex)) {
       setIsValid(false);
     }
   };
@@ -144,7 +146,7 @@ export const RegisterRoleForm = () => {
         </label>
       )}
       <ul className={s.buttonsList}>
-        {companyName && role === 'CANDIDATE' && (
+        {companyName && role === 'CANDIDATE' && isValid && (
           <li>
             <p className={s.buttonsTitle}>{t('auth.companyLabel')}</p>
             <MainButton

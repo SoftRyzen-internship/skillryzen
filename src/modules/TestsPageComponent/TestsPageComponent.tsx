@@ -3,10 +3,9 @@ import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { useLocation } from 'react-router-dom';
 
-import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
-import { getStep } from 'redux/authSlice/authSelectors';
+import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
 
 import { ModalCongrats } from 'modules/Modals/ModalCongrats';
 import { TestsSearch } from './TestsSearch/TestsSearch';
@@ -24,22 +23,23 @@ export const TestsPageComponent = () => {
   const [size, setSize] = useState<'large' | 'small'>('large');
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const step = useSelector(getStep);
-  // console.log(step);
+  const step = useAppSelector(getStep);
+  const isAuth = useAppSelector(getIsAuth);
 
   const location = useLocation();
-  // console.log('location', location);
   const registerRoute = location?.state?.from?.pathname;
 
   useEffect(() => {
-    if (registerRoute === '/register' && step === 3) {
+    if (registerRoute === '/register' && step >= 3 && isAuth) {
       setIsShowModal(true);
     }
-  }, [registerRoute, step]);
+  }, [registerRoute, step, isAuth]);
 
   const handleClickModal = () => {
     setIsShowModal((prevState) => !prevState);
-    dispatch(setStep(1));
+    if (step !== 1) {
+      dispatch(setStep(1));
+    }
   };
 
   return (

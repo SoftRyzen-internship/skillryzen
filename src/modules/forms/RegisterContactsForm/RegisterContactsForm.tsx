@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 import { ROUTES } from 'routes/routes.const';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch } from 'hooks/hook';
 import { auth } from 'redux/authSlice/operations';
 import { setName } from 'redux/authSlice/authSlice';
 
@@ -39,7 +39,6 @@ export const RegisterContactsForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useAppDispatch();
-  const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik({
     initialValues: {
@@ -68,7 +67,7 @@ export const RegisterContactsForm = () => {
   });
 
   const {
-    values: { name, surname, phone, companyName },
+    values: { name, surname, phone },
     isValid,
     isSubmitting,
     dirty,
@@ -131,32 +130,6 @@ export const RegisterContactsForm = () => {
             {t('auth.surnamePlaceholder')}
           </label>
         </li>
-        {role === 'COMPANY_OWNER' && (
-          <li
-            className={`${s.floatingGroup} ${
-              touched.companyName &&
-              (errors.companyName ? s.floatingLabelError : s.floatingLabelValid)
-            }`}
-          >
-            {touched.companyName && errors.companyName && (
-              <p className={s.errorMsg}>{errors.companyName}</p>
-            )}
-            <input
-              className={objectTheme[theme].input}
-              name='companyName'
-              type='text'
-              id='companyName'
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={companyName}
-              autoComplete='company'
-              placeholder={t('auth.companyNamePlaceholder')}
-            />
-            <label className={s.floatingLabel} htmlFor='companyName'>
-              {t('auth.companyNamePlaceholder')}
-            </label>
-          </li>
-        )}
         <li
           className={`${s.floatingGroup} ${
             touched.phone &&

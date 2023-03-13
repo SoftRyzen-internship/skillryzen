@@ -2,7 +2,13 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { logIn, auth, logOut } from './operations';
+import {
+  logIn,
+  auth,
+  logOut,
+  createCompany,
+  getCompanyByToken,
+} from './operations';
 
 interface User {
   email: string;
@@ -11,8 +17,15 @@ interface User {
   role: string;
 }
 
+interface Company {
+  id: string;
+  companyName: string;
+  isActive: boolean;
+}
+
 interface Auth {
   user: User;
+  company: Company;
   isAuth: boolean;
   isLoading: boolean;
   isError: boolean;
@@ -26,10 +39,15 @@ const initialState: Auth = {
     registrationInvitationToken: '',
     role: 'CANDIDATE',
   },
+  company: {
+    id: '',
+    companyName: '',
+    isActive: false,
+  },
   isAuth: false,
   isLoading: false,
   isError: false,
-  step: 1,
+  step: 3,
 };
 
 const authSlice = createSlice({
@@ -71,6 +89,23 @@ const authSlice = createSlice({
         state.isLoading = true;
         state.isError = false;
         state.isAuth = false;
+      })
+      .addCase(
+        createCompany.fulfilled,
+        (state, action: PayloadAction<Company>) => {
+          state.company.companyName = action.payload.companyName;
+          state.company.id = action.payload.id;
+          state.company.isActive = action.payload.isActive;
+        }
+      )
+      .addCase(
+        getCompanyByToken.fulfilled,
+        (state, action: PayloadAction<Company>) => {
+          state.company = action.payload;
+        }
+      )
+      .addCase(getCompanyByToken.rejected, (state) => {
+        state.company = initialState.company;
       })
       .addMatcher(
         (action) =>
