@@ -5,25 +5,33 @@
   line-height: 1.2;
 }
 
-.crumbs {
+.crumbsDark {
   align-items: center;
   white-space: nowrap;
   overflow: hidden;
+  color: var(--primary-txt-cl);
+}
+
+.crumbsLight {
+  composes: crumbsDark;
   color: var(--secondary-txt-cl);
 }
 
-.crumbs::first-letter {
+.crumbsDark::first-letter,
+.crumbsLight::first-letter {
   text-transform: capitalize;
 }
 
-.crumbs::after {
+.crumbsDark::after,
+.crumbsLight::after {
   content: '/';
   margin-left: 10px;
   margin-right: 10px;
   color: var(--disabled-cl);
 }
 
-.crumbs:last-child::after {
+.crumbsDark:last-child::after,
+.crumbsLight:last-child::after {
   opacity: 0;
 }
 
