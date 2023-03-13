@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { answerTest, finishTest, getRandomTest } from './testingInfoOperations';
+import { answerTest, finishTest, getTestTemplate} from './testingInfoOperations';
 
 interface Results {
   testId: string;
@@ -12,6 +12,7 @@ interface Results {
 }
 
 export interface TestingInfo {
+  templateId: string;
   testId: string;
   questionId: string;
   number: number;
@@ -21,6 +22,7 @@ export interface TestingInfo {
     title: string;
     label: string;
   }[];
+  codePiece: null | string,
   hasNextQuestion: boolean;
   questionsTotalCount: number;
   totalTime: number;
@@ -31,11 +33,13 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
+  templateId: "85924ea2-c18f-4e13-8243-e9ff51c4079c",
   testId: '',
   questionId: '',
   number: null,
   title: '',
   possibleAnswers: [],
+  codePiece: null,
   hasNextQuestion: true,
   questionsTotalCount: 0,
   totalTime: 0,
@@ -67,15 +71,16 @@ const testingInfoSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRandomTest.fulfilled, (state, { payload }) => {
+      .addCase(getTestTemplate.fulfilled, (state, { payload }) => {
         state.testId = payload.id;
         state.questionId = payload.nextQuestion.id;
         state.number = 1;
         state.title = payload.nextQuestion.title;
         state.possibleAnswers = payload.nextQuestion.possibleAnswers;
+        state.codePiece = payload.nextQuestion.codePiece;
         state.questionsTotalCount = payload.questionsTotalCount;
-        state.totalTime = 30;
-        state.currentTime = 30;
+        state.totalTime = payload.timeForCompletionInMs;
+        state.currentTime = payload.timeForCompletionInMs;
         state.isLoading = false;
       })
       .addCase(answerTest.fulfilled, (state, { payload }) => {
@@ -83,6 +88,7 @@ const testingInfoSlice = createSlice({
         state.questionId = payload.questionId;
         state.title = payload.title;
         state.possibleAnswers = payload.possibleAnswers;
+        state.codePiece = payload.codePiece;
         state.hasNextQuestion = payload.hasNextQuestion;
         state.isLoading = false;
       })
@@ -91,10 +97,12 @@ const testingInfoSlice = createSlice({
         state.results.percentageOfCorrectAnswers =
           payload.percentageOfCorrectAnswers;
         state.hasNextQuestion = true;
+        state.templateId = '';
         state.testId = '';
         state.questionId = '';
         state.title = '';
         state.possibleAnswers = [];
+        state.codePiece = null;
         state.totalTime = 0;
         state.currentTime = 0;
         state.isLoading = false;
@@ -129,6 +137,7 @@ const persistConfig = {
     'number',
     'title',
     'possibleAnswers',
+    'codePiece',
     'questionsTotalCount',
     'currentTime',
     'totalTime',

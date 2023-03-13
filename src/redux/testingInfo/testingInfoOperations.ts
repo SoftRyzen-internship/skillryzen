@@ -1,4 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { RootState } from 'redux/store';
 import { axiosInstance } from 'services/axiosConfig';
 
 export interface Answer {
@@ -15,6 +16,26 @@ interface AnswerResponse {
     title: string;
     label: string;
   }[];
+  codePiece: null | string;
+  hasNextQuestion: boolean;
+}
+
+interface NextQuestion {
+  id: string;
+  title: string;
+  possibleAnswers: {
+    value: string;
+    title: string;
+    label: string;
+  }[];
+  codePiece: null | string;
+}
+
+interface TemplateResponse {
+  id: string;
+  timeForCompletionInMs: number;
+  questionsTotalCount: number;
+  nextQuestion: NextQuestion;
   hasNextQuestion: boolean;
 }
 
@@ -28,9 +49,9 @@ export interface FinishResponse {
   percentageOfCorrectAnswers: number;
 }
 
-export const getRandomTestApi = () =>
+export const getTestTemplateApi = (templateId: string) =>
   axiosInstance
-    .post('user-test/random', {}, { withCredentials: true })
+    .post(`user-test/start/${templateId}`, {}, { withCredentials: true })
     .then((response) => response.data);
 
 export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
@@ -46,14 +67,22 @@ export const finishTestApi = ({ testId, time }: Finish) =>
     .post(`user-test/${testId}/finish`, { finishedAt: time })
     .then((response) => response.data);
 
-export const getRandomTest = createAsyncThunk(
-  'testingInfo/getRandomTest',
-  async function (_, thunkApi) {
+
+export const getTestTemplate = createAsyncThunk<
+TemplateResponse,
+null,
+{ rejectValue: string, state: RootState}
+>(
+  'testingInfo/getTestTemplate',
+  async function (_,  {rejectWithValue, getState }) {
+    const { templateId } = getState().testingInfo;
     try {
-      const data = await getRandomTestApi();
+      const data = await getTestTemplateApi(templateId);
+      data.timeForCompletionInMs = data.timeForCompletionInMs/1000;
+      data.nextQuestion.codePiece = null;
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.response.data.message);
+      return rejectWithValue(error.response.data.errors.code);
     }
   }
 );
@@ -73,12 +102,14 @@ export const answerTest = createAsyncThunk<
         questionId: nextQuestion.id,
         title: nextQuestion.title,
         possibleAnswers: nextQuestion.possibleAnswers,
+        codePiece: nextQuestion.codePiece,
         hasNextQuestion: hasNextQuestion,
       }
       : {
         questionId: '',
         title: '',
         possibleAnswers: [],
+        codePiece: null,
         hasNextQuestion: false,
       };
   } catch (error) {
