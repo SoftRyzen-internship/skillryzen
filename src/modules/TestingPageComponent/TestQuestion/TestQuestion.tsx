@@ -18,7 +18,6 @@ import s from './TestQuestion.module.scss';
 
 export const TestQuestion = () => {
   const {
-    testId,
     questionId,
     title,
     possibleAnswers,
