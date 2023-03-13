@@ -139,7 +139,7 @@
     "codeRequired": "Company code is required",
     "userNotFound": "User not found",
     "passwordInvalid": "Password is invalid",
-    "userExists": "User doesn`t exisist",
+    "userExists": "User already exists",
     "serverError": "Oops, something went wrong. Try again later",
 
     "candidateIntro": [

@@ -61,7 +61,7 @@ export const LoginForm = () => {
           }
         });
       } else {
-        setErrors(handleError({ resp, email, password }));
+        setErrors(handleError({ resp, email, password, t }));
       }
     },
   });

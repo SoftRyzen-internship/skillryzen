@@ -1,27 +1,29 @@
 export interface Error {
+  t: any; // eslint-disable-line
   resp: any; // eslint-disable-line
   email: string;
   password: string;
 }
 
-export const handleError = ({ resp, email, password }: Error) => {
-  const errorTitle = resp.payload?.data.title || '';
-  const errorMsg = (resp.payload?.data.errors.code || '')
-    .replaceAll('_', ' ')
-    .toLowerCase();
+export const handleError = ({ resp, email, password, t }: Error) => {
+  const errorMsg = resp.payload?.data.errors.code || '';
 
-  switch (errorTitle) {
-  case 'UserException':
-    email = errorMsg;
+  switch (errorMsg) {
+  case 'USER_NOT_FOUND':
+    email = t('auth.userNotFound');
     password = '';
     break;
-  case 'InvalidUserCredentialsException':
+  case 'USER_ALREADY_EXISTS':
+    email = t('auth.userExists');
+    password = '';
+    break;
+  case 'INVALID_CREDENTIALS':
     email = '';
-    password = errorMsg;
+    password = t('auth.passwordInvalid');
     break;
   default:
-    email = 'Oops, something went wrong. Try again later';
-    password = 'Oops, something went wrong. Try again later';
+    email = t('auth.serverError');
+    password = t('auth.serverError');
   }
 
   return { email, password };
