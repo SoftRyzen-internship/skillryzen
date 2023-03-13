@@ -70,7 +70,7 @@ export const RegisterAuthForm = () => {
       }
 
       if (resp.meta.requestStatus === 'rejected') {
-        setErrors(handleError({ resp, email, password }));
+        setErrors(handleError({ resp, email, password, t }));
       }
     },
   });

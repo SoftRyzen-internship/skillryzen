@@ -18,16 +18,13 @@ export const ThirdStep = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  randomName();
 
   const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    // const displayName = randomName();
-    // dispatch(setName(displayName));
-
     dispatch(auth()).then((resp) => {
       if (resp.meta.requestStatus === 'fulfilled') {
+        dispatch(setName(randomName()));
         navigate(ROUTES.CERTIFICATION, { state: { from: location } });
       }
     });

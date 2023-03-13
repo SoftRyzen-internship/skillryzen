@@ -53,11 +53,13 @@ export const Checkbox = ({
           }
         }}
       />
-        {checked ? (
-          <ICONS.CHECK_ROUND className={s.checkbox}/>
-        ) : (
-          <ICONS.DEFAULT_CHECKBOX className={`${s.checkbox} ${s.checkboxColor}`} />
-        )}
+      {checked ? (
+        <ICONS.CHECK_ROUND className={s.checkbox} />
+      ) : (
+        <ICONS.DEFAULT_CHECKBOX
+          className={`${s.checkbox} ${s.checkboxColor}`}
+        />
+      )}
       {label}
     </label>
   );

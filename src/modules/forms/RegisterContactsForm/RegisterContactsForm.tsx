@@ -4,26 +4,20 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
+import { ROUTES } from 'routes/routes.const';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { auth } from 'redux/authSlice/operations';
+import { setName } from 'redux/authSlice/authSlice';
 
 import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
-import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 
-import { useValidationSchema } from './validationSchema';
+import { useValidationSchema } from './useValidationSchema';
 
 import s from './RegisterContactsForm.module.scss';
-
-interface FormValues {
-  name: string;
-  surname: string;
-  phone: string;
-  companyName?: string;
-}
 
 const objectTheme = {
   dark: {
@@ -47,7 +41,7 @@ export const RegisterContactsForm = () => {
   const dispatch = useAppDispatch();
   const role = useAppSelector((state) => state.auth.user.role);
 
-  const formik = useFormik<FormValues>({
+  const formik = useFormik({
     initialValues: {
       name: '',
       surname: '',
@@ -57,9 +51,19 @@ export const RegisterContactsForm = () => {
 
     validationSchema: useValidationSchema(),
 
-    onSubmit: (values) => {
-      dispatch(auth());
-      navigate(ROUTES.CERTIFICATION, { state: { from: location } });
+    onSubmit: async ({ name }) => {
+      const resp = await dispatch(auth());
+
+      if (resp.meta.requestStatus === 'fulfilled') {
+        dispatch(setName(name));
+        navigate(ROUTES.CERTIFICATION, { state: { from: location } });
+      } else {
+        setErrors({
+          phone: t('auth.serverError'),
+          name: t('auth.serverError'),
+          surname: t('auth.serverError'),
+        });
+      }
     },
   });
 
@@ -73,6 +77,7 @@ export const RegisterContactsForm = () => {
     handleBlur,
     handleChange,
     handleSubmit,
+    setErrors,
   } = formik;
 
   return (
