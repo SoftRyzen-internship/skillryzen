@@ -73,13 +73,16 @@ const authSlice = createSlice({
         state.isAuth = false;
       })
       .addMatcher(
-        (action) => action.type.endsWith('/pending'),
+        (action) =>
+          action.type.startsWith('/auth') &&
+          action.type.endsWith.endsWith('/pending'),
         (state) => {
           state.isLoading = true;
         }
       )
       .addMatcher(
-        (action) => action.type.endsWith('/rejected'),
+        (action) =>
+          action.type.startsWith('/auth') && action.type.endsWith('/rejected'),
         (state) => {
           state.isAuth = false;
           state.isLoading = false;
@@ -87,7 +90,8 @@ const authSlice = createSlice({
         }
       )
       .addMatcher(
-        (action) => action.type.endsWith('/fulfilled'),
+        (action) =>
+          action.type.startsWith('/auth') && action.type.endsWith('/fulfilled'),
         (state) => {
           state.isLoading = false;
           state.isError = false;

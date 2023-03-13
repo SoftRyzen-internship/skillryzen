@@ -49,12 +49,15 @@ export const OneFieldFilter = ({ data, setPositions }: OneFieldFilterProps) => {
         <span>{t('testsMain.filter')}</span>
       </button>
       <ul
-        className={`${s.filter__list} ${!isOpen && s[`filter__list--hidden`]} ${
+        className={`${s.filter__list} ${!isOpen && s['filter__list--hidden']} ${
           s[`filter__list--${theme}`]
         }`}
       >
         {data.map((item, index) => (
-          <li key={index} className={`${s.filter__item} ${s[`filter__item--${theme}`]}`}>
+          <li
+            key={index}
+            className={`${s.filter__item} ${s[`filter__item--${theme}`]}`}
+          >
             <Checkbox
               name='filterPosition'
               id={item}

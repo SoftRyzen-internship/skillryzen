@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { LoginForm } from 'modules/Forms';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 
 import s from './Login.module.scss';
@@ -14,10 +14,13 @@ export const Login = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
+  const step = useAppSelector((state) => state.auth.step);
 
   useEffect(() => {
-    dispatch(setStep(1));
-  }, [dispatch]);
+    if (step !== 1) {
+      dispatch(setStep(1));
+    }
+  }, [dispatch, step]);
 
   return (
     <section className={s.section}>

@@ -137,6 +137,10 @@
 
     "codeValidation": "Try another code",
     "codeRequired": "Company code is required",
+    "userNotFound": "User not found",
+    "passwordInvalid": "Password is invalid",
+    "userExists": "User doesn`t exisist",
+    "serverError": "Oops, something went wrong. Try again later",
 
     "candidateIntro": [
       "Take a test in JavaScript",
