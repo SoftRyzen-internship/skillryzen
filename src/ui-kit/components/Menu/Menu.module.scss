@@ -3,36 +3,12 @@
     width: 200px;
     transform: translateX(0);
     transition: var(--transition);
-
-    :hover.menu__navLink {
-      color: var(--primary-txt-cl);
-      background-color: var(--components-cl);
-
-      svg {
-        stroke: var(--primary-txt-cl);
-        path {
-          stroke: var(--primary-txt-cl);
-        }
-      }
-    }
   }
 
   .menu__itemClose {
     width: 96px;
     transform: translateX(0);
     transition: var(--transition);
-
-    :hover.menu__navLink {
-      color: var(--primary-txt-cl);
-      background-color: var(--components-cl);
-
-      svg {
-        stroke: var(--primary-txt-cl);
-        path {
-          stroke: var(--primary-txt-cl);
-        }
-      }
-    }
   }
 
   .menu__navLink {
@@ -41,6 +17,38 @@
     align-items: center;
     padding: 16px 16px 16px 34px;
     color: var(--secondary-txt-cl);
+
+    &:hover {
+      color: var(--primary-txt-cl);
+      background-color: var(--components-cl);
+
+      svg {
+        stroke: var(--primary-txt-cl);
+        path {
+          stroke: var(--primary-txt-cl);
+        }
+      }
+    }
+  }
+
+  .menu__navLinkLight {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 16px 16px 16px 34px;
+    color: var(--secondary-txt-cl);
+
+    &:hover {
+      color: var(--accent-cl);
+      background-color: var(--light-primary-cl);
+
+      svg {
+        stroke: var(--accent-cl);
+        path {
+          stroke: var(--accent-cl);
+        }
+      }
+    }
   }
 
   .menu__navLinkActive {
@@ -50,6 +58,18 @@
     padding: 16px 16px 16px 34px;
     background-color: var(--accent-cl);
     color: var(--primary-txt-cl);
+
+    &:hover {
+      background-color: var(--accent-cl);
+      color: var(--primary-txt-cl);
+
+      svg {
+        stroke: var(--primary-txt-cl);
+        path {
+          stroke: var(--primary-txt-cl);
+        }
+      }
+    }
 
     svg {
       stroke: var(--primary-txt-cl);
