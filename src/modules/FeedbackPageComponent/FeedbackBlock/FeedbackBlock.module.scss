@@ -1,0 +1,25 @@
+.container {
+  padding: 20px;
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.groupTop {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+.emailIcon {
+  margin-left: 28px;
+  width: 20px;
+  height: 20px;
+  path {
+    stroke: var(--accent-cl);
+  }
+}
+.emailText {
+  margin-left: 15px;
+}

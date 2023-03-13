@@ -1,15 +1,14 @@
 import { useTranslation } from 'react-i18next';
 
 import { useState } from 'react';
-import { MainButton } from 'ui-kit';
+import { MainButton, Modal } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
 import { ICONS } from 'ui-kit/icons';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './UnderDevelopment.module.scss';
-
-import { FeedbackModalPageComponent } from 'modules/common/FeedbackModalPageComponent/FeedbackModalPageComponent';
+import { FeedbackModalPageComponent } from 'modules/FeedbackModalPageComponent/FeedbackModalPageComponent';
 
 const objectTheme = {
   dark: {
@@ -67,7 +66,9 @@ export const UnderDevelopment = () => {
         />
       </div>
       {isShowModal && (
-        <FeedbackModalPageComponent updateClickModal={handleClickModal} />
+        <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
+          <FeedbackModalPageComponent handleClickModal={handleClickModal} />
+        </Modal>
       )}
     </section>
   );

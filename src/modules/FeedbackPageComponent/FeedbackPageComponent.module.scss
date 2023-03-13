@@ -1,41 +1,36 @@
+.pageContainer {
+  padding: 32px 60px 52px 64px;
+  width: 100%;
+
+  &--light {
+    transition: var(--transition);
+    background-color: var(--light-cards-cl);
+  }
+
+  &--dark {
+    transition: var(--transition);
+    background-color: var(--primary-cl);
+  }
+}
+
 .pageWrapper {
   padding: 20px;
   min-width: 593px;
-  border: 1px solid var(--accent-cl);
-  border-radius: 8px;
-  background-color: var(--components-cl);
-  box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
+  max-width: 1000px;
 
-.spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.groupTop {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-.emailIcon {
-  margin-left: 28px;
-  width: 20px;
-  height: 20px;
-  path {
-    stroke: var(--accent-cl);
+  border-radius: 12px;
+
+  position: relative;
+  &--light {
+    color: var(--light-primary-txt-cl);
+    border: 1px solid var(--primary-txt-cl);
+    background-color: var(--light-components-cl);
   }
-}
-.emailText {
-  margin-left: 15px;
-}
-.modalBtn {
-  margin-top: 60px;
-}
-.titleModal {
-  font-size: 16px;
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    border: 1px solid var(--accent-cl);
+    box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
+    background-color: var(--components-cl);
+  }
 }
