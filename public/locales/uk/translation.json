@@ -236,7 +236,10 @@
     "validation.message.maxEnd1": " символ",
     "validation.message.maxEnd2": " символи",
     "validation.message.maxEnd3": " символів",
-    "validation.message.required": "Будь ласка, введіть своє повідомлення"
+    "validation.message.required": "Будь ласка, введіть своє повідомлення",
+    "errors.badRequest": "Помилка: невірний запит. Будь-ласка, спробуйте пізніше",
+    "errors.network": "Помилка: не вдалося підключитися до мережі. Будь-ласка, спробуйте пізніше",
+    "errors.unknown": "Сталася невідома помилка. Будь-ласка, спробуйте пізніше"
   },
   "feedbackModal": {
     "title1": "Ваше повідомлення",
