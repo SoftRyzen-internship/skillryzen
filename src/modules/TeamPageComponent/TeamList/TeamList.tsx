@@ -40,6 +40,7 @@ const returnSocialList = (social: Links): UserSocial[] => {
 export const TeamList = ({ name, positions }: TeamListProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const [totalPages, setTotalPages] = useState<number>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1); 
   const [array, setArray] = useState<TeamList[]>([]);
 
   const onPageChange = (currentPage: number) => {
@@ -60,6 +61,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
 
   useEffect(() => {
     onPageChange(1);
+    setCurrentPage(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name, positions]);
 
@@ -81,6 +83,8 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
       <Pagination
         totalPages={totalPages}
         onPageChange={onPageChange}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         className={s.teamList__pagination}
       />
     </>
