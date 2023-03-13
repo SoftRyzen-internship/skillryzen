@@ -1,8 +1,11 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IThemeContext } from 'constans/types';
-import { InfoCard } from 'ui-kit';
 import { useThemeContext } from 'context/themeContext';
+
+import { InfoCard } from 'ui-kit';
+
+import { IThemeContext } from 'constans/types';
 
 import s from './NotificationsCardList.module.scss';
 
@@ -18,7 +21,7 @@ interface NotificationCardListProps {
   testsArray: Card[];
 }
 
-export const NotificationsCardList = ({
+const NotificationsCardListComponent = ({
   size,
   testsArray,
 }: NotificationCardListProps) => {
@@ -44,3 +47,5 @@ export const NotificationsCardList = ({
     </ul>
   );
 };
+
+export const NotificationsCardList = memo(NotificationsCardListComponent);

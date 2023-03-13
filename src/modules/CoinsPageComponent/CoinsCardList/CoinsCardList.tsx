@@ -1,8 +1,11 @@
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IThemeContext } from 'constans/types';
-import { InfoCard } from 'ui-kit';
 import { useThemeContext } from 'context/themeContext';
+
+import { InfoCard } from 'ui-kit';
+
+import { IThemeContext } from 'constans/types';
 
 import s from './CoinsCardList.module.scss';
 
@@ -18,7 +21,7 @@ interface CoinsCardListProps {
   testsArray: Card[];
 }
 
-export const CoinsCardList = ({ size, testsArray }: CoinsCardListProps) => {
+const CoinsCardListComponent = ({ size, testsArray }: CoinsCardListProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
@@ -41,3 +44,5 @@ export const CoinsCardList = ({ size, testsArray }: CoinsCardListProps) => {
     </ul>
   );
 };
+
+export const CoinsCardList = memo(CoinsCardListComponent);

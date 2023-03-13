@@ -1,12 +1,15 @@
-import s from './CompanyAvatarCard.module.scss';
+import { memo } from 'react';
+
 import { Theme } from 'constans/types';
+
+import s from './CompanyAvatarCard.module.scss';
 interface CompanyAvatarCardProps {
   companyName: string;
   companyAvatarUrl: string;
   className?: string;
   theme?: Theme;
 }
-export const CompanyAvatarCard = ({
+export const CompanyAvatarCardComponent = ({
   companyName,
   companyAvatarUrl,
   className = '',
@@ -25,3 +28,5 @@ export const CompanyAvatarCard = ({
     </div>
   );
 };
+
+export const CompanyAvatarCard = memo(CompanyAvatarCardComponent);

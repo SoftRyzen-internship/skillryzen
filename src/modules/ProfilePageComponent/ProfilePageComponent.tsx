@@ -6,7 +6,7 @@ import { MyProfile } from './MyProfile';
 import { MyTests } from './MyTests';
 import { MyAchievementsList } from './MyAchievementsList';
 
-import { IThemeContext, UserInfo } from 'constans/types';
+import { IThemeContext } from 'constans/types';
 
 import s from './ProfilePageComponent.module.scss';
 

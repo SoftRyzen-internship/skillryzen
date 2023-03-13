@@ -7,8 +7,10 @@ import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 import { Theme, UserSocial } from 'constans/types';
 
 import { SocialList, UserAvatar } from 'ui-kit/index';
+
+import { CompanyAvatarCard } from './CompanyAvatarCard';
+
 import s from './MyProfile.module.scss';
-import { CompanyAvatarCard } from 'ui-kit/components/CompanyAvatarCard';
 
 interface MyProfileProps {
   theme?: Theme;

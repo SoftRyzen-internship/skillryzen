@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Theme, UserInfo } from 'constans/types';
+import { Theme } from 'constans/types';
 
 import s from './MyTests.module.scss';
 import { Link } from 'react-router-dom';
