@@ -14,6 +14,7 @@ interface User {
 interface Auth {
   user: User;
   isAuth: boolean;
+  isClickLogOut: boolean;
   isLoading: boolean;
   isError: boolean;
   step: number;
@@ -27,6 +28,7 @@ const initialState: Auth = {
     role: 'CANDIDATE',
   },
   isAuth: false,
+  isClickLogOut: false,
   isLoading: false,
   isError: false,
   step: 1,
@@ -39,7 +41,9 @@ const authSlice = createSlice({
     setStep(state, action: PayloadAction<number>) {
       state.step = action.payload;
     },
-
+    setClickLogOut(state, { payload }: PayloadAction<boolean>) {
+      state.isClickLogOut = payload;
+    },
     setRole(state, action: PayloadAction<string>) {
       state.user.role = action.payload;
     },
@@ -105,5 +109,6 @@ const persistConfig = {
   whitelist: ['isAuth'],
 };
 
-export const { setStep, setRole, setToken, setName } = authSlice.actions;
+export const { setStep, setClickLogOut, setRole, setToken, setName } =
+  authSlice.actions;
 export const authReducer = persistReducer(persistConfig, authSlice.reducer);
