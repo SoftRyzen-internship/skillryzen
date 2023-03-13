@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from 'context/themeContext';
 
@@ -21,9 +20,8 @@ interface CoinsCardListProps {
   testsArray: Card[];
 }
 
-const CoinsCardListComponent = ({ size, testsArray }: CoinsCardListProps) => {
+const CoinsCardList = memo(({ size, testsArray }: CoinsCardListProps) => {
   const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
 
   return (
     <ul className={`${s[`coinsList--${size}`]}`}>
@@ -43,6 +41,6 @@ const CoinsCardListComponent = ({ size, testsArray }: CoinsCardListProps) => {
       ))}
     </ul>
   );
-};
+});
 
-export const CoinsCardList = memo(CoinsCardListComponent);
+CoinsCardList.displayName = 'CoinsCardList';

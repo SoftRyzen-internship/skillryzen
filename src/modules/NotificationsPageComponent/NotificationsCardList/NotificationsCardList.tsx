@@ -21,31 +21,30 @@ interface NotificationCardListProps {
   testsArray: Card[];
 }
 
-const NotificationsCardListComponent = ({
-  size,
-  testsArray,
-}: NotificationCardListProps) => {
-  const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
+const NotificationsCardList = memo(
+  ({ size, testsArray }: NotificationCardListProps) => {
+    const { theme }: IThemeContext = useThemeContext();
+    const { t } = useTranslation();
 
-  return (
-    <ul className={`${s[`notificationsList--${size}`]}`}>
-      {testsArray.map((item) => (
-        <li key={item.id}>
-          <InfoCard
-            size={size}
-            type='notification'
-            item={{
-              title: item.title,
-              text: item.text,
-              number: item.number,
-            }}
-            theme={theme}
-          />
-        </li>
-      ))}
-    </ul>
-  );
-};
+    return (
+      <ul className={`${s[`notificationsList--${size}`]}`}>
+        {testsArray.map((item) => (
+          <li key={item.id}>
+            <InfoCard
+              size={size}
+              type='notification'
+              item={{
+                title: item.title,
+                text: item.text,
+                number: item.number,
+              }}
+              theme={theme}
+            />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+);
 
-export const NotificationsCardList = memo(NotificationsCardListComponent);
+NotificationsCardList.displayName = 'NotificationsCardList';

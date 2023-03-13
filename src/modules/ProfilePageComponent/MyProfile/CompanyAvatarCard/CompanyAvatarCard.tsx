@@ -9,24 +9,26 @@ interface CompanyAvatarCardProps {
   className?: string;
   theme?: Theme;
 }
-export const CompanyAvatarCardComponent = ({
-  companyName,
-  companyAvatarUrl,
-  className = '',
-  theme = 'dark',
-}: CompanyAvatarCardProps) => {
-  return (
-    <div className={`${s.card} ${className}`}>
-      <img
-        className={s.avatar}
-        src={companyAvatarUrl}
-        width={52}
-        height={52}
-        alt='company-avatar'
-      />
-      <p className={`${s[`name--${theme}`]}`}>{companyName}</p>
-    </div>
-  );
-};
+export const CompanyAvatarCard = memo(
+  ({
+    companyName,
+    companyAvatarUrl,
+    className = '',
+    theme = 'dark',
+  }: CompanyAvatarCardProps) => {
+    return (
+      <div className={`${s.card} ${className}`}>
+        <img
+          className={s.avatar}
+          src={companyAvatarUrl}
+          width={52}
+          height={52}
+          alt='company-avatar'
+        />
+        <p className={`${s[`name--${theme}`]}`}>{companyName}</p>
+      </div>
+    );
+  }
+);
 
-export const CompanyAvatarCard = memo(CompanyAvatarCardComponent);
+CompanyAvatarCard.displayName = 'CompanyAvatarCard';
