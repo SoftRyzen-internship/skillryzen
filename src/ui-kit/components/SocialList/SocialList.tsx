@@ -11,7 +11,7 @@ interface SocialListProps {
   className?: string;
   theme?: Theme;
 }
-const SocialList = memo(
+export const SocialList = memo(
   ({ social, className = '', theme = 'dark' }: SocialListProps) => {
     const objectIcons = useMemo(() => {
       return {

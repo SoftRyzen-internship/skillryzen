@@ -20,27 +20,29 @@ interface CoinsCardListProps {
   testsArray: Card[];
 }
 
-const CoinsCardList = memo(({ size, testsArray }: CoinsCardListProps) => {
-  const { theme }: IThemeContext = useThemeContext();
+export const CoinsCardList = memo(
+  ({ size, testsArray }: CoinsCardListProps) => {
+    const { theme }: IThemeContext = useThemeContext();
 
-  return (
-    <ul className={`${s[`coinsList--${size}`]}`}>
-      {testsArray.map((item) => (
-        <li key={item.id}>
-          <InfoCard
-            size={size}
-            type='coin'
-            item={{
-              title: item.title,
-              text: item.text,
-              number: item.number,
-            }}
-            theme={theme}
-          />
-        </li>
-      ))}
-    </ul>
-  );
-});
+    return (
+      <ul className={`${s[`coinsList--${size}`]}`}>
+        {testsArray.map((item) => (
+          <li key={item.id}>
+            <InfoCard
+              size={size}
+              type='coin'
+              item={{
+                title: item.title,
+                text: item.text,
+                number: item.number,
+              }}
+              theme={theme}
+            />
+          </li>
+        ))}
+      </ul>
+    );
+  }
+);
 
 CoinsCardList.displayName = 'CoinsCardList';

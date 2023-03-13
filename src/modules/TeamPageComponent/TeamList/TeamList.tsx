@@ -1,6 +1,6 @@
 import { IThemeContext, UserSocial, SocialName } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Pagination } from 'ui-kit';
 import { TeamCard } from 'ui-kit/components/Card/TeamCard';
 import { IMAGES } from 'ui-kit/images';
@@ -40,24 +40,27 @@ const returnSocialList = (social: Links): UserSocial[] => {
 export const TeamList = ({ name, positions }: TeamListProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const [totalPages, setTotalPages] = useState<number>(null);
-  const [currentPage, setCurrentPage] = useState<number>(1); 
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [array, setArray] = useState<TeamList[]>([]);
 
-  const onPageChange = (currentPage: number) => {
-    let teamArray = [...team];
-    if (name || positions.length > 0) {
-      teamArray = team.filter(
-        (item) =>
-          (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
-          (positions.length === 0 || positions.includes(item.position))
-      );
-    }
-    const totalPages = Math.ceil(teamArray.length / itemsForPage);
-    const start = itemsForPage * (currentPage - 1);
-    const end = start + itemsForPage;
-    setTotalPages(totalPages);
-    setArray(teamArray.slice(start, end));
-  };
+  const onPageChange = useCallback(
+    (currentPage: number) => {
+      let teamArray = [...team];
+      if (name || positions.length > 0) {
+        teamArray = team.filter(
+          (item) =>
+            (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
+            (positions.length === 0 || positions.includes(item.position))
+        );
+      }
+      const totalPages = Math.ceil(teamArray.length / itemsForPage);
+      const start = itemsForPage * (currentPage - 1);
+      const end = start + itemsForPage;
+      setTotalPages(totalPages);
+      setArray(teamArray.slice(start, end));
+    },
+    [name, positions]
+  );
 
   useEffect(() => {
     onPageChange(1);

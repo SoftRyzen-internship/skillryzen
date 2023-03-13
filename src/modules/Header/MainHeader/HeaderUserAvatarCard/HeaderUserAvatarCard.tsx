@@ -3,9 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import { logOut } from 'redux/authSlice/operations';
 import { useAppDispatch } from 'hooks/hook';
+import { setClickLogOut } from 'redux/authSlice/authSlice';
 
 import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
-import { LogOutFinish } from 'modules/Modals/LogOut/LogOutFinish';
 
 import { useThemeContext } from 'context/themeContext';
 
@@ -22,7 +22,6 @@ import s from './HeaderUserAvatarCard.module.scss';
 
 export const HeaderUserAvatarCard = () => {
   const [isShowModal, setIsShowModal] = useState(false);
-  const [isClickLogOutBtn, setIsClickLogOutBtn] = useState(false);
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
@@ -47,7 +46,7 @@ export const HeaderUserAvatarCard = () => {
   };
 
   const handleClickLogOutBtn = () => {
-    setIsClickLogOutBtn(true);
+    dispatch(setClickLogOut(true));
     dispatch(logOut());
   };
 
@@ -104,14 +103,10 @@ export const HeaderUserAvatarCard = () => {
       {popup ? <div className={s.popup}>{popup}</div> : null}
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
-          {!isClickLogOutBtn ? (
-            <LogOutStart
-              onClick={handleClickModal}
-              handleClickLogOutBtn={handleClickLogOutBtn}
-            />
-          ) : (
-            <LogOutFinish onClick={handleClickModal} />
-          )}
+          <LogOutStart
+            onClick={handleClickModal}
+            handleClickLogOutBtn={handleClickLogOutBtn}
+          />
         </Modal>
       )}
     </div>

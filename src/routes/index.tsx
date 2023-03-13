@@ -5,7 +5,7 @@ import { useAppSelector } from 'hooks/hook';
 import {
   MainWrapper,
   AuthWrapper,
-  PublickRoute,
+  PublicRoute,
   ProtectedRoute,
 } from 'modules/wrappers';
 
@@ -17,9 +17,9 @@ import TestEndPage from 'pages/TestEndPage';
 import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
 import ProfilePage from 'pages/ProfilePage';
-import StudentSettingsPage from 'pages/StudentSettingsPage';
 import CoinsPage from 'pages/CoinsPage';
 import NotificationsPage from 'pages/NotificationsPage';
+import ProfileSettingsPage from 'pages/ProfileSettingsPage';
 import FeedbackPage from 'pages/FeedbackPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 import InviteModulePage from 'pages/InviteModulePage';
@@ -36,11 +36,11 @@ export const AppRoutes = () => {
       children: [
         {
           element: (
-            <PublickRoute isAuth={isAuth}>
+            <PublicRoute isAuth={isAuth}>
               <AuthWrapper>
                 <Outlet />
               </AuthWrapper>
-            </PublickRoute>
+            </PublicRoute>
           ),
           children: [
             {
@@ -107,7 +107,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.PROFILE_SETTINGS,
-                      element: <StudentSettingsPage />,
+                      element: <ProfileSettingsPage />,
                     },
                     {
                       path: ROUTES.NOTIFICATIONS,

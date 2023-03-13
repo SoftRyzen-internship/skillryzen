@@ -2,9 +2,9 @@
   animation: fade-in 0.3s ease-in-out;
 }
 
-.fadeOut {
-  animation: fade-out 0.3s ease-in-out;
-}
+// .fadeOut {
+//   animation: fade-out 0.3s ease-in-out;
+// }
 
 @keyframes fade-in {
   from {
@@ -15,14 +15,14 @@
   }
 }
 
-@keyframes fade-out {
-  from {
-    transform: translate(-50%, -50%) scale(1);
-  }
-  to {
-    transform: translate(-50%, -50%) scale(0.7);
-  }
-}
+// @keyframes fade-out {
+//   from {
+//     transform: translate(-50%, -50%) scale(1);
+//   }
+//   to {
+//     transform: translate(-50%, -50%) scale(0.7);
+//   }
+// }
 
 .backdropDark {
   position: fixed;

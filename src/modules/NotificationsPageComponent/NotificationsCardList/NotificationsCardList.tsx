@@ -21,7 +21,7 @@ interface NotificationCardListProps {
   testsArray: Card[];
 }
 
-const NotificationsCardList = memo(
+export const NotificationsCardList = memo(
   ({ size, testsArray }: NotificationCardListProps) => {
     const { theme }: IThemeContext = useThemeContext();
     const { t } = useTranslation();

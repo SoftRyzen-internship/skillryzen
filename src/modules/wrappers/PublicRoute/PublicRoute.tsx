@@ -7,7 +7,7 @@ interface Props {
   children: JSX.Element;
 }
 
-export const PublickRoute = ({ isAuth, children }: Props) => {
+export const PublicRoute = ({ isAuth, children }: Props) => {
   if (isAuth) {
     return <Navigate to={ROUTES.CERTIFICATION} replace />;
   }

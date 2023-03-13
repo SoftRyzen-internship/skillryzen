@@ -23,7 +23,7 @@ export const Checkbox = ({
   label,
   id,
   name,
-  value
+  value,
 }: CheckboxProps) => {
   const [checked, setChecked] = useState(initialState);
 
@@ -47,8 +47,8 @@ export const Checkbox = ({
         id={id}
         name={name}
         type='checkbox'
-        checked={checked}    
-        value={value}    
+        checked={checked}
+        value={value}
         onChange={(e) => {
           setChecked((prev) => !prev);
           if (onChange) {

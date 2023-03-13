@@ -10,7 +10,7 @@ interface UserAvatarCardProps {
   userStatus?: 'green' | 'yellow' | 'gray';
   theme?: Theme;
 }
-const UserAvatarCard = memo(
+export const UserAvatarCard = memo(
   ({
     userName,
     userRole,
