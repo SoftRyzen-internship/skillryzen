@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router';
 
 import { MainButton, RadioButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
-
 import {
   answerTest,
   finishTest,
@@ -36,13 +35,13 @@ export const TestQuestion = () => {
   const dispatch = useAppDispatch();
 
   const handleAnswer = () => {
-    dispatch(answerTest({ testId, questionId, selectedAnswer }));
+    dispatch(answerTest(selectedAnswer));
     setSelectedAnswer('');
   };
 
   useEffect(() => {
     if (!time) return;
-    dispatch(finishTest({ testId, time: new Date() }));
+    dispatch(finishTest(new Date()));
     navigate(ROUTES.TEST_END);
     // eslint-disable-next-line
   }, [time]);

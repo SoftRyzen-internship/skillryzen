@@ -2,7 +2,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from 'redux/store';
 import { axiosInstance } from 'services/axiosConfig';
 
-export interface Answer {
+type SelectedAnswer = string;
+
+interface Answer {
   testId: string;
   questionId: string;
   selectedAnswer: string;
@@ -38,6 +40,8 @@ interface TemplateResponse {
   nextQuestion: NextQuestion;
   hasNextQuestion: boolean;
 }
+
+type Time = Date;
 
 export interface Finish {
   testId: string;
@@ -89,10 +93,10 @@ null,
 
 export const answerTest = createAsyncThunk<
   AnswerResponse,
-  Answer,
-  { rejectValue: string }
->('testingInfo/answerTest', async (info, thunkApi) => {
-  const { testId, questionId, selectedAnswer } = info;
+  SelectedAnswer,
+  { rejectValue: string, state: RootState }
+>('testingInfo/answerTest', async (selectedAnswer, {rejectWithValue, getState }) => {
+  const { testId, questionId } = getState().testingInfo;
 
   try {
     const data = await answerTestApi({ testId, questionId, selectedAnswer });
@@ -113,16 +117,16 @@ export const answerTest = createAsyncThunk<
         hasNextQuestion: false,
       };
   } catch (error) {
-    return thunkApi.rejectWithValue(error.response.data.message);
+    return rejectWithValue(error.response.data.message);
   }
 });
 
 export const finishTest = createAsyncThunk<
   FinishResponse,
-  Finish,
-  { rejectValue: string }
->('testingInfo/finishTest', async (info, { rejectWithValue }) => {
-  const { testId, time } = info;
+  Time,
+  { rejectValue: string, state: RootState}
+>('testingInfo/finishTest', async (time, {rejectWithValue, getState }) => {
+  const { testId} = getState().testingInfo;
   try {
     const data = await finishTestApi({ testId, time });
     return {
