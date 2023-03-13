@@ -4,61 +4,66 @@ import s from './FeedbackForm.module.scss';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { useValidationSchema } from './useValidationSchema';
-import axios from 'axios';
 import { MainButton } from 'ui-kit';
 import { useLocation } from 'react-router';
+import { pluralize } from 'utils/pluralize';
+import { sendFeedbackService } from 'services/feedbackService';
+import { useFeedbackError } from './useFeedbackError';
 
 interface FormValues {
   message: string;
-  email: string;
 }
 
 interface FeedbackProps {
   sendFeedback?: (_value: boolean) => void;
   updateLoading: (_value: boolean) => void;
   userEmail: string;
+  userName?: string;
+  userRole?: string;
+  sheetName?: string;
 }
 
 export const FeedbackForm = ({
   sendFeedback,
   updateLoading,
   userEmail,
+  userName,
+  userRole,
+  sheetName,
 }: FeedbackProps) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
   const validationSchema = useValidationSchema();
+  const handleFeedbackError = useFeedbackError();
   const { pathname } = useLocation();
   const formik = useFormik<FormValues>({
     initialValues: {
       message: '',
-      email: '',
     },
 
     validationSchema,
 
-    onSubmit: (values) => {
-      const formData = new FormData();
-      formData.set('email', userEmail);
-      formData.set('message', values.message);
-      formData.set('pathname', pathname);
+    onSubmit: async (values) => {
       updateLoading(true);
-      axios
-        .post(
-          'https://script.google.com/macros/s/AKfycby4QpPKho_WqAdT2jYau30umxb5i9Elfj6WkPg6fw0WDZLJfim9jKX31_1mUsPZjETRAw/exec',
-          formData
-        )
-        .then((res) => {
-          res.data;
-          sendFeedback(true);
-          resetForm();
-        })
-        .catch((error) => {
-          // eslint-disable-next-line no-console
-          console.log(error);
-        })
-        .finally(() => {
-          updateLoading(false);
+      try {
+        await sendFeedbackService({
+          sheetName,
+          name: userName,
+          role: userRole,
+          email: userEmail,
+          message: values.message,
+          pathname,
         });
+        sendFeedbackService && sendFeedback(true);
+        resetForm();
+      } catch (error) {
+        const feedbackError = handleFeedbackError(error);
+        setErrors({
+          message: feedbackError.message,
+        });
+      } finally {
+        updateLoading(false);
+      }
     },
   });
   const {
@@ -71,15 +76,11 @@ export const FeedbackForm = ({
     handleChange,
     handleSubmit,
     resetForm,
+    setErrors,
   } = formik;
   const MAX_MESSAGE_LENGTH = 5000;
   const remainingCharacters = MAX_MESSAGE_LENGTH - message.length;
-  function pluralize(num: number, words: [string, string, string]): string {
-    const cases = [2, 0, 1, 1, 1, 2];
-    return words[
-      num % 100 > 4 && num % 100 < 20 ? 2 : cases[num % 10 < 5 ? num % 10 : 5]
-    ];
-  }
+
   return (
     <div className={s.formWrapper}>
       <form className={s.form} onSubmit={handleSubmit}>
@@ -105,7 +106,6 @@ export const FeedbackForm = ({
             ])}
           </div>
         </div>
-
         <MainButton
           size='small'
           text={t('feedbackForm.button.send')}
