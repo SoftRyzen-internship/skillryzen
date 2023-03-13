@@ -40,7 +40,7 @@ export const TestQuestion = () => {
 
   useEffect(() => {
     if (!time) return;
-    dispatch(finishTest(new Date()));
+    dispatch(finishTest());
     navigate(ROUTES.TEST_END);
     // eslint-disable-next-line
   }, [time]);
