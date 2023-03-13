@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
 import { useThemeContext } from 'context/themeContext';
+
+import { useSelector } from 'react-redux';
+import { getIsClickLogOut } from 'redux/authSlice/authSelectors';
+
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import s from './Modal.module.scss';
@@ -18,6 +22,8 @@ export const Modal = ({
   children,
 }: ModalProps) => {
   const { theme }: IThemeContext = useThemeContext();
+
+  const isClickLogOut = useSelector(getIsClickLogOut);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -46,7 +52,7 @@ export const Modal = ({
     >
       <div
         className={`${theme === 'dark' ? s.modalDark : s.modalLight} ${
-          isShowModal ? s.fadeIn : s.fadeOut
+          (isShowModal || isClickLogOut) && s.fadeIn
         }`}
       >
         {isCloseIcon && (
