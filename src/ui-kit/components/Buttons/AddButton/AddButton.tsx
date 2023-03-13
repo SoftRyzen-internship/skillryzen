@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './AddButton.module.scss';
@@ -10,21 +11,19 @@ interface ButtonProps {
   color: 'black' | 'blue';
 }
 
-export const AddButton = ({
-  type = 'button',
-  text,
-  onClick,
-  color,
-  className,
-}: ButtonProps) => {
-  return (
-    <button
-      onClick={onClick}
-      type={type}
-      className={`${s.addButton} ${className} ${s[color]}`}
-    >
-      <ICONS.PLUS className={s.icon} />
-      {text}
-    </button>
-  );
-};
+export const AddButton = memo(
+  ({ type = 'button', text, onClick, color, className }: ButtonProps) => {
+    return (
+      <button
+        onClick={onClick}
+        type={type}
+        className={`${s.addButton} ${className} ${s[color]}`}
+      >
+        <ICONS.PLUS className={s.icon} />
+        {text}
+      </button>
+    );
+  }
+);
+
+AddButton.displayName = 'AddButton';

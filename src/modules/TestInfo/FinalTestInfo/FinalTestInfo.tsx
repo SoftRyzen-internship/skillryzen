@@ -1,10 +1,12 @@
+import { useEffect, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
-import { MainButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 
+import { MainButton } from 'ui-kit';
+
 import s from './FinalTestInfo.module.scss';
-import { useEffect, useState } from 'react';
 
 const objectTheme = {
   dark: {
@@ -29,7 +31,7 @@ const objectTheme = {
   },
 };
 
-interface ListInfoJS {
+interface ListInfo {
   topics: string;
   time: string;
   questions: number;
@@ -40,18 +42,18 @@ interface ListInfoJS {
   };
 }
 
-interface IconProps {
+interface ImageProps {
   alt: string;
   width: string;
   height: string;
 }
 
 interface Props {
-  image: string;
-  imageProps: IconProps;
+  image?: string;
+  imageProps?: ImageProps;
   title?: string;
   subtitle?: string;
-  listInfo?: ListInfoJS;
+  listInfo?: ListInfo;
   correctAnswers?: number;
   totalQuestions?: number;
   timeSpent?: string;
@@ -62,7 +64,7 @@ interface Props {
   onClickBtn: () => void;
   textBtn?: string;
   finishTest?: boolean;
-  test: string;
+  test?: string;
 }
 
 export const FinalTestInfo = ({
@@ -223,11 +225,11 @@ export const FinalTestInfo = ({
                 {t('finalTestInfo.recomendations')}:
               </p>
               <p className={s.recTextSmall}>
-                {t('finalTestInfo.worstTopic')} {`${test}`} -{' '}
+                {t('finalTestInfo.worstTopic')} {`${test}`} -
                 {`${theWorstTopic}`} {t('finalTestInfo.section')}
               </p>
               <p className={s.recTextSmall}>
-                {t('finalTestInfo.bestTopic')} {`${test}`} - {`${theBestTopic}`}{' '}
+                {t('finalTestInfo.bestTopic')} {`${test}`} - {`${theBestTopic}`}
                 {t('finalTestInfo.section')}
               </p>
             </div>
@@ -239,7 +241,7 @@ export const FinalTestInfo = ({
         text={
           finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
         }
-        disabled={!finishTest && windowWidth <= 1280 && true}
+        disabled={!finishTest && windowWidth <= 1280}
         onClick={onClickBtn}
         size='large'
         color='blue'
@@ -251,59 +253,3 @@ export const FinalTestInfo = ({
     </div>
   );
 };
-
-// Приклад використання в компоненті
-
-// const listInfoJS = {
-//   topics: 'HTML, CSS, JavaScript, React',
-//   time: '2:00:00',
-//   questions: 50,
-//   learners: 200,
-//   author: 'GoIT',
-// icons: {
-//   BAR: ICONS.BAR_ONE_LINE,
-//   CLOCK: ICONS.CLOCK,
-//   QUESTION: ICONS.QUESTION_CIRCLE,
-//   GROUP: ICONS.USERS,
-//   USERS: ICONS.USER,
-// },
-// };
-
-// const [isClickBtn, setIsClickBtn] = useState(false);
-// const handleClickBtn = () => {
-//   setIsClickBtn(true);
-// };
-
-// PROPS For Start Test
-/* <FinalTestInfo
-  image={IMGS.JAVA_SCRIPT}
-  imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-  title='FullStack - Final Test'
-  subtitle='JavaScript is a programming language that is one of the core
-    technologies of the World Wide Web, alongside HTML and CSS.'
-  listInfo={listInfoJS}
-  onClickBtn={handleClickBtn}
-  textBtn='Start test'
-  test='JS'
-/> */
-
-// PROPS For End Test
-
-{
-  /* <FinalTestInfo
-  image={IMGS.JAVA_SCRIPT}
-  imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-  title='FullStack - Final Test'
-  correctAnswers={15}
-  totalQuestions={50}
-  timeSpent={20}
-  iconAnswers={ICONS.CHECK_SMALL}
-  iconTime={ICONS.CLOCK}
-  // theWorstTopic='“Asynchrony”' // для фінального тесту не передавати!
-  // theBestTopic='"Lorem lorem lorem"' // для фінального тесту не передавати!
-  onClickBtn={handleClickBtn}
-  textBtn='Start test'
-  test='JS'
-  finishTest
-/> */
-}

@@ -235,7 +235,10 @@
     "count.end3": " characters",
     "validation.message.maxStart": "Message must be at most",
     "validation.message.maxEnd": "characters long",
-    "validation.message.required": "Please enter your message"
+    "validation.message.required": "Please enter your message",
+    "errors.badRequest": "Error: bad request. Please try again later.",
+    "errors.network": "Error: failed to connect to network. Please try again later.",
+    "errors.unknown": "An unknown error occurred. Please try again later."
   },
   "feedbackModal": {
     "title1": "Your Message",
