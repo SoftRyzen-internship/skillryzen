@@ -10,7 +10,7 @@ import { ROUTES } from 'routes/routes.const';
 interface MyTestsProps {
   theme?: Theme;
 }
-const myTestsArr = [
+const MY_TESTS = [
   {
     id: 1,
     title: 'FullStuck_Final_Test',
@@ -57,13 +57,13 @@ export const MyTests = ({ theme = 'dark' }: MyTestsProps) => {
         {t('userProfile.testsCardTitle')}
       </p>
 
-      {!myTestsArr || myTestsArr.length === 0 ? (
+      {!MY_TESTS || MY_TESTS.length === 0 ? (
         <div className={`${s[`noDataText--${theme}`]}`}>
           {t('userProfile.noDataText')}
         </div>
       ) : (
         <ul className={s.cardList}>
-          {myTestsArr.map((test, index) => {
+          {MY_TESTS.map((test, index) => {
             return (
               <li key={test.id}>
                 <Link to={`${ROUTES.CERTIFICATION}/fullstack_final`}>
