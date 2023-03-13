@@ -1,4 +1,4 @@
-import { IThemeContext } from 'constans/types';
+import { IThemeContext, UserSocial, SocialName } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { useEffect, useState } from 'react';
 import { Pagination } from 'ui-kit';
@@ -9,10 +9,10 @@ import { team } from 'utils/team.js';
 import s from './TeamList.module.scss';
 
 interface Links {
-  behance: string;
-  dribble: string;
-  github: string;
-  linkedin: string;
+  behance?: string;
+  dribble?: string;
+  github?: string;
+  linkedin?: string;
 }
 
 interface TeamList {
@@ -30,26 +30,38 @@ interface TeamListProps {
 
 const itemsForPage = 4;
 
+const returnSocialList = (social: Links): UserSocial[] => {
+  return Object.entries(social).map((item: [SocialName, string]) => ({
+    name: item[0],
+    url: item[1],
+  }));
+};
+
 export const TeamList = ({ name, positions }: TeamListProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const [totalPages, setTotalPages] = useState<number>(null);
+  const [currentPage, setCurrentPage] = useState<number>(1); 
   const [array, setArray] = useState<TeamList[]>([]);
 
   const onPageChange = (currentPage: number) => {
-    const filteredTeamArray = team.filter(
-      (item) =>
-        item.name.toLowerCase().includes(name.toLowerCase()) &&
-        (positions.length === 0 || positions.includes(item.position))
-    );
-    const totalPages = Math.ceil(filteredTeamArray.length / itemsForPage);
+    let teamArray = [...team];
+    if (name || positions.length > 0) {
+      teamArray = team.filter(
+        (item) =>
+          (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
+          (positions.length === 0 || positions.includes(item.position))
+      );
+    }
+    const totalPages = Math.ceil(teamArray.length / itemsForPage);
     const start = itemsForPage * (currentPage - 1);
     const end = start + itemsForPage;
     setTotalPages(totalPages);
-    setArray(filteredTeamArray.slice(start, end));
+    setArray(teamArray.slice(start, end));
   };
 
   useEffect(() => {
     onPageChange(1);
+    setCurrentPage(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name, positions]);
 
@@ -63,24 +75,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
               name={item.name}
               position={item.position}
               image={IMAGES[item.image]}
-              social={[
-                item.social.behance && {
-                  name: 'behance',
-                  url: `${item.social.behance}`,
-                },
-                item.social.dribble && {
-                  name: 'dribble',
-                  url: `${item.social.dribble}`,
-                },
-                item.social.github && {
-                  name: 'github',
-                  url: `${item.social.github}`,
-                },
-                item.social.linkedin && {
-                  name: 'linkedin',
-                  url: `${item.social.linkedin}`,
-                },
-              ]}
+              social={returnSocialList(item.social)}
             />
           </li>
         ))}
@@ -88,6 +83,8 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
       <Pagination
         totalPages={totalPages}
         onPageChange={onPageChange}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
         className={s.teamList__pagination}
       />
     </>

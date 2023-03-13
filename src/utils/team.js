@@ -14,8 +14,6 @@ export const team = [
     position: positionsData.BACK_END,
     image: 'KHOMENKO',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/AlexKhomenko00',
       linkedin: 'https://www.linkedin.com/in/khomenkooleksandr/',
     },
@@ -28,8 +26,6 @@ export const team = [
     social: {
       behance: 'https://www.behance.net/dariaserhiienko',
       dribble: 'https://dribbble.com/dariaSerhiienko',
-      github: '',
-      linkedin: '',
     },
   },
   {
@@ -38,8 +34,6 @@ export const team = [
     position: positionsData.QA,
     image: 'MYTROFANOV',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/mitrofin',
       linkedin: 'https://www.linkedin.com/in/artem-mytrofanov/',
     },
@@ -50,8 +44,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'FILCHENKO',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/FortizFil',
       linkedin: 'https://www.linkedin.com/in/vitalii-filchenko/',
     },
@@ -62,8 +54,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'KUZNIETSOVA',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/KuznietsovaOksana',
       linkedin: 'https://www.linkedin.com/in/oksana-kuznietsova/',
     },
@@ -74,8 +64,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'GUBARIEVA',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/GubarievaAnna',
       linkedin: 'https://www.linkedin.com/in/anna-gubarieva/',
     },
@@ -86,8 +74,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'KOSTIUK',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/vitakostiuk',
       linkedin: 'https://www.linkedin.com/in/vitakostiuk',
     },
@@ -98,8 +84,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'KHABUZOV',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/egarra',
       linkedin: 'https://www.linkedin.com/in/ihor-khabuzov-53a76825b/',
     },
@@ -110,8 +94,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'NIKOLAENKO',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/aleksander-nikolaenko',
       linkedin: 'https://www.linkedin.com/in/aleksander-nikolaienko/',
     },
@@ -122,8 +104,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'KRETSUL',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/Kretsul-Vitaliy',
       linkedin: 'https://www.linkedin.com/in/vitalii-kretsul-442213b6/',
     },
@@ -134,8 +114,6 @@ export const team = [
     position: positionsData.FRONT_END,
     image: 'MOSKALENKO',
     social: {
-      behance: '',
-      dribble: '',
       github: 'https://github.com/Vlad-Moskalenko/',
       linkedin: 'https://www.linkedin.com/in/vlad-moskalenko/',
     },

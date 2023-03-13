@@ -55,7 +55,7 @@ export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
           onChange={handleChange}
           onClick={handleClick}
         />
-        <OneFieldFilter data={positionsList} setPositions={setPositions}/>
+        <OneFieldFilter data={positionsList} setFilter={setPositions} name="Team"/>
       </div>
     </div>
   );

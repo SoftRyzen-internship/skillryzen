@@ -11,13 +11,14 @@ import s from './Pagination.module.scss';
 interface Props {
   className?: string;
   totalPages: number;
+  currentPage: number;
+  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
   onPageChange: (pageNumber: number) => void;
 }
 
-export const Pagination = ({ totalPages, onPageChange, className }: Props) => {
+export const Pagination = ({ totalPages, onPageChange, currentPage, setCurrentPage,  className }: Props) => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentPage, setCurrentPage] = useState<number>(1); // Current active page number
   const [arrayOfVisiblePages, setArrayOfVisiblePages] = useState<
     Array<number | string>
   >([]); // Array of buttons what we see on the page

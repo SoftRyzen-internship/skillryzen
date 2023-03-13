@@ -67,10 +67,6 @@ const testingInfoSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(getRandomTest.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(getRandomTest.fulfilled, (state, { payload }) => {
         state.testId = payload.id;
         state.questionId = payload.nextQuestion.id;
@@ -82,14 +78,6 @@ const testingInfoSlice = createSlice({
         state.currentTime = 30;
         state.isLoading = false;
       })
-      .addCase(getRandomTest.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.isLoading = false;
-      })
-      .addCase(answerTest.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
-      })
       .addCase(answerTest.fulfilled, (state, { payload }) => {
         state.number = state.number + 1;
         state.questionId = payload.questionId;
@@ -97,14 +85,6 @@ const testingInfoSlice = createSlice({
         state.possibleAnswers = payload.possibleAnswers;
         state.hasNextQuestion = payload.hasNextQuestion;
         state.isLoading = false;
-      })
-      .addCase(answerTest.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.isLoading = false;
-      })
-      .addCase(finishTest.pending, (state) => {
-        state.isLoading = true;
-        state.error = null;
       })
       .addCase(finishTest.fulfilled, (state, { payload }) => {
         state.results.testId = payload.testId;
@@ -119,10 +99,24 @@ const testingInfoSlice = createSlice({
         state.currentTime = 0;
         state.isLoading = false;
       })
-      .addCase(finishTest.rejected, (state, { payload }) => {
-        state.error = payload;
-        state.isLoading = false;
-      });
+      .addMatcher(
+        (action) =>
+          action.type.startsWith('testingInfo') &&
+          action.type.endsWith('/pending'),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        (action) =>
+          action.type.startsWith('testingInfo') &&
+          action.type.endsWith('/rejected'),
+        (state, action) => {
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      );
   },
 });
 
