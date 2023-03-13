@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage/session';
+import storage from 'redux-persist/lib/storage';
 
 import { answerTest, finishTest, getTestTemplate} from './testingInfoOperations';
 
@@ -33,7 +33,7 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: "9e50f759-2f84-46df-aea2-92b974e9aecf",
+  templateId: "9b13c6ed-ce2a-476c-945d-746c56e5023b",
   testId: '',
   questionId: '',
   number: null,
