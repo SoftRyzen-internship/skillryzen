@@ -10,7 +10,7 @@ import { Breadcrumbs, IconButton, Input, Tabs } from 'ui-kit/index';
 
 import { NotificationsCardList } from './NotificationsCardList';
 
-import s from './StudentNotificationsPageComponent.module.scss';
+import s from './NotificationsPageComponent.module.scss';
 
 const testsArray = [
   {
@@ -34,7 +34,7 @@ const tabs = [
   },
 ];
 
-export const StudentNotificationsPageComponent = () => {
+export const NotificationsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const [size, setSize] = useState<'large' | 'small'>('large');

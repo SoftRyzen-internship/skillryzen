@@ -8,27 +8,62 @@ import { TestCard } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 interface MyTestsProps {
-  userInfo: UserInfo;
   theme?: Theme;
 }
+const myTestsArr = [
+  {
+    id: 1,
+    title: 'FullStuck_Final_Test',
+    text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+    fields: ['HTML', 'CSS', 'React', 'Javascript'],
+    author: 'GoIt',
+    number: 50,
+    time: 3,
+  },
+  // {
+  //   id: 2,
+  //   title: 'FullStuck_Final_Test',
+  //   text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+  //   fields: ['HTML', 'CSS', 'React', 'Javascript'],
+  //   author: 'GoIt',
+  //   number: 50,
+  //   time: 3,
+  // },
+  // {
+  //   id: 3,
+  //   title: 'FullStuck_Final_Test',
+  //   text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+  //   fields: ['HTML', 'CSS', 'React', 'Javascript'],
+  //   author: 'GoIt',
+  //   number: 50,
+  //   time: 3,
+  // },
+  // {
+  //   id: 4,
+  //   title: 'FullStuck_Final_Test',
+  //   text: 'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+  //   fields: ['HTML', 'CSS', 'React', 'Javascript'],
+  //   author: 'GoIt',
+  //   number: 50,
+  //   time: 3,
+  // },
+];
 
-export const MyTests = ({ userInfo, theme }: MyTestsProps) => {
+export const MyTests = ({ theme = 'dark' }: MyTestsProps) => {
   const { t } = useTranslation();
-  const { tests } = userInfo;
-
   return (
     <div className={`${s[`container--${theme}`]}`}>
       <p className={`${s[`title--${theme}`]}`}>
         {t('userProfile.testsCardTitle')}
       </p>
 
-      {!tests || tests.length === 0 ? (
+      {!myTestsArr || myTestsArr.length === 0 ? (
         <div className={`${s[`noDataText--${theme}`]}`}>
           {t('userProfile.noDataText')}
         </div>
       ) : (
         <ul className={s.cardList}>
-          {tests.map((test, index) => {
+          {myTestsArr.map((test, index) => {
             return (
               <li key={test.id}>
                 <Link to={`${ROUTES.CERTIFICATION}/fullstack_final`}>

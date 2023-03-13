@@ -10,7 +10,7 @@ import { Breadcrumbs, IconButton, Input, Tabs } from 'ui-kit/index';
 
 import { CoinsCardList } from './CoinsCardList';
 
-import s from './StudentCoinsPageComponent.module.scss';
+import s from './CoinsPageComponent.module.scss';
 
 const testsArray = [
   {
@@ -34,7 +34,7 @@ const tabs = [
   },
 ];
 
-export const StudentCoinsPageComponent = () => {
+export const CoinsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const [size, setSize] = useState<'large' | 'small'>('large');

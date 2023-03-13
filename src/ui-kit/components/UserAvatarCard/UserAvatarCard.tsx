@@ -1,13 +1,16 @@
-import s from './UserAvatarCard.module.scss';
+import { memo } from 'react';
+
 import { Theme } from 'constans/types';
+
+import s from './UserAvatarCard.module.scss';
 interface UserAvatarCardProps {
   userName: string;
-  userRole?: string;
   userAvatarUrl: string;
+  userRole?: string;
   userStatus?: 'green' | 'yellow' | 'gray';
   theme?: Theme;
 }
-export const UserAvatarCard = ({
+const UserAvatarCardComponent = ({
   userName,
   userRole,
   userAvatarUrl,
@@ -35,3 +38,5 @@ export const UserAvatarCard = ({
     </div>
   );
 };
+
+export const UserAvatarCard = memo(UserAvatarCardComponent);

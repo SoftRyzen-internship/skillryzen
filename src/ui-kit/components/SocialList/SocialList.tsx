@@ -1,5 +1,8 @@
-import { Theme, UserSocial } from 'constans/types';
+import { memo, useMemo } from 'react';
+
 import { ICONS } from 'ui-kit/icons';
+
+import { Theme, UserSocial } from 'constans/types';
 
 import s from './SocialList.module.scss';
 
@@ -8,20 +11,21 @@ interface SocialListProps {
   className?: string;
   theme?: Theme;
 }
-export const SocialList = ({
+const SocialListComponent = ({
   social,
   className = '',
   theme = 'dark',
 }: SocialListProps) => {
-
-  const objectIcons = {
-    telegram: <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />,
-    linkedin: <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />,
-    discord: <ICONS.DISCORD className={`${s[`icon--${theme}`]}`} />,
-    github: <ICONS.GITHUB className={`${s[`icon--${theme}`]}`} />,
-    behance: <ICONS.BEHANCE className={`${s[`icon--${theme}`]}`} />,
-    dribble: <ICONS.DRIBBLE className={`${s[`icon--${theme}`]}`} />,
-  };
+  const objectIcons = useMemo(() => {
+    return {
+      telegram: <ICONS.TELEGRAM className={`${s[`icon--${theme}`]}`} />,
+      linkedin: <ICONS.LINKEDIN className={`${s[`icon--${theme}`]}`} />,
+      discord: <ICONS.DISCORD className={`${s[`icon--${theme}`]}`} />,
+      github: <ICONS.GITHUB className={`${s[`icon--${theme}`]}`} />,
+      behance: <ICONS.BEHANCE className={`${s[`icon--${theme}`]}`} />,
+      dribble: <ICONS.DRIBBLE className={`${s[`icon--${theme}`]}`} />,
+    };
+  }, [theme]);
   return (
     <ul className={`${s.list} ${className}`}>
       {social.map((item, index) => {
@@ -41,3 +45,5 @@ export const SocialList = ({
     </ul>
   );
 };
+
+export const SocialList = memo(SocialListComponent);

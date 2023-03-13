@@ -5,15 +5,18 @@ import { Theme, UserInfo } from 'constans/types';
 import s from './MyAchievementsList.module.scss';
 
 interface MyAchievementsListProps {
-  userInfo: UserInfo;
   theme?: Theme;
 }
 
+const userAchievements = {
+  score: '98%',
+  coins: 25,
+  time: '01:15:36',
+};
+
 export const MyAchievementsList = ({
-  userInfo,
-  theme,
+  theme = 'dark',
 }: MyAchievementsListProps) => {
-  const { achievements } = userInfo;
   const { t } = useTranslation();
 
   return (
@@ -22,19 +25,19 @@ export const MyAchievementsList = ({
         <p className={`${s[`listTitle--${theme}`]}`}>
           {t('userProfile.achievements.scoreTitle')}
         </p>
-        <p className={s.scoreValue}>{achievements.score}</p>
+        <p className={s.scoreValue}>{userAchievements.score}</p>
       </li>
       <li className={`${s[`item--${theme}`]}`}>
         <p className={`${s[`listTitle--${theme}`]}`}>
           {t('userProfile.achievements.coinsTitle')}
         </p>
-        <p className={s.coinsValue}>{achievements.coins}</p>
+        <p className={s.coinsValue}>{userAchievements.coins}</p>
       </li>
       <li className={`${s[`item--${theme}`]}`}>
         <p className={`${s[`listTitle--${theme}`]}`}>
           {t('userProfile.achievements.timeTitle')}
         </p>
-        <p className={s.timeValue}>{achievements.time}</p>
+        <p className={s.timeValue}>{userAchievements.time}</p>
       </li>
     </ul>
   );

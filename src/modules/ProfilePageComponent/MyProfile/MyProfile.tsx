@@ -1,32 +1,66 @@
 import { useTranslation } from 'react-i18next';
 
+import { IMAGES } from 'ui-kit/images';
 import { ICONS } from 'ui-kit/icons';
 import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 
-import { Theme, UserInfo } from 'constans/types';
+import { Theme, UserSocial } from 'constans/types';
 
 import { SocialList, UserAvatar } from 'ui-kit/index';
 import s from './MyProfile.module.scss';
 import { CompanyAvatarCard } from 'ui-kit/components/CompanyAvatarCard';
 
 interface MyProfileProps {
-  userInfo: UserInfo;
   theme?: Theme;
 }
 
-export const MyProfile = ({ userInfo, theme }: MyProfileProps) => {
+const USER_INFO = {
+  name: 'Maksim Kozlov',
+  email: 'test@test.com',
+  phone: '+380501234567',
+  location: 'Ukraine',
+  avatarUrl: IMAGES.BLUE_AVATAR,
+  groupName: 'JS48',
+  testsAmount: 3,
+};
+
+const USER_SOCIAL: UserSocial[] = [
+  {
+    name: 'telegram',
+    url: 'https://web.telegram.org/',
+  },
+
+  {
+    name: 'linkedin',
+    url: 'https://www.linkedin.com/',
+  },
+  {
+    name: 'github',
+    url: 'https://github.com/',
+  },
+  {
+    name: 'discord',
+    url: 'https://discord.com/',
+  },
+  // {
+  //   name: 'behance',
+  //   url: 'https://www.behance.net/',
+  // },
+  // {
+  //   name: 'dribble',
+  //   url: 'https://dribbble.com/',
+  // },
+];
+
+const USER_COMPANY = {
+  name: 'GoIT',
+  avatarUrl: IMAGES.GOIT_AVATAR,
+};
+
+export const MyProfile = ({ theme = 'dark' }: MyProfileProps) => {
   const { t } = useTranslation();
-  const {
-    name,
-    avatarUrl,
-    email,
-    phone,
-    location,
-    social,
-    company,
-    groupName,
-    testsAmount,
-  } = userInfo;
+  const { name, avatarUrl, email, phone, location, groupName, testsAmount } =
+    USER_INFO;
   return (
     <div className={`${s[`container--${theme}`]}`}>
       <div>
@@ -76,7 +110,7 @@ export const MyProfile = ({ userInfo, theme }: MyProfileProps) => {
             </a>
           </li>
         </ul>
-        <SocialList social={social} theme={theme} />
+        <SocialList social={USER_SOCIAL} theme={theme} />
       </div>
       <div>
         <div className={s.companyContainer}>
@@ -84,8 +118,8 @@ export const MyProfile = ({ userInfo, theme }: MyProfileProps) => {
             {t('userProfile.companyTitle')}
           </p>
           <CompanyAvatarCard
-            companyAvatarUrl={company.avatarUrl}
-            companyName={company.name}
+            companyAvatarUrl={USER_COMPANY.avatarUrl}
+            companyName={USER_COMPANY.name}
             theme={theme}
           />
         </div>
