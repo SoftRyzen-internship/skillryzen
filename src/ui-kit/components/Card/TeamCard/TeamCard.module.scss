@@ -29,35 +29,35 @@
 .card--blue {
   composes: card;
   &::after {
-    background-color: #3653f2;
+    background-color: var(--accent-cl);
   }
 }
 
 .card--lightBlue {
   composes: card;
   &::after {
-    background-color: #5599ff;
+    background-color: var(--copy-btn-cl);
   }
 }
 
 .card--red {
   composes: card;
   &::after {
-    background-color: #ff3b6a;
+    background-color: var(--wrong-cl);
   }
 }
 
 .card--green {
   composes: card;
   &::after {
-    background-color: #2eac61;
+    background-color: var(--right-cl);
   }
 }
 
 .card--yellow {
   composes: card;
   &::after {
-    background-color: #ffd84f;
+    background-color: var(--message-cl);
   }
 }
 
@@ -76,7 +76,7 @@
 }
 
 .name {
-  font-size: 16px;
+  font-size: var(--text-lg);
   line-height: 1.3;
   margin-bottom: 8px;
 
@@ -90,7 +90,7 @@
 }
 
 .position {
-  font-size: 12px;
+  font-size: var(--text-sm);
   line-height: 1.2;
   color: var(--secondary-txt-cl);
   margin-bottom: 20px;
