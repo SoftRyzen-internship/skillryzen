@@ -1,1 +1,0 @@
-export { StudentCoinsPageComponent } from './StudentCoinsPageComponent';

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { logOut } from 'redux/authSlice/operations';
@@ -8,58 +8,27 @@ import { setClickLogOut } from 'redux/authSlice/authSlice';
 import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
 
 import { useThemeContext } from 'context/themeContext';
-import { getRandomInt } from 'utils/getRandomInt';
 
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
-import { IMAGES } from 'ui-kit/images';
+
+import { randomAvatar } from 'utils/randomAvatar';
+import { randomName } from 'utils/randomName';
+
 import { UserAvatarCard, Popup, Modal } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
 
 import s from './HeaderUserAvatarCard.module.scss';
 
-interface HeaderUserAvatarCardProps {
-  className?: string;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-  popupContent?: React.ReactNode;
-}
-
-export const HeaderUserAvatarCard = ({
-  className,
-}: HeaderUserAvatarCardProps) => {
+export const HeaderUserAvatarCard = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const defaultAvatars = [
-    IMAGES.BLUE_AVATAR,
-    IMAGES.GREEN_AVATAR,
-    IMAGES.RED_AVATAR,
-    IMAGES.YELLOW_AVATAR,
-  ];
-
-  const defaultNames = [
-    'Тіньовий QA',
-    'Скритий Девелопер',
-    'Анонімний Дизайнер',
-    'Невідомий Тестувальник',
-    'Секретний Кодер',
-    'Неіменований Графічний дизайнер',
-    'Прихований Розробник',
-    'Невідомий UX/UI дизайнер',
-    'Анонімний Архітектор',
-    'Загадковий Аналітик',
-  ];
-
-  const [name, setName] = useState(
-    defaultNames[getRandomInt(defaultNames.length - 1)]
-  );
-  const [avatar, setAvatar] = useState(
-    defaultAvatars[getRandomInt(defaultAvatars.length - 1)]
-  );
+  const name = useMemo(randomName, []);
+  const avatar = useMemo(randomAvatar, []);
 
   const iconColor = {
     dark: 'var(--primary-txt-cl)',
@@ -118,9 +87,10 @@ export const HeaderUserAvatarCard = ({
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
+
   return (
     <div
-      className={className ? `${s.container} ${className}` : s.container}
+      className={s.container}
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
     >

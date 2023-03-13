@@ -1,0 +1,1 @@
+export { CoinsPageComponent } from './CoinsPageComponent';

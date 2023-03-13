@@ -1,4 +1,4 @@
 export { MainWrapper } from './MainWrapper';
 export { AuthWrapper } from './AuthWrapper';
-export { PublickRoute } from './PublickRoute';
+export { PublicRoute } from './PublicRoute';
 export { ProtectedRoute } from './ProtectedRoute';

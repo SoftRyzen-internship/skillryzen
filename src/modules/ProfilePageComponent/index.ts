@@ -1,0 +1,1 @@
+export { ProfilePageComponent } from './ProfilePageComponent';
