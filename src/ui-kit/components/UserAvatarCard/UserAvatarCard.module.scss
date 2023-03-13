@@ -82,9 +82,9 @@
 }
 .role--light {
   composes: role--common;
-  color: var(--light-secondary-txt-cl);
+  color: var(--light-primary-txt-cl);
 }
 .role--dark {
   composes: role--common;
-  color: var(--secondary-txt-cl);
+  color: var(--primary-txt-cl);
 }

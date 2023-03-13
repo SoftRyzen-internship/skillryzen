@@ -6,7 +6,7 @@ interface ButtonProps {
   text: string;
   icon?: JSX.Element;
   onClick?: () => void;
-  size: 'small' | 'large';
+  size: 'small' | 'large' | 'modal';
   color?: 'grey' | 'white' | 'blue';
   disabled?: boolean; // коли disabled то кнопка сіра, в іншому випадку акцент колір
   needBackground?: 'noBackgroundAccent' | 'noBackgroundGray'; // робить кнопку прозорою, та додає акцент колір на бордер та текст або сірий бордер

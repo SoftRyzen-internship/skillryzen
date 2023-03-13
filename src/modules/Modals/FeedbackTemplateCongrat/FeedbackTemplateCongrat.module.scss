@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 60px 130px;
+}
+
+.closeModalBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+.checkValidation {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 40px;
+}

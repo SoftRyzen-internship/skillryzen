@@ -1,0 +1,16 @@
+.pageWrapper {
+  min-width: 593px;
+
+  border-radius: 12px;
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+    border: 1px solid var(--primary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+    border: 1px solid var(--accent-cl);
+    box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
+  }
+}

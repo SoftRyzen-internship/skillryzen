@@ -1,0 +1,10 @@
+.titleModal {
+  font-size: 16px;
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
+}

@@ -14,13 +14,13 @@ interface FormValues {
 }
 
 interface FeedbackProps {
-  updateData: (_value: boolean) => void;
+  sendFeedback?: (_value: boolean) => void;
   updateLoading: (_value: boolean) => void;
   userEmail: string;
 }
 
 export const FeedbackForm = ({
-  updateData,
+  sendFeedback,
   updateLoading,
   userEmail,
 }: FeedbackProps) => {
@@ -49,7 +49,7 @@ export const FeedbackForm = ({
         )
         .then((res) => {
           res.data;
-          updateData(true);
+          sendFeedback(true);
           resetForm();
         })
         .catch((error) => {
