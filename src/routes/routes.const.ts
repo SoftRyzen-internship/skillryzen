@@ -22,4 +22,6 @@ export const ROUTES: Routes = {
   TESTING: '/testing',
   TEST_END: '/testing/test-end',
   INVITE_MODULE: '/invite-module',
+  COMPANY_PROFILE: '/company-profile',
+  COMPANY_SETTINGS: '/company-settings',
 };

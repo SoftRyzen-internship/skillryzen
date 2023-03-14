@@ -9,10 +9,15 @@ import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
 
 import { useThemeContext } from 'context/themeContext';
 
+import { USER_ROLE } from 'constans/consts';
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 
-import { getIsAuth, getUserName } from 'redux/authSlice/authSelectors';
+import {
+  getIsAuth,
+  getUserName,
+  getUserRole,
+} from 'redux/authSlice/authSelectors';
 
 import { randomAvatar } from 'utils/randomAvatar';
 
@@ -20,6 +25,11 @@ import { UserAvatarCard, Popup, Modal } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
 
 import s from './HeaderUserAvatarCard.module.scss';
+
+const iconColor = {
+  dark: 'var(--primary-txt-cl)',
+  light: 'var(--accent-cl)',
+};
 
 export const HeaderUserAvatarCard = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -29,14 +39,62 @@ export const HeaderUserAvatarCard = () => {
   const dispatch = useAppDispatch();
 
   const name = useAppSelector(getUserName);
+  const role = useAppSelector(getUserRole);
   const isAuth = useAppSelector(getIsAuth);
 
   const avatar = useMemo(randomAvatar, []);
 
-  const iconColor = {
-    dark: 'var(--primary-txt-cl)',
-    light: 'var(--accent-cl)',
-  };
+  const popupList = useMemo(() => {
+    if (role === USER_ROLE.companyOwner) {
+      return [
+        {
+          icon: <ICONS.USER stroke={iconColor[theme]} />,
+          text: t('header.userAvatar.profile'),
+          path: ROUTES.PROFILE,
+        },
+        {
+          icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
+          text: t('header.userAvatar.settings'),
+          path: ROUTES.PROFILE_SETTINGS,
+        },
+        {
+          icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
+          text: t('header.userAvatar.notifications'),
+          path: ROUTES.NOTIFICATIONS,
+        },
+        {
+          icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
+          text: t('header.userAvatar.logOut'),
+        },
+      ];
+    }
+    return [
+      {
+        icon: <ICONS.USER stroke={iconColor[theme]} />,
+        text: t('header.userAvatar.profile'),
+        path: ROUTES.PROFILE,
+      },
+      {
+        icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
+        text: t('header.userAvatar.settings'),
+        path: ROUTES.PROFILE_SETTINGS,
+      },
+      {
+        icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
+        text: t('header.userAvatar.notifications'),
+        path: ROUTES.NOTIFICATIONS,
+      },
+      {
+        icon: <ICONS.COIN fill={iconColor[theme]} />,
+        text: t('header.userAvatar.coins'),
+        path: ROUTES.COINS,
+      },
+      {
+        icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
+        text: t('header.userAvatar.logOut'),
+      },
+    ];
+  }, [role, t, theme]);
 
   const handleClickModal = () => {
     setIsShowModal((prevState) => !prevState);
@@ -58,32 +116,7 @@ export const HeaderUserAvatarCard = () => {
       <Popup
         theme={theme}
         handleClickItem={handleClickPopupItem}
-        list={[
-          {
-            icon: <ICONS.USER stroke={iconColor[theme]} />,
-            text: t('header.userAvatar.profile'),
-            path: ROUTES.PROFILE,
-          },
-          {
-            icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
-            text: t('header.userAvatar.settings'),
-            path: ROUTES.PROFILE_SETTINGS,
-          },
-          {
-            icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
-            text: t('header.userAvatar.notifications'),
-            path: ROUTES.NOTIFICATIONS,
-          },
-          {
-            icon: <ICONS.COIN fill={iconColor[theme]} />,
-            text: t('header.userAvatar.coins'),
-            path: ROUTES.COINS,
-          },
-          {
-            icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
-            text: t('header.userAvatar.logOut'),
-          },
-        ]}
+        list={popupList}
       />
     );
   };

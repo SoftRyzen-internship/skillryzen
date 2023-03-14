@@ -52,6 +52,10 @@
       "item1": "Results of test",
       "item2": "New messages"
     },
+    "company": {
+      "profile": "Company Profile",
+      "settings": "Company Settings"
+    },
     "userAvatar": {
       "profile": "Profile",
       "settings": "Settings",
