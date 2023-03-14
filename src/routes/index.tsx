@@ -5,7 +5,7 @@ import { useAppSelector } from 'hooks/hook';
 import {
   MainWrapper,
   AuthWrapper,
-  PublickRoute,
+  PublicRoute,
   ProtectedRoute,
 } from 'modules/wrappers';
 
@@ -16,10 +16,10 @@ import TestingPage from 'pages/TestingPage';
 import TestEndPage from 'pages/TestEndPage';
 import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
-import StudentProfilePage from 'pages/StudentProfilePage';
+import ProfilePage from 'pages/ProfilePage';
+import CoinsPage from 'pages/CoinsPage';
+import NotificationsPage from 'pages/NotificationsPage';
 import ProfileSettingsPage from 'pages/ProfileSettingsPage';
-import StudentCoinsPage from 'pages/StudentCoinsPage';
-import StudentNotificationsPage from 'pages/StudentNotificationsPage';
 import FeedbackPage from 'pages/FeedbackPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 import InviteModulePage from 'pages/InviteModulePage';
@@ -36,11 +36,11 @@ export const AppRoutes = () => {
       children: [
         {
           element: (
-            <PublickRoute isAuth={isAuth}>
+            <PublicRoute isAuth={isAuth}>
               <AuthWrapper>
                 <Outlet />
               </AuthWrapper>
-            </PublickRoute>
+            </PublicRoute>
           ),
           children: [
             {
@@ -103,7 +103,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.PROFILE,
-                      element: <StudentProfilePage />,
+                      element: <ProfilePage />,
                     },
                     {
                       path: ROUTES.PROFILE_SETTINGS,
@@ -111,11 +111,11 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.NOTIFICATIONS,
-                      element: <StudentNotificationsPage />,
+                      element: <NotificationsPage />,
                     },
                     {
                       path: ROUTES.COINS,
-                      element: <StudentCoinsPage />,
+                      element: <CoinsPage />,
                     },
                     {
                       path: ROUTES.FEEDBACK,
