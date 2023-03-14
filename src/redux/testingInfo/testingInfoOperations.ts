@@ -2,8 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from 'redux/store';
 import { axiosInstance } from 'services/axiosConfig';
 
-type SelectedAnswer = string;
-
 interface Answer {
   testId: string;
   questionId: string;
@@ -48,7 +46,7 @@ export interface FinishResponse {
 
 export const getTestTemplateApi = (templateId: string) =>
   axiosInstance
-    .post(`user-test/start/${templateId}`, {}, { withCredentials: true })
+    .post(`user-test/start/${templateId}`)
     .then((response) => response.data);
 
 export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
@@ -85,7 +83,7 @@ export const getTestTemplate = createAsyncThunk<
 
 export const answerTest = createAsyncThunk<
   AnswerResponse,
-  SelectedAnswer,
+  string,
   { rejectValue: string; state: RootState }
 >(
   'testingInfo/answerTest',

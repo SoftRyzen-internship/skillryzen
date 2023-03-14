@@ -30,7 +30,9 @@ export const Menu = ({ menu, theme = 'dark' }: MenuProps) => {
             <NavLink
               to={item.path}
               className={({ isActive }) =>
-                isActive ? s.menu__navLinkActive : s.menu__navLink
+                `${s.menu__navLink} ${
+                  isActive ? s.menu__navLinkActive : s.menu__navLink
+                } ${theme === 'dark' ? s.menu__navLink : s.menu__navLinkLight}`
               }
             >
               <item.icon

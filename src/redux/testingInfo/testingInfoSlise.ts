@@ -137,14 +137,14 @@ const persistConfig = {
   storage,
   whitelist: [
     'testId',
+    'questionsTotalCount',
+    'totalTime',
+    'currentTime',
     'questionId',
     'number',
     'title',
     'possibleAnswers',
     'codePiece',
-    'questionsTotalCount',
-    'currentTime',
-    'totalTime',
   ],
 };
 
