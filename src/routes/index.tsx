@@ -17,7 +17,7 @@ import TestEndPage from 'pages/TestEndPage';
 import RegisterPage from 'pages/RegisterPage';
 import TestStartPage from 'pages/TestStartPage';
 import StudentProfilePage from 'pages/StudentProfilePage';
-import StudentSettingsPage from 'pages/StudentSettingsPage';
+import ProfileSettingsPage from 'pages/ProfileSettingsPage';
 import StudentCoinsPage from 'pages/StudentCoinsPage';
 import StudentNotificationsPage from 'pages/StudentNotificationsPage';
 import FeedbackPage from 'pages/FeedbackPage';
@@ -107,7 +107,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.PROFILE_SETTINGS,
-                      element: <StudentSettingsPage />,
+                      element: <ProfileSettingsPage />,
                     },
                     {
                       path: ROUTES.NOTIFICATIONS,

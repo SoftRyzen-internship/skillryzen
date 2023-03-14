@@ -1,7 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { RootState } from 'redux/store';
 import { axiosInstance } from 'services/axiosConfig';
 
-export interface Answer {
+type SelectedAnswer = string;
+
+interface Answer {
   testId: string;
   questionId: string;
   selectedAnswer: string;
@@ -15,12 +18,27 @@ interface AnswerResponse {
     title: string;
     label: string;
   }[];
+  codePiece: null | string;
   hasNextQuestion: boolean;
 }
 
-export interface Finish {
-  testId: string;
-  time: Date;
+interface NextQuestion {
+  id: string;
+  title: string;
+  possibleAnswers: {
+    value: string;
+    title: string;
+    label: string;
+  }[];
+  codePiece: null | string;
+}
+
+interface TemplateResponse {
+  id: string;
+  timeForCompletionInMs: number;
+  questionsTotalCount: number;
+  nextQuestion: NextQuestion;
+  hasNextQuestion: boolean;
 }
 
 export interface FinishResponse {
@@ -28,9 +46,9 @@ export interface FinishResponse {
   percentageOfCorrectAnswers: number;
 }
 
-export const getRandomTestApi = () =>
+export const getTestTemplateApi = (templateId: string) =>
   axiosInstance
-    .post('user-test/random', {}, { withCredentials: true })
+    .post(`user-test/start/${templateId}`, {}, { withCredentials: true })
     .then((response) => response.data);
 
 export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
@@ -41,59 +59,71 @@ export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
     })
     .then((response) => response.data);
 
-export const finishTestApi = ({ testId, time }: Finish) =>
+export const finishTestApi = (testId: string) =>
   axiosInstance
-    .post(`user-test/${testId}/finish`, { finishedAt: time })
+    .post(`user-test/${testId}/finish`)
     .then((response) => response.data);
 
-export const getRandomTest = createAsyncThunk(
-  'testingInfo/getRandomTest',
-  async function (_, thunkApi) {
+export const getTestTemplate = createAsyncThunk<
+  TemplateResponse,
+  null,
+  { rejectValue: string; state: RootState }
+>(
+  'testingInfo/getTestTemplate',
+  async function (_, { rejectWithValue, getState }) {
+    const { templateId } = getState().testingInfo;
     try {
-      const data = await getRandomTestApi();
+      const data = await getTestTemplateApi(templateId);
+      data.timeForCompletionInMs = data.timeForCompletionInMs / 1000;
+      data.nextQuestion.codePiece = null;
       return data;
     } catch (error) {
-      return thunkApi.rejectWithValue(error.response.data.message);
+      return rejectWithValue(error.response.data.errors.code);
     }
   }
 );
 
 export const answerTest = createAsyncThunk<
   AnswerResponse,
-  Answer,
-  { rejectValue: string }
->('testingInfo/answerTest', async (info, thunkApi) => {
-  const { testId, questionId, selectedAnswer } = info;
+  SelectedAnswer,
+  { rejectValue: string; state: RootState }
+>(
+  'testingInfo/answerTest',
+  async (selectedAnswer, { rejectWithValue, getState }) => {
+    const { testId, questionId } = getState().testingInfo;
 
-  try {
-    const data = await answerTestApi({ testId, questionId, selectedAnswer });
-    const { hasNextQuestion, nextQuestion } = data;
-    return hasNextQuestion
-      ? {
-        questionId: nextQuestion.id,
-        title: nextQuestion.title,
-        possibleAnswers: nextQuestion.possibleAnswers,
-        hasNextQuestion: hasNextQuestion,
-      }
-      : {
-        questionId: '',
-        title: '',
-        possibleAnswers: [],
-        hasNextQuestion: false,
-      };
-  } catch (error) {
-    return thunkApi.rejectWithValue(error.response.data.message);
+    try {
+      const data = await answerTestApi({ testId, questionId, selectedAnswer });
+      const { hasNextQuestion, nextQuestion } = data;
+      return hasNextQuestion
+        ? {
+          questionId: nextQuestion.id,
+          title: nextQuestion.title,
+          possibleAnswers: nextQuestion.possibleAnswers,
+          codePiece: nextQuestion.codePiece,
+          hasNextQuestion: hasNextQuestion,
+        }
+        : {
+          questionId: '',
+          title: '',
+          possibleAnswers: [],
+          codePiece: null,
+          hasNextQuestion: false,
+        };
+    } catch (error) {
+      return rejectWithValue(error.response.data.message);
+    }
   }
-});
+);
 
 export const finishTest = createAsyncThunk<
   FinishResponse,
-  Finish,
-  { rejectValue: string }
->('testingInfo/finishTest', async (info, { rejectWithValue }) => {
-  const { testId, time } = info;
+  null,
+  { rejectValue: string; state: RootState }
+>('testingInfo/finishTest', async (_, { rejectWithValue, getState }) => {
+  const { testId } = getState().testingInfo;
   try {
-    const data = await finishTestApi({ testId, time });
+    const data = await finishTestApi(testId);
     return {
       testId,
       percentageOfCorrectAnswers: data.percentageOfCorrectAnswers,

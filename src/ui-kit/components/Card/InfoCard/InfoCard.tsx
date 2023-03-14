@@ -1,7 +1,6 @@
 import { Theme } from 'constans/types';
-
 import { ICONS } from 'ui-kit/icons';
-import { Tag } from 'ui-kit/index';
+import { Tag } from 'ui-kit';
 
 import s from './InfoCard.module.scss';
 
@@ -26,7 +25,10 @@ const imageObject = {
     background: 'green',
     icon: <ICONS.WARNING_CIRCLE className={s.notification__icon} />,
   },
-  coin: { background: 'blue', icon: <ICONS.COIN className={s.coin__icon} /> },
+  coin: {
+    background: 'blue',
+    icon: <ICONS.COIN className={s.coin__icon} />,
+  },
 };
 
 export const InfoCard = ({
@@ -37,20 +39,17 @@ export const InfoCard = ({
   onClick,
 }: Card) => {
   const { title, text, number } = item;
-
-  const addBackgroundColor = (type: Type): string => {
-    return imageObject[type].background;
-  };
-
-  const addIcon = (type: Type) => {
-    return imageObject[type].icon;
-  };
+  const { background, icon } = imageObject[type];
 
   return (
     <div className={`${s[`card--${size}`]} ${s[`card--${theme}`]}`}>
       <div className={s.card__infoWrapper}>
-        <div className={`${s[`card__iconThumb--${addBackgroundColor(type)}`]}`}>
-          {addIcon(type)}
+        <div
+          className={`${s.card__iconThumb} ${
+            s[`card__iconThumb--${background}`]
+          }`}
+        >
+          {icon}
         </div>
         <div className={s.card__contentWrapper}>
           <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>
@@ -63,8 +62,17 @@ export const InfoCard = ({
       </div>
       <div className={s.card__addInfoWrapper}>
         <Tag type='number' theme={theme} label={number + ' min ago'} />
-        <button className={`${s.card__close} ${s[`card__close--${theme}`]}`} onClick={onClick}>
-          {<ICONS.CROSS_SMALL className={`${s.card__closeIcon} ${s[`card__closeIcon--${theme}`]}`} />}
+        <button
+          className={`${s.card__close} ${s[`card__close--${theme}`]}`}
+          onClick={onClick}
+        >
+          {
+            <ICONS.CROSS_SMALL
+              className={`${s.card__closeIcon} ${
+                s[`card__closeIcon--${theme}`]
+              }`}
+            />
+          }
         </button>
       </div>
     </div>

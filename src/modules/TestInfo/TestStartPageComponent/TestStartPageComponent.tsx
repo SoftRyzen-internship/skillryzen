@@ -5,6 +5,7 @@ import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
 
+import { Breadcrumbs } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 
 export const TestStartPageComponent = () => {
@@ -31,6 +32,7 @@ export const TestStartPageComponent = () => {
 
   return (
     <TestInfoContainer>
+      <Breadcrumbs />
       <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
         imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
