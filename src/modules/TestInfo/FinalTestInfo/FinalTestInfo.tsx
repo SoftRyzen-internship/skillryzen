@@ -132,7 +132,7 @@ export const FinalTestInfo = ({
             </div>
             <p
               className={objectTheme[theme].textRight}
-            >{listInfo.topics.join(', ')}</p>
+            >{listInfo.topics && listInfo.topics.join(', ')}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
@@ -144,7 +144,7 @@ export const FinalTestInfo = ({
               </p>
             </div>
             <p className={objectTheme[theme].textRight}>
-              {convertTime(listInfo.time / 1000)}
+              {listInfo.time / 60000} {t('testsMain.time')}
             </p>
           </li>
           <li className={s.item}>

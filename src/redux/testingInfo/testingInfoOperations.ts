@@ -75,7 +75,6 @@ export const getTestTemplate = createAsyncThunk<
     try {
       const data = await getTestTemplateApi(templateId);
       data.timeForCompletionInMs = data.timeForCompletionInMs / 1000;
-      data.nextQuestion.codePiece = null;
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.errors.code);
