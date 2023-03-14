@@ -19,7 +19,6 @@ import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
-import { formatCode } from 'utils/formatCode';
 
 export const TestQuestion = () => {
   const {
@@ -67,7 +66,7 @@ export const TestQuestion = () => {
         {title}
       </h2>
       <div className={s.questionWrapper}>
-        {codePiece && <div className={s.questionCode}>{formatCode(codePiece)}</div>}
+        {codePiece && <pre className={s.questionCode}>{codePiece}</pre>}
         <ul className={s.questionList}>
           {possibleAnswers &&
             !isLoading &&
