@@ -4,6 +4,9 @@ import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { ThemeContext } from 'context/themeContext';
 import { getLocaleStorageItem } from 'utils/getLocaleStorageItem';
 import { auth } from 'redux/authSlice/operations';
+import { setName } from 'redux/authSlice/authSlice';
+import { randomName } from 'utils/randomName';
+import { getUserEmail, getIsAuth } from 'redux/authSlice/authSelectors';
 
 import { Spinner } from 'ui-kit/components/Spinner/Spinner';
 
@@ -20,12 +23,13 @@ export const App = () => {
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
   );
 
-  const email = useAppSelector((state) => state.auth.user.email);
-  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const email = useAppSelector(getUserEmail);
+  const isAuth = useAppSelector(getIsAuth);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (isAuth && !email) {
+      dispatch(setName(randomName()));
       dispatch(auth());
     }
   }, [isAuth, dispatch, email]);

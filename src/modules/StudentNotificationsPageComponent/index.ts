@@ -1,1 +1,0 @@
-export { StudentNotificationsPageComponent } from './StudentNotificationsPageComponent';

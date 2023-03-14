@@ -141,6 +141,8 @@
     "passwordInvalid": "Password is invalid",
     "userExists": "User already exists",
     "serverError": "Oops, something went wrong. Try again later",
+    "companyName.required": "Company name is required",
+    "companyName.exists": "This company name already exists",
 
     "candidateIntro": [
       "Take a test in JavaScript",
