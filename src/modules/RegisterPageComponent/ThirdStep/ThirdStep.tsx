@@ -2,22 +2,24 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { ROUTES } from 'routes/routes.const';
 import { setName } from 'redux/authSlice/authSlice';
 import { auth } from 'redux/authSlice/operations';
+import { getUserRole } from 'redux/authSlice/authSelectors';
 
-import { RegisterContactsForm } from 'modules/Forms/RegisterContactsForm/RegisterContactsForm';
+import { RegisterContactsForm, RegisterCompanyForm } from 'modules/Forms';
 import { randomName } from 'utils/randomName';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const ThirdStep = () => {
-  const location = useLocation();
+  const { t } = useTranslation();
 
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
+  const role = useAppSelector(getUserRole);
 
   const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -32,12 +34,22 @@ export const ThirdStep = () => {
 
   return (
     <div className={s.formWrapper}>
-      <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
-      <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
-      <RegisterContactsForm />
-      <a href='#' onClick={handleClickSkipBtn} className={s.skip}>
-        {t('auth.skipBtn')}
-      </a>
+      {role === 'CANDIDATE' ? (
+        <>
+          <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
+          <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
+          <RegisterContactsForm />
+          <a href='#' onClick={handleClickSkipBtn} className={s.skip}>
+            {t('auth.skipBtn')}
+          </a>
+        </>
+      ) : (
+        <>
+          <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
+          <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
+          <RegisterCompanyForm />
+        </>
+      )}
     </div>
   );
 };

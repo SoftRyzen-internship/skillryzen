@@ -25,3 +25,4 @@ export { UserAvatar } from './components/UserAvatar';
 export { UserAvatarCard } from './components/UserAvatarCard';
 export { Notification } from './components/Notification/Notification';
 export { Select } from './components/Select';
+export { AuthInput } from './components/AuthInput/AuthInput';

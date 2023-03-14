@@ -10,7 +10,7 @@ import { setName } from 'redux/authSlice/authSlice';
 import { randomName } from 'utils/randomName';
 import { handleError } from 'utils/handleError';
 
-import { MainButton, Checkbox } from 'ui-kit';
+import { MainButton, Checkbox, AuthInput } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 import { useThemeContext } from 'context/themeContext';
 
@@ -24,12 +24,10 @@ const objectTheme = {
   dark: {
     boxOr: s.boxOrDark,
     googleButton: s.googleButtonDark,
-    input: s.inputDark,
   },
   light: {
     boxOr: s.boxOrLight,
     googleButton: s.googleButtonLight,
-    input: s.inputLight,
   },
 };
 
@@ -39,6 +37,7 @@ export const LoginForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+
   const [showPassword, setShowPassword] = useState(false);
 
   const formik = useFormik({
@@ -91,17 +90,8 @@ export const LoginForm = () => {
         disabled
       />
       <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
-      <div
-        className={`${s.floatingGroup} ${
-          touched.email &&
-          (errors.email ? s.floatingLabelError : s.floatingLabelValid)
-        }`}
-      >
-        {touched.email && errors.email && (
-          <p className={s.errorMsg}>{errors.email}</p>
-        )}
-        <input
-          className={objectTheme[theme].input}
+      <ul className={s.inputsList}>
+        <AuthInput
           name='email'
           type='email'
           id='email'
@@ -110,22 +100,12 @@ export const LoginForm = () => {
           value={email}
           autoComplete='email'
           placeholder={t('auth.emailPlaceholder')}
+          touched={touched.email}
+          error={errors.email}
+          htmlFor='email'
+          labelContent={t('auth.emailPlaceholder')}
         />
-        <label className={s.floatingLabel} htmlFor='email'>
-          {t('auth.emailPlaceholder')}
-        </label>
-      </div>
-      <div
-        className={`${s.floatingGroup} ${
-          touched.password &&
-          (errors.password ? s.floatingLabelError : s.floatingLabelValid)
-        }`}
-      >
-        {touched.password && errors.password && (
-          <p className={s.errorMsg}>{errors.password}</p>
-        )}
-        <input
-          className={objectTheme[theme].input}
+        <AuthInput
           name='password'
           type={showPassword ? 'text' : 'password'}
           id='password'
@@ -134,22 +114,24 @@ export const LoginForm = () => {
           value={password}
           autoComplete='off'
           placeholder={t('auth.passwordPlaceholder')}
-        />
-        <label className={s.floatingLabel} htmlFor='password'>
-          {t('auth.passwordPlaceholder')}
-        </label>
-        <button
-          type='button'
-          onClick={() => setShowPassword(!showPassword)}
-          className={s.showPasswordButton}
+          touched={touched.password}
+          error={errors.password}
+          htmlFor='password'
+          labelContent={t('auth.passwordPlaceholder')}
         >
-          {showPassword ? (
-            <ICONS.EYE_CLOSED className={s.iconEye} />
-          ) : (
-            <ICONS.EYE_OPEN className={s.iconEye} />
-          )}
-        </button>
-      </div>
+          <button
+            type='button'
+            onClick={() => setShowPassword(!showPassword)}
+            className={s.showPasswordButton}
+          >
+            {showPassword ? (
+              <ICONS.EYE_CLOSED className={s.iconEye} />
+            ) : (
+              <ICONS.EYE_OPEN className={s.iconEye} />
+            )}
+          </button>
+        </AuthInput>
+      </ul>
       <div className={s.optionalWrapper}>
         <Checkbox
           id='checkbox'

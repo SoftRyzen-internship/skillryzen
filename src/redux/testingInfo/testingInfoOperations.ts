@@ -64,7 +64,6 @@ export const finishTestApi = (testId: string) =>
     .post(`user-test/${testId}/finish`)
     .then((response) => response.data);
 
-
 export const getTestTemplate = createAsyncThunk<
   TemplateResponse,
   null,
@@ -98,19 +97,19 @@ export const answerTest = createAsyncThunk<
       const { hasNextQuestion, nextQuestion } = data;
       return hasNextQuestion
         ? {
-            questionId: nextQuestion.id,
-            title: nextQuestion.title,
-            possibleAnswers: nextQuestion.possibleAnswers,
-            codePiece: nextQuestion.codePiece,
-            hasNextQuestion: hasNextQuestion,
-          }
+          questionId: nextQuestion.id,
+          title: nextQuestion.title,
+          possibleAnswers: nextQuestion.possibleAnswers,
+          codePiece: nextQuestion.codePiece,
+          hasNextQuestion: hasNextQuestion,
+        }
         : {
-            questionId: '',
-            title: '',
-            possibleAnswers: [],
-            codePiece: null,
-            hasNextQuestion: false,
-          };
+          questionId: '',
+          title: '',
+          possibleAnswers: [],
+          codePiece: null,
+          hasNextQuestion: false,
+        };
     } catch (error) {
       return rejectWithValue(error.response.data.message);
     }

@@ -22,12 +22,13 @@ const objectTheme = {
 
 interface ICurrentStep {
   currentStep: number;
+  steps: number;
 }
 
-export const Steps = ({ currentStep }: ICurrentStep) => {
+export const Steps = ({ steps, currentStep }: ICurrentStep) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
-  const steps = [1, 2, 3];
+  const stepsArr = steps === 3 ? [1, 2, 3] : [1, 2, 3, 4];
 
   // Classname контейнера для кружечків (синя обводка активного степу)
   const setClassnameCircleContainer = (idx: number) => {
@@ -67,7 +68,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
   return (
     <div>
       <ul className={s.list}>
-        {steps.map((step, idx) => (
+        {stepsArr.map((step, idx) => (
           <li key={step} className={s.itemWrapper}>
             <div className={s.stepWrapper}>
               <div className={setClassnameCircleContainer(idx)}>
@@ -79,7 +80,7 @@ export const Steps = ({ currentStep }: ICurrentStep) => {
                   )}
                 </div>
               </div>
-              {step < 3 && (
+              {step < steps && (
                 <div className={s.lineWrapper}>
                   <div className={setClassnameLine(idx)}></div>
                 </div>

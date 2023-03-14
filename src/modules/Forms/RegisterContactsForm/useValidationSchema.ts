@@ -5,9 +5,6 @@ export const useValidationSchema = () => {
   const { t } = useTranslation();
 
   return Yup.object({
-    companyName: Yup.string()
-      .min(2, t('editProfileForm.validation.companyName.min'))
-      .max(50, t('editProfileForm.validation.companyName.max')),
     name: Yup.string()
       .required(t('editProfileForm.validation.name.required'))
       .min(2, t('editProfileForm.validation.name.min'))
