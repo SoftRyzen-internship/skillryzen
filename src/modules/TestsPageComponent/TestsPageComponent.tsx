@@ -36,6 +36,9 @@ export interface Item {
   blockNames: string[];
   questionsTotalCount: number;
   timeForCompletionInMs: number;
+  percentageToPass: number,
+  wasStarted: boolean,
+  nextRetakeDate: Date
 }
 
 const array = [
@@ -48,6 +51,9 @@ const array = [
     author: 'GoIt',
     questionsTotalCount: 100,
     timeForCompletionInMs: 600000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: new Date()
   },
   {
     id: 2,
@@ -58,6 +64,9 @@ const array = [
     author: 'GoIt',
     questionsTotalCount: 150,
     timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: new Date()
   },
 ];
 

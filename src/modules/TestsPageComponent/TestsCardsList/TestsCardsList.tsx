@@ -8,7 +8,6 @@ import { useThemeContext } from 'context/themeContext';
 
 import s from './TestsCardsList.module.scss';
 
-
 interface TestsList {
   size: 'large' | 'small';
   testsArray: Item[];
@@ -20,24 +19,47 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
 
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
-      {testsArray.map(({   id, author, name, description, blockNames, questionsTotalCount, timeForCompletionInMs}) => (
-        <li key={id}>
-          <Link to='fullstack_final' state={{id, author, name, description, blockNames, questionsTotalCount, timeForCompletionInMs}}>
-            <TestCard
-              size={size}
-              item={{
+      {testsArray.map(
+        ({
+          id,
+          author,
+          name,
+          description,
+          blockNames,
+          questionsTotalCount,
+          timeForCompletionInMs,
+          percentageToPass,
+          wasStarted,
+          nextRetakeDate,
+        }) => (
+          <li key={id}>
+            <Link
+              to='fullstack_final'
+              state={{
                 author,
-                title: name,
-                text: description,
-                fields: blockNames,
-                number: questionsTotalCount,
-                time: timeForCompletionInMs,
+                name,
+                description,
+                blockNames,
+                questionsTotalCount,
+                timeForCompletionInMs,
               }}
-              theme={theme}
-            />
-          </Link>
-        </li>
-      ))}
+            >
+              <TestCard
+                size={size}
+                item={{
+                  author,
+                  title: name,
+                  text: description,
+                  fields: blockNames,
+                  number: questionsTotalCount,
+                  time: timeForCompletionInMs,
+                }}
+                theme={theme}
+              />
+            </Link>
+          </li>
+        )
+      )}
     </ul>
   );
 };
