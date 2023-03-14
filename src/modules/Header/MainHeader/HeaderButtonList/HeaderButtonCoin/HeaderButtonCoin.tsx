@@ -48,8 +48,8 @@ export const HeaderButtonCoin = () => {
           fill={theme === 'dark' ? 'var(--primary-txt-cl)' : 'var(--accent-cl)'}
         />
       }
-      IndicatorNumber={tempList.length}
-      IndicatorColor='green'
+      indicatorNumber={tempList.length}
+      indicatorColor='green'
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       popupContent={popup}

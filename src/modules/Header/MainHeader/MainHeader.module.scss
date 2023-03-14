@@ -1,8 +1,8 @@
-.header--common {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 4px 60px;
+  padding: 0px 60px;
   transition: var(--transition);
   position: sticky;
   top: 0;
@@ -10,13 +10,11 @@
 }
 
 .header--light {
-  composes: header--common;
   color: var(--light-primary-txt-cl);
   background-color: var(--light-components-cl);
   box-shadow: var(--light-primary-shadow);
 }
 .header--dark {
-  composes: header--common;
   color: var(--primary-txt-cl);
   background-color: var(--components-cl);
 }

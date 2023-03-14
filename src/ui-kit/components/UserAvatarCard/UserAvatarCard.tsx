@@ -29,12 +29,16 @@ export const UserAvatarCard = memo(
             alt='user-avatar'
           />
           {userStatus && (
-            <span className={`${s[`status--${userStatus}-${theme}`]}`}></span>
+            <span
+              className={`${s.status} ${s[`status--${userStatus}-${theme}`]}`}
+            ></span>
           )}
         </div>
         <div className={s.info}>
-          <p className={`${s[`name--${theme}`]}`}>{userName}</p>
-          {userRole && <p className={`${s[`role--${theme}`]}`}>{userRole}</p>}
+          <p className={`${s.name} ${s[`name--${theme}`]}`}>{userName}</p>
+          {userRole && (
+            <p className={`${s.role} ${s[`role--${theme}`]}`}>{userRole}</p>
+          )}
         </div>
       </div>
     );

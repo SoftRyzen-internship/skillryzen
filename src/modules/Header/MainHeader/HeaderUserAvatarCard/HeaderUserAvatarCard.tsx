@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { logOut } from 'redux/authSlice/operations';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setClickLogOut } from 'redux/authSlice/authSlice';
 
 import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
@@ -12,8 +12,9 @@ import { useThemeContext } from 'context/themeContext';
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 
+import { getIsAuth, getUserName } from 'redux/authSlice/authSelectors';
+
 import { randomAvatar } from 'utils/randomAvatar';
-import { randomName } from 'utils/randomName';
 
 import { UserAvatarCard, Popup, Modal } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
@@ -27,7 +28,9 @@ export const HeaderUserAvatarCard = () => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
-  const name = useMemo(randomName, []);
+  const name = useAppSelector(getUserName);
+  const isAuth = useAppSelector(getIsAuth);
+
   const avatar = useMemo(randomAvatar, []);
 
   const iconColor = {
@@ -97,7 +100,7 @@ export const HeaderUserAvatarCard = () => {
       <UserAvatarCard
         userName={name}
         userAvatarUrl={avatar}
-        // userStatus='green'
+        userStatus={isAuth ? 'green' : 'gray'}
         theme={theme}
       />
       {popup ? <div className={s.popup}>{popup}</div> : null}
