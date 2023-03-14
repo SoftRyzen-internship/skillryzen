@@ -18,7 +18,8 @@
     padding: 16px 16px 16px 34px;
     color: var(--secondary-txt-cl);
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--primary-txt-cl);
       background-color: var(--components-cl);
 
@@ -38,7 +39,8 @@
     padding: 16px 16px 16px 34px;
     color: var(--secondary-txt-cl);
 
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--accent-cl);
       background-color: var(--light-primary-cl);
 
@@ -59,7 +61,8 @@
     background-color: var(--accent-cl);
     color: var(--primary-txt-cl);
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: var(--accent-cl);
       color: var(--primary-txt-cl);
 
