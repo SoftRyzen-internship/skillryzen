@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
@@ -15,13 +16,16 @@ export const TestStartPageComponent = () => {
   const total = useAppSelector(getTotalCount);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const { author, name, description, blockNames, questionsTotalCount, timeForCompletionInMs } = location.state || {};
 
   const listInfoJS = {
-    topics: 'HTML, CSS, JavaScript, React',
-    time: '2:00:00',
-    questions: 50,
+    topics: blockNames || "",
+    time: timeForCompletionInMs || 0,
+    questions: questionsTotalCount || 0,
     learners: 200,
-    author: 'GoIT',
+    author: author || '',
     icons: {
       BAR: ICONS.BAR_ONE_LINE,
       BAR_LIGHT: ICONS.BAR_ONE_LINE_LIGHT,
@@ -45,9 +49,8 @@ export const TestStartPageComponent = () => {
       <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
         imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-        title='FullStack - Final Test'
-        subtitle='JavaScript is a programming language that is one of the core
-        technologies of the World Wide Web, alongside HTML and CSS.'
+        title={name || ''}
+        subtitle={description || ''}
         listInfo={listInfoJS}
         onClickBtn={handleClickBtn}
         textBtn='Start test'

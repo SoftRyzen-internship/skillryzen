@@ -21,9 +21,9 @@
     "endTest": "Кінець тестування"
   },
   "testsMain": {
-    "tests": "Тести",
-    "allTests": "Усі тести",
-    "myTests": "Мої тести",
+    "title": "Сертифікація",
+    "availableTests": "Доступні тести",
+    "completedTests": "Завершені тести",
     "search": "Шукати..",
     "practice": "Практика",
     "filter": "Фільтр",

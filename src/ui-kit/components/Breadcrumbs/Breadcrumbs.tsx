@@ -35,7 +35,6 @@ export const Breadcrumbs = () => {
   }, [pathname]);
 
   return (
-    <nav>
       <ul className={s.breadcrumbs}>
         {breadcrumbs.map(({ path, label }, i) => (
           <li key={path} className={objectTheme[theme].crumbs}>
@@ -52,6 +51,5 @@ export const Breadcrumbs = () => {
           </li>
         ))}
       </ul>
-    </nav>
   );
 };

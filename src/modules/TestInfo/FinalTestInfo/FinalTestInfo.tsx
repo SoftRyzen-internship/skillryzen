@@ -70,6 +70,7 @@ interface Props {
 export const FinalTestInfo = ({
   image,
   imageProps,
+  title,
   subtitle,
   listInfo,
   correctAnswers,
@@ -109,12 +110,8 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={objectTheme[theme].title}>{t('finalTestInfo.title')}</h2>
-      {subtitle && (
-        <p className={objectTheme[theme].subtitle}>
-          {t('finalTestInfo.subtitle')}
-        </p>
-      )}
+      <h2 className={objectTheme[theme].title}>{title}</h2>
+      {subtitle && <p className={objectTheme[theme].subtitle}>{subtitle}</p>}
       {listInfo ? (
         <ul className={s.list}>
           <li className={s.item}>

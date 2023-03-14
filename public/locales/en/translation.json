@@ -21,9 +21,9 @@
     "endTest": "Finish the test"
   },
   "testsMain": {
-    "tests": "Tests",
-    "allTests": "All tests",
-    "myTests": "My tests",
+    "title": "Certification",
+    "availableTests": "Available tests",
+    "completedTests": "Completed tests",
     "search": "Search..",
     "practice": "Practice",
     "filter": "Filter",
