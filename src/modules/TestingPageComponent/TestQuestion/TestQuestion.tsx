@@ -8,7 +8,10 @@ import {
   finishTest,
 } from 'redux/testingInfo/testingInfoOperations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import { getResultTime, getPercentageOfCorrectAnswers } from 'redux/testingInfo/testingInfoSelectors';
+import {
+  getResultTime,
+  getPercentageOfCorrectAnswers,
+} from 'redux/testingInfo/testingInfoSelectors';
 import { useThemeContext } from 'context/themeContext';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 

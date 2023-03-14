@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from 'hooks/hook';
 import { AuthIntro } from '../AuthIntro/AuthIntro';
 import { useSelector } from 'react-redux';
 
-import { getIsClickLogOut } from 'redux/authSlice/authSelectors';
+import { getIsClickLogOut, getStep } from 'redux/authSlice/authSelectors';
 import { setClickLogOut } from 'redux/authSlice/authSlice';
 
 import { Modal } from 'ui-kit';
@@ -34,7 +34,7 @@ export const AuthWrapper = ({ children }: AuthProps) => {
   const [isShowModal, setIsShowModal] = useState(false);
 
   const { theme }: IThemeContext = useThemeContext();
-  const step = useAppSelector((state) => state.auth.step);
+  const step = useAppSelector(getStep);
 
   const isClickLogOut = useSelector(getIsClickLogOut);
   const dispatch = useAppDispatch();

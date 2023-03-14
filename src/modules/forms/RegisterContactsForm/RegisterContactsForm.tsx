@@ -1,19 +1,18 @@
 import { useNavigate } from 'react-router';
-import InputMask from 'react-input-mask';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { ROUTES } from 'routes/routes.const';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch } from 'hooks/hook';
+
 import { auth } from 'redux/authSlice/operations';
 import { setName } from 'redux/authSlice/authSlice';
 
 import { ICONS } from 'ui-kit/icons';
-import { MainButton } from 'ui-kit';
-
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { MainButton, AuthInput } from 'ui-kit';
 
 import { useValidationSchema } from './useValidationSchema';
 
@@ -21,13 +20,9 @@ import s from './RegisterContactsForm.module.scss';
 
 const objectTheme = {
   dark: {
-    input: s.inputDark,
-    inputPhone: s.inputPhoneDark,
     phoneButton: s.phoneButtonDark,
   },
   light: {
-    input: s.inputLight,
-    inputPhone: s.inputPhoneLight,
     phoneButton: s.phoneButtonLight,
   },
 };
@@ -39,14 +34,12 @@ export const RegisterContactsForm = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useAppDispatch();
-  const role = useAppSelector((state) => state.auth.user.role);
 
   const formik = useFormik({
     initialValues: {
       name: '',
       surname: '',
       phone: '',
-      companyName: '',
     },
 
     validationSchema: useValidationSchema(),
@@ -68,7 +61,7 @@ export const RegisterContactsForm = () => {
   });
 
   const {
-    values: { name, surname, phone, companyName },
+    values: { name, surname, phone },
     isValid,
     isSubmitting,
     dirty,
@@ -83,108 +76,54 @@ export const RegisterContactsForm = () => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <ul className={s.inputsList}>
-        <li
-          className={`${s.floatingGroup} ${
-            touched.name &&
-            (errors.name ? s.floatingLabelError : s.floatingLabelValid)
-          }`}
+        <AuthInput
+          name='name'
+          type='text'
+          id='name'
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={name}
+          autoComplete='name'
+          placeholder={t('auth.namePlaceholder')}
+          touched={touched.name}
+          error={errors.name}
+          htmlFor='name'
+          labelContent={t('auth.namePlaceholder')}
+        />
+        <AuthInput
+          name='surname'
+          type='text'
+          id='surname'
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={surname}
+          autoComplete='surname'
+          placeholder={t('auth.surnamePlaceholder')}
+          touched={touched.surname}
+          error={errors.surname}
+          htmlFor='surname'
+          labelContent={t('auth.surnamePlaceholder')}
+        />
+        <AuthInput
+          className={s.phoneInput}
+          name='phone'
+          type='phone'
+          mask='+380 99 999 99 99'
+          id='phone'
+          onChange={handleChange}
+          onBlur={handleBlur}
+          value={phone}
+          autoComplete='phone'
+          placeholder={t('auth.phonePlaceholder')}
+          touched={touched.phone}
+          error={errors.phone}
+          htmlFor='phone'
+          labelContent={t('auth.phonePlaceholder')}
         >
-          {touched.name && errors.name && (
-            <p className={s.errorMsg}>{errors.name}</p>
-          )}
-          <input
-            className={objectTheme[theme].input}
-            name='name'
-            type='text'
-            id='name'
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={name}
-            autoComplete='name'
-            placeholder={t('auth.namePlaceholder')}
-          />
-          <label className={s.floatingLabel} htmlFor='name'>
-            {t('auth.namePlaceholder')}
-          </label>
-        </li>
-        <li
-          className={`${s.floatingGroup} ${
-            touched.surname &&
-            (errors.surname ? s.floatingLabelError : s.floatingLabelValid)
-          }`}
-        >
-          {touched.surname && errors.surname && (
-            <p className={s.errorMsg}>{errors.surname}</p>
-          )}
-          <input
-            className={objectTheme[theme].input}
-            name='surname'
-            type='text'
-            id='surname'
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={surname}
-            autoComplete='surname'
-            placeholder={t('auth.surnamePlaceholder')}
-          />
-          <label className={s.floatingLabel} htmlFor='surname'>
-            {t('auth.surnamePlaceholder')}
-          </label>
-        </li>
-        {role === 'COMPANY_OWNER' && (
-          <li
-            className={`${s.floatingGroup} ${
-              touched.companyName &&
-              (errors.companyName ? s.floatingLabelError : s.floatingLabelValid)
-            }`}
-          >
-            {touched.companyName && errors.companyName && (
-              <p className={s.errorMsg}>{errors.companyName}</p>
-            )}
-            <input
-              className={objectTheme[theme].input}
-              name='companyName'
-              type='text'
-              id='companyName'
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={companyName}
-              autoComplete='company'
-              placeholder={t('auth.companyNamePlaceholder')}
-            />
-            <label className={s.floatingLabel} htmlFor='companyName'>
-              {t('auth.companyNamePlaceholder')}
-            </label>
-          </li>
-        )}
-        <li
-          className={`${s.floatingGroup} ${
-            touched.phone &&
-            (errors.phone ? s.floatingLabelError : s.floatingLabelValid)
-          }`}
-        >
-          {touched.phone && errors.phone && (
-            <p className={s.errorMsg}>{errors.phone}</p>
-          )}
-          <InputMask
-            className={objectTheme[theme].inputPhone}
-            name='phone'
-            type='phone'
-            mask='+380 99 999 99 99'
-            id='phone'
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={phone}
-            autoComplete='off'
-            placeholder={t('auth.phonePlaceholder')}
-          />
-          <label className={s.floatingLabelPhone} htmlFor='phone'>
-            {t('auth.phonePlaceholder')}
-          </label>
           <button type='button' className={objectTheme[theme].phoneButton}>
             <ICONS.UKRAINE />
           </button>
-        </li>
+        </AuthInput>
       </ul>
       <MainButton
         className={s.btnSubmit}

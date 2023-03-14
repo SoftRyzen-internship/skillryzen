@@ -2,7 +2,11 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { answerTest, finishTest, getTestTemplate} from './testingInfoOperations';
+import {
+  answerTest,
+  finishTest,
+  getTestTemplate,
+} from './testingInfoOperations';
 
 interface Results {
   testId: string;
@@ -22,7 +26,7 @@ export interface TestingInfo {
     title: string;
     label: string;
   }[];
-  codePiece: null | string,
+  codePiece: null | string;
   hasNextQuestion: boolean;
   questionsTotalCount: number;
   totalTime: number;
@@ -33,7 +37,7 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: "9e50f759-2f84-46df-aea2-92b974e9aecf",
+  templateId: 'd7a77070-3e80-4523-a98b-08b920383dfe',
   testId: '',
   questionId: '',
   number: null,
@@ -140,7 +144,7 @@ const persistConfig = {
     'number',
     'title',
     'possibleAnswers',
-    'codePiece'
+    'codePiece',
   ],
 };
 

@@ -7,6 +7,10 @@ interface loginPayload {
   password: string;
 }
 
+interface companyName {
+  companyName: string;
+}
+
 interface registerPayload extends loginPayload {
   role: string;
   registrationInvitationToken: string;
@@ -60,4 +64,54 @@ const auth = createAsyncThunk('auth/auth', async (_, thunkApi) => {
   }
 });
 
-export { register, logIn, logOut, auth, refresh };
+const checkCompanyName = createAsyncThunk(
+  'auth/checkCompanyName',
+  async (companyName: companyName, thunkApi) => {
+    try {
+      const { data } = await axiosInstance.get(
+        'company/is-company-name-available',
+        { params: companyName }
+      );
+      return data;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.response);
+    }
+  }
+);
+
+const createCompany = createAsyncThunk(
+  'auth/createCompany',
+  async (companyName: companyName, thunkApi) => {
+    try {
+      const { data } = await axiosInstance.post('company/create', companyName);
+      return data;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.response);
+    }
+  }
+);
+
+const getCompanyByToken = createAsyncThunk(
+  'company/get-by-token',
+  async (token: string, thunkApi) => {
+    try {
+      const { data } = await axiosInstance.get('company/get-by-token', {
+        params: { token: token },
+      });
+      return data;
+    } catch (err) {
+      return thunkApi.rejectWithValue(err.response);
+    }
+  }
+);
+
+export {
+  register,
+  logIn,
+  logOut,
+  auth,
+  refresh,
+  checkCompanyName,
+  createCompany,
+  getCompanyByToken,
+};
