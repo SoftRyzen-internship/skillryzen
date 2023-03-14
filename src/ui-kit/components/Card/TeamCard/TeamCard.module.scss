@@ -1,7 +1,7 @@
 .card {
   position: relative;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 12px 12px 16px 12px;
+  border-radius: 12px;
 
   &--dark {
     background-color: var(--components-cl);
@@ -62,11 +62,11 @@
 }
 
 .imageWrapper {
-  min-width: 218px;
-  height: 280px;
-  border-radius: 20px;
+  min-width: 140px;
+  height: 140px;
+  border-radius: 12px;
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .image {
@@ -76,7 +76,7 @@
 }
 
 .name {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   line-height: 1.3;
   margin-bottom: 8px;
 
@@ -93,11 +93,5 @@
   font-size: var(--text-sm);
   line-height: 1.2;
   color: var(--secondary-txt-cl);
-  margin-bottom: 20px;
-}
-
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
+  margin-bottom: 16px;
 }
