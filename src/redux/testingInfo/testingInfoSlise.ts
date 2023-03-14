@@ -11,6 +11,7 @@ import {
 interface Results {
   testId: string;
   percentageOfCorrectAnswers: number;
+  isPassed: boolean;
   time: number;
   timeLeft: number;
 }
@@ -18,6 +19,7 @@ interface Results {
 export interface TestingInfo {
   templateId: string;
   testId: string;
+  name: string;
   questionId: string;
   number: number;
   title: string;
@@ -37,7 +39,8 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: 'd7a77070-3e80-4523-a98b-08b920383dfe',
+  templateId: '4eea5b7f-6ee5-4237-9611-062c223107e5',
+  name: '',
   testId: '',
   questionId: '',
   number: null,
@@ -48,7 +51,13 @@ const initialState: TestingInfo = {
   questionsTotalCount: 0,
   totalTime: 0,
   currentTime: 0,
-  results: { testId: '', percentageOfCorrectAnswers: 0, time: 0, timeLeft: 0 },
+  results: {
+    testId: '',
+    percentageOfCorrectAnswers: 0,
+    time: 0,
+    timeLeft: 0,
+    isPassed: false,
+  },
   isLoading: false,
   error: '',
 };
@@ -67,6 +76,7 @@ const testingInfoSlice = createSlice({
     removeResults(state) {
       state.questionsTotalCount = 0;
       state.number = null;
+      state.name = '';
       state.results.testId = '';
       state.results.percentageOfCorrectAnswers = 0;
       state.results.time = 0;
@@ -77,6 +87,7 @@ const testingInfoSlice = createSlice({
     builder
       .addCase(getTestTemplate.fulfilled, (state, { payload }) => {
         state.testId = payload.id;
+        state.name = payload.name;
         state.questionId = payload.nextQuestion.id;
         state.number = 1;
         state.title = payload.nextQuestion.title;
@@ -100,6 +111,7 @@ const testingInfoSlice = createSlice({
         state.results.testId = payload.testId;
         state.results.percentageOfCorrectAnswers =
           payload.percentageOfCorrectAnswers;
+        state.results.isPassed = payload.isPassed;
         state.hasNextQuestion = true;
         state.templateId = '';
         state.testId = '';

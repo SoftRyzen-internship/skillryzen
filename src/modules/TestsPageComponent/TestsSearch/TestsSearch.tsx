@@ -4,7 +4,7 @@ import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-import { Input, Breadcrumbs } from 'ui-kit/index';
+import { Input} from 'ui-kit/index';
 
 import s from './TestsSearch.module.scss';
 
@@ -13,24 +13,21 @@ export const TestsSearch = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={s.testsSearch}>
-      <Breadcrumbs />
-      <div className={s.testsSearch__wrapper}>
-        <h2
-          className={`${s.testsSearch__title} ${
-            s[`testsSearch__title--${theme}`]
-          }`}
-        >
-          Tests
-        </h2>
-        <Input
-          name='search'
-          placeholder={t('testsMain.search')}
-          button={true}
-          icon={<ICONS.SEARCH fill='#9D9FB5' />}
-          theme={theme}
-        />
-      </div>
+    <div className={s.testsSearch__wrapper}>
+      <h2
+        className={`${s.testsSearch__title} ${
+          s[`testsSearch__title--${theme}`]
+        }`}
+      >
+        {t('testsMain.title')}
+      </h2>
+      <Input
+        name='search'
+        placeholder={t('testsMain.search')}
+        button={true}
+        icon={<ICONS.SEARCH fill='#9D9FB5' />}
+        theme={theme}
+      />
     </div>
   );
 };

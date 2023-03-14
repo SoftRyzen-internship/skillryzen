@@ -11,23 +11,83 @@ import { ModalCongrats } from 'modules/Modals/ModalCongrats';
 import { TestsSearch } from './TestsSearch/TestsSearch';
 import { TestsFilter } from './TestsFilter/TestsFilter';
 import { TestsCardsList } from './TestsCardsList/TestsCardsList';
-import { Modal } from 'ui-kit';
+import { Breadcrumbs, Modal, Tabs } from 'ui-kit';
 
 import s from './TestsPageComponent.module.scss';
 
-export const TestsPageComponent = () => {
-  const dispatch = useAppDispatch();
+const tabs = [
+  {
+    id: 1,
+    name: 'testsMain.availableTests',
+    component: '',
+  },
+  {
+    id: 2,
+    name: 'testsMain.completedTests',
+    component: '',
+  },
+];
 
+export interface Item {
+  id: number;
+  author: string;
+  name: string;
+  description: string;
+  blockNames: string[];
+  questionsTotalCount: number;
+  timeForCompletionInMs: number;
+  percentageToPass: number,
+  wasStarted: boolean,
+  nextRetakeDate: Date
+}
+
+const array = [
+  {
+    id: 1,
+    name: 'FullStuck Final Test AVAILABLE',
+    description:
+      'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+    blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 100,
+    timeForCompletionInMs: 12000000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: new Date()
+  },
+  {
+    id: 2,
+    name: 'FullStuck Final Test COMPLETED',
+    description:
+      'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: new Date()
+  },
+];
+
+export const TestsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
+  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+  const [testsArray, setTestsArray] = useState<Item[]>([]);
   const [size, setSize] = useState<'large' | 'small'>('large');
   const [isShowModal, setIsShowModal] = useState(false);
 
+  const dispatch = useAppDispatch();
   const step = useAppSelector(getStep);
   const isAuth = useAppSelector(getIsAuth);
 
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
+
+  useEffect(() => {
+    setTestsArray(array.filter(item => item.id === currentTab));
+  }, [currentTab]);
 
   useEffect(() => {
     if (registerRoute === '/register' && step >= 3 && isAuth) {
@@ -42,11 +102,22 @@ export const TestsPageComponent = () => {
     }
   };
 
+  const handleChangeTab = (tab: number) => setCurrentTab(tab);
+
   return (
     <div className={`${s.testsPage} ${s[`testsPage--${theme}`]}`}>
+      <Breadcrumbs />
       <TestsSearch />
-      <TestsFilter setSize={setSize} size={size} />
-      <TestsCardsList size={size} />
+      <div className={s.testsPage__wrapper}>
+        <Tabs
+          currentTab={currentTab}
+          tabs={tabs}
+          changeTab={handleChangeTab}
+          theme={theme}
+        />
+        <TestsFilter setSize={setSize} size={size} />
+      </div>
+      <TestsCardsList size={size} testsArray={testsArray}/>
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <ModalCongrats onClick={handleClickModal} />

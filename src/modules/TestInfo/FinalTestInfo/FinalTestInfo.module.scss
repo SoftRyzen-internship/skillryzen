@@ -41,6 +41,7 @@
 
 .item {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   margin-bottom: 12px;
 }
@@ -138,4 +139,23 @@
   color: var(--wrong-cl);
   text-align: center;
   margin-top: 16px;
+}
+
+.resultIsPassed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.noticeFailed {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--wrong-cl);
+}
+
+.noticePassed {
+  composes: noticeFailed;
+  color: var(--right-cl);
 }

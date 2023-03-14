@@ -18,17 +18,19 @@
     "bestTopic": "Найсильніша тема в",
     "section": "секція",
     "startTest": "Початок тестування",
-    "endTest": "Кінець тестування"
+    "endTest": "Кінець тестування",
+    "failedTest": "Ви не пройшли тест",
+    "passedTest": "Ви пройшли тест"
   },
   "testsMain": {
-    "tests": "Тести",
-    "allTests": "Усі тести",
-    "myTests": "Мої тести",
+    "title": "Сертифікація",
+    "availableTests": "Доступні тести",
+    "completedTests": "Завершені тести",
     "search": "Шукати..",
     "practice": "Практика",
     "filter": "Фільтр",
     "numberOfQuestions": "запитань",
-    "time": "год"
+    "time": "хв"
   },
   "header": {
     "search": "Шукати..",
