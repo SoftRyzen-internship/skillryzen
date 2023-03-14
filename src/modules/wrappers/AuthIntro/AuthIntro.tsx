@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { useAppSelector } from 'hooks/hook';
+import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import s from './AuthIntro.module.scss';
 
 export const AuthIntro = () => {
   const location = useLocation();
-  const role = useAppSelector((state) => state.auth.user.role).toLowerCase();
+  const role = useAppSelector(getUserRole).toLowerCase();
 
   const { t } = useTranslation();
 

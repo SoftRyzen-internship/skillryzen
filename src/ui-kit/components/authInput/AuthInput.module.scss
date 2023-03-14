@@ -1,0 +1,127 @@
+.floatingGroup {
+  position: relative;
+}
+
+.floatingLabel {
+  position: absolute;
+  color: inherit;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  font-size: 16px;
+  transition: color 250ms ease-in-out, top 250ms ease-in-out;
+}
+
+.inputDark {
+  padding: 13px 16px;
+  width: 100%;
+  height: 100%;
+
+  font-size: 16px;
+  line-height: 1;
+
+  background-color: transparent;
+
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+  outline: none;
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label,
+  &:-webkit-autofill + label {
+    padding: 0px 4px;
+    top: 0%;
+
+    font-size: 12px;
+
+    background-color: var(--primary-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    caret-color: var(--light-primary-cl);
+    -webkit-text-fill-color: var(--primary-txt-cl);
+    -webkit-background-clip: text;
+  }
+}
+
+.inputLight {
+  composes: inputDark;
+
+  border: 1px solid var(--light-primary-cl);
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+  &:focus + label,
+  &:not(:placeholder-shown) + label {
+    background-color: var(--primary-txt-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    caret-color: inherit;
+    -webkit-text-fill-color: inherit;
+    -webkit-background-clip: text;
+  }
+}
+
+.errorMsg {
+  position: absolute;
+  bottom: -20px;
+  left: 15px;
+
+  font-size: 12px;
+
+  color: var(--error-cl);
+}
+
+.floatingLabelError input {
+  color: var(--error-cl);
+}
+
+.floatingLabelError * {
+  border-color: var(--error-cl);
+
+  svg > path {
+    stroke: var(--error-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--error-cl);
+    -webkit-background-clip: text;
+  }
+}
+
+.floatingLabelValid input {
+  color: var(--success-cl);
+}
+
+.floatingLabelValid * {
+  border-color: var(--success-cl);
+
+  svg > path {
+    stroke: var(--success-cl);
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-text-fill-color: var(--success-cl);
+    -webkit-background-clip: text;
+  }
+}

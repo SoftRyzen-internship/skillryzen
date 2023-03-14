@@ -47,7 +47,7 @@ const initialState: Auth = {
   isAuth: false,
   isLoading: false,
   isError: false,
-  step: 3,
+  step: 1,
 };
 
 const authSlice = createSlice({
@@ -57,7 +57,6 @@ const authSlice = createSlice({
     setStep(state, action: PayloadAction<number>) {
       state.step = action.payload;
     },
-
     setRole(state, action: PayloadAction<string>) {
       state.user.role = action.payload;
     },

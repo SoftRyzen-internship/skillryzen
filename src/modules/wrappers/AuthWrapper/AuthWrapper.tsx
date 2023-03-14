@@ -1,6 +1,7 @@
 import { useAppSelector } from 'hooks/hook';
-import { AuthIntro } from '../AuthIntro/AuthIntro';
+import { getStep } from 'redux/authSlice/authSelectors';
 
+import { AuthIntro } from '../AuthIntro/AuthIntro';
 import { HeaderButtonLanguage } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonLanguage';
 import { HeaderButtonTheme } from 'modules/Header/MainHeader/HeaderButtonList/HeaderButtonTheme';
 
@@ -24,7 +25,7 @@ export interface AuthProps {
 
 export const AuthWrapper = ({ children }: AuthProps) => {
   const { theme }: IThemeContext = useThemeContext();
-  const step = useAppSelector((state) => state.auth.step);
+  const step = useAppSelector(getStep);
 
   return (
     <main className={objectTheme[theme].authWrapper}>

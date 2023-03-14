@@ -2,13 +2,12 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch } from 'hooks/hook';
 import { ROUTES } from 'routes/routes.const';
 import { setName } from 'redux/authSlice/authSlice';
 import { auth } from 'redux/authSlice/operations';
-import { getUserRole } from 'redux/authSlice/authSelectors';
 
-import { RegisterContactsForm, RegisterCompanyForm } from 'modules/Forms';
+import { RegisterContactsForm } from 'modules/Forms';
 import { randomName } from 'utils/randomName';
 
 import s from '../RegisterSteps/RegisterSteps.module.scss';

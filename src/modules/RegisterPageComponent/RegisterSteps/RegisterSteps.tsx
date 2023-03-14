@@ -1,5 +1,6 @@
 import { useAppSelector } from 'hooks/hook';
-import { Logo, Steps } from 'ui-kit';
+import { getStep, getUserRole } from 'redux/authSlice/authSelectors';
+
 import {
   FirstStep,
   SecondStep,
@@ -7,11 +8,13 @@ import {
   FourthStep,
 } from 'modules/RegisterPageComponent';
 
+import { Logo, Steps } from 'ui-kit';
+
 import s from '../RegisterSteps/RegisterSteps.module.scss';
 
 export const RegisterSteps = () => {
-  const step = useAppSelector((state) => state.auth.step);
-  const role = useAppSelector((state) => state.auth.user.role);
+  const step = useAppSelector(getStep);
+  const role = useAppSelector(getUserRole);
 
   return (
     <section className={s.section}>

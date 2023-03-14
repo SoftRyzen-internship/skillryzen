@@ -3,29 +3,17 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
 import { useAppDispatch } from 'hooks/hook';
+
 import { checkCompanyName, createCompany } from 'redux/authSlice/operations';
 import { setStep } from 'redux/authSlice/authSlice';
 
-import { MainButton } from 'ui-kit';
-
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { AuthInput, MainButton } from 'ui-kit';
 
 import { useValidationSchema } from './useValidationSchema';
 
 import s from './RegisterCompanyForm.module.scss';
 
-const objectTheme = {
-  dark: {
-    input: s.inputDark,
-  },
-  light: {
-    input: s.inputLight,
-  },
-};
-
 export const RegisterCompanyForm = () => {
-  const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
@@ -59,9 +47,7 @@ export const RegisterCompanyForm = () => {
 
       if (resp.meta.requestStatus === 'fulfilled') {
         dispatch(setStep(4));
-      }
-
-      if (resp.meta.requestStatus === 'rejected') {
+      } else {
         setErrors({
           companyName: t('auth.serverError'),
         });
@@ -84,31 +70,21 @@ export const RegisterCompanyForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <ul className={s.inputsList}>
-        <li
-          className={`${s.floatingGroup} ${
-            touched.companyName &&
-            (errors.companyName ? s.floatingLabelError : s.floatingLabelValid)
-          }`}
-        >
-          {touched.companyName && errors.companyName && (
-            <p className={s.errorMsg}>{errors.companyName}</p>
-          )}
-          <input
-            className={objectTheme[theme].input}
-            name='companyName'
-            type='text'
-            id='companyName'
-            onChange={handleChange}
-            onBlur={handleCompanyNameBlur}
-            value={companyName}
-            autoComplete='company'
-            placeholder={t('auth.companyNamePlaceholder')}
-          />
-          <label className={s.floatingLabel} htmlFor='companyName'>
-            {t('auth.companyNamePlaceholder')}
-          </label>
-        </li>
+      <ul>
+        <AuthInput
+          name='companyName'
+          type='text'
+          id='companyName'
+          onChange={handleChange}
+          onBlur={handleCompanyNameBlur}
+          value={companyName}
+          autoComplete='company'
+          placeholder={t('auth.companyNamePlaceholder')}
+          touched={touched.companyName}
+          error={errors.companyName}
+          htmlFor='companyName'
+          labelContent={t('auth.companyNamePlaceholder')}
+        />
       </ul>
       <MainButton
         className={s.btnSubmit}
