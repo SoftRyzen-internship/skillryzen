@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-
 import { useTranslation } from 'react-i18next';
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
 
+import { useThemeContext } from 'context/themeContext';
+import { convertTime } from 'utils/convertTime';
+import { IThemeContext } from 'constans/types';
+import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
-import { convertTime } from 'utils/convertTime';
-import { ICONS } from 'ui-kit/icons';
+
+
 
 const objectTheme = {
   dark: {
