@@ -10,7 +10,7 @@
   height: 40px;
   border-radius: 50%;
 }
-.status--common {
+.status {
   position: absolute;
   display: block;
   right: 0;
@@ -21,32 +21,26 @@
   transition: var(--transition);
 }
 .status--green-dark {
-  composes: status--common;
   border: 2px solid var(--primary-cl);
   background-color: var(--success-cl);
 }
 .status--yellow-dark {
-  composes: status--common;
   border: 2px solid var(--primary-cl);
   background-color: var(--message-cl);
 }
 .status--gray-dark {
-  composes: status--common;
   border: 2px solid var(--primary-cl);
   background-color: var(--secondary-txt-cl);
 }
 .status--green-light {
-  composes: status--common;
   border: 2px solid var(--light-primary-cl);
   background-color: var(--success-cl);
 }
 .status--yellow-light {
-  composes: status--common;
   border: 2px solid var(--light-primary-cl);
   background-color: var(--message-cl);
 }
 .status--gray-light {
-  composes: status--common;
   border: 2px solid var(--light-primary-cl);
   background-color: var(--secondary-txt-cl);
 }
@@ -55,8 +49,9 @@
   margin-left: 12px;
   display: flex;
   flex-direction: column;
+  height: 42px;
 }
-.name--common {
+.name {
   font-family: var(--font-family);
   font-size: var(--text-lg);
   font-weight: var(--bold);
@@ -68,23 +63,19 @@
   transition: var(--transition);
 }
 .name--light {
-  composes: name--common;
   color: var(---light-primary-txt-cl);
 }
 .name--dark {
-  composes: name--common;
   color: var(--primary-txt-cl);
 }
-.role--common {
+.role {
   font-family: var(--font-family);
   font-size: var(--text-sm);
   line-height: 1.16;
 }
 .role--light {
-  composes: role--common;
   color: var(--light-primary-txt-cl);
 }
 .role--dark {
-  composes: role--common;
   color: var(--primary-txt-cl);
 }

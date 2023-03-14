@@ -52,8 +52,8 @@ export const HeaderButtonNotification = () => {
   return (
     <HeaderButton
       icon={<ICONS.BELL fill={iconColor[theme]} />}
-      IndicatorNumber={tempList.length}
-      IndicatorColor='yellow'
+      indicatorNumber={tempList.length}
+      indicatorColor='yellow'
       onMouseEnter={mouseEnterHandler}
       onMouseLeave={mouseLeaveHandler}
       popupContent={popup}
