@@ -8,6 +8,7 @@ import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
 import { convertTime } from 'utils/convertTime';
+import { ICONS } from 'ui-kit/icons';
 
 const objectTheme = {
   dark: {
@@ -222,9 +223,9 @@ export const FinalTestInfo = ({
             </li>
           </ul>
           {isPassed ? (
-            <p className={s.noticePassed}>{t('finalTestInfo.passedTest')}</p>
+            <div className={s.resultIsPassed}><ICONS.TEST_PASSED/><p className={s.noticePassed}>{t('finalTestInfo.passedTest')}</p></div>
           ) : (
-            <p className={s.noticeFailed}>{t('finalTestInfo.failedTest')}</p>
+            <div className={s.resultIsPassed}><ICONS.TEST_FAILED/><p className={s.noticeFailed}>{t('finalTestInfo.failedTest')}</p></div>
           )}
           {theWorstTopic && theBestTopic && (
             <div className={objectTheme[theme].recomendationsWrapper}>
