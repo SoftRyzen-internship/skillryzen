@@ -39,7 +39,7 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: '9b13c6ed-ce2a-476c-945d-746c56e5023b',
+  templateId: '4eea5b7f-6ee5-4237-9611-062c223107e5',
   name: '',
   testId: '',
   questionId: '',
