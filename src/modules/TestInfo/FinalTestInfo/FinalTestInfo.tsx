@@ -7,6 +7,7 @@ import { IThemeContext } from 'constans/types';
 import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
+import { convertTime } from 'utils/convertTime';
 
 const objectTheme = {
   dark: {
@@ -33,7 +34,7 @@ const objectTheme = {
 
 interface ListInfo {
   topics: string;
-  time: string;
+  time: number;
   questions: number;
   learners: number;
   author: string;
@@ -90,6 +91,7 @@ export const FinalTestInfo = ({
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+
   useEffect(() => {
     function handleResize() {
       setWindowWidth(window.innerWidth);
@@ -140,7 +142,7 @@ export const FinalTestInfo = ({
                 {t('finalTestInfo.list.time')}
               </p>
             </div>
-            <p className={objectTheme[theme].textRight}>{`${listInfo.time}`}</p>
+            <p className={objectTheme[theme].textRight}>{convertTime(listInfo.time/1000)}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
@@ -155,7 +157,7 @@ export const FinalTestInfo = ({
               className={objectTheme[theme].textRight}
             >{`${listInfo.questions}`}</p>
           </li>
-          <li className={s.item}>
+          {/* <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
                 <listInfo.icons.USERS className={objectTheme[theme].icon} />
@@ -167,7 +169,7 @@ export const FinalTestInfo = ({
             <p
               className={objectTheme[theme].textRight}
             >{`${listInfo.learners}`}</p>
-          </li>
+          </li> */}
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
