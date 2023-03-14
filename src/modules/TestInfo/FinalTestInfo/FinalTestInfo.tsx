@@ -33,7 +33,7 @@ const objectTheme = {
 };
 
 interface ListInfo {
-  topics: string;
+  topics: string[];
   time: number;
   questions: number;
   learners: number;
@@ -132,7 +132,7 @@ export const FinalTestInfo = ({
             </div>
             <p
               className={objectTheme[theme].textRight}
-            >{`${listInfo.topics}`}</p>
+            >{listInfo.topics.join(', ')}</p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
