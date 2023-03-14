@@ -9,8 +9,6 @@ import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
 
-
-
 const objectTheme = {
   dark: {
     title: s.titleDark,
@@ -224,9 +222,15 @@ export const FinalTestInfo = ({
             </li>
           </ul>
           {isPassed ? (
-            <div className={s.resultIsPassed}><ICONS.TEST_PASSED/><p className={s.noticePassed}>{t('finalTestInfo.passedTest')}</p></div>
+            <div className={s.resultIsPassed}>
+              <ICONS.TEST_PASSED />
+              <p className={s.noticePassed}>{t('finalTestInfo.passedTest')}</p>
+            </div>
           ) : (
-            <div className={s.resultIsPassed}><ICONS.TEST_FAILED/><p className={s.noticeFailed}>{t('finalTestInfo.failedTest')}</p></div>
+            <div className={s.resultIsPassed}>
+              <ICONS.TEST_FAILED />
+              <p className={s.noticeFailed}>{t('finalTestInfo.failedTest')}</p>
+            </div>
           )}
           {theWorstTopic && theBestTopic && (
             <div className={objectTheme[theme].recomendationsWrapper}>
