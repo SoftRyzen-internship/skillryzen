@@ -44,7 +44,7 @@ export interface Item {
 const array = [
   {
     id: 1,
-    name: 'FullStuck_Final_Test_AVAILABLE',
+    name: 'FullStuck Final Test AVAILABLE',
     description:
       'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
     blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
@@ -57,7 +57,7 @@ const array = [
   },
   {
     id: 2,
-    name: 'FullStuck_Final_Test_COMPLETED',
+    name: 'FullStuck Final Test COMPLETED',
     description:
       'Welcome to Star class LMS!',
     blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
