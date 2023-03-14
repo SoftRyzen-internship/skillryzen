@@ -52,7 +52,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
                   text: description,
                   fields: blockNames,
                   number: questionsTotalCount,
-                  time: timeForCompletionInMs,
+                  time: timeForCompletionInMs/60000,
                 }}
                 theme={theme}
               />

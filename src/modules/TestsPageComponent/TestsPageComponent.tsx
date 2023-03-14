@@ -50,7 +50,7 @@ const array = [
     blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
     author: 'GoIt',
     questionsTotalCount: 100,
-    timeForCompletionInMs: 600000,
+    timeForCompletionInMs: 12000000,
     percentageToPass: 0.5,
     wasStarted: false,
     nextRetakeDate: new Date()
