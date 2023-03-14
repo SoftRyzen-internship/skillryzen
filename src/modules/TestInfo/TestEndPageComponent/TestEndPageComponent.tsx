@@ -6,6 +6,8 @@ import {
   getResultTime,
   getTotalCount,
   getPercentageOfCorrectAnswers,
+  getTestName,
+  getIsPassed,
 } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch } from 'hooks/hook';
 
@@ -20,6 +22,8 @@ import { convertTime } from 'utils/convertTime';
 export const TestEndPageComponent = () => {
   const dispatch = useAppDispatch();
 
+  const testName = useSelector(getTestName);
+  const isPassed = useSelector(getIsPassed);
   const testSeconds = useSelector(getResultTime);
   const correctAnswersPercentage = useSelector(getPercentageOfCorrectAnswers);
   const totalQuestions = useSelector(getTotalCount);
@@ -38,10 +42,11 @@ export const TestEndPageComponent = () => {
       <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
         imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-        title='FullStack - Final Test'
+        title={testName}
         correctAnswers={(correctAnswersPercentage * totalQuestions) / 100}
         totalQuestions={totalQuestions}
         timeSpent={testTime}
+        isPassed={isPassed}
         iconAnswers={ICONS.CHECK_SMALL}
         iconTime={ICONS.CLOCK}
         onClickBtn={handleClickBtn}

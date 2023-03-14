@@ -58,6 +58,7 @@ interface Props {
   correctAnswers?: number;
   totalQuestions?: number;
   timeSpent?: string;
+  isPassed?: boolean;
   iconAnswers?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   iconTime?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
@@ -77,6 +78,7 @@ export const FinalTestInfo = ({
   correctAnswers,
   totalQuestions,
   timeSpent,
+  isPassed,
   iconAnswers: IconAnswers,
   iconTime: IconTime,
   theWorstTopic,
@@ -90,7 +92,6 @@ export const FinalTestInfo = ({
   const { alt, width, height } = imageProps;
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
 
   useEffect(() => {
     function handleResize() {
@@ -142,7 +143,9 @@ export const FinalTestInfo = ({
                 {t('finalTestInfo.list.time')}
               </p>
             </div>
-            <p className={objectTheme[theme].textRight}>{convertTime(listInfo.time/1000)}</p>
+            <p className={objectTheme[theme].textRight}>
+              {convertTime(listInfo.time / 1000)}
+            </p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
@@ -218,6 +221,11 @@ export const FinalTestInfo = ({
               </p>
             </li>
           </ul>
+          {isPassed ? (
+            <p className={s.noticePassed}>{t('finalTestInfo.passedTest')}</p>
+          ) : (
+            <p className={s.noticeFailed}>{t('finalTestInfo.failedTest')}</p>
+          )}
           {theWorstTopic && theBestTopic && (
             <div className={objectTheme[theme].recomendationsWrapper}>
               <p className={objectTheme[theme].recText}>
