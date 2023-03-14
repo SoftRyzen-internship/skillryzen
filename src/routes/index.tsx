@@ -167,6 +167,14 @@ export const AppRoutes = () => {
                   path: ROUTES.INVITE_MODULE,
                   element: <InviteModulePage />,
                 },
+                {
+                  path: ROUTES.COMPANY_PROFILE,
+                  element: <UnderDevelopmentPage />,
+                },
+                {
+                  path: ROUTES.COMPANY_SETTINGS,
+                  element: <UnderDevelopmentPage />,
+                },
               ],
             },
             { path: '/company', element: <CompanyPage /> },

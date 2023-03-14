@@ -3,7 +3,8 @@ import { Theme } from 'constans/types';
 import s from './HeaderButton.module.scss';
 
 interface HeaderButtonProps {
-  icon: JSX.Element;
+  imgUrl?: string;
+  icon?: JSX.Element;
   indicatorNumber?: number;
   indicatorColor?: 'green' | 'yellow';
   className?: string;
@@ -17,6 +18,7 @@ interface HeaderButtonProps {
 
 export const HeaderButton = memo(
   ({
+    imgUrl,
     icon,
     indicatorNumber,
     indicatorColor,
@@ -40,7 +42,16 @@ export const HeaderButton = memo(
           type='button'
           onClick={onClick}
         >
-          {icon}
+          {imgUrl && (
+            <img
+              className={s.buttonImg}
+              src={imgUrl}
+              width={40}
+              height={40}
+              alt='button-image'
+            />
+          )}
+          {icon && icon}
         </button>
         {indicatorNumber ? (
           <div
