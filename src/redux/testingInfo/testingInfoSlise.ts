@@ -33,7 +33,7 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: "d7a77070-3e80-4523-a98b-08b920383dfe",
+  templateId: "9e50f759-2f84-46df-aea2-92b974e9aecf",
   testId: '',
   questionId: '',
   number: null,
@@ -133,14 +133,14 @@ const persistConfig = {
   storage,
   whitelist: [
     'testId',
+    'questionsTotalCount',
+    'totalTime',
+    'currentTime',
     'questionId',
     'number',
     'title',
     'possibleAnswers',
-    'codePiece',
-    'questionsTotalCount',
-    'currentTime',
-    'totalTime',
+    'codePiece'
   ],
 };
 

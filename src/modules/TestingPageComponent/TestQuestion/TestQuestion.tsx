@@ -8,7 +8,7 @@ import {
   finishTest,
 } from 'redux/testingInfo/testingInfoOperations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import { getResultTime } from 'redux/testingInfo/testingInfoSelectors';
+import { getResultTime, getPercentageOfCorrectAnswers } from 'redux/testingInfo/testingInfoSelectors';
 import { useThemeContext } from 'context/themeContext';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
@@ -27,6 +27,7 @@ export const TestQuestion = () => {
   } = useAppSelector((state) => state.testingInfo);
 
   const time = useAppSelector(getResultTime);
+  const testResult = useAppSelector(getPercentageOfCorrectAnswers);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
@@ -41,9 +42,12 @@ export const TestQuestion = () => {
   useEffect(() => {
     if (!time) return;
     dispatch(finishTest());
+  }, [time, dispatch]);
+
+  useEffect(() => {
+    if (!testResult) return;
     navigate(ROUTES.TEST_END);
-    // eslint-disable-next-line
-  }, [time]);
+  }, [testResult, navigate]);
 
   return (
     <div className={s.testWrapper}>
