@@ -5,6 +5,7 @@ import { IMAGES } from 'ui-kit/images';
 import { team } from 'utils/team.js';
 
 import s from './TeamList.module.scss';
+import { useEffect, useState } from 'react';
 
 interface Links {
   behance?: string;
@@ -35,20 +36,24 @@ const returnSocialList = (social: Links): UserSocial[] => {
 
 export const TeamList = ({ name, positions }: TeamListProps) => {
   const { theme }: IThemeContext = useThemeContext();
+  const [array, setArray] = useState<TeamList[]>([]);
 
-  let teamArray = [...team];
-  if (name || positions.length > 0) {
-    teamArray = team.filter(
-      (item) =>
-        (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
-        (positions.length === 0 || positions.includes(item.position))
-    );
-  }
+  useEffect(() => {
+    let teamArray = [...team];
+    if (name || positions.length > 0) {
+      teamArray = team.filter(
+        (item) =>
+          (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
+          (positions.length === 0 || positions.includes(item.position))
+      );
+    }
+    setArray(teamArray);
+  }, [name, positions]);
 
   return (
     <>
       <ul className={s.teamList}>
-        {teamArray.map((item) => (
+        {array.map((item) => (
           <li key={item.id}>
             <TeamCard
               theme={theme}
