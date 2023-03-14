@@ -33,6 +33,7 @@ interface NextQuestion {
 
 interface TemplateResponse {
   id: string;
+  name: string;
   timeForCompletionInMs: number;
   questionsTotalCount: number;
   nextQuestion: NextQuestion;
@@ -42,6 +43,7 @@ interface TemplateResponse {
 export interface FinishResponse {
   testId: string;
   percentageOfCorrectAnswers: number;
+  isPassed: boolean;
 }
 
 export const getTestTemplateApi = (templateId: string) =>
@@ -61,7 +63,7 @@ export const finishTestApi = (testId: string) =>
   axiosInstance
     .post(`user-test/${testId}/finish`)
     .then((response) => response.data);
-    
+
 
 export const getTestTemplate = createAsyncThunk<
   TemplateResponse,
@@ -123,9 +125,11 @@ export const finishTest = createAsyncThunk<
   const { testId } = getState().testingInfo;
   try {
     const data = await finishTestApi(testId);
+    const {percentageOfCorrectAnswers, isPassed} = data;
     return {
       testId,
       percentageOfCorrectAnswers: data.percentageOfCorrectAnswers,
+      isPassed 
     };
   } catch (error) {
     return rejectWithValue(error.response.data.message);

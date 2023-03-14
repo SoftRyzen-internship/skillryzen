@@ -7,8 +7,15 @@ import { TestInfoContainer } from '../TestInfoContainer';
 
 import { Breadcrumbs } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
+import { getTotalCount } from 'redux/testingInfo/testingInfoSelectors';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { removeResults } from 'redux/testingInfo/testingInfoSlise';
 
 export const TestStartPageComponent = () => {
+  const total = useAppSelector(getTotalCount);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
   const listInfoJS = {
     topics: 'HTML, CSS, JavaScript, React',
     time: '2:00:00',
@@ -24,9 +31,11 @@ export const TestStartPageComponent = () => {
       USER: ICONS.USER,
     },
   };
-  const navigate = useNavigate();
 
   const handleClickBtn = () => {
+    if (total) {
+      dispatch(removeResults());
+    }
     navigate(ROUTES.TESTING);
   };
 
