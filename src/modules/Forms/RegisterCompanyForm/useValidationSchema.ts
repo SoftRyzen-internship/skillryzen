@@ -7,7 +7,8 @@ export const useValidationSchema = () => {
   return Yup.object({
     companyName: Yup.string()
       .min(2, t('editProfileForm.validation.companyName.min'))
-      .max(50, t('editProfileForm.validation.companyName.max'))
-      .required(t('auth.companyName.required')),
+      .max(30, t('editProfileForm.validation.companyName.max'))
+      .required(t('auth.companyName.required'))
+      .matches(/^(?!\s)(?!.*\s$)[\w\s]+$/, t('auth.noSpaces')),
   });
 };

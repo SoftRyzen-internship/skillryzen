@@ -10,8 +10,8 @@ export const useValidationSchema = () => {
       .required(t('editPasswordForm.validation.email.required'))
       .max(63, t('editPasswordForm.validation.email.max'))
       .matches(
-        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
-        t('editPasswordForm.validation.email.regex')
+        /^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$/,
+        t('editPasswordForm.validation.email.invalid')
       )
       .matches(
         /^[^.-].*[^.-]$/,
