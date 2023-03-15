@@ -13,7 +13,6 @@ import { getTotalCount } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { removeResults } from 'redux/testingInfo/testingInfoSlise';
 
-
 export const TestStartPageComponent = () => {
   const total = useAppSelector(getTotalCount);
   const dispatch = useAppDispatch();
@@ -22,10 +21,17 @@ export const TestStartPageComponent = () => {
 
   const [state, setState] = useState(location.state || {});
 
-  const { author, name, description, blockNames, questionsTotalCount, timeForCompletionInMs } = state;
+  const {
+    author,
+    name,
+    description,
+    blockNames,
+    questionsTotalCount,
+    timeForCompletionInMs,
+  } = state;
 
   const listInfoJS = {
-    topics: blockNames || "",
+    topics: blockNames || '',
     time: timeForCompletionInMs || 0,
     questions: questionsTotalCount || 0,
     learners: 200,

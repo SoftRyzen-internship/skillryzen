@@ -29,16 +29,16 @@ export const Checkbox = ({
 
   const labelClass = (type: 'form' | 'filter' | 'custom' | '') => {
     switch (type) {
-    case 'form':
-      return `${s.label} ${s.labelForm}`;
-    case 'filter':
-      return `${s.label} ${s.labelFilter} ${labelClassName}`;
+      case 'form':
+        return `${s.label} ${s.labelForm}`;
+      case 'filter':
+        return `${s.label} ${s.labelFilter} ${labelClassName}`;
 
-    case 'custom':
-      return `${s.label} ${labelClassName}`;
+      case 'custom':
+        return `${s.label} ${labelClassName}`;
 
-    default:
-      return `${s.label}`;
+      default:
+        return `${s.label}`;
     }
   };
   return (

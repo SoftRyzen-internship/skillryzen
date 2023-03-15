@@ -45,7 +45,14 @@ module.exports = {
     'no-duplicate-imports': 'error',
     'no-console': 'warn',
     'react/jsx-indent': ['warn', 2],
-    indent: ['warn', 2],
+    indent: [
+      'warn',
+      2,
+      {
+        SwitchCase: 1,
+        ignoredNodes: ['ConditionalExpression'],
+      },
+    ],
     'comma-dangle': [
       'warn',
       {
