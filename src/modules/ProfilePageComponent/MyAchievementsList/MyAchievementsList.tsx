@@ -9,9 +9,9 @@ interface MyAchievementsListProps {
 }
 
 const USER_ACHIEVEMENTS = {
-  score: '98%',
-  coins: 25,
-  time: '01:15:36',
+  score: '0%',
+  coins: 0,
+  time: '00:00:00',
 };
 
 export const MyAchievementsList = ({

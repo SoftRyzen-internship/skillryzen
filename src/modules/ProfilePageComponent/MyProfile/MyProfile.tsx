@@ -1,14 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
-import { IMAGES } from 'ui-kit/images';
-import { ICONS } from 'ui-kit/icons';
 import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 
-import { Theme, UserSocial } from 'constans/types';
+import { useAppSelector } from 'hooks/hook';
+import { getUserEmail, getUserName } from 'redux/authSlice/authSelectors';
 
+import { IMAGES } from 'ui-kit/images';
+import { ICONS } from 'ui-kit/icons';
 import { SocialList, UserAvatar } from 'ui-kit/index';
 
 import { CompanyAvatarCard } from './CompanyAvatarCard';
+
+import { Theme, UserSocial } from 'constans/types';
 
 import s from './MyProfile.module.scss';
 
@@ -19,11 +22,11 @@ interface MyProfileProps {
 const USER_INFO = {
   name: 'Maksim Kozlov',
   email: 'test@test.com',
-  phone: '+380501234567',
+  phone: '+38 - - - - - - - - - -',
   location: 'Ukraine',
   avatarUrl: IMAGES.BLUE_AVATAR,
-  groupName: 'JS48',
-  testsAmount: 3,
+  groupName: 'null',
+  testsAmount: 0,
 };
 
 const USER_SOCIAL: UserSocial[] = [
@@ -36,14 +39,14 @@ const USER_SOCIAL: UserSocial[] = [
     name: 'linkedin',
     url: 'https://www.linkedin.com/',
   },
-  {
-    name: 'github',
-    url: 'https://github.com/',
-  },
-  {
-    name: 'discord',
-    url: 'https://discord.com/',
-  },
+  // {
+  //   name: 'github',
+  //   url: 'https://github.com/',
+  // },
+  // {
+  //   name: 'discord',
+  //   url: 'https://discord.com/',
+  // },
   // {
   //   name: 'behance',
   //   url: 'https://www.behance.net/',
@@ -61,8 +64,10 @@ const USER_COMPANY = {
 
 export const MyProfile = ({ theme = 'dark' }: MyProfileProps) => {
   const { t } = useTranslation();
-  const { name, avatarUrl, email, phone, location, groupName, testsAmount } =
-    USER_INFO;
+  const name = useAppSelector(getUserName);
+  const email = useAppSelector(getUserEmail);
+
+  const { avatarUrl, phone, location, groupName, testsAmount } = USER_INFO;
   return (
     <div className={`${s[`container--${theme}`]}`}>
       <div>
