@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 
 import { ROUTES } from 'routes/routes.const';
 import { useAppSelector } from 'hooks/hook';
@@ -7,7 +8,7 @@ import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import s from './AuthIntro.module.scss';
 
-export const AuthIntro = () => {
+export const AuthIntro = memo(() => {
   const location = useLocation();
   const role = useAppSelector(getUserRole).toLowerCase();
 
@@ -34,4 +35,6 @@ export const AuthIntro = () => {
   ) : (
     <section className={s.sectionLogin}></section>
   );
-};
+});
+
+AuthIntro.displayName = 'AuthIntro';
