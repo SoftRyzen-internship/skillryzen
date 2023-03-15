@@ -39,7 +39,14 @@
   align-items: center;
   padding: 25px;
   border-radius: 5px;
-  background: var(--components-cl);
+
+  &--light {
+    background: var(--light-components-cl);
+  }
+
+  &--dark {
+    background: var(--components-cl);
+  }
 }
 
 .questionList {
