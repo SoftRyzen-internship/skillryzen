@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import s from './FeedbackPageComponent.module.scss';
-import { Modal } from 'ui-kit';
+import { Breadcrumbs, Modal } from 'ui-kit';
 import { FeedbackCongrat } from './FeedbackCongrat/FeedbackCongrat';
-import { FeedbackBlock } from './FeedbackBlock/FeedbackBlock';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
+import { FeedbackBlockPage } from './FeedbackBlockPage/FeedbackBlockPage';
 
 export const FeedbackPageComponent = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
   };
   const sendFeedback = (_value: boolean) => {
     setIsShowModal(_value);
@@ -18,8 +18,9 @@ export const FeedbackPageComponent = () => {
   return (
     <>
       <div className={s.pageContainer}>
+        <Breadcrumbs />
         <div className={`${s.pageWrapper} ${s[`pageWrapper--${theme}`]}`}>
-          <FeedbackBlock sendFeedback={sendFeedback} />
+          <FeedbackBlockPage sendFeedback={sendFeedback} />
         </div>
 
         {isShowModal && (

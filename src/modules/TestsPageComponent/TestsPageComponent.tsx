@@ -159,7 +159,7 @@ export const TestsPageComponent = () => {
   }, [registerRoute, step, isAuth]);
 
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
     if (step !== 1) {
       dispatch(setStep(1));
     }

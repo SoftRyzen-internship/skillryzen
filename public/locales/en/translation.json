@@ -246,7 +246,8 @@
     "validation.message.required": "Please enter your message",
     "errors.badRequest": "Error: bad request. Please try again later.",
     "errors.network": "Error: failed to connect to network. Please try again later.",
-    "errors.unknown": "An unknown error occurred. Please try again later."
+    "errors.unknown": "An unknown error occurred. Please try again later.",
+    "placeholder": "Leave feedback or proposition"
   },
   "feedbackModal": {
     "title1": "Your Message",
