@@ -85,7 +85,7 @@ export const TestsPageComponent = () => {
   const registerRoute = location?.state?.from?.pathname;
 
   useEffect(() => {
-    setTestsArray(array.filter((item) => item.id === currentTab));
+    setTestsArray(array.filter(item => item.id === currentTab));
   }, [currentTab]);
 
   useEffect(() => {
@@ -95,7 +95,7 @@ export const TestsPageComponent = () => {
   }, [registerRoute, step, isAuth]);
 
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
     if (step !== 1) {
       dispatch(setStep(1));
     }
