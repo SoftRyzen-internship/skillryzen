@@ -40,6 +40,7 @@ export interface Item {
   wasStarted: boolean;
   nextRetakeDate: null | Date;
   testStatus?: string;
+  avialableIn?: string;
 }
 
 const array = [
@@ -78,7 +79,7 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date('2023-03-10'),
+    nextRetakeDate: new Date('2023-03-29'),
   },
   {
     id: 4,
@@ -103,7 +104,7 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date('2023-03-05'),
+    nextRetakeDate: new Date('2023-03-20'),
   },
   {
     id: 6,
@@ -127,7 +128,7 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: true,
-    nextRetakeDate: new Date('2023-03-15'),
+    nextRetakeDate: new Date('2023-03-31'),
   },
 ];
 

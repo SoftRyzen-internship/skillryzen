@@ -23,12 +23,12 @@
 }
 
 .tag--field--dark.tagFieldDisabled {
-  color: #9d9fb5;
-  border: 1px solid #121533;
+  color: var(--secondary-txt-cl);
+  border: 1px solid var(--components-cl);
 }
 .tag--field--light.tagFieldDisabled {
   color: #142372;
-  border: 1px solid #9d9fb5;
+  border: 1px solid var(--secondary-txt-cl);
 }
 
 .tag--number {
@@ -49,11 +49,11 @@
 }
 
 .tag--number--dark.tagFieldDisabled {
-  border: 1px solid #121533;
+  border: 1px solid var(--components-cl);
 }
 .tag--number--light.tagFieldDisabled {
   color: #142372;
-  border: 1px solid #9d9fb5;
+  border: 1px solid var(--secondary-txt-cl);
 }
 
 .tag--icon {

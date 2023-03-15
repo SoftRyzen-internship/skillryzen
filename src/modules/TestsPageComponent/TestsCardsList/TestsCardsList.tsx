@@ -60,6 +60,17 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
         a.nextRetakeDate.getTime() - b.nextRetakeDate.getTime()
     );
 
+    newObj?.disabled.map((item: Item) => {
+      const today = new Date();
+      const specificDate = item.nextRetakeDate;
+
+      const diffTime = specificDate.getTime() - today.getTime();
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      const diffHours = Math.ceil((diffTime / (1000 * 60 * 60)) % 24);
+
+      item.avialableIn = `Avialable in ${diffDays} days ${diffHours} hours`;
+    });
+
     const order = ['available', 'tryAgain', 'disabled'];
 
     return order.reduce((acc, key) => {
@@ -83,20 +94,39 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
             wasStarted,
             nextRetakeDate,
             testStatus,
+            avialableIn,
           }) => (
             <li key={id}>
-              <Link
-                to='fullstack_final'
-                onClick={() => templateHandler(id.toString())}
-                state={{
-                  author,
-                  name,
-                  description,
-                  blockNames,
-                  questionsTotalCount,
-                  timeForCompletionInMs,
-                }}
-              >
+              {!nextRetakeDate && (
+                <Link
+                  to='fullstack_final'
+                  onClick={() => templateHandler(id.toString())}
+                  state={{
+                    author,
+                    name,
+                    description,
+                    blockNames,
+                    questionsTotalCount,
+                    timeForCompletionInMs,
+                  }}
+                >
+                  <TestCard
+                    size={size}
+                    item={{
+                      author,
+                      title: name,
+                      text: description,
+                      fields: blockNames,
+                      number: questionsTotalCount,
+                      time: timeForCompletionInMs / 60000,
+                      testStatus,
+                      avialableIn,
+                    }}
+                    theme={theme}
+                  />
+                </Link>
+              )}
+              {nextRetakeDate && (
                 <TestCard
                   size={size}
                   item={{
@@ -107,10 +137,11 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
                     number: questionsTotalCount,
                     time: timeForCompletionInMs / 60000,
                     testStatus,
+                    avialableIn,
                   }}
                   theme={theme}
                 />
-              </Link>
+              )}
             </li>
           )
         )}

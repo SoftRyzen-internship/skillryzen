@@ -21,6 +21,7 @@ interface Item {
   number: number;
   time: number;
   testStatus?: string;
+  avialableIn?: string;
 }
 
 export const TestCard = ({
@@ -31,7 +32,8 @@ export const TestCard = ({
 }: Card) => {
   const { t } = useTranslation();
 
-  const { title, author, text, fields, number, time, testStatus } = item;
+  const { title, author, text, fields, number, time, testStatus, avialableIn } =
+    item;
 
   return (
     <div
@@ -104,12 +106,8 @@ export const TestCard = ({
           ? 'Available'
           : testStatus === 'tryAgain'
           ? 'Try again'
-          : 'Available in 2 weeks'}
+          : `${avialableIn}`}
       </div>
     </div>
   );
 };
-
-// className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className} ${
-//   testStatus === 'disabled' && s.cardLargeDisabled
-// }`}
