@@ -93,6 +93,7 @@ export const FeedbackForm = ({
             onBlur={handleBlur}
             value={message}
             maxLength={MAX_MESSAGE_LENGTH}
+            placeholder={t('feedbackForm.placeholder')}
           />
           {touched.message && errors.message && (
             <p className={s.errorMsg}>{errors.message}</p>

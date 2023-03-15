@@ -1,6 +1,6 @@
 import { FeedbackForm } from 'modules/Forms/FeedbackForm/FeedbackForm';
 import { useState } from 'react';
-import s from './FeedbackBlock.module.scss';
+import s from './FeedbackBlockPage.module.scss';
 import { ICONS } from 'ui-kit/icons';
 import { UserAvatarCard } from 'ui-kit';
 import { Spinner } from 'ui-kit/components/Spinner/Spinner';
@@ -17,12 +17,13 @@ import { useAppSelector } from 'hooks/hook';
 interface FeedbackBlockProps {
   sendFeedback?: (_value: boolean) => void;
 }
-export const FeedbackBlock = ({ sendFeedback }: FeedbackBlockProps) => {
+export const FeedbackBlockPage = ({ sendFeedback }: FeedbackBlockProps) => {
   const userEmail = useAppSelector(getUserEmail);
   const userRole = useAppSelector(getUserRole);
   const userName = useAppSelector(getUserName);
-  const { theme }: IThemeContext = useThemeContext();
   const isAuth = useAppSelector(getIsAuth);
+  const { theme }: IThemeContext = useThemeContext();
+
   const updateLoading = (_value: boolean) => {
     setIsLoading(_value);
   };
@@ -40,9 +41,12 @@ export const FeedbackBlock = ({ sendFeedback }: FeedbackBlockProps) => {
             userStatus={isAuth ? 'green' : 'gray'}
             theme={theme}
           />
-          <ICONS.AT_EMAIL className={s.emailIcon} />
-          <p className={s.emailText}>{userEmail}</p>
+          <div className={s.groupEmail}>
+            <ICONS.AT_EMAIL className={s.emailIcon} />
+            <p className={s.emailText}>{userEmail}</p>
+          </div>
         </div>
+
         <FeedbackForm
           updateLoading={updateLoading}
           userEmail={userEmail}
