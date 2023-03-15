@@ -73,9 +73,12 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
 
     const order = ['available', 'tryAgain', 'disabled'];
 
-    return order.reduce((acc, key) => {
-      return acc.concat(newObj[key]);
-    }, []);
+    return Object.values(newObj)
+      .flat(1)
+      .sort(
+        (a: Item, b: Item) =>
+          order.indexOf(a.testStatus) - order.indexOf(b.testStatus)
+      );
   }, [testsArray]);
 
   return (
