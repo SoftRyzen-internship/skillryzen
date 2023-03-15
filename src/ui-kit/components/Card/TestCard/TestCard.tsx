@@ -2,6 +2,7 @@ import { Theme } from 'constans/types';
 import { useTranslation } from 'react-i18next';
 
 import { Tag } from 'ui-kit/index';
+import { ICONS } from 'ui-kit/icons';
 
 import s from './TestCard.module.scss';
 
@@ -94,6 +95,11 @@ export const TestCard = ({
             : `${s[`card--${size}`]} ${s.disabled}`
         }
       >
+        {testStatus === 'tryAgain' && (
+          <ICONS.REFRESH
+            className={size === 'large' ? s.iconLarge : s.iconSmall}
+          />
+        )}
         {testStatus === 'available'
           ? 'Available'
           : testStatus === 'tryAgain'

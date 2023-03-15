@@ -211,7 +211,12 @@
   composes: available;
   &.card--large,
   &.card--small {
+    flex-direction: column;
+    color: #121533;
     background-color: #ffd84f;
+  }
+  &.card--small {
+    flex-direction: row;
   }
 }
 
@@ -220,5 +225,21 @@
   &.card--large,
   &.card--small {
     background-color: #464962;
+  }
+}
+
+.iconLarge {
+  margin-bottom: 7px;
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.iconSmall {
+  margin-right: 10.25px;
+  svg {
+    width: 13.5px;
+    height: 13.5px;
   }
 }
