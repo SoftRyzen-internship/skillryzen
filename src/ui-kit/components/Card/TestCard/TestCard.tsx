@@ -19,6 +19,7 @@ interface Item {
   fields: string[];
   number: number;
   time: number;
+  testStatus: string;
 }
 
 export const TestCard = ({
@@ -29,7 +30,7 @@ export const TestCard = ({
 }: Card) => {
   const { t } = useTranslation();
 
-  const { title, author, text, fields, number, time } = item;
+  const { title, author, text, fields, number, time, testStatus } = item;
 
   return (
     <div
@@ -66,6 +67,9 @@ export const TestCard = ({
           </div>
           <div className={s.card__time}>
             <Tag type='time' label={time + ''} theme={theme} />
+          </div>
+          <div className={s.card__status}>
+            <Tag type='number' label={testStatus} theme={theme} />
           </div>
         </div>
       </div>

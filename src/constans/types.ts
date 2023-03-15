@@ -41,6 +41,9 @@ export interface UserTests {
   fields?: string[];
   number?: number;
   time?: number;
+  testStatus?: string;
+  wasStarted?: boolean;
+  nextRetakeDate?: Date | string;
 }
 export interface UserInfo {
   name: string;

@@ -42,6 +42,7 @@ export const MyTests = ({ userInfo, theme }: MyTestsProps) => {
                       fields: test.fields,
                       number: test.number,
                       time: test.time,
+                      testStatus: test.testStatus,
                     }}
                     theme={theme}
                   />

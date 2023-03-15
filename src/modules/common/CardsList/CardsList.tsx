@@ -15,37 +15,43 @@ interface Item {
   fields: string[];
   number: number;
   time: number;
+  testStatus?: string;
+  wasStarted: boolean;
+  nextRetakeDate?: Date | string;
 }
 
 interface TestsList {
   size: 'large' | 'small';
-  testsArray: Item[];
+  sortedTestsList: Item[];
 }
 
-export const CardsList = ({ size, testsArray }: TestsList) => {
+export const CardsList = ({ size, sortedTestsList }: TestsList) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
-      {testsArray.map(({ id, author, title, text, fields, number, time }) => (
-        <li key={id}>
-          <Link to='fullstack_final'>
-            <TestCard
-              size={size}
-              item={{
-                author,
-                title,
-                text,
-                fields,
-                number,
-                time,
-              }}
-              theme={theme}
-            />
-          </Link>
-        </li>
-      ))}
+      {sortedTestsList.map(
+        ({ id, author, title, text, fields, number, time, testStatus }) => (
+          <li key={id}>
+            <Link to='fullstack_final'>
+              <TestCard
+                size={size}
+                item={{
+                  author,
+                  title,
+                  text,
+                  fields,
+                  number,
+                  time,
+                  testStatus,
+                }}
+                theme={theme}
+              />
+            </Link>
+          </li>
+        )
+      )}
     </ul>
   );
 };
