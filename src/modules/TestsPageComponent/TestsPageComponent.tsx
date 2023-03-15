@@ -36,9 +36,10 @@ export interface Item {
   blockNames: string[];
   questionsTotalCount: number;
   timeForCompletionInMs: number;
-  percentageToPass: number,
-  wasStarted: boolean,
-  nextRetakeDate: Date
+  percentageToPass: number;
+  wasStarted: boolean;
+  nextRetakeDate: null | Date;
+  testStatus?: string;
 }
 
 const array = [
@@ -53,20 +54,80 @@ const array = [
     timeForCompletionInMs: 12000000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date()
+    nextRetakeDate: null,
   },
   {
     id: 2,
     name: 'FullStuck Final Test COMPLETED',
-    description:
-      'Welcome to Star class LMS!',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: true,
+    nextRetakeDate: null,
+  },
+  {
+    id: 3,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
     blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
     author: 'GoIt',
     questionsTotalCount: 150,
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date()
+    nextRetakeDate: new Date('2023-03-10'),
+  },
+  {
+    id: 4,
+    name: 'FullStuck Final Test AVAILABLE',
+    description:
+      'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+    blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 100,
+    timeForCompletionInMs: 12000000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: null,
+  },
+  {
+    id: 5,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: new Date('2023-03-05'),
+  },
+  {
+    id: 6,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: true,
+    nextRetakeDate: null,
+  },
+  {
+    id: 7,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: true,
+    nextRetakeDate: new Date('2023-03-15'),
   },
 ];
 
@@ -86,7 +147,8 @@ export const TestsPageComponent = () => {
   const registerRoute = location?.state?.from?.pathname;
 
   useEffect(() => {
-    setTestsArray(array.filter(item => item.id === currentTab));
+    // setTestsArray(array.filter((item) => item.id === currentTab));
+    setTestsArray(array);
   }, [currentTab]);
 
   useEffect(() => {
@@ -117,7 +179,7 @@ export const TestsPageComponent = () => {
         />
         <TestsFilter setSize={setSize} size={size} />
       </div>
-      <TestsCardsList size={size} testsArray={testsArray}/>
+      <TestsCardsList size={size} testsArray={testsArray} />
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <ModalCongrats onClick={handleClickModal} />
