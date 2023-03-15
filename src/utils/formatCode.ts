@@ -12,6 +12,17 @@ export function formatCode(code: string): string {
     useTabs: false,
     tabWidth: 2,
   };
+  try {
+    if (code.includes('"')) {
+      // use single quotes to wrap the code string
+      // eslint-disable-next-line quotes
+      const formattedCode = prettier.format("'" + code + "'", options);
 
-  return prettier.format(code, options);
+      // remove the single quotes added for formatting
+      return formattedCode.slice(1, -1);
+    }
+    return prettier.format(code, options);
+  } catch (error) {
+    return code;
+  }
 }
