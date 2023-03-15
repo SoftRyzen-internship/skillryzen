@@ -55,17 +55,19 @@ export const TestStartPageComponent = () => {
 
   return (
     <TestInfoContainer>
-      <Breadcrumbs />
-      <FinalTestInfo
-        image={IMAGES.JAVA_SCRIPT}
-        imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
-        title={name || ''}
-        subtitle={description || ''}
-        listInfo={listInfoJS}
-        onClickBtn={handleClickBtn}
-        textBtn='Start test'
-        test='JS'
-      />
+      <div>
+        <Breadcrumbs />
+        <FinalTestInfo
+          image={IMAGES.JAVA_SCRIPT}
+          imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
+          title={name || ''}
+          subtitle={description || ''}
+          listInfo={listInfoJS}
+          onClickBtn={handleClickBtn}
+          textBtn='Start test'
+          test='JS'
+        />
+      </div>
     </TestInfoContainer>
   );
 };

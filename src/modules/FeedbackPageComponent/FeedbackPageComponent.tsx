@@ -9,7 +9,7 @@ import { FeedbackBlockPage } from './FeedbackBlockPage/FeedbackBlockPage';
 export const FeedbackPageComponent = () => {
   const [isShowModal, setIsShowModal] = useState(false);
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
   };
   const sendFeedback = (_value: boolean) => {
     setIsShowModal(_value);

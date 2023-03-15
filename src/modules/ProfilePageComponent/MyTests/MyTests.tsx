@@ -67,7 +67,7 @@ export const MyTests = ({ theme = 'dark' }: MyTestsProps) => {
         {t('userProfile.testsCardTitle')}
       </p>
       <ul className={s.cardList}>
-        {MY_TESTS.map((test) => {
+        {MY_TESTS.map(test => {
           return (
             <li key={test.id}>
               <Link to={`${ROUTES.CERTIFICATION}/fullstack_final`}>

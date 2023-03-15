@@ -49,7 +49,7 @@ export interface FinishResponse {
 export const getTestTemplateApi = (templateId: string) =>
   axiosInstance
     .post(`user-test/start/${templateId}`)
-    .then((response) => response.data);
+    .then(response => response.data);
 
 export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
   axiosInstance
@@ -57,12 +57,12 @@ export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
       questionId: questionId,
       labels: [selectedAnswer],
     })
-    .then((response) => response.data);
+    .then(response => response.data);
 
 export const finishTestApi = (testId: string) =>
   axiosInstance
     .post(`user-test/${testId}/finish`)
-    .then((response) => response.data);
+    .then(response => response.data);
 
 export const getTestTemplate = createAsyncThunk<
   TemplateResponse,

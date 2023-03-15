@@ -49,8 +49,8 @@ export const Checkbox = ({
         type='checkbox'
         checked={checked}
         value={value}
-        onChange={(e) => {
-          setChecked((prev) => !prev);
+        onChange={e => {
+          setChecked(prev => !prev);
           if (onChange) {
             onChange(e);
           }

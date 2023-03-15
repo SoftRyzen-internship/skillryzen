@@ -43,7 +43,7 @@ export const FeedbackForm = ({
 
     validationSchema,
 
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       updateLoading(true);
       try {
         await sendFeedbackService({

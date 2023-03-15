@@ -38,7 +38,9 @@ export interface Item {
   timeForCompletionInMs: number;
   percentageToPass: number;
   wasStarted: boolean;
-  nextRetakeDate: Date;
+  nextRetakeDate: null | Date;
+  testStatus?: string;
+  avialableIn?: string;
 }
 
 const array = [
@@ -53,7 +55,7 @@ const array = [
     timeForCompletionInMs: 12000000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date(),
+    nextRetakeDate: null,
   },
   {
     id: 2,
@@ -64,8 +66,69 @@ const array = [
     questionsTotalCount: 150,
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
+    wasStarted: true,
+    nextRetakeDate: null,
+  },
+  {
+    id: 3,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date(),
+    nextRetakeDate: new Date('2023-03-29'),
+  },
+  {
+    id: 4,
+    name: 'FullStuck Final Test AVAILABLE',
+    description:
+      'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+    blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 100,
+    timeForCompletionInMs: 12000000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: null,
+  },
+  {
+    id: 5,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    nextRetakeDate: new Date('2023-03-20'),
+  },
+  {
+    id: 6,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: true,
+    nextRetakeDate: null,
+  },
+  {
+    id: 7,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: true,
+    nextRetakeDate: new Date('2023-03-31'),
   },
 ];
 
@@ -85,7 +148,8 @@ export const TestsPageComponent = () => {
   const registerRoute = location?.state?.from?.pathname;
 
   useEffect(() => {
-    setTestsArray(array.filter(item => item.id === currentTab));
+    // setTestsArray(array.filter((item) => item.id === currentTab));
+    setTestsArray(array);
   }, [currentTab]);
 
   useEffect(() => {
