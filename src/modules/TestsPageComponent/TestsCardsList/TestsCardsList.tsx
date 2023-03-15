@@ -36,7 +36,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
         return { ...item, testStatus: 'tryAgain' };
       }
       if (!item.wasStarted) {
-        return { ...item, testStatus: 'aviable' };
+        return { ...item, testStatus: 'available' };
       }
     });
 
@@ -60,7 +60,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
         a.nextRetakeDate.getTime() - b.nextRetakeDate.getTime()
     );
 
-    const order = ['aviable', 'tryAgain', 'disabled'];
+    const order = ['available', 'tryAgain', 'disabled'];
 
     return order.reduce((acc, key) => {
       return acc.concat(newObj[key]);

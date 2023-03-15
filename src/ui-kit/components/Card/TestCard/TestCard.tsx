@@ -34,7 +34,9 @@ export const TestCard = ({
 
   return (
     <div
-      className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className}`}
+      className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className} ${
+        testStatus === 'disabled' && s.cardLargeDisabled
+      }`}
     >
       <div>
         <p className={s.card__author}>{author}</p>
@@ -52,7 +54,12 @@ export const TestCard = ({
           <ul className={s.card__list}>
             {fields.map((item, index) => (
               <li key={index}>
-                <Tag type='field' label={item} theme={theme} />
+                <Tag
+                  type='field'
+                  label={item}
+                  theme={theme}
+                  testStatus={testStatus}
+                />
               </li>
             ))}
           </ul>
@@ -63,15 +70,33 @@ export const TestCard = ({
               type='number'
               theme={theme}
               label={number + ' ' + t('testsMain.numberOfQuestions')}
+              testStatus={testStatus}
             />
           </div>
           <div className={s.card__time}>
-            <Tag type='time' label={time + ''} theme={theme} />
-          </div>
-          <div>
-            <Tag type='number' label={testStatus} theme={theme} />
+            <Tag
+              type='time'
+              label={time + ''}
+              theme={theme}
+              testStatus={testStatus}
+            />
           </div>
         </div>
+      </div>
+      <div
+        className={
+          testStatus === 'available'
+            ? s.available
+            : testStatus === 'tryAgain'
+            ? s.tryAgain
+            : s.desibled
+        }
+      >
+        {testStatus === 'available'
+          ? 'Available'
+          : testStatus === 'tryAgain'
+          ? 'Try again'
+          : 'Available in 2 weeks'}
       </div>
     </div>
   );

@@ -21,7 +21,7 @@
 
   background-color: var(--components-cl);
   border-radius: 10px;
-  padding: 16px 16px 16px 73px;
+  padding: 16px 107px 16px 73px;
   transition: box-shadow var(--transition);
 
   &:hover,
@@ -30,9 +30,16 @@
   }
 }
 
+.card--large.cardLargeDisabled.card--dark {
+  background-color: #272a42;
+}
+.card--large.cardLargeDisabled.card--light {
+  background-color: var(--light-cards-cl);
+}
+
 .card {
   &--light {
-    background-color: var(--light-cards-cl);
+    background-color: #fff;
     box-shadow: var(--light-primary-shadow);
   }
 
@@ -54,7 +61,7 @@
 .card__content {
   .card--large & {
     padding-right: 16px;
-    max-width: 650px;
+    width: 550px;
   }
 
   .card--small & {
@@ -162,4 +169,32 @@
 .card--large .card__number,
 .card--large .card__listWrapper {
   padding-right: 16px;
+}
+
+.available {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 91px;
+  padding: 12px;
+
+  font-weight: 700;
+  font-size: 12px;
+  background-color: #2eac61;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.tryAgain {
+  composes: available;
+  background-color: #ffd84f;
+}
+
+.desibled {
+  composes: available;
+  background-color: #464962;
 }

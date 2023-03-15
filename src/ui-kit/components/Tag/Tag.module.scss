@@ -22,6 +22,15 @@
   }
 }
 
+.tag--field--dark.tagFieldDisabled {
+  color: #9d9fb5;
+  border: 1px solid #121533;
+}
+.tag--field--light.tagFieldDisabled {
+  color: #142372;
+  border: 1px solid #9d9fb5;
+}
+
 .tag--number {
   composes: tag--common;
   font-weight: 500;
@@ -37,6 +46,14 @@
     color: var(--secondary-txt-cl);
     border: 1px solid var(--secondary-txt-cl);
   }
+}
+
+.tag--number--dark.tagFieldDisabled {
+  border: 1px solid #121533;
+}
+.tag--number--light.tagFieldDisabled {
+  color: #142372;
+  border: 1px solid #9d9fb5;
 }
 
 .tag--icon {
@@ -72,6 +89,10 @@
   }
 }
 
+.tag--time--light.tagFieldDisabled {
+  color: #142372;
+}
+
 .tag--time::before,
 .tag--time::after {
   position: absolute;
@@ -92,6 +113,21 @@
 }
 
 .tag--time::after {
+  border-left-color: transparent;
+  transform: rotate(100deg);
+}
+
+.tag--time.tagFieldDisabled::before,
+.tag--time.tagFieldDisabled::after {
+  border: 3px solid #142372;
+}
+
+.tag--time.tagFieldDisabled::before {
+  border-top-color: transparent;
+  transform: rotate(-45deg);
+}
+
+.tag--time.tagFieldDisabled::after {
   border-left-color: transparent;
   transform: rotate(100deg);
 }

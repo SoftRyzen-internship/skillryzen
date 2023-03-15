@@ -9,16 +9,23 @@ interface Tag {
   label: string;
   icon?: boolean;
   theme?: Theme;
+  testStatus?: string;
 }
 
-export const Tag = ({ label, type, icon = false, theme = 'dark' }: Tag) => {
+export const Tag = ({
+  label,
+  type,
+  icon = false,
+  theme = 'dark',
+  testStatus,
+}: Tag) => {
   const { t } = useTranslation();
 
   return (
     <p
       className={`${s[`tag--${type}`]} ${s[`tag--${type}--${theme}`]} ${
         icon && s['tag--icon']
-      } `}
+      } ${testStatus === 'disabled' && s.tagFieldDisabled} `}
     >
       {type === 'time' && (
         <span className={s.label}>
