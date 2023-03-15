@@ -24,7 +24,7 @@ import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
 
-const transparentBackground = {
+const codeStylesDark = {
   ...vs2015,
   hljs: {
     ...vs2015.hljs,
@@ -32,7 +32,7 @@ const transparentBackground = {
   },
 };
 
-const transparentBackgroundLight = {
+const codeStylesLight = {
   ...vs,
   hljs: {
     ...vs.hljs,
@@ -90,11 +90,7 @@ export const TestQuestion = () => {
           <pre className={`${s.questionCode} ${s[`questionCode--${theme}`]}`}>
             <SyntaxHighlighter
               language='javascript'
-              style={
-                theme === 'dark'
-                  ? transparentBackground
-                  : transparentBackgroundLight
-              }
+              style={theme === 'dark' ? codeStylesDark : codeStylesLight}
             >
               {formatCode(codePiece)}
             </SyntaxHighlighter>
