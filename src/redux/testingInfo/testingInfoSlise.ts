@@ -10,7 +10,7 @@ import {
 
 interface Results {
   testId: string;
-  percentageOfCorrectAnswers: number;
+  numberOfCorrectAnswers: number;
   isPassed: boolean;
   time: number;
   timeLeft: number;
@@ -39,7 +39,7 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: '6ba378ad-82a6-4652-9298-0d4adaa9d2f3',
+  templateId: '',
   name: '',
   testId: '',
   questionId: '',
@@ -53,7 +53,7 @@ const initialState: TestingInfo = {
   currentTime: 0,
   results: {
     testId: '',
-    percentageOfCorrectAnswers: 0,
+    numberOfCorrectAnswers: 0,
     time: 0,
     timeLeft: 0,
     isPassed: false,
@@ -73,12 +73,15 @@ const testingInfoSlice = createSlice({
     setCurrentTime(state, action: PayloadAction<number>) {
       state.currentTime = action.payload;
     },
+    setTemplateId(state, action: PayloadAction<string>) {
+      state.templateId = action.payload;
+    },
     removeResults(state) {
       state.questionsTotalCount = 0;
       state.number = null;
       state.name = '';
       state.results.testId = '';
-      state.results.percentageOfCorrectAnswers = 0;
+      state.results.numberOfCorrectAnswers = 0;
       state.results.time = 0;
       state.results.timeLeft = 0;
     },
@@ -109,8 +112,8 @@ const testingInfoSlice = createSlice({
       })
       .addCase(finishTest.fulfilled, (state, { payload }) => {
         state.results.testId = payload.testId;
-        state.results.percentageOfCorrectAnswers =
-          payload.percentageOfCorrectAnswers;
+        state.results.numberOfCorrectAnswers =
+          payload.numberOfCorrectAnswers;
         state.results.isPassed = payload.isPassed;
         state.hasNextQuestion = true;
         state.templateId = '';
@@ -148,6 +151,7 @@ const persistConfig = {
   key: 'testingInfo',
   storage,
   whitelist: [
+    'templateId',
     'testId',
     'questionsTotalCount',
     'totalTime',
@@ -160,7 +164,7 @@ const persistConfig = {
   ],
 };
 
-export const { setTime, removeResults, setCurrentTime } =
+export const { setTime, removeResults, setCurrentTime, setTemplateId } =
   testingInfoSlice.actions;
 export const testingInfoReducer = persistReducer(
   persistConfig,

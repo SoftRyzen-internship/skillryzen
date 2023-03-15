@@ -10,7 +10,6 @@ import {
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import {
   getResultTime,
-  getPercentageOfCorrectAnswers,
   getResultsTestId,
 } from 'redux/testingInfo/testingInfoSelectors';
 import { useThemeContext } from 'context/themeContext';

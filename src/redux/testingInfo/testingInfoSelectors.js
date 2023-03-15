@@ -12,8 +12,8 @@ export const getCurrentTime = (state) => state.testingInfo.currentTime;
 export const getResultsTestId = (state) => state.testingInfo.results.testId;
 export const getResultTime = (state) => state.testingInfo.results.time;
 export const getTimeLeft = (state) => state.testingInfo.results.timeLeft;
-export const getPercentageOfCorrectAnswers = (state) =>
-  state.testingInfo.results.percentageOfCorrectAnswers;
+export const getNumberOfCorrectAnswers = (state) =>
+  state.testingInfo.results.numberOfCorrectAnswers;
 export const getIsPassed = (state) => state.testingInfo.results.isPassed;
 export const getIsLoading = (state) => state.testingInfo.isLoading;
 export const getError = (state) => state.testingInfo.error;

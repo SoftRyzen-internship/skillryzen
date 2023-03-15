@@ -42,7 +42,7 @@ interface TemplateResponse {
 
 export interface FinishResponse {
   testId: string;
-  percentageOfCorrectAnswers: number;
+  numberOfCorrectAnswers: number;
   isPassed: boolean;
 }
 
@@ -123,10 +123,10 @@ export const finishTest = createAsyncThunk<
   const { testId } = getState().testingInfo;
   try {
     const data = await finishTestApi(testId);
-    const {percentageOfCorrectAnswers, isPassed} = data;
+    const {questionsCountAnsweredCorrectly, isPassed} = data;
     return {
       testId,
-      percentageOfCorrectAnswers: data.percentageOfCorrectAnswers,
+      numberOfCorrectAnswers: questionsCountAnsweredCorrectly,
       isPassed 
     };
   } catch (error) {
