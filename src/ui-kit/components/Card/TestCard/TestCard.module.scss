@@ -4,6 +4,8 @@
   flex-direction: column;
   background-color: var(--components-cl);
   border-radius: 10px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
   padding: 36px 13px 8px 16px;
   transition: box-shadow var(--transition);
 
@@ -175,6 +177,14 @@
     width: 2px;
     background-color: #020626;
     border-radius: 2px;
+  }
+}
+
+.card--large.card--light .card__number,
+.card--large.card--light .card__time,
+.card--large.card--light .card__listWrapper {
+  &::before {
+    background-color: var(--light-primary-cl);
   }
 }
 
