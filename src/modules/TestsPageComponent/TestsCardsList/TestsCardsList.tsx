@@ -5,6 +5,8 @@ import { TestCard } from 'ui-kit';
 import { Item } from '../TestsPageComponent';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { setTemplateId } from 'redux/testingInfo/testingInfoSlise';
+import { useAppDispatch } from 'hooks/hook';
 
 import s from './TestsCardsList.module.scss';
 
@@ -15,7 +17,12 @@ interface TestsList {
 
 export const TestsCardsList = ({ size, testsArray }: TestsList) => {
   const { theme }: IThemeContext = useThemeContext();
+  const dispatch = useAppDispatch();
   const { t } = useTranslation();
+
+  const templateHandler = (id: string) => {
+        dispatch(setTemplateId('6ba378ad-82a6-4652-9298-0d4adaa9d2f3'));
+  };
 
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
@@ -35,6 +42,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
           <li key={id}>
             <Link
               to='fullstack_final'
+              onClick={() => templateHandler(id.toString())}
               state={{
                 author,
                 name,
@@ -52,7 +60,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
                   text: description,
                   fields: blockNames,
                   number: questionsTotalCount,
-                  time: timeForCompletionInMs/60000,
+                  time: timeForCompletionInMs / 60000,
                 }}
                 theme={theme}
               />

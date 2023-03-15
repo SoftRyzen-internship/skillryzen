@@ -42,7 +42,7 @@ interface TemplateResponse {
 
 export interface FinishResponse {
   testId: string;
-  percentageOfCorrectAnswers: number;
+  numberOfCorrectAnswers: number;
   isPassed: boolean;
 }
 
@@ -75,7 +75,6 @@ export const getTestTemplate = createAsyncThunk<
     try {
       const data = await getTestTemplateApi(templateId);
       data.timeForCompletionInMs = data.timeForCompletionInMs / 1000;
-      data.nextQuestion.codePiece = null;
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.errors.code);
@@ -124,10 +123,10 @@ export const finishTest = createAsyncThunk<
   const { testId } = getState().testingInfo;
   try {
     const data = await finishTestApi(testId);
-    const {percentageOfCorrectAnswers, isPassed} = data;
+    const {questionsCountAnsweredCorrectly, isPassed} = data;
     return {
       testId,
-      percentageOfCorrectAnswers: data.percentageOfCorrectAnswers,
+      numberOfCorrectAnswers: questionsCountAnsweredCorrectly,
       isPassed 
     };
   } catch (error) {

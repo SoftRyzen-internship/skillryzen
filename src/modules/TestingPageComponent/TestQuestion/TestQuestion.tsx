@@ -10,7 +10,7 @@ import {
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import {
   getResultTime,
-  getPercentageOfCorrectAnswers,
+  getResultsTestId,
 } from 'redux/testingInfo/testingInfoSelectors';
 import { useThemeContext } from 'context/themeContext';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
@@ -24,13 +24,14 @@ export const TestQuestion = () => {
     questionId,
     title,
     possibleAnswers,
+    codePiece,
     isLoading,
     number,
     questionsTotalCount,
   } = useAppSelector((state) => state.testingInfo);
 
   const time = useAppSelector(getResultTime);
-  const testResult = useAppSelector(getPercentageOfCorrectAnswers);
+  const testResultId = useAppSelector(getResultsTestId);
 
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
@@ -48,9 +49,9 @@ export const TestQuestion = () => {
   }, [time, dispatch]);
 
   useEffect(() => {
-    if (!testResult) return;
+    if (!testResultId) return;
     navigate(ROUTES.TEST_END);
-  }, [testResult, navigate]);
+  }, [testResultId, navigate]);
 
   return (
     <div className={s.testWrapper}>
@@ -64,7 +65,7 @@ export const TestQuestion = () => {
         {title}
       </h2>
       <div className={s.questionWrapper}>
-        {/* <div className={s.questionCode}>Code</div> */}
+        {codePiece && <pre className={s.questionCode}>{codePiece}</pre>}
         <ul className={s.questionList}>
           {possibleAnswers &&
             !isLoading &&

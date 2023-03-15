@@ -5,7 +5,7 @@ import { removeResults } from 'redux/testingInfo/testingInfoSlise';
 import {
   getResultTime,
   getTotalCount,
-  getPercentageOfCorrectAnswers,
+  getNumberOfCorrectAnswers,
   getTestName,
   getIsPassed,
 } from 'redux/testingInfo/testingInfoSelectors';
@@ -25,7 +25,7 @@ export const TestEndPageComponent = () => {
   const testName = useSelector(getTestName);
   const isPassed = useSelector(getIsPassed);
   const testSeconds = useSelector(getResultTime);
-  const correctAnswersPercentage = useSelector(getPercentageOfCorrectAnswers);
+  const correctAnswers = useSelector(getNumberOfCorrectAnswers);
   const totalQuestions = useSelector(getTotalCount);
 
   const testTime = convertTime(testSeconds);
@@ -43,7 +43,7 @@ export const TestEndPageComponent = () => {
         image={IMAGES.JAVA_SCRIPT}
         imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
         title={testName}
-        correctAnswers={(correctAnswersPercentage * totalQuestions) / 100}
+        correctAnswers={correctAnswers}
         totalQuestions={totalQuestions}
         timeSpent={testTime}
         isPassed={isPassed}

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
@@ -12,13 +13,16 @@ import { getTotalCount } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { removeResults } from 'redux/testingInfo/testingInfoSlise';
 
+
 export const TestStartPageComponent = () => {
   const total = useAppSelector(getTotalCount);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
 
-  const { author, name, description, blockNames, questionsTotalCount, timeForCompletionInMs } = location.state || {};
+  const [state, setState] = useState(location.state || {});
+
+  const { author, name, description, blockNames, questionsTotalCount, timeForCompletionInMs } = state;
 
   const listInfoJS = {
     topics: blockNames || "",
