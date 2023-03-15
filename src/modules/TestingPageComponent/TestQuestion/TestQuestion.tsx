@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { vs2015, vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
 import { MainButton, RadioButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
 import {
@@ -15,9 +18,27 @@ import {
 import { useThemeContext } from 'context/themeContext';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
+import { formatCode } from 'utils/formatCode';
+
 import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
+
+const codeStylesDark = {
+  ...vs2015,
+  hljs: {
+    ...vs2015.hljs,
+    background: 'transparent',
+  },
+};
+
+const codeStylesLight = {
+  ...vs,
+  hljs: {
+    ...vs.hljs,
+    background: 'transparent',
+  },
+};
 
 export const TestQuestion = () => {
   const {
@@ -65,7 +86,16 @@ export const TestQuestion = () => {
         {title}
       </h2>
       <div className={s.questionWrapper}>
-        {codePiece && <pre className={s.questionCode}>{codePiece}</pre>}
+        {codePiece && !isLoading && (
+          <pre className={`${s.questionCode} ${s[`questionCode--${theme}`]}`}>
+            <SyntaxHighlighter
+              language='javascript'
+              style={theme === 'dark' ? codeStylesDark : codeStylesLight}
+            >
+              {formatCode(codePiece)}
+            </SyntaxHighlighter>
+          </pre>
+        )}
         <ul className={s.questionList}>
           {possibleAnswers &&
             !isLoading &&
