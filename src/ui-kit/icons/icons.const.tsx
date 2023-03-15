@@ -241,5 +241,5 @@ export const ICONS: Icons = {
   UNDER_DEVELOPMENT_MAIN_LIGHT: IconUnderDevelopmentMainLight,
   DOWNLOAD: IconDownload,
   TEST_PASSED: IconTestPassed,
-  TEST_FAILED: IconTestFailed
+  TEST_FAILED: IconTestFailed,
 };

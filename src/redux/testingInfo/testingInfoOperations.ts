@@ -123,11 +123,11 @@ export const finishTest = createAsyncThunk<
   const { testId } = getState().testingInfo;
   try {
     const data = await finishTestApi(testId);
-    const {questionsCountAnsweredCorrectly, isPassed} = data;
+    const { questionsCountAnsweredCorrectly, isPassed } = data;
     return {
       testId,
       numberOfCorrectAnswers: questionsCountAnsweredCorrectly,
-      isPassed 
+      isPassed,
     };
   } catch (error) {
     return rejectWithValue(error.response.data.message);

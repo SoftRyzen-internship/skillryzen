@@ -21,7 +21,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
   const { t } = useTranslation();
 
   const templateHandler = (id: string) => {
-        dispatch(setTemplateId('6ba378ad-82a6-4652-9298-0d4adaa9d2f3'));
+    dispatch(setTemplateId('6ba378ad-82a6-4652-9298-0d4adaa9d2f3'));
   };
 
   return (

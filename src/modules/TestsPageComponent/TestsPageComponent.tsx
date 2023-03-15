@@ -36,9 +36,9 @@ export interface Item {
   blockNames: string[];
   questionsTotalCount: number;
   timeForCompletionInMs: number;
-  percentageToPass: number,
-  wasStarted: boolean,
-  nextRetakeDate: Date
+  percentageToPass: number;
+  wasStarted: boolean;
+  nextRetakeDate: Date;
 }
 
 const array = [
@@ -53,20 +53,19 @@ const array = [
     timeForCompletionInMs: 12000000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date()
+    nextRetakeDate: new Date(),
   },
   {
     id: 2,
     name: 'FullStuck Final Test COMPLETED',
-    description:
-      'Welcome to Star class LMS!',
+    description: 'Welcome to Star class LMS!',
     blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
     author: 'GoIt',
     questionsTotalCount: 150,
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date()
+    nextRetakeDate: new Date(),
   },
 ];
 
@@ -96,7 +95,7 @@ export const TestsPageComponent = () => {
   }, [registerRoute, step, isAuth]);
 
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
     if (step !== 1) {
       dispatch(setStep(1));
     }
@@ -117,7 +116,7 @@ export const TestsPageComponent = () => {
         />
         <TestsFilter setSize={setSize} size={size} />
       </div>
-      <TestsCardsList size={size} testsArray={testsArray}/>
+      <TestsCardsList size={size} testsArray={testsArray} />
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <ModalCongrats onClick={handleClickModal} />
