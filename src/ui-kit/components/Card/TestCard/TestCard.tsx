@@ -39,7 +39,9 @@ export const TestCard = ({
       }`}
     >
       <div>
-        <p className={s.card__author}>{author}</p>
+        <p className={`${s.card__author} ${s[`card__author--${theme}`]}`}>
+          {author}
+        </p>
         <div className={s.card__content}>
           <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>
             {title}
@@ -86,10 +88,10 @@ export const TestCard = ({
       <div
         className={
           testStatus === 'available'
-            ? s.available
+            ? `${s[`card--${size}`]} ${s.available}`
             : testStatus === 'tryAgain'
-            ? s.tryAgain
-            : s.desibled
+            ? `${s[`card--${size}`]} ${s.tryAgain}`
+            : `${s[`card--${size}`]} ${s.disabled}`
         }
       >
         {testStatus === 'available'
@@ -101,3 +103,7 @@ export const TestCard = ({
     </div>
   );
 };
+
+// className={`${s[`card--${size}`]} ${s[`card--${theme}`]} ${className} ${
+//   testStatus === 'disabled' && s.cardLargeDisabled
+// }`}

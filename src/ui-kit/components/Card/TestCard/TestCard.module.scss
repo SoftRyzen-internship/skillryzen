@@ -52,10 +52,18 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--primary-txt-cl);
-  background-color: #142372;
   border-radius: 10px 0px;
   padding: 4px 8px;
+
+  &--light {
+    background-color: #e9f0ff;
+    color: #0a0e29;
+  }
+
+  &--dark {
+    background-color: #142372;
+    color: var(--primary-txt-cl);
+  }
 }
 
 .card__content {
@@ -172,29 +180,45 @@
 }
 
 .available {
-  position: absolute;
-  top: 0;
-  right: 0;
+  &.card--large,
+  &.card--small {
+    position: absolute;
+    top: 0;
+    right: 0;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 91px;
-  padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 91px;
+    padding: 12px;
 
-  font-weight: 700;
-  font-size: 12px;
-  background-color: #2eac61;
-  border-radius: 0px 10px 10px 0px;
+    font-weight: 700;
+    font-size: 12px;
+    background-color: #2eac61;
+    border-radius: 0px 10px 10px 0px;
+  }
+  &.card--small {
+    top: 100%;
+    right: 0;
+    height: 20px;
+    width: 100%;
+    border-radius: 0px 0px 10px 10px;
+  }
 }
 
 .tryAgain {
   composes: available;
-  background-color: #ffd84f;
+  &.card--large,
+  &.card--small {
+    background-color: #ffd84f;
+  }
 }
 
-.desibled {
+.disabled {
   composes: available;
-  background-color: #464962;
+  &.card--large,
+  &.card--small {
+    background-color: #464962;
+  }
 }
