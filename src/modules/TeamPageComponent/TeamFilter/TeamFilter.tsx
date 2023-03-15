@@ -10,7 +10,6 @@ import { positionsData } from 'utils/team';
 
 import s from './TeamFilter.module.scss';
 
-
 interface TeamsearchProps {
   setName: React.Dispatch<React.SetStateAction<string>>;
   setPositions: React.Dispatch<React.SetStateAction<string[]>>;
@@ -24,11 +23,9 @@ export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
   const { t } = useTranslation();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInput(e.target.value);
-  };
-
-  const handleClick = () => {
-    setName(input);
+    const inputValue = e.target.value.trim();
+    setInput(inputValue);
+    setName(inputValue);
   };
 
   useEffect(() => {
@@ -53,9 +50,12 @@ export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
           icon={<ICONS.SEARCH fill='#9D9FB5' />}
           theme={theme}
           onChange={handleChange}
-          onClick={handleClick}
         />
-        <OneFieldFilter data={positionsList} setFilter={setPositions} name="Team"/>
+        <OneFieldFilter
+          data={positionsList}
+          setFilter={setPositions}
+          name='Team'
+        />
       </div>
     </div>
   );
