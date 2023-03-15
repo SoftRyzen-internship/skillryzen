@@ -46,6 +46,11 @@ export interface FinishResponse {
   isPassed: boolean;
 }
 
+export const getAvailableTests = () =>
+  axiosInstance
+    .get("user-test/available-for-user")
+    .then((response) => response.data);
+    
 export const getTestTemplateApi = (templateId: string) =>
   axiosInstance
     .post(`user-test/start/${templateId}`)
