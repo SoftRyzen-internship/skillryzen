@@ -17,22 +17,24 @@ interface TestsList {
   testsArray: Item[];
 }
 
-export const TestsCardsList = ({ size, testsArray }: TestsList) => {
+export const TestsCardsList = ({ size, testsArray}: TestsList) => {
   // const [testsArray, setTestsArray] = useState<Item[]>([]);
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
 
-  const templateHandler = (id: string) => {
+  const templateHandler = (id: string, nextRetakeDate: boolean) => {
+    if (nextRetakeDate) return;
     dispatch(setTemplateId('30ee04ea-dfcf-490b-8f39-016e7d1bc31e'));
   };
 
-  // useEffect(() => {
-  //   getAvailableTests()
-  //     .then((data) => {
-  //       setTestsArray(data), console.log(data);
-  //     })
-  //     .catch((error) => console.log(error));
-  // }, []);
+  useEffect(() => {
+    getAvailableTests()
+      .then((data) => {
+        // setTestsArray(data), 
+        console.log(data);
+      })
+      .catch((error) => console.log(error));
+  }, []);
 
   const sortedTestsList = useMemo(() => {
     if (!testsArray.length) return [];
@@ -109,10 +111,10 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
             avialableIn,
           }) => (
             <li key={id}>
-              {!nextRetakeDate && (
                 <Link
-                  to='fullstack_final'
-                  onClick={() => templateHandler(id.toString())}
+                  to={nextRetakeDate ? '#' : 'fullstack_final'}
+                  onClick={() => templateHandler(id.toString(), nextRetakeDate)}
+                  className={nextRetakeDate && s.disabledLink}
                   state={{
                     author,
                     name,
@@ -137,23 +139,6 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
                     theme={theme}
                   />
                 </Link>
-              )}
-              {nextRetakeDate && (
-                <TestCard
-                  size={size}
-                  item={{
-                    author,
-                    title: name,
-                    text: description,
-                    fields: blockNames,
-                    number: questionsTotalCount,
-                    time: timeForCompletionInMs / 60000,
-                    testStatus,
-                    avialableIn,
-                  }}
-                  theme={theme}
-                />
-              )}
             </li>
           )
         )}
