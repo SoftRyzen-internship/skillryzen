@@ -36,7 +36,7 @@ export const App = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Suspense fallback={<Spinner />}>
+      <Suspense fallback={<Spinner className='spinnerPosition' />}>
         <AppRoutes />
       </Suspense>
     </ThemeContext.Provider>

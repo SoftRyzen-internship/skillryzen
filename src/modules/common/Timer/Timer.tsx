@@ -17,7 +17,7 @@ interface Timer {
 
 export const Timer = ({ theme = 'dark' }: Timer) => {
   const { hasNextQuestion, questionId, totalTime, currentTime, number } =
-    useAppSelector((state) => state.testingInfo);
+    useAppSelector(state => state.testingInfo);
   const timeResult = useAppSelector(getResultTime);
   const timeLeft = useAppSelector(getTimeLeft);
 
@@ -33,7 +33,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       return;
     }
     const intervalId = setInterval(() => {
-      setSeconds((seconds) => seconds - 1);
+      setSeconds(seconds => seconds - 1);
     }, 1000);
 
     return () => clearInterval(intervalId);

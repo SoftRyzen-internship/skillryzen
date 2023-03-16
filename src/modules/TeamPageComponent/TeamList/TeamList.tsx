@@ -42,7 +42,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
     let teamArray = [...team];
     if (name || positions.length > 0) {
       teamArray = team.filter(
-        (item) =>
+        item =>
           (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
           (positions.length === 0 || positions.includes(item.position))
       );
@@ -53,7 +53,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
   return (
     <>
       <ul className={s.teamList}>
-        {array.map((item) => (
+        {array.map(item => (
           <li key={item.id}>
             <TeamCard
               theme={theme}

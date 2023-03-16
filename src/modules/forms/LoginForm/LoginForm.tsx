@@ -53,7 +53,7 @@ export const LoginForm = () => {
       const resp = await dispatch(logIn({ email, password }));
 
       if (resp.meta.requestStatus === 'fulfilled') {
-        dispatch(auth()).then((resp) => {
+        dispatch(auth()).then(resp => {
           if (resp.meta.requestStatus === 'fulfilled') {
             dispatch(setName(randomName()));
             navigate(ROUTES.CERTIFICATION);
@@ -91,46 +91,50 @@ export const LoginForm = () => {
       />
       <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
       <ul className={s.inputsList}>
-        <AuthInput
-          name='email'
-          type='email'
-          id='email'
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={email}
-          autoComplete='email'
-          placeholder={t('auth.emailPlaceholder')}
-          touched={touched.email}
-          error={errors.email}
-          htmlFor='email'
-          labelContent={t('auth.emailPlaceholder')}
-        />
-        <AuthInput
-          name='password'
-          type={showPassword ? 'text' : 'password'}
-          id='password'
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={password}
-          autoComplete='off'
-          placeholder={t('auth.passwordPlaceholder')}
-          touched={touched.password}
-          error={errors.password}
-          htmlFor='password'
-          labelContent={t('auth.passwordPlaceholder')}
-        >
-          <button
-            type='button'
-            onClick={() => setShowPassword(!showPassword)}
-            className={s.showPasswordButton}
+        <li>
+          <AuthInput
+            name='email'
+            type='email'
+            id='email'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={email}
+            autoComplete='email'
+            placeholder={t('auth.emailPlaceholder')}
+            touched={touched.email}
+            error={errors.email}
+            htmlFor='email'
+            labelContent={t('auth.emailPlaceholder')}
+          />
+        </li>
+        <li>
+          <AuthInput
+            name='password'
+            type={showPassword ? 'text' : 'password'}
+            id='password'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={password}
+            autoComplete='off'
+            placeholder={t('auth.passwordPlaceholder')}
+            touched={touched.password}
+            error={errors.password}
+            htmlFor='password'
+            labelContent={t('auth.passwordPlaceholder')}
           >
-            {showPassword ? (
-              <ICONS.EYE_CLOSED className={s.iconEye} />
-            ) : (
-              <ICONS.EYE_OPEN className={s.iconEye} />
-            )}
-          </button>
-        </AuthInput>
+            <button
+              type='button'
+              onClick={() => setShowPassword(!showPassword)}
+              className={s.showPasswordButton}
+            >
+              {showPassword ? (
+                <ICONS.EYE_CLOSED className={s.iconEye} />
+              ) : (
+                <ICONS.EYE_OPEN className={s.iconEye} />
+              )}
+            </button>
+          </AuthInput>
+        </li>
       </ul>
       <div className={s.optionalWrapper}>
         <Checkbox

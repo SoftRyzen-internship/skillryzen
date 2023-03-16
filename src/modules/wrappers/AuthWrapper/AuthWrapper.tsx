@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useAppSelector, useAppDispatch } from 'hooks/hook';
 import { AuthIntro } from '../AuthIntro/AuthIntro';
-import { useSelector } from 'react-redux';
 
 import { getIsClickLogOut, getStep } from 'redux/authSlice/authSelectors';
 import { setClickLogOut } from 'redux/authSlice/authSlice';
@@ -31,16 +30,16 @@ export interface AuthProps {
 }
 
 export const AuthWrapper = ({ children }: AuthProps) => {
+  const { theme }: IThemeContext = useThemeContext();
+
+  const dispatch = useAppDispatch();
+  const step = useAppSelector(getStep);
+  const isClickLogOut = useAppSelector(getIsClickLogOut);
+
   const [isShowModal, setIsShowModal] = useState(false);
 
-  const { theme }: IThemeContext = useThemeContext();
-  const step = useAppSelector(getStep);
-
-  const isClickLogOut = useSelector(getIsClickLogOut);
-  const dispatch = useAppDispatch();
-
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
     dispatch(setClickLogOut(false));
   };
 

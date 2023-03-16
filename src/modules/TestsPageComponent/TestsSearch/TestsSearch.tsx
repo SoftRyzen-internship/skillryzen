@@ -4,7 +4,7 @@ import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-import { Input} from 'ui-kit/index';
+import { Input } from 'ui-kit/index';
 
 import s from './TestsSearch.module.scss';
 

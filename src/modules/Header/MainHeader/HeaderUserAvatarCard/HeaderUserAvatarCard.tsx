@@ -97,7 +97,7 @@ export const HeaderUserAvatarCard = () => {
   }, [role, t, theme]);
 
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
   };
 
   const handleClickPopupItem = (text: string) => {

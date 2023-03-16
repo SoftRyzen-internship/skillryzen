@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import InputMask from 'react-input-mask';
@@ -36,61 +38,64 @@ interface IProps {
   mask?: string;
 }
 
-export const AuthInput = ({
-  id,
-  className,
-  name,
-  placeholder,
-  type,
-  value,
-  error,
-  touched,
-  autoComplete,
-  htmlFor,
-  labelContent,
-  onChange,
-  onBlur,
-  children,
-  mask,
-}: IProps) => {
-  const { theme }: IThemeContext = useThemeContext();
-  return (
-    <li
-      className={`${s.floatingGroup} ${
-        touched && (error ? s.floatingLabelError : s.floatingLabelValid)
-      }`}
-    >
-      {touched && error && <p className={s.errorMsg}>{error}</p>}
-      {!mask ? (
-        <input
-          className={objectTheme[theme].input}
-          name={name}
-          type={type}
-          id={id}
-          onChange={onChange}
-          onBlur={onBlur}
-          value={value}
-          autoComplete={autoComplete}
-          placeholder={placeholder}
-        />
-      ) : (
-        <InputMask
-          className={`${objectTheme[theme].input} ${className}`}
-          name={name}
-          type={type}
-          mask={mask}
-          id={id}
-          onChange={onChange}
-          onBlur={onBlur}
-          value={value}
-          autoComplete={autoComplete}
-          placeholder={placeholder}
-        />
-      )}
-      <label className={s.floatingLabel} htmlFor={htmlFor}>
-        {labelContent}
+export const AuthInput = memo(
+  ({
+    id,
+    className,
+    name,
+    placeholder,
+    type,
+    value,
+    error,
+    touched,
+    autoComplete,
+    htmlFor,
+    labelContent,
+    onChange,
+    onBlur,
+    children,
+    mask,
+  }: IProps) => {
+    const { theme }: IThemeContext = useThemeContext();
+
+    return (
+      <label
+        className={`${s.floatingGroup} ${
+          touched && (error ? s.floatingLabelError : s.floatingLabelValid)
+        }`}
+      >
+        {touched && error && <p className={s.errorMsg}>{error}</p>}
+        {!mask ? (
+          <input
+            className={objectTheme[theme].input}
+            name={name}
+            type={type}
+            id={id}
+            onChange={onChange}
+            onBlur={onBlur}
+            value={value}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+          />
+        ) : (
+          <InputMask
+            className={`${objectTheme[theme].input} ${className}`}
+            name={name}
+            type={type}
+            mask={mask}
+            id={id}
+            onChange={onChange}
+            onBlur={onBlur}
+            value={value}
+            autoComplete={autoComplete}
+            placeholder={placeholder}
+          />
+        )}
+        <span className={s.floatingLabel}>{labelContent}</span>
+        {children}
       </label>
-      {children}
-    </li>
-  );
-};
+    );
+  }
+);
+
+AuthInput.displayName = 'AuthInput';

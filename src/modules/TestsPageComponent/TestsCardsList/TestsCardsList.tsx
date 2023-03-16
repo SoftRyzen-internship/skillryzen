@@ -11,13 +11,12 @@ import { useAppDispatch } from 'hooks/hook';
 
 import s from './TestsCardsList.module.scss';
 
-
 interface TestsList {
   size: 'large' | 'small';
   testsArray: Item[];
 }
 
-export const TestsCardsList = ({ size, testsArray}: TestsList) => {
+export const TestsCardsList = ({ size, testsArray }: TestsList) => {
   // const [testsArray, setTestsArray] = useState<Item[]>([]);
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
@@ -29,11 +28,11 @@ export const TestsCardsList = ({ size, testsArray}: TestsList) => {
 
   useEffect(() => {
     getAvailableTests()
-      .then((data) => {
-        // setTestsArray(data), 
-        console.log(data);
+      .then(data => {
+        // setTestsArray(data),
+        // console.log(data);
       })
-      .catch((error) => console.log(error));
+      .catch();
   }, []);
 
   const sortedTestsList = useMemo(() => {
@@ -111,34 +110,34 @@ export const TestsCardsList = ({ size, testsArray}: TestsList) => {
             avialableIn,
           }) => (
             <li key={id}>
-                <Link
-                  to={nextRetakeDate ? '#' : 'fullstack_final'}
-                  onClick={() => templateHandler(id.toString(), nextRetakeDate)}
-                  className={nextRetakeDate && s.disabledLink}
-                  state={{
+              <Link
+                to={nextRetakeDate ? '#' : 'fullstack_final'}
+                onClick={() => templateHandler(id.toString(), nextRetakeDate)}
+                className={nextRetakeDate && s.disabledLink}
+                state={{
+                  author,
+                  name,
+                  description,
+                  blockNames,
+                  questionsTotalCount,
+                  timeForCompletionInMs,
+                }}
+              >
+                <TestCard
+                  size={size}
+                  item={{
                     author,
-                    name,
-                    description,
-                    blockNames,
-                    questionsTotalCount,
-                    timeForCompletionInMs,
+                    title: name,
+                    text: description,
+                    fields: blockNames,
+                    number: questionsTotalCount,
+                    time: timeForCompletionInMs / 60000,
+                    testStatus,
+                    avialableIn,
                   }}
-                >
-                  <TestCard
-                    size={size}
-                    item={{
-                      author,
-                      title: name,
-                      text: description,
-                      fields: blockNames,
-                      number: questionsTotalCount,
-                      time: timeForCompletionInMs / 60000,
-                      testStatus,
-                      avialableIn,
-                    }}
-                    theme={theme}
-                  />
-                </Link>
+                  theme={theme}
+                />
+              </Link>
             </li>
           )
         )}

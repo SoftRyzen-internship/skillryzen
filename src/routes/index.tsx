@@ -29,7 +29,7 @@ import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import { ROUTES } from './routes.const';
 
 export const AppRoutes = () => {
-  const isAuth = useAppSelector((state) => state.auth.isAuth);
+  const isAuth = useAppSelector(state => state.auth.isAuth);
   const routes = [
     {
       path: ROUTES.HOME,

@@ -49,7 +49,7 @@ export const TestQuestion = () => {
     isLoading,
     number,
     questionsTotalCount,
-  } = useAppSelector((state) => state.testingInfo);
+  } = useAppSelector(state => state.testingInfo);
 
   const time = useAppSelector(getResultTime);
   const testResultId = useAppSelector(getResultsTestId);
@@ -108,7 +108,7 @@ export const TestQuestion = () => {
                   name='answers'
                   value={answer.label}
                   checked={selectedAnswer === answer.label}
-                  onChange={(e) => setSelectedAnswer(e.target.value)}
+                  onChange={e => setSelectedAnswer(e.target.value)}
                   label={answer.value}
                 />
               </li>

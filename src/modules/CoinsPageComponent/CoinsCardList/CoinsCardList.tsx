@@ -26,7 +26,7 @@ export const CoinsCardList = memo(
 
     return (
       <ul className={`${s[`coinsList--${size}`]}`}>
-        {testsArray.map((item) => (
+        {testsArray.map(item => (
           <li key={item.id}>
             <InfoCard
               size={size}

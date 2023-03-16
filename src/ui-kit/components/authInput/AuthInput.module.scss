@@ -9,7 +9,8 @@
   left: 16px;
   transform: translateY(-50%);
   font-size: 16px;
-  transition: color 250ms ease-in-out, top 250ms ease-in-out;
+  transition: font-size var(--transition), top var(--transition),
+    left var(--transition);
 }
 
 .inputDark {
@@ -34,11 +35,11 @@
     outline: none;
   }
 
-  &:focus + label,
-  &:not(:placeholder-shown) + label,
-  &:-webkit-autofill + label {
+  &:focus + .floatingLabel,
+  &:not(:placeholder-shown) + .floatingLabel,
+  &:-webkit-autofill + .floatingLabel {
     padding: 0px 4px;
-    top: 0%;
+    top: -70%;
 
     font-size: 12px;
 
@@ -61,8 +62,8 @@
   border: 1px solid var(--light-primary-cl);
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 
-  &:focus + label,
-  &:not(:placeholder-shown) + label {
+  &:focus + .floatingLabel,
+  &:not(:placeholder-shown) + .floatingLabel {
     background-color: var(--primary-txt-cl);
   }
 
@@ -78,7 +79,7 @@
 
 .errorMsg {
   position: absolute;
-  bottom: -20px;
+  bottom: -34px;
   left: 15px;
 
   font-size: 12px;

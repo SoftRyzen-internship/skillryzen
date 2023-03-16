@@ -94,3 +94,9 @@ input {
   clip: rect(0 0 0 0);
   overflow: hidden;
 }
+
+.spinnerPosition {
+  position: fixed;
+  top: calc(50% - 40px);
+  left: calc(50% - 40px);
+}

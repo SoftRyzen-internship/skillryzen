@@ -76,54 +76,60 @@ export const RegisterContactsForm = () => {
   return (
     <form onSubmit={handleSubmit} className={s.form}>
       <ul className={s.inputsList}>
-        <AuthInput
-          name='name'
-          type='text'
-          id='name'
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={name}
-          autoComplete='name'
-          placeholder={t('auth.namePlaceholder')}
-          touched={touched.name}
-          error={errors.name}
-          htmlFor='name'
-          labelContent={t('auth.namePlaceholder')}
-        />
-        <AuthInput
-          name='surname'
-          type='text'
-          id='surname'
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={surname}
-          autoComplete='surname'
-          placeholder={t('auth.surnamePlaceholder')}
-          touched={touched.surname}
-          error={errors.surname}
-          htmlFor='surname'
-          labelContent={t('auth.surnamePlaceholder')}
-        />
-        <AuthInput
-          className={s.phoneInput}
-          name='phone'
-          type='phone'
-          mask='+380 99 999 99 99'
-          id='phone'
-          onChange={handleChange}
-          onBlur={handleBlur}
-          value={phone}
-          autoComplete='phone'
-          placeholder={t('auth.phonePlaceholder')}
-          touched={touched.phone}
-          error={errors.phone}
-          htmlFor='phone'
-          labelContent={t('auth.phonePlaceholder')}
-        >
-          <button type='button' className={objectTheme[theme].phoneButton}>
-            <ICONS.UKRAINE />
-          </button>
-        </AuthInput>
+        <li>
+          <AuthInput
+            name='name'
+            type='text'
+            id='name'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={name}
+            autoComplete='name'
+            placeholder={t('auth.namePlaceholder')}
+            touched={touched.name}
+            error={errors.name}
+            htmlFor='name'
+            labelContent={t('auth.namePlaceholder')}
+          />
+        </li>
+        <li>
+          <AuthInput
+            name='surname'
+            type='text'
+            id='surname'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={surname}
+            autoComplete='surname'
+            placeholder={t('auth.surnamePlaceholder')}
+            touched={touched.surname}
+            error={errors.surname}
+            htmlFor='surname'
+            labelContent={t('auth.surnamePlaceholder')}
+          />
+        </li>
+        <li>
+          <AuthInput
+            className={s.phoneInput}
+            name='phone'
+            type='phone'
+            mask='+380 99 999 99 99'
+            id='phone'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={phone}
+            autoComplete='phone'
+            placeholder={t('auth.phonePlaceholder')}
+            touched={touched.phone}
+            error={errors.phone}
+            htmlFor='phone'
+            labelContent={t('auth.phonePlaceholder')}
+          >
+            <button type='button' className={objectTheme[theme].phoneButton}>
+              <ICONS.UKRAINE />
+            </button>
+          </AuthInput>
+        </li>
       </ul>
       <MainButton
         className={s.btnSubmit}
