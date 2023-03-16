@@ -31,6 +31,7 @@ interface TestsProps {
 
 export const AvailableTestsList = ({ size }: TestsProps) => {
   const [testsArray, setTestsArray] = useState<Item[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
 
@@ -40,11 +41,13 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
   };
 
   useEffect(() => {
+    setIsLoading(true);
     getAvailableTests()
       .then(data => {
-        setTestsArray(data), console.log(data);
+        setTestsArray(data);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error))
+      .finally(() => setIsLoading(false));
   }, []);
 
   //   const sortedTestsList = useMemo(() => {
