@@ -10,10 +10,12 @@
 
   &--light {
     color: var(--light-primary-txt-cl);
+    transition: color var(--transition);
   }
 
   &--dark {
     color: var(--primary-txt-cl);
+    transition: color var(--transition);
   }
 }
 

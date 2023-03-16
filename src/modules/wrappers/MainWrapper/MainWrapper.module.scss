@@ -1,6 +1,8 @@
 .wrapperDark {
   background-color: var(--primary-cl);
   display: flex;
+
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .wrapperLight {

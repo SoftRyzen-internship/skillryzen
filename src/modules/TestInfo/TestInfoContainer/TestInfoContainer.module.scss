@@ -5,6 +5,8 @@
   justify-content: center;
   flex-grow: 1;
 
+  transition: background-color var(--transition), color var(--transition);
+
   &--light {
     background-color: var(--light-cards-cl);
   }

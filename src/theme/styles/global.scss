@@ -27,6 +27,8 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
+
+  transition: background-color var(--transition), color var(--transition);
 }
 
 input,

@@ -21,10 +21,12 @@
 
   &--light {
     background-color: var(--light-cards-cl);
+    transition: background-color var(--transition), color var(--transition);
   }
 
   &--dark {
     background-color: var(--primary-cl);
+    transition: background-color var(--transition), color var(--transition);
   }
 }
 

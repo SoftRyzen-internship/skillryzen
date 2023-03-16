@@ -72,6 +72,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .sideBar__btnLight {

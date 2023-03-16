@@ -5,6 +5,8 @@
 
   color: var(--primary-txt-cl);
   background-color: var(--primary-cl);
+
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .authWrapperLight {

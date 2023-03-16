@@ -16,6 +16,8 @@
   font-size: 16px;
   padding: 16px;
 
+  transition: background-color var(--transition), color var(--transition);
+
   &--dark {
     background-color: var(--secondary-cl);
     color: var(--primary-txt-cl);

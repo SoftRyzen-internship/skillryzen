@@ -2,6 +2,8 @@
   min-width: 593px;
   border-radius: 12px;
 
+  transition: background-color var(--transition), color var(--transition);
+
   &--light {
     color: var(--light-primary-txt-cl);
     border: 1px solid var(--primary-txt-cl);

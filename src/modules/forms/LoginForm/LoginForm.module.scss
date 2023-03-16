@@ -34,6 +34,8 @@
     height: 1px;
     width: 50%;
     background-color: var(--disabled-cl);
+
+    transition: background-color var(--transition);
   }
 
   &::before {

@@ -13,22 +13,30 @@
   color: var(--accent-cl);
   padding: 4px 8px;
 
+  transition: color var(--transition);
+
   &--light {
     border: 1px solid var(--accent-cl);
+    transition: border var(--transition);
   }
 
   &--dark {
     border: 1px solid var(--disabled-cl);
+    transition: border var(--transition);
   }
 }
 
 .tag--field--dark.tagFieldDisabled {
   color: var(--secondary-txt-cl);
   border: 1px solid var(--components-cl);
+
+  transition: color var(--transition), border var(--transition);
 }
 .tag--field--light.tagFieldDisabled {
   color: var(--disabled-tag-cl);
   border: 1px solid var(--secondary-txt-cl);
+
+  transition: color var(--transition), border var(--transition);
 }
 
 .tag--number {
@@ -50,10 +58,12 @@
 
 .tag--number--dark.tagFieldDisabled {
   border: 1px solid var(--components-cl);
+  transition: border var(--transition);
 }
 .tag--number--light.tagFieldDisabled {
   color: var(--disabled-tag-cl);
   border: 1px solid var(--secondary-txt-cl);
+  transition: color var(--transition), border var(--transition);
 }
 
 .tag--icon {
@@ -82,10 +92,12 @@
 
   &--light {
     color: var(--accent-cl);
+    transition: color var(--transition);
   }
 
   &--dark {
     color: var(--primary-txt-cl);
+    transition: color var(--transition);
   }
 }
 

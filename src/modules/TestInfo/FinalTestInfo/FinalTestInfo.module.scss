@@ -23,6 +23,8 @@
 .titleLight {
   composes: titleDark;
   color: var(--primary-cl);
+
+  transition: color var(--transition);
 }
 
 .subtitleDark {
@@ -33,6 +35,8 @@
 .subtitleLight {
   composes: subtitleDark;
   color: var(--primary-cl);
+
+  transition: color var(--transition);
 }
 
 .list {
@@ -60,6 +64,8 @@
   margin-right: 20px;
   background-color: var(--components-cl);
   border-radius: 10px;
+
+  transition: background-color var(--transition);
 }
 .iconThumbLight {
   composes: iconThumbDark;

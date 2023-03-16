@@ -45,9 +45,13 @@
   background-color: transparent;
   border: 2px solid var(--accent-cl);
   color: var(--accent-cl);
+
+  transition: background-color var(--transition);
 }
 
 .noBackgroundGray {
   background-color: transparent;
   border: 1px solid var(--disabled-cl);
+
+  transition: border var(--transition);
 }

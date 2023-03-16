@@ -20,12 +20,17 @@
   input:checked + .roleBtnDark {
     color: var(--primary-txt-cl);
     border-color: var(--accent-cl);
+
+    transition: color var(--transition), border-color var(--transition);
   }
 
   input:checked + .roleBtnLight {
     color: var(--accent-cl);
     border-color: var(--accent-cl);
     background: rgba(42, 85, 246, 0.03);
+
+    transition: color var(--transition), border-color var(--transition),
+      background-color var(--transition);
   }
 }
 
@@ -77,10 +82,11 @@
 
   border: 1px solid var(--disabled-cl);
   border-radius: 4px;
-
   outline: none;
 
   background-color: transparent;
+
+  transition: background-color var(--transition), border var(--transition);
 
   &:not(:placeholder-shown) + .placeholder,
   &:focus + .placeholder,
@@ -91,6 +97,8 @@
     font-size: var(--text-sm);
 
     background-color: var(--primary-cl);
+
+    transition: background-color var(--transition), transform var(--transition);
   }
 
   &:-webkit-autofill,
@@ -112,6 +120,8 @@
   &:not(:placeholder-shown) + .placeholder,
   &:focus + .placeholder {
     background-color: var(--light-cards-cl);
+
+    transition: background-color var(--transition), transform var(--transition);
   }
 
   &:-webkit-autofill,
