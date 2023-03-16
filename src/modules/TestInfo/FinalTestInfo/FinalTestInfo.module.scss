@@ -7,6 +7,11 @@
   height: calc(100vh - 100px);
 }
 
+.breadcrumbsContainer {
+  padding-top: 20px;
+  padding-left: 64px;
+}
+
 .imageThumb {
   display: flex;
   justify-content: center;
@@ -85,7 +90,7 @@
 
 .textRightDark {
   composes: textDark;
-  width: 142px;
+  width: 192px;
   text-align: right;
 }
 .textRightLight {

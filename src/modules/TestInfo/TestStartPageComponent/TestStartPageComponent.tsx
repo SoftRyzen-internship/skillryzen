@@ -12,6 +12,7 @@ import { ROUTES } from 'routes/routes.const';
 import { getTotalCount } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { removeResults } from 'redux/testingInfo/testingInfoSlise';
+import s from '../FinalTestInfo/FinalTestInfo.module.scss';
 
 export const TestStartPageComponent = () => {
   const total = useAppSelector(getTotalCount);
@@ -54,9 +55,11 @@ export const TestStartPageComponent = () => {
   };
 
   return (
-    <TestInfoContainer>
-      <div>
+    <>
+      <div className={s.breadcrumbsContainer}>
         <Breadcrumbs />
+      </div>
+      <TestInfoContainer>
         <FinalTestInfo
           image={IMAGES.JAVA_SCRIPT}
           imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
@@ -67,7 +70,7 @@ export const TestStartPageComponent = () => {
           textBtn='Start test'
           test='JS'
         />
-      </div>
-    </TestInfoContainer>
+      </TestInfoContainer>
+    </>
   );
 };

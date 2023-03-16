@@ -38,7 +38,8 @@ export interface Item {
   timeForCompletionInMs: number;
   percentageToPass: number;
   wasStarted: boolean;
-  nextRetakeDate: null | Date;
+  // nextRetakeDate: null | Date;
+  nextRetakeDate?: null | string | Date;
   testStatus?: string;
   avialableIn?: string;
 }
@@ -55,7 +56,6 @@ const array = [
     timeForCompletionInMs: 12000000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: null,
   },
   {
     id: 2,
@@ -67,7 +67,6 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: true,
-    nextRetakeDate: null,
   },
   {
     id: 3,
@@ -79,7 +78,8 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date('2023-03-29'),
+    // nextRetakeDate: new Date('2023-03-29'),
+    nextRetakeDate: '2023-03-29T12:14:23.795Z',
   },
   {
     id: 4,
@@ -92,7 +92,6 @@ const array = [
     timeForCompletionInMs: 12000000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: null,
   },
   {
     id: 5,
@@ -104,7 +103,8 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: false,
-    nextRetakeDate: new Date('2023-03-20'),
+    // nextRetakeDate: new Date('2023-03-17'),
+    nextRetakeDate: '2023-03-17T11:04:23.795Z',
   },
   {
     id: 6,
@@ -116,7 +116,6 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: true,
-    nextRetakeDate: null,
   },
   {
     id: 7,
@@ -128,7 +127,73 @@ const array = [
     timeForCompletionInMs: 900000,
     percentageToPass: 0.5,
     wasStarted: true,
-    nextRetakeDate: new Date('2023-03-31'),
+    // nextRetakeDate: new Date('2023-03-31'),
+    nextRetakeDate: '2023-03-31T09:04:23.795Z',
+  },
+  {
+    id: 8,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    // nextRetakeDate: new Date('2023-03-17'),
+    nextRetakeDate: '2023-03-22T11:04:23.795Z',
+  },
+  {
+    id: 9,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    // nextRetakeDate: new Date('2023-03-17'),
+    nextRetakeDate: '2023-03-16T18:04:23.795Z',
+  },
+  {
+    id: 10,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    // nextRetakeDate: new Date('2023-03-17'),
+    nextRetakeDate: '2023-03-25T11:04:23.795Z',
+  },
+  {
+    id: 11,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    // nextRetakeDate: new Date('2023-03-17'),
+    nextRetakeDate: '2023-03-16T13:40:23.795Z',
+  },
+  {
+    id: 12,
+    name: 'FullStuck Final Test COMPLETED',
+    description: 'Welcome to Star class LMS!',
+    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 150,
+    timeForCompletionInMs: 900000,
+    percentageToPass: 0.5,
+    wasStarted: false,
+    // nextRetakeDate: new Date('2023-03-17'),
+    nextRetakeDate: '2023-03-16T13:21:23.795Z',
   },
 ];
 
