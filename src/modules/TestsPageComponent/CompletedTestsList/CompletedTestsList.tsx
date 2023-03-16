@@ -33,7 +33,7 @@ const array = [
     questionsTotalCount: 100,
     timeForCompletionInMs: 12000000,
     isPassed: true,
-    percentageOfCorrectAnswers: '80%'
+    percentageOfCorrectAnswers: '80%',
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const array = [
     questionsTotalCount: 100,
     timeForCompletionInMs: 12000000,
     isPassed: false,
-    percentageOfCorrectAnswers: '48%'
+    percentageOfCorrectAnswers: '48%',
   },
 ];
 
@@ -65,7 +65,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           questionsTotalCount,
           timeForCompletionInMs,
           isPassed,
-          percentageOfCorrectAnswers
+          percentageOfCorrectAnswers,
         }) => (
           <li key={id}>
             <TestCard
@@ -78,7 +78,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 number: questionsTotalCount,
                 time: timeForCompletionInMs / 60000,
                 testStatus: isPassed ? 'done' : 'failed',
-                percentageOfCorrectAnswers
+                percentageOfCorrectAnswers,
               }}
               theme={theme}
             />

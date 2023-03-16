@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,12 +9,14 @@ import { useThemeContext } from 'context/themeContext';
 import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
 import { setTemplateId } from 'redux/testingInfo/testingInfoSlise';
 import { useAppDispatch } from 'hooks/hook';
+import { convertToUTC } from 'utils/convertLocalTimeToUTC';
+import { parseDate } from 'utils/parseDate';
 
 import s from './AvailableTestsList.module.scss';
 
 interface Item {
   id: number;
-  author: string;
+  author?: string;
   name: string;
   description: string;
   blockNames: string[];
@@ -21,7 +24,8 @@ interface Item {
   timeForCompletionInMs: number;
   percentageToPass: number;
   wasStarted: boolean;
-  nextRetakeDate?: undefined | Date;
+  nextRetakeDate?: undefined | string | Date;
+  testStatus?: string;
   avialableIn?: string;
 }
 
@@ -35,7 +39,10 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
 
-  const templateHandler = (id: string, nextRetakeDate: undefined | Date) => {
+  const templateHandler = (
+    id: string,
+    nextRetakeDate: undefined | string | Date
+  ) => {
     if (nextRetakeDate) return;
     dispatch(setTemplateId(id));
   };
@@ -51,66 +58,73 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  //   const sortedTestsList = useMemo(() => {
-  //     if (!testsArray.length) return [];
+  const sortedTestsList = useMemo(() => {
+    if (!testsArray.length) return [];
 
-  //     const newArr = testsArray?.map(item => {
-  //       if (item.nextRetakeDate) {
-  //         return { ...item, testStatus: 'disabled' };
-  //       }
-  //       if (item.wasStarted && !item.nextRetakeDate) {
-  //         return { ...item, testStatus: 'tryAgain' };
-  //       }
-  //       if (!item.wasStarted) {
-  //         return { ...item, testStatus: 'available' };
-  //       }
-  //     });
+    // Додаємо до масиву тестів в кожен об'єкт поля 'available', 'tryAgain', 'disabled'
+    const newArr = testsArray.map(item => {
+      const utcDate = convertToUTC(new Date());
+      const specificDate = new Date(item.nextRetakeDate);
+      const specificDateUTC = convertToUTC(specificDate);
+      const diffTime = specificDateUTC.getTime() - utcDate.getTime();
+      return {
+        ...item,
+        testStatus:
+          item.nextRetakeDate && diffTime > 0
+            ? 'disabled'
+            : item.wasStarted && diffTime < 0
+            ? 'tryAgain'
+            : 'available',
+        nextRetakeDate: item.nextRetakeDate && specificDateUTC,
+      };
+    });
 
-  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //     const newObj = newArr?.reduce((acc: any, item: Item) => {
-  //       const callback = (item: Item) => item.testStatus;
-  //       const key = callback(item);
+    // Створюємо об'єкт з полями 'available', 'tryAgain', 'disabled', в кожному з яких відсортовані масиви
+    const newObj = newArr?.reduce((acc: any, item: Item) => {
+      const callback = (item: Item) => item.testStatus;
+      const key = callback(item);
 
-  //       let sublist = acc[key];
-  //       if (!sublist) {
-  //         sublist = [];
-  //         acc[key] = sublist;
-  //       }
-  //       sublist.push(item);
+      let sublist = acc[key];
+      if (!sublist) {
+        sublist = [];
+        acc[key] = sublist;
+      }
+      sublist.push(item);
 
-  //       return acc;
-  //     }, {});
+      return acc;
+    }, {});
 
-  //     newObj?.disabled.sort(
-  //       (a: Item, b: Item) =>
-  //         a.nextRetakeDate.getTime() - b.nextRetakeDate.getTime()
-  //     );
+    // Сортуємо масив задізейблених тестів по даті
+    newObj?.disabled?.sort((a: Item, b: Item) => {
+      const aTime =
+        a.nextRetakeDate instanceof Date && a.nextRetakeDate.getTime();
+      const bTime =
+        b.nextRetakeDate instanceof Date && b.nextRetakeDate.getTime();
+      return aTime - bTime;
+    });
 
-  //     newObj?.disabled.map((item: Item) => {
-  //       const today = new Date();
-  //       const specificDate = item.nextRetakeDate;
+    // Виводимо дату в задізейбленому тесті
+    newObj?.disabled?.map((item: Item) => {
+      const specificDate =
+        item.nextRetakeDate instanceof Date && item.nextRetakeDate;
+      item.avialableIn = parseDate(specificDate);
+    });
 
-  //       const diffTime = specificDate.getTime() - today.getTime();
-  //       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-  //       const diffHours = Math.ceil((diffTime / (1000 * 60 * 60)) % 24);
+    const order = ['available', 'tryAgain', 'disabled'];
 
-  //       item.avialableIn = `Available in ${diffDays} days ${diffHours} hours`;
-  //     });
-
-  //     const order = ['available', 'tryAgain', 'disabled'];
-
-  //     return Object.values(newObj)
-  //       .flat(1)
-  //       .sort(
-  //         (a: Item, b: Item) =>
-  //           order.indexOf(a.testStatus) - order.indexOf(b.testStatus)
-  //       );
-  //   }, [testsArray]);
+    // Розпилюємо об'єкт відсортованиїх масиві в один масив і повертаємо його
+    return Object.values(newObj)
+      .flat(1)
+      .sort(
+        (a: Item, b: Item) =>
+          order.indexOf(a.testStatus) - order.indexOf(b.testStatus)
+      );
+  }, [testsArray]);
 
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
-      {testsArray.length > 0 &&
-        testsArray.map(
+      {sortedTestsList.length > 0 &&
+        sortedTestsList.map(
           ({
             id,
             author,
@@ -123,6 +137,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             wasStarted,
             nextRetakeDate,
             avialableIn,
+            testStatus,
           }) => (
             <li key={id}>
               <Link
@@ -147,7 +162,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                     fields: blockNames,
                     number: questionsTotalCount,
                     time: timeForCompletionInMs / 60000,
-                    testStatus: 'tryAgain',
+                    testStatus,
                     avialableIn,
                   }}
                   theme={theme}
