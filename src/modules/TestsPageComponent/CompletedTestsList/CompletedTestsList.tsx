@@ -36,7 +36,7 @@ const array = [
     percentageOfCorrectAnswers: '80%'
   },
   {
-    id: 1,
+    id: 2,
     name: 'FullStuck Final Test AVAILABLE',
     description:
       'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
