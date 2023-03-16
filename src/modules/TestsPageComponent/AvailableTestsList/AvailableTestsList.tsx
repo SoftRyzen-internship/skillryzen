@@ -127,7 +127,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                 onClick={() => templateHandler(id.toString(), nextRetakeDate)}
                 className={nextRetakeDate && s.disabledLink}
                 state={{
-                  author,
+                  author: author ? author : 'GoIt',
                   name,
                   description,
                   blockNames,
