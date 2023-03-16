@@ -1,12 +1,11 @@
 .card--small {
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
   background-color: var(--components-cl);
   border-radius: 10px;
-  border-bottom-left-radius: 0px;
-  border-bottom-right-radius: 0px;
-  padding: 36px 13px 8px 16px;
+  padding: 36px 13px 28px 16px;
   transition: box-shadow var(--transition);
 
   &:hover,
@@ -53,7 +52,7 @@
 
 .card {
   &--light {
-    background-color: #fff;
+    background-color: var(--light-components-cl);
     box-shadow: var(--light-primary-shadow);
   }
 
@@ -70,12 +69,12 @@
   padding: 4px 8px;
 
   &--light {
-    background-color: #e9f0ff;
-    color: #0a0e29;
+    background-color: var(--light-primary-cl);
+    color: var(--light-primary-txt-cl);
   }
 
   &--dark {
-    background-color: #142372;
+    background-color: var(--disabled-tag-cl);
     color: var(--primary-txt-cl);
   }
 }
@@ -83,7 +82,7 @@
 .card__content {
   .card--large & {
     padding-right: 16px;
-    width: 550px;
+    width: 35vw;
   }
 
   .card--small & {
@@ -149,6 +148,11 @@
   }
 }
 
+.card--small .card__listWrapper {
+  display: flex;
+  flex-grow: 1;
+}
+
 .card__list {
   display: flex;
   column-gap: 4px;
@@ -161,7 +165,6 @@
 
   .card--small & {
     margin-bottom: 17px;
-    flex-grow: 1;
   }
 }
 
@@ -221,7 +224,7 @@
     border-radius: 0px 10px 10px 0px;
   }
   &.card--small {
-    top: 100%;
+    top: calc(100% - 20px);
     right: 0;
     height: 20px;
     width: 100%;
