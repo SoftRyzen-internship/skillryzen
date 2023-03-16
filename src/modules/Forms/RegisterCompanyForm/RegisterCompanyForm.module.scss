@@ -8,6 +8,13 @@
   flex-direction: column;
 }
 
+.inputsList {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .btnSubmit {
   margin-top: auto;
 }
