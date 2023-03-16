@@ -33,7 +33,19 @@ const array = [
     questionsTotalCount: 100,
     timeForCompletionInMs: 12000000,
     isPassed: true,
-    percentageOfCorrectAnswers: '50%'
+    percentageOfCorrectAnswers: '80%'
+  },
+  {
+    id: 1,
+    name: 'FullStuck Final Test AVAILABLE',
+    description:
+      'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+    blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
+    author: 'GoIt',
+    questionsTotalCount: 100,
+    timeForCompletionInMs: 12000000,
+    isPassed: false,
+    percentageOfCorrectAnswers: '48%'
   },
 ];
 
@@ -65,6 +77,8 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 fields: blockNames,
                 number: questionsTotalCount,
                 time: timeForCompletionInMs / 60000,
+                testStatus: isPassed ? 'done' : 'failed',
+                percentageOfCorrectAnswers
               }}
               theme={theme}
             />
