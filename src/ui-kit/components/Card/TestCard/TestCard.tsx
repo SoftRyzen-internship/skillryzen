@@ -22,7 +22,7 @@ interface Item {
   time: number;
   testStatus?: 'disabled' | 'available' | 'tryAgain' | 'done' | 'failed';
   avialableIn?: string;
-  percentageOfCorrectAnswers?: string;
+  percentageOfCorrectAnswers?: number;
 }
 
 export const TestCard = ({
@@ -126,7 +126,7 @@ export const TestCard = ({
         )}
         {(testStatus === 'done' || testStatus === 'failed') && (
           <p className={s.card__percentageOfCorrectAnswers}>
-            {percentageOfCorrectAnswers}
+            {percentageOfCorrectAnswers + '%'}
           </p>
         )}
         <p>{statusObject[testStatus].text}</p>
