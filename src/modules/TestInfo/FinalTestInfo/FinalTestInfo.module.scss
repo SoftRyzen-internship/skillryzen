@@ -4,7 +4,12 @@
 
 .containerFinish {
   composes: containerStart;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 140px);
+}
+
+.breadcrumbsContainer {
+  padding-top: 20px;
+  padding-left: 64px;
 }
 
 .imageThumb {
@@ -131,7 +136,7 @@
 }
 
 .btn {
-  margin-top: 84px;
+  margin-top: 64px;
 }
 
 .textWarning {
