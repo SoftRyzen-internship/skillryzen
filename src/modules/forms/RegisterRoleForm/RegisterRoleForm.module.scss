@@ -228,4 +228,10 @@
 .companyNameLight {
   composes: companyNameDark;
   background: var(--light-primary-cl);
+
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: var(--light-primary-cl);
+  }
 }

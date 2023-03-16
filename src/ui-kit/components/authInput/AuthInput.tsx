@@ -59,7 +59,7 @@ export const AuthInput = memo(
     const { theme }: IThemeContext = useThemeContext();
 
     return (
-      <li
+      <label
         className={`${s.floatingGroup} ${
           touched && (error ? s.floatingLabelError : s.floatingLabelValid)
         }`}
@@ -91,11 +91,9 @@ export const AuthInput = memo(
             placeholder={placeholder}
           />
         )}
-        <label className={s.floatingLabel} htmlFor={htmlFor}>
-          {labelContent}
-        </label>
+        <span className={s.floatingLabel}>{labelContent}</span>
         {children}
-      </li>
+      </label>
     );
   }
 );

@@ -18,12 +18,12 @@ export const useValidationSchema = () => {
         t('editPasswordForm.validation.email.startsWithEndsWith')
       ),
     password: Yup.string()
-      .min(8, t('editPasswordForm.validation.currentPassword.min'))
       .test(
         'has-spaces',
         t('editPasswordForm.validation.currentPassword.spaces'),
         (value) => !/\s/.test(value)
       )
+      .min(8, t('editPasswordForm.validation.currentPassword.min'))
       .required(t('editPasswordForm.validation.currentPassword.required')),
     checkbox: Yup.boolean().oneOf([true]).required(),
   });
