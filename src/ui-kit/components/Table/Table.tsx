@@ -11,10 +11,10 @@ interface TableProps<T> {
   data: T[];
 }
 
-export function Table<T extends { id: number }>({
+export const Table = <T extends { id: number }>({
   columns,
   data,
-}: TableProps<T>) {
+}: TableProps<T>) => {
   const [sortColumn, setSortColumn] = useState<Column<T> | null>(columns[0]);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
@@ -43,7 +43,7 @@ export function Table<T extends { id: number }>({
     <table>
       <thead>
         <tr>
-          {columns.map((column, index) => (
+          {columns.map(column => (
             <th
               key={column.property as string}
               onClick={() => handleSort(column)}
@@ -74,4 +74,4 @@ export function Table<T extends { id: number }>({
       </tbody>
     </table>
   );
-}
+};
