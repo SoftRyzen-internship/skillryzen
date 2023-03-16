@@ -20,8 +20,9 @@ interface Item {
   fields: string[];
   number: number;
   time: number;
-  testStatus?: string;
+  testStatus?: 'disabled' | 'available' | 'tryAgain' | 'done' | 'failed';
   avialableIn?: string;
+  percentageOfCorrectAnswers?: string;
 }
 
 export const TestCard = ({
@@ -32,8 +33,37 @@ export const TestCard = ({
 }: Card) => {
   const { t } = useTranslation();
 
-  const { title, author, text, fields, number, time, testStatus, avialableIn } =
-    item;
+  const {
+    title,
+    author,
+    text,
+    fields,
+    number,
+    time,
+    testStatus,
+    avialableIn,
+    percentageOfCorrectAnswers,
+  } = item;
+
+  const statusObject = {
+    disabled: {
+      className: `${s.disabled}`,
+      text: `${avialableIn}`,
+    },
+    available: {
+      className: `${s.available}`,
+      text: 'Available',
+    },
+    tryAgain: {
+      className: `${s.tryAgain}`,
+      text: 'Try again',
+    },
+    done: { className: `${s.done}`, text: 'Done' },
+    failed: {
+      className: `${s.failed}`,
+      text: 'Failed',
+    },
+  };
 
   return (
     <div
@@ -88,25 +118,18 @@ export const TestCard = ({
           </div>
         </div>
       </div>
-      <div
-        className={
-          testStatus === 'available'
-            ? `${s[`card--${size}`]} ${s.available}`
-            : testStatus === 'tryAgain'
-            ? `${s[`card--${size}`]} ${s.tryAgain}`
-            : `${s[`card--${size}`]} ${s.disabled}`
-        }
-      >
+      <div className={statusObject[testStatus].className}>
         {testStatus === 'tryAgain' && (
           <ICONS.REFRESH
             className={size === 'large' ? s.iconLarge : s.iconSmall}
           />
         )}
-        {testStatus === 'available'
-          ? 'Available'
-          : testStatus === 'tryAgain'
-          ? 'Try again'
-          : `${avialableIn}`}
+        {(testStatus === 'done' || testStatus === 'failed') && (
+          <p className={s.card__percentageOfCorrectAnswers}>
+            {percentageOfCorrectAnswers}
+          </p>
+        )}
+        <p>{statusObject[testStatus].text}</p>
       </div>
     </div>
   );

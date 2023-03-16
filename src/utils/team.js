@@ -90,7 +90,7 @@ export const team = [
   },
   {
     id: 9,
-    name: 'Aleksander Nikolaenko',
+    name: 'Alexander Nikolaenko',
     position: positionsData.FRONT_END,
     image: 'NIKOLAENKO',
     social: {
