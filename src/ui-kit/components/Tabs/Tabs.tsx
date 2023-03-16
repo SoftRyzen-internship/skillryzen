@@ -3,10 +3,15 @@ import { useTranslation } from 'react-i18next';
 
 import s from './Tabs.module.scss';
 
+interface Props {
+  size?: 'large' | 'small'; 
+  key?: number
+}
+
 interface Tabs {
   id: number;
   name: string;
-  component: string | JSX.Element;
+  component: string | JSX.Element | ((props: Props) => JSX.Element);
 }
 
 interface TabProps {

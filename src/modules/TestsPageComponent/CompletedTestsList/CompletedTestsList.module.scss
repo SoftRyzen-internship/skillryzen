@@ -1,0 +1,16 @@
+.testsList--large {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 13px;
+  }
+  
+  .testsList--small {
+    min-width: 1096px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    flex-wrap: wrap;
+    column-gap: 16px;
+    row-gap: 20px;
+    padding-top: 13px;
+  }
