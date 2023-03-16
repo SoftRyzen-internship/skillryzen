@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { TestCard } from 'ui-kit';
+import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
@@ -46,6 +47,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
       .then(data => {
         setTestsArray(data);
       })
+      // eslint-disable-next-line no-console
       .catch(error => console.log(error))
       .finally(() => setIsLoading(false));
   }, []);
@@ -156,6 +158,13 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             </li>
           )
         )}
+      {isLoading && (
+        <Skeleton
+          length={size === 'large' ? 5 : 8}
+          value='skeleton'
+          className={`${s[`skeletonItem--${size}`]}`}
+        />
+      )}
     </ul>
   );
 };
