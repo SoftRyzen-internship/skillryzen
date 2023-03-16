@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 
 import { ICONS } from 'ui-kit/icons';
-import { HeaderButton, Popup } from 'ui-kit/index';
+import { HeaderButton } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
 
 export const HeaderButtonTheme = () => {
@@ -14,8 +14,6 @@ export const HeaderButtonTheme = () => {
   const { theme, setTheme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
-
   const [icon, setIcon] = useState<JSX.Element>(() => {
     if (theme === 'dark') {
       return MoonIcon;
@@ -23,26 +21,6 @@ export const HeaderButtonTheme = () => {
       return SunIcon;
     }
   });
-
-  const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        list={[
-          {
-            icon: theme === 'dark' ? MoonIcon : SunIcon,
-            text:
-              theme === 'dark'
-                ? t('header.theme.dark')
-                : t('header.theme.light'),
-          },
-        ]}
-      />
-    );
-  };
-
-  const mouseLeaveHandler = () => {
-    setPopup(null);
-  };
 
   const clickHandler = () => {
     if (theme === 'light') {

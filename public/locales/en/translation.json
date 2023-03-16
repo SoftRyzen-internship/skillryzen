@@ -18,17 +18,19 @@
     "bestTopic": "The best topic in",
     "section": "section",
     "startTest": "Start Test",
-    "endTest": "Finish the test"
+    "endTest": "Finish the test",
+    "failedTest": "You failed the test",
+    "passedTest": "You passed the test"
   },
   "testsMain": {
-    "tests": "Tests",
-    "allTests": "All tests",
-    "myTests": "My tests",
+    "title": "Certification",
+    "availableTests": "Available tests",
+    "completedTests": "Completed tests",
     "search": "Search..",
     "practice": "Practice",
     "filter": "Filter",
     "numberOfQuestions": "questions",
-    "time": "hrs"
+    "time": "min"
   },
   "header": {
     "search": "Search..",
@@ -51,6 +53,10 @@
     "notifications": {
       "item1": "Results of test",
       "item2": "New messages"
+    },
+    "company": {
+      "profile": "Company Profile",
+      "settings": "Company Settings"
     },
     "userAvatar": {
       "profile": "Profile",
@@ -247,7 +253,8 @@
     "validation.message.required": "Please enter your message",
     "errors.badRequest": "Error: bad request. Please try again later.",
     "errors.network": "Error: failed to connect to network. Please try again later.",
-    "errors.unknown": "An unknown error occurred. Please try again later."
+    "errors.unknown": "An unknown error occurred. Please try again later.",
+    "placeholder": "Leave feedback or proposition"
   },
   "feedbackModal": {
     "title1": "Your Message",

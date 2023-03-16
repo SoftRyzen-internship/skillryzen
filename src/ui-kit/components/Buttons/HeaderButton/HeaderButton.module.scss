@@ -1,10 +1,10 @@
 .container {
   position: relative;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-.button--common {
+.button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,15 +14,17 @@
   transition: var(--transition);
 }
 .button--light {
-  composes: button--common;
   background-color: var(--light-primary-cl);
 }
 .button--dark {
-  composes: button--common;
   background-color: var(--secondary-cl);
   &:hover {
     box-shadow: var(--shadow-blue);
   }
+}
+
+.buttonImg {
+  width: 100%;
 }
 
 .icon {
@@ -30,15 +32,15 @@
   height: 24px;
 }
 
-.indicator--common {
+.indicator {
   font-family: var(--font-family);
   font-size: var(--text-sm);
   line-height: 1.2;
   font-weight: var(--regular);
   position: absolute;
   display: block;
-  top: 12px;
-  right: 0;
+  top: 16px;
+  right: 0px;
   min-width: 20px;
   height: 16px;
   padding-top: 1px;
@@ -48,17 +50,15 @@
   color: var(--primary-txt-cl);
 }
 .indicator--green {
-  composes: indicator--common;
   background-color: var(--success-cl);
 }
 .indicator--yellow {
-  composes: indicator--common;
   background-color: var(--message-cl);
 }
 
 .popup {
   position: absolute;
-  top: 64px;
-  left: -180px;
+  top: 72px;
+  left: -8px;
   z-index: 10;
 }

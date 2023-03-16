@@ -3,7 +3,7 @@ export const positionsData = {
   FRONT_END: 'Front-End Developer',
   BACK_END: 'Back-End Developer',
   DESIGNER: 'Designer',
-  QA: 'QA',
+  QA: 'QA Engineer',
   PM: 'Project manager',
 };
 

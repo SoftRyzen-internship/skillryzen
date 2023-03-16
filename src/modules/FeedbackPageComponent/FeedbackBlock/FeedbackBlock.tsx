@@ -4,25 +4,25 @@ import s from './FeedbackBlock.module.scss';
 import { ICONS } from 'ui-kit/icons';
 import { UserAvatarCard } from 'ui-kit';
 import { Spinner } from 'ui-kit/components/Spinner/Spinner';
-import { useSelector } from 'react-redux';
 import {
+  getIsAuth,
   getUserEmail,
   getUserName,
   getUserRole,
 } from 'redux/authSlice/authSelectors';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
-import { randomName } from 'utils/randomName';
 import { randomAvatar } from 'utils/randomAvatar';
+import { useAppSelector } from 'hooks/hook';
 interface FeedbackBlockProps {
   sendFeedback?: (_value: boolean) => void;
 }
 export const FeedbackBlock = ({ sendFeedback }: FeedbackBlockProps) => {
-  const userEmail = useSelector(getUserEmail);
-  const userRole = useSelector(getUserRole);
-  const userName = useSelector(getUserName);
+  const userEmail = useAppSelector(getUserEmail);
+  const userRole = useAppSelector(getUserRole);
+  const userName = useAppSelector(getUserName);
   const { theme }: IThemeContext = useThemeContext();
-
+  const isAuth = useAppSelector(getIsAuth);
   const updateLoading = (_value: boolean) => {
     setIsLoading(_value);
   };
@@ -35,9 +35,9 @@ export const FeedbackBlock = ({ sendFeedback }: FeedbackBlockProps) => {
         <div className={s.groupTop}>
           <UserAvatarCard
             userName={userName}
-            userRole={userRole}
+            userRole=''
             userAvatarUrl={avatar}
-            userStatus='green'
+            userStatus={isAuth ? 'green' : 'gray'}
             theme={theme}
           />
           <ICONS.AT_EMAIL className={s.emailIcon} />

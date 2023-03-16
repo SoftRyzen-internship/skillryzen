@@ -1,5 +1,6 @@
 .formWrapper {
   font-size: var(--text-lg);
+  width: 100%;
 }
 
 .form {
@@ -9,10 +10,12 @@
   width: 100%;
   height: 208px;
   resize: none;
-
+  border: 1px solid var(--disabled-cl);
   border-radius: 4px;
+  font-family: var(--font-family);
   font-size: 16px;
   padding: 16px;
+
   &--dark {
     background-color: var(--secondary-cl);
     color: var(--primary-txt-cl);
@@ -31,7 +34,6 @@
 }
 .textareaContainer {
   position: relative;
-  margin-top: 14px;
 }
 .charactersRemaining {
   margin: 20px 8px;

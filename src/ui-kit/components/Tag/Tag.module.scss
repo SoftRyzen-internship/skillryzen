@@ -22,6 +22,15 @@
   }
 }
 
+.tag--field--dark.tagFieldDisabled {
+  color: var(--secondary-txt-cl);
+  border: 1px solid var(--components-cl);
+}
+.tag--field--light.tagFieldDisabled {
+  color: #142372;
+  border: 1px solid var(--secondary-txt-cl);
+}
+
 .tag--number {
   composes: tag--common;
   font-weight: 500;
@@ -39,6 +48,14 @@
   }
 }
 
+.tag--number--dark.tagFieldDisabled {
+  border: 1px solid var(--components-cl);
+}
+.tag--number--light.tagFieldDisabled {
+  color: #142372;
+  border: 1px solid var(--secondary-txt-cl);
+}
+
 .tag--icon {
   composes: tag--common;
   display: flex;
@@ -54,13 +71,13 @@
 .tag--time {
   position: relative;
   display: inline-block;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
 
   font-family: var(--font-family);
   font-weight: var(--bold);
-  font-size: var(--text-sm);
-  line-height: 2;
+  font-size: 12px;
+  line-height: 1.3;
   background-color: transparent;
 
   &--light {
@@ -72,6 +89,10 @@
   }
 }
 
+.tag--time--light.tagFieldDisabled {
+  color: #142372;
+}
+
 .tag--time::before,
 .tag--time::after {
   position: absolute;
@@ -80,8 +101,8 @@
 
   display: block;
   content: '';
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   border: 3px solid var(--accent-cl);
 }
@@ -96,13 +117,28 @@
   transform: rotate(100deg);
 }
 
+.tag--time.tagFieldDisabled::before,
+.tag--time.tagFieldDisabled::after {
+  border: 3px solid #142372;
+}
+
+.tag--time.tagFieldDisabled::before {
+  border-top-color: transparent;
+  transform: rotate(-45deg);
+}
+
+.tag--time.tagFieldDisabled::after {
+  border-left-color: transparent;
+  transform: rotate(100deg);
+}
+
 .label {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
-  width: 35px;
+  width: 48px;
   text-align: center;
 }
 

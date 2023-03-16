@@ -30,16 +30,16 @@ export const Checkbox = memo(
 
     const labelClass = (type: 'form' | 'filter' | 'custom' | '') => {
       switch (type) {
-      case 'form':
-        return `${s.label} ${s.labelForm}`;
-      case 'filter':
-        return `${s.label} ${s.labelFilter} ${labelClassName}`;
+        case 'form':
+          return `${s.label} ${s.labelForm}`;
+        case 'filter':
+          return `${s.label} ${s.labelFilter} ${labelClassName}`;
 
-      case 'custom':
-        return `${s.label} ${labelClassName}`;
+        case 'custom':
+          return `${s.label} ${labelClassName}`;
 
-      default:
-        return `${s.label}`;
+        default:
+          return `${s.label}`;
       }
     };
     return (
@@ -50,8 +50,8 @@ export const Checkbox = memo(
           type='checkbox'
           checked={checked}
           value={value}
-          onChange={(e) => {
-            setChecked((prev) => !prev);
+          onChange={e => {
+            setChecked(prev => !prev);
             if (onChange) {
               onChange(e);
             }

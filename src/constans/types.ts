@@ -28,34 +28,3 @@ export interface UserSocial {
   name: SocialName;
   url: string;
 }
-export interface UserAchievements {
-  score?: string;
-  coins?: number;
-  time?: string;
-}
-export interface UserTests {
-  id: number;
-  title: string;
-  author: string;
-  text?: string;
-  fields?: string[];
-  number?: number;
-  time?: number;
-}
-export interface UserInfo {
-  name: string;
-  email: string;
-  phone: string;
-  location: string;
-  role: string;
-  social: UserSocial[];
-  achievements: UserAchievements;
-  avatarUrl: string;
-  company: {
-    name: string;
-    avatarUrl: string;
-  };
-  groupName: string;
-  testsAmount: number;
-  tests: UserTests[];
-}

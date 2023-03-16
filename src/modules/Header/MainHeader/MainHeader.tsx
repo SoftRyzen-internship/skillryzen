@@ -10,7 +10,7 @@ import s from './MainHeader.module.scss';
 export const MainHeader = () => {
   const { theme }: IThemeContext = useThemeContext();
   return (
-    <header className={`${s[`header--${theme}`]}`}>
+    <header className={`${s.header} ${s[`header--${theme}`]}`}>
       <Logo content='SkillRyzen' />
       <div className={s.container}>
         <HeaderInput />

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-
 import { useTranslation } from 'react-i18next';
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
 
+import { useThemeContext } from 'context/themeContext';
+import { convertTime } from 'utils/convertTime';
+import { IThemeContext } from 'constans/types';
+import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
@@ -32,8 +33,8 @@ const objectTheme = {
 };
 
 interface ListInfo {
-  topics: string;
-  time: string;
+  topics: string[];
+  time: number;
   questions: number;
   learners: number;
   author: string;
@@ -57,6 +58,7 @@ interface Props {
   correctAnswers?: number;
   totalQuestions?: number;
   timeSpent?: string;
+  isPassed?: boolean;
   iconAnswers?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   iconTime?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
@@ -70,11 +72,13 @@ interface Props {
 export const FinalTestInfo = ({
   image,
   imageProps,
+  title,
   subtitle,
   listInfo,
   correctAnswers,
   totalQuestions,
   timeSpent,
+  isPassed,
   iconAnswers: IconAnswers,
   iconTime: IconTime,
   theWorstTopic,
@@ -109,12 +113,8 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={objectTheme[theme].title}>{t('finalTestInfo.title')}</h2>
-      {subtitle && (
-        <p className={objectTheme[theme].subtitle}>
-          {t('finalTestInfo.subtitle')}
-        </p>
-      )}
+      <h2 className={objectTheme[theme].title}>{title}</h2>
+      {subtitle && <p className={objectTheme[theme].subtitle}>{subtitle}</p>}
       {listInfo ? (
         <ul className={s.list}>
           <li className={s.item}>
@@ -130,9 +130,9 @@ export const FinalTestInfo = ({
                 {t('finalTestInfo.list.topics')}
               </p>
             </div>
-            <p
-              className={objectTheme[theme].textRight}
-            >{`${listInfo.topics}`}</p>
+            <p className={objectTheme[theme].textRight}>
+              {listInfo.topics && listInfo.topics.join(', ')}
+            </p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
@@ -143,7 +143,9 @@ export const FinalTestInfo = ({
                 {t('finalTestInfo.list.time')}
               </p>
             </div>
-            <p className={objectTheme[theme].textRight}>{`${listInfo.time}`}</p>
+            <p className={objectTheme[theme].textRight}>
+              {listInfo.time / 60000} {t('testsMain.time')}
+            </p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
@@ -158,7 +160,7 @@ export const FinalTestInfo = ({
               className={objectTheme[theme].textRight}
             >{`${listInfo.questions}`}</p>
           </li>
-          <li className={s.item}>
+          {/* <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
                 <listInfo.icons.USERS className={objectTheme[theme].icon} />
@@ -170,7 +172,7 @@ export const FinalTestInfo = ({
             <p
               className={objectTheme[theme].textRight}
             >{`${listInfo.learners}`}</p>
-          </li>
+          </li> */}
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
@@ -219,6 +221,17 @@ export const FinalTestInfo = ({
               </p>
             </li>
           </ul>
+          {isPassed ? (
+            <div className={s.resultIsPassed}>
+              <ICONS.TEST_PASSED />
+              <p className={s.noticePassed}>{t('finalTestInfo.passedTest')}</p>
+            </div>
+          ) : (
+            <div className={s.resultIsPassed}>
+              <ICONS.TEST_FAILED />
+              <p className={s.noticeFailed}>{t('finalTestInfo.failedTest')}</p>
+            </div>
+          )}
           {theWorstTopic && theBestTopic && (
             <div className={objectTheme[theme].recomendationsWrapper}>
               <p className={objectTheme[theme].recText}>

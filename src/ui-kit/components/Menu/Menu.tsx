@@ -21,7 +21,7 @@ export const Menu = ({ menu, theme = 'dark' }: MenuProps) => {
 
   return (
     <ul className={s.menu__list}>
-      {menu.map((item) => {
+      {menu.map(item => {
         return (
           <li
             key={item.title}
@@ -41,7 +41,9 @@ export const Menu = ({ menu, theme = 'dark' }: MenuProps) => {
                   theme === 'dark' ? s.menu__iconDark : s.menu__iconLight
                 }
               />
-              {isOpen && <p className={s.menu__title}>{item.title}</p>}
+              <p className={isOpen ? s.menu__title : s.menu__titleHidden}>
+                {item.title}
+              </p>
             </NavLink>
           </li>
         );

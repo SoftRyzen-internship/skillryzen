@@ -33,6 +33,7 @@ interface NextQuestion {
 
 interface TemplateResponse {
   id: string;
+  name: string;
   timeForCompletionInMs: number;
   questionsTotalCount: number;
   nextQuestion: NextQuestion;
@@ -41,13 +42,14 @@ interface TemplateResponse {
 
 export interface FinishResponse {
   testId: string;
-  percentageOfCorrectAnswers: number;
+  numberOfCorrectAnswers: number;
+  isPassed: boolean;
 }
 
 export const getTestTemplateApi = (templateId: string) =>
   axiosInstance
     .post(`user-test/start/${templateId}`)
-    .then((response) => response.data);
+    .then(response => response.data);
 
 export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
   axiosInstance
@@ -55,12 +57,12 @@ export const answerTestApi = ({ testId, questionId, selectedAnswer }: Answer) =>
       questionId: questionId,
       labels: [selectedAnswer],
     })
-    .then((response) => response.data);
+    .then(response => response.data);
 
 export const finishTestApi = (testId: string) =>
   axiosInstance
     .post(`user-test/${testId}/finish`)
-    .then((response) => response.data);
+    .then(response => response.data);
 
 export const getTestTemplate = createAsyncThunk<
   TemplateResponse,
@@ -73,7 +75,6 @@ export const getTestTemplate = createAsyncThunk<
     try {
       const data = await getTestTemplateApi(templateId);
       data.timeForCompletionInMs = data.timeForCompletionInMs / 1000;
-      data.nextQuestion.codePiece = null;
       return data;
     } catch (error) {
       return rejectWithValue(error.response.data.errors.code);
@@ -122,9 +123,11 @@ export const finishTest = createAsyncThunk<
   const { testId } = getState().testingInfo;
   try {
     const data = await finishTestApi(testId);
+    const { questionsCountAnsweredCorrectly, isPassed } = data;
     return {
       testId,
-      percentageOfCorrectAnswers: data.percentageOfCorrectAnswers,
+      numberOfCorrectAnswers: questionsCountAnsweredCorrectly,
+      isPassed,
     };
   } catch (error) {
     return rejectWithValue(error.response.data.message);

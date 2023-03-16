@@ -78,6 +78,9 @@ import IconFullscreen from 'assets/svg/fullscreen.svg';
 import IconBrokecheckRound from 'assets/svg/brokechek-round.svg';
 import IconLock from 'assets/svg/lock.svg';
 import IconDownload from 'assets/svg/download.svg';
+import IconTestPassed from 'assets/svg/test-passed.svg';
+import IconTestFailed from 'assets/svg/test-failed.svg';
+import IconRefresh from 'assets/svg/refresh.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -222,6 +225,7 @@ export const ICONS: Icons = {
   CSS: IconCss,
   JS: IconJs,
   REACT: IconReact,
+  REFRESH: IconRefresh,
   NODE: IconNode,
   NEXT: IconNext,
   PYTHON: IconPython,
@@ -238,4 +242,6 @@ export const ICONS: Icons = {
   CIRCLE_GRAY_LIGHT: IconCircleGrayLight,
   UNDER_DEVELOPMENT_MAIN_LIGHT: IconUnderDevelopmentMainLight,
   DOWNLOAD: IconDownload,
+  TEST_PASSED: IconTestPassed,
+  TEST_FAILED: IconTestFailed,
 };

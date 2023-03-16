@@ -10,7 +10,8 @@ import {
 
 interface Results {
   testId: string;
-  percentageOfCorrectAnswers: number;
+  numberOfCorrectAnswers: number;
+  isPassed: boolean;
   time: number;
   timeLeft: number;
 }
@@ -18,6 +19,7 @@ interface Results {
 export interface TestingInfo {
   templateId: string;
   testId: string;
+  name: string;
   questionId: string;
   number: number;
   title: string;
@@ -37,7 +39,8 @@ export interface TestingInfo {
 }
 
 const initialState: TestingInfo = {
-  templateId: 'd7a77070-3e80-4523-a98b-08b920383dfe',
+  templateId: '',
+  name: '',
   testId: '',
   questionId: '',
   number: null,
@@ -48,7 +51,13 @@ const initialState: TestingInfo = {
   questionsTotalCount: 0,
   totalTime: 0,
   currentTime: 0,
-  results: { testId: '', percentageOfCorrectAnswers: 0, time: 0, timeLeft: 0 },
+  results: {
+    testId: '',
+    numberOfCorrectAnswers: 0,
+    time: 0,
+    timeLeft: 0,
+    isPassed: false,
+  },
   isLoading: false,
   error: '',
 };
@@ -64,19 +73,24 @@ const testingInfoSlice = createSlice({
     setCurrentTime(state, action: PayloadAction<number>) {
       state.currentTime = action.payload;
     },
+    setTemplateId(state, action: PayloadAction<string>) {
+      state.templateId = action.payload;
+    },
     removeResults(state) {
       state.questionsTotalCount = 0;
       state.number = null;
+      state.name = '';
       state.results.testId = '';
-      state.results.percentageOfCorrectAnswers = 0;
+      state.results.numberOfCorrectAnswers = 0;
       state.results.time = 0;
       state.results.timeLeft = 0;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(getTestTemplate.fulfilled, (state, { payload }) => {
         state.testId = payload.id;
+        state.name = payload.name;
         state.questionId = payload.nextQuestion.id;
         state.number = 1;
         state.title = payload.nextQuestion.title;
@@ -98,8 +112,8 @@ const testingInfoSlice = createSlice({
       })
       .addCase(finishTest.fulfilled, (state, { payload }) => {
         state.results.testId = payload.testId;
-        state.results.percentageOfCorrectAnswers =
-          payload.percentageOfCorrectAnswers;
+        state.results.numberOfCorrectAnswers = payload.numberOfCorrectAnswers;
+        state.results.isPassed = payload.isPassed;
         state.hasNextQuestion = true;
         state.templateId = '';
         state.testId = '';
@@ -112,16 +126,16 @@ const testingInfoSlice = createSlice({
         state.isLoading = false;
       })
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('testingInfo') &&
           action.type.endsWith('/pending'),
-        (state) => {
+        state => {
           state.isLoading = true;
           state.error = null;
         }
       )
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('testingInfo') &&
           action.type.endsWith('/rejected'),
         (state, action) => {
@@ -136,6 +150,7 @@ const persistConfig = {
   key: 'testingInfo',
   storage,
   whitelist: [
+    'templateId',
     'testId',
     'questionsTotalCount',
     'totalTime',
@@ -148,7 +163,7 @@ const persistConfig = {
   ],
 };
 
-export const { setTime, removeResults, setCurrentTime } =
+export const { setTime, removeResults, setCurrentTime, setTemplateId } =
   testingInfoSlice.actions;
 export const testingInfoReducer = persistReducer(
   persistConfig,

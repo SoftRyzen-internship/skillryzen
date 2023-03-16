@@ -35,23 +35,21 @@ export const Breadcrumbs = () => {
   }, [pathname]);
 
   return (
-    <nav>
-      <ul className={s.breadcrumbs}>
-        {breadcrumbs.map(({ path, label }, i) => (
-          <li key={path} className={objectTheme[theme].crumbs}>
-            {i === breadcrumbs.length - 1 ? (
-              label
-            ) : (
-              <NavLink
-                to={path}
-                className={({ isActive }) => (isActive ? s.active : undefined)}
-              >
-                {label}
-              </NavLink>
-            )}
-          </li>
-        ))}
-      </ul>
-    </nav>
+    <ul className={s.breadcrumbs}>
+      {breadcrumbs.map(({ path, label }, i) => (
+        <li key={path} className={objectTheme[theme].crumbs}>
+          {i === breadcrumbs.length - 1 ? (
+            label
+          ) : (
+            <NavLink
+              to={path}
+              className={({ isActive }) => (isActive ? s.active : undefined)}
+            >
+              {label}
+            </NavLink>
+          )}
+        </li>
+      ))}
+    </ul>
   );
 };

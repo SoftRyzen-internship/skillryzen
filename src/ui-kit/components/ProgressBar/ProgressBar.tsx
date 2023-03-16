@@ -17,17 +17,15 @@ interface Props {
 }
 
 export const ProgressBar = ({ theme = 'dark' }: Props) => {
-  const questionId = useAppSelector(getQuestionId);
   const number = useAppSelector(getQuestionNumber);
   const total = useAppSelector(getTotalCount);
   const [array, setArray] = useState<number[]>([]);
 
   useEffect(() => {
     if (!total) return;
-    if (total && !questionId) return;
     setArray(createArray(total));
     // eslint-disable-next-line
-  }, [total, number]);
+  }, [total]);
 
   const returnCurrentNumber = (number: number) => {
     return number > total ? total : number;
@@ -46,7 +44,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
           </p>
           <div className={s.progressBar__wrapper}>
             <ul className={s.progressBar__list}>
-              {array.map((item) => (
+              {array.map(item => (
                 <li
                   key={item}
                   className={`${s.progressBar__line} ${
