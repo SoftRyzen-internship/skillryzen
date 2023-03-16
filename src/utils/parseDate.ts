@@ -26,4 +26,5 @@ export const parseDate = (date: Date) => {
   if (minutes) {
     return `Available in ${minutes} minutes`;
   }
+  return `Available in ${1} minutes`;
 };
