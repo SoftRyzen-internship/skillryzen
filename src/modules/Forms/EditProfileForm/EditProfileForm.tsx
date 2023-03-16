@@ -9,6 +9,8 @@ import { MainButton } from 'ui-kit';
 import { useAppSelector } from 'hooks/hook';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
+import { getUserRole } from 'redux/authSlice/authSelectors';
+
 interface FormValues {
   name?: string;
   surname?: string;
@@ -23,16 +25,16 @@ interface FormValues {
 
 export const EditProfileForm = () => {
   const [changeProfile, setChangeProfile] = useState(true);
-  const [company, setCompany] = useState('Lorem');
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
   const validationSchema = useValidationSchema();
+  const userRole = useAppSelector(getUserRole);
   const formik = useFormik<FormValues>({
     initialValues: {
       name: '',
       surname: '',
       phone: '',
-      position: '',
+      position: userRole,
       telegram: '',
       linkedin: '',
       role: '',
@@ -45,7 +47,7 @@ export const EditProfileForm = () => {
   });
 
   const {
-    values: { name, position, telegram, linkedin, surname, phone, companyName },
+    values: { name, telegram, linkedin, surname, phone },
     errors,
     touched,
     isValid,
@@ -59,39 +61,11 @@ export const EditProfileForm = () => {
     resetForm();
     setChangeProfile(true);
   };
-  const role = useAppSelector(state => state.auth.user.role);
+
   return (
     <div className={s.formWrapper}>
       <form onSubmit={handleSubmit} className={s.form}>
         <ul className={s.inputsList}>
-          {role === 'company' && (
-            <li
-              className={`${s.floatingGroup} ${
-                touched.companyName &&
-                (errors.companyName
-                  ? s.floatingLabelError
-                  : s.floatingLabelValid)
-              }`}
-            >
-              {touched.companyName && errors.companyName && (
-                <p className={s.errorMsg}>{errors.companyName}</p>
-              )}
-              <input
-                className={s.input}
-                name='companyName'
-                type='text'
-                id='companyName'
-                onChange={handleChange}
-                onBlur={handleBlur}
-                value={companyName}
-                autoComplete='company'
-                placeholder={t('editProfileForm.company.name')}
-              />
-              <label className={s.floatingLabel} htmlFor='companyName'>
-                {t('editProfileForm.company.name')}
-              </label>
-            </li>
-          )}
           <li
             className={`${s.floatingGroup} ${
               touched.name &&
@@ -115,7 +89,10 @@ export const EditProfileForm = () => {
               placeholder={t('editProfileForm.name')}
               disabled={changeProfile}
             />
-            <label className={s.floatingLabel} htmlFor='name'>
+            <label
+              className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+              htmlFor='name'
+            >
               {t('editProfileForm.name')}
             </label>
             <button
@@ -128,51 +105,22 @@ export const EditProfileForm = () => {
           </li>
           <li className={`${s.floatingGroup}`}>
             <input
-              className={`${s.input} ${
-                role === 'admin'
-                  ? s[`inputEdit--${theme}`]
-                  : s[`inputDisabled--${theme}`]
-              }`}
+              className={`${s.input} ${s[`input--${theme}`]}`}
               name='position'
               type='text'
               id='position'
               onChange={handleChange}
               onBlur={handleBlur}
-              value={role === 'admin' ? 'admin' : 'user'}
+              value={userRole}
               autoComplete='off'
               placeholder={t('editProfileForm.position')}
-              disabled={role === 'user'}
+              disabled={true}
             />
-            <label className={s.floatingLabel} htmlFor='position'>
-              {t('editProfileForm.position')}
-            </label>
-            <button
-              type='button'
-              onClick={() => setChangeProfile(!changeProfile)}
-              className={s.changeButton}
+            <label
+              className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+              htmlFor='position'
             >
-              <ICONS.SHIELD_CHECK className={s.iconShield} />
-            </button>
-          </li>
-          <li className={`${s.floatingGroup}`}>
-            <input
-              className={`${s.input} ${
-                role === 'admin'
-                  ? s[`inputEdit--${theme}`]
-                  : s[`inputDisabled--${theme}`]
-              }`}
-              name='company'
-              type='text'
-              id='company'
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={company}
-              autoComplete='off'
-              placeholder={t('editProfileForm.company')}
-              disabled={role === 'user'}
-            />
-            <label className={s.floatingLabel} htmlFor='company'>
-              {t('editProfileForm.company')}
+              {t('editProfileForm.position')}
             </label>
             <button
               type='button'
@@ -205,7 +153,10 @@ export const EditProfileForm = () => {
               placeholder={t('editProfileForm.surname')}
               disabled={changeProfile}
             />
-            <label className={s.floatingLabel} htmlFor='surname'>
+            <label
+              className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+              htmlFor='surname'
+            >
               {t('editProfileForm.surname')}
             </label>
             <button
@@ -238,7 +189,12 @@ export const EditProfileForm = () => {
               placeholder={t('editProfileForm.phone')}
               disabled={changeProfile}
             />
-            <label className={s.floatingLabelPhone} htmlFor='phone'>
+            <label
+              className={`${s.floatingLabelPhone} ${
+                s[`floatingLabelPhone--${theme}`]
+              }`}
+              htmlFor='phone'
+            >
               {t('editProfileForm.phone')}
             </label>
             <button type='button' className={s.phoneButton}>
@@ -275,7 +231,10 @@ export const EditProfileForm = () => {
               placeholder={t('editProfileForm.telegram')}
               disabled={changeProfile}
             />
-            <label className={s.floatingLabel} htmlFor='telegram'>
+            <label
+              className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+              htmlFor='telegram'
+            >
               {t('editProfileForm.telegram')}
             </label>
             <button
@@ -309,7 +268,10 @@ export const EditProfileForm = () => {
               placeholder={t('editProfileForm.linkedin')}
               disabled={changeProfile}
             />
-            <label className={s.floatingLabel} htmlFor='linkedin'>
+            <label
+              className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+              htmlFor='linkedin'
+            >
               {t('editProfileForm.linkedin')}
             </label>
             <button
