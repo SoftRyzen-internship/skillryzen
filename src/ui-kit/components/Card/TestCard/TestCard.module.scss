@@ -207,6 +207,10 @@
 .card__percentageOfCorrectAnswers {
   font-weight: var(--bold);
   font-size: 20px;
+
+  .card--small & {
+    font-size: 12px;
+  }
 }
 
 .available {
@@ -255,6 +259,11 @@
   composes: available;
   flex-direction: column;
   gap: 8px;
+
+  .card--small & {
+    flex-direction: row;
+    gap: 4px;
+  }
 }
 
 .failed {
@@ -262,6 +271,11 @@
   flex-direction: column;
   gap: 8px;
   background-color: #b13250;
+
+  .card--small & {
+    flex-direction: row;
+    gap: 4px;
+  }
 }
 
 .iconLarge {

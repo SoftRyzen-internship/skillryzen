@@ -17,27 +17,31 @@ import { Breadcrumbs, Modal, Tabs } from 'ui-kit';
 import s from './TestsPageComponent.module.scss';
 
 interface TestsProps {
-  size: 'large' | 'small'; 
-  key: number
+  size: 'large' | 'small';
+  key: number;
 }
 
 const tabs = [
   {
     id: 1,
     name: 'testsMain.availableTests',
-    component: (props: TestsProps) => <AvailableTestsList {...props}/> ,
+    component: (props: TestsProps) => <AvailableTestsList {...props} />,
   },
   {
     id: 2,
     name: 'testsMain.completedTests',
-    component: (props: TestsProps) => <CompletedTestsList {...props}/>,
+    component: (props: TestsProps) => <CompletedTestsList {...props} />,
   },
 ];
 
 export const TestsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+  const [currentTab, setCurrentTab] = useState(() => {
+    const savedTab = sessionStorage.getItem('currentTabTestsPage');
+    return savedTab ? parseInt(savedTab) : tabs[0].id;
+  });
+
   const [size, setSize] = useState<'large' | 'small'>('large');
   const [isShowModal, setIsShowModal] = useState(false);
 
@@ -61,7 +65,10 @@ export const TestsPageComponent = () => {
     }
   };
 
-  const handleChangeTab = (tab: number) => setCurrentTab(tab);
+  const handleChangeTab = (tab: number) => {
+    sessionStorage.setItem('currentTabTestsPage', tab.toString());
+    setCurrentTab(tab);
+  };
 
   return (
     <div className={`${s.testsPage} ${s[`testsPage--${theme}`]}`}>
@@ -78,7 +85,7 @@ export const TestsPageComponent = () => {
       </div>
       {tabs.map(el => {
         if (el.id !== currentTab) return null;
-        return el.component({size, key: el.id});
+        return el.component({ size, key: el.id });
       })}
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>

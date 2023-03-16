@@ -41,9 +41,9 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
 
   const templateHandler = (
     id: string,
-    nextRetakeDate: undefined | string | Date
+    testStatus: string
   ) => {
-    if (nextRetakeDate) return;
+    if (testStatus === "disabled") return;
     dispatch(setTemplateId(id));
   };
 
@@ -52,6 +52,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
     getAvailableTests()
       .then(data => {
         setTestsArray(data);
+        console.log(data)
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
@@ -133,17 +134,14 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             blockNames,
             questionsTotalCount,
             timeForCompletionInMs,
-            percentageToPass,
-            wasStarted,
-            nextRetakeDate,
             avialableIn,
             testStatus,
           }) => (
             <li key={id}>
               <Link
-                to={nextRetakeDate ? '#' : 'fullstack_final'}
-                onClick={() => templateHandler(id.toString(), nextRetakeDate)}
-                className={nextRetakeDate && s.disabledLink}
+                to={testStatus === "disabled" ? '#' : 'fullstack_final'}
+                onClick={() => templateHandler(id.toString(), testStatus)}
+                className={testStatus === "disabled"  ? s.disabledLink : ''}
                 state={{
                   author: author ? author : 'GoIt',
                   name,

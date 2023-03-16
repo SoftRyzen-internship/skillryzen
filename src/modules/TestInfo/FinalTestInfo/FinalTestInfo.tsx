@@ -8,6 +8,8 @@ import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
+import { useAppSelector } from 'hooks/hook';
+import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 
 const objectTheme = {
   dark: {
@@ -90,6 +92,8 @@ export const FinalTestInfo = ({
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
   const { alt, width, height } = imageProps;
+
+  const templateId = useAppSelector(getTemplateId);
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -254,7 +258,7 @@ export const FinalTestInfo = ({
         text={
           finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
         }
-        disabled={!finishTest && windowWidth <= 1280}
+        disabled={(!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)}
         onClick={onClickBtn}
         size='large'
         color='blue'
