@@ -4,11 +4,13 @@
 }
 .imgThumb {
   position: relative;
-}
-.avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+}
+.avatar {
+  display: block;
+  width: 100%;
 }
 .status {
   position: absolute;

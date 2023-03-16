@@ -7,11 +7,9 @@
   transition: var(--transition);
 }
 .container--dark {
-  composes: container;
   background-color: var(--components-cl);
 }
 .container--light {
-  composes: container;
   background-color: var(--light-components-cl);
 }
 
@@ -23,11 +21,9 @@
   transition: var(--transition);
 }
 .title--dark {
-  composes: title;
   color: var(--primary-txt-cl);
 }
 .title--light {
-  composes: title;
   color: var(--light-primary-txt-cl);
 }
 
@@ -51,11 +47,9 @@
   transition: var(--transition);
 }
 .name--dark {
-  composes: name;
   color: var(--primary-txt-cl);
 }
 .name--light {
-  composes: name;
   color: var(--light-primary-txt-cl);
 }
 
@@ -67,11 +61,9 @@
   transition: var(--transition);
 }
 .titleInfo--dark {
-  composes: titleInfo;
   color: var(--primary-txt-cl);
 }
 .titleInfo--light {
-  composes: titleInfo;
   color: var(--light-primary-txt-cl);
 }
 
@@ -108,7 +100,6 @@
 }
 
 .icon--dark {
-  composes: icon;
   & svg path {
     stroke: var(--secondary-txt-cl);
     transition: var(--transition);
@@ -116,7 +107,6 @@
 }
 
 .icon--light {
-  composes: icon;
   & svg path {
     stroke: var(--accent-cl);
     transition: var(--transition);
@@ -133,11 +123,9 @@
 }
 
 .text--dark {
-  composes: text;
   color: var(--primary-txt-cl);
 }
 .text--light {
-  composes: text;
   color: var(--light-primary-txt-cl);
 }
 .companyContainer {
@@ -151,11 +139,9 @@
   transition: var(--transition);
 }
 .companyTitle--dark {
-  composes: companyTitle;
   color: var(--primary-txt-cl);
 }
 .companyTitle--light {
-  composes: companyTitle;
   color: var(--light-primary-txt-cl);
 }
 .groupContainer {
@@ -167,10 +153,8 @@
   font-size: var(--text-md);
 }
 .label--dark {
-  composes: label;
   color: var(--primary-txt-cl);
 }
 .label--light {
-  composes: label;
   color: var(--light-primary-txt-cl);
 }
