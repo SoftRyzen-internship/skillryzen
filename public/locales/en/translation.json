@@ -138,7 +138,7 @@
     "surnamePlaceholder": "Surname",
     "phonePlaceholder": "Phone",
     "companyNamePlaceholder": "Company name",
-    "companyWebsitePlaceholder": "Company web-site",
+    "companyWebsitePlaceholder": "Company website",
 
     "accountBtn": "Create account",
     "continueBtn": "Continue",
@@ -155,7 +155,7 @@
     "companyName.exists": "This company name already exists",
     "urlValidation": "Please enter a valid URL",
     "urlLengthValidation": "URL must have at least 10 characters",
-    "urlRequired": "Company web-site is required",
+    "urlRequired": "Company website is required",
 
     "candidateIntro": [
       "Take a test in JavaScript",

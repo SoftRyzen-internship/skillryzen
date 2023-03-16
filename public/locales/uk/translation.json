@@ -138,7 +138,7 @@
     "surnamePlaceholder": "Прізвище",
     "phonePlaceholder": "Номер телефону",
     "companyNamePlaceholder": "Назва компанії",
-    "companyWebsitePlaceholder": "Веб-сайт компанії",
+    "companyWebsitePlaceholder": "Вебсайт компанії",
 
     "accountBtn": "Створити аккаунт",
     "continueBtn": "Продовжити",
@@ -155,7 +155,7 @@
     "companyName.exists": "Компанія з такою назвою вже існує",
     "urlValidation": "Будь-ласка введіть валідний URL",
     "urlLengthValidation": "URL має містити не менше 10 символів",
-    "urlRequired": "Веб-сайт компанії є обов'язковим",
+    "urlRequired": "Вебсайт компанії є обов'язковим",
 
     "candidateIntro": [
       "Пройти тест з JavaScript",

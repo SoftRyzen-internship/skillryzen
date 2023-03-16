@@ -3,8 +3,6 @@
   position: relative;
   min-height: 100vh;
 
-  overflow: hidden;
-
   color: var(--primary-txt-cl);
   background-color: var(--primary-cl);
 }
@@ -20,17 +18,9 @@
   position: absolute;
 }
 
-.settings {
-  position: absolute;
-  right: 60px;
-
-  display: flex;
-  gap: 12px;
-}
-
 .settingsWrapper {
   position: absolute;
-  right: 60px;
+  right: 155px;
 
   display: flex;
   gap: 12px;
