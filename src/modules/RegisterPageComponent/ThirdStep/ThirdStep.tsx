@@ -24,7 +24,7 @@ export const ThirdStep = () => {
   const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    dispatch(auth()).then((resp) => {
+    dispatch(auth()).then(resp => {
       if (resp.meta.requestStatus === 'fulfilled') {
         dispatch(setName(randomName()));
         navigate(ROUTES.CERTIFICATION, { state: { from: location } });

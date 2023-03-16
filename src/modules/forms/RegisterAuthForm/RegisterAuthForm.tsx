@@ -48,7 +48,7 @@ export const RegisterAuthForm = () => {
 
     validationSchema: useValidationSchema(),
 
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       const { email, password } = values;
 
       const resp = await dispatch(

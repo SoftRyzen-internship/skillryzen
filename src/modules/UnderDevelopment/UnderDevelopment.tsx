@@ -38,7 +38,7 @@ export const UnderDevelopment = () => {
   const { t } = useTranslation();
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
   };
 
   return (

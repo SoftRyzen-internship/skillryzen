@@ -39,7 +39,7 @@ export const AuthWrapper = ({ children }: AuthProps) => {
   const [isShowModal, setIsShowModal] = useState(false);
 
   const handleClickModal = () => {
-    setIsShowModal((prevState) => !prevState);
+    setIsShowModal(prevState => !prevState);
     dispatch(setClickLogOut(false));
   };
 

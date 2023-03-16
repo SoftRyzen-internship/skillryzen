@@ -22,7 +22,7 @@ export const useValidationSchema = () => {
       .test(
         'has-spaces',
         t('editPasswordForm.validation.currentPassword.spaces'),
-        (value) => !/\s/.test(value)
+        value => !/\s/.test(value)
       )
       .matches(/^(?!\s)(?!.*\s$)[\w\s]+$/, t('auth.noSpaces'))
       .required(t('editPasswordForm.validation.currentPassword.required')),

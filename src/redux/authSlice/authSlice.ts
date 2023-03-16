@@ -72,9 +72,9 @@ const authSlice = createSlice({
       state.user.displayName = action.payload;
     },
   },
-  extraReducers: (builder) =>
+  extraReducers: builder =>
     builder
-      .addCase(logIn.fulfilled, (state) => {
+      .addCase(logIn.fulfilled, state => {
         state.isLoading = false;
         state.isError = false;
       })
@@ -83,13 +83,13 @@ const authSlice = createSlice({
         state.user.role = action.payload.role;
         state.isAuth = true;
       })
-      .addCase(logOut.fulfilled, (state) => {
+      .addCase(logOut.fulfilled, state => {
         state.user = initialState.user;
         state.isAuth = false;
         state.isLoading = false;
         state.isError = false;
       })
-      .addCase(logIn.pending, (state) => {
+      .addCase(logIn.pending, state => {
         state.isLoading = true;
         state.isError = false;
         state.isAuth = false;
@@ -108,30 +108,30 @@ const authSlice = createSlice({
           state.company = action.payload;
         }
       )
-      .addCase(getCompanyByToken.rejected, (state) => {
+      .addCase(getCompanyByToken.rejected, state => {
         state.company = initialState.company;
       })
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('/auth') &&
           action.type.endsWith.endsWith('/pending'),
-        (state) => {
+        state => {
           state.isLoading = true;
         }
       )
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('/auth') && action.type.endsWith('/rejected'),
-        (state) => {
+        state => {
           state.isAuth = false;
           state.isLoading = false;
           state.isError = true;
         }
       )
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('/auth') && action.type.endsWith('/fulfilled'),
-        (state) => {
+        state => {
           state.isLoading = false;
           state.isError = false;
         }

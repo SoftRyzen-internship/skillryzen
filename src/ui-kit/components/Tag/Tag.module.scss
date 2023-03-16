@@ -27,7 +27,7 @@
   border: 1px solid var(--components-cl);
 }
 .tag--field--light.tagFieldDisabled {
-  color: #142372;
+  color: var(--disabled-tag-cl);
   border: 1px solid var(--secondary-txt-cl);
 }
 
@@ -52,7 +52,7 @@
   border: 1px solid var(--components-cl);
 }
 .tag--number--light.tagFieldDisabled {
-  color: #142372;
+  color: var(--disabled-tag-cl);
   border: 1px solid var(--secondary-txt-cl);
 }
 
@@ -90,7 +90,7 @@
 }
 
 .tag--time--light.tagFieldDisabled {
-  color: #142372;
+  color: var(--disabled-tag-cl);
 }
 
 .tag--time::before,
@@ -119,7 +119,7 @@
 
 .tag--time.tagFieldDisabled::before,
 .tag--time.tagFieldDisabled::after {
-  border: 3px solid #142372;
+  border: 3px solid var(--disabled-tag-cl);
 }
 
 .tag--time.tagFieldDisabled::before {

@@ -21,7 +21,7 @@ export const useValidationSchema = () => {
       .test(
         'has-spaces',
         t('editPasswordForm.validation.currentPassword.spaces'),
-        (value) => !/\s/.test(value)
+        value => !/\s/.test(value)
       )
       .min(8, t('editPasswordForm.validation.currentPassword.min'))
       .required(t('editPasswordForm.validation.currentPassword.required')),

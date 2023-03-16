@@ -43,7 +43,7 @@ export const InviteModulePageComponent = () => {
         changeTab={handleChangeTab}
         theme={theme}
       />
-      {tabs.map((el) => {
+      {tabs.map(el => {
         if (el.id !== currentTab) return null;
         return el.component;
       })}

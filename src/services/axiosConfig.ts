@@ -6,8 +6,8 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.response.use(
-  (res) => res,
-  async (err) => {
+  res => res,
+  async err => {
     const originalConfig = err.config;
     if (originalConfig.url !== 'auth/auth' && err.response) {
       if (err.response.status === 401 && !originalConfig._retry) {

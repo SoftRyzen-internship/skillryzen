@@ -1,11 +1,11 @@
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 
 import { TestCard } from 'ui-kit';
 import { Item } from '../TestsPageComponent';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
 import { setTemplateId } from 'redux/testingInfo/testingInfoSlise';
 import { useAppDispatch } from 'hooks/hook';
 
@@ -17,13 +17,23 @@ interface TestsList {
 }
 
 export const TestsCardsList = ({ size, testsArray }: TestsList) => {
+  // const [testsArray, setTestsArray] = useState<Item[]>([]);
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
-  const { t } = useTranslation();
 
-  const templateHandler = (id: string) => {
-    dispatch(setTemplateId('6ba378ad-82a6-4652-9298-0d4adaa9d2f3'));
+  const templateHandler = (id: string, nextRetakeDate: boolean) => {
+    if (nextRetakeDate) return;
+    dispatch(setTemplateId('30ee04ea-dfcf-490b-8f39-016e7d1bc31e'));
   };
+
+  useEffect(() => {
+    getAvailableTests()
+      .then(data => {
+        // setTestsArray(data),
+        // console.log(data);
+      })
+      .catch();
+  }, []);
 
   const sortedTestsList = useMemo(() => {
     if (!testsArray.length) return [];
@@ -68,7 +78,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
       const diffHours = Math.ceil((diffTime / (1000 * 60 * 60)) % 24);
 
-      item.avialableIn = `Avialable in ${diffDays} days ${diffHours} hours`;
+      item.avialableIn = `Available in ${diffDays} days ${diffHours} hours`;
     });
 
     const order = ['available', 'tryAgain', 'disabled'];
@@ -100,36 +110,19 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
             avialableIn,
           }) => (
             <li key={id}>
-              {!nextRetakeDate && (
-                <Link
-                  to='fullstack_final'
-                  onClick={() => templateHandler(id.toString())}
-                  state={{
-                    author,
-                    name,
-                    description,
-                    blockNames,
-                    questionsTotalCount,
-                    timeForCompletionInMs,
-                  }}
-                >
-                  <TestCard
-                    size={size}
-                    item={{
-                      author,
-                      title: name,
-                      text: description,
-                      fields: blockNames,
-                      number: questionsTotalCount,
-                      time: timeForCompletionInMs / 60000,
-                      testStatus,
-                      avialableIn,
-                    }}
-                    theme={theme}
-                  />
-                </Link>
-              )}
-              {nextRetakeDate && (
+              <Link
+                to={nextRetakeDate ? '#' : 'fullstack_final'}
+                onClick={() => templateHandler(id.toString(), nextRetakeDate)}
+                className={nextRetakeDate && s.disabledLink}
+                state={{
+                  author,
+                  name,
+                  description,
+                  blockNames,
+                  questionsTotalCount,
+                  timeForCompletionInMs,
+                }}
+              >
                 <TestCard
                   size={size}
                   item={{
@@ -144,7 +137,7 @@ export const TestsCardsList = ({ size, testsArray }: TestsList) => {
                   }}
                   theme={theme}
                 />
-              )}
+              </Link>
             </li>
           )
         )}

@@ -53,7 +53,7 @@ export const LoginForm = () => {
       const resp = await dispatch(logIn({ email, password }));
 
       if (resp.meta.requestStatus === 'fulfilled') {
-        dispatch(auth()).then((resp) => {
+        dispatch(auth()).then(resp => {
           if (resp.meta.requestStatus === 'fulfilled') {
             dispatch(setName(randomName()));
             navigate(ROUTES.CERTIFICATION);

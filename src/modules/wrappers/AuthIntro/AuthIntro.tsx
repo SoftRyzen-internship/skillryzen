@@ -24,7 +24,7 @@ export const AuthIntro = memo(() => {
         }`}
       >
         <ul className={s.introMetaList}>
-          {Object.entries(introMeta).map((item) => (
+          {Object.entries(introMeta).map(item => (
             <li key={item[0]} className={s.introMetaItem}>
               {item[1]}
             </li>

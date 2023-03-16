@@ -11,7 +11,7 @@ export const Select = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const { theme }: IThemeContext = useThemeContext();
 
-  const handleToogleMenu = () => setOpenMenu((prev) => !prev);
+  const handleToogleMenu = () => setOpenMenu(prev => !prev);
 
   return (
     <div

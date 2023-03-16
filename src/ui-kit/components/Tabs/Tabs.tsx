@@ -25,7 +25,7 @@ export const Tabs = ({
   const { t } = useTranslation();
   return (
     <ul className={s.tabsList}>
-      {tabs.map((el) => {
+      {tabs.map(el => {
         return (
           <li
             className={
