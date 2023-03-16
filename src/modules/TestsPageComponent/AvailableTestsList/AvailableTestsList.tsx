@@ -136,7 +136,6 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             percentageToPass,
             wasStarted,
             nextRetakeDate,
-            testStatus,
             avialableIn,
           }) => (
             <li key={id}>
@@ -162,7 +161,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                     fields: blockNames,
                     number: questionsTotalCount,
                     time: timeForCompletionInMs / 60000,
-                    testStatus,
+                    testStatus: 'tryAgain',
                     avialableIn,
                   }}
                   theme={theme}
