@@ -17,7 +17,7 @@ type AccordionListProps = {
 const AccordionList: React.FC<AccordionListProps> = ({ items }) => {
   return (
     <ul className={s.list}>
-      {items.map((item) => (
+      {items.map(item => (
         <li className={s.listItem} key={item}>
           <Checkbox
             id='checkbox'

@@ -14,7 +14,11 @@ interface OneFieldFilterProps {
   setFilter: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
-export const OneFieldFilter = ({ data, name, setFilter }: OneFieldFilterProps) => {
+export const OneFieldFilter = ({
+  data,
+  name,
+  setFilter,
+}: OneFieldFilterProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
@@ -34,8 +38,8 @@ export const OneFieldFilter = ({ data, name, setFilter }: OneFieldFilterProps) =
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.checked
-      ? setFilter((prev) => [...prev, e.target.value])
-      : setFilter((prev) => prev.filter((item) => item !== e.target.value));
+      ? setFilter(prev => [...prev, e.target.value])
+      : setFilter(prev => prev.filter(item => item !== e.target.value));
   };
 
   return (
@@ -44,7 +48,7 @@ export const OneFieldFilter = ({ data, name, setFilter }: OneFieldFilterProps) =
         className={`${s.filter__button} ${
           isOpen && s['filter__button--active']
         } ${s[`filter__button--${theme}`]}`}
-        onClick={() => setIsOpen((prev) => !prev)}
+        onClick={() => setIsOpen(prev => !prev)}
       >
         <ICONS.FILTER_TWO className={s.filter__icon} />
         <span>{t('testsMain.filter')}</span>

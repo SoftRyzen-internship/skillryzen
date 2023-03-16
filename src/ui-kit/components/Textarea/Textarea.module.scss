@@ -1,0 +1,55 @@
+.textareaDark {
+  padding: 16px;
+  width: 100%;
+  min-height: 140px;
+
+  font-size: inherit;
+  font-family: inherit;
+
+  color: inherit;
+  background: transparent;
+
+  border: 1px solid var(--disabled-cl);
+  border-radius: 4px;
+  overflow-y: auto;
+
+  outline: none;
+
+  resize: none;
+
+  &:not(:placeholder-shown) + .placeholder,
+  &:focus + .placeholder {
+    padding: 0px 4px;
+    top: -131px;
+    left: 12px;
+
+    font-size: 12px;
+
+    background-color: var(--primary-cl);
+  }
+}
+
+.textareaLight {
+  composes: textareaDark;
+
+  border: 1px solid var(--light-primary-cl);
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+  &:focus + .placeholder,
+  &:not(:placeholder-shown) + .placeholder {
+    background-color: var(--primary-txt-cl);
+  }
+}
+
+.label {
+  position: relative;
+}
+
+.placeholder {
+  position: absolute;
+  top: -108px;
+  left: 16px;
+
+  transition: top var(--transition), font-size var(--transition),
+    left var(--transition);
+}

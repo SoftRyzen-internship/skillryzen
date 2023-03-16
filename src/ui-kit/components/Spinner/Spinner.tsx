@@ -1,5 +1,9 @@
 import s from './Spinner.module.scss';
 
-export const Spinner = () => {
-  return <span className={s.loader}></span>;
+interface Spinner {
+  className?: string;
+}
+
+export const Spinner = ({ className }: Spinner) => {
+  return <span className={`${s.loader} ${className}`}></span>;
 };

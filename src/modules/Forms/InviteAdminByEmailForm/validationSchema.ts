@@ -18,7 +18,7 @@ export const validationSchema = Yup.object({
     .test(
       'has-spaces',
       'Пробіли заборонені в паролі',
-      (value) => !/\s/.test(value)
+      value => !/\s/.test(value)
     )
     .required('Пароль є обов`язковим'),
 });

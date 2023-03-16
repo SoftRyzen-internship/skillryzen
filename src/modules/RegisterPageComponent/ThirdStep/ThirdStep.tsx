@@ -24,7 +24,7 @@ export const ThirdStep = () => {
   const handleClickSkipBtn = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
 
-    dispatch(auth()).then((resp) => {
+    dispatch(auth()).then(resp => {
       if (resp.meta.requestStatus === 'fulfilled') {
         dispatch(setName(randomName()));
         navigate(ROUTES.CERTIFICATION, { state: { from: location } });
@@ -45,8 +45,10 @@ export const ThirdStep = () => {
         </>
       ) : (
         <>
-          <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
-          <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
+          <h2 style={{ maxWidth: '374px' }} className={s.stepTitle}>
+            {t('auth.companyTitle')}
+          </h2>
+          <p className={s.stepSubtitle}>{t('auth.companySubtitle')}</p>
           <RegisterCompanyForm />
         </>
       )}

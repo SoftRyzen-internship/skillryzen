@@ -12,6 +12,7 @@ import { AuthInput, MainButton } from 'ui-kit';
 import { useValidationSchema } from './useValidationSchema';
 
 import s from './RegisterCompanyForm.module.scss';
+import { Textarea } from 'ui-kit/components/Textarea/Textarea';
 
 export const RegisterCompanyForm = () => {
   const { t } = useTranslation();
@@ -24,7 +25,9 @@ export const RegisterCompanyForm = () => {
   ) => {
     handleBlur(e);
 
-    if (isValid) {
+    const { value, name } = e.target;
+
+    if (!errors.companyName && value.length >= 2 && name === 'companyName') {
       const resp = await dispatch(checkCompanyName({ companyName }));
 
       setIsAvailable(resp.payload.isAvailable);
@@ -38,6 +41,7 @@ export const RegisterCompanyForm = () => {
   const formik = useFormik({
     initialValues: {
       companyName: '',
+      companyWebsite: '',
     },
 
     validationSchema: useValidationSchema(),
@@ -56,7 +60,7 @@ export const RegisterCompanyForm = () => {
   });
 
   const {
-    values: { companyName },
+    values: { companyName, companyWebsite },
     isValid,
     isSubmitting,
     dirty,
@@ -70,28 +74,53 @@ export const RegisterCompanyForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={s.form}>
-      <ul>
-        <AuthInput
-          name='companyName'
-          type='text'
-          id='companyName'
-          onChange={handleChange}
-          onBlur={handleCompanyNameBlur}
-          value={companyName}
-          autoComplete='company'
-          placeholder={t('auth.companyNamePlaceholder')}
-          touched={touched.companyName}
-          error={errors.companyName}
-          htmlFor='companyName'
-          labelContent={t('auth.companyNamePlaceholder')}
-        />
+      <ul className={s.inputsList}>
+        <li>
+          <AuthInput
+            name='companyName'
+            type='text'
+            id='companyName'
+            onChange={handleChange}
+            onBlur={handleCompanyNameBlur}
+            value={companyName}
+            autoComplete='company'
+            placeholder={t('auth.companyNamePlaceholder')}
+            touched={touched.companyName}
+            error={errors.companyName}
+            htmlFor='companyName'
+            labelContent={t('auth.companyNamePlaceholder')}
+          />
+        </li>
+        <li>
+          <Textarea
+            id='companyDescription'
+            name='companyDescription'
+            autoComplete='off'
+            placeholder=' '
+          />
+        </li>
+        <li>
+          <AuthInput
+            name='companyWebsite'
+            type='url'
+            id='companyWebsite'
+            onChange={handleChange}
+            onBlur={handleBlur}
+            value={companyWebsite}
+            placeholder={t('auth.companyWebsitePlaceholder')}
+            touched={touched.companyWebsite}
+            error={errors.companyWebsite}
+            htmlFor='companyWebsite'
+            labelContent={t('auth.companyWebsitePlaceholder')}
+          />
+        </li>
       </ul>
       <MainButton
         className={s.btnSubmit}
         size='large'
         text={t('auth.continueBtn')}
         type='submit'
-        disabled={!isAvailable || !dirty || isSubmitting}
+        disabled={!isAvailable || !dirty || isSubmitting || !isValid}
       />
     </form>
   );

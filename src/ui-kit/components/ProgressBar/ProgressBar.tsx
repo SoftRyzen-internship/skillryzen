@@ -44,7 +44,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
           </p>
           <div className={s.progressBar__wrapper}>
             <ul className={s.progressBar__list}>
-              {array.map((item) => (
+              {array.map(item => (
                 <li
                   key={item}
                   className={`${s.progressBar__line} ${

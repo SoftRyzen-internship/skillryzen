@@ -28,7 +28,7 @@ export const NotificationsCardList = memo(
 
     return (
       <ul className={`${s[`notificationsList--${size}`]}`}>
-        {testsArray.map((item) => (
+        {testsArray.map(item => (
           <li key={item.id}>
             <InfoCard
               size={size}

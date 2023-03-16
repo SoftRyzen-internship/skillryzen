@@ -19,13 +19,13 @@
 .phoneInput {
   padding-left: 74px;
 
-  &:focus + label,
-  &:not(:placeholder-shown) + label,
-  &:-webkit-autofill + label {
+  &:focus + span,
+  &:not(:placeholder-shown) + span,
+  &:-webkit-autofill + span {
     left: 16px;
   }
 
-  & + label {
+  & + span {
     left: 74px;
   }
 }
@@ -33,15 +33,26 @@
 .phoneButtonDark {
   padding-right: 10px;
   position: absolute;
-  top: 10px;
+  top: -5px;
   left: 14px;
+
+  display: flex;
+  align-items: center;
 
   background-color: transparent;
 
-  border-right: 1px solid var(--disabled-cl);
-
   cursor: pointer;
   outline: none;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    margin-left: 20px;
+
+    width: 1px;
+    height: 30px;
+    background-color: var(--disabled-cl);
+  }
 }
 
 .phoneButtonLight {

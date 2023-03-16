@@ -130,9 +130,9 @@ export const FinalTestInfo = ({
                 {t('finalTestInfo.list.topics')}
               </p>
             </div>
-            <p
-              className={objectTheme[theme].textRight}
-            >{listInfo.topics && listInfo.topics.join(', ')}</p>
+            <p className={objectTheme[theme].textRight}>
+              {listInfo.topics && listInfo.topics.join(', ')}
+            </p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>

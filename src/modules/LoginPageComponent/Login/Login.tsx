@@ -14,7 +14,7 @@ export const Login = () => {
   const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
-  const step = useAppSelector((state) => state.auth.step);
+  const step = useAppSelector(state => state.auth.step);
 
   useEffect(() => {
     if (step !== 1) {

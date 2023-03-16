@@ -21,7 +21,7 @@ export const Menu = ({ menu, theme = 'dark' }: MenuProps) => {
 
   return (
     <ul className={s.menu__list}>
-      {menu.map((item) => {
+      {menu.map(item => {
         return (
           <li
             key={item.title}

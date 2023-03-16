@@ -86,7 +86,7 @@ const testingInfoSlice = createSlice({
       state.results.timeLeft = 0;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder
       .addCase(getTestTemplate.fulfilled, (state, { payload }) => {
         state.testId = payload.id;
@@ -112,8 +112,7 @@ const testingInfoSlice = createSlice({
       })
       .addCase(finishTest.fulfilled, (state, { payload }) => {
         state.results.testId = payload.testId;
-        state.results.numberOfCorrectAnswers =
-          payload.numberOfCorrectAnswers;
+        state.results.numberOfCorrectAnswers = payload.numberOfCorrectAnswers;
         state.results.isPassed = payload.isPassed;
         state.hasNextQuestion = true;
         state.templateId = '';
@@ -127,16 +126,16 @@ const testingInfoSlice = createSlice({
         state.isLoading = false;
       })
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('testingInfo') &&
           action.type.endsWith('/pending'),
-        (state) => {
+        state => {
           state.isLoading = true;
           state.error = null;
         }
       )
       .addMatcher(
-        (action) =>
+        action =>
           action.type.startsWith('testingInfo') &&
           action.type.endsWith('/rejected'),
         (state, action) => {
