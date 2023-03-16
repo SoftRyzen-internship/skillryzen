@@ -105,6 +105,8 @@
     "contactTitle": "Надайте нам більше інформації про вас!",
     "loginTitle": "З поверненням",
     "authTitle": "Почніть безкоштовно",
+    "companyTitle": "Надайте нам більше інформації про вашу компанію!",
+    "companySubtitle": "Lorem Lorem",
 
     "contactLabel": "Lorem lorem",
     "loginLabel": "Ви вже маєте аккаунт?",
@@ -130,6 +132,7 @@
     "surnamePlaceholder": "Прізвище",
     "phonePlaceholder": "Номер телефону",
     "companyNamePlaceholder": "Назва компанії",
+    "companyWebsitePlaceholder": "Веб-сайт компанії",
 
     "accountBtn": "Створити аккаунт",
     "continueBtn": "Продовжити",
@@ -144,6 +147,9 @@
     "serverError": "Ой, щось пішло не так. Спробуйте знову пізніше",
     "companyName.required": "Назва компанії є обов'язковою",
     "companyName.exists": "Компанія з такою назвою вже існує",
+    "urlValidation": "Будь-ласка введіть валідний URL",
+    "urlLengthValidation": "URL має містити не менше 10 символів",
+    "urlRequired": "Веб-сайт компанії є обов'язковим",
 
     "candidateIntro": [
       "Пройти тест з JavaScript",

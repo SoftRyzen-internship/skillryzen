@@ -105,6 +105,8 @@
     "contactTitle": "Give us more information about you!",
     "loginTitle": "Welcome back",
     "authTitle": "Get started for free",
+    "companyTitle": "Give us more information about your company!",
+    "companySubtitle": "Lorem Lorem",
 
     "contactLabel": "Lorem lorem",
     "loginLabel": "Already have an account?",
@@ -130,6 +132,7 @@
     "surnamePlaceholder": "Surname",
     "phonePlaceholder": "Phone",
     "companyNamePlaceholder": "Company name",
+    "companyWebsitePlaceholder": "Company web-site",
 
     "accountBtn": "Create account",
     "continueBtn": "Continue",
@@ -144,6 +147,9 @@
     "serverError": "Oops, something went wrong. Try again later",
     "companyName.required": "Company name is required",
     "companyName.exists": "This company name already exists",
+    "urlValidation": "Please enter a valid URL",
+    "urlLengthValidation": "URL must have at least 10 characters",
+    "urlRequired": "Company web-site is required",
 
     "candidateIntro": [
       "Take a test in JavaScript",
