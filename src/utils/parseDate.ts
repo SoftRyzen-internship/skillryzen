@@ -1,7 +1,7 @@
 import { convertToUTC } from '../utils/convertLocalTimeToUTC';
 
 export const parseDate = (date: Date) => {
-  const utcDate = convertToUTC();
+  const utcDate = convertToUTC(new Date());
   const second = 1000;
   const minute = second * 60;
   const hour = minute * 60;

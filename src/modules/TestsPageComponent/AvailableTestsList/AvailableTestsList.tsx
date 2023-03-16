@@ -63,19 +63,19 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
 
     // Додаємо до масиву тестів в кожен об'єкт поля 'available', 'tryAgain', 'disabled'
     const newArr = testsArray.map(item => {
-      const utcDate = convertToUTC();
+      const utcDate = convertToUTC(new Date());
       const specificDate = new Date(item.nextRetakeDate);
-      const diffTime = specificDate.getTime() - utcDate.getTime();
-
+      const specificDateUTC = convertToUTC(specificDate);
+      const diffTime = specificDateUTC.getTime() - utcDate.getTime();
       return {
         ...item,
         testStatus:
           item.nextRetakeDate && diffTime > 0
             ? 'disabled'
-            : item.wasStarted || (item.nextRetakeDate && diffTime < 0)
+            : item.wasStarted && diffTime < 0
             ? 'tryAgain'
             : 'available',
-        nextRetakeDate: item.nextRetakeDate && specificDate,
+        nextRetakeDate: item.nextRetakeDate && specificDateUTC,
       };
     });
 
@@ -137,6 +137,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             wasStarted,
             nextRetakeDate,
             avialableIn,
+            testStatus,
           }) => (
             <li key={id}>
               <Link
@@ -161,7 +162,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                     fields: blockNames,
                     number: questionsTotalCount,
                     time: timeForCompletionInMs / 60000,
-                    testStatus: 'tryAgain',
+                    testStatus,
                     avialableIn,
                   }}
                   theme={theme}
