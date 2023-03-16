@@ -14,6 +14,8 @@ interface Item {
   blockNames: string[];
   questionsTotalCount: number;
   timeForCompletionInMs: number;
+  isPassed: boolean;
+  percentageOfCorrectAnswers: string;
 }
 
 interface TestsProps {
@@ -30,6 +32,8 @@ const array = [
     author: 'GoIt',
     questionsTotalCount: 100,
     timeForCompletionInMs: 12000000,
+    isPassed: true,
+    percentageOfCorrectAnswers: '50%'
   },
 ];
 
@@ -48,6 +52,8 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           blockNames,
           questionsTotalCount,
           timeForCompletionInMs,
+          isPassed,
+          percentageOfCorrectAnswers
         }) => (
           <li key={id}>
             <TestCard

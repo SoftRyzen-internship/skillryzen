@@ -160,7 +160,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
         )}
       {isLoading && (
         <Skeleton
-          length={size === 'large' ? 5 : 8}
+          length={size === 'large' ? 4 : 8}
           value='skeleton'
           className={`${s[`skeletonItem--${size}`]}`}
         />
