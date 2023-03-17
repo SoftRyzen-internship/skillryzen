@@ -76,7 +76,6 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           finishedAt,
           startedAt,
         }) => (
-          <>
             <li key={id}>
               <TestCard
                 size={size}
@@ -102,7 +101,6 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 theme={theme}
               />
             </li>
-          </>
         )
       )}
       {isLoading && (
