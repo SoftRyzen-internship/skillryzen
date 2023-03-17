@@ -33,6 +33,7 @@ export const TestEndPageComponent = () => {
   const navigate = useNavigate();
 
   const handleClickBtn = () => {
+    // sessionStorage.setItem('currentTabTestsPage', '2');
     dispatch(removeResults());
     navigate(ROUTES.CERTIFICATION);
   };
