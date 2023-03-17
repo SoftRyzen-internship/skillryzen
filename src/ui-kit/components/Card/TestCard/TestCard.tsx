@@ -21,6 +21,8 @@ interface Item {
   number: number;
   time: number;
   testStatus?: 'disabled' | 'available' | 'tryAgain' | 'done' | 'failed';
+  testDate?: string;
+  attempts?: number | string;
   avialableIn?: string;
   percentageOfCorrectAnswers?: number;
 }
@@ -43,6 +45,8 @@ export const TestCard = ({
     testStatus,
     avialableIn,
     percentageOfCorrectAnswers,
+    attempts,
+    testDate,
   } = item;
 
   const statusObject = {
@@ -99,23 +103,31 @@ export const TestCard = ({
             ))}
           </ul>
         </div>
-        <div className={s.card__addWrapper}>
-          <div className={s.card__number}>
-            <Tag
-              type='number'
-              theme={theme}
-              label={number + ' ' + t('testsMain.numberOfQuestions')}
-              testStatus={testStatus}
-            />
+        <div className={s.card__addInfoWrapper}>
+          <div className={s.card__addWrapper}>
+            <div className={s.card__number}>
+              <Tag
+                type='number'
+                theme={theme}
+                label={number + ' ' + t('testsMain.numberOfQuestions')}
+                testStatus={testStatus}
+              />
+            </div>
+            <div className={s.card__time}>
+              <Tag
+                type='time'
+                label={time + ''}
+                theme={theme}
+                testStatus={testStatus}
+              />
+            </div>
           </div>
-          <div className={s.card__time}>
-            <Tag
-              type='time'
-              label={time + ''}
-              theme={theme}
-              testStatus={testStatus}
-            />
-          </div>
+          {(testStatus === 'done' || testStatus === 'failed') && (
+            <div className={s[`card__timeInfo--${testStatus}`]}>
+              <p className={s.card__attempts}>{attempts}</p>
+              <p className={s.card__date}>{testDate}</p>
+            </div>
+          )}
         </div>
       </div>
       <div className={statusObject[testStatus].className}>

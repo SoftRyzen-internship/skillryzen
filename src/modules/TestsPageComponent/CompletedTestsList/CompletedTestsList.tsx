@@ -21,6 +21,9 @@ interface Item {
   timeForCompletionInMs: number;
   isPassed: boolean;
   percentageOfCorrectAnswers: number;
+  retakeAttempt: number;
+  finishedAt: string;
+  startedAt: string;
 }
 
 interface TestsProps {
@@ -45,6 +48,20 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       .finally(() => setIsLoading(false));
   }, []);
 
+  const findTestTime = (end: string, start: string): number => {
+    const endTime = new Date(end);
+    const startTime = new Date(start);
+    return (endTime.getTime() - startTime.getTime()) / 1000;
+  };
+
+  const convertTestDate = (end: string): string => {
+    const endTime = new Date(end);
+    return `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(
+      2,
+      '0'
+    )}.${String(endTime.getFullYear()).slice(2)}`;
+  };
+
   const handleClickModal = () => {
     setIsShowModal(prevState => !prevState);
   };
@@ -62,8 +79,11 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           timeForCompletionInMs,
           isPassed,
           percentageOfCorrectAnswers,
+          retakeAttempt,
+          finishedAt,
+          startedAt,
         }) => (
-          <li key={id} onClick={() => setIsShowModal(true)} className={s.item}>
+          <li key={id} onClick={handleClickModal} className={s.item}>
             <TestCard
               size={size}
               item={{
@@ -77,6 +97,8 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 number: questions.length,
                 time: Math.round(timeForCompletionInMs / 60000),
                 testStatus: isPassed ? 'done' : 'failed',
+                testDate: convertTestDate(finishedAt),
+                attempts: retakeAttempt ? retakeAttempt + 1 : '?',
                 percentageOfCorrectAnswers: Math.round(
                   percentageOfCorrectAnswers * 100
                 ),
