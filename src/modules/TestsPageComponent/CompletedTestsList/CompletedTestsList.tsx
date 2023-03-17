@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 
-import { TestCard } from 'ui-kit';
+import { TestCard, Modal } from 'ui-kit';
+import { ICONS } from 'ui-kit/icons';
+import { IMAGES } from 'ui-kit/images';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
+import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 
 import s from './CompletedTestsList.module.scss';
-
 
 interface Item {
   id: number;
@@ -26,6 +28,7 @@ interface TestsProps {
 }
 
 export const CompletedTestsList = ({ size }: TestsProps) => {
+  const [isShowModal, setIsShowModal] = useState(false);
   const [testsArray, setTestsArray] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
@@ -42,6 +45,10 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       .finally(() => setIsLoading(false));
   }, []);
 
+  const handleClickModal = () => {
+    setIsShowModal(prevState => !prevState);
+  };
+
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
       {testsArray.map(
@@ -56,7 +63,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           isPassed,
           percentageOfCorrectAnswers,
         }) => (
-          <li key={id}>
+          <li key={id} onClick={() => setIsShowModal(true)} className={s.item}>
             <TestCard
               size={size}
               item={{
@@ -76,6 +83,32 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
               }}
               theme={theme}
             />
+            {isShowModal && (
+              <Modal
+                isShowModal={isShowModal}
+                onClick={handleClickModal}
+                isCloseIcon
+              >
+                <FinalTestInfo
+                  image={IMAGES.JAVA_SCRIPT}
+                  imageProps={{
+                    alt: 'Java Script',
+                    width: '120',
+                    height: '120',
+                  }}
+                  title={name}
+                  correctAnswers={percentageOfCorrectAnswers * questions.length}
+                  totalQuestions={questions.length}
+                  timeSpent={'333'}
+                  isPassed={isPassed}
+                  iconAnswers={ICONS.CHECK_SMALL}
+                  iconTime={ICONS.CLOCK}
+                  onClickBtn={handleClickModal}
+                  finishTest
+                  date={new Date()}
+                />
+              </Modal>
+            )}
           </li>
         )
       )}

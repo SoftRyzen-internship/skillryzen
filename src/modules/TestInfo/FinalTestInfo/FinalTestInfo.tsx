@@ -69,6 +69,7 @@ interface Props {
   textBtn?: string;
   finishTest?: boolean;
   test?: string;
+  date?: Date;
 }
 
 export const FinalTestInfo = ({
@@ -88,6 +89,7 @@ export const FinalTestInfo = ({
   onClickBtn,
   finishTest,
   test,
+  date,
 }: Props) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
@@ -224,6 +226,22 @@ export const FinalTestInfo = ({
                 {`${timeSpent}`} {t('finalTestInfo.min')}
               </p>
             </li>
+            {date && (
+              <li className={s.item}>
+                <div className={s.iconWrapper}>
+                  <div className={objectTheme[theme].iconThumb}>
+                    <IconTime className={objectTheme[theme].icon} />
+                  </div>
+                  <p className={objectTheme[theme].text}>
+                    Дата
+                    {/* {t('finalTestInfo.timeSpent')} */}
+                  </p>
+                </div>
+                <p className={objectTheme[theme].textRight}>
+                  {`${date.getDate()}`}
+                </p>
+              </li>
+            )}
           </ul>
           {isPassed ? (
             <div className={s.resultIsPassed}>
@@ -258,7 +276,9 @@ export const FinalTestInfo = ({
         text={
           finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
         }
-        disabled={(!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)}
+        disabled={
+          (!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)
+        }
         onClick={onClickBtn}
         size='large'
         color='blue'
