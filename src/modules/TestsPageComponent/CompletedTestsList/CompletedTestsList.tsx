@@ -30,8 +30,19 @@ interface TestsProps {
   size: 'large' | 'small';
 }
 
+interface TestInfo {
+  id: number;
+  name: string;
+  questions: number;
+  percentageOfCorrectAnswers: number;
+  isPassed: boolean;
+  timeSpent: number;
+  date: string;
+}
+
 export const CompletedTestsList = ({ size }: TestsProps) => {
   const [isShowModal, setIsShowModal] = useState(false);
+  const [testInfo, setTestInfo] = useState<TestInfo>(null);
   const [testsArray, setTestsArray] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
@@ -41,7 +52,6 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
     getCompletedTests()
       .then(data => {
         setTestsArray(data);
-        // console.log(data);
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
@@ -66,6 +76,27 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
     setIsShowModal(prevState => !prevState);
   };
 
+  const handleClickItem = (
+    id: number,
+    name: string,
+    questions: [],
+    percentageOfCorrectAnswers: number,
+    isPassed: boolean,
+    finishedAt: string,
+    startedAt: string
+  ) => {
+    setTestInfo({
+      id,
+      name,
+      questions: questions.length,
+      percentageOfCorrectAnswers,
+      isPassed,
+      timeSpent: findTestTime(finishedAt, startedAt),
+      date: convertTestDate(finishedAt),
+    });
+    handleClickModal();
+  };
+
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
       {testsArray.map(
@@ -83,7 +114,21 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           finishedAt,
           startedAt,
         }) => (
-          <li key={id} onClick={handleClickModal} className={s.item}>
+          <li
+            key={id}
+            onClick={() =>
+              handleClickItem(
+                id,
+                name,
+                questions,
+                percentageOfCorrectAnswers,
+                isPassed,
+                finishedAt,
+                startedAt
+              )
+            }
+            className={s.item}
+          >
             <TestCard
               size={size}
               item={{
@@ -105,34 +150,35 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
               }}
               theme={theme}
             />
-            {isShowModal && (
-              <Modal
-                isShowModal={isShowModal}
-                onClick={handleClickModal}
-                isCloseIcon
-              >
-                <FinalTestInfo
-                  image={IMAGES.JAVA_SCRIPT}
-                  imageProps={{
-                    alt: 'Java Script',
-                    width: '120',
-                    height: '120',
-                  }}
-                  title={name}
-                  correctAnswers={percentageOfCorrectAnswers * questions.length}
-                  totalQuestions={questions.length}
-                  timeSpent={'333'}
-                  isPassed={isPassed}
-                  iconAnswers={ICONS.CHECK_SMALL}
-                  iconTime={ICONS.CLOCK}
-                  onClickBtn={handleClickModal}
-                  finishTest
-                  date={new Date()}
-                />
-              </Modal>
-            )}
           </li>
         )
+      )}
+      {isShowModal && (
+        <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
+          <div className={s.container}>
+            <FinalTestInfo
+              image={IMAGES.JAVA_SCRIPT}
+              imageProps={{
+                alt: 'Java Script',
+                width: '120',
+                height: '120',
+              }}
+              title={testInfo.name}
+              correctAnswers={
+                testInfo.percentageOfCorrectAnswers * testInfo.questions
+              }
+              totalQuestions={testInfo.questions}
+              timeSpent={Math.round(testInfo.timeSpent)}
+              isPassed={testInfo.isPassed}
+              iconAnswers={ICONS.CHECK_SMALL}
+              iconTime={ICONS.CLOCK}
+              iconDate={ICONS.DATE}
+              onClickBtn={handleClickModal}
+              finishTest
+              date={testInfo.date}
+            />
+          </div>
+        </Modal>
       )}
       {isLoading && (
         <Skeleton
