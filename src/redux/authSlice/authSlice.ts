@@ -38,7 +38,7 @@ const initialState: Auth = {
     email: '',
     displayName: '',
     registrationInvitationToken: '',
-    role: 'COMPANY_OWNER',
+    role: 'CANDIDATE',
   },
   company: {
     id: '',
@@ -49,7 +49,7 @@ const initialState: Auth = {
   isClickLogOut: false,
   isLoading: false,
   isError: false,
-  step: 4,
+  step: 1,
 };
 
 const authSlice = createSlice({
