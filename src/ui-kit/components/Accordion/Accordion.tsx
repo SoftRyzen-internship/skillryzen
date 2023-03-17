@@ -2,6 +2,8 @@ import { FC, useState } from 'react';
 import s from './Accordion.module.scss';
 import { Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 type AccordionItemProps = {
   id: string;
   title: string;
@@ -15,6 +17,7 @@ type AccordionListProps = {
 };
 
 const AccordionList: React.FC<AccordionListProps> = ({ items }) => {
+  const { theme }: IThemeContext = useThemeContext();
   return (
     <ul className={s.list}>
       {items.map(item => (
@@ -41,11 +44,11 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
   children,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { theme }: IThemeContext = useThemeContext();
   return (
     <div className={`${isMargin ? s.accordionItemMargin : s.accordionItem}`}>
       <button
-        className={s.accordionButton}
+        className={`${s.accordionButton} ${s[`accordionButton--${theme}`]}`}
         type='button'
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
@@ -56,7 +59,9 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
         <span className={s.titleFilter}>{title}</span>
       </button>
       <div
-        className={`${s.accordionCollapse} ${isOpen ? s.show : ''}`}
+        className={`${s.accordionCollapse} ${
+          s[`accordionCollapse--${theme}`]
+        } ${isOpen ? s.show : ''}`}
         id={`accordion-collapse-${id}`}
       >
         {children}
@@ -78,10 +83,13 @@ export const Accordion: FC<AccordionProps> = ({
   isList,
   isMargin,
 }) => {
+  const { theme }: IThemeContext = useThemeContext();
   return (
     <div className={s.accordionWrapper}>
-      <div className={s.accordion}>
-        <p className={s.accordionTitle}>Filters</p>
+      <div className={`${s.accordion} ${s[`accordion--${theme}`]}`}>
+        <p className={`${s.accordionTitle} ${s[`accordionTitle--${theme}`]}`}>
+          Filters
+        </p>
         {data.map((item, index) => (
           <AccordionItem
             key={index}

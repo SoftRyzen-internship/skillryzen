@@ -1,5 +1,4 @@
 .accordion {
-  background-color: var(--components-cl);
   padding: 20px 20px;
   border-radius: 5px;
   max-width: 500px;
@@ -7,10 +6,22 @@
   top: 45px;
   right: 0px;
   z-index: 100;
+
+  &--dark {
+    background-color: var(--components-cl);
+    transition: color var(--transition);
+  }
+  &--light {
+    background-color: var(--light-components-cl);
+    box-shadow: var(--light-primary-shadow);
+  }
 }
 .accordionTitle {
   font-size: 20px;
   font-weight: 700;
+  &--light {
+    color: var(--primary-cl);
+  }
 }
 .accordionItemMargin {
   margin: 10px auto;
@@ -20,10 +31,9 @@
 }
 
 .accordionButton {
-  background-color: var(--primary-cl);
   border: none;
   border-radius: 5px;
-  color: var(--primary-txt-cl);
+
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -32,6 +42,15 @@
   padding: 10px;
   text-align: left;
   width: 100%;
+  &--dark {
+    color: var(--primary-txt-cl);
+    background-color: var(--primary-cl);
+    transition: color var(--transition);
+  }
+  &--light {
+    color: var(--accent-cl);
+    background-color: var(--light-primary-cl);
+  }
 }
 
 .accordionButton:hover {
@@ -48,7 +67,15 @@
   overflow: hidden;
   padding: 0 10px;
   transition: all 0.2s ease-in-out;
-  background-color: var(--primary-cl);
+
+  &--dark {
+    background-color: var(--primary-cl);
+    transition: color var(--transition);
+  }
+  &--light {
+    background-color: var(--light-primary-cl);
+    color: var(--accent-cl);
+  }
 }
 
 .accordionCollapse.show {

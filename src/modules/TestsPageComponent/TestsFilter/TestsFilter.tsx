@@ -43,7 +43,7 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
   }, [accordionRef]);
 
   return (
-    <div className={s.testsFilter} ref={accordionRef}>
+    <div className={s.testsFilter}>
       <IconButton
         className={s.itemButton}
         theme={theme}
@@ -58,16 +58,19 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
         color={size === 'large' ? 'blue' : 'black'}
         icon='grid4'
       />
-      <button
-        onClick={handleFilter}
-        className={`${s.itemButton} ${s.testsFilter__filter} ${
-          s[`testsFilter__filter--${theme}`]
-        }`}
-      >
-        <ICONS.FILTER_TWO className={s.testsFilter__icon} />
-        <span>{t('testsMain.filter')}</span>
-      </button>
-      {showFilter && <Accordion data={filterData} isIcon isList isMargin />}
+      <div ref={accordionRef}>
+        {' '}
+        <button
+          onClick={handleFilter}
+          className={`${s.itemButton} ${s.testsFilter__filter} ${
+            s[`testsFilter__filter--${theme}`]
+          }`}
+        >
+          <ICONS.FILTER_TWO className={s.testsFilter__icon} />
+          <span>{t('testsMain.filter')}</span>
+        </button>
+        {showFilter && <Accordion data={filterData} isIcon isList isMargin />}
+      </div>
     </div>
   );
 };

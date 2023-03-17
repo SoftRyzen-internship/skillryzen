@@ -6,32 +6,31 @@ import s from './EditPasswordForm.module.scss';
 import { useValidationSchema } from './useValidationSchema';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-// import { validationSchema } from './validationSchema';
 
 import { useSelector } from 'react-redux';
 import { getUserEmail } from 'redux/authSlice/authSelectors';
 import { MainButton } from 'ui-kit';
 interface FormValues {
-  email: string;
-  currentPassword: string;
-  newPassword: string;
-  confirmPassword: string;
-  urlAvatar: string;
+  email?: string;
+  currentPassword?: string;
+  newPassword?: string;
+  confirmPassword?: string;
+  urlAvatar?: string;
+  userAvatarUrl?: string;
 }
 interface Props {
   onCancel: () => void;
-  handleChangeAvatar: (event: React.ChangeEvent<HTMLInputElement>) => void;
   userAvatarUrl: string;
+  userAvatarUrlOld: string;
 }
 export const EditPasswordForm: React.FC<Props> = ({
   onCancel,
-  handleChangeAvatar,
   userAvatarUrl,
+  userAvatarUrlOld,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [showEmail, setShowEmail] = useState(true);
-  // const { userAvatarUrl, handleChangeAvatar, onCancel } = props;
-  const [urlAvatarOld, seturlAvatarOld] = useState(userAvatarUrl);
+  const [showEmail, setShowEmail] = useState(false);
+
   const validationSchema = useValidationSchema();
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
@@ -42,17 +41,18 @@ export const EditPasswordForm: React.FC<Props> = ({
       currentPassword: '',
       newPassword: '',
       confirmPassword: '',
-      urlAvatar: userAvatarUrl,
+      userAvatarUrl: userAvatarUrl,
     },
 
     validationSchema,
 
     onSubmit: (_values: FormValues) => {
-      // console.log(values);
+      // console.log(_values);
+      // console.log(userAvatarUrl);
     },
   });
   const {
-    values: { email, currentPassword, newPassword, confirmPassword },
+    values: { email, currentPassword, newPassword, confirmPassword, urlAvatar },
     errors,
     touched,
     isValid,
@@ -67,9 +67,11 @@ export const EditPasswordForm: React.FC<Props> = ({
     setShowEmail(true);
     onCancel();
   };
+
   return (
     <div className={s.formWrapper}>
       <form onSubmit={handleSubmit} className={s.form}>
+        <input type='hidden' name='urlAvatar' value={urlAvatar} />
         <div
           className={`${s.floatingGroup} ${
             touched.email &&
@@ -80,7 +82,7 @@ export const EditPasswordForm: React.FC<Props> = ({
             <p className={s.errorMsg}>{errors.email}</p>
           )}
           <input
-            className={`${s.input} ${
+            className={`${s.input} ${s.inputEdit} ${
               !showEmail ? s[`inputEdit--${theme}`] : ''
             }`}
             name='email'
@@ -93,7 +95,10 @@ export const EditPasswordForm: React.FC<Props> = ({
             placeholder={t('editPasswordForm.email.address')}
             disabled={showEmail}
           />
-          <label className={s.floatingLabel} htmlFor='email'>
+          <label
+            className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+            htmlFor='email'
+          >
             {t('editPasswordForm.email.address')}
           </label>
           <button
@@ -129,7 +134,10 @@ export const EditPasswordForm: React.FC<Props> = ({
             placeholder={t('editPasswordForm.current.password')}
             disabled={showEmail}
           />
-          <label className={s.floatingLabel} htmlFor='currentPassword'>
+          <label
+            className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+            htmlFor='currentPassword'
+          >
             {t('editPasswordForm.current.password')}
           </label>
           <button
@@ -167,7 +175,10 @@ export const EditPasswordForm: React.FC<Props> = ({
             placeholder={t('editPasswordForm.new.password')}
             disabled={showEmail}
           />
-          <label className={s.floatingLabel} htmlFor='newPassword'>
+          <label
+            className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+            htmlFor='newPassword'
+          >
             {t('editPasswordForm.new.password')}
           </label>
           <button
@@ -207,7 +218,10 @@ export const EditPasswordForm: React.FC<Props> = ({
             placeholder={t('editPasswordForm.confirm.password')}
             disabled={showEmail}
           />
-          <label className={s.floatingLabel} htmlFor='confirmPassword'>
+          <label
+            className={`${s.floatingLabel} ${s[`floatingLabel--${theme}`]}`}
+            htmlFor='confirmPassword'
+          >
             {t('editPasswordForm.confirm.password')}
           </label>
           <button
@@ -222,19 +236,14 @@ export const EditPasswordForm: React.FC<Props> = ({
             )}
           </button>
         </div>
-        <input
-          id='avatar-input'
-          type='file'
-          accept='image/*'
-          onChange={handleChangeAvatar}
-          style={{ display: 'none' }}
-        />
         <div className={s.buttonGroup}>
           <MainButton
             size='large'
             text={t('editPasswordForm.button.save')}
             type='submit'
-            disabled={!isValid || !dirty}
+            disabled={
+              userAvatarUrlOld === userAvatarUrl && (!isValid || !dirty)
+            }
             className={s.btn}
           />
           <MainButton
@@ -242,8 +251,8 @@ export const EditPasswordForm: React.FC<Props> = ({
             text={t('editPasswordForm.button.cancel')}
             type='button'
             onClick={handleCancel}
-            className={`${s.btn} ${!showEmail ? s.btnCancel : ''}`}
-            disabled={showEmail && urlAvatarOld === userAvatarUrl}
+            className={`${s.btn} ${dirty ? s.btnCancel : ''}`}
+            disabled={!dirty && userAvatarUrlOld === userAvatarUrl}
           />
         </div>
       </form>
