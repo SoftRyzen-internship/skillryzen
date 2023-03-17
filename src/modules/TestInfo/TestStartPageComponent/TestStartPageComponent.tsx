@@ -10,12 +10,11 @@ import { TestInfoContainer } from '../TestInfoContainer';
 import { Breadcrumbs } from 'ui-kit';
 import { ROUTES } from 'routes/routes.const';
 import {
-  getTemplateId,
+  getTestId,
   getTotalCount,
 } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import {
-  removeResults,
   removeResultsBeforeStart,
 } from 'redux/testingInfo/testingInfoSlise';
 
@@ -23,7 +22,7 @@ import s from '../FinalTestInfo/FinalTestInfo.module.scss';
 
 export const TestStartPageComponent = () => {
   const total = useAppSelector(getTotalCount);
-  const templateId = useAppSelector(getTemplateId);
+  const testId = useAppSelector(getTestId);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const location = useLocation();
@@ -56,7 +55,7 @@ export const TestStartPageComponent = () => {
   };
 
   const handleClickBtn = () => {
-    if (total || templateId) {
+    if (total || testId) {
       dispatch(removeResultsBeforeStart());
     }
 
