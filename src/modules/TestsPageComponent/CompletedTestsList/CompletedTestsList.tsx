@@ -68,7 +68,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                     ? blockNames
                     : ['React', 'JS', 'HTML+CSS'],
                 number: questions.length,
-                time: timeForCompletionInMs / 60000,
+                time: Math.round(timeForCompletionInMs / 60000),
                 testStatus: isPassed ? 'done' : 'failed',
                 percentageOfCorrectAnswers: Math.round(
                   percentageOfCorrectAnswers * 100

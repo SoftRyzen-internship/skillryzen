@@ -159,7 +159,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                     text: description,
                     fields: blockNames,
                     number: questionsTotalCount,
-                    time: timeForCompletionInMs / 60000,
+                    time: Math.round(timeForCompletionInMs / 60000),
                     testStatus,
                     avialableIn,
                   }}
