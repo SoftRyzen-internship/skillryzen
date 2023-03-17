@@ -152,6 +152,7 @@ const persistConfig = {
   whitelist: [
     'templateId',
     'testId',
+    'name',
     'questionsTotalCount',
     'totalTime',
     'currentTime',
