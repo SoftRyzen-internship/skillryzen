@@ -18,3 +18,15 @@
 .disabledLink {
   cursor: auto;
 }
+
+.skeletonItem--large {
+  width: 100%;
+  height: 108px;
+  border-radius: 10px;
+}
+
+.skeletonItem--small {
+  width: 100%;
+  height: 240px;
+  border-radius: 10px;
+}

@@ -10,133 +10,38 @@ import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
 import { ModalCongrats } from 'modules/Modals/ModalCongrats';
 import { TestsSearch } from './TestsSearch/TestsSearch';
 import { TestsFilter } from './TestsFilter/TestsFilter';
-import { TestsCardsList } from './TestsCardsList/TestsCardsList';
+import { CompletedTestsList } from './CompletedTestsList/CompletedTestsList';
+import { AvailableTestsList } from './AvailableTestsList/AvailableTestsList';
 import { Breadcrumbs, Modal, Tabs } from 'ui-kit';
 
 import s from './TestsPageComponent.module.scss';
+
+interface TestsProps {
+  size: 'large' | 'small';
+  key: number;
+}
 
 const tabs = [
   {
     id: 1,
     name: 'testsMain.availableTests',
-    component: '',
+    component: (props: TestsProps) => <AvailableTestsList {...props} />,
   },
   {
     id: 2,
     name: 'testsMain.completedTests',
-    component: '',
-  },
-];
-
-export interface Item {
-  id: number;
-  author: string;
-  name: string;
-  description: string;
-  blockNames: string[];
-  questionsTotalCount: number;
-  timeForCompletionInMs: number;
-  percentageToPass: number;
-  wasStarted: boolean;
-  nextRetakeDate: null | Date;
-  testStatus?: string;
-  avialableIn?: string;
-}
-
-const array = [
-  {
-    id: 1,
-    name: 'FullStuck Final Test AVAILABLE',
-    description:
-      'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
-    blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
-    author: 'GoIt',
-    questionsTotalCount: 100,
-    timeForCompletionInMs: 12000000,
-    percentageToPass: 0.5,
-    wasStarted: false,
-    nextRetakeDate: null,
-  },
-  {
-    id: 2,
-    name: 'FullStuck Final Test COMPLETED',
-    description: 'Welcome to Star class LMS!',
-    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
-    author: 'GoIt',
-    questionsTotalCount: 150,
-    timeForCompletionInMs: 900000,
-    percentageToPass: 0.5,
-    wasStarted: true,
-    nextRetakeDate: null,
-  },
-  {
-    id: 3,
-    name: 'FullStuck Final Test COMPLETED',
-    description: 'Welcome to Star class LMS!',
-    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT', 'REACT'],
-    author: 'GoIt',
-    questionsTotalCount: 150,
-    timeForCompletionInMs: 900000,
-    percentageToPass: 0.5,
-    wasStarted: false,
-    nextRetakeDate: new Date('2023-03-29'),
-  },
-  {
-    id: 4,
-    name: 'FullStuck Final Test AVAILABLE',
-    description:
-      'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
-    blockNames: ['HTML', 'CSS', 'JAVASCRIPT'],
-    author: 'GoIt',
-    questionsTotalCount: 100,
-    timeForCompletionInMs: 12000000,
-    percentageToPass: 0.5,
-    wasStarted: false,
-    nextRetakeDate: null,
-  },
-  {
-    id: 5,
-    name: 'FullStuck Final Test COMPLETED',
-    description: 'Welcome to Star class LMS!',
-    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT', 'JAVASCRIPT'],
-    author: 'GoIt',
-    questionsTotalCount: 150,
-    timeForCompletionInMs: 900000,
-    percentageToPass: 0.5,
-    wasStarted: false,
-    nextRetakeDate: new Date('2023-03-20'),
-  },
-  {
-    id: 6,
-    name: 'FullStuck Final Test COMPLETED',
-    description: 'Welcome to Star class LMS!',
-    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
-    author: 'GoIt',
-    questionsTotalCount: 150,
-    timeForCompletionInMs: 900000,
-    percentageToPass: 0.5,
-    wasStarted: true,
-    nextRetakeDate: null,
-  },
-  {
-    id: 7,
-    name: 'FullStuck Final Test COMPLETED',
-    description: 'Welcome to Star class LMS!',
-    blockNames: ['HTML', 'CSS', 'REACT', 'JAVASCRIPT'],
-    author: 'GoIt',
-    questionsTotalCount: 150,
-    timeForCompletionInMs: 900000,
-    percentageToPass: 0.5,
-    wasStarted: true,
-    nextRetakeDate: new Date('2023-03-31'),
+    component: (props: TestsProps) => <CompletedTestsList {...props} />,
   },
 ];
 
 export const TestsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentTab, setCurrentTab] = useState(tabs[0].id);
-  const [testsArray, setTestsArray] = useState<Item[]>([]);
+  const [currentTab, setCurrentTab] = useState(() => {
+    const savedTab = sessionStorage.getItem('currentTabTestsPage');
+    return savedTab ? parseInt(savedTab) : tabs[0].id;
+  });
+
   const [size, setSize] = useState<'large' | 'small'>('large');
   const [isShowModal, setIsShowModal] = useState(false);
 
@@ -146,11 +51,6 @@ export const TestsPageComponent = () => {
 
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
-
-  useEffect(() => {
-    // setTestsArray(array.filter((item) => item.id === currentTab));
-    setTestsArray(array);
-  }, [currentTab]);
 
   useEffect(() => {
     if (registerRoute === '/register' && step >= 3 && isAuth) {
@@ -165,7 +65,10 @@ export const TestsPageComponent = () => {
     }
   };
 
-  const handleChangeTab = (tab: number) => setCurrentTab(tab);
+  const handleChangeTab = (tab: number) => {
+    sessionStorage.setItem('currentTabTestsPage', tab.toString());
+    setCurrentTab(tab);
+  };
 
   return (
     <div className={`${s.testsPage} ${s[`testsPage--${theme}`]}`}>
@@ -180,7 +83,10 @@ export const TestsPageComponent = () => {
         />
         <TestsFilter setSize={setSize} size={size} />
       </div>
-      <TestsCardsList size={size} testsArray={testsArray} />
+      {tabs.map(el => {
+        if (el.id !== currentTab) return null;
+        return el.component({ size, key: el.id });
+      })}
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <ModalCongrats onClick={handleClickModal} />

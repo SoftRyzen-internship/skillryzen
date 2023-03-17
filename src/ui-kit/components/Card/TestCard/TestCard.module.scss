@@ -212,26 +212,33 @@
   padding-right: 16px;
 }
 
-.available {
-  &.card--large,
-  &.card--small {
-    position: absolute;
-    top: 0;
-    right: 0;
+.card__percentageOfCorrectAnswers {
+  font-weight: var(--bold);
+  font-size: 20px;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 91px;
-    padding: 12px;
-
-    font-weight: 700;
+  .card--small & {
     font-size: 12px;
-    background-color: var(--right-cl);
-    border-radius: 0px 10px 10px 0px;
   }
-  &.card--small {
+}
+
+.available {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 91px;
+  padding: 12px;
+
+  font-weight: 700;
+  font-size: 12px;
+  background-color: var(--right-cl);
+  border-radius: 0px 10px 10px 0px;
+
+  .card--small & {
     top: calc(100% - 20px);
     right: 0;
     height: 20px;
@@ -242,22 +249,40 @@
 
 .tryAgain {
   composes: available;
-  &.card--large,
-  &.card--small {
-    flex-direction: column;
-    color: var(--components-cl);
-    background-color: var(--message-cl);
-  }
-  &.card--small {
+  flex-direction: column;
+  color: var(--components-cl);
+  background-color: var(--message-cl);
+
+  .card--small & {
     flex-direction: row;
   }
 }
 
 .disabled {
   composes: available;
-  &.card--large,
-  &.card--small {
-    background-color: var(--disabled-cl);
+  background-color: var(--disabled-cl);
+}
+
+.done {
+  composes: available;
+  flex-direction: column;
+  gap: 8px;
+
+  .card--small & {
+    flex-direction: row;
+    gap: 4px;
+  }
+}
+
+.failed {
+  composes: available;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #b13250;
+
+  .card--small & {
+    flex-direction: row;
+    gap: 4px;
   }
 }
 

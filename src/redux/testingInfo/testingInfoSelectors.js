@@ -1,4 +1,5 @@
 export const getTestId = state => state.testingInfo.testId;
+export const getTemplateId = state => state.testingInfo.templateId;
 export const getTestName = state => state.testingInfo.name;
 export const getQuestionId = state => state.testingInfo.questionId;
 export const getQuestionNumber = state => state.testingInfo.number;

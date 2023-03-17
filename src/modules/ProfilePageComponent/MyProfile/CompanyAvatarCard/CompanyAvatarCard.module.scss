@@ -8,7 +8,7 @@
   margin-right: 8px;
   border-radius: 50%;
 }
-.name--common {
+.name {
   font-family: var(--font-family);
   font-size: var(--text-md);
   font-weight: var(--regular);
@@ -20,10 +20,8 @@
   transition: var(--transition);
 }
 .name--light {
-  composes: name--common;
   color: var(---light-primary-txt-cl);
 }
 .name--dark {
-  composes: name--common;
   color: var(--primary-txt-cl);
 }

@@ -25,7 +25,7 @@ export const CompanyAvatarCard = memo(
           height={52}
           alt='company-avatar'
         />
-        <p className={`${s[`name--${theme}`]}`}>{companyName}</p>
+        <p className={`${s.name} ${s[`name--${theme}`]}`}>{companyName}</p>
       </div>
     );
   }
