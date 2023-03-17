@@ -18,3 +18,22 @@
 .btnSubmit {
   margin-top: auto;
 }
+
+.label {
+  &::after {
+    content: '';
+    display: block;
+    width: 24px;
+    height: 24px;
+
+    position: absolute;
+    top: -2px;
+    right: 12px;
+
+    background-image: url('assets/svg/link.svg');
+  }
+
+  input {
+    padding-right: 40px;
+  }
+}

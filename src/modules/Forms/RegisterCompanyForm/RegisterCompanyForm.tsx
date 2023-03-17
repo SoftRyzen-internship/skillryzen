@@ -101,6 +101,7 @@ export const RegisterCompanyForm = () => {
         </li>
         <li>
           <AuthInput
+            labelClassName={s.label}
             name='companyWebsite'
             type='url'
             id='companyWebsite'

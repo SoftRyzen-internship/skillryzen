@@ -15,6 +15,8 @@
     background-color: var(--light-components-cl);
     box-shadow: var(--light-primary-shadow);
 
+    transition: background-color var(--transition), color var(--transition);
+
     .filter__icon path {
       stroke: var(--accent-cl);
     }
@@ -23,7 +25,8 @@
   &--dark {
     color: var(--primary-txt-cl);
     background-color: var(--components-cl);
-    transition: color var(--transition);
+
+    transition: background-color var(--transition), color var(--transition);
   }
 }
 
@@ -64,6 +67,8 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  transition: background-color var(--transition), color var(--transition);
 
   &--dark {
     background-color: var(--components-cl);

@@ -14,6 +14,8 @@
 .titleLight {
   composes: titleDark;
   color: var(--primary-cl);
+
+  transition: color var(--transition);
 }
 
 .button {

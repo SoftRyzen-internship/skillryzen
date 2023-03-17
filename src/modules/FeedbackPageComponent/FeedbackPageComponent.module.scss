@@ -1,6 +1,9 @@
 .pageContainer {
   padding: 20px 60px 52px 64px;
   width: 100%;
+
+  transition: background-color var(--transition);
+
   &--light {
     transition: var(--transition);
     background-color: var(--light-cards-cl);
@@ -23,6 +26,7 @@
     color: var(--light-primary-txt-cl);
     // border: 1px solid var(--primary-txt-cl);
     // background-color: var(--light-components-cl);
+    transition: color var(--transition);
   }
 
   &--dark {
@@ -30,5 +34,6 @@
     // border: 1px solid var(--accent-cl);
     // box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
     // background-color: var(--components-cl);
+    transition: color var(--transition);
   }
 }

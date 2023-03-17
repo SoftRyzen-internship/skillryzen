@@ -28,12 +28,12 @@ interface IProps {
   value?: string;
   icon?: JSX.Element;
   button?: boolean;
-  htmlFor?: string;
   labelContent?: string;
   onBlur?: React.FocusEventHandler<HTMLInputElement>;
   onChange?: React.ChangeEventHandler<HTMLInputElement>;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
   children?: JSX.Element;
+  htmlFor?: string;
   inputMask?: boolean;
   mask?: string;
 }
@@ -44,23 +44,24 @@ export const AuthInput = memo(
     className,
     name,
     placeholder,
+    labelClassName,
     type,
     value,
     error,
     touched,
     autoComplete,
-    htmlFor,
     labelContent,
     onChange,
     onBlur,
     children,
+    htmlFor,
     mask,
   }: IProps) => {
     const { theme }: IThemeContext = useThemeContext();
 
     return (
       <label
-        className={`${s.floatingGroup} ${
+        className={`${s.floatingGroup} ${labelClassName} ${
           touched && (error ? s.floatingLabelError : s.floatingLabelValid)
         }`}
       >

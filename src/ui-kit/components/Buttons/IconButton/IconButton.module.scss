@@ -25,6 +25,7 @@
 .black--light {
   background-color: var(--light-primary-cl);
 
+  transition: background-color var(--transition), color var(--transition);
   .iconGrid path {
     fill: var(--accent-cl);
   }
@@ -37,6 +38,7 @@
 .black--dark {
   background-color: var(--components-cl);
 
+  transition: background-color var(--transition), color var(--transition);
   .iconGrid path {
     fill: var(--secondary-txt-cl);
     transition: fill var(--transition);

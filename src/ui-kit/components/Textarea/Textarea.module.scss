@@ -14,8 +14,9 @@
   overflow-y: auto;
 
   outline: none;
-
   resize: none;
+
+  transition: border var(--transition);
 
   &:not(:placeholder-shown) + .placeholder,
   &:focus + .placeholder {
@@ -26,6 +27,9 @@
     font-size: 12px;
 
     background-color: var(--primary-cl);
+
+    transition: background-color var(--transition), top var(--transition),
+      left var(--transition);
   }
 }
 
@@ -35,9 +39,14 @@
   border: 1px solid var(--light-primary-cl);
   box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
 
+  transition: border var(--transition);
+
   &:focus + .placeholder,
   &:not(:placeholder-shown) + .placeholder {
     background-color: var(--primary-txt-cl);
+
+    transition: background-color var(--transition), top var(--transition),
+      left var(--transition);
   }
 }
 

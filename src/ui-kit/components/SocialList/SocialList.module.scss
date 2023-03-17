@@ -11,6 +11,8 @@
   width: 24px;
   height: 24px;
   border-radius: 4px;
+
+  transition: background-color var(--transition), color var(--transition);
 }
 .link--dark {
   composes: link;

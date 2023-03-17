@@ -11,6 +11,8 @@
   white-space: nowrap;
   overflow: hidden;
   color: var(--primary-txt-cl);
+
+  transition: color var(--transition);
 }
 
 .crumbsLight {
