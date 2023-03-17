@@ -8,7 +8,6 @@ import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
 import s from './CompletedTestsList.module.scss';
 
-
 interface Item {
   id: number;
   author: string;
@@ -19,6 +18,8 @@ interface Item {
   timeForCompletionInMs: number;
   isPassed: boolean;
   percentageOfCorrectAnswers: number;
+  finishedAt: string;
+  startedAt: string;
 }
 
 interface TestsProps {
@@ -35,12 +36,18 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
     getCompletedTests()
       .then(data => {
         setTestsArray(data);
-        // console.log(data);
+        console.log(data);
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
       .finally(() => setIsLoading(false));
   }, []);
+
+  const findTestTime = (end: string, start: string):number => {
+    const endTime = new Date(end);
+    const startTime = new Date(start);
+    return ((endTime.getTime() - startTime.getTime())/1000);
+  };
 
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
@@ -55,28 +62,34 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           timeForCompletionInMs,
           isPassed,
           percentageOfCorrectAnswers,
+          finishedAt,
+          startedAt,
         }) => (
-          <li key={id}>
-            <TestCard
-              size={size}
-              item={{
-                author: author ? author : 'GoIt',
-                title: name,
-                text: description ? description : 'Welcome to Star class LMS!',
-                fields:
-                  blockNames?.length !== 0
-                    ? blockNames
-                    : ['React', 'JS', 'HTML+CSS'],
-                number: questions.length,
-                time: Math.round(timeForCompletionInMs / 60000),
-                testStatus: isPassed ? 'done' : 'failed',
-                percentageOfCorrectAnswers: Math.round(
-                  percentageOfCorrectAnswers * 100
-                ),
-              }}
-              theme={theme}
-            />
-          </li>
+          <>
+            <li key={id}>
+              <TestCard
+                size={size}
+                item={{
+                  author: author ? author : 'GoIt',
+                  title: name,
+                  text: description
+                    ? description
+                    : 'Welcome to Star class LMS!',
+                  fields:
+                    blockNames?.length !== 0
+                      ? blockNames
+                      : ['React', 'JS', 'HTML+CSS'],
+                  number: questions.length,
+                  time: Math.round(timeForCompletionInMs / 60000),
+                  testStatus: isPassed ? 'done' : 'failed',
+                  percentageOfCorrectAnswers: Math.round(
+                    percentageOfCorrectAnswers * 100
+                  ),
+                }}
+                theme={theme}
+              />
+            </li>
+          </>
         )
       )}
       {isLoading && (
