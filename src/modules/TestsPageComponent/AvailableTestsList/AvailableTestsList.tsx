@@ -52,7 +52,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
     getAvailableTests()
       .then(data => {
         setTestsArray(data);
-        // console.log(data)
+        console.log(data);
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
