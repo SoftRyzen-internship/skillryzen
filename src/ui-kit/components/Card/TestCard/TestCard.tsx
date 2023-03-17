@@ -22,7 +22,7 @@ interface Item {
   time: number;
   testStatus?: 'disabled' | 'available' | 'tryAgain' | 'done' | 'failed';
   testDate?: string;
-  attempts?: number;
+  attempts?: number | string;
   avialableIn?: string;
   percentageOfCorrectAnswers?: number;
 }
@@ -81,7 +81,7 @@ export const TestCard = ({
         </p>
         {(size === 'large' && (testStatus === 'done' || testStatus === 'failed')) && (
           <div className={s[`card__timeInfo--${testStatus}`]}>
-            <p className={s.card__attempts}>{attempts && attempts}</p>
+            <p className={s.card__attempts}>{attempts}</p>
             <p className={s.card__date}>{testDate}</p>
           </div>
         )}

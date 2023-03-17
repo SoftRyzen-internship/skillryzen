@@ -94,7 +94,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                   time: Math.round(timeForCompletionInMs / 60000),
                   testStatus: isPassed ? 'done' : 'failed',
                   testDate: convertTestDate(finishedAt),
-                  attempts: retakeAttempt ? retakeAttempt + 1 : 0,
+                  attempts: retakeAttempt ? retakeAttempt + 1 : '?',
                   percentageOfCorrectAnswers: Math.round(
                     percentageOfCorrectAnswers * 100
                   ),
