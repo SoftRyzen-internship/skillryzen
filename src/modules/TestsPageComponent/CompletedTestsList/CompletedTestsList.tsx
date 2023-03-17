@@ -52,9 +52,9 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
 
   const convertTestDate = (end: string): string => {
     const endTime = new Date(end);
-    return `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(2, '0')}.${String(
+    return end ? `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(2, '0')}.${String(
       endTime.getFullYear()
-    ).slice(2)}`;
+    ).slice(2)}` : '';
   };
 
   return (
