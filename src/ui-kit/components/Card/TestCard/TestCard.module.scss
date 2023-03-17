@@ -85,8 +85,12 @@
 
 .card__content {
   .card--large & {
+    width: 200px;
     padding-right: 16px;
-    width: 35vw;
+
+    @media screen and (min-width: 1440px) {
+      width: 35vw;
+    }
   }
 
   .card--small & {
