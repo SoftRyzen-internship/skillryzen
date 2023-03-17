@@ -77,7 +77,6 @@ const testingInfoSlice = createSlice({
       state.templateId = action.payload;
     },
     removeResultsBeforeStart(state) {
-      state.templateId = '';
       state.testId = '';
       state.questionId = '';
       state.title = '';
