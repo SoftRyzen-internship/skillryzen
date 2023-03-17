@@ -21,6 +21,8 @@ interface Item {
   number: number;
   time: number;
   testStatus?: 'disabled' | 'available' | 'tryAgain' | 'done' | 'failed';
+  testDate?: string;
+  attempts?: number;
   avialableIn?: string;
   percentageOfCorrectAnswers?: number;
 }
@@ -43,6 +45,8 @@ export const TestCard = ({
     testStatus,
     avialableIn,
     percentageOfCorrectAnswers,
+    attempts,
+    testDate,
   } = item;
 
   const statusObject = {
@@ -75,6 +79,12 @@ export const TestCard = ({
         <p className={`${s.card__author} ${s[`card__author--${theme}`]}`}>
           {author}
         </p>
+        {(size === 'large' && (testStatus === 'done' || testStatus === 'failed')) && (
+          <div className={s[`card__timeInfo--${testStatus}`]}>
+            <p className={s.card__attempts}>{attempts && attempts}</p>
+            <p className={s.card__date}>{testDate}</p>
+          </div>
+        )}
         <div className={s.card__content}>
           <p className={`${s.card__title} ${s[`card__title--${theme}`]}`}>
             {title}
