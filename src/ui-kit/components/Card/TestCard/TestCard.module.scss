@@ -85,14 +85,17 @@
 
 .card__timeInfo--done,
 .card__timeInfo--failed {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2px;
+
+  .card--large &{
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 .card__attempts {
@@ -111,7 +114,6 @@
 .card__date {
   font-weight: 300;
   font-size: 10px;
-  line-height: 1.6;
 
   .card__timeInfo--done & {
     color: var(--success-cl);
@@ -184,6 +186,12 @@
     flex-direction: column;
     flex-grow: 1;
   }
+}
+
+.card__addInfoWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 .card__addWrapper {

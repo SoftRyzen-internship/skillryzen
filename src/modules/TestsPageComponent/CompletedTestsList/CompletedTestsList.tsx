@@ -46,8 +46,6 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
 
   const findTestTime = (end: string, start: string): number => {
     const endTime = new Date(end);
-    console.log(end);
-    console.log(endTime);
     const startTime = new Date(start);
     return (endTime.getTime() - startTime.getTime()) / 1000;
   };
