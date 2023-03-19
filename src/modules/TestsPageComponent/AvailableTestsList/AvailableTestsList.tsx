@@ -39,11 +39,8 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
 
-  const templateHandler = (
-    id: string,
-    testStatus: string
-  ) => {
-    if (testStatus === "disabled") return;
+  const templateHandler = (id: string, testStatus: string) => {
+    if (testStatus === 'disabled') return;
     dispatch(setTemplateId(id));
   };
 
@@ -52,7 +49,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
     getAvailableTests()
       .then(data => {
         setTestsArray(data);
-        // console.log(data)
+        // console.log(data);
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
@@ -139,9 +136,9 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
           }) => (
             <li key={id}>
               <Link
-                to={testStatus === "disabled" ? '#' : 'fullstack_final'}
+                to={testStatus === 'disabled' ? '#' : 'fullstack_final'}
                 onClick={() => templateHandler(id.toString(), testStatus)}
-                className={testStatus === "disabled"  ? s.disabledLink : ''}
+                className={testStatus === 'disabled' ? s.disabledLink : ''}
                 state={{
                   author: author ? author : 'GoIt',
                   name,

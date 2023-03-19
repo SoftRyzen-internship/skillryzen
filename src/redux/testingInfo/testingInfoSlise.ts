@@ -76,6 +76,18 @@ const testingInfoSlice = createSlice({
     setTemplateId(state, action: PayloadAction<string>) {
       state.templateId = action.payload;
     },
+    removeResultsBeforeStart(state) {
+      state.testId = '';
+      state.questionId = '';
+      state.title = '';
+      state.possibleAnswers = [];
+      state.codePiece = null;
+      state.totalTime = 0;
+      state.currentTime = 0;
+      state.questionsTotalCount = 0;
+      state.number = null;
+      state.name = '';
+    },
     removeResults(state) {
       state.questionsTotalCount = 0;
       state.number = null;
@@ -164,8 +176,13 @@ const persistConfig = {
   ],
 };
 
-export const { setTime, removeResults, setCurrentTime, setTemplateId } =
-  testingInfoSlice.actions;
+export const {
+  setTime,
+  removeResults,
+  setCurrentTime,
+  setTemplateId,
+  removeResultsBeforeStart,
+} = testingInfoSlice.actions;
 export const testingInfoReducer = persistReducer(
   persistConfig,
   testingInfoSlice.reducer

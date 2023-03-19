@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import { useEffect, useState } from 'react';
 
 import { TestCard, Modal } from 'ui-kit';
@@ -66,10 +67,12 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
 
   const convertTestDate = (end: string): string => {
     const endTime = new Date(end);
-    return `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(
-      2,
-      '0'
-    )}.${String(endTime.getFullYear()).slice(2)}`;
+    return end
+      ? `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(
+          2,
+          '0'
+        )}.${String(endTime.getFullYear()).slice(2)}`
+      : '';
   };
 
   const handleClickModal = () => {

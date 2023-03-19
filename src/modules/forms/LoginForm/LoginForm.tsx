@@ -40,6 +40,10 @@ export const LoginForm = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setShowPassword(!showPassword);
+  };
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -124,7 +128,7 @@ export const LoginForm = () => {
           >
             <button
               type='button'
-              onClick={() => setShowPassword(!showPassword)}
+              onClick={handleClick}
               className={s.showPasswordButton}
             >
               {showPassword ? (
