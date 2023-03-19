@@ -59,16 +59,18 @@ interface Props {
   listInfo?: ListInfo;
   correctAnswers?: number;
   totalQuestions?: number;
-  timeSpent?: string;
+  timeSpent?: string | number;
   isPassed?: boolean;
   iconAnswers?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   iconTime?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
+  iconDate?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
   theBestTopic?: string;
   onClickBtn: () => void;
   textBtn?: string;
   finishTest?: boolean;
   test?: string;
+  date?: string;
 }
 
 export const FinalTestInfo = ({
@@ -83,11 +85,13 @@ export const FinalTestInfo = ({
   isPassed,
   iconAnswers: IconAnswers,
   iconTime: IconTime,
+  iconDate: IconDate,
   theWorstTopic,
   theBestTopic,
   onClickBtn,
   finishTest,
   test,
+  date,
 }: Props) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
@@ -224,6 +228,19 @@ export const FinalTestInfo = ({
                 {`${timeSpent}`} {t('finalTestInfo.min')}
               </p>
             </li>
+            {date && (
+              <li className={s.item}>
+                <div className={s.iconWrapper}>
+                  <div className={objectTheme[theme].iconThumb}>
+                    <IconDate className={objectTheme[theme].icon} />
+                  </div>
+                  <p className={objectTheme[theme].text}>
+                    {t('finalTestInfo.date')}
+                  </p>
+                </div>
+                <p className={objectTheme[theme].textRight}>{date}</p>
+              </li>
+            )}
           </ul>
           {isPassed ? (
             <div className={s.resultIsPassed}>
@@ -253,17 +270,25 @@ export const FinalTestInfo = ({
           )}
         </>
       )}
-      <MainButton
-        type='button'
-        text={
-          finishTest ? t('finalTestInfo.endTest') : t('finalTestInfo.startTest')
-        }
-        disabled={(!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)}
-        onClick={onClickBtn}
-        size='large'
-        color='blue'
-        className={!(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''}
-      />
+      {!date && (
+        <MainButton
+          type='button'
+          text={
+            finishTest
+              ? t('finalTestInfo.endTest')
+              : t('finalTestInfo.startTest')
+          }
+          disabled={
+            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)
+          }
+          onClick={onClickBtn}
+          size='large'
+          color='blue'
+          className={
+            !(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''
+          }
+        />
+      )}
       {!finishTest && windowWidth <= 1280 && (
         <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
       )}

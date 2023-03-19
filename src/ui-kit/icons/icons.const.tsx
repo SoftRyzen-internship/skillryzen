@@ -81,6 +81,7 @@ import IconDownload from 'assets/svg/download.svg';
 import IconTestPassed from 'assets/svg/test-passed.svg';
 import IconTestFailed from 'assets/svg/test-failed.svg';
 import IconRefresh from 'assets/svg/refresh.svg';
+import IconDate from 'assets/svg/date.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -148,6 +149,7 @@ export const ICONS: Icons = {
   CHECK_SMALL: IconCheckSmall,
   COIN: IconCoin,
   CROSS_SMALL: CrossSmall,
+  DATE: IconDate,
   DEFAULT_CHECKBOX: IconDefaultCheckbox,
   DISCORD: IconDiscord,
   DRIBBLE: IconDribble,

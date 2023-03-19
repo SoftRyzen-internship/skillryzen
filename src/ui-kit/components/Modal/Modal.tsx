@@ -12,7 +12,7 @@ interface ModalProps {
   isShowModal: boolean;
   onClick: () => void;
   isCloseIcon?: boolean;
-  children: JSX.Element;
+  children?: JSX.Element;
 }
 
 export const Modal = ({

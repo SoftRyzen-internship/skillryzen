@@ -14,9 +14,7 @@ import {
   getTotalCount,
 } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import {
-  removeResultsBeforeStart,
-} from 'redux/testingInfo/testingInfoSlise';
+import { removeResultsBeforeStart } from 'redux/testingInfo/testingInfoSlise';
 
 import s from '../FinalTestInfo/FinalTestInfo.module.scss';
 

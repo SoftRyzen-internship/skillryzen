@@ -1,10 +1,14 @@
+/* eslint-disable indent */
 import { useEffect, useState } from 'react';
 
-import { TestCard } from 'ui-kit';
+import { TestCard, Modal } from 'ui-kit';
+import { ICONS } from 'ui-kit/icons';
+import { IMAGES } from 'ui-kit/images';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
+import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 
 import s from './CompletedTestsList.module.scss';
 
@@ -27,7 +31,19 @@ interface TestsProps {
   size: 'large' | 'small';
 }
 
+interface TestInfo {
+  id: number;
+  name: string;
+  questions: number;
+  percentageOfCorrectAnswers: number;
+  isPassed: boolean;
+  timeSpent: number;
+  date: string;
+}
+
 export const CompletedTestsList = ({ size }: TestsProps) => {
+  const [isShowModal, setIsShowModal] = useState(false);
+  const [testInfo, setTestInfo] = useState<TestInfo>(null);
   const [testsArray, setTestsArray] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
@@ -37,7 +53,6 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
     getCompletedTests()
       .then(data => {
         setTestsArray(data);
-        // console.log(data);
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
@@ -52,9 +67,37 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
 
   const convertTestDate = (end: string): string => {
     const endTime = new Date(end);
-    return end ? `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(2, '0')}.${String(
-      endTime.getFullYear()
-    ).slice(2)}` : '';
+    return end
+      ? `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(
+          2,
+          '0'
+        )}.${String(endTime.getFullYear()).slice(2)}`
+      : '';
+  };
+
+  const handleClickModal = () => {
+    setIsShowModal(prevState => !prevState);
+  };
+
+  const handleClickItem = (
+    id: number,
+    name: string,
+    questions: [],
+    percentageOfCorrectAnswers: number,
+    isPassed: boolean,
+    finishedAt: string,
+    startedAt: string
+  ) => {
+    setTestInfo({
+      id,
+      name,
+      questions: questions.length,
+      percentageOfCorrectAnswers,
+      isPassed,
+      timeSpent: findTestTime(finishedAt, startedAt),
+      date: convertTestDate(finishedAt),
+    });
+    handleClickModal();
   };
 
   return (
@@ -74,32 +117,71 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           finishedAt,
           startedAt,
         }) => (
-            <li key={id}>
-              <TestCard
-                size={size}
-                item={{
-                  author: author ? author : 'GoIt',
-                  title: name,
-                  text: description
-                    ? description
-                    : 'Welcome to Star class LMS!',
-                  fields:
-                    blockNames?.length !== 0
-                      ? blockNames
-                      : ['React', 'JS', 'HTML+CSS'],
-                  number: questions.length,
-                  time: Math.round(timeForCompletionInMs / 60000),
-                  testStatus: isPassed ? 'done' : 'failed',
-                  testDate: convertTestDate(finishedAt),
-                  attempts: retakeAttempt ? retakeAttempt + 1 : '?',
-                  percentageOfCorrectAnswers: Math.round(
-                    percentageOfCorrectAnswers * 100
-                  ),
-                }}
-                theme={theme}
-              />
-            </li>
+          <li
+            key={id}
+            onClick={() =>
+              handleClickItem(
+                id,
+                name,
+                questions,
+                percentageOfCorrectAnswers,
+                isPassed,
+                finishedAt,
+                startedAt
+              )
+            }
+            className={s.item}
+          >
+            <TestCard
+              size={size}
+              item={{
+                author: author ? author : 'GoIt',
+                title: name,
+                text: description ? description : 'Welcome to Star class LMS!',
+                fields:
+                  blockNames?.length !== 0
+                    ? blockNames
+                    : ['React', 'JS', 'HTML+CSS'],
+                number: questions.length,
+                time: Math.round(timeForCompletionInMs / 60000),
+                testStatus: isPassed ? 'done' : 'failed',
+                testDate: convertTestDate(finishedAt),
+                attempts: retakeAttempt ? retakeAttempt + 1 : '?',
+                percentageOfCorrectAnswers: Math.round(
+                  percentageOfCorrectAnswers * 100
+                ),
+              }}
+              theme={theme}
+            />
+          </li>
         )
+      )}
+      {isShowModal && (
+        <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
+          <div className={s.container}>
+            <FinalTestInfo
+              image={IMAGES.JAVA_SCRIPT}
+              imageProps={{
+                alt: 'Java Script',
+                width: '120',
+                height: '120',
+              }}
+              title={testInfo.name}
+              correctAnswers={
+                testInfo.percentageOfCorrectAnswers * testInfo.questions
+              }
+              totalQuestions={testInfo.questions}
+              timeSpent={Math.round(testInfo.timeSpent)}
+              isPassed={testInfo.isPassed}
+              iconAnswers={ICONS.CHECK_SMALL}
+              iconTime={ICONS.CLOCK}
+              iconDate={ICONS.DATE}
+              onClickBtn={handleClickModal}
+              finishTest
+              date={testInfo.date}
+            />
+          </div>
+        </Modal>
       )}
       {isLoading && (
         <Skeleton
