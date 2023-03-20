@@ -8,12 +8,11 @@ import { convertTestDate, convertTestTime } from 'utils/convertTime';
 import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 
 import { TestCard, Modal } from 'ui-kit';
-import { ICONS } from 'ui-kit/icons';
-import { IMAGES } from 'ui-kit/images';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
-import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
+import { ModalTestsInfo } from 'modules/Modals/ModalTestsInfo/ModalTestsInfo';
 
 import s from './CompletedTestsList.module.scss';
+
 
 interface Item {
   id: number;
@@ -34,7 +33,7 @@ interface TestsProps {
   size: 'large' | 'small';
 }
 
-interface TestInfo {
+export interface TestInfo {
   id: number;
   name: string;
   questions: number;
@@ -170,30 +169,10 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       </ul>
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
-          <div className={s.container}>
-            <FinalTestInfo
-              image={IMAGES.JAVA_SCRIPT}
-              imageProps={{
-                alt: 'Java Script',
-                width: '80',
-                height: '80',
-              }}
-              title={testInfo.name}
-              correctAnswers={Math.floor(
-                testInfo.percentageOfCorrectAnswers * testInfo.questions
-              )}
-              totalQuestions={testInfo.questions}
-              timeSpent={testInfo.timeSpent}
-              isPassed={testInfo.isPassed}
-              iconAnswers={ICONS.CHECK_SMALL}
-              iconTime={ICONS.CLOCK}
-              iconDate={ICONS.DATE}
-              onClickBtn={handleClickModal}
-              finishTest
-              date={testInfo.date}
-              modal={true}
-            />
-          </div>
+          <ModalTestsInfo
+            handleClickModal={handleClickModal}
+            testInfo={testInfo}
+          />
         </Modal>
       )}
     </>
