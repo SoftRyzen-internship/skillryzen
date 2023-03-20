@@ -112,7 +112,7 @@ export const FinalTestInfo = ({
   }, []);
 
   return (
-    <div className={finishTest ? s.containerFinish : s.containerStart}>
+    <div className={`${finishTest && !modal && s.containerFinish} ${!finishTest && s.containerStart}`}>
       <div className={s.imageThumb}>
         <img
           className={s.image}
