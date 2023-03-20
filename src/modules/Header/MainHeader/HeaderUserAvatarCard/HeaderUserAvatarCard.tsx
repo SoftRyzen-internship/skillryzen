@@ -45,7 +45,7 @@ export const HeaderUserAvatarCard = () => {
   const avatar = useMemo(randomAvatar, []);
 
   const popupList = useMemo(() => {
-    if (role === USER_ROLE.companyOwner) {
+    if (role === USER_ROLE.candidate) {
       return [
         {
           icon: <ICONS.USER stroke={iconColor[theme]} />,
@@ -63,11 +63,17 @@ export const HeaderUserAvatarCard = () => {
           path: ROUTES.NOTIFICATIONS,
         },
         {
+          icon: <ICONS.COIN fill={iconColor[theme]} />,
+          text: t('header.userAvatar.coins'),
+          path: ROUTES.COINS,
+        },
+        {
           icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
           text: t('header.userAvatar.logOut'),
         },
       ];
     }
+
     return [
       {
         icon: <ICONS.USER stroke={iconColor[theme]} />,
@@ -83,11 +89,6 @@ export const HeaderUserAvatarCard = () => {
         icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
         text: t('header.userAvatar.notifications'),
         path: ROUTES.NOTIFICATIONS,
-      },
-      {
-        icon: <ICONS.COIN fill={iconColor[theme]} />,
-        text: t('header.userAvatar.coins'),
-        path: ROUTES.COINS,
       },
       {
         icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
