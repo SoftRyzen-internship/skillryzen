@@ -1,11 +1,12 @@
-import { IThemeContext, UserSocial, SocialName } from 'constans/types';
+import { useMemo } from 'react';
+
+import { team } from 'utils/team.js';
+import { IMAGES } from 'ui-kit/images';
 import { useThemeContext } from 'context/themeContext';
 import { TeamCard } from 'ui-kit/components/Card/TeamCard';
-import { IMAGES } from 'ui-kit/images';
-import { team } from 'utils/team.js';
+import { IThemeContext, UserSocial, SocialName } from 'constans/types';
 
 import s from './TeamList.module.scss';
-import { useEffect, useState } from 'react';
 
 interface Links {
   behance?: string;
@@ -36,36 +37,33 @@ const returnSocialList = (social: Links): UserSocial[] => {
 
 export const TeamList = ({ name, positions }: TeamListProps) => {
   const { theme }: IThemeContext = useThemeContext();
-  const [array, setArray] = useState<TeamList[]>([]);
 
-  useEffect(() => {
+  const array = useMemo(() => {
     let teamArray = [...team];
-    if (name || positions.length > 0) {
-      teamArray = team.filter(
+    if (name || positions.length) {
+      teamArray = teamArray.filter(
         item =>
           (!name || item.name.toLowerCase().includes(name.toLowerCase())) &&
           (positions.length === 0 || positions.includes(item.position))
       );
     }
-    setArray(teamArray);
+    return teamArray;
   }, [name, positions]);
 
   return (
-    <>
-      <ul className={s.teamList}>
-        {array.map(item => (
-          <li key={item.id}>
-            <TeamCard
-              theme={theme}
-              name={item.name}
-              position={item.position}
-              image={IMAGES[item.image]}
-              social={returnSocialList(item.social)}
-            />
-          </li>
-        ))}
-      </ul>
-    </>
+    <ul className={s.teamList}>
+      {array.map(item => (
+        <li key={item.id}>
+          <TeamCard
+            theme={theme}
+            name={item.name}
+            position={item.position}
+            image={IMAGES[item.image]}
+            social={returnSocialList(item.social)}
+          />
+        </li>
+      ))}
+    </ul>
   );
 };
 
