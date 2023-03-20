@@ -1,1 +1,0 @@
-export { InviteByLinkBlock } from './InviteByLinkBlock';

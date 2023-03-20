@@ -1,8 +1,16 @@
 .wrapper {
-  width: 493px;
   height: 100%;
-  padding: 20px 20px 284px 20px;
   border-radius: 4px;
+
+  &--student {
+    width: 493px;
+    padding: 20px 20px 284px 20px;
+  }
+
+  &--admin {
+    width: 596px;
+    padding: 20px 152px 31px 20px;
+  }
 
   &--dark {
     background-color: var(--components-cl);

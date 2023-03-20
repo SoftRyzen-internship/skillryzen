@@ -52,9 +52,7 @@ export const getAvailableTests = () =>
     .then(response => response.data);
 
 export const getCompletedTests = () =>
-  axiosInstance
-    .get('user-test')
-    .then(response => response.data);
+  axiosInstance.get('user-test').then(response => response.data);
 
 export const getTestTemplateApi = (templateId: string) =>
   axiosInstance

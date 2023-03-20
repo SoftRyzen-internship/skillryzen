@@ -225,9 +225,7 @@ export const FinalTestInfo = ({
                   {t('finalTestInfo.timeSpent')}
                 </p>
               </div>
-              <p className={objectTheme[theme].textRight}>
-                {`${timeSpent}`}
-              </p>
+              <p className={objectTheme[theme].textRight}>{`${timeSpent}`}</p>
             </li>
             <li className={s.item}>
                 <div className={s.iconWrapper}>
