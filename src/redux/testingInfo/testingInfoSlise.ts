@@ -78,6 +78,7 @@ const testingInfoSlice = createSlice({
     },
     removeResultsBeforeStart(state) {
       state.testId = '';
+      state.name = '';
       state.questionId = '';
       state.title = '';
       state.possibleAnswers = [];
@@ -86,12 +87,10 @@ const testingInfoSlice = createSlice({
       state.currentTime = 0;
       state.questionsTotalCount = 0;
       state.number = null;
-      state.name = '';
     },
     removeResults(state) {
-      state.questionsTotalCount = 0;
-      state.number = null;
       state.name = '';
+      state.questionsTotalCount = 0;
       state.results.testId = '';
       state.results.numberOfCorrectAnswers = 0;
       state.results.time = 0;
@@ -133,6 +132,7 @@ const testingInfoSlice = createSlice({
         state.title = '';
         state.possibleAnswers = [];
         state.codePiece = null;
+        state.number = null;
         state.totalTime = 0;
         state.currentTime = 0;
         state.isLoading = false;

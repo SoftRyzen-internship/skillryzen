@@ -78,7 +78,9 @@
     "profile": "Профіль",
     "settings": "Налаштування",
     "feedback": "Зворотній зв'язок",
-    "team": "Команда"
+    "team": "Команда",
+    "students": "Студенти",
+    "invite": "Модуль запрошень"
   },
   "userProfile": {
     "profileCardTitle": "Мій профіль",
