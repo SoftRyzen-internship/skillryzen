@@ -64,10 +64,54 @@ const columns: Column<TestData>[] = [
 ];
 
 const data: TestData[] = [
-{ id: 1, name: 'Андрій', test: 'Математика', score: '48/50' },
-{ id: 2, name: 'Олексій', test: 'Фізика', score: '42/50' },
-{ id: 3, name: 'Іван', test: 'Історія', score: '45/50' },
-{ id: 4, name: 'Марія', test: 'Географія', score: '50/50' },
+{
+id: 1,
+name: 'Aнастасія Скоробагатько',
+test: 'JavaScript',
+score: '48/50',
+},
+{
+id: 2,
+name: 'Олексій Скоробагатько',
+test: 'JavaScript',
+score: '42/50',
+},
+{
+id: 3,
+name: 'Іван Скоробагатько',
+test: 'JavaScript',
+score: '45/50',
+},
+{
+id: 4,
+name: 'Марія Скоробагатько',
+test: 'JavaScript',
+score: '50/50',
+},
+{
+id: 5,
+name: 'Aнастасія Скоробагатько',
+test: 'JavaScript',
+score: '48/50',
+},
+{
+id: 6,
+name: 'Олексій Скоробагатько',
+test: 'JavaScript',
+score: '42/50',
+},
+{
+id: 7,
+name: 'Іван Скоробагатько',
+test: 'JavaScript',
+score: '45/50',
+},
+{
+id: 8,
+name: 'Марія Скоробагатько',
+test: 'JavaScript',
+score: '50/50',
+},
 ];
 
 <Table columns={columns} data={data} />

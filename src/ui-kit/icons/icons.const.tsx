@@ -123,7 +123,9 @@ import IconCircleBlueLight from 'assets/svg/circle-blue-light.svg';
 import IconCircleGrayLight from 'assets/svg/circle-gray-light.svg';
 import IconUnderDevelopmentMainLight from 'assets/svg/under-development-main-light.svg';
 
-//  IconCorrect
+import IconSort from 'assets/svg/sort.svg';
+import IconSortTop from 'assets/svg/sort-top.svg';
+import IconSortDown from 'assets/svg/sort-down.svg';
 
 import { Icons } from 'constans/types';
 
@@ -248,4 +250,7 @@ export const ICONS: Icons = {
   DOWNLOAD: IconDownload,
   TEST_PASSED: IconTestPassed,
   TEST_FAILED: IconTestFailed,
+  SORT: IconSort,
+  SORT_TOP: IconSortTop,
+  SORT_DOWN: IconSortDown,
 };
