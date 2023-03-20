@@ -2,8 +2,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { TestCard } from 'ui-kit';
-import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
@@ -11,6 +9,9 @@ import { setTemplateId } from 'redux/testingInfo/testingInfoSlise';
 import { useAppDispatch } from 'hooks/hook';
 import { convertToUTC } from 'utils/convertLocalTimeToUTC';
 import { parseDate } from 'utils/parseDate';
+
+import { TestCard } from 'ui-kit';
+import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 
 import s from './AvailableTestsList.module.scss';
 
@@ -49,7 +50,6 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
     getAvailableTests()
       .then(data => {
         setTestsArray(data);
-        // console.log(data);
       })
       // eslint-disable-next-line no-console
       .catch(error => console.log(error))
@@ -131,6 +131,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             blockNames,
             questionsTotalCount,
             timeForCompletionInMs,
+            percentageToPass,
             avialableIn,
             testStatus,
           }) => (
@@ -146,6 +147,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                   blockNames,
                   questionsTotalCount,
                   timeForCompletionInMs,
+                  percentageToPass
                 }}
               >
                 <TestCard

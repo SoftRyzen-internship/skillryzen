@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
 import { useLocation } from 'react-router-dom';
 
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
@@ -37,13 +37,14 @@ const tabs = [
 export const TestsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentTab, setCurrentTab] = useState(() => {
-    const savedTab = sessionStorage.getItem('currentTabTestsPage');
-    return savedTab ? parseInt(savedTab) : tabs[0].id;
-  });
-
-  const [size, setSize] = useState<'large' | 'small'>('large');
-  const [isShowModal, setIsShowModal] = useState(false);
+  const [currentTab, setCurrentTab] = useState<number>(
+    () =>
+      JSON.parse(sessionStorage.getItem('testsPage'))?.currentTab ?? tabs[0].id
+  );
+  const [size, setSize] = useState<'large' | 'small'>(
+    () => JSON.parse(sessionStorage.getItem('testsPage'))?.size ?? 'large'
+  );
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
 
   const dispatch = useAppDispatch();
   const step = useAppSelector(getStep);
@@ -51,6 +52,10 @@ export const TestsPageComponent = () => {
 
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
+
+  useEffect(() => {
+    sessionStorage.setItem('testsPage', JSON.stringify({ currentTab, size }));
+  }, [currentTab, size]);
 
   useEffect(() => {
     if (registerRoute === '/register' && step >= 3 && isAuth) {
@@ -66,7 +71,6 @@ export const TestsPageComponent = () => {
   };
 
   const handleChangeTab = (tab: number) => {
-    sessionStorage.setItem('currentTabTestsPage', tab.toString());
     setCurrentTab(tab);
   };
 

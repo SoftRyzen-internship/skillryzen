@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from 'context/themeContext';
-import { convertTime } from 'utils/convertTime';
+import { useAppSelector } from 'hooks/hook';
+import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
-import { useAppSelector } from 'hooks/hook';
-import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
+
 
 const objectTheme = {
   dark: {
@@ -38,7 +38,7 @@ interface ListInfo {
   topics: string[];
   time: number;
   questions: number;
-  learners: number;
+  percentageToPass?: number;
   author: string;
   icons: {
     [key: string]: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
@@ -168,19 +168,19 @@ export const FinalTestInfo = ({
               className={objectTheme[theme].textRight}
             >{`${listInfo.questions}`}</p>
           </li>
-          {/* <li className={s.item}>
+          <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
-                <listInfo.icons.USERS className={objectTheme[theme].icon} />
+                <listInfo.icons.QUESTION className={objectTheme[theme].icon} />
               </div>
               <p className={objectTheme[theme].text}>
-                {t('finalTestInfo.list.learners')}
+                {t('finalTestInfo.list.percentageToPass')}
               </p>
             </div>
-            <p
-              className={objectTheme[theme].textRight}
-            >{`${listInfo.learners}`}</p>
-          </li> */}
+            <p className={objectTheme[theme].textRight}>
+              {`${listInfo.percentageToPass * 100}%`}
+            </p>
+          </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
@@ -225,7 +225,7 @@ export const FinalTestInfo = ({
                 </p>
               </div>
               <p className={objectTheme[theme].textRight}>
-                {`${timeSpent}`} {t('finalTestInfo.min')}
+                {`${timeSpent}`}
               </p>
             </li>
             {date && (

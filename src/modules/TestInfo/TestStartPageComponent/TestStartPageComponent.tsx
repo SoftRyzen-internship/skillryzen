@@ -34,13 +34,14 @@ export const TestStartPageComponent = () => {
     blockNames,
     questionsTotalCount,
     timeForCompletionInMs,
+    percentageToPass
   } = state;
 
   const listInfoJS = {
     topics: blockNames || '',
     time: timeForCompletionInMs || 0,
     questions: questionsTotalCount || 0,
-    learners: 200,
+    percentageToPass: percentageToPass || 0,
     author: author || '',
     icons: {
       BAR: ICONS.BAR_ONE_LINE,
