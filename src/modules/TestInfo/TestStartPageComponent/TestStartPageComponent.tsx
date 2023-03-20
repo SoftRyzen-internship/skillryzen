@@ -14,7 +14,10 @@ import {
   getTestId,
 } from 'redux/testingInfo/testingInfoSelectors';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import { removeResultsBeforeStart, removeResults } from 'redux/testingInfo/testingInfoSlise';
+import {
+  removeResultsBeforeStart,
+  removeResults,
+} from 'redux/testingInfo/testingInfoSlise';
 
 import s from '../FinalTestInfo/FinalTestInfo.module.scss';
 
@@ -34,7 +37,7 @@ export const TestStartPageComponent = () => {
     blockNames,
     questionsTotalCount,
     timeForCompletionInMs,
-    percentageToPass
+    percentageToPass,
   } = state;
 
   const listInfoJS = {
@@ -50,7 +53,7 @@ export const TestStartPageComponent = () => {
       QUESTION: ICONS.QUESTION_CIRCLE,
       USERS: ICONS.USERS,
       USER: ICONS.USER,
-      PERCENTAGE: ICONS.PERCENTAGE
+      PERCENTAGE: ICONS.PERCENTAGE,
     },
   };
 
@@ -72,7 +75,7 @@ export const TestStartPageComponent = () => {
       <TestInfoContainer>
         <FinalTestInfo
           image={IMAGES.JAVA_SCRIPT}
-          imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
+          imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
           title={name || ''}
           subtitle={description || ''}
           listInfo={listInfoJS}

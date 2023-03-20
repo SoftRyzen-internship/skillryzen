@@ -46,7 +46,7 @@ export const TestEndPageComponent = () => {
     <TestInfoContainer>
       <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
-        imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
+        imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
         title={testName}
         correctAnswers={correctAnswers}
         totalQuestions={totalQuestions}

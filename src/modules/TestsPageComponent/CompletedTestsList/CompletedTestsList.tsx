@@ -44,6 +44,12 @@ interface TestInfo {
   date: string;
 }
 
+const findTestDate = (end: string): string => {
+  const endTime = new Date(end);
+  const result = convertTestDate(endTime);
+  return end ? result : '';
+};
+
 export const CompletedTestsList = ({ size }: TestsProps) => {
   const { t } = useTranslation();
   const [isShowModal, setIsShowModal] = useState(false);
@@ -73,12 +79,6 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       t('finalTestInfo.sec')
     );
     return end ? result : '0';
-  };
-
-  const findTestDate = (end: string): string => {
-    const endTime = new Date(end);
-    const result = convertTestDate(endTime);
-    return end ? result : '';
   };
 
   const handleClickModal = () => {
@@ -175,8 +175,8 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
               image={IMAGES.JAVA_SCRIPT}
               imageProps={{
                 alt: 'Java Script',
-                width: '120',
-                height: '120',
+                width: '80',
+                height: '80',
               }}
               title={testInfo.name}
               correctAnswers={Math.floor(
