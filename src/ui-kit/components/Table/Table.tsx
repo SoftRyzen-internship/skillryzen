@@ -1,5 +1,9 @@
 import { useState, useMemo } from 'react';
 
+import { ICONS } from 'ui-kit/icons';
+
+import s from './Table.module.scss';
+
 export type Column<T> = {
   name: string;
   property: keyof T;
@@ -40,11 +44,12 @@ export const Table = <T extends { id: number }>({
   }, [data, sortColumn, sortDirection]);
 
   return (
-    <table>
-      <thead>
-        <tr>
+    <table className={s.table}>
+      <thead className={s.head}>
+        <tr className={s.headrow}>
           {columns.map(column => (
             <th
+              className={s.data}
               key={column.property as string}
               onClick={() => handleSort(column)}
               style={{ cursor: column.sortable ? 'pointer' : undefined }}
@@ -52,20 +57,24 @@ export const Table = <T extends { id: number }>({
               {column.name}
               {sortColumn === column &&
                 column.property !== columns[0].property &&
-                (sortDirection === 'asc' ? ' ▲' : ' ▼')}
-              {sortColumn !== column &&
-                column.sortable &&
+                (sortDirection === 'asc' ? (
+                  <ICONS.SORT_TOP className={s.icon} />
+                ) : (
+                  <ICONS.SORT_DOWN className={s.icon} />
+                ))}
+              {sortColumn !== column && column.sortable && (
                 // Показуємо обидві стрілки при початковому стані
-                '▲▼'}
+                <ICONS.SORT className={s.icon} />
+              )}
             </th>
           ))}
         </tr>
       </thead>
       <tbody>
         {sortedData.map(item => (
-          <tr key={String(item.id)}>
+          <tr key={String(item.id)} className={s.item}>
             {columns.map(column => (
-              <td key={column.property as string}>
+              <td key={column.property as string} className={s.data}>
                 {item[column.property]?.toString()}
               </td>
             ))}
