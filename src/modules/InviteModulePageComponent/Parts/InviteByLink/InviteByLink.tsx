@@ -9,9 +9,13 @@ import { useThemeContext } from 'context/themeContext';
 
 import { copyToClipboard } from 'utils/copyToClipboard';
 
-import s from './InviteByLinkBlock.module.scss';
+import s from './InviteByLink.module.scss';
 
-export const InviteByLinkBlock = () => {
+interface Props {
+  userType: string;
+}
+
+export const InviteByLink = ({ userType }: Props) => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
@@ -21,7 +25,11 @@ export const InviteByLinkBlock = () => {
   const copyLink = useCallback(() => copyToClipboard(link), [link]);
 
   return (
-    <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
+    <div
+      className={`${s.wrapper} ${s[`wrapper--${userType}`]} ${
+        s[`wrapper--${theme}`]
+      }`}
+    >
       <h3 className={s.title}>{t('invite.invite.link')}</h3>
       <p className={s.description}>{t('invite.description')}</p>
       <div className={s.linkWrapper}>

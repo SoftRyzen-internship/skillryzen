@@ -5,9 +5,9 @@ import { useThemeContext } from 'context/themeContext';
 
 import { Select } from 'ui-kit';
 
-import s from './SelectTestBlock.module.scss';
+import s from './SelectTest.module.scss';
 
-export const SelectTestBlock = () => {
+export const SelectTest = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 

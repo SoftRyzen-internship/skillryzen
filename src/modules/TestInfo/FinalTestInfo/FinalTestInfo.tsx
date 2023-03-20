@@ -10,7 +10,6 @@ import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
 
-
 const objectTheme = {
   dark: {
     title: s.titleDark,
@@ -224,9 +223,7 @@ export const FinalTestInfo = ({
                   {t('finalTestInfo.timeSpent')}
                 </p>
               </div>
-              <p className={objectTheme[theme].textRight}>
-                {`${timeSpent}`}
-              </p>
+              <p className={objectTheme[theme].textRight}>{`${timeSpent}`}</p>
             </li>
             {date && (
               <li className={s.item}>

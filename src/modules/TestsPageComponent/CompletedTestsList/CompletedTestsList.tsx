@@ -124,40 +124,40 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           finishedAt,
           startedAt,
         }) => (
-            <li
-              key={id}
-              onClick={() =>
-                handleClickItem(
-                  id,
-                  name,
-                  questions,
-                  percentageOfCorrectAnswers,
-                  isPassed,
-                  finishedAt,
-                  startedAt
-                )
-              }
-              className={s.item}
-            >
-              <TestCard
-                size={size}
-                item={{
-                  author: author ? author : 'GoIt',
-                  title: name,
-                  text: description,
-                  fields: blockNames,
-                  number: questions.length,
-                  time: Math.round(timeForCompletionInMs / 60000),
-                  testStatus: isPassed ? 'done' : 'failed',
-                  testDate: convertTestDate(finishedAt),
-                  attempts: retakeAttempt + 1,
-                  percentageOfCorrectAnswers: Math.round(
-                    percentageOfCorrectAnswers * 100
-                  ),
-                }}
-                theme={theme}
-              />
-            </li>
+          <li
+            key={id}
+            onClick={() =>
+              handleClickItem(
+                id,
+                name,
+                questions,
+                percentageOfCorrectAnswers,
+                isPassed,
+                finishedAt,
+                startedAt
+              )
+            }
+            className={s.item}
+          >
+            <TestCard
+              size={size}
+              item={{
+                author: author ? author : 'GoIt',
+                title: name,
+                text: description,
+                fields: blockNames,
+                number: questions.length,
+                time: Math.round(timeForCompletionInMs / 60000),
+                testStatus: isPassed ? 'done' : 'failed',
+                testDate: convertTestDate(finishedAt),
+                attempts: retakeAttempt + 1,
+                percentageOfCorrectAnswers: Math.round(
+                  percentageOfCorrectAnswers * 100
+                ),
+              }}
+              theme={theme}
+            />
+          </li>
         )
       )}
       {isShowModal && (

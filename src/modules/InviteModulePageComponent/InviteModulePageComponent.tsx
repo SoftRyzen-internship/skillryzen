@@ -25,11 +25,18 @@ const tabs = [
 ];
 
 export const InviteModulePageComponent = () => {
-  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+  const [currentTab, setCurrentTab] = useState(() => {
+    let savedTab = sessionStorage.getItem('invitePageTab');
+    return savedTab ? Number(savedTab) : tabs[0].id;
+  });
+
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
-  const handleChangeTab = (tab: number) => setCurrentTab(tab);
+  const handleChangeTab = (tab: number) => {
+    sessionStorage.setItem('invitePageTab', String(tab));
+    setCurrentTab(tab);
+  };
 
   return (
     <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>

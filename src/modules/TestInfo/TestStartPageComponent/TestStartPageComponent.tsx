@@ -34,7 +34,7 @@ export const TestStartPageComponent = () => {
     blockNames,
     questionsTotalCount,
     timeForCompletionInMs,
-    percentageToPass
+    percentageToPass,
   } = state;
 
   const listInfoJS = {

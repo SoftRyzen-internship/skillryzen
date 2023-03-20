@@ -1,13 +1,12 @@
-import { InviteByEmailBlock } from './InviteByEmailBlock';
-import { InviteByLinkBlock } from './InviteByLinkBlock';
+import { InviteByEmail, InviteByLink } from '../Parts';
 
 import s from './InviteAdminBlock.module.scss';
 
 export const InviteAdminBlock = () => {
   return (
     <div className={s.wrapper}>
-      <InviteByEmailBlock />
-      <InviteByLinkBlock />
+      <InviteByEmail userType='admin' />
+      <InviteByLink userType='admin' />
     </div>
   );
 };

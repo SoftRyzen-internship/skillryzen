@@ -1,7 +1,15 @@
 .wrapper {
-  max-width: 492px;
-  padding: 20px 48px 20px 20px;
   border-radius: 4px;
+
+  &--student {
+    width: 596px;
+    padding: 20px 104px 20px 20px;
+  }
+
+  &--admin {
+    max-width: 492px;
+    padding: 20px 48px 20px 20px;
+  }
 
   &--dark {
     background-color: var(--components-cl);

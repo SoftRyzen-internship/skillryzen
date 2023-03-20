@@ -147,7 +147,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                   blockNames,
                   questionsTotalCount,
                   timeForCompletionInMs,
-                  percentageToPass
+                  percentageToPass,
                 }}
               >
                 <TestCard

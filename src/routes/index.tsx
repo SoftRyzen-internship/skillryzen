@@ -155,31 +155,33 @@ export const AppRoutes = () => {
               ],
             },
             // This block for admin user
-            {...role !== USER_ROLE.candidate && {
-              element: (
-                <MainWrapper
-                  showSidebar={true}
-                  showHeader={true}
-                  isTestingPage={false}
-                >
-                  <Outlet />
-                </MainWrapper>
-              ),
-              children: [
-                {
-                  path: ROUTES.INVITE_MODULE,
-                  element: <InviteModulePage />,
-                },
-                {
-                  path: ROUTES.COMPANY_PROFILE,
-                  element: <UnderDevelopmentPage />,
-                },
-                {
-                  path: ROUTES.COMPANY_SETTINGS,
-                  element: <UnderDevelopmentPage />,
-                },
-              ],
-            }},
+            {
+              ...(role !== USER_ROLE.candidate && {
+                element: (
+                  <MainWrapper
+                    showSidebar={true}
+                    showHeader={true}
+                    isTestingPage={false}
+                  >
+                    <Outlet />
+                  </MainWrapper>
+                ),
+                children: [
+                  {
+                    path: ROUTES.INVITE_MODULE,
+                    element: <InviteModulePage />,
+                  },
+                  {
+                    path: ROUTES.COMPANY_PROFILE,
+                    element: <UnderDevelopmentPage />,
+                  },
+                  {
+                    path: ROUTES.COMPANY_SETTINGS,
+                    element: <UnderDevelopmentPage />,
+                  },
+                ],
+              }),
+            },
           ],
         },
       ],
