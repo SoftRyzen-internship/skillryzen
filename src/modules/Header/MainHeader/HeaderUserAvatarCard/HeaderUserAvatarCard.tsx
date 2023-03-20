@@ -38,7 +38,7 @@ export const HeaderUserAvatarCard = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const name = useAppSelector(getUserName);
   const role = useAppSelector(getUserRole);
@@ -47,7 +47,7 @@ export const HeaderUserAvatarCard = () => {
   const avatar = useMemo(randomAvatar, []);
 
   const popupList = useMemo(() => {
-    if (role === USER_ROLE.companyOwner) {
+    if (role === USER_ROLE.candidate) {
       return [
         {
           icon: <ICONS.USER stroke={iconColor[theme]} />,
@@ -65,11 +65,17 @@ export const HeaderUserAvatarCard = () => {
           path: ROUTES.NOTIFICATIONS,
         },
         {
+          icon: <ICONS.COIN fill={iconColor[theme]} />,
+          text: t('header.userAvatar.coins'),
+          path: ROUTES.COINS,
+        },
+        {
           icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
           text: t('header.userAvatar.logOut'),
         },
       ];
     }
+
     return [
       {
         icon: <ICONS.USER stroke={iconColor[theme]} />,
@@ -85,11 +91,6 @@ export const HeaderUserAvatarCard = () => {
         icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
         text: t('header.userAvatar.notifications'),
         path: ROUTES.NOTIFICATIONS,
-      },
-      {
-        icon: <ICONS.COIN fill={iconColor[theme]} />,
-        text: t('header.userAvatar.coins'),
-        path: ROUTES.COINS,
       },
       {
         icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
@@ -108,10 +109,10 @@ export const HeaderUserAvatarCard = () => {
     }
   };
 
-  const handleClickLogOutBtn = () => {
+  const handleClickLogOutBtn = async () => {
     dispatch(setClickLogOut(true));
-    dispatch(logOut());
-    navigate(ROUTES.LOGIN)
+    await dispatch(logOut());
+    navigate(ROUTES.LOGIN);
   };
 
   const mouseEnterHandler = () => {

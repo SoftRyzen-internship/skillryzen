@@ -78,7 +78,9 @@
     "profile": "Profile",
     "settings": "Settings",
     "feedback": "Feedback",
-    "team": "Team"
+    "team": "Team",
+    "students": "Students",
+    "invite": "Invite module"
   },
   "userProfile": {
     "profileCardTitle": "My profile",
