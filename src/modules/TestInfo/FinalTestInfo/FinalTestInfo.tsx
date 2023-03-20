@@ -10,7 +10,6 @@ import { MainButton } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
 
-
 const objectTheme = {
   dark: {
     title: s.titleDark,
@@ -71,6 +70,7 @@ interface Props {
   finishTest?: boolean;
   test?: string;
   date?: string;
+  modal?: boolean;
 }
 
 export const FinalTestInfo = ({
@@ -92,6 +92,7 @@ export const FinalTestInfo = ({
   finishTest,
   test,
   date,
+  modal
 }: Props) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
@@ -111,7 +112,7 @@ export const FinalTestInfo = ({
   }, []);
 
   return (
-    <div className={finishTest ? s.containerFinish : s.containerStart}>
+    <div className={`${finishTest && !modal && s.containerFinish} ${!finishTest && s.containerStart}`}>
       <div className={s.imageThumb}>
         <img
           className={s.image}
@@ -158,6 +159,19 @@ export const FinalTestInfo = ({
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
+                <listInfo.icons.PERCENTAGE className={objectTheme[theme].icon} />
+              </div>
+              <p className={objectTheme[theme].text}>
+                {t('finalTestInfo.list.percentageToPass')}
+              </p>
+            </div>
+            <p className={objectTheme[theme].textRight}>
+              {`${listInfo.percentageToPass * 100}%`}
+            </p>
+          </li>
+          <li className={s.item}>
+            <div className={s.iconWrapper}>
+              <div className={objectTheme[theme].iconThumb}>
                 <listInfo.icons.QUESTION className={objectTheme[theme].icon} />
               </div>
               <p className={objectTheme[theme].text}>
@@ -167,19 +181,6 @@ export const FinalTestInfo = ({
             <p
               className={objectTheme[theme].textRight}
             >{`${listInfo.questions}`}</p>
-          </li>
-          <li className={s.item}>
-            <div className={s.iconWrapper}>
-              <div className={objectTheme[theme].iconThumb}>
-                <listInfo.icons.QUESTION className={objectTheme[theme].icon} />
-              </div>
-              <p className={objectTheme[theme].text}>
-                {t('finalTestInfo.list.percentageToPass')}
-              </p>
-            </div>
-            <p className={objectTheme[theme].textRight}>
-              {`${listInfo.percentageToPass * 100}%`}
-            </p>
           </li>
           <li className={s.item}>
             <div className={s.iconWrapper}>
@@ -228,8 +229,7 @@ export const FinalTestInfo = ({
                 {`${timeSpent}`}
               </p>
             </li>
-            {date && (
-              <li className={s.item}>
+            <li className={s.item}>
                 <div className={s.iconWrapper}>
                   <div className={objectTheme[theme].iconThumb}>
                     <IconDate className={objectTheme[theme].icon} />
@@ -240,7 +240,6 @@ export const FinalTestInfo = ({
                 </div>
                 <p className={objectTheme[theme].textRight}>{date}</p>
               </li>
-            )}
           </ul>
           {isPassed ? (
             <div className={s.resultIsPassed}>
@@ -270,7 +269,7 @@ export const FinalTestInfo = ({
           )}
         </>
       )}
-      {!date && (
+      {!modal && (
         <MainButton
           type='button'
           text={

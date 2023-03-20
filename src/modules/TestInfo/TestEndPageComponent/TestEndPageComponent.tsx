@@ -17,9 +17,12 @@ import { TestInfoContainer } from '../TestInfoContainer';
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
 import { ROUTES } from 'routes/routes.const';
-import { convertTime } from 'utils/convertTime';
+import { convertTestDate, convertTestTime } from 'utils/convertTime';
+import { useTranslation } from 'react-i18next';
 
 export const TestEndPageComponent = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const testName = useSelector(getTestName);
@@ -28,12 +31,13 @@ export const TestEndPageComponent = () => {
   const correctAnswers = useSelector(getNumberOfCorrectAnswers);
   const totalQuestions = useSelector(getTotalCount);
 
-  const testTime = convertTime(testSeconds);
-
-  const navigate = useNavigate();
+  const testTime = convertTestTime(
+    testSeconds,
+    t('finalTestInfo.min'),
+    t('finalTestInfo.sec')
+  );
 
   const handleClickBtn = () => {
-    // sessionStorage.setItem('currentTabTestsPage', '2');
     dispatch(removeResults());
     navigate(ROUTES.CERTIFICATION);
   };
@@ -42,7 +46,7 @@ export const TestEndPageComponent = () => {
     <TestInfoContainer>
       <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
-        imageProps={{ alt: 'Java Script', width: '120', height: '120' }}
+        imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
         title={testName}
         correctAnswers={correctAnswers}
         totalQuestions={totalQuestions}
@@ -50,8 +54,11 @@ export const TestEndPageComponent = () => {
         isPassed={isPassed}
         iconAnswers={ICONS.CHECK_SMALL}
         iconTime={ICONS.CLOCK}
+        iconDate={ICONS.DATE}
         onClickBtn={handleClickBtn}
         textBtn='End test'
+        modal={false}
+        date={convertTestDate(new Date())}
         test='JS'
         finishTest
       />
