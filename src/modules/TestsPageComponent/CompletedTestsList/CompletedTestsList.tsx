@@ -1,12 +1,14 @@
 /* eslint-disable indent */
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
+import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 
 import { TestCard, Modal } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
-import { IThemeContext } from 'constans/types';
-import { useThemeContext } from 'context/themeContext';
-import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 
@@ -37,11 +39,12 @@ interface TestInfo {
   questions: number;
   percentageOfCorrectAnswers: number;
   isPassed: boolean;
-  timeSpent: number;
+  timeSpent: string;
   date: string;
 }
 
 export const CompletedTestsList = ({ size }: TestsProps) => {
+  const { t } = useTranslation();
   const [isShowModal, setIsShowModal] = useState(false);
   const [testInfo, setTestInfo] = useState<TestInfo>(null);
   const [testsArray, setTestsArray] = useState<Item[]>([]);
@@ -59,20 +62,24 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       .finally(() => setIsLoading(false));
   }, []);
 
-  const findTestTime = (end: string, start: string): number => {
+  const findTestTime = (end: string, start: string): string => {
     const endTime = new Date(end);
     const startTime = new Date(start);
-    return (endTime.getTime() - startTime.getTime()) / 1000;
+    const timeInSec = (endTime.getTime() - startTime.getTime()) / 1000;
+    const minutes = Math.floor(timeInSec / 60);
+    const seconds = Math.floor(timeInSec % 60);
+    const result = `${minutes} ${t('finalTestInfo.min')} ${seconds} ${t(
+      'finalTestInfo.sec'
+    )}`;
+    return end ? result : '0';
   };
 
   const convertTestDate = (end: string): string => {
     const endTime = new Date(end);
-    return end
-      ? `${endTime.getDate()}.${String(endTime.getMonth() + 1).padStart(
-          2,
-          '0'
-        )}.${String(endTime.getFullYear()).slice(2)}`
-      : '';
+    const day = String(endTime.getDate()).padStart(2, '0');
+    const month = String(endTime.getMonth() + 1).padStart(2, '0');
+    const year = String(endTime.getFullYear()).slice(2);
+    return end ? `${day}.${month}.${year}` : '';
   };
 
   const handleClickModal = () => {
@@ -117,43 +124,40 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
           finishedAt,
           startedAt,
         }) => (
-          <li
-            key={id}
-            onClick={() =>
-              handleClickItem(
-                id,
-                name,
-                questions,
-                percentageOfCorrectAnswers,
-                isPassed,
-                finishedAt,
-                startedAt
-              )
-            }
-            className={s.item}
-          >
-            <TestCard
-              size={size}
-              item={{
-                author: author ? author : 'GoIt',
-                title: name,
-                text: description ? description : 'Welcome to Star class LMS!',
-                fields:
-                  blockNames?.length !== 0
-                    ? blockNames
-                    : ['React', 'JS', 'HTML+CSS'],
-                number: questions.length,
-                time: Math.round(timeForCompletionInMs / 60000),
-                testStatus: isPassed ? 'done' : 'failed',
-                testDate: convertTestDate(finishedAt),
-                attempts: retakeAttempt ? retakeAttempt + 1 : '?',
-                percentageOfCorrectAnswers: Math.round(
-                  percentageOfCorrectAnswers * 100
-                ),
-              }}
-              theme={theme}
-            />
-          </li>
+            <li
+              key={id}
+              onClick={() =>
+                handleClickItem(
+                  id,
+                  name,
+                  questions,
+                  percentageOfCorrectAnswers,
+                  isPassed,
+                  finishedAt,
+                  startedAt
+                )
+              }
+              className={s.item}
+            >
+              <TestCard
+                size={size}
+                item={{
+                  author: author ? author : 'GoIt',
+                  title: name,
+                  text: description,
+                  fields: blockNames,
+                  number: questions.length,
+                  time: Math.round(timeForCompletionInMs / 60000),
+                  testStatus: isPassed ? 'done' : 'failed',
+                  testDate: convertTestDate(finishedAt),
+                  attempts: retakeAttempt + 1,
+                  percentageOfCorrectAnswers: Math.round(
+                    percentageOfCorrectAnswers * 100
+                  ),
+                }}
+                theme={theme}
+              />
+            </li>
         )
       )}
       {isShowModal && (
@@ -171,7 +175,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 testInfo.percentageOfCorrectAnswers * testInfo.questions
               }
               totalQuestions={testInfo.questions}
-              timeSpent={Math.round(testInfo.timeSpent)}
+              timeSpent={testInfo.timeSpent}
               isPassed={testInfo.isPassed}
               iconAnswers={ICONS.CHECK_SMALL}
               iconTime={ICONS.CLOCK}
