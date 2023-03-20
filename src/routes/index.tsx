@@ -1,6 +1,7 @@
 import { Navigate, useRoutes, Outlet } from 'react-router-dom';
 
 import { useAppSelector } from 'hooks/hook';
+import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import {
   MainWrapper,
@@ -9,27 +10,29 @@ import {
   ProtectedRoute,
 } from 'modules/wrappers';
 
+import TeamPage from 'pages/TeamPage';
 import LoginPage from 'pages/LoginPage';
 import TestsPage from 'pages/TestsPage';
-import CompanyPage from 'pages/CompanyPage';
+import CoinsPage from 'pages/CoinsPage';
 import TestingPage from 'pages/TestingPage';
 import TestEndPage from 'pages/TestEndPage';
-import RegisterPage from 'pages/RegisterPage';
-import TestStartPage from 'pages/TestStartPage';
 import ProfilePage from 'pages/ProfilePage';
-import CoinsPage from 'pages/CoinsPage';
-import NotificationsPage from 'pages/NotificationsPage';
-import ProfileSettingsPage from 'pages/ProfileSettingsPage';
+import RegisterPage from 'pages/RegisterPage';
 import FeedbackPage from 'pages/FeedbackPage';
-import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
+import TestStartPage from 'pages/TestStartPage';
 import InviteModulePage from 'pages/InviteModulePage';
-import TeamPage from 'pages/TeamPage';
+import NotificationsPage from 'pages/NotificationsPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
+import ProfileSettingsPage from 'pages/ProfileSettingsPage';
+import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
 import { ROUTES } from './routes.const';
+import { USER_ROLE } from 'constans/consts';
 
 export const AppRoutes = () => {
   const isAuth = useAppSelector(state => state.auth.isAuth);
+  const role = useAppSelector(getUserRole);
+
   const routes = [
     {
       path: ROUTES.HOME,
@@ -152,7 +155,7 @@ export const AppRoutes = () => {
               ],
             },
             // This block for admin user
-            {
+            {...role !== USER_ROLE.candidate && {
               element: (
                 <MainWrapper
                   showSidebar={true}
@@ -176,8 +179,7 @@ export const AppRoutes = () => {
                   element: <UnderDevelopmentPage />,
                 },
               ],
-            },
-            { path: '/company', element: <CompanyPage /> },
+            }},
           ],
         },
       ],
@@ -193,6 +195,7 @@ export const AppRoutes = () => {
       ),
     },
   ];
+
   const routing = useRoutes(routes);
 
   return routing;
