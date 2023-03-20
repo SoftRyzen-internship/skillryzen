@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlise';
 import { Theme } from 'constans/types';
 import { convertTime } from 'utils/convertTime';
-import {
-  getResultTime,
-  getTimeLeft,
-} from 'redux/testingInfo/testingInfoSelectors';
+import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlise';
+import { getResultsTestId } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
+import { useLocation } from 'react-router';
 
 interface Timer {
   theme?: Theme;
@@ -18,14 +16,13 @@ interface Timer {
 export const Timer = ({ theme = 'dark' }: Timer) => {
   const { hasNextQuestion, questionId, totalTime, currentTime, number } =
     useAppSelector(state => state.testingInfo);
-  const timeResult = useAppSelector(getResultTime);
-  const timeLeft = useAppSelector(getTimeLeft);
-
+  const resultsTestId = useAppSelector(getResultsTestId);
+  const { pathname } = useLocation();
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(currentTime);
 
   useEffect(() => {
-    if (timeResult) return;
+    if (resultsTestId) return;
     if (!totalTime) return;
 
     if (seconds === 0 && questionId) {
@@ -59,13 +56,17 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   }, [questionId]);
 
   return (
-    <div>
-      <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
-        Time left:
-      </p>
-      <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
-        {timeResult ? convertTime(timeLeft) : convertTime(seconds)}
-      </p>
-    </div>
+    <>
+      {pathname !== '/testing/test-end' && (
+        <div>
+          <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
+            Time left:
+          </p>
+          <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
+            {convertTime(seconds)}
+          </p>
+        </div>
+      )}
+    </>
   );
 };

@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { convertTestDate, convertTestTime } from 'utils/convertTime';
 import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 
 import { TestCard, Modal } from 'ui-kit';
@@ -66,20 +67,18 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
     const endTime = new Date(end);
     const startTime = new Date(start);
     const timeInSec = (endTime.getTime() - startTime.getTime()) / 1000;
-    const minutes = Math.floor(timeInSec / 60);
-    const seconds = Math.floor(timeInSec % 60);
-    const result = `${minutes} ${t('finalTestInfo.min')} ${seconds} ${t(
-      'finalTestInfo.sec'
-    )}`;
+    const result = convertTestTime(
+      timeInSec,
+      t('finalTestInfo.min'),
+      t('finalTestInfo.sec')
+    );
     return end ? result : '0';
   };
 
-  const convertTestDate = (end: string): string => {
+  const findTestDate = (end: string): string => {
     const endTime = new Date(end);
-    const day = String(endTime.getDate()).padStart(2, '0');
-    const month = String(endTime.getMonth() + 1).padStart(2, '0');
-    const year = String(endTime.getFullYear()).slice(2);
-    return end ? `${day}.${month}.${year}` : '';
+    const result = convertTestDate(endTime);
+    return end ? result : '';
   };
 
   const handleClickModal = () => {
@@ -102,28 +101,29 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       percentageOfCorrectAnswers,
       isPassed,
       timeSpent: findTestTime(finishedAt, startedAt),
-      date: convertTestDate(finishedAt),
+      date: findTestDate(finishedAt),
     });
     handleClickModal();
   };
 
   return (
-    <ul className={`${s[`testsList--${size}`]}`}>
-      {testsArray.map(
-        ({
-          id,
-          author,
-          name,
-          description,
-          blockNames,
-          questions,
-          timeForCompletionInMs,
-          isPassed,
-          percentageOfCorrectAnswers,
-          retakeAttempt,
-          finishedAt,
-          startedAt,
-        }) => (
+    <>
+      <ul className={`${s[`testsList--${size}`]}`}>
+        {testsArray.map(
+          ({
+            id,
+            author,
+            name,
+            description,
+            blockNames,
+            questions,
+            timeForCompletionInMs,
+            isPassed,
+            percentageOfCorrectAnswers,
+            retakeAttempt,
+            finishedAt,
+            startedAt,
+          }) => (
             <li
               key={id}
               onClick={() =>
@@ -149,7 +149,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                   number: questions.length,
                   time: Math.round(timeForCompletionInMs / 60000),
                   testStatus: isPassed ? 'done' : 'failed',
-                  testDate: convertTestDate(finishedAt),
+                  testDate: findTestDate(finishedAt),
                   attempts: retakeAttempt + 1,
                   percentageOfCorrectAnswers: Math.round(
                     percentageOfCorrectAnswers * 100
@@ -158,8 +158,16 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 theme={theme}
               />
             </li>
-        )
-      )}
+          )
+        )}
+        {isLoading && (
+          <Skeleton
+            length={size === 'large' ? 4 : 8}
+            value='skeleton'
+            className={`${s[`skeletonItem--${size}`]}`}
+          />
+        )}
+      </ul>
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <div className={s.container}>
@@ -171,9 +179,9 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
                 height: '120',
               }}
               title={testInfo.name}
-              correctAnswers={
+              correctAnswers={Math.floor(
                 testInfo.percentageOfCorrectAnswers * testInfo.questions
-              }
+              )}
               totalQuestions={testInfo.questions}
               timeSpent={testInfo.timeSpent}
               isPassed={testInfo.isPassed}
@@ -183,17 +191,11 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
               onClickBtn={handleClickModal}
               finishTest
               date={testInfo.date}
+              modal={true}
             />
           </div>
         </Modal>
       )}
-      {isLoading && (
-        <Skeleton
-          length={size === 'large' ? 4 : 8}
-          value='skeleton'
-          className={`${s[`skeletonItem--${size}`]}`}
-        />
-      )}
-    </ul>
+    </>
   );
 };
