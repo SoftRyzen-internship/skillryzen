@@ -80,7 +80,15 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.CERTIFICATION,
-                      element: <Outlet />,
+                      element:
+                        role !== USER_ROLE.candidate ? (
+                          <Navigate
+                            to={ROUTES.COMPANY_CERTIFICATION}
+                            replace={true}
+                          />
+                        ) : (
+                          <Outlet />
+                        ),
                       children: [
                         {
                           path: '',
@@ -167,6 +175,19 @@ export const AppRoutes = () => {
                   </MainWrapper>
                 ),
                 children: [
+                  {
+
+                    path: ROUTES.COMPANY_DASHBOARD,
+                    element: <UnderDevelopmentPage />,
+                  },
+                  {
+                    path: ROUTES.COMPANY_CERTIFICATION,
+                    element: <UnderDevelopmentPage />,
+                  },
+                  {
+                    path: ROUTES.STUDENTS,
+                    element: <UnderDevelopmentPage />,
+                  },
                   {
                     path: ROUTES.INVITE_MODULE,
                     element: <InviteModulePage />,

@@ -11,6 +11,7 @@ import {
 } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './ProgressBar.module.scss';
+import { useLocation } from 'react-router';
 
 interface Props {
   theme?: Theme;
@@ -20,6 +21,7 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
   const number = useAppSelector(getQuestionNumber);
   const total = useAppSelector(getTotalCount);
   const [array, setArray] = useState<number[]>([]);
+  const { pathname } = useLocation();
 
   useEffect(() => {
     if (!total) return;
@@ -27,20 +29,16 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
     // eslint-disable-next-line
   }, [total]);
 
-  const returnCurrentNumber = (number: number) => {
-    return number > total ? total : number;
-  };
-
   return (
     <div className={s.progressBar}>
-      {array && array.length > 0 && (
+      {pathname !== '/testing/test-end' && array?.length > 0 && (
         <>
           <p
             className={`${s.progressBar__info} ${
               s[`progressBar__info--${theme}`]
             }`}
           >
-            Question {returnCurrentNumber(number)}/{total}
+            Question {number}/{total}
           </p>
           <div className={s.progressBar__wrapper}>
             <ul className={s.progressBar__list}>

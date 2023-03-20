@@ -62,6 +62,7 @@ import IconUkraine from 'assets/svg/ukraine.svg';
 import IconUK from 'assets/svg/united-kingdom.svg';
 import IconUser from 'assets/svg/user.svg';
 import IconUsers from 'assets/svg/users.svg';
+import IconPercentage from 'assets/svg/percentage.svg';
 import IconWarningCircle from 'assets/svg/warning-circle.svg';
 import IconWarningRound from 'assets/svg/warning-round.svg';
 import IconChevronUp from 'assets/svg/chevron-up.svg';
@@ -192,6 +193,7 @@ export const ICONS: Icons = {
   UK: IconUK,
   USER: IconUser,
   USERS: IconUsers,
+  PERCENTAGE: IconPercentage,
   WARNING_CIRCLE: IconWarningCircle,
   WARNING_ROUND: IconWarningRound,
   CHEVRON_UP: IconChevronUp,
