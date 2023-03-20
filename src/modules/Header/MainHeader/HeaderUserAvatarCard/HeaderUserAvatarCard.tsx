@@ -1,5 +1,6 @@
 import { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router';
 
 import { logOut } from 'redux/authSlice/operations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
@@ -37,6 +38,7 @@ export const HeaderUserAvatarCard = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate()
 
   const name = useAppSelector(getUserName);
   const role = useAppSelector(getUserRole);
@@ -109,6 +111,7 @@ export const HeaderUserAvatarCard = () => {
   const handleClickLogOutBtn = () => {
     dispatch(setClickLogOut(true));
     dispatch(logOut());
+    navigate(ROUTES.LOGIN)
   };
 
   const mouseEnterHandler = () => {
