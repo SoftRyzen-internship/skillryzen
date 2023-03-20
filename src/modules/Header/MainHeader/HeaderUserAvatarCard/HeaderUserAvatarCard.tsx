@@ -38,7 +38,7 @@ export const HeaderUserAvatarCard = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const name = useAppSelector(getUserName);
   const role = useAppSelector(getUserRole);
@@ -109,10 +109,10 @@ export const HeaderUserAvatarCard = () => {
     }
   };
 
-  const handleClickLogOutBtn = () => {
+  const handleClickLogOutBtn = async () => {
     dispatch(setClickLogOut(true));
-    dispatch(logOut());
-    navigate(ROUTES.LOGIN)
+    await dispatch(logOut());
+    navigate(ROUTES.LOGIN);
   };
 
   const mouseEnterHandler = () => {

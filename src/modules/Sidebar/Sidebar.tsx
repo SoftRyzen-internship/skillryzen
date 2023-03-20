@@ -66,19 +66,19 @@ export const Sidebar = () => {
         title: t('sidebar.dashboard'),
         icon: ICONS.CHART,
         iconAlt: 'dashboard',
-        path: ROUTES.HOME,
+        path: ROUTES.COMPANY_DASHBOARD,
       },
       {
         title: t('sidebar.certification'),
         icon: ICONS.DIPLOMA,
         iconAlt: 'Certification',
-        path: ROUTES.HOME,
+        path: ROUTES.COMPANY_CERTIFICATION,
       },
       {
         title: t('sidebar.students'),
         icon: ICONS.USER_GROUP,
-        iconAlt: 'Vacancies',
-        path: ROUTES.HOME,
+        iconAlt: 'Students',
+        path: ROUTES.STUDENTS,
       },
       {
         title: t('sidebar.invite'),
