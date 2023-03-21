@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router';
+import { useIsOnline } from 'react-use-is-online';
 
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { Theme } from 'constans/types';
@@ -7,21 +9,26 @@ import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlise';
 import { getResultsTestId } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
-import { useLocation } from 'react-router';
 
 interface Timer {
   theme?: Theme;
 }
 
+interface Navigation {
+  fetchStart: number;
+}
+
 export const Timer = ({ theme = 'dark' }: Timer) => {
-  const { hasNextQuestion, questionId, totalTime, currentTime, number } =
+  const { hasNextQuestion, questionId, totalTime, currentTime } =
     useAppSelector(state => state.testingInfo);
+  const { isOffline } = useIsOnline();
   const resultsTestId = useAppSelector(getResultsTestId);
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
   const [seconds, setSeconds] = useState<number>(currentTime);
 
   useEffect(() => {
+    if (isOffline) return;
     if (resultsTestId) return;
     if (!totalTime) return;
 
@@ -33,9 +40,13 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       setSeconds(seconds => seconds - 1);
     }, 1000);
 
+    window.addEventListener('beforeunload', function () {
+      dispatch(setCurrentTime(seconds));
+    });
+
     return () => clearInterval(intervalId);
     // eslint-disable-next-line
-  }, [seconds]);
+  }, [seconds, isOffline]);
 
   useEffect(() => {
     if (hasNextQuestion) return;
@@ -48,12 +59,6 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     setSeconds(currentTime);
     // eslint-disable-next-line
   }, [totalTime]);
-
-  useEffect(() => {
-    if (!questionId || number === 1) return;
-    dispatch(setCurrentTime(seconds));
-    // eslint-disable-next-line
-  }, [questionId]);
 
   return (
     <>
