@@ -3,7 +3,10 @@
   align-items: center;
   font-size: var(--text-sm);
   line-height: 1.2;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
+  @media (min-width: 768px) {
+    margin-bottom: 8px;
+  }
 }
 
 .crumbsDark {
