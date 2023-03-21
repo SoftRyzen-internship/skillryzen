@@ -11,7 +11,6 @@ import { getResultsTestId } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
 
-
 interface Timer {
   theme?: Theme;
 }
@@ -26,7 +25,6 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
 
-
   useEffect(() => {
     if (isOffline) return;
     if (resultsTestId) return;
@@ -36,6 +34,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
       return;
     }
+    
     const intervalId = setInterval(() => {
       setSeconds(seconds => seconds - 1);
     }, 1000);
