@@ -15,6 +15,10 @@
   align-items: center;
   width: 52px;
   height: 52px;
+  @media (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+  }
 }
 
 .circleContainerActive {
@@ -31,6 +35,10 @@
   height: 32px;
   border-radius: 50%;
   font-weight: var(--bold);
+  @media (max-width: 767px) {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .inactiveCircleDark {
@@ -75,6 +83,9 @@
 .inactiveLine {
   width: 52px;
   height: 2px;
+  @media (max-width: 767px) {
+    width: 20px;
+  }
 }
 
 .inactiveLineDark {
@@ -123,6 +134,10 @@
   line-height: 1.6;
   color: inherit;
   letter-spacing: 2px;
+  @media (max-width: 767px) {
+    font-size: 8px;
+    margin-left: 0;
+  }
 }
 
 .icon {

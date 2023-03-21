@@ -26,4 +26,10 @@
 
   display: flex;
   gap: 12px;
+  @media (max-width: 1279px) {
+    right: 32px;
+  }
+  @media (max-width: 767px) {
+    right: 20px;
+  }
 }
