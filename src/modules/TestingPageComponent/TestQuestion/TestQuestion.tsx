@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015, vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -53,6 +54,7 @@ export const TestQuestion = () => {
   const time = useAppSelector(getResultTime);
   const testResultId = useAppSelector(getResultsTestId);
 
+  const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -120,7 +122,7 @@ export const TestQuestion = () => {
         <div className={s.buttonWrapper}>
           <MainButton
             type='button'
-            text='Answer'
+            text={t('testing.answer')}
             onClick={handleAnswer}
             size='small'
             color='blue'
