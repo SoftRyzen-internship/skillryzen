@@ -37,7 +37,8 @@
   },
   "testing": {
     "timer": "Time left",
-    "question": "Question"
+    "question": "Question",
+    "answer": "Answer"
   },
   "header": {
     "search": "Search..",

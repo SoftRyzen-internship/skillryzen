@@ -37,7 +37,8 @@
   },
   "testing": {
     "timer": "Залишилось",
-    "question": "Питання"
+    "question": "Питання",
+    "answer": "Відповісти"
   },
   "header": {
     "search": "Шукати..",
