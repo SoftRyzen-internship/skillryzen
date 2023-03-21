@@ -2,3 +2,7 @@
   padding: 20px 60px 15px 64px;
   width: 100%;
 }
+
+.gridColumns {
+  grid-template-columns: 0.5fr 2fr 1fr 1fr;
+}
