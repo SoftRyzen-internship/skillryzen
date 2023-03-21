@@ -20,6 +20,7 @@ import ProfilePage from 'pages/ProfilePage';
 import RegisterPage from 'pages/RegisterPage';
 import FeedbackPage from 'pages/FeedbackPage';
 import TestStartPage from 'pages/TestStartPage';
+import LeaderboardPage from 'pages/LeaderboardPage';
 import InviteModulePage from 'pages/InviteModulePage';
 import NotificationsPage from 'pages/NotificationsPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
@@ -106,7 +107,7 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.LEADERBOARD,
-                      element: <UnderDevelopmentPage />,
+                      element: <LeaderboardPage />,
                     },
                     {
                       path: ROUTES.VACANCIES,
@@ -176,7 +177,6 @@ export const AppRoutes = () => {
                 ),
                 children: [
                   {
-
                     path: ROUTES.COMPANY_DASHBOARD,
                     element: <UnderDevelopmentPage />,
                   },
