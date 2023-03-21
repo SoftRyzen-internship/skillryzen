@@ -1,45 +1,48 @@
 .section {
   margin: 0 auto;
   padding-top: 30px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-
-  @media (max-width: 767px) {
-    gap: 30px;
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+}
+.logo {
+  display: inline-block;
+  margin-bottom: 30px;
+  @media (min-width: 768px) {
+    margin-bottom: 40px;
   }
 }
 
 .formWrapper {
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   text-align: center;
 }
 
 .stepTitle {
-  margin: 0 auto 12px;
-  max-width: 369px;
+  margin: 24px auto 12px;
+  max-width: 239px;
+  font-size: var(--subtitle);
 
-  font-size: var(--title);
   font-weight: var(--extrabold);
   &.thirdStep {
-    max-width: 424px;
-    @media (max-width: 767px) {
-      max-width: 280px;
+    max-width: 280px;
+    @media (min-width: 768px) {
+      max-width: 424px;
     }
   }
 
-  @media (max-width: 767px) {
-    max-width: 239px;
-    margin-top: -6px;
-    font-size: var(--subtitle);
+  @media (min-width: 768px) {
+    margin-top: 40px;
+    max-width: 369px;
+    font-size: var(--title);
   }
 }
 
 .stepSubtitle {
   margin-bottom: 12px;
-  @media (max-width: 767px) {
-    font-size: var(--text-md);
+  @media (min-width: 768px) {
+    font-size: var(--text-lg);
   }
 }
 

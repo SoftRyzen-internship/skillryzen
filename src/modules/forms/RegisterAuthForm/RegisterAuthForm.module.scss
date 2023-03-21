@@ -1,8 +1,9 @@
 .form {
   margin-top: 20px;
-  max-width: 424px;
-  @media (max-width: 767px) {
-    max-width: 280px;
+
+  max-width: 280px;
+  @media (min-width: 768px) {
+    max-width: 424px;
   }
 }
 
@@ -17,12 +18,15 @@
   margin-bottom: 26px;
   padding-left: 36px;
 
-  font-size: 14px;
+  font-size: 12px;
   text-align: left;
 
   color: var(--secondary-txt-cl);
 
   cursor: pointer;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
 }
 
 .boxOrDark {

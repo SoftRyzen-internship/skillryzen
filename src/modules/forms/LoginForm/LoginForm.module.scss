@@ -1,23 +1,22 @@
 .form {
-  min-width: 424px;
-
+  min-width: 280px;
   text-align: left;
-  @media (max-width: 767px) {
-    min-width: 280px;
+  @media (min-width: 768px) {
+    min-width: 424px;
   }
 }
 
 .checkboxLabel {
   padding-left: 36px;
 
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.6;
 
   color: var(--secondary-txt-cl);
 
   cursor: pointer;
-  @media (max-width: 767px) {
-    font-size: 12px;
+  @media (min-width: 768px) {
+    font-size: 14px;
   }
 }
 
@@ -118,9 +117,10 @@
 }
 
 .forgotPassword {
+  font-size: 12px;
   font-weight: var(--bold);
   color: var(--accent-cl);
-  @media (max-width: 767px) {
-    font-size: 12px;
+  @media (min-width: 768px) {
+    font-size: 14px;
   }
 }

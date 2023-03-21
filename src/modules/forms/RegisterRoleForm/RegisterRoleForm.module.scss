@@ -1,23 +1,20 @@
 .form {
   min-height: 374px;
-
   display: flex;
   flex-direction: column;
 }
 
 .formTitle {
-  margin-bottom: 20px;
-  @media (max-width: 767px) {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
+  @media (min-width: 768px) {
+    margin-bottom: 20px;
   }
 }
 
 .roleList {
-  margin-bottom: 24px;
-
+  margin-bottom: 32px;
   display: flex;
-  gap: 24px;
-
+  gap: 20px;
   color: var(--secondary-txt-cl);
 
   input:checked + .roleBtnDark {
@@ -35,8 +32,8 @@
     transition: color var(--transition), border-color var(--transition),
       background-color var(--transition);
   }
-  @media (max-width: 767px) {
-    margin-bottom: 32px;
+  @media (min-width: 768px) {
+    margin-bottom: 24px;
     gap: 20px;
   }
 }
@@ -51,7 +48,7 @@
 
 .roleBtn {
   padding: 20px;
-  min-width: 200px;
+  min-width: 130px;
 
   display: flex;
   flex-direction: column;
@@ -64,8 +61,8 @@
   border-radius: 4px;
 
   cursor: pointer;
-  @media (max-width: 767px) {
-    min-width: 130px;
+  @media (min-width: 768px) {
+    min-width: 200px;
   }
 }
 

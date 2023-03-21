@@ -24,7 +24,9 @@ export const Login = () => {
 
   return (
     <section className={s.section}>
-      <Logo content='SkillRyzen' />
+      <div className={s.logo}>
+        <Logo content='SkillRyzen' />
+      </div>
       <h2 className={s.loginTitle}>{t('auth.loginTitle')}</h2>
       <p className={s.loginSubtitle}>
         {t('auth.registerLabel')}{' '}

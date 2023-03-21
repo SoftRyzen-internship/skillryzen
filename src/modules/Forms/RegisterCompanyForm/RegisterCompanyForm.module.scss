@@ -1,14 +1,12 @@
 .form {
   margin-top: 20px;
-
-  min-width: 424px;
+  min-width: 280px;
   min-height: 323px;
-
   display: flex;
   flex-direction: column;
 
-  @media (max-width: 767px) {
-    min-width: 280px;
+  @media (min-width: 768px) {
+    min-width: 424px;
   }
 }
 

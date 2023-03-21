@@ -1,12 +1,11 @@
 .sectionRegister {
-  @media (max-width: 1279px) {
-    display: none;
-  }
-  @media (min-width: 1280px) {
-    width: 49.2vw;
-    height: 100vh;
+  display: none;
+  width: 49.2vw;
+  height: 100vh;
+  background-color: var(--accent-cl);
 
-    background-color: var(--accent-cl);
+  @media (min-width: 1280px) {
+    display: block;
   }
 }
 
