@@ -2,6 +2,9 @@
   min-width: 424px;
 
   text-align: left;
+  @media (max-width: 767px) {
+    min-width: 280px;
+  }
 }
 
 .checkboxLabel {
@@ -13,6 +16,9 @@
   color: var(--secondary-txt-cl);
 
   cursor: pointer;
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 }
 
 .inputsList {
@@ -114,4 +120,7 @@
 .forgotPassword {
   font-weight: var(--bold);
   color: var(--accent-cl);
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
 }

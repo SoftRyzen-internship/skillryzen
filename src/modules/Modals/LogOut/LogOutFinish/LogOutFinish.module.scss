@@ -3,6 +3,10 @@
   align-items: center;
   flex-direction: column;
   padding: 80px 122px 150px 122px;
+  @media (max-width: 767px) {
+    min-width: 280px;
+    padding: 80px 10px;
+  }
 }
 
 .imgContainer {
@@ -34,4 +38,8 @@
   font-weight: var(--bold);
   font-size: var(--subtitle);
   text-align: center;
+  @media (max-width: 767px) {
+    width: 199px;
+    font-size: var(--text-lg);
+  }
 }

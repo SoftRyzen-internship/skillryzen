@@ -22,8 +22,15 @@
 
   font-size: var(--title);
   font-weight: var(--extrabold);
+  &.thirdStep {
+    max-width: 424px;
+    @media (max-width: 767px) {
+      max-width: 280px;
+    }
+  }
 
   @media (max-width: 767px) {
+    max-width: 239px;
     margin-top: -6px;
     font-size: var(--subtitle);
   }

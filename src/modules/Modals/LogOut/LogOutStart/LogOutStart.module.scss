@@ -3,6 +3,9 @@
   align-items: center;
   flex-direction: column;
   padding: 60px 63px 40px 63px;
+  @media (max-width: 767px) {
+    padding: 60px 10px;
+  }
 }
 
 .image {
@@ -11,10 +14,15 @@
 
 .subtitle {
   width: 292px;
-  margin-bottom: 56px;
+  margin-bottom: 80px;
   font-weight: var(--bold);
   font-size: var(--subtitle);
   text-align: center;
+  @media (max-width: 767px) {
+    width: 199px;
+    margin-bottom: 74px;
+    font-size: var(--text-lg);
+  }
 }
 
 .btnContainer {
@@ -25,6 +33,10 @@
 .cancelBtn {
   min-width: 200px;
   margin-right: 10px;
+  @media (max-width: 767px) {
+    min-width: 120px;
+    margin-right: 20px;
+  }
 }
 
 .logOutBtn {

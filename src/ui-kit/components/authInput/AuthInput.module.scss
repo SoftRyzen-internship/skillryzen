@@ -59,6 +59,9 @@
     -webkit-text-fill-color: var(--primary-txt-cl);
     -webkit-background-clip: text;
   }
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
 }
 
 .inputLight {
