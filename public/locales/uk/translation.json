@@ -35,6 +35,10 @@
     "numberOfQuestions": "запитань",
     "time": "хв"
   },
+  "testing": {
+    "timer": "Залишилось",
+    "question": "Питання"
+  },
   "header": {
     "search": "Шукати..",
     "admin": "Адмін",

@@ -35,6 +35,10 @@
     "numberOfQuestions": "questions",
     "time": "min"
   },
+  "testing": {
+    "timer": "Time left",
+    "question": "Question"
+  },
   "header": {
     "search": "Search..",
     "admin": "Admin",
