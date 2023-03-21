@@ -1,26 +1,24 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
-
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015, vs } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import { MainButton, RadioButton } from 'ui-kit';
 import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
+import { ROUTES } from 'routes/routes.const';
+import { formatCode } from 'utils/formatCode';
+import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import {
   answerTest,
   finishTest,
 } from 'redux/testingInfo/testingInfoOperations';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import {
   getResultTime,
   getResultsTestId,
 } from 'redux/testingInfo/testingInfoSelectors';
-import { useThemeContext } from 'context/themeContext';
+
+import { MainButton, RadioButton } from 'ui-kit';
 import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
-
-import { formatCode } from 'utils/formatCode';
-
-import { ROUTES } from 'routes/routes.const';
 
 import s from './TestQuestion.module.scss';
 
@@ -50,11 +48,11 @@ export const TestQuestion = () => {
     number,
     questionsTotalCount,
   } = useAppSelector(state => state.testingInfo);
+  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
 
   const time = useAppSelector(getResultTime);
   const testResultId = useAppSelector(getResultsTestId);
 
-  const [selectedAnswer, setSelectedAnswer] = useState<string>('');
   const { theme }: IThemeContext = useThemeContext();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
