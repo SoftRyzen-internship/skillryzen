@@ -14,18 +14,15 @@ interface Timer {
   theme?: Theme;
 }
 
-interface Navigation {
-  fetchStart: number;
-}
-
 export const Timer = ({ theme = 'dark' }: Timer) => {
   const { hasNextQuestion, questionId, totalTime, currentTime } =
     useAppSelector(state => state.testingInfo);
-  const { isOffline } = useIsOnline();
   const resultsTestId = useAppSelector(getResultsTestId);
+  const [seconds, setSeconds] = useState<number>(currentTime);
+  const { isOffline } = useIsOnline();
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
-  const [seconds, setSeconds] = useState<number>(currentTime);
+
 
   useEffect(() => {
     if (isOffline) return;
