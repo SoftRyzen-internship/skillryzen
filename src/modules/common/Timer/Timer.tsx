@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import { useIsOnline } from 'react-use-is-online';
+import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { Theme } from 'constans/types';
@@ -19,10 +20,10 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     useAppSelector(state => state.testingInfo);
   const resultsTestId = useAppSelector(getResultsTestId);
   const [seconds, setSeconds] = useState<number>(currentTime);
+  const { t } = useTranslation();
   const { isOffline } = useIsOnline();
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
-
 
   useEffect(() => {
     if (isOffline) return;
@@ -33,6 +34,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
       return;
     }
+    
     const intervalId = setInterval(() => {
       setSeconds(seconds => seconds - 1);
     }, 1000);
@@ -62,7 +64,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       {pathname !== '/testing/test-end' && (
         <div>
           <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
-            Time left:
+          {t('testing.timer')}
           </p>
           <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
             {convertTime(seconds)}
