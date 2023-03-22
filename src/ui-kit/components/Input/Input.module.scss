@@ -2,7 +2,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-width: 334px;
+  min-width: 232px;
+  width: 100%;
+  @media (min-width: 480px) {
+    width: 334px;
+  }
 }
 
 .input--common {

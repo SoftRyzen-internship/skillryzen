@@ -20,18 +20,28 @@ export const OneFieldFilter = ({
   setFilter,
 }: OneFieldFilterProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const filterRef = useRef(null);
 
   useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
     const handleMouseDown = (event: MouseEvent) => {
-      if (filterRef.current && !filterRef.current.contains(event.target)) {
+      if (filterRef.current && !filterRef.current?.contains(event.target)) {
         setIsOpen(false);
       }
     };
+
     document.addEventListener('mousedown', handleMouseDown);
+
     return () => {
+      window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleMouseDown);
     };
   }, []);
@@ -51,7 +61,7 @@ export const OneFieldFilter = ({
         onClick={() => setIsOpen(prev => !prev)}
       >
         <ICONS.FILTER_TWO className={s.filter__icon} />
-        <span>{t('testsMain.filter')}</span>
+        {windowWidth > 767 && <span>{t('testsMain.filter')}</span>}
       </button>
       <ul
         className={`${s.filter__list} ${!isOpen && s['filter__list--hidden']} ${
