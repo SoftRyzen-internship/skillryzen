@@ -276,7 +276,7 @@ export const FinalTestInfo = ({
               : t('finalTestInfo.startTest')
           }
           disabled={
-            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)
+            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1023)
           }
           onClick={onClickBtn}
           size='large'
@@ -286,7 +286,7 @@ export const FinalTestInfo = ({
           }
         />
       )}
-      {!finishTest && windowWidth <= 1280 && (
+      {!finishTest && windowWidth < 1023 && (
         <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
       )}
     </div>

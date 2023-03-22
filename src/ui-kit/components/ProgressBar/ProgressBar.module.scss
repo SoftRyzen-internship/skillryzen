@@ -17,10 +17,14 @@
 }
 
 .progressBar__list {
-  max-width: 946px;
+  max-width: 836px;
   display: flex;
   align-items: center;
   gap: 4px;
+
+  @media (min-width: 1280px) {
+    max-width: 946px;
+  }
 }
 
 .progressBar__line {
