@@ -49,8 +49,7 @@ export const UnderDevelopment = () => {
         </h2>
         <div className={s.imageWrapper}>
           {objectTheme[theme].icons.UNDER_DEVELOPMENT_MAIN({
-            width: '388',
-            height: '208',
+            className: s.main,
           })}
           {objectTheme[theme].icons.GEAR_BLUE({ className: s.gearBlue })}
           {objectTheme[theme].icons.GEAR_GRAY({ className: s.gearGray })}
