@@ -13,6 +13,7 @@ interface IProps {
   readOnly?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  labelClassName?: string;
 }
 
 export const Input = ({
@@ -27,9 +28,10 @@ export const Input = ({
   readOnly,
   onChange,
   onClick,
+  labelClassName
 }: IProps) => {
   return (
-    <label className={s.inputContainer}>
+    <label className={`${s.inputContainer} ${labelClassName && labelClassName}`} >
       <input
         className={`${s[`input--${theme}`]} ${className && className}`}
         name={name}
