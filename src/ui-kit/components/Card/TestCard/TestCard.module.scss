@@ -316,6 +316,10 @@
     width: 100%;
     border-radius: 0px 0px 10px 10px;
   }
+
+  .card--large & {
+    padding: 12px;
+  }
 }
 
 .tryAgain {

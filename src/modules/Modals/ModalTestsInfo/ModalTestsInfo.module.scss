@@ -1,4 +1,8 @@
 .container {
-  padding: 40px 100px 40px 96px;
+  padding: 40px 10px;
   overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 40px 100px;
+  }
 }

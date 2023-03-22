@@ -126,7 +126,7 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={objectTheme[theme].title}>{title}</h2>
+      <h2 className={`${objectTheme[theme].title} ${modal && s['title--modal']}`}>{title}</h2>
       {subtitle && <p className={objectTheme[theme].subtitle}>{subtitle}</p>}
       {listInfo ? (
         <ul className={s.list}>
@@ -207,7 +207,7 @@ export const FinalTestInfo = ({
       )}
       {finishTest && (
         <>
-          <ul className={s.recList}>
+          <ul className={`${s.recList} ${modal && s['reclist--modal']}`}>
             <li className={s.item}>
               <div className={s.iconWrapper}>
                 <div className={objectTheme[theme].iconThumb}>
@@ -282,7 +282,7 @@ export const FinalTestInfo = ({
               : t('finalTestInfo.startTest')
           }
           disabled={
-            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)
+            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1023)
           }
           onClick={onClickBtn}
           size='large'
@@ -292,7 +292,7 @@ export const FinalTestInfo = ({
           }
         />
       )}
-      {!finishTest && windowWidth <= 1280 && (
+      {!finishTest && windowWidth < 1023 && (
         <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
       )}
     </div>

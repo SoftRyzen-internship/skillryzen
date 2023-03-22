@@ -32,6 +32,11 @@
   transition: color var(--transition);
 }
 
+.title--modal {
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+}
+
 .subtitleDark {
   margin-bottom: 32px;
   font-size: var(--text-lg);
@@ -70,8 +75,13 @@
   background-color: var(--components-cl);
   border-radius: 10px;
 
+  .reclist--modal & {
+    margin-right: 12px;
+  }
+
   transition: background-color var(--transition);
 }
+
 .iconThumbLight {
   composes: iconThumbDark;
   background-color: var(--light-primary-cl);
@@ -88,7 +98,13 @@
   font-size: 17px;
   font-weight: 500;
   line-height: 1.6;
+
+  .reclist--modal & {
+    font-size: var(--text-md);
+    font-weight: var(--regular);
+  }
 }
+
 .textLight {
   composes: textDark;
   color: var(--primary-cl);
