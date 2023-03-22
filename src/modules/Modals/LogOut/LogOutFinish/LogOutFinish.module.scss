@@ -2,7 +2,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 80px 122px 150px 122px;
+  padding: 60px 44px 60px 37px;
+  @media (min-width: 768px) {
+    padding: 60px 69px 60px 68px;
+  }
+  @media (min-width: 1279px) {
+    padding: 80px 122px 150px 122px;
+  }
 }
 
 .imgContainer {
@@ -10,6 +16,32 @@
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 60px;
+  & img:nth-child(1) {
+    width: 54px;
+    height: 41px;
+  }
+  & img:nth-child(2) {
+    width: 61px;
+    height: 57px;
+  }
+  & img:nth-child(3) {
+    width: 44px;
+    height: 40px;
+  }
+  @media (min-width: 1280px) {
+    & img:nth-child(1) {
+      width: 72px;
+      height: 54px;
+    }
+    & img:nth-child(2) {
+      width: 81px;
+      height: 76px;
+    }
+    & img:nth-child(3) {
+      width: 59px;
+      height: 54px;
+    }
+  }
 }
 
 .imageHand {
@@ -30,8 +62,12 @@
 }
 
 .subtitle {
-  width: 292px;
+  width: 199px;
+  font-size: var(--text-lg);
   font-weight: var(--bold);
-  font-size: var(--subtitle);
   text-align: center;
+  @media (min-width: 1280px) {
+    width: 292px;
+    font-size: var(--subtitle);
+  }
 }

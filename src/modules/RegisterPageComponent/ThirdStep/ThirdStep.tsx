@@ -45,7 +45,7 @@ export const ThirdStep = () => {
         </>
       ) : (
         <>
-          <h2 style={{ maxWidth: '374px' }} className={s.stepTitle}>
+          <h2 className={`${s.stepTitle} ${s.thirdStep}`}>
             {t('auth.companyTitle')}
           </h2>
           <p className={s.stepSubtitle}>{t('auth.companySubtitle')}</p>

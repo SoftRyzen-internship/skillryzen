@@ -22,8 +22,13 @@
 
 .settingsWrapper {
   position: absolute;
-  right: 155px;
-
+  right: 20px;
   display: flex;
   gap: 12px;
+  @media (min-width: 768px) {
+    right: 32px;
+  }
+  @media (min-width: 1280px) {
+    right: 155px;
+  }
 }
