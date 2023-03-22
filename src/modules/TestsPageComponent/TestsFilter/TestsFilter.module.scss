@@ -1,21 +1,45 @@
 .testsFilter {
-  position: relative;
   display: flex;
   align-items: center;
-  // gap: 10px;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    position: relative;
+  }
 }
 
-.itemButton {
-  margin-left: 10px;
+.testsFilter__wrapper {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 }
 
 .testsFilter__filter {
-  padding: 11px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  padding: 9px;
   border-radius: 10px;
+  font-size: 0;
+
+  @media (max-width: 767.98px) {
+    position: absolute;
+    top: 48px;
+    right: 0;
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: var(--regular);
+    font-size: var(--text-md);
+    color: var(--primary-txt-cl);
+  }
 
   &--light {
     color: var(--accent-cl);

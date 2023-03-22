@@ -24,7 +24,8 @@
 
 .labelPassTest {
   composes: label;
-  width: 536px;
+  max-width: 536px;
+  width: 100%;
   font-weight: 500;
   font-size: 17px;
   border-radius: 5px;

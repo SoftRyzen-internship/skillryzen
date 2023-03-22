@@ -42,6 +42,7 @@ export const HeaderButtonLanguage = () => {
         ]}
         handleClickItem={handleClickLanguage}
         theme={theme}
+        adaptive={true}
       />
     );
   };
