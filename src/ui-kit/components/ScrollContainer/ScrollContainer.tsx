@@ -1,4 +1,4 @@
-import s from './Container.module.scss';
+import s from './ScrollContainer.module.scss';
 
 interface Props {
   children: React.ReactNode;

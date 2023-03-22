@@ -27,3 +27,4 @@ export { Notification } from './components/Notification/Notification';
 export { Select } from './components/Select';
 export { AuthInput } from './components/authInput/AuthInput';
 export { Table } from './components/Table';
+export { ScrollContainer } from './components/ScrollContainer';

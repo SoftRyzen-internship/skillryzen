@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
+import { Breadcrumbs, IconButton, Input, ScrollContainer, Tabs } from 'ui-kit';
 
-import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-
-import { Breadcrumbs, IconButton, Input, Tabs } from 'ui-kit/index';
+import { useThemeContext } from 'context/themeContext';
 
 import { NotificationsCardList } from './NotificationsCardList';
 
@@ -45,9 +44,7 @@ export const NotificationsPageComponent = () => {
   };
 
   return (
-    <div
-      className={`${s.notificationsPage} ${s[`notificationsPage--${theme}`]}`}
-    >
+    <ScrollContainer>
       <Breadcrumbs />
       <div className={s.flexContainerTitle}>
         <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
@@ -95,6 +92,6 @@ export const NotificationsPageComponent = () => {
         </div>
       </div>
       <NotificationsCardList size={size} testsArray={testsArray} />
-    </div>
+    </ScrollContainer>
   );
 };
