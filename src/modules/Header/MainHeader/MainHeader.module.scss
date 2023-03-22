@@ -2,11 +2,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 60px;
+  padding: 0px 20px 0 24px;
   transition: var(--transition);
   position: sticky;
   top: 0;
   z-index: 100;
+
+  @media (min-width: 768px) {
+    padding: 0px 32px 0 36px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 0px 60px;
+  }
 }
 
 .header--light {
@@ -19,7 +27,49 @@
   background-color: var(--components-cl);
 }
 
+.logoContainer {
+  & div {
+    display: none;
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+
+    & div {
+      display: block;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    display: block;
+    & svg {
+      display: none;
+    }
+  }
+}
+
 .container {
   display: flex;
   align-items: center;
+}
+
+.inputContainer {
+  position: absolute;
+  bottom: -43px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9;
+
+  & label {
+    min-width: 280px;
+    & input {
+      background-color: #121533;
+    }
+
+    @media (min-width: 768px) {
+      min-width: 334px;
+    }
+  }
 }

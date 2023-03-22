@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
 
 import { ROUTES } from 'routes/routes.const';
 
@@ -11,11 +12,14 @@ import { ICONS } from 'ui-kit/icons';
 import { HeaderButton, Popup } from 'ui-kit/index';
 
 export const HeaderButtonCoin = () => {
+  const ref = useRef<HTMLDivElement>();
   const { theme }: IThemeContext = useThemeContext();
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const currentWidth = useCurrentWidth();
 
+  useOutsideClick(ref, setPopup);
   // тимчасовий масив, далі буде приходити з бекенду
   const tempList = [
     {
@@ -41,6 +45,19 @@ export const HeaderButtonCoin = () => {
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
+
+  const handleClick = () => {
+    if (popup) return setPopup(null);
+    setPopup(
+      <Popup
+        handleClickLink={() => navigate(ROUTES.COINS)}
+        list={tempList}
+        vievAll={t('header.viewAll')}
+        theme={theme}
+      />
+    );
+  };
+
   return (
     <HeaderButton
       icon={
@@ -50,10 +67,12 @@ export const HeaderButtonCoin = () => {
       }
       indicatorNumber={tempList.length}
       indicatorColor='green'
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
+      onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
+      onClick={currentWidth < 1279 ? handleClick : null}
       popupContent={popup}
       theme={theme}
+      ref={ref}
     />
   );
 };
