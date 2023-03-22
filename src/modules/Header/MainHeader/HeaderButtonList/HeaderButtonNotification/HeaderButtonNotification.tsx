@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { useCurrentWidth,useOutsideClick } from 'hooks';
 
 import { ROUTES } from 'routes/routes.const';
 
@@ -11,7 +12,9 @@ import { HeaderButton, Popup } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
 
 export const HeaderButtonNotification = () => {
+  const ref = useRef<HTMLDivElement>();
   const { theme }: IThemeContext = useThemeContext();
+  const currentWidth = useCurrentWidth();
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { t } = useTranslation();
@@ -20,6 +23,8 @@ export const HeaderButtonNotification = () => {
     dark: 'var(--primary-txt-cl)',
     light: 'var(--accent-cl)',
   };
+
+  useOutsideClick(ref, setPopup);
 
   // тимчасовий масив, далі буде приходити з бекенду
   const tempList = [
@@ -49,15 +54,30 @@ export const HeaderButtonNotification = () => {
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
+
+  const handleClick = () => {
+    if (popup) return setPopup(null);
+    setPopup(
+      <Popup
+        handleClickLink={() => navigate(ROUTES.NOTIFICATIONS)}
+        list={tempList}
+        vievAll={t('header.viewAll')}
+        theme={theme}
+      />
+    );
+  };
+
   return (
     <HeaderButton
       icon={<ICONS.BELL fill={iconColor[theme]} />}
       indicatorNumber={tempList.length}
       indicatorColor='yellow'
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
+      onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
+      onClick={currentWidth < 1279 ? handleClick : null}
       popupContent={popup}
       theme={theme}
+      ref={ref}
     />
   );
 };

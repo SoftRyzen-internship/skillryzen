@@ -34,7 +34,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
       return;
     }
-    
+
     const intervalId = setInterval(() => {
       setSeconds(seconds => seconds - 1);
     }, 1000);
@@ -64,7 +64,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       {pathname !== '/testing/test-end' && (
         <div>
           <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
-          {t('testing.timer')}
+            {t('testing.timer')}
           </p>
           <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
             {convertTime(seconds)}

@@ -13,7 +13,6 @@ import { ModalTestsInfo } from 'modules/Modals/ModalTestsInfo/ModalTestsInfo';
 
 import s from './CompletedTestsList.module.scss';
 
-
 interface Item {
   id: number;
   author: string;

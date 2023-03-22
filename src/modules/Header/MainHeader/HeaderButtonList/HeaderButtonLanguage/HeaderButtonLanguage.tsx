@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
 
 import { useThemeContext } from 'context/themeContext';
 
@@ -9,13 +10,16 @@ import { HeaderButton, Popup } from 'ui-kit/index';
 import { IThemeContext } from 'constans/types';
 
 export const HeaderButtonLanguage = () => {
+  const ref = useRef<HTMLDivElement>();
   const { theme }: IThemeContext = useThemeContext();
   const { t, i18n } = useTranslation();
+  const currentWidth = useCurrentWidth();
 
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const [lang, setLang] = useState<string>(() =>
     localStorage.getItem('i18nextLng')
   );
+  useOutsideClick(ref, setPopup);
 
   const handleClickLanguage = (language: string) => {
     if (language === 'Ukrainian' || language === 'Українська') {
@@ -45,13 +49,30 @@ export const HeaderButtonLanguage = () => {
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
+
+  const handleClick = () => {
+    if (popup) return setPopup(null);
+    setPopup(
+      <Popup
+        list={[
+          { icon: <ICONS.UK />, text: t('header.language.eng') },
+          { icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
+        ]}
+        handleClickItem={handleClickLanguage}
+        theme={theme}
+      />
+    );
+  };
+
   return (
     <HeaderButton
       icon={lang === 'uk' ? <ICONS.UKRAINE /> : <ICONS.UK />}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
+      onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
+      onClick={currentWidth < 1279 ? handleClick : null}
       popupContent={popup}
       theme={theme}
+      ref={ref}
     />
   );
 };

@@ -92,7 +92,7 @@ export const FinalTestInfo = ({
   finishTest,
   test,
   date,
-  modal
+  modal,
 }: Props) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
@@ -112,7 +112,11 @@ export const FinalTestInfo = ({
   }, []);
 
   return (
-    <div className={`${finishTest && !modal && s.containerFinish} ${!finishTest && s.containerStart}`}>
+    <div
+      className={`${finishTest && !modal && s.containerFinish} ${
+        !finishTest && s.containerStart
+      }`}
+    >
       <div className={s.imageThumb}>
         <img
           className={s.image}
@@ -159,7 +163,9 @@ export const FinalTestInfo = ({
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
-                <listInfo.icons.PERCENTAGE className={objectTheme[theme].icon} />
+                <listInfo.icons.PERCENTAGE
+                  className={objectTheme[theme].icon}
+                />
               </div>
               <p className={objectTheme[theme].text}>
                 {t('finalTestInfo.list.percentageToPass')}
@@ -228,16 +234,16 @@ export const FinalTestInfo = ({
               <p className={objectTheme[theme].textRight}>{`${timeSpent}`}</p>
             </li>
             <li className={s.item}>
-                <div className={s.iconWrapper}>
-                  <div className={objectTheme[theme].iconThumb}>
-                    <IconDate className={objectTheme[theme].icon} />
-                  </div>
-                  <p className={objectTheme[theme].text}>
-                    {t('finalTestInfo.date')}
-                  </p>
+              <div className={s.iconWrapper}>
+                <div className={objectTheme[theme].iconThumb}>
+                  <IconDate className={objectTheme[theme].icon} />
                 </div>
-                <p className={objectTheme[theme].textRight}>{date}</p>
-              </li>
+                <p className={objectTheme[theme].text}>
+                  {t('finalTestInfo.date')}
+                </p>
+              </div>
+              <p className={objectTheme[theme].textRight}>{date}</p>
+            </li>
           </ul>
           {isPassed ? (
             <div className={s.resultIsPassed}>

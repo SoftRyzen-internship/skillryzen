@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
 
 import { logOut } from 'redux/authSlice/operations';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
@@ -33,6 +34,7 @@ const iconColor = {
 };
 
 export const HeaderUserAvatarCard = () => {
+  const ref = useRef<HTMLDivElement>();
   const [isShowModal, setIsShowModal] = useState(false);
   const [popup, setPopup] = useState<null | React.ReactNode>(null);
   const { theme }: IThemeContext = useThemeContext();
@@ -45,6 +47,9 @@ export const HeaderUserAvatarCard = () => {
   const isAuth = useAppSelector(getIsAuth);
 
   const avatar = useMemo(randomAvatar, []);
+  const currentWidth = useCurrentWidth();
+
+  useOutsideClick(ref, setPopup);
 
   const popupList = useMemo(() => {
     if (role === USER_ROLE.candidate) {
@@ -128,14 +133,27 @@ export const HeaderUserAvatarCard = () => {
     setPopup(null);
   };
 
+  const handleClick = () => {
+    if (popup) return setPopup(null);
+    setPopup(
+      <Popup
+        theme={theme}
+        handleClickItem={handleClickPopupItem}
+        list={popupList}
+      />
+    );
+  };
+
   return (
     <div
+      ref={ref}
       className={s.container}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
+      onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
+      onClick={currentWidth < 1279 ? handleClick : null}
     >
       <UserAvatarCard
-        userName={name}
+        userName={currentWidth > 1279 ? name : ''}
         userAvatarUrl={avatar}
         userStatus={isAuth ? 'green' : 'gray'}
         theme={theme}
