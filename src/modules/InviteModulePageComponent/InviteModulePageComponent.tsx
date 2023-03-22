@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { InviteAdminBlock } from './InviteAdminBlock';
 import { InviteStudentBlock } from './InviteStudentBlock';
 
-import { Breadcrumbs, Tabs } from 'ui-kit/index';
+import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
@@ -26,7 +26,7 @@ const tabs = [
 
 export const InviteModulePageComponent = () => {
   const [currentTab, setCurrentTab] = useState(() => {
-    let savedTab = sessionStorage.getItem('invitePageTab');
+    const savedTab = sessionStorage.getItem('invitePageTab');
     return savedTab ? Number(savedTab) : tabs[0].id;
   });
 
@@ -39,7 +39,7 @@ export const InviteModulePageComponent = () => {
   };
 
   return (
-    <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>
+    <ScrollContainer>
       <Breadcrumbs />
       <h2 className={`${s.title} ${s[`title--${theme}`]}`}>
         {t('invite.title')}
@@ -54,6 +54,6 @@ export const InviteModulePageComponent = () => {
         if (el.id !== currentTab) return null;
         return el.component;
       })}
-    </div>
+    </ScrollContainer>
   );
 };

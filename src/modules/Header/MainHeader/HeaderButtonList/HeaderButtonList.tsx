@@ -1,4 +1,5 @@
 import { useAppSelector } from 'hooks/hook';
+import { useCurrentWidth } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import { USER_ROLE } from 'constans/consts';
@@ -8,33 +9,46 @@ import { HeaderButtonLanguage } from './HeaderButtonLanguage';
 import { HeaderButtonCoin } from './HeaderButtonCoin';
 import { HeaderButtonNotification } from './HeaderButtonNotification';
 import { HeaderButtonCompanyLogo } from './HeaderButtonCompanyLogo';
+import { HeaderButtonSearch } from './HeaderButtonSearch';
 
 import s from './HeaderButtonList.module.scss';
 
-export const HeaderButtonList = () => {
+interface Props {
+  showInput?: boolean;
+  handleShowInput?: () => void;
+}
+
+export const HeaderButtonList = ({ showInput, handleShowInput }: Props) => {
   const role = useAppSelector(getUserRole);
+  const currentWidth = useCurrentWidth();
 
   return (
     <ul className={s.list}>
-      <li className={s.item}>
-        <HeaderButtonTheme />
-      </li>
-
-      <li className={s.item}>
-        <HeaderButtonLanguage />
-      </li>
-
-      {role === USER_ROLE.candidate && (
-        <li className={s.item}>
-          <HeaderButtonCoin />
+      {currentWidth < 1280 && (
+        <li>
+          <HeaderButtonSearch active={showInput} onClick={handleShowInput} />
         </li>
       )}
-
-      <li className={s.item}>
-        <HeaderButtonNotification />
+      <li>
+        <HeaderButtonTheme />
       </li>
+      <li>
+        <HeaderButtonLanguage />
+      </li>
+      {currentWidth > 767 && (
+        <>
+          {role === USER_ROLE.candidate && (
+            <li>
+              <HeaderButtonCoin />
+            </li>
+          )}
+          <li>
+            <HeaderButtonNotification />
+          </li>
+        </>
+      )}
       {role !== USER_ROLE.candidate && (
-        <li className={s.item}>
+        <li>
           <HeaderButtonCompanyLogo />
         </li>
       )}

@@ -18,7 +18,7 @@ export const TestingPageComponent = () => {
   useEffect(() => {
     const removeHistory = () =>
       history.pushState(null, null, window.location.href);
-      
+
     removeHistory();
 
     window.addEventListener('popstate', removeHistory);

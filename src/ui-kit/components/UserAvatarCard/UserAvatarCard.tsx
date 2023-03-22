@@ -34,12 +34,14 @@ export const UserAvatarCard = memo(
             ></span>
           )}
         </div>
-        <div className={s.info}>
-          <p className={`${s.name} ${s[`name--${theme}`]}`}>{userName}</p>
-          {userRole && (
-            <p className={`${s.role} ${s[`role--${theme}`]}`}>{userRole}</p>
-          )}
-        </div>
+        {userName && (
+          <div className={s.info}>
+            <p className={`${s.name} ${s[`name--${theme}`]}`}>{userName}</p>
+            {userRole && (
+              <p className={`${s.role} ${s[`role--${theme}`]}`}>{userRole}</p>
+            )}
+          </div>
+        )}
       </div>
     );
   }
