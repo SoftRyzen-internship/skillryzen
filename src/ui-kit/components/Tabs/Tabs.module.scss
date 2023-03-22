@@ -1,15 +1,21 @@
 .tabsList {
   display: flex;
+  align-items: flex-end;
   gap: 12px;
   color: var(--primary-txt-cl);
 }
 
 .tabsItem {
-  padding: 0 8px 12px;
+  padding: 0 8px 4px;
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--bold);
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding: 0 8px 12px;
+  }
 
   &--light {
     color: var(--secondary-txt-cl);
@@ -33,11 +39,16 @@
 }
 
 .tabsItemActive {
-  padding: 0 8px 12px;
+  padding: 0 8px 4px;
   position: relative;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: var(--bold);
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    padding: 0 8px 12px;
+  }
 
   &--light {
     color: var(--light-primary-txt-cl);

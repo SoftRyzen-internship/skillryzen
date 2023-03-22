@@ -33,7 +33,7 @@ export const HeaderButtonCoin = () => {
       <Popup
         handleClickLink={() => navigate(ROUTES.COINS)}
         list={tempList}
-        vievAll={t('header.viewAll')}
+        viewAll={t('header.viewAll')}
         theme={theme}
       />
     );

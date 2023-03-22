@@ -53,6 +53,17 @@ export const TestsPageComponent = () => {
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   useEffect(() => {
     sessionStorage.setItem('testsPage', JSON.stringify({ currentTab, size }));
   }, [currentTab, size]);
@@ -77,19 +88,24 @@ export const TestsPageComponent = () => {
   return (
     <div className={`${s.testsPage} ${s[`testsPage--${theme}`]}`}>
       <Breadcrumbs />
-      <TestsSearch />
-      <div className={s.testsPage__wrapper}>
-        <Tabs
-          currentTab={currentTab}
-          tabs={tabs}
-          changeTab={handleChangeTab}
-          theme={theme}
-        />
-        <TestsFilter setSize={setSize} size={size} />
+      <div className={s['testsPage__wrapper--mobile']}>
+        <TestsSearch />
+        <div className={s.testsPage__wrapper}>
+          <Tabs
+            currentTab={currentTab}
+            tabs={tabs}
+            changeTab={handleChangeTab}
+            theme={theme}
+          />
+          <TestsFilter setSize={setSize} size={size} />
+        </div>
       </div>
       {tabs.map(el => {
         if (el.id !== currentTab) return null;
-        return el.component({ size, key: el.id });
+        return el.component({
+          size: windowWidth < 768 ? 'small' : size,
+          key: el.id,
+        });
       })}
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
