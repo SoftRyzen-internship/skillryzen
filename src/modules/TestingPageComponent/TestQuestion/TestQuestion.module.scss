@@ -1,7 +1,7 @@
 .testWrapper {
   max-width: 1096px;
   margin: 0 auto;
-  padding-top: 50px;
+  padding: 50px 20px 50px 20px;
 
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -26,7 +26,7 @@
 
 .questionWrapper {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(536px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   row-gap: 20px;
   column-gap: 24px;
   color: var(--primary-txt-cl);
@@ -50,7 +50,7 @@
 
 .questionList {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(536px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
   row-gap: 20px;
   column-gap: 24px;
 }
@@ -70,7 +70,7 @@
 }
 
 .skeletonItemDark {
-  width: 536px;
+  max-width: 536px;
   padding: 20px 20px 20px 69px;
   font-weight: 500;
   font-size: 17px;
