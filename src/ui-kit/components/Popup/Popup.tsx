@@ -11,28 +11,34 @@ type TItem = {
 
 interface IProps {
   list: TItem[];
-  vievAll?: string;
+  viewAll?: string;
   handleClickItem?: (text: string) => void;
   handleClickLink?: () => void;
   theme?: Theme;
+  adaptive?: boolean;
 }
 
 export const Popup = ({
   list,
-  vievAll,
+  viewAll,
   handleClickItem,
   handleClickLink,
   theme = 'dark',
+  adaptive = false,
 }: IProps) => {
   const { t } = useTranslation();
   return (
-    <div className={`${s[`popupWrapper--${theme}`]}`}>
+    <div
+      className={`${s[`popupWrapper--${theme}`]} ${
+        adaptive && s.adaptiveWrapper
+      }`}
+    >
       <button
-        className={vievAll ? s.vievAllVisible : s.vievAllHidden}
+        className={viewAll ? s.viewAllVisible : s.viewAllHidden}
         type='button'
         onClick={handleClickLink ? () => handleClickLink() : null}
       >
-        {vievAll}
+        {viewAll}
       </button>
       <ul>
         {list.map(({ icon, text, path }, idx) => (
@@ -43,7 +49,13 @@ export const Popup = ({
           >
             <Link to={path} className={s.link}>
               <div>{icon}</div>
-              <p className={`${s[`text--${theme}`]}`}>{text}</p>
+              <p
+                className={`${s[`text--${theme}`]} ${
+                  adaptive && s.adaptiveText
+                }`}
+              >
+                {text}
+              </p>
             </Link>
           </li>
         ))}
