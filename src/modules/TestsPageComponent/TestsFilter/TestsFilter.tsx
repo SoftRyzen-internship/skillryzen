@@ -44,22 +44,23 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
 
   return (
     <div className={s.testsFilter}>
-      <IconButton
-        className={s.itemButton}
-        theme={theme}
-        onClick={() => setSize('small')}
-        color={size === 'small' ? 'blue' : 'black'}
-        icon='grid2'
-      />
-      <IconButton
-        className={s.itemButton}
-        theme={theme}
-        onClick={() => setSize('large')}
-        color={size === 'large' ? 'blue' : 'black'}
-        icon='grid4'
-      />
+      <div className={s.testsFilter__wrapper}>
+        <IconButton
+          className={s.itemButton}
+          theme={theme}
+          onClick={() => setSize('small')}
+          color={size === 'small' ? 'blue' : 'black'}
+          icon='grid2'
+        />
+        <IconButton
+          className={s.itemButton}
+          theme={theme}
+          onClick={() => setSize('large')}
+          color={size === 'large' ? 'blue' : 'black'}
+          icon='grid4'
+        />
+      </div>
       <div ref={accordionRef}>
-        {' '}
         <button
           onClick={handleFilter}
           className={`${s.itemButton} ${s.testsFilter__filter} ${

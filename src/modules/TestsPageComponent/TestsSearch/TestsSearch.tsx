@@ -26,6 +26,7 @@ export const TestsSearch = () => {
         button={true}
         icon={<ICONS.SEARCH fill='#9D9FB5' />}
         theme={theme}
+        labelClassName={s['input__tests--mobile']}
       />
     </div>
   );

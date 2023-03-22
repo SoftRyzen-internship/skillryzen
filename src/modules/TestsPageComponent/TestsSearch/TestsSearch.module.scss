@@ -1,7 +1,16 @@
 .testsSearch__wrapper {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 45px;
+  margin-bottom: 20px;
+
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
 }
 
 .testsSearch__title {
@@ -46,4 +55,11 @@
 
 .testsSearch__iconBook path {
   fill: var(--secondary-txt-cl);
+}
+
+.input__tests--mobile {
+  @media (max-width: 767.98px) {
+    width: calc(100% - 48px);
+    height: 40px;
+  }
 }
