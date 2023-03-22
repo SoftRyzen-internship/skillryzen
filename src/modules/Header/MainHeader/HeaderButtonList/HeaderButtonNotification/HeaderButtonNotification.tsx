@@ -1,7 +1,7 @@
 import { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
-import { useCurrentWidth,useOutsideClick } from 'hooks';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
 
 import { ROUTES } from 'routes/routes.const';
 
@@ -61,7 +61,7 @@ export const HeaderButtonNotification = () => {
       <Popup
         handleClickLink={() => navigate(ROUTES.NOTIFICATIONS)}
         list={tempList}
-        vievAll={t('header.viewAll')}
+        viewAll={t('header.viewAll')}
         theme={theme}
       />
     );
