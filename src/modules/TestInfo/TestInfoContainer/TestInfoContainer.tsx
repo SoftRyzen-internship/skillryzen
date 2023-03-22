@@ -1,6 +1,3 @@
-import { IThemeContext } from 'constans/types';
-import { useThemeContext } from 'context/themeContext';
-
 import s from './TestInfoContainer.module.scss';
 
 interface IProps {
@@ -8,11 +5,5 @@ interface IProps {
 }
 
 export const TestInfoContainer = ({ children }: IProps) => {
-  const { theme }: IThemeContext = useThemeContext();
-
-  return (
-    <div className={`${s.container} ${s[`container--${theme}`]}`}>
-      {children}
-    </div>
-  );
+  return <div className={s.container}>{children}</div>;
 };
