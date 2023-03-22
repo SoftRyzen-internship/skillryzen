@@ -11,7 +11,7 @@
 
 .sectionLogin {
   composes: sectionRegister;
-  background-image: url('assets/images/login.png');
+  background-image: url('assets/svg/login.svg');
   background-position: center 200px;
   background-repeat: no-repeat;
 }
@@ -26,12 +26,12 @@
 
 .authCandidateBg {
   composes: authIntroWrapper;
-  background-image: url('assets/images/registration-monitor-user.png');
+  background-image: url('assets/svg/registration-monitor-user.svg');
 }
 
 .authCompanyBg {
   composes: authIntroWrapper;
-  background-image: url('assets/images/registration-company.png');
+  background-image: url('assets/svg/registration-company.svg');
 }
 
 .introMetaList {
