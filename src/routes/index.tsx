@@ -176,7 +176,6 @@ export const AppRoutes = () => {
                 ),
                 children: [
                   {
-
                     path: ROUTES.COMPANY_DASHBOARD,
                     element: <UnderDevelopmentPage />,
                   },
