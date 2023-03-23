@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from 'context/themeContext';
-import { useAppSelector } from 'hooks';
+import { useAppSelector, useCurrentWidth } from 'hooks';
 import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import { MainButton, Modal } from 'ui-kit';
+import { ModalStartTest } from 'modules/Modals/ModalStartTest/ModalStartTest';
 
 import s from './FinalTestInfo.module.scss';
-import { ModalStartTest } from 'modules/Modals/ModalStartTest/ModalStartTest';
 
 const objectTheme = {
   dark: {
@@ -102,16 +102,7 @@ export const FinalTestInfo = ({
   const templateId = useAppSelector(getTemplateId);
 
   const [isModal, setIsModal] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const currentWidth = useCurrentWidth();
 
   const handleClickModal = () => {
     setIsModal(prevState => !prevState);
@@ -121,7 +112,7 @@ export const FinalTestInfo = ({
     <div
       className={`${finishTest && !modal && s.containerFinish} ${
         !finishTest && s.containerStart
-      }`}
+      } ${modal && s.containerModal}`}
     >
       <div className={s.imageThumb}>
         <img
@@ -292,17 +283,18 @@ export const FinalTestInfo = ({
               : t('finalTestInfo.startTest')
           }
           disabled={
-            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1023)
+            (!finishTest && !templateId) ||
+            (!finishTest && currentWidth <= 1023)
           }
           onClick={!finishTest ? handleClickModal : onClickBtn}
           size='large'
           color='blue'
           className={
-            !(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''
+            !(theWorstTopic && theBestTopic) && finishTest ? s.btnFinish : s.btn
           }
         />
       )}
-      {!finishTest && windowWidth < 1023 && (
+      {!finishTest && currentWidth < 1023 && (
         <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
       )}
       {isModal && (

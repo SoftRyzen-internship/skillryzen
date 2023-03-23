@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
+
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import {
   getTestId,
@@ -18,8 +21,10 @@ import { Checkbox, MainButton } from 'ui-kit';
 
 import s from './ModalStartTest.module.scss';
 
+
 export const ModalStartTest = () => {
   const { t } = useTranslation();
+  const { theme }: IThemeContext = useThemeContext();
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const total = useAppSelector(getTotalCount);
   const testId = useAppSelector(getTestId);
@@ -41,44 +46,42 @@ export const ModalStartTest = () => {
   };
 
   return (
-    <div className={s.container}>
+    <div className={`${s.container} ${s[`container--${theme}`]}`}>
       <h3 className={s.modal__title}>
-        <span className={s['modal__title--accent']}>Правила</span>
-        <br /> проходження тестування
+        <span className={s['modal__title--accent']}>{t('modalStartTest.rulesFirstPart')}</span>
+        <br /> {t('modalStartTest.rulesSecondPart')}
       </h3>
       <ul className={s.modal__list}>
         <li className={s.modal__item}>
           <div className={s.icon}>
             <ICONS.AGREEMENT />
           </div>
-          <p>
-            Перед початком тесту переконайся, що у тебе є стабільне підключення
-            до Інтернету та достатньо часу для його проходження.
-          </p>
+          <p>{t('modalStartTest.ruleFirst')}</p>
         </li>
         <li className={s.modal__item}>
           <div className={s.icon}>
             <ICONS.AGREEMENT />
           </div>
-          <p> При закритті вкладки тест автоматично фейлиться. </p>
+          <p> {t('modalStartTest.ruleSecond')} </p>
         </li>
         <li className={s.modal__item}>
           <div className={s.icon}>
             <ICONS.AGREEMENT />
           </div>
-          <p> Зверни увагу на те, що тест можна перездати тільки один раз. </p>
+          <p> {t('modalStartTest.ruleThird')} </p>
         </li>
       </ul>
       <Checkbox
         name='startTestAgreement'
-        label='З правилами ознайомився'
+        label={t('modalStartTest.agree')} 
         type='filter'
         onChange={handleChange}
-        labelClassName={s.modal__checkbox}
+        // labelClassName={s.modal__checkbox}
+        labelClassName={`${s[`modal__checkbox--${theme}`]}`}
       />
       <MainButton
         type='button'
-        text={t('finalTestInfo.startModal')}
+        text={t('modalStartTest.start')}
         disabled={!acceptedTerms}
         onClick={handleClickBtn}
         size='small'
