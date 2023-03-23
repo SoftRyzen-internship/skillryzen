@@ -9,11 +9,9 @@ import s from './NotFoundPageComponent.module.scss';
 
 const objectTheme = {
   dark: {
-    wrapper: s.wrapperDark,
     title: s.titleDark,
   },
   light: {
-    wrapper: s.wrapperLight,
     title: s.titleLight,
   },
 };
