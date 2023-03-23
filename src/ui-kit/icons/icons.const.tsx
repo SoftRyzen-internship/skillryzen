@@ -84,6 +84,7 @@ import IconTestFailed from 'assets/svg/test-failed.svg';
 import IconRefresh from 'assets/svg/refresh.svg';
 import IconDate from 'assets/svg/date.svg';
 import BrockenMenu from 'assets/svg/brocken-menu.svg';
+import IconAgreement from 'assets/svg/agreement.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -255,4 +256,5 @@ export const ICONS: Icons = {
   SORT_TOP: IconSortTop,
   SORT_DOWN: IconSortDown,
   BROCKEN_MENU: BrockenMenu,
+  AGREEMENT: IconAgreement,
 };

@@ -7,10 +7,9 @@ import s from './ModaltestsInfo.module.scss';
 
 interface ModalProps {
   testInfo: TestInfo;
-  handleClickModal: () => void;
 }
 
-export const ModalTestsInfo = ({ testInfo, handleClickModal }: ModalProps) => {
+export const ModalTestsInfo = ({ testInfo}: ModalProps) => {
   return (
     <div className={s.container}>
       <FinalTestInfo
@@ -30,7 +29,6 @@ export const ModalTestsInfo = ({ testInfo, handleClickModal }: ModalProps) => {
         iconAnswers={ICONS.CHECK_SMALL}
         iconTime={ICONS.CLOCK}
         iconDate={ICONS.DATE}
-        onClickBtn={handleClickModal}
         finishTest
         date={testInfo.date}
         modal={true}

@@ -1,31 +1,15 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
-
 import { Breadcrumbs } from 'ui-kit';
-import { ROUTES } from 'routes/routes.const';
-import {
-  getTotalCount,
-  getTestId,
-} from 'redux/testingInfo/testingInfoSelectors';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
-import {
-  removeResultsBeforeStart,
-  removeResults,
-} from 'redux/testingInfo/testingInfoSlise';
 
 import s from '../FinalTestInfo/FinalTestInfo.module.scss';
 
 export const TestStartPageComponent = () => {
-  const total = useAppSelector(getTotalCount);
-  const testId = useAppSelector(getTestId);
-  const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const location = useLocation();
 
   const [state, setState] = useState(location.state || {});
@@ -57,16 +41,6 @@ export const TestStartPageComponent = () => {
     },
   };
 
-  const handleClickBtn = () => {
-    if (total) {
-      dispatch(removeResults());
-    }
-    if (testId) {
-      dispatch(removeResultsBeforeStart());
-    }
-    navigate(ROUTES.TESTING);
-  };
-
   return (
     <>
       <div className={s.breadcrumbsContainer}>
@@ -79,7 +53,6 @@ export const TestStartPageComponent = () => {
           title={name || ''}
           subtitle={description || ''}
           listInfo={listInfoJS}
-          onClickBtn={handleClickBtn}
           textBtn='Start test'
           test='JS'
         />
