@@ -40,7 +40,7 @@ const iconColor = {
 export const HeaderUserAvatarCard = () => {
   const ref = useRef<HTMLDivElement>();
   const [isShowModal, setIsShowModal] = useState(false);
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const [popup, setPopup] = useState(false);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -134,27 +134,15 @@ export const HeaderUserAvatarCard = () => {
   };
 
   const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        theme={theme}
-        handleClickItem={handleClickPopupItem}
-        list={popupList}
-      />
-    );
+    setPopup(true);
   };
   const mouseLeaveHandler = () => {
-    setPopup(null);
+    setPopup(false);
   };
 
   const handleClick = () => {
-    if (popup) return setPopup(null);
-    setPopup(
-      <Popup
-        theme={theme}
-        handleClickItem={handleClickPopupItem}
-        list={popupList}
-      />
-    );
+    if (popup) return setPopup(false);
+    setPopup(true);
   };
 
   return (
@@ -171,7 +159,16 @@ export const HeaderUserAvatarCard = () => {
         userStatus={isAuth ? 'green' : 'gray'}
         theme={theme}
       />
-      {popup ? <div className={s.popup}>{popup}</div> : null}
+      {popup ? (
+        <div className={s.popup}>
+          {' '}
+          <Popup
+            theme={theme}
+            handleClickItem={handleClickPopupItem}
+            list={popupList}
+          />
+        </div>
+      ) : null}
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <LogOutStart

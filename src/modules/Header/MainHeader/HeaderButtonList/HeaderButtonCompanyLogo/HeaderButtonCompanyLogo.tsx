@@ -17,7 +17,7 @@ export const HeaderButtonCompanyLogo = () => {
   const { theme }: IThemeContext = useThemeContext();
   const currentWidth = useCurrentWidth();
 
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const [popup, setPopup] = useState(false);
   const { t } = useTranslation();
 
   useOutsideClick(ref, setPopup);
@@ -28,51 +28,15 @@ export const HeaderButtonCompanyLogo = () => {
   };
 
   const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        list={[
-          {
-            id: 'companyProfile',
-            icon: <ICONS.USER stroke={iconColor[theme]} />,
-            text: t('header.company.profile'),
-            path: ROUTES.COMPANY_PROFILE,
-          },
-          {
-            id: 'companySettings',
-            icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
-            text: t('header.company.settings'),
-            path: ROUTES.COMPANY_SETTINGS,
-          },
-        ]}
-        theme={theme}
-      />
-    );
+    setPopup(true);
   };
   const mouseLeaveHandler = () => {
-    setPopup(null);
+    setPopup(false);
   };
 
   const handleClick = () => {
-    if (popup) return setPopup(null);
-    setPopup(
-      <Popup
-        list={[
-          {
-            id: 'companyProfile',
-            icon: <ICONS.USER stroke={iconColor[theme]} />,
-            text: t('header.company.profile'),
-            path: ROUTES.COMPANY_PROFILE,
-          },
-          {
-            id: 'companySettings',
-            icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
-            text: t('header.company.settings'),
-            path: ROUTES.COMPANY_SETTINGS,
-          },
-        ]}
-        theme={theme}
-      />
-    );
+    if (popup) return setPopup(false);
+    setPopup(true);
   };
   return (
     <HeaderButton
@@ -80,7 +44,27 @@ export const HeaderButtonCompanyLogo = () => {
       onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
       onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
       onClick={currentWidth < 1279 ? handleClick : null}
-      popupContent={popup}
+      popupContent={
+        popup && (
+          <Popup
+            list={[
+              {
+                id: 'companyProfile',
+                icon: <ICONS.USER stroke={iconColor[theme]} />,
+                text: t('header.company.profile'),
+                path: ROUTES.COMPANY_PROFILE,
+              },
+              {
+                id: 'companySettings',
+                icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
+                text: t('header.company.settings'),
+                path: ROUTES.COMPANY_SETTINGS,
+              },
+            ]}
+            theme={theme}
+          />
+        )
+      }
       theme={theme}
       ref={ref}
     />

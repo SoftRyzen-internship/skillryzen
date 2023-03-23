@@ -14,7 +14,6 @@ interface HeaderButtonProps {
   popupContent?: React.ReactNode;
   theme?: Theme;
   title?: string;
-  active?: boolean;
 }
 
 export const HeaderButton = memo(
@@ -32,7 +31,6 @@ export const HeaderButton = memo(
         popupContent,
         theme = 'dark',
         title = '',
-        active = false,
       }: HeaderButtonProps,
       ref: RefObject<HTMLDivElement>
     ) => {
@@ -45,9 +43,7 @@ export const HeaderButton = memo(
           ref={ref}
         >
           <button
-            className={`${s.button} ${s[`button--${theme}`]} ${
-              active ? s.active : ''
-            }`}
+            className={`${s.button} ${s[`button--${theme}`]}`}
             type='button'
             onClick={onClick}
           >

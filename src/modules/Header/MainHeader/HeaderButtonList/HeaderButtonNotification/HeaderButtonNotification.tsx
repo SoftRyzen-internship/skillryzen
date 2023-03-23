@@ -16,7 +16,7 @@ export const HeaderButtonNotification = () => {
   const { theme }: IThemeContext = useThemeContext();
   const currentWidth = useCurrentWidth();
 
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const [popup, setPopup] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const iconColor = {
@@ -45,29 +45,15 @@ export const HeaderButtonNotification = () => {
     },
   ];
   const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        handleClickLink={() => navigate(ROUTES.NOTIFICATIONS)}
-        list={tempList}
-        viewAll={t('header.viewAll')}
-        theme={theme}
-      />
-    );
+    setPopup(true);
   };
   const mouseLeaveHandler = () => {
-    setPopup(null);
+    setPopup(false);
   };
 
   const handleClick = () => {
-    if (popup) return setPopup(null);
-    setPopup(
-      <Popup
-        handleClickLink={() => navigate(ROUTES.NOTIFICATIONS)}
-        list={tempList}
-        viewAll={t('header.viewAll')}
-        theme={theme}
-      />
-    );
+    if (popup) return setPopup(false);
+    setPopup(true);
   };
 
   return (
@@ -78,7 +64,16 @@ export const HeaderButtonNotification = () => {
       onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
       onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
       onClick={currentWidth < 1279 ? handleClick : null}
-      popupContent={popup}
+      popupContent={
+        popup && (
+          <Popup
+            handleClickLink={() => navigate(ROUTES.NOTIFICATIONS)}
+            list={tempList}
+            viewAll={t('header.viewAll')}
+            theme={theme}
+          />
+        )
+      }
       theme={theme}
       ref={ref}
     />
