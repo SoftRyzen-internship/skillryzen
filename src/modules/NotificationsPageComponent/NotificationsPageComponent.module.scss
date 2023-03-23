@@ -1,7 +1,27 @@
+.notificationsPage {
+  @media (max-width: 767.98px) {
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 .flexContainerTitle {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
+
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+}
+
+.page__wrapper--mobile {
+  @media (max-width: 767.98px) {
+    position: relative;
+  }
 }
 
 .pageTitle {
@@ -16,6 +36,12 @@
 .pageTitle--light {
   color: var(--light-primary-txt-cl);
 }
+.input {
+  @media (max-width: 767.98px) {
+    width: calc(100% - 48px);
+    height: 40px;
+  }
+}
 .inputIcon {
   display: block;
   fill: var(--secondary-txt-cl);
@@ -24,25 +50,43 @@
 .flexContainerTabs {
   display: flex;
   justify-content: space-between;
-  margin-top: 8px;
-  margin-bottom: 22px;
 }
 
 .buttonsContainer {
-  position: relative;
   display: flex;
   align-items: center;
 }
 .itemButton {
   margin-left: 10px;
+
+  @media (max-width: 767.98px) {
+    display: none;
+  }
+
 }
 .filterButton {
-  padding: 11px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 12px;
+  padding: 9px;
   border-radius: 10px;
+  font-size: 0;
+
+  @media (max-width: 767.98px) {
+    position: absolute;
+    display: block;
+    top: 48px;
+    right: 0;
+  }
+
+  @media (min-width: 1280px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: var(--regular);
+    font-size: var(--text-md);
+    color: var(--primary-txt-cl);
+  }
 
   &--light {
     color: var(--accent-cl);
