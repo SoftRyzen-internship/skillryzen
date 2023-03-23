@@ -3,12 +3,12 @@ import { useLocation } from 'react-router-dom';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
+import { useCurrentWidth } from 'hooks';
 import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setStep } from 'redux/authSlice/authSlice';
 import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
 
 import { Breadcrumbs, Modal, ScrollContainer, Tabs } from 'ui-kit';
-
 import { ModalCongrats } from 'modules/Modals/ModalCongrats';
 import { TestsSearch } from './TestsSearch/TestsSearch';
 import { TestsFilter } from './TestsFilter/TestsFilter';
@@ -54,16 +54,7 @@ export const TestsPageComponent = () => {
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const currentWidth = useCurrentWidth();
 
   useEffect(() => {
     sessionStorage.setItem('testsPage', JSON.stringify({ currentTab, size }));
@@ -105,7 +96,7 @@ export const TestsPageComponent = () => {
         {tabs.map(el => {
           if (el.id !== currentTab) return null;
           return el.component({
-            size: windowWidth < 768 ? 'small' : size,
+            size: currentWidth < 768 ? 'small' : size,
             key: el.id,
           });
         })}

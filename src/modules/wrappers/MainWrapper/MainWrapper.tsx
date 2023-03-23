@@ -41,7 +41,7 @@ export const MainWrapper = ({
             : `${objectTheme[theme].wrapper}`
         }
       >
-        {showSidebar && <Sidebar />}
+        {/* {showSidebar && <Sidebar />} */}
         <div className={s.content}>{children}</div>
       </div>
     </>

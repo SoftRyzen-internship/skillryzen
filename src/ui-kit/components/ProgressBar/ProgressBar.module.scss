@@ -30,8 +30,17 @@
 .progressBar__line {
   width: clamp(800px, 15px, 5px);
   height: 4px;
-  background-color: var(--disabled-cl);
   border-radius: 4px;
+}
+
+.progressBar__line--light {
+  composes: progressBar__line;
+  background-color: var(--light-primary-cl);
+}
+
+.progressBar__line--dark {
+  composes: progressBar__line;
+  background-color: var(--disabled-cl);
 }
 
 .progressBar__line--done {
