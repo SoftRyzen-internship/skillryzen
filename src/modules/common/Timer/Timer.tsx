@@ -63,10 +63,10 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     <>
       {pathname !== '/testing/test-end' && (
         <div>
-          <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
+          <p className={`${s[`timer--${theme}`]} ${s.timer__text}`}>
             {t('testing.timer')}
           </p>
-          <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
+          <p className={`${s[`timer--${theme}`]}`}>
             {convertTime(seconds)}
           </p>
         </div>

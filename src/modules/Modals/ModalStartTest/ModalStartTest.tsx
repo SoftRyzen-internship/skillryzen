@@ -46,7 +46,7 @@ export const ModalStartTest = () => {
   };
 
   return (
-    <div className={`${s.container} ${s[`container--${theme}`]}`}>
+    <div className={`${s[`container--${theme}`]}`}>
       <h3 className={s.modal__title}>
         <span className={s['modal__title--accent']}>{t('modalStartTest.rulesFirstPart')}</span>
         <br /> {t('modalStartTest.rulesSecondPart')}
@@ -76,7 +76,6 @@ export const ModalStartTest = () => {
         label={t('modalStartTest.agree')} 
         type='filter'
         onChange={handleChange}
-        // labelClassName={s.modal__checkbox}
         labelClassName={`${s[`modal__checkbox--${theme}`]}`}
       />
       <MainButton

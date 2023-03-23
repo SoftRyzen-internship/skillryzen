@@ -1,16 +1,17 @@
-.timer__text,
-.timer__time {
+.timer {
   font-weight: var(--bold);
   font-size: var(--text-lg);
   text-align: right;
+}
 
-  &--light {
-    color: var(--accent-cl);
-  }
+.timer--light {
+  composes: timer;
+  color: var(--accent-cl);
+}
 
-  &--dark {
-    color: var(--primary-txt-cl);
-  }
+.timer--dark {
+  composes: timer;
+  color: var(--primary-txt-cl);
 }
 
 .timer__text {

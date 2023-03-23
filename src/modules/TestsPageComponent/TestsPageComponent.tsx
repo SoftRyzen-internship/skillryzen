@@ -47,14 +47,14 @@ export const TestsPageComponent = () => {
   );
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
 
-  const dispatch = useAppDispatch();
+  const currentWidth = useCurrentWidth();
+
   const step = useAppSelector(getStep);
   const isAuth = useAppSelector(getIsAuth);
+  const dispatch = useAppDispatch();
 
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
-
-  const currentWidth = useCurrentWidth();
 
   useEffect(() => {
     sessionStorage.setItem('testsPage', JSON.stringify({ currentTab, size }));
@@ -81,9 +81,9 @@ export const TestsPageComponent = () => {
     <ScrollContainer>
       <div className={s.testsPage}>
         <Breadcrumbs />
-        <div className={s['testsPage__wrapper--mobile']}>
+        <div className={s.testsPage__wrapper}>
           <TestsSearch />
-          <div className={s.testsPage__wrapper}>
+          <div className={s.testsPage__filterWrapper}>
             <Tabs
               currentTab={currentTab}
               tabs={tabs}

@@ -40,23 +40,25 @@
     font-size: var(--text-md);
     color: var(--primary-txt-cl);
   }
+}
 
-  &--light {
-    color: var(--accent-cl);
-    background-color: var(--light-components-cl);
-    box-shadow: var(--light-primary-shadow);
-    transition: background-color var(--transition), color var(--transition);
+.testsFilter__filter--light {
+  composes: testsFilter__filter;
+  color: var(--accent-cl);
+  background-color: var(--light-components-cl);
+  box-shadow: var(--light-primary-shadow);
+  transition: background-color var(--transition), color var(--transition);
 
-    .testsFilter__icon path {
-      stroke: var(--accent-cl);
-    }
+  .testsFilter__icon path {
+    stroke: var(--accent-cl);
   }
+}
 
-  &--dark {
-    color: var(--primary-txt-cl);
-    background-color: var(--components-cl);
-    transition: background-color var(--transition), color var(--transition);
-  }
+.testsFilter__filter--dark {
+  composes: testsFilter__filter;
+  color: var(--primary-txt-cl);
+  background-color: var(--components-cl);
+  transition: background-color var(--transition), color var(--transition);
 }
 
 .testsFilter__filter--dark:hover,

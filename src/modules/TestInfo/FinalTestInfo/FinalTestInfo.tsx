@@ -124,7 +124,7 @@ export const FinalTestInfo = ({
         />
       </div>
       <h2
-        className={`${objectTheme[theme].title} ${modal && s['title--modal']}`}
+        className={objectTheme[theme].title}
       >
         {title}
       </h2>
@@ -208,7 +208,7 @@ export const FinalTestInfo = ({
       )}
       {finishTest && (
         <>
-          <ul className={`${s.recList} ${modal && s['reclist--modal']}`}>
+          <ul className={s.recList}>
             <li className={s.item}>
               <div className={s.iconWrapper}>
                 <div className={objectTheme[theme].iconThumb}>

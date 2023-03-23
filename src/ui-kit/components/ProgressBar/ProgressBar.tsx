@@ -30,15 +30,20 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
     // eslint-disable-next-line
   }, [total]);
 
+  const checkNumber = (item: number) => {
+    if (item < number) {
+      return s['progressBar__line--done'];
+    }
+    if (item === number) {
+      return s['progressBar__line--current'];
+    }
+  };
+
   return (
     <div className={s.progressBar}>
       {pathname !== '/testing/test-end' && array?.length > 0 && (
         <>
-          <p
-            className={`${s.progressBar__info} ${
-              s[`progressBar__info--${theme}`]
-            }`}
-          >
+          <p className={`${s[`progressBar__info--${theme}`]}`}>
             {t('testing.question')} {number}/{total}
           </p>
           <div className={s.progressBar__wrapper}>
@@ -46,9 +51,9 @@ export const ProgressBar = ({ theme = 'dark' }: Props) => {
               {array.map(item => (
                 <li
                   key={item}
-                  className={`${s[`progressBar__line--${theme}`]} ${
-                    item < number && s['progressBar__line--done']
-                  } ${item === number && s['progressBar__line--current']}`}
+                  className={`${s[`progressBar__line--${theme}`]} ${checkNumber(
+                    item
+                  )}`}
                 ></li>
               ))}
             </ul>

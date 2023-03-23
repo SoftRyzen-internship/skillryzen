@@ -49,24 +49,21 @@ export const OneFieldFilter = ({
   return (
     <div className={s.filter} ref={filterRef}>
       <button
-        className={`${s.filter__button} ${
+        className={`${s[`filter__button--${theme}`]} ${
           isOpen && s['filter__button--active']
-        } ${s[`filter__button--${theme}`]}`}
+        }`}
         onClick={() => setIsOpen(prev => !prev)}
       >
         <ICONS.FILTER_TWO className={s.filter__icon} />
         {currentWidth > 767 && <span>{t('testsMain.filter')}</span>}
       </button>
       <ul
-        className={`${s.filter__list} ${!isOpen && s['filter__list--hidden']} ${
-          s[`filter__list--${theme}`]
+        className={`${s[`filter__list--${theme}`]} ${
+          !isOpen && s['filter__list--hidden']
         }`}
       >
         {data.map((item, index) => (
-          <li
-            key={index}
-            className={`${s.filter__item} ${s[`filter__item--${theme}`]}`}
-          >
+          <li key={index} className={`${s[`filter__item--${theme}`]}`}>
             <Checkbox
               name={`filter${name}`}
               value={item}

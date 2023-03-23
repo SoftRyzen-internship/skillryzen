@@ -1,13 +1,16 @@
 .progressBar__info {
   font-weight: var(--bold);
   font-size: var(--text-lg);
+}
 
-  &--light {
-    color: var(--light-primary-txt-cl);
-  }
-  &--dark {
-    color: var(--primary-txt-cl);
-  }
+.progressBar__info--light {
+  composes: progressBar__info;
+  color: var(--light-primary-txt-cl);
+}
+
+.progressBar__info--dark {
+  composes: progressBar__info;
+  color: var(--primary-txt-cl);
 }
 
 .progressBar__wrapper {
@@ -22,8 +25,8 @@
   align-items: center;
   gap: 4px;
 
-  @media (min-width: 1280px) {
-    max-width: 946px;
+  @media (min-width: 1096px) {
+    max-width: 908px;
   }
 }
 
