@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
-import { setTemplateId } from 'redux/testingInfo/testingInfoSlise';
-import { useAppDispatch } from 'hooks/hook';
+import { setTemplateId } from 'redux/testingInfo/testingInfoSlice';
+import { useAppDispatch } from 'hooks';
 import { convertToUTC } from 'utils/convertLocalTimeToUTC';
 import { parseDate } from 'utils/parseDate';
 

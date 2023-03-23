@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 
 import { ROUTES } from 'routes/routes.const';
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import s from './AuthIntro.module.scss';

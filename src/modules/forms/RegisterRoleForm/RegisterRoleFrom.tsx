@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 
 import { getUserRole, getCompanyName } from 'redux/authSlice/authSelectors';
 import { setRole, setStep, setToken } from 'redux/authSlice/authSlice';

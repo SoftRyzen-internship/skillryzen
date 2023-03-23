@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch } from 'hooks';
 
 import { checkCompanyName, createCompany } from 'redux/authSlice/operations';
 import { setStep } from 'redux/authSlice/authSlice';

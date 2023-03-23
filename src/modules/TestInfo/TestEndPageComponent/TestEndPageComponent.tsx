@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 
-import { removeResults } from 'redux/testingInfo/testingInfoSlise';
+import { removeResults } from 'redux/testingInfo/testingInfoSlice';
 import {
   getResultTime,
   getTotalCount,
@@ -9,7 +9,7 @@ import {
   getTestName,
   getIsPassed,
 } from 'redux/testingInfo/testingInfoSelectors';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch } from 'hooks';
 
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';

@@ -8,7 +8,7 @@ import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { ROUTES } from 'routes/routes.const';
 import { formatCode } from 'utils/formatCode';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import {
   answerTest,
   finishTest,

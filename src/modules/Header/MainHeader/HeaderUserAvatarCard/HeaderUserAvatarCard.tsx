@@ -1,10 +1,14 @@
 import { useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { useCurrentWidth, useOutsideClick } from 'hooks';
+import {
+  useCurrentWidth,
+  useOutsideClick,
+  useAppDispatch,
+  useAppSelector,
+} from 'hooks';
 
 import { logOut } from 'redux/authSlice/operations';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setClickLogOut } from 'redux/authSlice/authSlice';
 
 import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';

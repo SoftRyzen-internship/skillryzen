@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { setStep } from 'redux/authSlice/authSlice';
 import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
 
