@@ -12,6 +12,8 @@
 }
 
 .containerModal {
+  min-width: 280px;
+
   @media (min-width: 480px) {
     min-width: 340px;
   }
@@ -163,6 +165,12 @@
   width: 160px;
   text-align: right;
 
+  .containerModal & {
+    @media (max-width: 479.98px) {
+      width: 100px;
+    }
+  }
+  
   .containerStart & {
     @media (max-width: 479.98px) {
       max-width: 80px;
