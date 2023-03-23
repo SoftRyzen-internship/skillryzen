@@ -2,7 +2,10 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 60px 185px;
+  padding: 84px 29px 60px 28px;
+  @media (min-width: 768px) {
+    padding: 84px 185px 60px;
+  }
 }
 
 .closeModalBtn {

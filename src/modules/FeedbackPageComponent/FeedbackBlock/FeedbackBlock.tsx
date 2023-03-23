@@ -44,8 +44,10 @@ export const FeedbackBlock = ({ sendFeedback }: FeedbackBlockProps) => {
             userStatus={isAuth ? 'green' : 'gray'}
             theme={theme}
           />
-          <ICONS.AT_EMAIL className={s.emailIcon} />
-          <p className={s.emailText}>{userEmail}</p>
+          <div className={s.emailWrapper}>
+            <ICONS.AT_EMAIL className={s.emailIcon} />
+            <p className={s.emailText}>{userEmail}</p>
+          </div>
         </div>
         <FeedbackForm
           updateLoading={updateLoading}
