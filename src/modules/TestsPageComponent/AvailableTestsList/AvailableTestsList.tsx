@@ -6,7 +6,7 @@ import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
 import { setTemplateId } from 'redux/testingInfo/testingInfoSlice';
-import { useAppDispatch } from 'hooks';
+import { useAppDispatch, useCurrentWidth } from 'hooks';
 import { convertToUTC } from 'utils/convertLocalTimeToUTC';
 import { parseDate } from 'utils/parseDate';
 
@@ -39,6 +39,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
   const dispatch = useAppDispatch();
+  const currentWidth = useCurrentWidth();
 
   const templateHandler = (id: string, testStatus: string) => {
     if (testStatus === 'disabled') return;
@@ -119,6 +120,22 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
       );
   }, [testsArray]);
 
+  const returnQuantity = (size: string): number => {
+    if (size === 'large') {
+      return 4;
+    }
+    if (currentWidth < 768) {
+      return 2;
+    }
+    if (currentWidth < 1024) {
+      return 4;
+    }
+    if (currentWidth < 1440) {
+      return 6;
+    }
+    return 8;
+  };
+
   return (
     <ul className={`${s[`testsList--${size}`]}`}>
       {sortedTestsList.length > 0 &&
@@ -170,7 +187,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
         )}
       {isLoading && (
         <Skeleton
-          length={size === 'large' ? 4 : 8}
+          length={returnQuantity(size)}
           value='skeleton'
           className={`${s[`skeletonItem--${size}`]}`}
         />
