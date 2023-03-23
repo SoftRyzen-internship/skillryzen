@@ -4,6 +4,7 @@ import s from './Popup.module.scss';
 import { Link } from 'react-router-dom';
 
 type TItem = {
+  id: string;
   icon?: JSX.Element;
   text?: string;
   path?: string;
@@ -41,10 +42,10 @@ export const Popup = ({
         {viewAll}
       </button>
       <ul>
-        {list.map(({ icon, text, path }, idx) => (
+        {list.map(({ id, icon, text, path }) => (
           <li
-            key={idx}
-            onClick={handleClickItem ? () => handleClickItem(text) : null}
+            key={id}
+            onClick={handleClickItem ? () => handleClickItem(id) : null}
             className={`${s[`item--${theme}`]}`}
           >
             <Link to={path} className={s.link}>

@@ -1,4 +1,4 @@
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getStep, getUserRole } from 'redux/authSlice/authSelectors';
 
 import {

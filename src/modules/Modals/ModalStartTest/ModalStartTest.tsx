@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
+
+import { useThemeContext } from 'context/themeContext';
+import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 import {
   getTestId,
@@ -10,16 +13,18 @@ import {
 import {
   removeResults,
   removeResultsBeforeStart,
-} from 'redux/testingInfo/testingInfoSlise';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+} from 'redux/testingInfo/testingInfoSlice';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { ROUTES } from 'routes/routes.const';
 
 import { Checkbox, MainButton } from 'ui-kit';
 
 import s from './ModalStartTest.module.scss';
 
+
 export const ModalStartTest = () => {
   const { t } = useTranslation();
+  const { theme }: IThemeContext = useThemeContext();
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const total = useAppSelector(getTotalCount);
   const testId = useAppSelector(getTestId);
@@ -41,7 +46,7 @@ export const ModalStartTest = () => {
   };
 
   return (
-    <div className={s.container}>
+    <div className={`${s.container} ${s[`container--${theme}`]}`}>
       <h3 className={s.modal__title}>
         <span className={s['modal__title--accent']}>{t('modalStartTest.rulesFirstPart')}</span>
         <br /> {t('modalStartTest.rulesSecondPart')}
@@ -71,7 +76,8 @@ export const ModalStartTest = () => {
         label={t('modalStartTest.agree')} 
         type='filter'
         onChange={handleChange}
-        labelClassName={s.modal__checkbox}
+        // labelClassName={s.modal__checkbox}
+        labelClassName={`${s[`modal__checkbox--${theme}`]}`}
       />
       <MainButton
         type='button'

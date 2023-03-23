@@ -26,6 +26,14 @@
   line-height: 1.2;
   text-align: left;
   margin-bottom: 60px;
+
+  .container--light & {
+    color: var(--primary-cl);
+  }
+
+  .container--dark & {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .modal__item {
@@ -46,4 +54,14 @@
   margin-bottom: 17px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.modal__checkbox--light {
+  composes: modal__checkbox;
+  color: var(--primary-cl);
+}
+
+.modal__checkbox--dark {
+  composes: modal__checkbox;
+  color: var(--primary-txt-cl);
 }

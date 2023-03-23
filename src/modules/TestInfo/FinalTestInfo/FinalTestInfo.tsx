@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from 'context/themeContext';
-import { useAppSelector } from 'hooks/hook';
-import { useCurrentWidth } from 'hooks';
+import { useAppSelector, useCurrentWidth } from 'hooks';
 import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';

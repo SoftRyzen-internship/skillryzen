@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { ROUTES } from 'routes/routes.const';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch } from 'hooks';
 
 import { auth } from 'redux/authSlice/operations';
 import { setName } from 'redux/authSlice/authSlice';

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from 'ui-kit/icons';
 import { MainButton, Checkbox, AuthInput } from 'ui-kit';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { handleError } from 'utils/handleError';
 
 import { setStep } from 'redux/authSlice/authSlice';

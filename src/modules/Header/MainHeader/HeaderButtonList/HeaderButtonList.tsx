@@ -1,5 +1,4 @@
-import { useAppSelector } from 'hooks/hook';
-import { useCurrentWidth } from 'hooks';
+import { useCurrentWidth, useAppSelector } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import { USER_ROLE } from 'constans/consts';

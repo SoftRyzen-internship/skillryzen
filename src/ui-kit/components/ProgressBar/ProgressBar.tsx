@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { createArray } from 'utils/createArray';
 import { ICONS } from 'ui-kit/icons';
 import { Theme } from 'constans/types';
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import {
   getQuestionNumber,
   getTotalCount,

@@ -23,10 +23,12 @@ export const HeaderButtonCoin = () => {
   // тимчасовий масив, далі буде приходити з бекенду
   const tempList = [
     {
+      id: 'coinMessage-1',
       icon: <ICONS.COIN fill='var(--message-cl)' />,
       text: t('header.coins.item1'),
     },
     {
+      id: 'coinMessage-2',
       icon: <ICONS.COIN fill='var(--message-cl)' />,
       text: t('header.coins.item2'),
     },

@@ -28,10 +28,12 @@ export const Input = ({
   readOnly,
   onChange,
   onClick,
-  labelClassName
+  labelClassName,
 }: IProps) => {
   return (
-    <label className={`${s.inputContainer} ${labelClassName && labelClassName}`} >
+    <label
+      className={`${s.inputContainer} ${labelClassName && labelClassName}`}
+    >
       <input
         className={`${s[`input--${theme}`]} ${className && className}`}
         name={name}

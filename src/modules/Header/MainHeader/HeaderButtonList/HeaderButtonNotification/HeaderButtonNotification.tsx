@@ -29,14 +29,17 @@ export const HeaderButtonNotification = () => {
   // тимчасовий масив, далі буде приходити з бекенду
   const tempList = [
     {
+      id: 'notification-1',
       icon: <ICONS.PIN stroke={iconColor[theme]} />,
       text: t('header.notifications.item1'),
     },
     {
+      id: 'notification-2',
       icon: <ICONS.PIN stroke={iconColor[theme]} />,
       text: t('header.notifications.item2'),
     },
     {
+      id: 'notification-3',
       icon: <ICONS.PIN stroke={iconColor[theme]} />,
       text: t('header.notifications.item2'),
     },

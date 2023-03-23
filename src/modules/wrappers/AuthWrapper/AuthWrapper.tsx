@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useAppSelector, useAppDispatch } from 'hooks/hook';
+import { useAppSelector, useAppDispatch } from 'hooks';
 import { AuthIntro } from '../AuthIntro/AuthIntro';
 
 import { getIsClickLogOut, getStep } from 'redux/authSlice/authSelectors';

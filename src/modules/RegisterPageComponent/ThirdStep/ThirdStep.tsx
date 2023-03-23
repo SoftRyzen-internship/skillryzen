@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { ROUTES } from 'routes/routes.const';
 import { setName } from 'redux/authSlice/authSlice';
 import { auth } from 'redux/authSlice/operations';

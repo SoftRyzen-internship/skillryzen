@@ -1,7 +1,8 @@
 import { Suspense, useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { ThemeContext } from 'context/themeContext';
+import { AdavtipeSideBarContext } from 'context/adavtipeSideBarContext';
 import { getLocaleStorageItem } from 'utils/getLocaleStorageItem';
 import { auth } from 'redux/authSlice/operations';
 import { setName } from 'redux/authSlice/authSlice';
@@ -22,6 +23,7 @@ export const App = () => {
   const [theme, setTheme] = useState(
     () => getLocaleStorageItem<Theme>('theme') || 'dark'
   );
+  const [showSideBar, setShowSideBar] = useState(false);
 
   const email = useAppSelector(getUserEmail);
   const isAuth = useAppSelector(getIsAuth);
@@ -36,9 +38,11 @@ export const App = () => {
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
-      <Suspense fallback={<Spinner className='spinnerPosition' />}>
-        <AppRoutes />
-      </Suspense>
+      <AdavtipeSideBarContext.Provider value={{ showSideBar, setShowSideBar }}>
+        <Suspense fallback={<Spinner className='spinnerPosition' />}>
+          <AppRoutes />
+        </Suspense>
+      </AdavtipeSideBarContext.Provider>
     </ThemeContext.Provider>
   );
 };
