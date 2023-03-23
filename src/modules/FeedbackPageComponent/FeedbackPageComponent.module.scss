@@ -1,27 +1,5 @@
-.pageContainer {
-  padding: 20px 60px 52px 64px;
-  width: 100%;
-  height: calc(100vh - 72px);
-
-  transition: background-color var(--transition);
-
-  &--light {
-    transition: var(--transition);
-    background-color: var(--light-cards-cl);
-  }
-
-  &--dark {
-    transition: var(--transition);
-    background-color: var(--primary-cl);
-  }
-}
-
 .pageWrapper {
-  // padding: 20px;
-  min-width: 593px;
   max-width: 1000px;
-  // border-radius: 12px;
-
   position: relative;
   &--light {
     color: var(--light-primary-txt-cl);

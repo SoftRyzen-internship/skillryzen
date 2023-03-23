@@ -14,7 +14,7 @@ import { HeaderButton, Popup } from 'ui-kit/index';
 export const HeaderButtonCoin = () => {
   const ref = useRef<HTMLDivElement>();
   const { theme }: IThemeContext = useThemeContext();
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const [popup, setPopup] = useState(false);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const currentWidth = useCurrentWidth();
@@ -35,29 +35,15 @@ export const HeaderButtonCoin = () => {
   ];
 
   const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        handleClickLink={() => navigate(ROUTES.COINS)}
-        list={tempList}
-        viewAll={t('header.viewAll')}
-        theme={theme}
-      />
-    );
+    setPopup(true);
   };
   const mouseLeaveHandler = () => {
     setPopup(null);
   };
 
   const handleClick = () => {
-    if (popup) return setPopup(null);
-    setPopup(
-      <Popup
-        handleClickLink={() => navigate(ROUTES.COINS)}
-        list={tempList}
-        viewAll={t('header.viewAll')}
-        theme={theme}
-      />
-    );
+    if (popup) return setPopup(false);
+    setPopup(true);
   };
 
   return (
@@ -72,7 +58,16 @@ export const HeaderButtonCoin = () => {
       onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
       onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
       onClick={currentWidth < 1279 ? handleClick : null}
-      popupContent={popup}
+      popupContent={
+        popup && (
+          <Popup
+            handleClickLink={() => navigate(ROUTES.COINS)}
+            list={tempList}
+            viewAll={t('header.viewAll')}
+            theme={theme}
+          />
+        )
+      }
       theme={theme}
       ref={ref}
     />
