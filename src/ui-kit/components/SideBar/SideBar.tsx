@@ -22,7 +22,6 @@ export const SideBar = ({
   theme = 'dark',
   top = '0',
 }: SideBarProps) => {
-  
   const [isOpen, setIsOpen] = useState(() => {
     const savedValue = localStorage.getItem('sideBarIsOpen');
     return savedValue ? (savedValue === 'true' ? true : false) : true;
@@ -31,11 +30,11 @@ export const SideBar = ({
   const { showSideBar } = useAdavtipeSideBarContext();
   const currentWidth = useCurrentWidth();
 
-  useEffect(()=>{
-    if(currentWidth<1280){
-      setIsOpen(true)
+  useEffect(() => {
+    if (currentWidth < 1280) {
+      setIsOpen(true);
     }
-  },[currentWidth])
+  }, [currentWidth]);
 
   const setClassnameSidebar = () => {
     if (isOpen) {

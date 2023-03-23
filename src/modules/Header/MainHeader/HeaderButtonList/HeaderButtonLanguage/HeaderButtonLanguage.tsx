@@ -15,7 +15,7 @@ export const HeaderButtonLanguage = () => {
   const { t, i18n } = useTranslation();
   const currentWidth = useCurrentWidth();
 
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const [popup, setPopup] = useState(false);
   const [lang, setLang] = useState<string>(() =>
     localStorage.getItem('i18nextLng')
   );
@@ -32,34 +32,15 @@ export const HeaderButtonLanguage = () => {
   };
 
   const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        list={[
-          { id: 'en', icon: <ICONS.UK />, text: t('header.language.eng') },
-          { id: 'uk', icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
-        ]}
-        handleClickItem={handleClickLanguage}
-        theme={theme}
-      />
-    );
+    setPopup(true);
   };
   const mouseLeaveHandler = () => {
-    setPopup(null);
+    setPopup(false);
   };
 
   const handleClick = () => {
-    if (popup) return setPopup(null);
-    setPopup(
-      <Popup
-        list={[
-          { id: 'en', icon: <ICONS.UK />, text: t('header.language.eng') },
-          { id: 'uk', icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
-        ]}
-        handleClickItem={handleClickLanguage}
-        theme={theme}
-        adaptive={true}
-      />
-    );
+    if (popup) return setPopup(false);
+    setPopup(true);
   };
 
   return (
@@ -68,7 +49,22 @@ export const HeaderButtonLanguage = () => {
       onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
       onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
       onClick={currentWidth < 1279 ? handleClick : null}
-      popupContent={popup}
+      popupContent={
+        popup && (
+          <Popup
+            list={[
+              { id: 'en', icon: <ICONS.UK />, text: t('header.language.eng') },
+              {
+                id: 'uk',
+                icon: <ICONS.UKRAINE />,
+                text: t('header.language.ukr'),
+              },
+            ]}
+            handleClickItem={handleClickLanguage}
+            theme={theme}
+          />
+        )
+      }
       theme={theme}
       ref={ref}
     />
