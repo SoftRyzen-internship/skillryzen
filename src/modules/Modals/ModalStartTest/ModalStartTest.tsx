@@ -40,7 +40,6 @@ export const ModalStartTest = () => {
     setAcceptedTerms(prev => !prev);
   };
 
-
   return (
     <div className={s.container}>
       <h3 className={s.modal__title}>

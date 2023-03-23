@@ -4,8 +4,8 @@ import { HeaderInput } from './HeaderInput';
 import { HeaderButtonList } from './HeaderButtonList';
 import { HeaderUserAvatarCard } from './HeaderUserAvatarCard';
 import { Logo } from 'ui-kit/index';
-import { ICONS } from 'ui-kit/icons';
 import { useCurrentWidth } from 'hooks';
+import { MenuIcon } from './MenuIcon';
 
 import { IThemeContext } from 'constans/types';
 import s from './MainHeader.module.scss';
@@ -20,11 +20,11 @@ export const MainHeader = () => {
   return (
     <header className={`${s.header} ${s[`header--${theme}`]}`}>
       <div className={s.logoContainer}>
-        <ICONS.BROCKEN_MENU />
+        <MenuIcon />
         <Logo content='SkillRyzen' />
       </div>
       <div className={s.container}>
-        {currentWidth > 1279 &&  <HeaderInput />}
+        {currentWidth > 1279 && <HeaderInput />}
         <HeaderButtonList
           showInput={showInput}
           handleShowInput={handleShowInput}

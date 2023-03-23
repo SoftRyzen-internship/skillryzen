@@ -307,7 +307,7 @@ export const FinalTestInfo = ({
       )}
       {isModal && (
         <Modal isShowModal={isModal} onClick={handleClickModal} isCloseIcon>
-          <ModalStartTest/>
+          <ModalStartTest />
         </Modal>
       )}
     </div>
