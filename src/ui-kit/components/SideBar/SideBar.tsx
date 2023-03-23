@@ -27,7 +27,7 @@ export const SideBar = ({
     return savedValue ? (savedValue === 'true' ? true : false) : true;
   });
 
-  const { showSideBar } = useAdavtipeSideBarContext();
+  const { showSideBar, setShowSideBar } = useAdavtipeSideBarContext();
   const currentWidth = useCurrentWidth();
 
   useEffect(() => {
@@ -35,6 +35,12 @@ export const SideBar = ({
       setIsOpen(true);
     }
   }, [currentWidth]);
+
+  useEffect(() => {
+    if (currentWidth >= 1280) {
+      showSideBar && setShowSideBar(false);
+    }
+  }, [currentWidth, setShowSideBar, showSideBar]);
 
   const setClassnameSidebar = () => {
     if (isOpen) {

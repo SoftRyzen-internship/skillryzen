@@ -1,8 +1,14 @@
 .pageWrapper {
-  min-width: 593px;
+  min-width: 280px;
   border-radius: 12px;
 
   transition: background-color var(--transition), color var(--transition);
+  @media (min-width: 480px) {
+    min-width: 460px;
+  }
+  @media (min-width: 768px) {
+    min-width: 593px;
+  }
 
   &--light {
     color: var(--light-primary-txt-cl);
