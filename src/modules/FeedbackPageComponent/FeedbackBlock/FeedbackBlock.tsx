@@ -13,7 +13,7 @@ import {
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { randomAvatar } from 'utils/randomAvatar';
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 interface FeedbackBlockProps {
   sendFeedback?: (_value: boolean) => void;
 }

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import { TestQuestion } from './TestQuestion/TestQuestion';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { getTestTemplate } from 'redux/testingInfo/testingInfoOperations';
 import { getQuestionId } from 'redux/testingInfo/testingInfoSelectors';
 

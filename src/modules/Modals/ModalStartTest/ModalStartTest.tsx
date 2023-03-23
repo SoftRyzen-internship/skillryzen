@@ -10,8 +10,8 @@ import {
 import {
   removeResults,
   removeResultsBeforeStart,
-} from 'redux/testingInfo/testingInfoSlise';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+} from 'redux/testingInfo/testingInfoSlice';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { ROUTES } from 'routes/routes.const';
 
 import { Checkbox, MainButton } from 'ui-kit';
@@ -39,7 +39,6 @@ export const ModalStartTest = () => {
   const handleChange = () => {
     setAcceptedTerms(prev => !prev);
   };
-
 
   return (
     <div className={s.container}>

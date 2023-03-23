@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from 'context/themeContext';
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
@@ -307,7 +307,7 @@ export const FinalTestInfo = ({
       )}
       {isModal && (
         <Modal isShowModal={isModal} onClick={handleClickModal} isCloseIcon>
-          <ModalStartTest/>
+          <ModalStartTest />
         </Modal>
       )}
     </div>

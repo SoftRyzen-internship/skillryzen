@@ -1,6 +1,6 @@
 import { Suspense, useEffect, useState } from 'react';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { ThemeContext } from 'context/themeContext';
 import { getLocaleStorageItem } from 'utils/getLocaleStorageItem';
 import { auth } from 'redux/authSlice/operations';

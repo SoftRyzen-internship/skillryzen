@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { LoginForm } from 'modules/Forms';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { setStep } from 'redux/authSlice/authSlice';
 
 import s from './Login.module.scss';

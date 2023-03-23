@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import { USER_ROLE } from 'constans/consts';

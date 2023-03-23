@@ -4,7 +4,7 @@ import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
-import { useAppDispatch } from 'hooks/hook';
+import { useAppDispatch } from 'hooks';
 import { logIn, auth } from 'redux/authSlice/operations';
 import { setName } from 'redux/authSlice/authSlice';
 import { randomName } from 'utils/randomName';

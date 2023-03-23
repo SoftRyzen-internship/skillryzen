@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 
 import { authReducer } from './authSlice/authSlice';
-import { testingInfoReducer } from './testingInfo/testingInfoSlise';
+import { testingInfoReducer } from './testingInfo/testingInfoSlice';
 
 export const store = configureStore({
   reducer: {
