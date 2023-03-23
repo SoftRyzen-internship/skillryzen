@@ -1,11 +1,12 @@
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { ROUTES } from 'routes/routes.const';
 
 import { MainButton } from 'ui-kit';
-import { IMAGES } from 'ui-kit/images';
+import { ICONS } from 'ui-kit/icons';
+
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
 
 import s from './ModalCongrats.module.scss';
 
@@ -18,13 +19,7 @@ export const ModalCongrats = ({ onClick }: ModalCongratsProps) => {
   const { t } = useTranslation();
   return (
     <div className={s.container}>
-      <img
-        src={IMAGES.DONE}
-        alt='Done registration'
-        width='99'
-        height='84'
-        className={s.image}
-      />
+      <ICONS.LETTER className={s.image} />
       <p className={theme === 'dark' ? s.titleDark : s.titleLight}>
         {t('modalCongrats.title1')}
       </p>

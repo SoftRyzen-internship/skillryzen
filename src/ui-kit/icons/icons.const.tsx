@@ -129,6 +129,10 @@ import IconSort from 'assets/svg/sort.svg';
 import IconSortTop from 'assets/svg/sort-top.svg';
 import IconSortDown from 'assets/svg/sort-down.svg';
 
+import IconLogOut from 'assets/svg/log-out.svg';
+import IconLetter from 'assets/svg/letter.svg';
+import IconPage404 from 'assets/svg/page-404.svg';
+
 import { Icons } from 'constans/types';
 
 export const ICONS: Icons = {
@@ -257,4 +261,7 @@ export const ICONS: Icons = {
   SORT_DOWN: IconSortDown,
   BROCKEN_MENU: BrockenMenu,
   AGREEMENT: IconAgreement,
+  LOG_OUT: IconLogOut,
+  LETTER: IconLetter,
+  PAGE_404: IconPage404,
 };
