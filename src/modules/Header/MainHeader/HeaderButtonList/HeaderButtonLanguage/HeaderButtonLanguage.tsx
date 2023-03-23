@@ -22,14 +22,12 @@ export const HeaderButtonLanguage = () => {
   useOutsideClick(ref, setPopup);
 
   const handleClickLanguage = (language: string) => {
-    if (language === 'Ukrainian' || language === 'Українська') {
-      i18n.changeLanguage('uk');
+    if (language === lang) {
+      setPopup(null);
+      return;
     }
-    if (language === 'English' || language === 'Англійська') {
-      i18n.changeLanguage('en');
-    }
-    const shortLangName = language.toLowerCase().slice(0, 2);
-    setLang(shortLangName);
+    i18n.changeLanguage(language);
+    setLang(language);
     setPopup(null);
   };
 
@@ -37,12 +35,11 @@ export const HeaderButtonLanguage = () => {
     setPopup(
       <Popup
         list={[
-          { icon: <ICONS.UK />, text: t('header.language.eng') },
-          { icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
+          { id: 'en', icon: <ICONS.UK />, text: t('header.language.eng') },
+          { id: 'uk', icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
         ]}
         handleClickItem={handleClickLanguage}
         theme={theme}
-        adaptive={true}
       />
     );
   };
@@ -55,11 +52,12 @@ export const HeaderButtonLanguage = () => {
     setPopup(
       <Popup
         list={[
-          { icon: <ICONS.UK />, text: t('header.language.eng') },
-          { icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
+          { id: 'en', icon: <ICONS.UK />, text: t('header.language.eng') },
+          { id: 'uk', icon: <ICONS.UKRAINE />, text: t('header.language.ukr') },
         ]}
         handleClickItem={handleClickLanguage}
         theme={theme}
+        adaptive={true}
       />
     );
   };
