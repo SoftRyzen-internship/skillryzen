@@ -40,46 +40,42 @@ export const ModalStartTest = () => {
     setAcceptedTerms(prev => !prev);
   };
 
-
   return (
     <div className={s.container}>
       <h3 className={s.modal__title}>
-        <span className={s['modal__title--accent']}>Правила</span>
-        <br /> проходження тестування
+        <span className={s['modal__title--accent']}>{t('modalStartTest.rulesFirstPart')}</span>
+        <br /> {t('modalStartTest.rulesSecondPart')}
       </h3>
       <ul className={s.modal__list}>
         <li className={s.modal__item}>
           <div className={s.icon}>
             <ICONS.AGREEMENT />
           </div>
-          <p>
-            Перед початком тесту переконайся, що у тебе є стабільне підключення
-            до Інтернету та достатньо часу для його проходження.
-          </p>
+          <p>{t('modalStartTest.ruleFirst')}</p>
         </li>
         <li className={s.modal__item}>
           <div className={s.icon}>
             <ICONS.AGREEMENT />
           </div>
-          <p> При закритті вкладки тест автоматично фейлиться. </p>
+          <p> {t('modalStartTest.ruleSecond')} </p>
         </li>
         <li className={s.modal__item}>
           <div className={s.icon}>
             <ICONS.AGREEMENT />
           </div>
-          <p> Зверни увагу на те, що тест можна перездати тільки один раз. </p>
+          <p> {t('modalStartTest.ruleThird')} </p>
         </li>
       </ul>
       <Checkbox
         name='startTestAgreement'
-        label='З правилами ознайомився'
+        label={t('modalStartTest.agree')} 
         type='filter'
         onChange={handleChange}
         labelClassName={s.modal__checkbox}
       />
       <MainButton
         type='button'
-        text={t('finalTestInfo.startModal')}
+        text={t('modalStartTest.start')}
         disabled={!acceptedTerms}
         onClick={handleClickBtn}
         size='small'
