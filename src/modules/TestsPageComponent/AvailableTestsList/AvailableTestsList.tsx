@@ -125,7 +125,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
       return 4;
     }
     if (currentWidth < 768) {
-      return 3;
+      return 2;
     }
     if (currentWidth < 1024) {
       return 4;
