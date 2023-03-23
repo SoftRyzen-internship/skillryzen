@@ -121,8 +121,8 @@ export const HeaderUserAvatarCard = () => {
     setIsShowModal(prevState => !prevState);
   };
 
-  const handleClickPopupItem = (text: string) => {
-    if (text === t('header.userAvatar.logOut')) {
+  const handleClickPopupItem = (id: string) => {
+    if (id === 'logOut') {
       handleClickModal();
     }
   };
