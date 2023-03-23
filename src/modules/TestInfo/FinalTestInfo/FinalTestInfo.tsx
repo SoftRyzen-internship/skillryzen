@@ -6,9 +6,10 @@ import { useAppSelector } from 'hooks/hook';
 import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
-import { MainButton } from 'ui-kit';
+import { MainButton, Modal } from 'ui-kit';
 
 import s from './FinalTestInfo.module.scss';
+import { ModalStartTest } from 'modules/Modals/ModalStartTest/ModalStartTest';
 
 const objectTheme = {
   dark: {
@@ -65,7 +66,7 @@ interface Props {
   iconDate?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
   theBestTopic?: string;
-  onClickBtn: () => void;
+  onClickBtn?: () => void;
   textBtn?: string;
   finishTest?: boolean;
   test?: string;
@@ -100,6 +101,7 @@ export const FinalTestInfo = ({
 
   const templateId = useAppSelector(getTemplateId);
 
+  const [isModal, setIsModal] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -110,6 +112,10 @@ export const FinalTestInfo = ({
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  const handleClickModal = () => {
+    setIsModal(prevState => !prevState);
+  };
 
   return (
     <div
@@ -126,7 +132,11 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2 className={`${objectTheme[theme].title} ${modal && s['title--modal']}`}>{title}</h2>
+      <h2
+        className={`${objectTheme[theme].title} ${modal && s['title--modal']}`}
+      >
+        {title}
+      </h2>
       {subtitle && <p className={objectTheme[theme].subtitle}>{subtitle}</p>}
       {listInfo ? (
         <ul className={s.list}>
@@ -284,7 +294,7 @@ export const FinalTestInfo = ({
           disabled={
             (!finishTest && !templateId) || (!finishTest && windowWidth <= 1023)
           }
-          onClick={onClickBtn}
+          onClick={!finishTest ? handleClickModal : onClickBtn}
           size='large'
           color='blue'
           className={
@@ -294,6 +304,11 @@ export const FinalTestInfo = ({
       )}
       {!finishTest && windowWidth < 1023 && (
         <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
+      )}
+      {isModal && (
+        <Modal isShowModal={isModal} onClick={handleClickModal} isCloseIcon>
+          <ModalStartTest/>
+        </Modal>
       )}
     </div>
   );

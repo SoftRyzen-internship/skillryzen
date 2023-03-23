@@ -1,0 +1,49 @@
+.container {
+  overflow: hidden;
+  text-align: center;
+  padding: 40px 100px;
+}
+
+.modal__title {
+  font-weight: var(--bold);
+  font-size: var(--text-lg);
+  color: var(--accent-cl);
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.modal__title--accent {
+  text-transform: uppercase;
+}
+
+.modal__list {
+  width: 368px;
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+  font-weight: var(--regular);
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  text-align: left;
+  margin-bottom: 60px;
+}
+
+.modal__item {
+  display: flex;
+  gap: 12px;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+}
+
+.modal__checkbox {
+  max-width: 200px;
+  font-weight: var(--regular);
+  font-size: var(--text-sm);
+  line-height: 1.2;
+  margin-bottom: 17px;
+  margin-left: auto;
+  margin-right: auto;
+}

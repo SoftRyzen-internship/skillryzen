@@ -20,6 +20,7 @@
     "bestTopic": "The best topic in",
     "section": "section",
     "startTest": "Start Test",
+    "startModal": "Start",
     "endTest": "Finish the test",
     "failedTest": "You failed the test",
     "passedTest": "You passed the test",
