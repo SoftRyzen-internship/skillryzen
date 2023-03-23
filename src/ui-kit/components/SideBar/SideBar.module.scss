@@ -1,11 +1,13 @@
 .sideBar {
   position: absolute;
   z-index: 15;
+  left: -100%;
   transform: translateX(-100%);
   transition: var(--transition);
 
   @media (min-width: 1280px) {
     position: sticky;
+    left: 0;
     transform: translateX(0);
   }
 }
@@ -13,6 +15,7 @@
 .openAdaptiveSideBar {
   position: fixed;
   z-index: 15;
+  left: 0;
   transform: translateX(0);
   transition: var(--transition);
 }

@@ -15,9 +15,8 @@ export const HeaderButtonSearch = ({ active, onClick }: Props) => {
 
   return (
     <HeaderButton
-      icon={<ICONS.SEARCH fill='white' />}
+      icon={<ICONS.SEARCH fill={active ? '#3653f2':'#9D9FB5' }/>}
       theme={theme}
-      active={active}
       onClick={onClick}
     />
   );

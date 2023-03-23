@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCurrentWidth } from 'hooks';
 
 import { SideBarContext } from 'modules/Sidebar/context/sideBarContext';
@@ -22,12 +22,20 @@ export const SideBar = ({
   theme = 'dark',
   top = '0',
 }: SideBarProps) => {
+  
   const [isOpen, setIsOpen] = useState(() => {
     const savedValue = localStorage.getItem('sideBarIsOpen');
     return savedValue ? (savedValue === 'true' ? true : false) : true;
   });
+
   const { showSideBar } = useAdavtipeSideBarContext();
   const currentWidth = useCurrentWidth();
+
+  useEffect(()=>{
+    if(currentWidth<1280){
+      setIsOpen(true)
+    }
+  },[currentWidth])
 
   const setClassnameSidebar = () => {
     if (isOpen) {
