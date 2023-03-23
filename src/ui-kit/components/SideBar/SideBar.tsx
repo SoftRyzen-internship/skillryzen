@@ -22,7 +22,10 @@ export const SideBar = ({
   theme = 'dark',
   top = '0',
 }: SideBarProps) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() => {
+    const savedValue = localStorage.getItem('sideBarIsOpen');
+    return savedValue ? (savedValue === 'true' ? true : false) : true;
+  });
   const { showSideBar } = useAdavtipeSideBarContext();
   const currentWidth = useCurrentWidth();
 
@@ -66,6 +69,11 @@ export const SideBar = ({
     }
   };
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    localStorage.setItem('sideBarIsOpen', String(!isOpen));
+  };
+
   return (
     <div className={`${s.sideBar} ${showSideBar && s.openAdaptiveSideBar}`}>
       <div className={setClassnameSidebar()} style={{ top: top }}>
@@ -81,9 +89,7 @@ export const SideBar = ({
             className={
               theme === 'dark' ? s.sideBar__btnDark : s.sideBar__btnLight
             }
-            onClick={() => {
-              setIsOpen(!isOpen);
-            }}
+            onClick={handleClick}
           >
             <ICONS.ARROW_LEFT className={setClassnameIconArrow()} />
           </button>
