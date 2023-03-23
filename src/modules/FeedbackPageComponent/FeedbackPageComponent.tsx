@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import s from './FeedbackPageComponent.module.scss';
-import { Breadcrumbs, Modal } from 'ui-kit';
-import { FeedbackCongrat } from './FeedbackCongrat/FeedbackCongrat';
-import { useThemeContext } from 'context/themeContext';
+
 import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
+import { Breadcrumbs, Modal, ScrollContainer } from 'ui-kit';
+
+import { FeedbackCongrat } from './FeedbackCongrat/FeedbackCongrat';
 import { FeedbackBlockPage } from './FeedbackBlockPage/FeedbackBlockPage';
+
+import s from './FeedbackPageComponent.module.scss';
 
 export const FeedbackPageComponent = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -17,12 +20,11 @@ export const FeedbackPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   return (
     <>
-      <div className={s.pageContainer}>
+      <ScrollContainer>
         <Breadcrumbs />
         <div className={`${s.pageWrapper} ${s[`pageWrapper--${theme}`]}`}>
           <FeedbackBlockPage sendFeedback={sendFeedback} />
         </div>
-
         {isShowModal && (
           <Modal
             isShowModal={isShowModal}
@@ -32,7 +34,7 @@ export const FeedbackPageComponent = () => {
             <FeedbackCongrat handleClickModal={handleClickModal} />
           </Modal>
         )}
-      </div>
+      </ScrollContainer>
     </>
   );
 };

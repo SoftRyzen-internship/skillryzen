@@ -1,14 +1,16 @@
 import { useFormik } from 'formik';
-import { useTranslation } from 'react-i18next';
-import s from './FeedbackForm.module.scss';
-import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
-import { useValidationSchema } from './useValidationSchema';
-import { MainButton } from 'ui-kit';
 import { useLocation } from 'react-router';
+import { useTranslation } from 'react-i18next';
+
+import { MainButton } from 'ui-kit';
 import { pluralize } from 'utils/pluralize';
-import { sendFeedbackService } from 'services/feedbackService';
+import { IThemeContext } from 'constans/types';
 import { useFeedbackError } from './useFeedbackError';
+import { useThemeContext } from 'context/themeContext';
+import { useValidationSchema } from './useValidationSchema';
+import { sendFeedbackService } from 'services/feedbackService';
+
+import s from './FeedbackForm.module.scss';
 
 interface FormValues {
   message: string;
