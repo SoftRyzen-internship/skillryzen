@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IThemeContext } from 'constans/types';
-import { useThemeContext } from 'context/themeContext';
 import { Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
+import { useCurrentWidth } from 'hooks';
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
 
 import s from './OneFieldFilter.module.scss';
 
@@ -20,18 +21,12 @@ export const OneFieldFilter = ({
   setFilter,
 }: OneFieldFilterProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const filterRef = useRef(null);
+  const currentWidth = useCurrentWidth();
 
   useEffect(() => {
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleResize);
-
     const handleMouseDown = (event: MouseEvent) => {
       if (filterRef.current && !filterRef.current?.contains(event.target)) {
         setIsOpen(false);
@@ -41,7 +36,6 @@ export const OneFieldFilter = ({
     document.addEventListener('mousedown', handleMouseDown);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
       document.removeEventListener('mousedown', handleMouseDown);
     };
   }, []);
@@ -61,7 +55,7 @@ export const OneFieldFilter = ({
         onClick={() => setIsOpen(prev => !prev)}
       >
         <ICONS.FILTER_TWO className={s.filter__icon} />
-        {windowWidth > 767 && <span>{t('testsMain.filter')}</span>}
+        {currentWidth > 767 && <span>{t('testsMain.filter')}</span>}
       </button>
       <ul
         className={`${s.filter__list} ${!isOpen && s['filter__list--hidden']} ${

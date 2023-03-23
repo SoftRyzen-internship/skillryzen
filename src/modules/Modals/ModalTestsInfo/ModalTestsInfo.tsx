@@ -9,7 +9,7 @@ interface ModalProps {
   testInfo: TestInfo;
 }
 
-export const ModalTestsInfo = ({ testInfo}: ModalProps) => {
+export const ModalTestsInfo = ({ testInfo }: ModalProps) => {
   return (
     <div className={s.container}>
       <FinalTestInfo

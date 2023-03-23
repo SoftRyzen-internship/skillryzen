@@ -59,26 +59,31 @@ export const HeaderUserAvatarCard = () => {
     if (role === USER_ROLE.candidate) {
       return [
         {
+          id: 'profile',
           icon: <ICONS.USER stroke={iconColor[theme]} />,
           text: t('header.userAvatar.profile'),
           path: ROUTES.PROFILE,
         },
         {
+          id: 'settings',
           icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
           text: t('header.userAvatar.settings'),
           path: ROUTES.PROFILE_SETTINGS,
         },
         {
+          id: 'notifications',
           icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
           text: t('header.userAvatar.notifications'),
           path: ROUTES.NOTIFICATIONS,
         },
         {
+          id: 'coins',
           icon: <ICONS.COIN fill={iconColor[theme]} />,
           text: t('header.userAvatar.coins'),
           path: ROUTES.COINS,
         },
         {
+          id: 'logOut',
           icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
           text: t('header.userAvatar.logOut'),
         },
@@ -87,21 +92,25 @@ export const HeaderUserAvatarCard = () => {
 
     return [
       {
+        id: 'profile',
         icon: <ICONS.USER stroke={iconColor[theme]} />,
         text: t('header.userAvatar.profile'),
         path: ROUTES.PROFILE,
       },
       {
+        id: 'settings',
         icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
         text: t('header.userAvatar.settings'),
         path: ROUTES.PROFILE_SETTINGS,
       },
       {
+        id: 'notifications',
         icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
         text: t('header.userAvatar.notifications'),
         path: ROUTES.NOTIFICATIONS,
       },
       {
+        id: 'logOut',
         icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
         text: t('header.userAvatar.logOut'),
       },

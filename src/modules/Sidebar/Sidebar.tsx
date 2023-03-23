@@ -111,7 +111,6 @@ export const Sidebar = () => {
       ]}
       spaceBetween='space-between'
       theme={theme}
-      sticky={true}
       top='72px'
     />
   );

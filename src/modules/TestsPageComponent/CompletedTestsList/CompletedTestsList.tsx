@@ -168,9 +168,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       </ul>
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
-          <ModalTestsInfo
-            testInfo={testInfo}
-          />
+          <ModalTestsInfo testInfo={testInfo} />
         </Modal>
       )}
     </>
