@@ -3,8 +3,9 @@ import { useMemo } from 'react';
 import { team } from 'utils/team.js';
 import { IMAGES } from 'ui-kit/images';
 import { useThemeContext } from 'context/themeContext';
-import { TeamCard } from 'ui-kit/components/Card/TeamCard';
 import { IThemeContext, UserSocial, SocialName } from 'constans/types';
+
+import { TeamCard } from 'ui-kit';
 
 import s from './TeamList.module.scss';
 

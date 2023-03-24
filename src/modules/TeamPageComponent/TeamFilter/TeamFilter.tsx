@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-import { ICONS } from 'ui-kit/icons';
-import { Input } from 'ui-kit/index';
-import { OneFieldFilter } from 'modules/Filters/OneFieldFilter/OneFieldFilter';
+import { useOutsideClick } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+
 import { positionsData } from 'utils/team';
+import { ICONS } from 'ui-kit/icons';
+import { Filter, FilterList, Input } from 'ui-kit';
 
 import s from './TeamFilter.module.scss';
 
@@ -18,9 +19,17 @@ interface TeamsearchProps {
 const positionsList = Object.values(positionsData);
 
 export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
-  const [input, setInput] = useState('');
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+  const [input, setInput] = useState('');
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(filterRef, setShowFilter);
+
+  const handleFilter = () => {
+    setShowFilter(!showFilter);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value.trim();
@@ -51,11 +60,21 @@ export const TeamFilter = ({ setName, setPositions }: TeamsearchProps) => {
           theme={theme}
           onChange={handleChange}
         />
-        <OneFieldFilter
-          data={positionsList}
-          setFilter={setPositions}
-          name='Team'
-        />
+        <Filter
+          page='team'
+          ref={filterRef}
+          handleFilter={handleFilter}
+          showFilter={showFilter}
+          theme={theme}
+        >
+          <FilterList
+            data={positionsList}
+            setFilter={setPositions}
+            name='Team'
+            theme={theme}
+            showFilter={showFilter}
+          />
+        </Filter>
       </div>
     </div>
   );

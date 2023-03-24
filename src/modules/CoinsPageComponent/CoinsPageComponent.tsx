@@ -1,13 +1,14 @@
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
-import { ICONS } from 'ui-kit/icons';
-import { Breadcrumbs, IconButton, Input, ScrollContainer, Tabs } from 'ui-kit';
+import { CoinsFilter } from './CoinsFilter';
+import { CoinsSearch } from './CoinsSearch';
+import { CoinsCardList } from './CoinsCardList';
 
+import { useCurrentWidth } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 
-import { CoinsCardList } from './CoinsCardList';
+import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 
 import s from './CoinsPageComponent.module.scss';
 
@@ -35,9 +36,20 @@ const tabs = [
 
 export const CoinsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
-  const [size, setSize] = useState<'large' | 'small'>('large');
-  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+
+  const [currentTab, setCurrentTab] = useState<number>(
+    () =>
+      JSON.parse(sessionStorage.getItem('coinsPage'))?.currentTab ?? tabs[0].id
+  );
+  const [size, setSize] = useState<'large' | 'small'>(
+    () => JSON.parse(sessionStorage.getItem('coinsPage'))?.size ?? 'large'
+  );
+
+  const currentWidth = useCurrentWidth();
+
+  useEffect(() => {
+    sessionStorage.setItem('coinsPage', JSON.stringify({ currentTab, size }));
+  }, [currentTab, size]);
 
   const handleChangeTab = (tab: number) => {
     setCurrentTab(tab);
@@ -45,53 +57,25 @@ export const CoinsPageComponent = () => {
 
   return (
     <ScrollContainer>
-      <Breadcrumbs />
-      <div className={s.flexContainerTitle}>
-        <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
-          {t('userCoins.pageTitle')}
-        </h2>
-        <Input
-          name='search'
-          placeholder={t('userCoins.search')}
-          button={true}
-          icon={<ICONS.SEARCH className={s.inputIcon} />}
-          theme={theme}
-        />
-      </div>
-      <div className={s.flexContainerTabs}>
-        <Tabs
-          currentTab={currentTab}
-          tabs={tabs}
-          changeTab={handleChangeTab}
-          theme={theme}
-        />
-
-        <div className={s.buttonsContainer}>
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('small')}
-            color={size === 'small' ? 'blue' : 'black'}
-            icon='grid2'
-          />
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('large')}
-            color={size === 'large' ? 'blue' : 'black'}
-            icon='grid4'
-          />
-          <button
-            className={`${s.itemButton} ${s.filterButton} ${
-              s[`filterButton--${theme}`]
-            }`}
-          >
-            <ICONS.FILTER_TWO className={s.filterIcon} />
-            <span>{t('testsMain.filter')}</span>
-          </button>
+      <div className={s.coinsPage}>
+        <Breadcrumbs />
+        <div className={s.coinsPage__wrapper}>
+          <CoinsSearch />
+          <div className={s.coinsPage__filterWrapper}>
+            <Tabs
+              currentTab={currentTab}
+              tabs={tabs}
+              changeTab={handleChangeTab}
+              theme={theme}
+            />
+            <CoinsFilter size={size} setSize={setSize} />
+          </div>
         </div>
+        <CoinsCardList
+          size={currentWidth < 768 ? 'small' : size}
+          testsArray={testsArray}
+        />
       </div>
-      <CoinsCardList size={size} testsArray={testsArray} />
     </ScrollContainer>
   );
 };

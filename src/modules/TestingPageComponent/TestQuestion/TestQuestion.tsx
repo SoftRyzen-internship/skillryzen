@@ -18,8 +18,7 @@ import {
   getResultsTestId,
 } from 'redux/testingInfo/testingInfoSelectors';
 
-import { MainButton, RadioButton } from 'ui-kit';
-import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
+import { MainButton, RadioButton, Skeleton } from 'ui-kit';
 
 import s from './TestQuestion.module.scss';
 

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { useCurrentWidth } from 'hooks';
+import { useState, useEffect, useRef } from 'react';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
 
 import { SideBarContext } from 'modules/Sidebar/context/sideBarContext';
 import { useAdavtipeSideBarContext } from 'context/adavtipeSideBarContext';
@@ -26,9 +26,16 @@ export const SideBar = ({
     const savedValue = localStorage.getItem('sideBarIsOpen');
     return savedValue ? (savedValue === 'true' ? true : false) : true;
   });
-
+  const ref = useRef<HTMLDivElement>();
   const { showSideBar, setShowSideBar } = useAdavtipeSideBarContext();
   const currentWidth = useCurrentWidth();
+
+  useOutsideClick(ref, (isInside, event) => {
+    const button = document.getElementById('sidebar-open-button');
+    if (!button.contains(event.target as Node)) {
+      setShowSideBar(isInside);
+    }
+  });
 
   useEffect(() => {
     if (currentWidth < 1280) {
@@ -88,7 +95,10 @@ export const SideBar = ({
   };
 
   return (
-    <div className={`${s.sideBar} ${showSideBar && s.openAdaptiveSideBar}`}>
+    <div
+      ref={ref}
+      className={`${s.sideBar} ${showSideBar && s.openAdaptiveSideBar}`}
+    >
       <div className={setClassnameSidebar()} style={{ top: top }}>
         {/* <div className={s.sideBar__companyBlock}>
                   <img height='32' width='32'/>
