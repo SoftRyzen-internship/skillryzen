@@ -27,9 +27,10 @@
 
 .gridColumns {
   grid-template-columns: 0.5fr 2fr 1fr 1fr;
-  margin-bottom: 20px;
 }
+
 .pagination {
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  right: 60px;
+  bottom: 35px;
 }

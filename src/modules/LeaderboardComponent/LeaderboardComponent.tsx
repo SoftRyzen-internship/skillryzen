@@ -85,7 +85,7 @@ export const LeaderboardComponent = () => {
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [array, setArray] = useState<TestData[]>([]);
   const { theme }: IThemeContext = useThemeContext();
-  const itemsForPage = 10;
+  const itemsForPage = 6;
 
   useEffect(() => {
     handlePageChange(1);
@@ -111,13 +111,15 @@ export const LeaderboardComponent = () => {
         <h2 className={`${s.title} ${s[`title--${theme}`]}`}>Leaderboard</h2>
       </div>
       <Table columns={columns} data={array} className={s.gridColumns} />
-      <Pagination
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        className={s.pagination}
-      />
+      {data.length > 0 && (
+        <Pagination
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+          className={s.pagination}
+        />
+      )}
     </ScrollContainer>
   );
 };
