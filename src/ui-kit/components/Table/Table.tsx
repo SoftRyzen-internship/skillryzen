@@ -19,7 +19,7 @@ interface TableProps<T> {
   className: string;
 }
 
-export const Table = <T extends { id: number }>({
+export const Table = <T extends { id: string }>({
   columns,
   data,
   className,

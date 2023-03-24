@@ -3,13 +3,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 
+import { ICONS } from 'ui-kit/icons';
 import { Column } from 'ui-kit/components/Table/Table';
 import { Breadcrumbs, Pagination, ScrollContainer, Table } from 'ui-kit';
 
 import s from './LeaderboardComponent.module.scss';
 
 interface TestData {
-  id: number;
+  id: string;
   name: string;
   test: string;
   score: string;
@@ -24,54 +25,60 @@ const columns: Column<TestData>[] = [
 
 const data: TestData[] = [
   {
-    id: 1,
+    id: '1',
     name: 'Aнастасія Скоробагатько',
     test: 'JavaScript',
     score: '48/50',
   },
   {
-    id: 2,
+    id: '2',
     name: 'Олексій Скоробагатько',
     test: 'JavaScript',
     score: '42/50',
   },
   {
-    id: 3,
+    id: '3',
     name: 'Іван Скоробагатько',
     test: 'JavaScript',
     score: '45/50',
   },
   {
-    id: 4,
+    id: '4',
     name: 'Марія Скоробагатько',
     test: 'JavaScript',
     score: '50/50',
   },
   {
-    id: 5,
+    id: '5',
     name: 'Aнастасія Скоробагатько',
     test: 'JavaScript',
     score: '48/50',
   },
   {
-    id: 6,
+    id: '6',
     name: 'Олексій Скоробагатько',
     test: 'JavaScript',
     score: '42/50',
   },
   {
-    id: 7,
+    id: '7',
     name: 'Іван Скоробагатько',
     test: 'JavaScript',
     score: '45/50',
   },
   {
-    id: 8,
+    id: '8',
     name: 'Марія Скоробагатько',
     test: 'JavaScript',
     score: '50/50',
   },
 ];
+
+const iconMap = {
+  1: <ICONS.TROPHY />,
+  2: <ICONS.TROPHY />,
+  3: <ICONS.TROPHY />,
+};
 
 export const LeaderboardComponent = () => {
   const [totalPages, setTotalPages] = useState<number>(null);
