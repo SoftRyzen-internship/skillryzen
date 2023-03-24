@@ -12,12 +12,7 @@ interface Tag {
   testStatus?: string;
 }
 
-export const Tag = ({
-  label,
-  type,
-  theme = 'dark',
-  testStatus,
-}: Tag) => {
+export const Tag = ({ label, type, theme = 'dark', testStatus }: Tag) => {
   const { t } = useTranslation();
 
   return (
