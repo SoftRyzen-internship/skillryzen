@@ -32,7 +32,7 @@ export const MainHeader = () => {
         <HeaderUserAvatarCard />
       </div>
       {showInput && (
-        <div className={s.inputContainer}>
+        <div className={`${s.inputContainer} ${s[`inputContainer--${theme}`]}`}>
           <HeaderInput />
         </div>
       )}
