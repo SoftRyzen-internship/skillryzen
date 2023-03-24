@@ -3,8 +3,8 @@ import { useLocation } from 'react-router-dom';
 
 import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
+
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
-import { TestInfoContainer } from '../TestInfoContainer';
 import { Breadcrumbs, ScrollContainer } from 'ui-kit';
 
 export const TestStartPageComponent = () => {
@@ -42,7 +42,6 @@ export const TestStartPageComponent = () => {
   return (
     <ScrollContainer>
       <Breadcrumbs />
-      <TestInfoContainer>
         <FinalTestInfo
           image={IMAGES.JAVA_SCRIPT}
           imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
@@ -52,7 +51,6 @@ export const TestStartPageComponent = () => {
           textBtn='Start test'
           test='JS'
         />
-      </TestInfoContainer>
     </ScrollContainer>
   );
 };
