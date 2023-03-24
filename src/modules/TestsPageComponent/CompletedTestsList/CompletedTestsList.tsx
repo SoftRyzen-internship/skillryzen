@@ -4,15 +4,15 @@ import { useTranslation } from 'react-i18next';
 
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { useCurrentWidth } from 'hooks';
 import { convertTestDate, convertTestTime } from 'utils/convertTime';
 import { getCompletedTests } from 'redux/testingInfo/testingInfoOperations';
 
-import { TestCard, Modal } from 'ui-kit';
-import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
+import { TestCard, Modal, Skeleton } from 'ui-kit';
 import { ModalTestsInfo } from 'modules/Modals/ModalTestsInfo/ModalTestsInfo';
 
 import s from './CompletedTestsList.module.scss';
-import { useCurrentWidth } from 'hooks';
+
 
 interface Item {
   id: number;

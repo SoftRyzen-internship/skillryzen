@@ -10,8 +10,7 @@ import { useAppDispatch, useCurrentWidth } from 'hooks';
 import { convertToUTC } from 'utils/convertLocalTimeToUTC';
 import { parseDate } from 'utils/parseDate';
 
-import { TestCard } from 'ui-kit';
-import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
+import { TestCard, Skeleton} from 'ui-kit';
 
 import s from './AvailableTestsList.module.scss';
 

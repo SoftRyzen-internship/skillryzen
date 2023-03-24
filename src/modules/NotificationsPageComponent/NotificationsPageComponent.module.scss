@@ -6,7 +6,13 @@
   }
 }
 
-.flexContainerTitle {
+.notificationsPage__wrapper {
+  @media (max-width: 767.98px) {
+    position: relative;
+  }
+}
+
+.notificationsPage__searchWrapper {
   display: flex;
   justify-content: space-between;
   margin-bottom: 40px;
@@ -18,108 +24,46 @@
   }
 }
 
-.page__wrapper--mobile {
-  @media (max-width: 767.98px) {
-    position: relative;
-  }
-}
-
 .pageTitle {
   font-family: var(--font-family);
   font-weight: var(--extrabold);
   font-size: var(--title);
   transition: var(--transition);
 }
+
 .pageTitle--dark {
+  composes: pageTitle;
   color: var(--primary-txt-cl);
 }
+
 .pageTitle--light {
+  composes: pageTitle;
   color: var(--light-primary-txt-cl);
 }
+
 .input {
   @media (max-width: 767.98px) {
     width: calc(100% - 48px);
     height: 40px;
   }
 }
+
 .inputIcon {
   display: block;
   fill: var(--secondary-txt-cl);
 }
 
-.flexContainerTabs {
+.notificationsPage__filterWrapper {
   display: flex;
   justify-content: space-between;
 }
 
-.buttonsContainer {
+.notificationsPage__buttonsContainer {
   display: flex;
   align-items: center;
-}
-.itemButton {
-  margin-left: 10px;
+  gap: 10px;
 
-  @media (max-width: 767.98px) {
-    display: none;
-  }
-
-}
-.filterButton {
-  padding: 9px;
-  border-radius: 10px;
-  font-size: 0;
-
-  @media (max-width: 767.98px) {
-    position: absolute;
-    display: block;
-    top: 48px;
-    right: 0;
-  }
-
-  @media (min-width: 1280px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: var(--regular);
-    font-size: var(--text-md);
-    color: var(--primary-txt-cl);
-  }
-
-  &--light {
-    color: var(--accent-cl);
-    background-color: var(--light-components-cl);
-    box-shadow: var(--light-primary-shadow);
-
-    .filterIcon path {
-      stroke: var(--accent-cl);
-    }
-  }
-
-  &--dark {
-    color: var(--primary-txt-cl);
-    background-color: var(--components-cl);
-    transition: color var(--transition);
-  }
-}
-
-.filterButton--dark:hover,
-.filterButton--dark:focus {
-  color: var(--accent-cl);
-
-  .filterIcon path {
-    stroke: var(--accent-cl);
-  }
-}
-
-.filterIcon {
-  width: 22px;
-  height: 22px;
-
-  path {
-    stroke: var(--primary-txt-cl);
-    transition: stroke var(--transition);
+  @media (min-width: 768px) {
+    position: relative;
   }
 }

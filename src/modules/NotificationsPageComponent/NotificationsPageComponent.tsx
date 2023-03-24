@@ -1,16 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
-import { Breadcrumbs, IconButton, Input, ScrollContainer, Tabs } from 'ui-kit';
-
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
+import { filterData } from './filterData';
 
+import {
+  Accordion,
+  Breadcrumbs,
+  Filter,
+  Input,
+  ScrollContainer,
+  Tabs,
+} from 'ui-kit';
+import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
 import { NotificationsCardList } from './NotificationsCardList';
 
 import s from './NotificationsPageComponent.module.scss';
-import { useCurrentWidth } from 'hooks';
 
 const testsArray = [
   {
@@ -37,9 +45,33 @@ const tabs = [
 export const NotificationsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+
+  const [currentTab, setCurrentTab] = useState<number>(
+    () =>
+      JSON.parse(sessionStorage.getItem('notificationsPage'))?.currentTab ??
+      tabs[0].id
+  );
+  const [size, setSize] = useState<'large' | 'small'>(
+    () =>
+      JSON.parse(sessionStorage.getItem('notificationsPage'))?.size ?? 'large'
+  );
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+
+  const filterRef = useRef<HTMLDivElement>(null);
   const currentWidth = useCurrentWidth();
-  const [size, setSize] = useState<'large' | 'small'>('large');
-  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+
+  useOutsideClick(filterRef, setShowFilter);
+
+  useEffect(() => {
+    sessionStorage.setItem(
+      'notificationsPage',
+      JSON.stringify({ currentTab, size })
+    );
+  }, [currentTab, size]);
+
+  const handleFilter = () => {
+    setShowFilter(!showFilter);
+  };
 
   const handleChangeTab = (tab: number) => {
     setCurrentTab(tab);
@@ -49,51 +81,39 @@ export const NotificationsPageComponent = () => {
     <ScrollContainer>
       <div className={s.notificationsPage}>
         <Breadcrumbs />
-        <div className={s['page__wrapper--mobile']}>
-        <div className={s.flexContainerTitle}>
-          <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
-            {t('userNotifications.pageTitle')}
-          </h2>
-          <Input
-            name='search'
-            placeholder={t('userNotifications.search')}
-            button={true}
-            icon={<ICONS.SEARCH className={s.inputIcon} />}
-            theme={theme}
-            labelClassName={s.input}
-          />
-        </div>
-        <div className={s.flexContainerTabs}>
-          <Tabs
-            currentTab={currentTab}
-            tabs={tabs}
-            changeTab={handleChangeTab}
-            theme={theme}
-          />
-
-          <div className={s.buttonsContainer}>
-            <IconButton
-              className={s.itemButton}
+        <div className={s.notificationsPage__wrapper}>
+          <div className={s.notificationsPage__searchWrapper}>
+            <h2 className={`${s[`pageTitle--${theme}`]}`}>
+              {t('userNotifications.pageTitle')}
+            </h2>
+            <Input
+              name='search'
+              placeholder={t('userNotifications.search')}
+              button={true}
+              icon={<ICONS.SEARCH className={s.inputIcon} />}
               theme={theme}
-              onClick={() => setSize('small')}
-              color={size === 'small' ? 'blue' : 'black'}
-              icon='grid2'
+              labelClassName={s.input}
             />
-            <IconButton
-              className={s.itemButton}
+          </div>
+          <div className={s.notificationsPage__filterWrapper}>
+            <Tabs
+              currentTab={currentTab}
+              tabs={tabs}
+              changeTab={handleChangeTab}
               theme={theme}
-              onClick={() => setSize('large')}
-              color={size === 'large' ? 'blue' : 'black'}
-              icon='grid4'
             />
-            <button
-              className={`${s.itemButton} ${s.filterButton} ${
-                s[`filterButton--${theme}`]
-              }`}
-            >
-              <ICONS.FILTER_TWO className={s.filterIcon} />
-              <span>{t('testsMain.filter')}</span>
-            </button>
+            <div className={s.notificationsPage__buttonsContainer}>
+              <ViewButtonList size={size} setSize={setSize} />
+              <Filter
+                ref={filterRef}
+                handleFilter={handleFilter}
+                showFilter={showFilter}
+                theme={theme}
+              >
+                {showFilter && (
+                  <Accordion data={filterData} isIcon isList isMargin />
+                )}
+              </Filter>
             </div>
           </div>
         </div>

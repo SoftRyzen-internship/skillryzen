@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
-import { Input } from 'ui-kit/index';
+import { Input } from 'ui-kit';
 
 import s from './TestsSearch.module.scss';
 

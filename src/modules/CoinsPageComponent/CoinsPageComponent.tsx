@@ -8,8 +8,10 @@ import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { CoinsCardList } from './CoinsCardList';
+import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
 
 import s from './CoinsPageComponent.module.scss';
+
 
 const testsArray = [
   {
@@ -67,20 +69,7 @@ export const CoinsPageComponent = () => {
         />
 
         <div className={s.buttonsContainer}>
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('small')}
-            color={size === 'small' ? 'blue' : 'black'}
-            icon='grid2'
-          />
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('large')}
-            color={size === 'large' ? 'blue' : 'black'}
-            icon='grid4'
-          />
+        <ViewButtonList size={size} setSize={setSize} />
           <button
             className={`${s.itemButton} ${s.filterButton} ${
               s[`filterButton--${theme}`]
