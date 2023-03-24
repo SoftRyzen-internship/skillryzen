@@ -42,15 +42,15 @@ export const TestStartPageComponent = () => {
   return (
     <ScrollContainer>
       <Breadcrumbs />
-        <FinalTestInfo
-          image={IMAGES.JAVA_SCRIPT}
-          imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
-          title={name || ''}
-          subtitle={description || ''}
-          listInfo={listInfoJS}
-          textBtn='Start test'
-          test='JS'
-        />
+      <FinalTestInfo
+        image={IMAGES.JAVA_SCRIPT}
+        imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
+        title={name || ''}
+        subtitle={description || ''}
+        listInfo={listInfoJS}
+        textBtn='Start test'
+        test='JS'
+      />
     </ScrollContainer>
   );
 };

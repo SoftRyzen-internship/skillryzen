@@ -1,24 +1,26 @@
-import { useRef, useState } from 'react';
+import { useState, useRef } from 'react';
 
-import { IThemeContext } from 'constans/types';
+import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
+
 import { useOutsideClick } from 'hooks';
 import { useThemeContext } from 'context/themeContext';
 
 import { Accordion, Filter } from 'ui-kit';
-import { filterData } from 'modules/TestsPageComponent/TestsFilter/filterData';
-import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
 
-import s from './TestsFilter.module.scss';
+import { filterData } from './filterData';
 
-interface TestFilterProps {
-  size: string;
-  setSize: React.Dispatch<React.SetStateAction<string>>;
+import s from './CoinsFilter.module.scss';
+
+interface Props {
+  size: 'large' | 'small';
+  setSize: React.Dispatch<React.SetStateAction<'large' | 'small'>>;
 }
 
-export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
-  const { theme }: IThemeContext = useThemeContext();
+export const CoinsFilter = ({ size, setSize }: Props) => {
   const [showFilter, setShowFilter] = useState<boolean>(false);
   const filterRef = useRef<HTMLDivElement>(null);
+
+  const { theme } = useThemeContext();
 
   useOutsideClick(filterRef, setShowFilter);
 
@@ -27,7 +29,7 @@ export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
   };
 
   return (
-    <div className={s.testsFilter}>
+    <div className={s.wrapper}>
       <ViewButtonList size={size} setSize={setSize} />
       <Filter
         ref={filterRef}

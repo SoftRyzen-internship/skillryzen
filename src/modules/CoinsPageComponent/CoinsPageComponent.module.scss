@@ -12,58 +12,7 @@
   }
 }
 
-.coinsPage__searchWrapper {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-
-  @media (max-width: 767.98px) {
-    flex-direction: column;
-    gap: 8px;
-    margin-bottom: 20px;
-  }
-}
-
-.coinsPage__title {
-  font-family: var(--font-family);
-  font-weight: var(--extrabold);
-  font-size: var(--title);
-  transition: var(--transition);
-}
-
-.coinsPage__title--dark {
-  composes: coinsPage__title;
-  color: var(--primary-txt-cl);
-}
-
-.coinsPage__title--light {
-  composes: coinsPage__title;
-  color: var(--light-primary-txt-cl);
-}
-
-.input {
-  @media (max-width: 767.98px) {
-    width: calc(100% - 48px);
-    height: 40px;
-  }
-}
-
-.inputIcon {
-  display: block;
-  fill: var(--secondary-txt-cl);
-}
-
 .coinsPage__filterWrapper {
   display: flex;
   justify-content: space-between;
-}
-
-.coinsPage__buttonsContainer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-
-  @media (min-width: 768px) {
-    position: relative;
-  }
 }

@@ -2,20 +2,25 @@ import { Checkbox } from '../Checkbox';
 import s from './FilterList.module.scss';
 
 interface FilterProps {
-    theme: string;
-    data: string[];
-    name: string;
-    showFilter: boolean;
-    setFilter: React.Dispatch<React.SetStateAction<string[]>>;
-  }
+  theme: string;
+  data: string[];
+  name: string;
+  showFilter: boolean;
+  setFilter: React.Dispatch<React.SetStateAction<string[]>>;
+}
 
-export const FilterList = ({theme ='dark', data, name, showFilter, setFilter}: FilterProps) => {
-  
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.target.checked
-          ? setFilter(prev => [...prev, e.target.value])
-          : setFilter(prev => prev.filter(item => item !== e.target.value));
-      };
+export const FilterList = ({
+  theme = 'dark',
+  data,
+  name,
+  showFilter,
+  setFilter,
+}: FilterProps) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.target.checked
+      ? setFilter(prev => [...prev, e.target.value])
+      : setFilter(prev => prev.filter(item => item !== e.target.value));
+  };
 
   return (
     <ul

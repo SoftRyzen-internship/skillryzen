@@ -33,4 +33,3 @@ export { Accordion } from './components/Accordion/Accordion';
 export { FilterList } from './components/FilterList/FilterList';
 export { Skeleton } from './components/Skeleton/Skeleton';
 export { TeamCard } from './components/Card/TeamCard';
-

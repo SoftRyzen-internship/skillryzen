@@ -41,23 +41,23 @@ export const TestEndPageComponent = () => {
   };
 
   return (
-      <FinalTestInfo
-        image={IMAGES.JAVA_SCRIPT}
-        imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
-        title={testName}
-        correctAnswers={correctAnswers}
-        totalQuestions={totalQuestions}
-        timeSpent={testTime}
-        isPassed={isPassed}
-        iconAnswers={ICONS.CHECK_SMALL}
-        iconTime={ICONS.CLOCK}
-        iconDate={ICONS.DATE}
-        onClickBtn={handleClickBtn}
-        textBtn='End test'
-        modal={false}
-        date={convertTestDate(new Date())}
-        test='JS'
-        finishTest
-      />
+    <FinalTestInfo
+      image={IMAGES.JAVA_SCRIPT}
+      imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
+      title={testName}
+      correctAnswers={correctAnswers}
+      totalQuestions={totalQuestions}
+      timeSpent={testTime}
+      isPassed={isPassed}
+      iconAnswers={ICONS.CHECK_SMALL}
+      iconTime={ICONS.CLOCK}
+      iconDate={ICONS.DATE}
+      onClickBtn={handleClickBtn}
+      textBtn='End test'
+      modal={false}
+      date={convertTestDate(new Date())}
+      test='JS'
+      finishTest
+    />
   );
 };
