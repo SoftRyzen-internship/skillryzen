@@ -25,7 +25,7 @@ export const Filter = React.forwardRef<HTMLDivElement, FilterProps>(
         <button
           onClick={handleFilter}
           className={`${s[`filter--${theme}`]} ${
-            showFilter && s[`filter--active`]
+            showFilter && s['filter--active']
           }`}
         >
           <ICONS.FILTER_TWO className={s.filter__icon} />
@@ -36,3 +36,5 @@ export const Filter = React.forwardRef<HTMLDivElement, FilterProps>(
     );
   }
 );
+
+Filter.displayName = 'Filter';

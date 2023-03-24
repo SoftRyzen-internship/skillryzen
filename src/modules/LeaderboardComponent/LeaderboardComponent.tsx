@@ -1,11 +1,18 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
+import { useOutsideClick } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { ICONS } from 'ui-kit/icons';
 import { Column } from 'ui-kit/components/Table/Table';
-import { Breadcrumbs, Pagination, ScrollContainer, Table } from 'ui-kit';
+import {
+  Breadcrumbs,
+  Filter,
+  Pagination,
+  ScrollContainer,
+  Table,
+} from 'ui-kit';
 
 import s from './LeaderboardComponent.module.scss';
 
@@ -87,6 +94,15 @@ export const LeaderboardComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const itemsForPage = 6;
 
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(filterRef, setShowFilter);
+
+  const handleFilter = () => {
+    setShowFilter(!showFilter);
+  };
+
   useEffect(() => {
     handlePageChange(1);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -109,6 +125,13 @@ export const LeaderboardComponent = () => {
       <Breadcrumbs />
       <div className={s.wrapper}>
         <h2 className={`${s.title} ${s[`title--${theme}`]}`}>Leaderboard</h2>
+        <Filter
+          page='team'
+          ref={filterRef}
+          handleFilter={handleFilter}
+          showFilter={showFilter}
+          theme={theme}
+        />
       </div>
       <Table columns={columns} data={array} className={s.gridColumns} />
       {data.length > 0 && (

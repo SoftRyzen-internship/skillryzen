@@ -94,6 +94,7 @@ export const Table = <T extends { id: string }>({
             ))}
           </tr>
         ))}
+        {/* Поки не видаляти, треба подумати як відображати іконки */}
         {/* {[...sortedData.slice(0, 3)].map((item, index) => (
           <tr
             key={String(item.id)}
