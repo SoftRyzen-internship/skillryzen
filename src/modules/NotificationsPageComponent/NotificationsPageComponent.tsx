@@ -83,7 +83,7 @@ export const NotificationsPageComponent = () => {
         <Breadcrumbs />
         <div className={s.notificationsPage__wrapper}>
           <div className={s.notificationsPage__searchWrapper}>
-            <h2 className={`${s[`pageTitle--${theme}`]}`}>
+            <h2 className={`${s[`notificationsPage__title--${theme}`]}`}>
               {t('userNotifications.pageTitle')}
             </h2>
             <Input

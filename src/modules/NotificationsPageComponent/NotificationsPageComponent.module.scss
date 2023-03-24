@@ -24,20 +24,20 @@
   }
 }
 
-.pageTitle {
+.notificationsPage__title {
   font-family: var(--font-family);
   font-weight: var(--extrabold);
   font-size: var(--title);
   transition: var(--transition);
 }
 
-.pageTitle--dark {
-  composes: pageTitle;
+.notificationsPage__title--dark {
+  composes: notificationsPage__title;
   color: var(--primary-txt-cl);
 }
 
-.pageTitle--light {
-  composes: pageTitle;
+.notificationsPage__title--light {
+  composes: notificationsPage__title;
   color: var(--light-primary-txt-cl);
 }
 
