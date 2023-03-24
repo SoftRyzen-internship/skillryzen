@@ -91,11 +91,10 @@ export const LeaderboardComponent = () => {
   const [totalPages, setTotalPages] = useState<number>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [array, setArray] = useState<TestData[]>([]);
-  const { theme }: IThemeContext = useThemeContext();
-  const itemsForPage = 6;
-
   const [showFilter, setShowFilter] = useState<boolean>(false);
+  const { theme }: IThemeContext = useThemeContext();
   const filterRef = useRef<HTMLDivElement>(null);
+  const itemsForPage = 6;
 
   useOutsideClick(filterRef, setShowFilter);
 
@@ -126,7 +125,7 @@ export const LeaderboardComponent = () => {
       <div className={s.wrapper}>
         <h2 className={`${s.title} ${s[`title--${theme}`]}`}>Leaderboard</h2>
         <Filter
-          page='team'
+          page='leaderboard'
           ref={filterRef}
           handleFilter={handleFilter}
           showFilter={showFilter}
