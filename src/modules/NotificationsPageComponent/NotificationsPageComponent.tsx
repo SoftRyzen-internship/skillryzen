@@ -2,15 +2,15 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
+import { Breadcrumbs, IconButton, Input, ScrollContainer, Tabs } from 'ui-kit';
 
-import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-
-import { Breadcrumbs, IconButton, Input, Tabs } from 'ui-kit/index';
+import { useThemeContext } from 'context/themeContext';
 
 import { NotificationsCardList } from './NotificationsCardList';
 
 import s from './NotificationsPageComponent.module.scss';
+import { useCurrentWidth } from 'hooks';
 
 const testsArray = [
   {
@@ -37,6 +37,7 @@ const tabs = [
 export const NotificationsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
+  const currentWidth = useCurrentWidth();
   const [size, setSize] = useState<'large' | 'small'>('large');
   const [currentTab, setCurrentTab] = useState(tabs[0].id);
 
@@ -45,56 +46,62 @@ export const NotificationsPageComponent = () => {
   };
 
   return (
-    <div
-      className={`${s.notificationsPage} ${s[`notificationsPage--${theme}`]}`}
-    >
-      <Breadcrumbs />
-      <div className={s.flexContainerTitle}>
-        <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
-          {t('userNotifications.pageTitle')}
-        </h2>
-        <Input
-          name='search'
-          placeholder={t('userNotifications.search')}
-          button={true}
-          icon={<ICONS.SEARCH className={s.inputIcon} />}
-          theme={theme}
-        />
-      </div>
-      <div className={s.flexContainerTabs}>
-        <Tabs
-          currentTab={currentTab}
-          tabs={tabs}
-          changeTab={handleChangeTab}
-          theme={theme}
-        />
+    <ScrollContainer>
+      <div className={s.notificationsPage}>
+        <Breadcrumbs />
+        <div className={s['page__wrapper--mobile']}>
+          <div className={s.flexContainerTitle}>
+            <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
+              {t('userNotifications.pageTitle')}
+            </h2>
+            <Input
+              name='search'
+              placeholder={t('userNotifications.search')}
+              button={true}
+              icon={<ICONS.SEARCH className={s.inputIcon} />}
+              theme={theme}
+              labelClassName={s.input}
+            />
+          </div>
+          <div className={s.flexContainerTabs}>
+            <Tabs
+              currentTab={currentTab}
+              tabs={tabs}
+              changeTab={handleChangeTab}
+              theme={theme}
+            />
 
-        <div className={s.buttonsContainer}>
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('small')}
-            color={size === 'small' ? 'blue' : 'black'}
-            icon='grid2'
-          />
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('large')}
-            color={size === 'large' ? 'blue' : 'black'}
-            icon='grid4'
-          />
-          <button
-            className={`${s.itemButton} ${s.filterButton} ${
-              s[`filterButton--${theme}`]
-            }`}
-          >
-            <ICONS.FILTER_TWO className={s.filterIcon} />
-            <span>{t('testsMain.filter')}</span>
-          </button>
+            <div className={s.buttonsContainer}>
+              <IconButton
+                className={s.itemButton}
+                theme={theme}
+                onClick={() => setSize('small')}
+                color={size === 'small' ? 'blue' : 'black'}
+                icon='grid2'
+              />
+              <IconButton
+                className={s.itemButton}
+                theme={theme}
+                onClick={() => setSize('large')}
+                color={size === 'large' ? 'blue' : 'black'}
+                icon='grid4'
+              />
+              <button
+                className={`${s.itemButton} ${s.filterButton} ${
+                  s[`filterButton--${theme}`]
+                }`}
+              >
+                <ICONS.FILTER_TWO className={s.filterIcon} />
+                <span>{t('testsMain.filter')}</span>
+              </button>
+            </div>
+          </div>
         </div>
+        <NotificationsCardList
+          size={currentWidth < 768 ? 'small' : size}
+          testsArray={testsArray}
+        />
       </div>
-      <NotificationsCardList size={size} testsArray={testsArray} />
-    </div>
+    </ScrollContainer>
   );
 };

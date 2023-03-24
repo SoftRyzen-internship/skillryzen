@@ -1,6 +1,6 @@
 import { Navigate, useRoutes, Outlet } from 'react-router-dom';
 
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
 import {

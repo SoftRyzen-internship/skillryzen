@@ -2,18 +2,31 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 60px 92px;
+  padding: 60px 12px;
+  @media (min-width: 768px) {
+    padding: 60px 92px;
+  }
 }
 
 .image {
   margin-bottom: 40px;
+  width: 100px;
+  height: 80px;
+  @media (min-width: 768px) {
+    width: 136px;
+    height: 108px;
+  }
 }
 
 .titleDark {
-  width: 351px;
+  width: 256px;
   font-weight: var(--extrabold);
-  font-size: var(--title);
+  font-size: var(--subtitle);
   text-align: center;
+  @media (min-width: 768px) {
+    width: 351px;
+    font-size: var(--title);
+  }
 }
 .titleLight {
   composes: titleDark;
@@ -24,7 +37,10 @@
   composes: titleDark;
   margin-bottom: 40px;
   font-weight: var(--bold);
-  font-size: var(--subtitle);
+  font-size: var(--text-lg);
+  @media (min-width: 768px) {
+    font-size: var(--subtitle);
+  }
 }
 .titleRestLight {
   composes: titleRestDark;
@@ -33,11 +49,14 @@
 
 .subtitleDark {
   composes: titleDark;
-  width: 292px;
-  margin-bottom: 56px;
+  width: 256px;
   font-weight: var(--bold);
-  font-size: var(--text-lg);
+  font-size: var(--text-md);
   text-align: center;
+  @media (min-width: 768px) {
+    width: 292px;
+    font-size: var(--text-lg);
+  }
 }
 .subtitleLight {
   composes: subtitleDark;
@@ -56,5 +75,8 @@
 
 .modalBtn {
   min-width: 130px;
-  margin-top: 60px;
+  margin-top: 40px;
+  @media (min-width: 768px) {
+    margin-top: 60px;
+  }
 }

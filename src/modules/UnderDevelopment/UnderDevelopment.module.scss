@@ -1,14 +1,28 @@
 .section {
-  padding-top: 90px;
   text-align: center;
   width: 100%;
+  height: calc(100vh - 72px);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 40px;
+  @media (min-width: 768px) {
+    padding-top: 60px;
+  }
+  @media (min-width: 1280px) {
+    padding-top: 90px;
+  }
 }
 
 .titleDark {
-  font-weight: 800;
-  font-size: 36px;
-  line-height: calc(40 / 36);
   margin-bottom: 40px;
+  font-size: var(--text-lg);
+  line-height: 1.3;
+  font-weight: var(--bold);
+  @media (min-width: 768px) {
+    font-size: 36px;
+    line-height: calc(40 / 36);
+    font-weight: var(--extrabold);
+  }
 }
 
 .titleLight {
@@ -19,43 +33,92 @@
 }
 
 .button {
-  width: 424px;
+  max-width: 424px;
 }
 
 .imageWrapper {
   position: relative;
-  width: 388px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;
+  width: 280px;
+  height: 150px;
+  @media (min-width: 768px) {
+    width: 388px;
+    height: 208px;
+  }
+}
+
+.main {
+  display: block;
+  width: 280px;
+  height: 150px;
+  @media (min-width: 768px) {
+    width: 388px;
+    height: 208px;
+  }
 }
 
 .gearBlue {
+  width: 64px;
+  height: 64px;
   position: absolute;
-  top: 30px;
-  left: 188px;
+  top: 23px;
+  left: 137px;
   animation: rotateBlue linear 10000ms infinite;
+
+  @media (min-width: 768px) {
+    width: 96px;
+    height: 96px;
+    top: 30px;
+    left: 188px;
+  }
 }
 
 .gearGray {
+  width: 61px;
+  height: 61px;
   position: absolute;
-  top: 50px;
-  left: 132px;
+  top: 34px;
+  left: 95px;
   animation: rotateGray linear 10000ms infinite;
+
+  @media (min-width: 768px) {
+    width: 84px;
+    height: 84px;
+    top: 50px;
+    left: 132px;
+  }
 }
 
 .circleBlue {
+  width: 35px;
+  height: 30px;
   position: absolute;
   top: 0;
-  left: 60px;
+  left: 46px;
   animation: blueUpDown linear 1600ms infinite;
+
+  @media (min-width: 768px) {
+    width: 49px;
+    height: 42px;
+    left: 60px;
+  }
 }
 
 .circleGray {
+  width: 27px;
+  height: 23px;
   position: absolute;
-  top: 40px;
+  top: 24px;
   right: 20px;
   animation: grayUpDown linear 1600ms infinite;
+
+  @media (min-width: 768px) {
+    width: 39px;
+    height: 33px;
+    top: 40px;
+  }
 }
 
 @keyframes blueUpDown {

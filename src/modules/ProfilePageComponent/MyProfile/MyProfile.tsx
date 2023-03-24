@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 
 import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getUserEmail, getUserName } from 'redux/authSlice/authSelectors';
 
 import { IMAGES } from 'ui-kit/images';

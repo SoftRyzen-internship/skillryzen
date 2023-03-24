@@ -1,18 +1,4 @@
-.wrapper {
-  padding: 20px 60px 111px;
-  width: 100%;
-
-  &--light {
-    background-color: var(--light-cards-cl);
-  }
-
-  &--dark {
-    background-color: var(--primary-cl);
-  }
-}
-
 .title {
-  margin-top: 8px;
   margin-bottom: 20px;
   font-weight: 800;
   font-size: 30px;

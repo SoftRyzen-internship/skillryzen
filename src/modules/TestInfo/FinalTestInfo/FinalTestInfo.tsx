@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { useThemeContext } from 'context/themeContext';
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector, useCurrentWidth } from 'hooks';
 import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
-import { MainButton } from 'ui-kit';
+import { MainButton, Modal } from 'ui-kit';
+import { ModalStartTest } from 'modules/Modals/ModalStartTest/ModalStartTest';
 
 import s from './FinalTestInfo.module.scss';
 
@@ -65,7 +66,7 @@ interface Props {
   iconDate?: React.FunctionComponent<React.SVGAttributes<SVGElement>>;
   theWorstTopic?: string;
   theBestTopic?: string;
-  onClickBtn: () => void;
+  onClickBtn?: () => void;
   textBtn?: string;
   finishTest?: boolean;
   test?: string;
@@ -92,7 +93,7 @@ export const FinalTestInfo = ({
   finishTest,
   test,
   date,
-  modal
+  modal,
 }: Props) => {
   const { t } = useTranslation();
   const { theme }: IThemeContext = useThemeContext();
@@ -100,19 +101,19 @@ export const FinalTestInfo = ({
 
   const templateId = useAppSelector(getTemplateId);
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [isModal, setIsModal] = useState(false);
+  const currentWidth = useCurrentWidth();
 
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
+  const handleClickModal = () => {
+    setIsModal(prevState => !prevState);
+  };
 
   return (
-    <div className={`${finishTest && !modal && s.containerFinish} ${!finishTest && s.containerStart}`}>
+    <div
+      className={`${finishTest && !modal && s.containerFinish} ${
+        !finishTest && s.containerStart
+      } ${modal && s.containerModal}`}
+    >
       <div className={s.imageThumb}>
         <img
           className={s.image}
@@ -159,7 +160,9 @@ export const FinalTestInfo = ({
           <li className={s.item}>
             <div className={s.iconWrapper}>
               <div className={objectTheme[theme].iconThumb}>
-                <listInfo.icons.PERCENTAGE className={objectTheme[theme].icon} />
+                <listInfo.icons.PERCENTAGE
+                  className={objectTheme[theme].icon}
+                />
               </div>
               <p className={objectTheme[theme].text}>
                 {t('finalTestInfo.list.percentageToPass')}
@@ -228,16 +231,16 @@ export const FinalTestInfo = ({
               <p className={objectTheme[theme].textRight}>{`${timeSpent}`}</p>
             </li>
             <li className={s.item}>
-                <div className={s.iconWrapper}>
-                  <div className={objectTheme[theme].iconThumb}>
-                    <IconDate className={objectTheme[theme].icon} />
-                  </div>
-                  <p className={objectTheme[theme].text}>
-                    {t('finalTestInfo.date')}
-                  </p>
+              <div className={s.iconWrapper}>
+                <div className={objectTheme[theme].iconThumb}>
+                  <IconDate className={objectTheme[theme].icon} />
                 </div>
-                <p className={objectTheme[theme].textRight}>{date}</p>
-              </li>
+                <p className={objectTheme[theme].text}>
+                  {t('finalTestInfo.date')}
+                </p>
+              </div>
+              <p className={objectTheme[theme].textRight}>{date}</p>
+            </li>
           </ul>
           {isPassed ? (
             <div className={s.resultIsPassed}>
@@ -276,18 +279,22 @@ export const FinalTestInfo = ({
               : t('finalTestInfo.startTest')
           }
           disabled={
-            (!finishTest && !templateId) || (!finishTest && windowWidth <= 1280)
+            (!finishTest && !templateId) ||
+            (!finishTest && currentWidth <= 1023)
           }
-          onClick={onClickBtn}
+          onClick={!finishTest ? handleClickModal : onClickBtn}
           size='large'
           color='blue'
-          className={
-            !(theWorstTopic && theBestTopic) && finishTest ? s.btn : ''
-          }
+          className={finishTest ? s.btnFinish : s.btn}
         />
       )}
-      {!finishTest && windowWidth <= 1280 && (
+      {!finishTest && currentWidth < 1023 && (
         <p className={s.textWarning}>{t('finalTestInfo.warning')}</p>
+      )}
+      {isModal && (
+        <Modal isShowModal={isModal} onClick={handleClickModal} isCloseIcon>
+          <ModalStartTest />
+        </Modal>
       )}
     </div>
   );

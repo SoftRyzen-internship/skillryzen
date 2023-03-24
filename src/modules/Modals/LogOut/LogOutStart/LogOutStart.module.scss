@@ -2,7 +2,13 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding: 60px 63px 40px 63px;
+  padding: 60px 10px;
+  @media (min-width: 768px) {
+    padding: 60px 38px;
+  }
+  @media (min-width: 1280px) {
+    padding: 60px 63px 40px 63px;
+  }
 }
 
 .image {
@@ -10,11 +16,16 @@
 }
 
 .subtitle {
-  width: 292px;
-  margin-bottom: 56px;
+  width: 199px;
+  margin-bottom: 40px;
+  font-size: var(--text-lg);
   font-weight: var(--bold);
-  font-size: var(--subtitle);
   text-align: center;
+  @media (min-width: 1280px) {
+    width: 292px;
+    margin-bottom: 80px;
+    font-size: var(--subtitle);
+  }
 }
 
 .btnContainer {
@@ -23,8 +34,12 @@
 }
 
 .cancelBtn {
-  min-width: 200px;
-  margin-right: 10px;
+  min-width: 120px;
+  margin-right: 20px;
+  @media (min-width: 1280px) {
+    min-width: 200px;
+    margin-right: 10px;
+  }
 }
 
 .logOutBtn {

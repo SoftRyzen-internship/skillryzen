@@ -3,9 +3,13 @@
   border-radius: 5px;
   max-width: 500px;
   position: absolute;
-  top: 45px;
+  top: calc(100% - 40px);
   right: 0px;
   z-index: 100;
+
+  @media (min-width: 768px) {
+    top: 45px;
+  }
 
   &--dark {
     background-color: var(--components-cl);

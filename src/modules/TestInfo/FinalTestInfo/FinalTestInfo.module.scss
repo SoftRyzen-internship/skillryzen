@@ -1,5 +1,9 @@
 .containerStart {
-  width: 424px;
+  width: 100%;
+
+  @media (min-width: 480px) {
+    width: 460px;
+  }
 }
 
 .containerFinish {
@@ -7,15 +11,30 @@
   height: calc(100vh - 140px);
 }
 
-.breadcrumbsContainer {
-  padding-top: 20px;
-  padding-left: 64px;
+.containerModal {
+  min-width: 280px;
+
+  @media (min-width: 480px) {
+    min-width: 340px;
+  }
+
+  @media (min-width: 768px) {
+    min-width: 380px;
+  }
 }
 
 .imageThumb {
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
+
+  .containerFinish & {
+    margin-bottom: 16px;
+  }
+
+  .containerModal & {
+    margin-bottom: 20px;
+  }
 }
 
 .titleDark {
@@ -24,19 +43,45 @@
   font-size: var(--title);
   line-height: 1.3;
   text-align: center;
+
+  .containerFinish & {
+    margin-bottom: 20px;
+  }
+
+  .containerStart & {
+    @media (max-width: 479.98px) {
+      font-weight: var(--bold);
+      font-size: var(--subtitle);
+      margin-bottom: 12px;
+    }
+  }
+
+  .containerModal & {
+    margin-bottom: 24px;
+
+    @media (max-width: 767.98px) {
+      font-weight: var(--bold);
+      font-size: var(--subtitle);
+    }
+  }
 }
+
 .titleLight {
   composes: titleDark;
   color: var(--primary-cl);
-
   transition: color var(--transition);
 }
 
 .subtitleDark {
-  margin-bottom: 32px;
+  margin-bottom: 16px;
   font-size: var(--text-lg);
   text-align: center;
+
+  @media (max-width: 479.98px) {
+    font-size: var(--text-md);
+  }
 }
+
 .subtitleLight {
   composes: subtitleDark;
   color: var(--primary-cl);
@@ -45,14 +90,33 @@
 }
 
 .list {
-  margin-bottom: 32px;
+  margin-bottom: 20px;
+
+  @media (min-width: 480px) {
+    margin-bottom: 24px;
+  }
+}
+
+.recList {
+  margin-bottom: 8px;
+
+  .containerModal & {
+    margin-bottom: 38px;
+  }
 }
 
 .item {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+
+  &:not(:last-child) {
+    margin-bottom: 4px;
+
+    @media (min-width: 480px) {
+      margin-bottom: 8px;
+    }
+  }
 }
 
 .iconWrapper {
@@ -69,9 +133,19 @@
   margin-right: 20px;
   background-color: var(--components-cl);
   border-radius: 10px;
-
   transition: background-color var(--transition);
+
+  @media (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+  }
+
+  .containerModal & {
+    margin-right: 12px;
+  }
 }
+
 .iconThumbLight {
   composes: iconThumbDark;
   background-color: var(--light-primary-cl);
@@ -88,7 +162,23 @@
   font-size: 17px;
   font-weight: 500;
   line-height: 1.6;
+
+  .containerStart & {
+    @media (max-width: 479.98px) {
+      font-size: var(--text-md);
+      font-weight: var(--regular);
+      max-width: 90px;
+    }
+  }
+
+  .containerModal & {
+    @media (max-width: 767.98px) {
+      font-size: var(--text-md);
+      font-weight: var(--regular);
+    }
+  }
 }
+
 .textLight {
   composes: textDark;
   color: var(--primary-cl);
@@ -96,8 +186,22 @@
 
 .textRightDark {
   composes: textDark;
-  width: 142px;
+  width: 160px;
   text-align: right;
+
+  .containerModal & {
+    width: 140px;
+
+    @media (max-width: 479.98px) {
+      max-width: 100px;
+    }
+  }
+
+  .containerStart & {
+    @media (max-width: 479.98px) {
+      max-width: 80px;
+    }
+  }
 }
 .textRightLight {
   composes: textRightDark;
@@ -142,7 +246,19 @@
 }
 
 .btn {
-  margin-top: 64px;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (min-width: 480px) {
+    width: 424px;
+  }
+}
+
+.btnFinish {
+  composes: btn;
+  margin-top: 28px;
 }
 
 .textWarning {
@@ -150,6 +266,12 @@
   color: var(--wrong-cl);
   text-align: center;
   margin-top: 16px;
+
+  .containerStart & {
+    @media (max-width: 479.98px) {
+      font-size: var(--text-sm);
+    }
+  }
 }
 
 .resultIsPassed {

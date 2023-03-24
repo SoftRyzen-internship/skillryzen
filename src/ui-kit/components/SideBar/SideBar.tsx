@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useCurrentWidth } from 'hooks';
 
 import { SideBarContext } from 'modules/Sidebar/context/sideBarContext';
+import { useAdavtipeSideBarContext } from 'context/adavtipeSideBarContext';
+
 import { Theme } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
 
@@ -10,7 +13,6 @@ interface SideBarProps {
   children: React.ReactNode[];
   spaceBetween?: string;
   theme?: Theme;
-  sticky?: boolean;
   top?: string;
 }
 
@@ -18,10 +20,27 @@ export const SideBar = ({
   children,
   spaceBetween,
   theme = 'dark',
-  sticky,
   top = '0',
 }: SideBarProps) => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(() => {
+    const savedValue = localStorage.getItem('sideBarIsOpen');
+    return savedValue ? (savedValue === 'true' ? true : false) : true;
+  });
+
+  const { showSideBar, setShowSideBar } = useAdavtipeSideBarContext();
+  const currentWidth = useCurrentWidth();
+
+  useEffect(() => {
+    if (currentWidth < 1280) {
+      setIsOpen(true);
+    }
+  }, [currentWidth]);
+
+  useEffect(() => {
+    if (currentWidth >= 1280) {
+      showSideBar && setShowSideBar(false);
+    }
+  }, [currentWidth, setShowSideBar, showSideBar]);
 
   const setClassnameSidebar = () => {
     if (isOpen) {
@@ -63,8 +82,13 @@ export const SideBar = ({
     }
   };
 
+  const handleClick = () => {
+    setIsOpen(!isOpen);
+    localStorage.setItem('sideBarIsOpen', String(!isOpen));
+  };
+
   return (
-    <div style={sticky ? { height: 'auto' } : { height: '100%' }}>
+    <div className={`${s.sideBar} ${showSideBar && s.openAdaptiveSideBar}`}>
       <div className={setClassnameSidebar()} style={{ top: top }}>
         {/* <div className={s.sideBar__companyBlock}>
                   <img height='32' width='32'/>
@@ -73,16 +97,17 @@ export const SideBar = ({
                       <img height='24' width='24'/>
                   </button>
               </div> */}
-        <button
-          className={
-            theme === 'dark' ? s.sideBar__btnDark : s.sideBar__btnLight
-          }
-          onClick={() => {
-            setIsOpen(!isOpen);
-          }}
-        >
-          <ICONS.ARROW_LEFT className={setClassnameIconArrow()} />
-        </button>
+        {currentWidth > 1279 && (
+          <button
+            className={
+              theme === 'dark' ? s.sideBar__btnDark : s.sideBar__btnLight
+            }
+            onClick={handleClick}
+          >
+            <ICONS.ARROW_LEFT className={setClassnameIconArrow()} />
+          </button>
+        )}
+
         <SideBarContext.Provider value={isOpen}>
           <div
             className={s.sideBar__listWrapper}

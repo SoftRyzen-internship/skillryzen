@@ -8,14 +8,22 @@
   transform: translate(-50%, -50%);
 }
 .groupTop {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
   margin-bottom: 14px;
   text-align: left;
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+.emailWrapper {
+  margin-top: 16px;
+  display: flex;
+  @media (min-width: 768px) {
+    margin-top: 0;
+    margin-left: 25px;
+  }
 }
 .emailIcon {
-  margin-left: 28px;
   width: 20px;
   height: 20px;
   path {

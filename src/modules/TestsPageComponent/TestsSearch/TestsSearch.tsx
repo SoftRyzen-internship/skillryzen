@@ -13,11 +13,7 @@ export const TestsSearch = () => {
 
   return (
     <div className={s.testsSearch__wrapper}>
-      <h2
-        className={`${s.testsSearch__title} ${
-          s[`testsSearch__title--${theme}`]
-        }`}
-      >
+      <h2 className={`${s[`testsSearch__title--${theme}`]}`}>
         {t('testsMain.title')}
       </h2>
       <Input
@@ -26,19 +22,8 @@ export const TestsSearch = () => {
         button={true}
         icon={<ICONS.SEARCH fill='#9D9FB5' />}
         theme={theme}
+        labelClassName={s.testsSearch__input}
       />
     </div>
   );
 };
-
-{
-  /* <div className={s.testsSearch__inputWrapper}> 
-<button
-            className={`${s.testsSearch__button} ${
-              s[`testsSearch__button--${theme}`]
-            }`}
-          >
-            <ICONS.BOOK className={s.testsSearch__iconBook} />
-            {t('testsMain.practice')}
- </div> */
-}

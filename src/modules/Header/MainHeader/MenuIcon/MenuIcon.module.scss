@@ -1,0 +1,11 @@
+.icon {
+  path {
+    stroke: var(--secondary-txt-cl);
+  }
+}
+
+.active {
+  path {
+    stroke: var(--accent-cl);
+  }
+}

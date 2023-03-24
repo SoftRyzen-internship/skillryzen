@@ -12,7 +12,7 @@ import { Skeleton } from 'ui-kit/components/Skeleton/Skeleton';
 import { ModalTestsInfo } from 'modules/Modals/ModalTestsInfo/ModalTestsInfo';
 
 import s from './CompletedTestsList.module.scss';
-
+import { useCurrentWidth } from 'hooks';
 
 interface Item {
   id: number;
@@ -56,6 +56,8 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
   const [testsArray, setTestsArray] = useState<Item[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const { theme }: IThemeContext = useThemeContext();
+
+  const currentWidth = useCurrentWidth();
 
   useEffect(() => {
     setIsLoading(true);
@@ -103,6 +105,22 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       date: findTestDate(finishedAt),
     });
     handleClickModal();
+  };
+
+  const returnQuantity = (size: string): number => {
+    if (size === 'large') {
+      return 4;
+    }
+    if (currentWidth < 768) {
+      return 2;
+    }
+    if (currentWidth < 1024) {
+      return 4;
+    }
+    if (currentWidth < 1440) {
+      return 6;
+    }
+    return 8;
   };
 
   return (
@@ -161,7 +179,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
         )}
         {isLoading && (
           <Skeleton
-            length={size === 'large' ? 4 : 8}
+            length={returnQuantity(size)}
             value='skeleton'
             className={`${s[`skeletonItem--${size}`]}`}
           />
@@ -169,10 +187,7 @@ export const CompletedTestsList = ({ size }: TestsProps) => {
       </ul>
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
-          <ModalTestsInfo
-            handleClickModal={handleClickModal}
-            testInfo={testInfo}
-          />
+          <ModalTestsInfo testInfo={testInfo} />
         </Modal>
       )}
     </>

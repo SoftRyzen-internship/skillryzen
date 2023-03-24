@@ -9,16 +9,19 @@ import { MyAchievementsList } from './MyAchievementsList';
 import { IThemeContext } from 'constans/types';
 
 import s from './ProfilePageComponent.module.scss';
+import { ScrollContainer } from 'ui-kit';
 
 export const ProfilePageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
 
   return (
-    <div className={`${s.profilePage} ${s[`profilePage--${theme}`]}`}>
-      <MyProfile theme={theme} />
-      <MyAchievementsList theme={theme} />
-      <MyTests theme={theme} />
-    </div>
+    <ScrollContainer>
+      <div className={s.profilePage}>
+        <MyProfile theme={theme} />
+        <MyAchievementsList theme={theme} />
+        <MyTests theme={theme} />
+      </div>
+    </ScrollContainer>
   );
 };

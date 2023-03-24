@@ -18,8 +18,10 @@
 }
 .button--dark {
   background-color: var(--secondary-cl);
-  &:hover {
-    box-shadow: var(--shadow-blue);
+  @media (min-width: 1280px) {
+    &:hover {
+      box-shadow: var(--shadow-blue);
+    }
   }
 }
 
@@ -58,7 +60,12 @@
 
 .popup {
   position: absolute;
-  top: 72px;
-  left: -8px;
+  top: 71px;
+  right: 0;
   z-index: 10;
+
+  @media (min-width: 1280px) {
+    top: 72px;
+    left: -8px;
+  }
 }

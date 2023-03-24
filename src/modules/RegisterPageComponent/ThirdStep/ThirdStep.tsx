@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useLocation } from 'react-router-dom';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { ROUTES } from 'routes/routes.const';
 import { setName } from 'redux/authSlice/authSlice';
 import { auth } from 'redux/authSlice/operations';
@@ -45,7 +45,7 @@ export const ThirdStep = () => {
         </>
       ) : (
         <>
-          <h2 style={{ maxWidth: '374px' }} className={s.stepTitle}>
+          <h2 className={`${s.stepTitle} ${s.thirdStep}`}>
             {t('auth.companyTitle')}
           </h2>
           <p className={s.stepSubtitle}>{t('auth.companySubtitle')}</p>

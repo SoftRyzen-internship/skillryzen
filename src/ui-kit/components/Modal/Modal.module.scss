@@ -50,6 +50,7 @@
   border: 1px solid var(--accent-cl);
   box-shadow: 1px 6px 17px rgba(158, 170, 237, 0.13);
 }
+
 .modalLight {
   composes: modalDark;
   background-color: var(--light-components-cl);
@@ -59,8 +60,8 @@
 
 .closeModalBtnDark {
   position: absolute;
-  top: 16px;
-  right: 16px;
+  top: 12px;
+  right: 12px;
 
   width: 40px;
   height: 40px;
@@ -70,7 +71,13 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    top: 16px;
+    right: 16px;
+  }
 }
+
 .closeModalBtnLight {
   composes: closeModalBtnDark;
   & path {

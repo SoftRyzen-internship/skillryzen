@@ -83,6 +83,8 @@ import IconTestPassed from 'assets/svg/test-passed.svg';
 import IconTestFailed from 'assets/svg/test-failed.svg';
 import IconRefresh from 'assets/svg/refresh.svg';
 import IconDate from 'assets/svg/date.svg';
+import BrockenMenu from 'assets/svg/brocken-menu.svg';
+import IconAgreement from 'assets/svg/agreement.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -126,6 +128,10 @@ import IconUnderDevelopmentMainLight from 'assets/svg/under-development-main-lig
 import IconSort from 'assets/svg/sort.svg';
 import IconSortTop from 'assets/svg/sort-top.svg';
 import IconSortDown from 'assets/svg/sort-down.svg';
+
+import IconLogOut from 'assets/svg/log-out.svg';
+import IconLetter from 'assets/svg/letter.svg';
+import IconPage404 from 'assets/svg/page-404.svg';
 
 import { Icons } from 'constans/types';
 
@@ -253,4 +259,9 @@ export const ICONS: Icons = {
   SORT: IconSort,
   SORT_TOP: IconSortTop,
   SORT_DOWN: IconSortDown,
+  BROCKEN_MENU: BrockenMenu,
+  AGREEMENT: IconAgreement,
+  LOG_OUT: IconLogOut,
+  LETTER: IconLetter,
+  PAGE_404: IconPage404,
 };

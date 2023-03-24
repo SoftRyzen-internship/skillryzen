@@ -12,20 +12,14 @@ interface Tag {
   testStatus?: string;
 }
 
-export const Tag = ({
-  label,
-  type,
-  icon = false,
-  theme = 'dark',
-  testStatus,
-}: Tag) => {
+export const Tag = ({ label, type, theme = 'dark', testStatus }: Tag) => {
   const { t } = useTranslation();
 
   return (
     <p
       className={`${s[`tag--${type}`]} ${s[`tag--${type}--${theme}`]} ${
-        icon && s['tag--icon']
-      } ${testStatus === 'disabled' && s.tagFieldDisabled} `}
+        testStatus === 'disabled' && s.tagFieldDisabled
+      }`}
     >
       {type === 'time' && (
         <span className={s.label}>
@@ -33,7 +27,6 @@ export const Tag = ({
         </span>
       )}
       {type !== 'time' && label}
-      {/* {icon && <ICONS.CLOSE className={s.tag__icon/>} */}
     </p>
   );
 };

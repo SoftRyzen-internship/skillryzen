@@ -1,4 +1,4 @@
-import { useAppSelector } from 'hooks/hook';
+import { useAppSelector } from 'hooks';
 import { getStep, getUserRole } from 'redux/authSlice/authSelectors';
 
 import {
@@ -18,7 +18,9 @@ export const RegisterSteps = () => {
 
   return (
     <section className={s.section}>
-      <Logo content='SkillRyzen' />
+      <div className={s.logo}>
+        <Logo content='SkillRyzen' />
+      </div>
       {role === 'CANDIDATE' ? (
         <Steps steps={3} currentStep={step} />
       ) : (

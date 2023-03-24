@@ -1,14 +1,24 @@
 .teamFilter {
-  display: flex;
-  justify-content: space-between;
   margin-bottom: 20px;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
 }
 
 .teamFilter__title {
-  font-size: 30px;
-  font-weight: 800;
+  font-size: var(--subtitle);
+  font-weight: var(--bold);
+  line-height: 1.3;
+  margin-bottom: 16px;
 
   transition: color var(--transition);
+
+  @media (min-width: 768px) {
+    font-size: var(--title);
+    font-weight: var(--extrabold);
+    margin-bottom: 0;
+  }
 
   &--light {
     color: var(--light-primary-txt-cl);
@@ -22,6 +32,7 @@
 .teamFilter__wrapper {
   display: flex;
   gap: 12px;
+  justify-content: flex-end;
 }
 
 .teamFilter__item {

@@ -1,9 +1,7 @@
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
-import { ROUTES } from 'routes/routes.const';
 
 import { MainButton } from 'ui-kit';
-import { IMAGES } from 'ui-kit/images';
+import { ICONS } from 'ui-kit/icons';
 
 import s from './LogOutStart.module.scss';
 
@@ -19,19 +17,12 @@ export const LogOutStart = ({
   const { t } = useTranslation();
 
   const onClickLogOutBtn = () => {
-    // console.log('click on log out btn');
     handleClickLogOutBtn();
   };
 
   return (
     <div className={s.container}>
-      <img
-        src={IMAGES.LOG_OUT}
-        alt='Log Out'
-        width='160'
-        height='104'
-        className={s.image}
-      />
+      <ICONS.LOG_OUT className={s.image} />
       <p className={s.subtitle}>{t('logOutModal.subtitle')}</p>
       <div className={s.btnContainer}>
         <MainButton

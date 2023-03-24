@@ -1,10 +1,16 @@
 .popupWrapper {
   width: 200px;
-  min-width: 200px;
   padding: 16px;
   border-radius: 4px;
-  transition: var(--transition);
+  transition: background-color var(--transition);
 }
+.adaptiveWrapper {
+  width: 56px;
+  @media (min-width: 1280px) {
+    width: 200px;
+  }
+}
+
 .popupWrapper--dark {
   composes: popupWrapper;
   background-color: var(--components-cl);
@@ -14,7 +20,7 @@
   background-color: var(--light-components-cl);
 }
 
-.vievAllHidden {
+.viewAllHidden {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -27,7 +33,7 @@
   overflow: hidden;
 }
 
-.vievAllVisible {
+.viewAllVisible {
   display: block;
   width: 100%;
   text-align: right;
@@ -61,7 +67,13 @@
 
 .text {
   margin-left: 8px;
-  transition: var(--transition);
+  transition: color var(--transition);
+}
+.adaptiveText {
+  display: none;
+  @media (min-width: 1280px) {
+    display: block;
+  }
 }
 .text--dark {
   composes: text;

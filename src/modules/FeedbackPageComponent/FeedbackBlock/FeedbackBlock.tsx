@@ -1,19 +1,23 @@
-import { FeedbackForm } from 'modules/Forms/FeedbackForm/FeedbackForm';
 import { useState } from 'react';
-import s from './FeedbackBlock.module.scss';
+
 import { ICONS } from 'ui-kit/icons';
 import { UserAvatarCard } from 'ui-kit';
 import { Spinner } from 'ui-kit/components/Spinner/Spinner';
+
 import {
   getIsAuth,
   getUserEmail,
   getUserName,
   getUserRole,
 } from 'redux/authSlice/authSelectors';
+import { useAppSelector } from 'hooks';
 import { IThemeContext } from 'constans/types';
-import { useThemeContext } from 'context/themeContext';
 import { randomAvatar } from 'utils/randomAvatar';
-import { useAppSelector } from 'hooks/hook';
+import { useThemeContext } from 'context/themeContext';
+import { FeedbackForm } from 'modules/Forms/FeedbackForm/FeedbackForm';
+
+import s from './FeedbackBlock.module.scss';
+
 interface FeedbackBlockProps {
   sendFeedback?: (_value: boolean) => void;
 }
@@ -40,8 +44,10 @@ export const FeedbackBlock = ({ sendFeedback }: FeedbackBlockProps) => {
             userStatus={isAuth ? 'green' : 'gray'}
             theme={theme}
           />
-          <ICONS.AT_EMAIL className={s.emailIcon} />
-          <p className={s.emailText}>{userEmail}</p>
+          <div className={s.emailWrapper}>
+            <ICONS.AT_EMAIL className={s.emailIcon} />
+            <p className={s.emailText}>{userEmail}</p>
+          </div>
         </div>
         <FeedbackForm
           updateLoading={updateLoading}

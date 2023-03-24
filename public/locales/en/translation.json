@@ -35,6 +35,15 @@
     "numberOfQuestions": "questions",
     "time": "min"
   },
+  "modalStartTest": {
+    "rulesFirstPart": "Rules",
+    "rulesSecondPart": "of test taking",
+    "ruleFirst": "Before starting the test, make sure that you have a stable Internet connection and enough time to complete it.",
+    "ruleSecond": "When the window tab is closed, the test automatically fails.",
+    "ruleThird": "Pay attention that the test can be retaken only once.",
+    "agree": "Agree with the rules",
+    "start": "Start"
+  },
   "testing": {
     "timer": "Time left",
     "question": "Question",

@@ -3,10 +3,10 @@ import { useLocation } from 'react-router';
 import { useIsOnline } from 'react-use-is-online';
 import { useTranslation } from 'react-i18next';
 
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { Theme } from 'constans/types';
 import { convertTime } from 'utils/convertTime';
-import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlise';
+import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlice';
 import { getResultsTestId } from 'redux/testingInfo/testingInfoSelectors';
 
 import s from './Timer.module.scss';
@@ -34,7 +34,7 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
       dispatch(setTime({ time: totalTime - seconds, timeLeft: seconds }));
       return;
     }
-    
+
     const intervalId = setInterval(() => {
       setSeconds(seconds => seconds - 1);
     }, 1000);
@@ -63,12 +63,10 @@ export const Timer = ({ theme = 'dark' }: Timer) => {
     <>
       {pathname !== '/testing/test-end' && (
         <div>
-          <p className={`${s.timer__text} ${s[`timer__text--${theme}`]}`}>
-          {t('testing.timer')}
+          <p className={`${s[`timer--${theme}`]} ${s.timer__text}`}>
+            {t('testing.timer')}
           </p>
-          <p className={`${s.timer__time} ${s[`timer__time--${theme}`]}`}>
-            {convertTime(seconds)}
-          </p>
+          <p className={`${s[`timer--${theme}`]}`}>{convertTime(seconds)}</p>
         </div>
       )}
     </>

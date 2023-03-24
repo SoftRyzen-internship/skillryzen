@@ -1,9 +1,14 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
+import {
+  useCurrentWidth,
+  useOutsideClick,
+  useAppDispatch,
+  useAppSelector,
+} from 'hooks';
 
 import { logOut } from 'redux/authSlice/operations';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
 import { setClickLogOut } from 'redux/authSlice/authSlice';
 
 import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
@@ -33,8 +38,9 @@ const iconColor = {
 };
 
 export const HeaderUserAvatarCard = () => {
+  const ref = useRef<HTMLDivElement>();
   const [isShowModal, setIsShowModal] = useState(false);
-  const [popup, setPopup] = useState<null | React.ReactNode>(null);
+  const [popup, setPopup] = useState(false);
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -45,31 +51,39 @@ export const HeaderUserAvatarCard = () => {
   const isAuth = useAppSelector(getIsAuth);
 
   const avatar = useMemo(randomAvatar, []);
+  const currentWidth = useCurrentWidth();
+
+  useOutsideClick(ref, setPopup);
 
   const popupList = useMemo(() => {
     if (role === USER_ROLE.candidate) {
       return [
         {
+          id: 'profile',
           icon: <ICONS.USER stroke={iconColor[theme]} />,
           text: t('header.userAvatar.profile'),
           path: ROUTES.PROFILE,
         },
         {
+          id: 'settings',
           icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
           text: t('header.userAvatar.settings'),
           path: ROUTES.PROFILE_SETTINGS,
         },
         {
+          id: 'notifications',
           icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
           text: t('header.userAvatar.notifications'),
           path: ROUTES.NOTIFICATIONS,
         },
         {
+          id: 'coins',
           icon: <ICONS.COIN fill={iconColor[theme]} />,
           text: t('header.userAvatar.coins'),
           path: ROUTES.COINS,
         },
         {
+          id: 'logOut',
           icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
           text: t('header.userAvatar.logOut'),
         },
@@ -78,21 +92,25 @@ export const HeaderUserAvatarCard = () => {
 
     return [
       {
+        id: 'profile',
         icon: <ICONS.USER stroke={iconColor[theme]} />,
         text: t('header.userAvatar.profile'),
         path: ROUTES.PROFILE,
       },
       {
+        id: 'settings',
         icon: <ICONS.SETTINGS stroke={iconColor[theme]} />,
         text: t('header.userAvatar.settings'),
         path: ROUTES.PROFILE_SETTINGS,
       },
       {
+        id: 'notifications',
         icon: <ICONS.BELL_TWO stroke={iconColor[theme]} />,
         text: t('header.userAvatar.notifications'),
         path: ROUTES.NOTIFICATIONS,
       },
       {
+        id: 'logOut',
         icon: <ICONS.LOGOUT stroke={iconColor[theme]} />,
         text: t('header.userAvatar.logOut'),
       },
@@ -103,8 +121,8 @@ export const HeaderUserAvatarCard = () => {
     setIsShowModal(prevState => !prevState);
   };
 
-  const handleClickPopupItem = (text: string) => {
-    if (text === t('header.userAvatar.logOut')) {
+  const handleClickPopupItem = (id: string) => {
+    if (id === 'logOut') {
       handleClickModal();
     }
   };
@@ -116,31 +134,41 @@ export const HeaderUserAvatarCard = () => {
   };
 
   const mouseEnterHandler = () => {
-    setPopup(
-      <Popup
-        theme={theme}
-        handleClickItem={handleClickPopupItem}
-        list={popupList}
-      />
-    );
+    setPopup(true);
   };
   const mouseLeaveHandler = () => {
-    setPopup(null);
+    setPopup(false);
+  };
+
+  const handleClick = () => {
+    if (popup) return setPopup(false);
+    setPopup(true);
   };
 
   return (
     <div
+      ref={ref}
       className={s.container}
-      onMouseEnter={mouseEnterHandler}
-      onMouseLeave={mouseLeaveHandler}
+      onMouseEnter={currentWidth > 1279 ? mouseEnterHandler : null}
+      onMouseLeave={currentWidth > 1279 ? mouseLeaveHandler : null}
+      onClick={currentWidth < 1279 ? handleClick : null}
     >
       <UserAvatarCard
-        userName={name}
+        userName={currentWidth > 1279 ? name : ''}
         userAvatarUrl={avatar}
         userStatus={isAuth ? 'green' : 'gray'}
         theme={theme}
       />
-      {popup ? <div className={s.popup}>{popup}</div> : null}
+      {popup ? (
+        <div className={s.popup}>
+          {' '}
+          <Popup
+            theme={theme}
+            handleClickItem={handleClickPopupItem}
+            list={popupList}
+          />
+        </div>
+      ) : null}
       {isShowModal && (
         <Modal isShowModal={isShowModal} onClick={handleClickModal} isCloseIcon>
           <LogOutStart

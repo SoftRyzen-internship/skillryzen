@@ -1,19 +1,18 @@
 .testsPage {
-  padding: 20px 60px 15px 64px;
-  width: 100%;
-
-  &--light {
-    background-color: var(--light-cards-cl);
-    transition: background-color var(--transition), color var(--transition);
-  }
-
-  &--dark {
-    background-color: var(--primary-cl);
-    transition: background-color var(--transition), color var(--transition);
+  @media (max-width: 767.98px) {
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .testsPage__wrapper {
+  @media (max-width: 767.98px) {
+    position: relative;
+  }
+}
+
+.testsPage__filterWrapper {
   display: flex;
   justify-content: space-between;
 }

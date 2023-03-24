@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { IThemeContext } from 'constans/types';
-import { useThemeContext } from 'context/themeContext';
 import { Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
+import { useCurrentWidth } from 'hooks';
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
 
 import s from './OneFieldFilter.module.scss';
 
@@ -23,14 +24,17 @@ export const OneFieldFilter = ({
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
   const filterRef = useRef(null);
+  const currentWidth = useCurrentWidth();
 
   useEffect(() => {
     const handleMouseDown = (event: MouseEvent) => {
-      if (filterRef.current && !filterRef.current.contains(event.target)) {
+      if (filterRef.current && !filterRef.current?.contains(event.target)) {
         setIsOpen(false);
       }
     };
+
     document.addEventListener('mousedown', handleMouseDown);
+
     return () => {
       document.removeEventListener('mousedown', handleMouseDown);
     };
@@ -45,24 +49,21 @@ export const OneFieldFilter = ({
   return (
     <div className={s.filter} ref={filterRef}>
       <button
-        className={`${s.filter__button} ${
+        className={`${s[`filter__button--${theme}`]} ${
           isOpen && s['filter__button--active']
-        } ${s[`filter__button--${theme}`]}`}
+        }`}
         onClick={() => setIsOpen(prev => !prev)}
       >
         <ICONS.FILTER_TWO className={s.filter__icon} />
-        <span>{t('testsMain.filter')}</span>
+        {currentWidth > 767 && <span>{t('testsMain.filter')}</span>}
       </button>
       <ul
-        className={`${s.filter__list} ${!isOpen && s['filter__list--hidden']} ${
-          s[`filter__list--${theme}`]
+        className={`${s[`filter__list--${theme}`]} ${
+          !isOpen && s['filter__list--hidden']
         }`}
       >
         {data.map((item, index) => (
-          <li
-            key={index}
-            className={`${s.filter__item} ${s[`filter__item--${theme}`]}`}
-          >
+          <li key={index} className={`${s[`filter__item--${theme}`]}`}>
             <Checkbox
               name={`filter${name}`}
               value={item}

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ROUTES } from 'routes/routes.const';
 import { LoginForm } from 'modules/Forms';
-import { useAppDispatch, useAppSelector } from 'hooks/hook';
+import { useAppDispatch, useAppSelector } from 'hooks';
 import { setStep } from 'redux/authSlice/authSlice';
 
 import s from './Login.module.scss';
@@ -24,7 +24,9 @@ export const Login = () => {
 
   return (
     <section className={s.section}>
-      <Logo content='SkillRyzen' />
+      <div className={s.logo}>
+        <Logo content='SkillRyzen' />
+      </div>
       <h2 className={s.loginTitle}>{t('auth.loginTitle')}</h2>
       <p className={s.loginSubtitle}>
         {t('auth.registerLabel')}{' '}
