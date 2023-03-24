@@ -11,7 +11,7 @@ export const ROUTES: Routes = {
   DASHBOARD: '/dashboard',
   CERTIFICATION: '/certification',
   PETPROJECTS: '/pet-projects',
-  LEADERBOARD: '/leader-board',
+  LEADERBOARD: '/leaderboard',
   VACANCIES: '/vacancies',
   PROFILE: '/profile',
   PROFILE_SETTINGS: '/profile-settings',

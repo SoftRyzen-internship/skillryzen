@@ -2,6 +2,9 @@ import { useState, useMemo } from 'react';
 
 import { ICONS } from 'ui-kit/icons';
 
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
+
 import s from './Table.module.scss';
 
 export type Column<T> = {
@@ -16,13 +19,14 @@ interface TableProps<T> {
   className: string;
 }
 
-export const Table = <T extends { id: number }>({
+export const Table = <T extends { id: string }>({
   columns,
   data,
   className,
 }: TableProps<T>) => {
   const [sortColumn, setSortColumn] = useState<Column<T> | null>(columns[0]);
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
+  const { theme }: IThemeContext = useThemeContext();
 
   // сортування даних за вибраним стовпчиком, якщо він є сортованим
   const handleSort = (column: Column<T>): void => {
@@ -48,9 +52,9 @@ export const Table = <T extends { id: number }>({
   }, [data, sortColumn, sortDirection]);
 
   return (
-    <table className={s.table}>
+    <table className={`${s.table} ${s[`table--${theme}`]}`}>
       <thead className={s.head}>
-        <tr className={`${s.headrow} ${className}`}>
+        <tr className={`${s.headrow} ${s[`headrow--${theme}`]} ${className}`}>
           {columns.map(column => (
             <th
               className={`${s.data} ${column.sortable ? s.cursor : ''}`}
@@ -61,13 +65,17 @@ export const Table = <T extends { id: number }>({
               {sortColumn === column &&
                 column.property !== columns[0].property &&
                 (sortDirection === 'asc' ? (
-                  <ICONS.SORT_TOP className={s.icon} />
+                  <ICONS.SORT_TOP
+                    className={`${s.icon} ${s[`icon--${theme}`]}`}
+                  />
                 ) : (
-                  <ICONS.SORT_DOWN className={s.icon} />
+                  <ICONS.SORT_DOWN
+                    className={`${s.icon} ${s[`icon--${theme}`]}`}
+                  />
                 ))}
               {sortColumn !== column && column.sortable && (
                 // Показуємо обидві стрілки при початковому стані
-                <ICONS.SORT className={s.icon} />
+                <ICONS.SORT className={`${s.icon} ${s[`icon--${theme}`]}`} />
               )}
             </th>
           ))}
@@ -75,7 +83,10 @@ export const Table = <T extends { id: number }>({
       </thead>
       <tbody>
         {sortedData.map(item => (
-          <tr key={String(item.id)} className={`${s.tablerow} ${className}`}>
+          <tr
+            key={String(item.id)}
+            className={`${s.tablerow} ${s[`tablerow--${theme}`]} ${className}`}
+          >
             {columns.map(column => (
               <td key={column.property as string} className={s.data}>
                 {item[column.property]?.toString()}

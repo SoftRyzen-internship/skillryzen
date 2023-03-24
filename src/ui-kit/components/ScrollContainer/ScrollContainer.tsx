@@ -1,3 +1,6 @@
+import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
+
 import s from './ScrollContainer.module.scss';
 
 interface Props {
@@ -5,5 +8,9 @@ interface Props {
 }
 
 export const ScrollContainer = ({ children }: Props) => {
-  return <div className={s.wrapper}>{children}</div>;
+  const { theme }: IThemeContext = useThemeContext();
+
+  return (
+    <div className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}>{children}</div>
+  );
 };
