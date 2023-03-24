@@ -32,8 +32,7 @@ export const SideBar = ({
 
   useOutsideClick(ref, (isInside, event) => {
     const button = document.getElementById('sidebar-open-button');
-    const icon = document.getElementById('sidebar-open-icon');
-    if (event.target !== button && event.target !== icon) {
+    if (!button.contains(event.target as Node)) {
       setShowSideBar(isInside);
     }
   });

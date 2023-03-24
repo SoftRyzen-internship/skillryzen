@@ -11,7 +11,6 @@ export const MenuIcon = () => {
       onClick={() => setShowSideBar(!showSideBar)}
     >
       <ICONS.BROCKEN_MENU
-        id='sidebar-open-icon'
         className={showSideBar ? s.active : s.icon}
       />
     </button>
