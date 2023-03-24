@@ -1,6 +1,6 @@
 import { positionsData } from 'utils/team';
 import { Theme, UserSocial } from 'constans/types';
-import { SocialList } from 'ui-kit/components/SocialList';
+import { SocialList } from 'ui-kit';
 
 import s from './TeamCard.module.scss';
 

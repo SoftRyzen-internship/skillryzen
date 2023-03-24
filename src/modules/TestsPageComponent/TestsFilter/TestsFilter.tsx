@@ -1,12 +1,12 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useRef, useState } from 'react';
 
 import { IThemeContext } from 'constans/types';
+import { useOutsideClick } from 'hooks';
 import { useThemeContext } from 'context/themeContext';
-import { ICONS } from 'ui-kit/icons';
-import { IconButton } from 'ui-kit/index';
-import { Accordion } from 'ui-kit/components/Accordion/Accordion';
+
+import { Accordion, Filter } from 'ui-kit';
 import { filterData } from 'modules/TestsPageComponent/TestsFilter/filterData';
+import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
 
 import s from './TestsFilter.module.scss';
 
@@ -17,57 +17,21 @@ interface TestFilterProps {
 
 export const TestsFilter = ({ size, setSize }: TestFilterProps) => {
   const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
   const [showFilter, setShowFilter] = useState<boolean>(false);
-  const accordionRef = useRef<HTMLDivElement>(null);
+  const filterRef = useRef<HTMLDivElement>(null);
+
+  useOutsideClick(filterRef, setShowFilter);
 
   const handleFilter = () => {
     setShowFilter(!showFilter);
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        accordionRef.current &&
-        !accordionRef.current.contains(event.target as Node)
-      ) {
-        setShowFilter(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [accordionRef]);
-
   return (
     <div className={s.testsFilter}>
-      <div className={s.testsFilter__wrapper}>
-        <IconButton
-          theme={theme}
-          onClick={() => setSize('small')}
-          color={size === 'small' ? 'blue' : 'black'}
-          icon='grid2'
-        />
-        <IconButton
-          theme={theme}
-          onClick={() => setSize('large')}
-          color={size === 'large' ? 'blue' : 'black'}
-          icon='grid4'
-        />
-      </div>
-      <div ref={accordionRef}>
-        <button
-          onClick={handleFilter}
-          className={`${s[`testsFilter__filter--${theme}`]}`}
-        >
-          <ICONS.FILTER_TWO className={s.testsFilter__icon} />
-          <span>{t('testsMain.filter')}</span>
-        </button>
+      <ViewButtonList size={size} setSize={setSize} />
+      <Filter ref={filterRef} handleFilter={handleFilter} showFilter={showFilter} theme={theme}>
         {showFilter && <Accordion data={filterData} isIcon isList isMargin />}
-      </div>
+      </Filter>
     </div>
   );
 };

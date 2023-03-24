@@ -1,0 +1,73 @@
+.teamContainer {
+  position: relative;
+}
+
+.filter {
+  padding: 9px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  font-weight: var(--regular);
+  font-size: 0;
+  color: var(--primary-txt-cl);
+
+  @media (min-width: 1280px) {
+    gap: 12px;
+    font-size: var(--text-md);
+  }
+
+  .teamContainer & {
+    @media (min-width: 768px) {
+      gap: 12px;
+      font-size: var(--text-md);
+    }
+  }
+
+  .commonContainer & {
+    @media (max-width: 767.98px) {
+      position: absolute;
+      top: 48px;
+      right: 0;
+    }
+  }
+}
+
+.filter--light {
+  composes: filter;
+  color: var(--accent-cl);
+  background-color: var(--light-components-cl);
+  box-shadow: var(--light-primary-shadow);
+  transition: background-color var(--transition), color var(--transition);
+
+  .testsFilter__icon path {
+    stroke: var(--accent-cl);
+  }
+}
+
+.filter--dark {
+  composes: filter;
+  color: var(--primary-txt-cl);
+  background-color: var(--components-cl);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.filter--dark:hover,
+.filter--active {
+  color: var(--accent-cl);
+
+  .filter__icon path {
+    stroke: var(--accent-cl);
+  }
+}
+
+.filter__icon {
+  width: 22px;
+  height: 22px;
+
+  path {
+    stroke: var(--primary-txt-cl);
+    transition: stroke var(--transition);
+  }
+}

@@ -1,15 +1,25 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { ICONS } from 'ui-kit/icons';
-import { Breadcrumbs, IconButton, Input, ScrollContainer, Tabs } from 'ui-kit';
-
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { useCurrentWidth, useOutsideClick } from 'hooks';
+import { filterData } from './filterData';
 
+import {
+  Accordion,
+  Breadcrumbs,
+  Filter,
+  Input,
+  ScrollContainer,
+  Tabs,
+} from 'ui-kit';
 import { CoinsCardList } from './CoinsCardList';
+import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
 
 import s from './CoinsPageComponent.module.scss';
+
 
 const testsArray = [
   {
@@ -36,8 +46,28 @@ const tabs = [
 export const CoinsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
   const { t } = useTranslation();
-  const [size, setSize] = useState<'large' | 'small'>('large');
-  const [currentTab, setCurrentTab] = useState(tabs[0].id);
+
+  const [currentTab, setCurrentTab] = useState<number>(
+    () =>
+      JSON.parse(sessionStorage.getItem('coinsPage'))?.currentTab ?? tabs[0].id
+  );
+  const [size, setSize] = useState<'large' | 'small'>(
+    () => JSON.parse(sessionStorage.getItem('coinsPage'))?.size ?? 'large'
+  );
+  const [showFilter, setShowFilter] = useState<boolean>(false);
+
+  const filterRef = useRef<HTMLDivElement>(null);
+  const currentWidth = useCurrentWidth();
+
+  useOutsideClick(filterRef, setShowFilter);
+
+  useEffect(() => {
+    sessionStorage.setItem('coinsPage', JSON.stringify({ currentTab, size }));
+  }, [currentTab, size]);
+
+  const handleFilter = () => {
+    setShowFilter(!showFilter);
+  };
 
   const handleChangeTab = (tab: number) => {
     setCurrentTab(tab);
@@ -45,53 +75,49 @@ export const CoinsPageComponent = () => {
 
   return (
     <ScrollContainer>
-      <Breadcrumbs />
-      <div className={s.flexContainerTitle}>
-        <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
-          {t('userCoins.pageTitle')}
-        </h2>
-        <Input
-          name='search'
-          placeholder={t('userCoins.search')}
-          button={true}
-          icon={<ICONS.SEARCH className={s.inputIcon} />}
-          theme={theme}
-        />
-      </div>
-      <div className={s.flexContainerTabs}>
-        <Tabs
-          currentTab={currentTab}
-          tabs={tabs}
-          changeTab={handleChangeTab}
-          theme={theme}
-        />
-
-        <div className={s.buttonsContainer}>
-          <IconButton
-            className={s.itemButton}
+      <div className={s.coinsPage}>
+        <Breadcrumbs />
+        <div className={s.coinsPage__wrapper}>
+        <div className={s.coinsPage__searchWrapper}>
+          <h2 className={`${s[`coinsPage__title--${theme}`]}`}>
+            {t('userCoins.pageTitle')}
+          </h2>
+          <Input
+            name='search'
+            placeholder={t('userCoins.search')}
+            button={true}
+            icon={<ICONS.SEARCH className={s.inputIcon} />}
             theme={theme}
-            onClick={() => setSize('small')}
-            color={size === 'small' ? 'blue' : 'black'}
-            icon='grid2'
+            labelClassName={s.input}
           />
-          <IconButton
-            className={s.itemButton}
-            theme={theme}
-            onClick={() => setSize('large')}
-            color={size === 'large' ? 'blue' : 'black'}
-            icon='grid4'
-          />
-          <button
-            className={`${s.itemButton} ${s.filterButton} ${
-              s[`filterButton--${theme}`]
-            }`}
-          >
-            <ICONS.FILTER_TWO className={s.filterIcon} />
-            <span>{t('testsMain.filter')}</span>
-          </button>
         </div>
+        <div className={s.coinsPage__filterWrapper}>
+          <Tabs
+            currentTab={currentTab}
+            tabs={tabs}
+            changeTab={handleChangeTab}
+            theme={theme}
+          />
+          <div className={s.coinsPage__buttonsContainer}>
+            <ViewButtonList size={size} setSize={setSize} />
+            <Filter
+              ref={filterRef}
+              handleFilter={handleFilter}
+              showFilter={showFilter}
+              theme={theme}
+            >
+              {showFilter && (
+                <Accordion data={filterData} isIcon isList isMargin />
+              )}
+            </Filter>
+            </div>
+          </div>
+        </div>
+        <CoinsCardList
+          size={currentWidth < 768 ? 'small' : size}
+          testsArray={testsArray}
+        />
       </div>
-      <CoinsCardList size={size} testsArray={testsArray} />
     </ScrollContainer>
   );
 };

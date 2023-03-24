@@ -1,7 +1,12 @@
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 
-import { removeResults } from 'redux/testingInfo/testingInfoSlice';
+import { ICONS } from 'ui-kit/icons';
+import { IMAGES } from 'ui-kit/images';
+import { ROUTES } from 'routes/routes.const';
+import { convertTestDate, convertTestTime } from 'utils/convertTime';
+import { useAppDispatch } from 'hooks';
 import {
   getResultTime,
   getTotalCount,
@@ -9,16 +14,9 @@ import {
   getTestName,
   getIsPassed,
 } from 'redux/testingInfo/testingInfoSelectors';
-import { useAppDispatch } from 'hooks';
+import { removeResults } from 'redux/testingInfo/testingInfoSlice';
 
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
-import { TestInfoContainer } from '../TestInfoContainer';
-
-import { ICONS } from 'ui-kit/icons';
-import { IMAGES } from 'ui-kit/images';
-import { ROUTES } from 'routes/routes.const';
-import { convertTestDate, convertTestTime } from 'utils/convertTime';
-import { useTranslation } from 'react-i18next';
 
 export const TestEndPageComponent = () => {
   const { t } = useTranslation();
@@ -43,7 +41,6 @@ export const TestEndPageComponent = () => {
   };
 
   return (
-    <TestInfoContainer>
       <FinalTestInfo
         image={IMAGES.JAVA_SCRIPT}
         imageProps={{ alt: 'Java Script', width: '80', height: '80' }}
@@ -62,6 +59,5 @@ export const TestEndPageComponent = () => {
         test='JS'
         finishTest
       />
-    </TestInfoContainer>
   );
 };

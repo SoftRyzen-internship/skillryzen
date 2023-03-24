@@ -1,0 +1,60 @@
+.filter__list {
+    position: absolute;
+    z-index: 999;
+    top: 45px;
+    right: 0;
+  
+    padding: 16px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  
+    transition: background-color var(--transition), color var(--transition);
+  }
+  
+  .filter__list--light {
+    composes: filter__list;
+    background-color: var(--light-components-cl);
+    box-shadow: var(--light-primary-shadow);
+  }
+  
+  .filter__list--dark {
+    composes: filter__list;
+    background-color: var(--components-cl);
+  }
+  
+  .filter__list--hidden {
+    display: none;
+  }
+  
+  .filter__item {
+    min-width: 180px;
+    padding-bottom: 4px;
+  }
+  
+  .filter__item--light {
+    composes: filter__item;
+    border-bottom: 1px solid var(--light-primary-cl);
+  }
+  
+  .filter__item--dark {
+    composes: filter__item;
+    border-bottom: 1px solid var(--light-primary-txt-cl);
+  }
+  
+  .filter__checkbox {
+    font-size: 14px;
+    background-color: transparent;
+  }
+  
+  .filter__checkbox--light {
+    composes: filter__checkbox;
+    color: var(--light-primary-txt-cl);
+  }
+  
+  .filter__checkbox--dark {
+    composes: filter__checkbox;
+    color: var(--primary-txt-cl);
+  }
+  
