@@ -64,8 +64,17 @@
 
   & label {
     min-width: 280px;
-    & input {
-      background-color: #121533;
+
+    &--dark {
+      & input {
+        background-color: var( --components-cl);
+      }
+    }
+
+    &--light {
+      & input {
+      background-color: var(--light-primary-cl);
+      }
     }
 
     @media (min-width: 768px) {
