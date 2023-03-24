@@ -1,25 +1,16 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
-import { ICONS } from 'ui-kit/icons';
+import { CoinsFilter } from './CoinsFilter';
+import { CoinsSearch } from './CoinsSearch';
+import { CoinsCardList } from './CoinsCardList';
+
+import { useCurrentWidth } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
-import { useCurrentWidth, useOutsideClick } from 'hooks';
-import { filterData } from './filterData';
 
-import {
-  Accordion,
-  Breadcrumbs,
-  Filter,
-  Input,
-  ScrollContainer,
-  Tabs,
-} from 'ui-kit';
-import { CoinsCardList } from './CoinsCardList';
-import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
+import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 
 import s from './CoinsPageComponent.module.scss';
-
 
 const testsArray = [
   {
@@ -45,7 +36,6 @@ const tabs = [
 
 export const CoinsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
 
   const [currentTab, setCurrentTab] = useState<number>(
     () =>
@@ -54,20 +44,12 @@ export const CoinsPageComponent = () => {
   const [size, setSize] = useState<'large' | 'small'>(
     () => JSON.parse(sessionStorage.getItem('coinsPage'))?.size ?? 'large'
   );
-  const [showFilter, setShowFilter] = useState<boolean>(false);
 
-  const filterRef = useRef<HTMLDivElement>(null);
   const currentWidth = useCurrentWidth();
-
-  useOutsideClick(filterRef, setShowFilter);
 
   useEffect(() => {
     sessionStorage.setItem('coinsPage', JSON.stringify({ currentTab, size }));
   }, [currentTab, size]);
-
-  const handleFilter = () => {
-    setShowFilter(!showFilter);
-  };
 
   const handleChangeTab = (tab: number) => {
     setCurrentTab(tab);
@@ -78,39 +60,15 @@ export const CoinsPageComponent = () => {
       <div className={s.coinsPage}>
         <Breadcrumbs />
         <div className={s.coinsPage__wrapper}>
-        <div className={s.coinsPage__searchWrapper}>
-          <h2 className={`${s[`coinsPage__title--${theme}`]}`}>
-            {t('userCoins.pageTitle')}
-          </h2>
-          <Input
-            name='search'
-            placeholder={t('userCoins.search')}
-            button={true}
-            icon={<ICONS.SEARCH className={s.inputIcon} />}
-            theme={theme}
-            labelClassName={s.input}
-          />
-        </div>
-        <div className={s.coinsPage__filterWrapper}>
-          <Tabs
-            currentTab={currentTab}
-            tabs={tabs}
-            changeTab={handleChangeTab}
-            theme={theme}
-          />
-          <div className={s.coinsPage__buttonsContainer}>
-            <ViewButtonList size={size} setSize={setSize} />
-            <Filter
-              ref={filterRef}
-              handleFilter={handleFilter}
-              showFilter={showFilter}
+          <CoinsSearch />
+          <div className={s.coinsPage__filterWrapper}>
+            <Tabs
+              currentTab={currentTab}
+              tabs={tabs}
+              changeTab={handleChangeTab}
               theme={theme}
-            >
-              {showFilter && (
-                <Accordion data={filterData} isIcon isList isMargin />
-              )}
-            </Filter>
-            </div>
+            />
+            <CoinsFilter size={size} setSize={setSize} />
           </div>
         </div>
         <CoinsCardList
