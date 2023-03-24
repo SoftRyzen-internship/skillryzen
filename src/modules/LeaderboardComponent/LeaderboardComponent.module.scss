@@ -1,8 +1,35 @@
 .wrapper {
-  padding: 20px 60px 15px 64px;
-  width: 100%;
+  margin-bottom: 34px;
+}
+
+.title {
+  font-size: var(--subtitle);
+  font-weight: var(--bold);
+  line-height: 1.3;
+  margin-bottom: 16px;
+
+  transition: color var(--transition);
+
+  @media (min-width: 768px) {
+    font-size: var(--title);
+    font-weight: var(--extrabold);
+    margin-bottom: 0;
+  }
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
 }
 
 .gridColumns {
   grid-template-columns: 0.5fr 2fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+.pagination {
+  display: flex;
+  justify-content: flex-end;
 }
