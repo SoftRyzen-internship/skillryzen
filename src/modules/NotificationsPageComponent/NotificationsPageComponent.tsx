@@ -50,50 +50,50 @@ export const NotificationsPageComponent = () => {
       <div className={s.notificationsPage}>
         <Breadcrumbs />
         <div className={s['page__wrapper--mobile']}>
-        <div className={s.flexContainerTitle}>
-          <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
-            {t('userNotifications.pageTitle')}
-          </h2>
-          <Input
-            name='search'
-            placeholder={t('userNotifications.search')}
-            button={true}
-            icon={<ICONS.SEARCH className={s.inputIcon} />}
-            theme={theme}
-            labelClassName={s.input}
-          />
-        </div>
-        <div className={s.flexContainerTabs}>
-          <Tabs
-            currentTab={currentTab}
-            tabs={tabs}
-            changeTab={handleChangeTab}
-            theme={theme}
-          />
+          <div className={s.flexContainerTitle}>
+            <h2 className={`${s.pageTitle} ${s[`pageTitle--${theme}`]}`}>
+              {t('userNotifications.pageTitle')}
+            </h2>
+            <Input
+              name='search'
+              placeholder={t('userNotifications.search')}
+              button={true}
+              icon={<ICONS.SEARCH className={s.inputIcon} />}
+              theme={theme}
+              labelClassName={s.input}
+            />
+          </div>
+          <div className={s.flexContainerTabs}>
+            <Tabs
+              currentTab={currentTab}
+              tabs={tabs}
+              changeTab={handleChangeTab}
+              theme={theme}
+            />
 
-          <div className={s.buttonsContainer}>
-            <IconButton
-              className={s.itemButton}
-              theme={theme}
-              onClick={() => setSize('small')}
-              color={size === 'small' ? 'blue' : 'black'}
-              icon='grid2'
-            />
-            <IconButton
-              className={s.itemButton}
-              theme={theme}
-              onClick={() => setSize('large')}
-              color={size === 'large' ? 'blue' : 'black'}
-              icon='grid4'
-            />
-            <button
-              className={`${s.itemButton} ${s.filterButton} ${
-                s[`filterButton--${theme}`]
-              }`}
-            >
-              <ICONS.FILTER_TWO className={s.filterIcon} />
-              <span>{t('testsMain.filter')}</span>
-            </button>
+            <div className={s.buttonsContainer}>
+              <IconButton
+                className={s.itemButton}
+                theme={theme}
+                onClick={() => setSize('small')}
+                color={size === 'small' ? 'blue' : 'black'}
+                icon='grid2'
+              />
+              <IconButton
+                className={s.itemButton}
+                theme={theme}
+                onClick={() => setSize('large')}
+                color={size === 'large' ? 'blue' : 'black'}
+                icon='grid4'
+              />
+              <button
+                className={`${s.itemButton} ${s.filterButton} ${
+                  s[`filterButton--${theme}`]
+                }`}
+              >
+                <ICONS.FILTER_TWO className={s.filterIcon} />
+                <span>{t('testsMain.filter')}</span>
+              </button>
             </div>
           </div>
         </div>

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useTranslation } from 'react-i18next';
 
-
 import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
 import { ICONS } from 'ui-kit/icons';
@@ -20,7 +19,6 @@ import { ROUTES } from 'routes/routes.const';
 import { Checkbox, MainButton } from 'ui-kit';
 
 import s from './ModalStartTest.module.scss';
-
 
 export const ModalStartTest = () => {
   const { t } = useTranslation();
@@ -48,7 +46,9 @@ export const ModalStartTest = () => {
   return (
     <div className={`${s[`container--${theme}`]}`}>
       <h3 className={s.modal__title}>
-        <span className={s['modal__title--accent']}>{t('modalStartTest.rulesFirstPart')}</span>
+        <span className={s['modal__title--accent']}>
+          {t('modalStartTest.rulesFirstPart')}
+        </span>
         <br /> {t('modalStartTest.rulesSecondPart')}
       </h3>
       <ul className={s.modal__list}>
@@ -73,7 +73,7 @@ export const ModalStartTest = () => {
       </ul>
       <Checkbox
         name='startTestAgreement'
-        label={t('modalStartTest.agree')} 
+        label={t('modalStartTest.agree')}
         type='filter'
         onChange={handleChange}
         labelClassName={`${s[`modal__checkbox--${theme}`]}`}

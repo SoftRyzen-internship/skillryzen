@@ -1,6 +1,14 @@
 .table {
   width: 100%;
   border-collapse: collapse;
+
+  &--light {
+    color: var(--primary-cl);
+  }
+
+  &--dark {
+    color: var(--light-components-cl);
+  }
 }
 
 .head {
@@ -10,17 +18,33 @@
 
 .headrow {
   padding-bottom: 11px;
-  border-bottom: 1px solid var(--secondary-txt-cl);
+
   display: grid;
   width: 100%;
+
+  &--light {
+    border-bottom: 1px solid var(--secondary-txt-cl);
+  }
+
+  &--dark {
+    border-bottom: 1px solid var(--light-primary-cl);
+  }
 }
 
 .tablerow {
   height: 64px;
-  background-color: var(--components-cl);
+
   display: grid;
   width: 100%;
   border-radius: 10px;
+
+  &--light {
+    background-color: var(--light-components-cl);
+  }
+
+  &--dark {
+    background-color: var(--components-cl);
+  }
 }
 
 .tablerow:not(:last-child) {
@@ -30,12 +54,20 @@
 .data {
   display: flex;
   align-items: center;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .icon {
   margin-left: 4px;
+
+  &--light {
+    stroke: var(--accent-cl);
+  }
+
+  &--dark {
+    stroke: var(--light-components-cl);
+  }
 }
 
 .cursor {
