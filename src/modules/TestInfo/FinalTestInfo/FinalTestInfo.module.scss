@@ -17,12 +17,24 @@
   @media (min-width: 480px) {
     min-width: 340px;
   }
+
+  @media (min-width: 768px) {
+    min-width: 380px;
+  }
 }
 
 .imageThumb {
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
+
+  .containerFinish & {
+    margin-bottom: 16px;
+  }
+
+  .containerModal & {
+    margin-bottom: 20px;
+  }
 }
 
 .titleDark {
@@ -45,9 +57,12 @@
   }
 
   .containerModal & {
-    font-weight: var(--bold);
-    font-size: var(--subtitle);
     margin-bottom: 24px;
+
+    @media (max-width: 767.98px) {
+      font-weight: var(--bold);
+      font-size: var(--subtitle);
+    }
   }
 }
 
@@ -58,14 +73,12 @@
 }
 
 .subtitleDark {
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   font-size: var(--text-lg);
   text-align: center;
 
-  .containerStart & {
-    @media (max-width: 479.98px) {
-      font-size: var(--text-md);
-    }
+  @media (max-width: 479.98px) {
+    font-size: var(--text-md);
   }
 }
 
@@ -77,7 +90,11 @@
 }
 
 .list {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+
+  @media (min-width: 480px) {
+    margin-bottom: 24px;
+  }
 }
 
 .recList {
@@ -94,7 +111,11 @@
   justify-content: space-between;
 
   &:not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+
+    @media (min-width: 480px) {
+      margin-bottom: 8px;
+    }
   }
 }
 
@@ -113,6 +134,12 @@
   background-color: var(--components-cl);
   border-radius: 10px;
   transition: background-color var(--transition);
+
+  @media (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+  }
 
   .containerModal & {
     margin-right: 12px;
@@ -145,8 +172,10 @@
   }
 
   .containerModal & {
-    font-size: var(--text-md);
-    font-weight: var(--regular);
+    @media (max-width: 767.98px) {
+      font-size: var(--text-md);
+      font-weight: var(--regular);
+    }
   }
 }
 
