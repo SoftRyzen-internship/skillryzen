@@ -1,12 +1,7 @@
 .container {
-  padding-top: 12px;
+  padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
   justify-content: center;
   flex-grow: 1;
-
-  @media (max-width: 479.98px) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
 }

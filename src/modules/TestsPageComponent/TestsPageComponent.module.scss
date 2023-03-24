@@ -7,12 +7,14 @@
 }
 
 .testsPage__wrapper {
-  display: flex;
-  justify-content: space-between;
-}
-
-.testsPage__wrapper--mobile {
   @media (max-width: 767.98px) {
     position: relative;
   }
 }
+
+.testsPage__filterWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+

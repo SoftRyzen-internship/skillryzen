@@ -19,9 +19,11 @@
     row-gap: 20px;
     padding-top: 20px;
   }
+
   @media (min-width: 1024px) {
     grid-template-columns: repeat(3, 1fr);
   }
+  
   @media (min-width: 1440px) {
     grid-template-columns: repeat(4, 1fr);
   }

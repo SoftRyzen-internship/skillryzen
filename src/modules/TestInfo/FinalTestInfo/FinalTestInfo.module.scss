@@ -17,17 +17,24 @@
   @media (min-width: 480px) {
     min-width: 340px;
   }
-}
 
-.breadcrumbsContainer {
-  padding-top: 20px;
-  padding-left: 64px;
+  @media (min-width: 768px) {
+    min-width: 380px;
+  }
 }
 
 .imageThumb {
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
+
+  .containerFinish & {
+    margin-bottom: 16px;
+  }
+
+  .containerModal & {
+    margin-bottom: 20px;
+  }
 }
 
 .titleDark {
@@ -48,31 +55,33 @@
       margin-bottom: 12px;
     }
   }
-}
-.titleLight {
-  composes: titleDark;
-  color: var(--primary-cl);
 
-  transition: color var(--transition);
-}
+  .containerModal & {
+    margin-bottom: 24px;
 
-.title--modal {
-  font-weight: var(--bold);
-  font-size: var(--subtitle);
-  margin-bottom: 24px;
-}
-
-.subtitleDark {
-  margin-bottom: 20px;
-  font-size: var(--text-lg);
-  text-align: center;
-
-  .containerStart & {
-    @media (max-width: 479.98px) {
-      font-size: var(--text-md);
+    @media (max-width: 767.98px) {
+      font-weight: var(--bold);
+      font-size: var(--subtitle);
     }
   }
 }
+
+.titleLight {
+  composes: titleDark;
+  color: var(--primary-cl);
+  transition: color var(--transition);
+}
+
+.subtitleDark {
+  margin-bottom: 16px;
+  font-size: var(--text-lg);
+  text-align: center;
+
+  @media (max-width: 479.98px) {
+    font-size: var(--text-md);
+  }
+}
+
 .subtitleLight {
   composes: subtitleDark;
   color: var(--primary-cl);
@@ -81,13 +90,17 @@
 }
 
 .list {
-  margin-bottom: 28px;
+  margin-bottom: 20px;
+
+  @media (min-width: 480px) {
+    margin-bottom: 24px;
+  }
 }
 
 .recList {
   margin-bottom: 8px;
 
-  &.reclist--modal {
+  .containerModal & {
     margin-bottom: 38px;
   }
 }
@@ -98,7 +111,11 @@
   justify-content: space-between;
 
   &:not(:last-child) {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
+
+    @media (min-width: 480px) {
+      margin-bottom: 8px;
+    }
   }
 }
 
@@ -116,12 +133,17 @@
   margin-right: 20px;
   background-color: var(--components-cl);
   border-radius: 10px;
+  transition: background-color var(--transition);
 
-  .reclist--modal & {
-    margin-right: 12px;
+  @media (max-width: 480px) {
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
   }
 
-  transition: background-color var(--transition);
+  .containerModal & {
+    margin-right: 12px;
+  }
 }
 
 .iconThumbLight {
@@ -149,9 +171,11 @@
     }
   }
 
-  .reclist--modal & {
-    font-size: var(--text-md);
-    font-weight: var(--regular);
+  .containerModal & {
+    @media (max-width: 767.98px) {
+      font-size: var(--text-md);
+      font-weight: var(--regular);
+    }
   }
 }
 
@@ -166,11 +190,13 @@
   text-align: right;
 
   .containerModal & {
+    width: 140px;
+
     @media (max-width: 479.98px) {
-      width: 100px;
+      max-width: 100px;
     }
   }
-  
+
   .containerStart & {
     @media (max-width: 479.98px) {
       max-width: 80px;

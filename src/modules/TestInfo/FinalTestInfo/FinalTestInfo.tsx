@@ -123,11 +123,7 @@ export const FinalTestInfo = ({
           height={height}
         />
       </div>
-      <h2
-        className={`${objectTheme[theme].title} ${modal && s['title--modal']}`}
-      >
-        {title}
-      </h2>
+      <h2 className={objectTheme[theme].title}>{title}</h2>
       {subtitle && <p className={objectTheme[theme].subtitle}>{subtitle}</p>}
       {listInfo ? (
         <ul className={s.list}>
@@ -208,7 +204,7 @@ export const FinalTestInfo = ({
       )}
       {finishTest && (
         <>
-          <ul className={`${s.recList} ${modal && s['reclist--modal']}`}>
+          <ul className={s.recList}>
             <li className={s.item}>
               <div className={s.iconWrapper}>
                 <div className={objectTheme[theme].iconThumb}>
@@ -289,9 +285,7 @@ export const FinalTestInfo = ({
           onClick={!finishTest ? handleClickModal : onClickBtn}
           size='large'
           color='blue'
-          className={
-            !(theWorstTopic && theBestTopic) && finishTest ? s.btnFinish : s.btn
-          }
+          className={finishTest ? s.btnFinish : s.btn}
         />
       )}
       {!finishTest && currentWidth < 1023 && (

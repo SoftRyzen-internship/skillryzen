@@ -5,9 +5,7 @@ import { ICONS } from 'ui-kit/icons';
 import { IMAGES } from 'ui-kit/images';
 import { FinalTestInfo } from 'modules/TestInfo/FinalTestInfo/FinalTestInfo';
 import { TestInfoContainer } from '../TestInfoContainer';
-import { Breadcrumbs } from 'ui-kit';
-
-import s from '../FinalTestInfo/FinalTestInfo.module.scss';
+import { Breadcrumbs, ScrollContainer } from 'ui-kit';
 
 export const TestStartPageComponent = () => {
   const location = useLocation();
@@ -42,10 +40,8 @@ export const TestStartPageComponent = () => {
   };
 
   return (
-    <>
-      <div className={s.breadcrumbsContainer}>
-        <Breadcrumbs />
-      </div>
+    <ScrollContainer>
+      <Breadcrumbs />
       <TestInfoContainer>
         <FinalTestInfo
           image={IMAGES.JAVA_SCRIPT}
@@ -57,6 +53,6 @@ export const TestStartPageComponent = () => {
           test='JS'
         />
       </TestInfoContainer>
-    </>
+    </ScrollContainer>
   );
 };
