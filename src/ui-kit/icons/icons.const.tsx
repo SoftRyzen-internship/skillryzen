@@ -85,6 +85,7 @@ import IconRefresh from 'assets/svg/refresh.svg';
 import IconDate from 'assets/svg/date.svg';
 import BrockenMenu from 'assets/svg/brocken-menu.svg';
 import IconAgreement from 'assets/svg/agreement.svg';
+import IconCircle from 'assets/svg/circle.svg';
 
 import IconLocation from 'assets/svg/location-1.svg';
 import IconQuestionRound from 'assets/svg/question-round.svg';
@@ -245,6 +246,7 @@ export const ICONS: Icons = {
   UX: IconUx,
   GEAR_BLUE: IconGearBlue,
   GEAR_GRAY: IconGearGray,
+  CIRCLE: IconCircle,
   CIRCLE_BLUE: IconCircleBlue,
   CIRCLE_GRAY: IconCircleGray,
   UNDER_DEVELOPMENT_MAIN: IconUnderDevelopmentMain,

@@ -7,7 +7,8 @@ import { useAppDispatch, useAppSelector, useCurrentWidth } from 'hooks';
 import { setStep } from 'redux/authSlice/authSlice';
 import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
 
-import { Breadcrumbs, Modal, ScrollContainer, Tabs } from 'ui-kit';
+import { Breadcrumbs, Modal, ScrollContainer, Tabs, Select } from 'ui-kit';
+import { ICONS } from 'ui-kit/icons';
 import { ModalCongrats } from 'modules/Modals/ModalCongrats';
 import { TestsSearch } from './TestsSearch/TestsSearch';
 import { TestsFilter } from './TestsFilter/TestsFilter';
@@ -76,6 +77,12 @@ export const TestsPageComponent = () => {
     setCurrentTab(tab);
   };
 
+  const [item, setItem] = useState('Time for answer');
+
+  const onClickItem = (item: string) => {
+    setItem(item);
+  };
+
   return (
     <ScrollContainer>
       <div className={s.testsPage}>
@@ -90,6 +97,28 @@ export const TestsPageComponent = () => {
               theme={theme}
             />
             <TestsFilter setSize={setSize} size={size} />
+
+            <Select
+              title={item}
+              selectList={[
+                {
+                  id: '1',
+                  icon: <ICONS.CIRCLE width={20} height={20} />,
+                  selectItem: '1 minute',
+                },
+                {
+                  id: '2',
+                  icon: <ICONS.CIRCLE width={20} height={20} />,
+                  selectItem: '2 minutes',
+                },
+                {
+                  id: '3',
+                  icon: <ICONS.CIRCLE width={20} height={20} />,
+                  selectItem: '3 minutes',
+                },
+              ]}
+              onClickItem={onClickItem}
+            />
           </div>
         </div>
         {tabs.map(el => {

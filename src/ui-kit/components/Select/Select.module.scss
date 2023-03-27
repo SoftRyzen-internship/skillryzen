@@ -1,11 +1,13 @@
+.container {
+  position: relative;
+}
+
 .wrapper {
-  width: 334px;
-  padding: 11px 20px;
+  min-width: 200px;
+  padding: 15px 20px;
   font-weight: 400;
   font-size: 14px;
-  color: var(--accent-cl);
   border-radius: 5px;
-  position: relative;
   cursor: pointer;
 
   &--dark {
@@ -13,15 +15,69 @@
   }
   &--light {
     background-color: var(--light-primary-cl);
+    color: var(--accent-cl);
   }
 }
 
 .icon {
   position: absolute;
-  top: 8px;
-  right: 24px;
+  top: 12px;
+  right: 20px;
 
   path {
-    stroke: var(--accent-cl);
+    stroke: var(--primary-txt-cl);
+  }
+}
+
+.selectWrapper {
+  position: absolute;
+  top: 50px;
+  left: 0;
+  z-index: 10;
+
+  width: 100%;
+  padding: 16px;
+  border-radius: 4px;
+  transition: background-color var(--transition);
+  box-shadow: 2px 2px 8px rgba(95, 117, 238, 0.11);
+
+  &--dark {
+    background-color: var(--components-cl);
+  }
+  &--light {
+    background-color: var(--light-components-cl);
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  cursor: pointer;
+  transition: var(--transition);
+
+  &--dark {
+    border-bottom: 1px solid var(--primary-cl);
+  }
+  &--light {
+    border-bottom: 1px solid var(--light-primary-cl);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.text {
+  margin-left: 8px;
+  transition: color var(--transition);
+
+  &--dark {
+    composes: text;
+    color: var(--primary-txt-cl);
+  }
+  &--light {
+    composes: text;
+    color: var(--light-primary-txt-cl);
   }
 }
