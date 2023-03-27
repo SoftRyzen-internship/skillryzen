@@ -1,12 +1,10 @@
-import { useEffect, useState } from 'react';
-
 import { CoinsFilter } from './CoinsFilter';
 import { CoinsSearch } from './CoinsSearch';
 import { CoinsCardList } from './CoinsCardList';
 
-import { useCurrentWidth } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { useCurrentWidth, useSessionStorage } from 'hooks';
 
 import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 
@@ -37,23 +35,22 @@ const tabs = [
 export const CoinsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentTab, setCurrentTab] = useState<number>(
-    () =>
-      JSON.parse(sessionStorage.getItem('coinsPage'))?.currentTab ?? tabs[0].id
-  );
-  const [size, setSize] = useState<'large' | 'small'>(
-    () => JSON.parse(sessionStorage.getItem('coinsPage'))?.size ?? 'large'
-  );
+  const [currentValue, setCurrentValue] = useSessionStorage('coinsPage', {
+    currentTab: tabs[0].id,
+    size: 'large',
+  });
+
+  const handleChangeTab = (tab: number) => {
+    setCurrentValue({ ...currentValue, currentTab: tab });
+  };
+
+  const handleChangeSize = (size: 'large' | 'small') => {
+    setCurrentValue({ ...currentValue, size });
+  };
 
   const currentWidth = useCurrentWidth();
 
-  useEffect(() => {
-    sessionStorage.setItem('coinsPage', JSON.stringify({ currentTab, size }));
-  }, [currentTab, size]);
-
-  const handleChangeTab = (tab: number) => {
-    setCurrentTab(tab);
-  };
+  const { currentTab, size } = currentValue;
 
   return (
     <ScrollContainer>
@@ -68,7 +65,7 @@ export const CoinsPageComponent = () => {
               changeTab={handleChangeTab}
               theme={theme}
             />
-            <CoinsFilter size={size} setSize={setSize} />
+            <CoinsFilter size={size} setSize={handleChangeSize} />
           </div>
         </div>
         <CoinsCardList
