@@ -135,7 +135,7 @@
 
     "contactLabel": "Lorem lorem",
     "loginLabel": "Already have an account?",
-    "roleLabel": "Please choose lorem lorem lorem",
+    "roleLabel": "Please choose your role",
     "agreementLabel": "By signing up, I agree to Lorem’s Terms of Service & Privacy Policy.",
     "registerLabel": "Don’t have an account?",
     "rememberLabel": "Remember me",
@@ -158,6 +158,7 @@
     "phonePlaceholder": "Phone",
     "companyNamePlaceholder": "Company name",
     "companyWebsitePlaceholder": "Company website",
+    "companyDescriptionPlaceholder": "Company description",
 
     "accountBtn": "Create account",
     "continueBtn": "Continue",

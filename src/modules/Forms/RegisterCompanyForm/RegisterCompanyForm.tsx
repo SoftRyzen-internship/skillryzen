@@ -97,6 +97,7 @@ export const RegisterCompanyForm = () => {
             name='companyDescription'
             autoComplete='off'
             placeholder=' '
+            labelContent={t('auth.companyDescriptionPlaceholder')}
           />
         </li>
         <li>
