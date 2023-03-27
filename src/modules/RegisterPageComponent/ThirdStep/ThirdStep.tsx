@@ -37,7 +37,7 @@ export const ThirdStep = () => {
       {role === 'CANDIDATE' ? (
         <>
           <h2 className={s.stepTitle}>{t('auth.contactTitle')}</h2>
-          <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p>
+          {/* <p className={s.stepSubtitle}>{t('auth.contactLabel')}</p> */}
           <RegisterContactsForm />
           <a href='#' onClick={handleClickSkipBtn} className={s.skip}>
             {t('auth.skipBtn')}
@@ -48,7 +48,7 @@ export const ThirdStep = () => {
           <h2 className={`${s.stepTitle} ${s.thirdStep}`}>
             {t('auth.companyTitle')}
           </h2>
-          <p className={s.stepSubtitle}>{t('auth.companySubtitle')}</p>
+          {/* <p className={s.stepSubtitle}>{t('auth.companySubtitle')}</p> */}
           <RegisterCompanyForm />
         </>
       )}

@@ -60,41 +60,44 @@ export const AuthInput = memo(
     const { theme }: IThemeContext = useThemeContext();
 
     return (
-      <label
-        className={`${s.floatingGroup} ${labelClassName} ${
-          touched && (error ? s.floatingLabelError : s.floatingLabelValid)
-        }`}
-      >
+      <>
+        <label
+          className={`${s.floatingGroup} ${labelClassName} ${
+            touched && (error ? s.floatingLabelError : s.floatingLabelValid)
+          }`}
+        >
+          {!mask ? (
+            <input
+              className={objectTheme[theme].input}
+              name={name}
+              type={type}
+              id={id}
+              onChange={onChange}
+              onBlur={onBlur}
+              value={value}
+              autoComplete={autoComplete}
+              placeholder={placeholder}
+            />
+          ) : (
+            <InputMask
+              className={`${objectTheme[theme].input} ${className}`}
+              name={name}
+              type={type}
+              mask={mask}
+              id={id}
+              onChange={onChange}
+              onBlur={onBlur}
+              value={value}
+              autoComplete={autoComplete}
+              placeholder={placeholder}
+            />
+          )}
+
+          <span className={s.floatingLabel}>{labelContent}</span>
+          {children}
+        </label>
         {touched && error && <p className={s.errorMsg}>{error}</p>}
-        {!mask ? (
-          <input
-            className={objectTheme[theme].input}
-            name={name}
-            type={type}
-            id={id}
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            autoComplete={autoComplete}
-            placeholder={placeholder}
-          />
-        ) : (
-          <InputMask
-            className={`${objectTheme[theme].input} ${className}`}
-            name={name}
-            type={type}
-            mask={mask}
-            id={id}
-            onChange={onChange}
-            onBlur={onBlur}
-            value={value}
-            autoComplete={autoComplete}
-            placeholder={placeholder}
-          />
-        )}
-        <span className={s.floatingLabel}>{labelContent}</span>
-        {children}
-      </label>
+      </>
     );
   }
 );
