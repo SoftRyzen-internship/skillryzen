@@ -6,6 +6,7 @@ import s from './Textarea.module.scss';
 interface IProps {
   labelClassName?: string;
   placeholderClassName?: string;
+  labelContent?: string;
   className?: string;
   autofocus?: string;
   autoComplete?: 'on' | 'off';
@@ -35,6 +36,7 @@ const objectTheme = {
 export const Textarea = memo(
   ({
     labelClassName,
+    labelContent,
     className,
     placeholderClassName,
     autofocus,
@@ -63,7 +65,7 @@ export const Textarea = memo(
           placeholder={placeholder}
         />
         <span className={`${s.placeholder} ${placeholderClassName}`}>
-          Company description
+          {labelContent}
         </span>
       </label>
     );

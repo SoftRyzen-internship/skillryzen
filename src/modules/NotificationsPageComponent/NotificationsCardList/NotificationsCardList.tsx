@@ -1,11 +1,8 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import { useThemeContext } from 'context/themeContext';
 
 import { InfoCard } from 'ui-kit';
-
 import { IThemeContext } from 'constans/types';
+import { useThemeContext } from 'context/themeContext';
 
 import s from './NotificationsCardList.module.scss';
 
@@ -24,7 +21,6 @@ interface NotificationCardListProps {
 export const NotificationsCardList = memo(
   ({ size, testsArray }: NotificationCardListProps) => {
     const { theme }: IThemeContext = useThemeContext();
-    const { t } = useTranslation();
 
     return (
       <ul className={`${s[`notificationsList--${size}`]}`}>

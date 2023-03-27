@@ -1,21 +1,13 @@
-import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
 
-import { ICONS } from 'ui-kit/icons';
+import { useCurrentWidth } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
-import { useCurrentWidth, useOutsideClick } from 'hooks';
-import { filterData } from './filterData';
 
-import {
-  Accordion,
-  Breadcrumbs,
-  Filter,
-  Input,
-  ScrollContainer,
-  Tabs,
-} from 'ui-kit';
-import { ViewButtonList } from 'modules/common/ViewButtonList/ViewButtonList';
+import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
+
+import { NotificationsFilter } from './NotificationsFilter';
+import { NotificationsSearch } from './NotificationsSearch';
 import { NotificationsCardList } from './NotificationsCardList';
 
 import s from './NotificationsPageComponent.module.scss';
@@ -44,7 +36,6 @@ const tabs = [
 
 export const NotificationsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
-  const { t } = useTranslation();
 
   const [currentTab, setCurrentTab] = useState<number>(
     () =>
@@ -55,12 +46,8 @@ export const NotificationsPageComponent = () => {
     () =>
       JSON.parse(sessionStorage.getItem('notificationsPage'))?.size ?? 'large'
   );
-  const [showFilter, setShowFilter] = useState<boolean>(false);
 
-  const filterRef = useRef<HTMLDivElement>(null);
   const currentWidth = useCurrentWidth();
-
-  useOutsideClick(filterRef, setShowFilter);
 
   useEffect(() => {
     sessionStorage.setItem(
@@ -68,10 +55,6 @@ export const NotificationsPageComponent = () => {
       JSON.stringify({ currentTab, size })
     );
   }, [currentTab, size]);
-
-  const handleFilter = () => {
-    setShowFilter(!showFilter);
-  };
 
   const handleChangeTab = (tab: number) => {
     setCurrentTab(tab);
@@ -82,19 +65,7 @@ export const NotificationsPageComponent = () => {
       <div className={s.notificationsPage}>
         <Breadcrumbs />
         <div className={s.notificationsPage__wrapper}>
-          <div className={s.notificationsPage__searchWrapper}>
-            <h2 className={`${s[`notificationsPage__title--${theme}`]}`}>
-              {t('userNotifications.pageTitle')}
-            </h2>
-            <Input
-              name='search'
-              placeholder={t('userNotifications.search')}
-              button={true}
-              icon={<ICONS.SEARCH className={s.inputIcon} />}
-              theme={theme}
-              labelClassName={s.input}
-            />
-          </div>
+          <NotificationsSearch />
           <div className={s.notificationsPage__filterWrapper}>
             <Tabs
               currentTab={currentTab}
@@ -102,19 +73,7 @@ export const NotificationsPageComponent = () => {
               changeTab={handleChangeTab}
               theme={theme}
             />
-            <div className={s.notificationsPage__buttonsContainer}>
-              <ViewButtonList size={size} setSize={setSize} />
-              <Filter
-                ref={filterRef}
-                handleFilter={handleFilter}
-                showFilter={showFilter}
-                theme={theme}
-              >
-                {showFilter && (
-                  <Accordion data={filterData} isIcon isList isMargin />
-                )}
-              </Filter>
-            </div>
+            <NotificationsFilter size={size} setSize={setSize} />
           </div>
         </div>
         <NotificationsCardList
