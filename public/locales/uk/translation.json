@@ -125,6 +125,14 @@
     "newNotifications": "Нові сповіщення",
     "allNotifications": "Всі сповіщення"
   },
+  "companyProfile": {
+    "profileCardTitle": "Профайл компанії",
+    "aboutTitle": "Про компанію",
+    "infoTitle": "Інформація",
+    "adminsTitle": "Адміністратори",
+    "testsTitle": "Тести",
+    "studentsTitle": "Студенти"
+  },
   "auth": {
     "roleTitle": "Оберіть вашу роль",
     "contactTitle": "Надайте нам більше інформації про вас!",

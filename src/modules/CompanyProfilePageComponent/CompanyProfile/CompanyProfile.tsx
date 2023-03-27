@@ -2,31 +2,29 @@ import { useTranslation } from 'react-i18next';
 
 import { formatPhoneNumber } from 'utils/formatPhoneNumber';
 
-import { useAppSelector } from 'hooks';
-import { getUserEmail, getUserName } from 'redux/authSlice/authSelectors';
-
 import { IMAGES } from 'ui-kit/images';
 import { ICONS } from 'ui-kit/icons';
-import { SocialList, UserAvatar } from 'ui-kit/index';
-
-import { CompanyAvatarCard } from './CompanyAvatarCard';
+import { SocialList } from 'ui-kit/index';
 
 import { Theme, UserSocial } from 'constans/types';
 
-import s from './MyProfile.module.scss';
+import s from './CompanyProfile.module.scss';
 
-interface MyProfileProps {
+interface CompanyProfileProps {
   theme?: Theme;
 }
 
-const USER_INFO = {
-  name: 'Maksim Kozlov',
+const COMPANY_INFO = {
+  name: 'GOIT',
   email: 'test@test.com',
-  phone: '+38 - - - - - - - - - -',
+  phone: '+380501234567',
   location: 'Ukraine',
-  avatarUrl: IMAGES.BLUE_AVATAR,
-  groupName: 'null',
-  testsAmount: 0,
+  avatarUrl: IMAGES.GOIT_AVATAR,
+  description:
+    'Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.Welcome to Star class LMS! Study anytime and anywhere with us and discover the unknown.',
+  admins: 2,
+  tests: 1,
+  students: 260,
 };
 
 const USER_SOCIAL: UserSocial[] = [
@@ -39,14 +37,14 @@ const USER_SOCIAL: UserSocial[] = [
     name: 'linkedin',
     url: 'https://www.linkedin.com/',
   },
-  // {
-  //   name: 'github',
-  //   url: 'https://github.com/',
-  // },
-  // {
-  //   name: 'discord',
-  //   url: 'https://discord.com/',
-  // },
+  {
+    name: 'github',
+    url: 'https://github.com/',
+  },
+  {
+    name: 'discord',
+    url: 'https://discord.com/',
+  },
   // {
   //   name: 'behance',
   //   url: 'https://www.behance.net/',
@@ -57,30 +55,48 @@ const USER_SOCIAL: UserSocial[] = [
   // },
 ];
 
-const USER_COMPANY = {
-  name: 'GoIT',
-  avatarUrl: IMAGES.GOIT_AVATAR,
-};
-
-export const MyProfile = ({ theme = 'dark' }: MyProfileProps) => {
+export const CompanyProfile = ({ theme = 'dark' }: CompanyProfileProps) => {
   const { t } = useTranslation();
-  const name = useAppSelector(getUserName);
-  const email = useAppSelector(getUserEmail);
 
-  const { avatarUrl, phone, location, groupName, testsAmount } = USER_INFO;
+  const {
+    name,
+    email,
+    avatarUrl,
+    description,
+    phone,
+    location,
+    admins,
+    tests,
+    students,
+  } = COMPANY_INFO;
   return (
     <div className={`${s.container} ${s[`container--${theme}`]}`}>
       <div>
         <p className={`${s.title} ${s[`title--${theme}`]}`}>
-          {t('userProfile.profileCardTitle')}
+          {t('companyProfile.profileCardTitle')}
         </p>
-        <UserAvatar className={s.avatar} userAvatarUrl={avatarUrl} />
+        <img
+          className={s.avatar}
+          src={avatarUrl}
+          width={120}
+          height={120}
+          alt='avatar'
+        />
         <p className={`${s.name} ${s[`name--${theme}`]}`}>{name}</p>
       </div>
 
       <div>
+        <p className={`${s.titleAbout} ${s[`titleAbout--${theme}`]}`}>
+          {t('companyProfile.aboutTitle')}
+        </p>
+        <p className={`${s.textAbout} ${s[`textAbout--${theme}`]}`}>
+          {description}
+        </p>
+      </div>
+
+      <div>
         <p className={`${s.titleInfo} ${s[`titleInfo--${theme}`]}`}>
-          {t('userProfile.infoTitle')}
+          {t('companyProfile.infoTitle')}
         </p>
         <ul className={s.list}>
           <li className={s.item}>
@@ -91,7 +107,6 @@ export const MyProfile = ({ theme = 'dark' }: MyProfileProps) => {
               <p className={`${s.text} ${s[`text--${theme}`]}`}>{email}</p>
             </a>
           </li>
-
           <li className={s.item}>
             <a className={s.link} href={`tel:${phone}`}>
               <div className={`${s.icon} ${s[`icon--${theme}`]}`}>
@@ -102,7 +117,6 @@ export const MyProfile = ({ theme = 'dark' }: MyProfileProps) => {
               </p>
             </a>
           </li>
-
           <li className={s.item}>
             <a
               className={s.link}
@@ -119,28 +133,27 @@ export const MyProfile = ({ theme = 'dark' }: MyProfileProps) => {
         </ul>
         <SocialList social={USER_SOCIAL} theme={theme} />
       </div>
+
       <div>
-        <div className={s.companyContainer}>
-          <p className={`${s.companyTitle} ${s[`companyTitle--${theme}`]}`}>
-            {t('userProfile.companyTitle')}
+        <div className={s.adminsContainer}>
+          <p className={`${s.entityTitle} ${s[`entityTitle--${theme}`]}`}>
+            {t('companyProfile.adminsTitle')}
           </p>
-          <CompanyAvatarCard
-            companyAvatarUrl={USER_COMPANY.avatarUrl}
-            companyName={USER_COMPANY.name}
-            theme={theme}
-          />
+          <p className={`${s.label} ${s[`label--${theme}`]}`}>{admins}</p>
         </div>
-        <div className={s.groupContainer}>
-          <p className={`${s.companyTitle} ${s[`companyTitle--${theme}`]}`}>
-            {t('userProfile.groupTitle')}
-          </p>
-          <p className={`${s.label} ${s[`label--${theme}`]}`}>{groupName}</p>
-        </div>
+
         <div className={s.testsContainer}>
-          <p className={`${s.companyTitle} ${s[`companyTitle--${theme}`]}`}>
-            {t('userProfile.testsTitle')}
+          <p className={`${s.entityTitle} ${s[`entityTitle--${theme}`]}`}>
+            {t('companyProfile.testsTitle')}
           </p>
-          <p className={`${s.label} ${s[`label--${theme}`]}`}>{testsAmount}</p>
+          <p className={`${s.label} ${s[`label--${theme}`]}`}>{tests}</p>
+        </div>
+
+        <div className={s.studentsContainer}>
+          <p className={`${s.entityTitle} ${s[`entityTitle--${theme}`]}`}>
+            {t('companyProfile.studentsTitle')}
+          </p>
+          <p className={`${s.label} ${s[`label--${theme}`]}`}>{students}</p>
         </div>
       </div>
     </div>

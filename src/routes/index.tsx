@@ -23,6 +23,8 @@ import TestStartPage from 'pages/TestStartPage';
 import LeaderboardPage from 'pages/LeaderboardPage';
 import InviteModulePage from 'pages/InviteModulePage';
 import NotificationsPage from 'pages/NotificationsPage';
+import CompanyProfilePage from 'pages/CompanyProfilePage';
+import CompanySettingsPage from 'pages/CompanySettingsPage';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 import ProfileSettingsPage from 'pages/ProfileSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
@@ -194,11 +196,11 @@ export const AppRoutes = () => {
                   },
                   {
                     path: ROUTES.COMPANY_PROFILE,
-                    element: <UnderDevelopmentPage />,
+                    element: <CompanyProfilePage />,
                   },
                   {
                     path: ROUTES.COMPANY_SETTINGS,
-                    element: <UnderDevelopmentPage />,
+                    element: <CompanySettingsPage />,
                   },
                 ],
               }),
