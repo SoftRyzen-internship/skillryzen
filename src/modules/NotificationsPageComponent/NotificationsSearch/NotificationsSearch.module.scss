@@ -1,0 +1,38 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+
+  @media (max-width: 767.98px) {
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+  }
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--extrabold);
+  font-size: var(--title);
+  transition: var(--transition);
+
+  &--dark {
+    color: var(--primary-txt-cl);
+  }
+
+  &--light {
+    color: var(--light-primary-txt-cl);
+  }
+}
+
+.input {
+  @media (max-width: 767.98px) {
+    width: calc(100% - 48px);
+    height: 40px;
+  }
+}
+
+.inputIcon {
+  display: block;
+  fill: var(--secondary-txt-cl);
+}
