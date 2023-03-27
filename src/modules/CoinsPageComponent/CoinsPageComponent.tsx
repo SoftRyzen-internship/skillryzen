@@ -1,10 +1,10 @@
-import { CoinsFilter } from './CoinsFilter';
-import { CoinsSearch } from './CoinsSearch';
-import { CoinsCardList } from './CoinsCardList';
-
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
 import { useCurrentWidth, useSessionStorage } from 'hooks';
+
+import { CoinsFilter } from './CoinsFilter';
+import { CoinsSearch } from './CoinsSearch';
+import { CoinsCardList } from './CoinsCardList';
 
 import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 

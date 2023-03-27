@@ -1,8 +1,6 @@
-import { useEffect, useState } from 'react';
-
-import { useCurrentWidth } from 'hooks';
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+import { useCurrentWidth, useSessionStorage } from 'hooks';
 
 import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 
@@ -37,28 +35,25 @@ const tabs = [
 export const NotificationsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentTab, setCurrentTab] = useState<number>(
-    () =>
-      JSON.parse(sessionStorage.getItem('notificationsPage'))?.currentTab ??
-      tabs[0].id
+  const [currentValue, setCurrentValue] = useSessionStorage(
+    'notificationsPage',
+    {
+      currentTab: tabs[0].id,
+      size: 'large',
+    }
   );
-  const [size, setSize] = useState<'large' | 'small'>(
-    () =>
-      JSON.parse(sessionStorage.getItem('notificationsPage'))?.size ?? 'large'
-  );
+
+  const handleChangeTab = (tab: number) => {
+    setCurrentValue({ ...currentValue, currentTab: tab });
+  };
+
+  const handleChangeSize = (size: 'large' | 'small') => {
+    setCurrentValue({ ...currentValue, size });
+  };
 
   const currentWidth = useCurrentWidth();
 
-  useEffect(() => {
-    sessionStorage.setItem(
-      'notificationsPage',
-      JSON.stringify({ currentTab, size })
-    );
-  }, [currentTab, size]);
-
-  const handleChangeTab = (tab: number) => {
-    setCurrentTab(tab);
-  };
+  const { currentTab, size } = currentValue;
 
   return (
     <ScrollContainer>
@@ -73,7 +68,7 @@ export const NotificationsPageComponent = () => {
               changeTab={handleChangeTab}
               theme={theme}
             />
-            <NotificationsFilter size={size} setSize={setSize} />
+            <NotificationsFilter size={size} setSize={handleChangeSize} />
           </div>
         </div>
         <NotificationsCardList
