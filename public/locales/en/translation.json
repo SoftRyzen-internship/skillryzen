@@ -125,6 +125,14 @@
     "newNotifications": "New notifications",
     "allNotifications": "All notifications"
   },
+  "companyProfile": {
+    "profileCardTitle": "Company profile",
+    "aboutTitle": "About company",
+    "infoTitle": "Info",
+    "adminsTitle": "Admins",
+    "testsTitle": "Tests",
+    "studentsTitle": "Students"
+  },
   "auth": {
     "roleTitle": "Choose your role",
     "contactTitle": "Give us more information about you!",

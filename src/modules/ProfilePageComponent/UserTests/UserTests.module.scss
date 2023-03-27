@@ -1,0 +1,71 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  border-radius: 4px;
+  transition: var(--transition);
+}
+.container--dark {
+  composes: container;
+  background-color: var(--primary-cl);
+}
+.container--light {
+  composes: container;
+  background-color: var(--light-components-cl);
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  margin-bottom: 20px;
+  transition: var(--transition);
+}
+.title--dark {
+  composes: title;
+  color: var(--primary-txt-cl);
+}
+.title--light {
+  composes: title;
+  color: var(--light-primary-txt-cl);
+}
+
+.noDataText {
+  font-family: var(--font-family);
+  font-weight: var(--bold);
+  font-size: var(--subtitle);
+  text-align: center;
+  transition: var(--transition);
+}
+.noDataText--dark {
+  composes: noDataText;
+  color: var(--primary-txt-cl);
+}
+.noDataText--light {
+  composes: noDataText;
+  color: var(--light-primary-txt-cl);
+}
+
+.cardList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 4px;
+  column-gap: 28px;
+  row-gap: 20px;
+  transition: var(--transition);
+}
+
+.card {
+  width: 258px;
+  &:hover {
+    box-shadow: var(--shadow-blue-small);
+  }
+}
+.card--dark {
+  composes: card;
+  background-color: var(--secondary-cl);
+}
+.card--light {
+  composes: card;
+  background-color: var(--light-cards-cl);
+}

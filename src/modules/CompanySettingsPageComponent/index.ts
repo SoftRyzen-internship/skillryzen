@@ -1,0 +1,1 @@
+export { CompanySettingsPageComponent } from './CompanySettingsPageComponent';

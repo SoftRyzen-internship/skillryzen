@@ -2,9 +2,9 @@ import { useTranslation } from 'react-i18next';
 
 import { Theme } from 'constans/types';
 
-import s from './MyAchievementsList.module.scss';
+import s from './UserAchievementsList.module.scss';
 
-interface MyAchievementsListProps {
+interface UserAchievementsListProps {
   theme?: Theme;
 }
 
@@ -14,9 +14,9 @@ const USER_ACHIEVEMENTS = {
   time: '00:00:00',
 };
 
-export const MyAchievementsList = ({
+export const UserAchievementsList = ({
   theme = 'dark',
-}: MyAchievementsListProps) => {
+}: UserAchievementsListProps) => {
   const { t } = useTranslation();
 
   return (

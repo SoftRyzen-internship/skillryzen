@@ -1,0 +1,1 @@
+export { CompanyProfilePageComponent } from './CompanyProfilePageComponent';
