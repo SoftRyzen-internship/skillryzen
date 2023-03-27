@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { useThemeContext } from 'context/themeContext';
 import { IThemeContext } from 'constans/types';
-import { useAppDispatch, useAppSelector, useCurrentWidth } from 'hooks';
+import { useThemeContext } from 'context/themeContext';
+import {
+  useAppDispatch,
+  useAppSelector,
+  useCurrentWidth,
+  useSessionStorage,
+} from 'hooks';
 import { setStep } from 'redux/authSlice/authSlice';
 import { getIsAuth, getStep } from 'redux/authSlice/authSelectors';
 
@@ -37,14 +42,20 @@ const tabs = [
 export const TestsPageComponent = () => {
   const { theme }: IThemeContext = useThemeContext();
 
-  const [currentTab, setCurrentTab] = useState<number>(
-    () =>
-      JSON.parse(sessionStorage.getItem('testsPage'))?.currentTab ?? tabs[0].id
-  );
-  const [size, setSize] = useState<'large' | 'small'>(
-    () => JSON.parse(sessionStorage.getItem('testsPage'))?.size ?? 'large'
-  );
   const [isShowModal, setIsShowModal] = useState<boolean>(false);
+
+  const [currentValue, setCurrentValue] = useSessionStorage('testsPage', {
+    currentTab: tabs[0].id,
+    size: 'large',
+  });
+
+  const handleChangeTab = (tab: number) => {
+    setCurrentValue({ ...currentValue, currentTab: tab });
+  };
+
+  const handleChangeSize = (size: 'large' | 'small') => {
+    setCurrentValue({ ...currentValue, size });
+  };
 
   const currentWidth = useCurrentWidth();
 
@@ -54,10 +65,6 @@ export const TestsPageComponent = () => {
 
   const location = useLocation();
   const registerRoute = location?.state?.from?.pathname;
-
-  useEffect(() => {
-    sessionStorage.setItem('testsPage', JSON.stringify({ currentTab, size }));
-  }, [currentTab, size]);
 
   useEffect(() => {
     if (registerRoute === '/register' && step >= 3 && isAuth) {
@@ -72,9 +79,7 @@ export const TestsPageComponent = () => {
     }
   };
 
-  const handleChangeTab = (tab: number) => {
-    setCurrentTab(tab);
-  };
+  const { currentTab, size } = currentValue;
 
   return (
     <ScrollContainer>
@@ -89,7 +94,7 @@ export const TestsPageComponent = () => {
               changeTab={handleChangeTab}
               theme={theme}
             />
-            <TestsFilter setSize={setSize} size={size} />
+            <TestsFilter setSize={handleChangeSize} size={size} />
           </div>
         </div>
         {tabs.map(el => {
