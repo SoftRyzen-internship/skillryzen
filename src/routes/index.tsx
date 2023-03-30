@@ -109,7 +109,8 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.LEADERBOARD,
-                      element: <LeaderboardPage />,
+                      element: <UnderDevelopmentPage />,
+                      // element: <LeaderboardPage />,
                     },
                     {
                       path: ROUTES.VACANCIES,
@@ -117,19 +118,23 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.PROFILE,
-                      element: <ProfilePage />,
+                      element: <UnderDevelopmentPage />,
+                      // element: <ProfilePage />,
                     },
                     {
                       path: ROUTES.PROFILE_SETTINGS,
-                      element: <ProfileSettingsPage />,
+                      element: <UnderDevelopmentPage />,
+                      // element: <ProfileSettingsPage />,
                     },
                     {
                       path: ROUTES.NOTIFICATIONS,
-                      element: <NotificationsPage />,
+                      element: <UnderDevelopmentPage />,
+                      // element: <NotificationsPage />,
                     },
                     {
                       path: ROUTES.COINS,
-                      element: <CoinsPage />,
+                      element: <UnderDevelopmentPage />,
+                      // element: <CoinsPage />,
                     },
                     {
                       path: ROUTES.FEEDBACK,
@@ -192,15 +197,18 @@ export const AppRoutes = () => {
                   },
                   {
                     path: ROUTES.INVITE_MODULE,
-                    element: <InviteModulePage />,
+                    element: <UnderDevelopmentPage />,
+                    // element: <InviteModulePage />,
                   },
                   {
                     path: ROUTES.COMPANY_PROFILE,
-                    element: <CompanyProfilePage />,
+                    element: <UnderDevelopmentPage />,
+                    // element: <CompanyProfilePage />,
                   },
                   {
                     path: ROUTES.COMPANY_SETTINGS,
-                    element: <CompanySettingsPage />,
+                    element: <UnderDevelopmentPage />,
+                    // element: <CompanySettingsPage />,
                   },
                 ],
               }),
