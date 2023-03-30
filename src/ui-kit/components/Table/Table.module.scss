@@ -11,72 +11,9 @@
   }
 }
 
-.head {
-  display: block;
-  margin-bottom: 15px;
-}
-
-.headrow {
-  padding-bottom: 11px;
-
-  display: grid;
-  width: 100%;
-
-  &--light {
-    border-bottom: 1px solid var(--secondary-txt-cl);
-  }
-
-  &--dark {
-    border-bottom: 1px solid var(--light-primary-cl);
-  }
-}
-
-.tablerow {
-  height: 64px;
-
-  display: grid;
-  width: 100%;
-  border-radius: 10px;
-
-  &--light {
-    background-color: var(--light-components-cl);
-  }
-
-  &--dark {
-    background-color: var(--components-cl);
-  }
-}
-
-.tablerow:not(:last-child) {
-  margin-bottom: 4px;
-}
-
-.data {
-  display: flex;
-  align-items: center;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
 // Поки не видаляти, треба подумати як відображати іконки
 // .icons:first-child {
 //   background-image: url('../../../assets/svg/trophy.svg');
 //   background-repeat: no-repeat;
 //   color: transparent;
 // }
-
-.icon {
-  margin-left: 4px;
-
-  &--light {
-    stroke: var(--accent-cl);
-  }
-
-  &--dark {
-    stroke: var(--light-components-cl);
-  }
-}
-
-.cursor {
-  cursor: pointer;
-}

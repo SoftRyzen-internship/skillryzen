@@ -1,0 +1,25 @@
+.tablerow {
+  height: 64px;
+  display: grid;
+  width: 100%;
+  border-radius: 10px;
+
+  &--light {
+    background-color: var(--light-components-cl);
+  }
+
+  &--dark {
+    background-color: var(--components-cl);
+  }
+}
+
+.tablerow:not(:last-child) {
+  margin-bottom: 4px;
+}
+
+.data {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
