@@ -1,9 +1,10 @@
 import { useState, useMemo } from 'react';
 
-import { ICONS } from 'ui-kit/icons';
-
 import { IThemeContext } from 'constans/types';
 import { useThemeContext } from 'context/themeContext';
+
+import { TableHead } from './TableHead';
+import { TableBody } from './TableBody';
 
 import s from './Table.module.scss';
 
@@ -53,78 +54,18 @@ export const Table = <T extends { id: string }>({
 
   return (
     <table className={`${s.table} ${s[`table--${theme}`]}`}>
-      <thead className={s.head}>
-        <tr className={`${s.headrow} ${s[`headrow--${theme}`]} ${className}`}>
-          {columns.map(column => (
-            <th
-              className={`${s.data} ${column.sortable ? s.cursor : ''}`}
-              key={column.property as string}
-              onClick={() => handleSort(column)}
-            >
-              {column.name}
-              {sortColumn === column &&
-                column.property !== columns[0].property &&
-                (sortDirection === 'asc' ? (
-                  <ICONS.SORT_TOP
-                    className={`${s.icon} ${s[`icon--${theme}`]}`}
-                  />
-                ) : (
-                  <ICONS.SORT_DOWN
-                    className={`${s.icon} ${s[`icon--${theme}`]}`}
-                  />
-                ))}
-              {sortColumn !== column && column.sortable && (
-                // Показуємо обидві стрілки при початковому стані
-                <ICONS.SORT className={`${s.icon} ${s[`icon--${theme}`]}`} />
-              )}
-            </th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {sortedData.map(item => (
-          <tr
-            key={String(item.id)}
-            className={`${s.tablerow} ${s[`tablerow--${theme}`]} ${className}`}
-          >
-            {columns.map(column => (
-              <td key={column.property as string} className={s.data}>
-                {item[column.property]?.toString()}
-              </td>
-            ))}
-          </tr>
-        ))}
-        {/* Поки не видаляти, треба подумати як відображати іконки */}
-        {/* {[...sortedData.slice(0, 3)].map((item, index) => (
-          <tr
-            key={String(item.id)}
-            className={`${s.tablerow} ${s[`tablerow--${theme}`]} ${className}`}
-          >
-            {columns.map((column, columnIndex) => (
-              <td
-                key={column.property as string}
-                className={`${s.data} ${
-                  index < 3 && columnIndex === 0 ? s['icons'] : ''
-                }`}
-              >
-                {item[column.property]?.toString()}
-              </td>
-            ))}
-          </tr>
-        ))}
-        {sortedData.slice(3).map(item => (
-          <tr
-            key={String(item.id)}
-            className={`${s.tablerow} ${s[`tablerow--${theme}`]} ${className}`}
-          >
-            {columns.map(column => (
-              <td key={column.property as string} className={s.data}>
-                {item[column.property]?.toString()}
-              </td>
-            ))}
-          </tr>
-        ))} */}
-      </tbody>
+      <TableHead
+        columns={columns}
+        className={className}
+        handleSort={handleSort}
+        sortColumn={sortColumn}
+        sortDirection={sortDirection}
+      />
+      <TableBody
+        columns={columns}
+        className={className}
+        sortedData={sortedData}
+      />
     </table>
   );
 };
