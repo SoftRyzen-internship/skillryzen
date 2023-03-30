@@ -69,34 +69,3 @@ export const Table = <T extends { id: string }>({
     </table>
   );
 };
-
-/* Поки не видаляти, треба подумати як відображати іконки */
-/* {[...sortedData.slice(0, 3)].map((item, index) => (
-          <tr
-            key={String(item.id)}
-            className={`${s.tablerow} ${s[`tablerow--${theme}`]} ${className}`}
-          >
-            {columns.map((column, columnIndex) => (
-              <td
-                key={column.property as string}
-                className={`${s.data} ${
-                  index < 3 && columnIndex === 0 ? s['icons'] : ''
-                }`}
-              >
-                {item[column.property]?.toString()}
-              </td>
-            ))}
-          </tr>
-        ))}
-        {sortedData.slice(3).map(item => (
-          <tr
-            key={String(item.id)}
-            className={`${s.tablerow} ${s[`tablerow--${theme}`]} ${className}`}
-          >
-            {columns.map(column => (
-              <td key={column.property as string} className={s.data}>
-                {item[column.property]?.toString()}
-              </td>
-            ))}
-          </tr>
-))} */
