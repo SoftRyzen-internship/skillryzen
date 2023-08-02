@@ -42,7 +42,7 @@ export const App = () => {
         <Suspense fallback={<Spinner className='spinnerPosition' />}>
           <AppRoutes />
         </Suspense>
-      </adaptiveSideBarContext.Provider>
+      </AdaptiveSideBarContext.Provider>
     </ThemeContext.Provider>
   );
 };
