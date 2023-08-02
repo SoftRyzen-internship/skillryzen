@@ -10,7 +10,7 @@ export const ROUTES: Routes = {
   REGISTER: '/register',
   DASHBOARD: '/dashboard',
   CERTIFICATION: '/certification',
-  PETPROJECTS: '/pet-projects',
+  PET_PROJECTS: '/pet-projects',
   LEADERBOARD: '/leaderboard',
   VACANCIES: '/vacancies',
   PROFILE: '/profile',

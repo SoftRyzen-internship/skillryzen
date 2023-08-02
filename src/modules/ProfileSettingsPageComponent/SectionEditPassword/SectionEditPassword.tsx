@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { EditPasswordForm } from 'modules/Forms';
 import { UserAvatar } from 'ui-kit/components/UserAvatar';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import s from './SectionEditPassword.module.scss';
 import { randomAvatar } from 'utils/randomAvatar';
 export const SectionEditPassword = () => {

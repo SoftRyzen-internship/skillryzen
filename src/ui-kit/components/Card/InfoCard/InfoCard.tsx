@@ -1,4 +1,4 @@
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 import { Tag } from 'ui-kit';
 

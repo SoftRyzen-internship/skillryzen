@@ -6,7 +6,7 @@ import { UserProfile } from './UserProfile';
 import { UserTests } from './UserTests';
 import { UserAchievementsList } from './UserAchievementsList';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import s from './ProfilePageComponent.module.scss';
 import { ScrollContainer } from 'ui-kit';

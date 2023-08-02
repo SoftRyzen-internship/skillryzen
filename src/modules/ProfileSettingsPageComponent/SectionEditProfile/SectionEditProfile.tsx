@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { EditProfileForm } from 'modules/Forms';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import s from './SectionEditProfile.module.scss';
 
 export const SectionEditProfile = () => {

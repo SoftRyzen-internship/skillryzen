@@ -1,4 +1,4 @@
-import { useAdavtipeSideBarContext } from 'context/adavtipeSideBarContext';
+import { useAdavtipeSideBarContext } from 'context/adaptiveSideBarContext';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './MenuIcon.module.scss';
@@ -10,9 +10,7 @@ export const MenuIcon = () => {
       id='sidebar-open-button'
       onClick={() => setShowSideBar(!showSideBar)}
     >
-      <ICONS.BROCKEN_MENU
-        className={showSideBar ? s.active : s.icon}
-      />
+      <ICONS.BROCKEN_MENU className={showSideBar ? s.active : s.icon} />
     </button>
   );
 };

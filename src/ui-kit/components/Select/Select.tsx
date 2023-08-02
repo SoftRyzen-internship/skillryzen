@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { ICONS } from 'ui-kit/icons';
@@ -23,18 +23,18 @@ export const Select = ({ title, selectList, onClickItem }: SelectProps) => {
   const [openMenu, setOpenMenu] = useState(false);
   const { theme }: IThemeContext = useThemeContext();
 
-  const handleToogleMenu = () => setOpenMenu(prev => !prev);
+  const handleToggleMenu = () => setOpenMenu(prev => !prev);
 
   const handleClickItem = (select: string) => {
     onClickItem(select);
-    handleToogleMenu();
+    handleToggleMenu();
   };
 
   return (
     <div className={s.container}>
       <div
         className={`${s.wrapper} ${s[`wrapper--${theme}`]}`}
-        onClick={handleToogleMenu}
+        onClick={handleToggleMenu}
       >
         {title}
         {openMenu ? (

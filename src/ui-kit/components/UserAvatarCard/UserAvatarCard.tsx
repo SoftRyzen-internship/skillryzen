@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 
 import s from './UserAvatarCard.module.scss';
 interface UserAvatarCardProps {

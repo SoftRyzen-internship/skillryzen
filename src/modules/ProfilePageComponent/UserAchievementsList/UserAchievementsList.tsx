@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 
 import s from './UserAchievementsList.module.scss';
 

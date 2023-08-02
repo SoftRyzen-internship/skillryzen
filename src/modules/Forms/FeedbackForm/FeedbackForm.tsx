@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { MainButton } from 'ui-kit';
 import { pluralize } from 'utils/pluralize';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useFeedbackError } from './useFeedbackError';
 import { useThemeContext } from 'context/themeContext';
 import { useValidationSchema } from './useValidationSchema';

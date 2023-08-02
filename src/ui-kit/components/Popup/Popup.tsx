@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import s from './Popup.module.scss';
 import { Link } from 'react-router-dom';
 

@@ -4,7 +4,7 @@ import { useIsOnline } from 'react-use-is-online';
 import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch, useAppSelector } from 'hooks';
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { convertTime } from 'utils/convertTime';
 import { setCurrentTime, setTime } from 'redux/testingInfo/testingInfoSlice';
 import { getResultsTestId } from 'redux/testingInfo/testingInfoSelectors';

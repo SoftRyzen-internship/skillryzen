@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { useOutsideClick } from 'hooks';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { ICONS } from 'ui-kit/icons';

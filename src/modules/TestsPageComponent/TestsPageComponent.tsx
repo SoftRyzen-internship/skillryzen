@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 import {
   useAppDispatch,

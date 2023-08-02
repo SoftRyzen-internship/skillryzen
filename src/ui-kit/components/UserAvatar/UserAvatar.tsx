@@ -1,5 +1,5 @@
 import s from './UserAvatar.module.scss';
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 interface UserAvatarProps {
   userAvatarUrl: string;

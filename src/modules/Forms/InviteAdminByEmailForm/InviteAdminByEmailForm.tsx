@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { validationSchema } from './validationSchema';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import { MainButton, Input, Checkbox } from 'ui-kit';
 
@@ -99,7 +99,7 @@ export const InviteAdminByEmailForm = () => {
           className={`${s.input} ${s[`input--${theme}`]} ${s.mr20}`}
         />
         <h3 className={s.label}>
-          {t('invite.acces.code')} <ICONS.ASTERIX className={s.asterixIcon} />
+          {t('invite.access.code')} <ICONS.ASTERIX className={s.asterixIcon} />
         </h3>
         <Input
           onChange={handleChange}

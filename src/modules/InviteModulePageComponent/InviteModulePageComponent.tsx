@@ -6,7 +6,7 @@ import { InviteStudentBlock } from './InviteStudentBlock';
 
 import { Breadcrumbs, ScrollContainer, Tabs } from 'ui-kit';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './InviteModulePageComponent.module.scss';

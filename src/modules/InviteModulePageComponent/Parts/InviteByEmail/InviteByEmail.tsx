@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { InviteAdminByEmailForm } from 'modules/Forms/InviteAdminByEmailForm/InviteAdminByEmailForm';
 import { InviteStudentByEmailForm } from 'modules/Forms/InviteStudentByEmailForm/InviteStudentByEmailForm';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './InviteByEmail.module.scss';

@@ -5,7 +5,7 @@ import { ROUTES } from 'routes/routes.const';
 import { MainButton } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './ModalCongrats.module.scss';

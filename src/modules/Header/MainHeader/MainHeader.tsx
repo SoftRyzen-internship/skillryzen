@@ -7,7 +7,7 @@ import { Logo } from 'ui-kit/index';
 import { useCurrentWidth } from 'hooks';
 import { MenuIcon } from './MenuIcon';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import s from './MainHeader.module.scss';
 
 export const MainHeader = () => {

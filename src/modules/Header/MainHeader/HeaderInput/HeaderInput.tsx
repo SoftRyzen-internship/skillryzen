@@ -4,7 +4,7 @@ import { ICONS } from 'ui-kit/icons';
 import { Input } from 'ui-kit/index';
 
 import s from './HeaderInput.module.scss';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 export const HeaderInput = () => {

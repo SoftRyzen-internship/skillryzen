@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import s from './EditPasswordForm.module.scss';
 import { useValidationSchema } from './useValidationSchema';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import { useSelector } from 'react-redux';
 import { getUserEmail } from 'redux/authSlice/authSelectors';

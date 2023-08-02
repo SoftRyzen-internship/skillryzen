@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './PaginationButton.module.scss';

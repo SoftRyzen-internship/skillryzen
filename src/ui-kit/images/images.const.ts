@@ -28,7 +28,7 @@ import ImgSerhiienko from 'assets/images/team/Serhiienko.jpg';
 import ImgFilchenko from 'assets/images/team/Filchenko.jpg';
 import ImgKhomenko from 'assets/images/team/Khomenko.jpg';
 
-import { Img } from 'constans/types';
+import { Img } from 'constants/types';
 
 export const IMAGES: Img = {
   DONE: ImgDone,

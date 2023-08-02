@@ -13,7 +13,7 @@ import { register, logIn } from 'redux/authSlice/operations';
 import { getUserRole, getInvitationToken } from 'redux/authSlice/authSelectors';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import { useValidationSchema } from './useValidationSchema';
 import s from './RegisterAuthForm.module.scss';

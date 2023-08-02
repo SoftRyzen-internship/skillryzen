@@ -2,7 +2,7 @@ import { FeedbackTemplateCongrat } from 'modules/Modals/FeedbackTemplateCongrat/
 import s from './FeedbackCongrat.module.scss';
 import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 interface FeedbackModalPageProps {
   handleClickModal: () => void;

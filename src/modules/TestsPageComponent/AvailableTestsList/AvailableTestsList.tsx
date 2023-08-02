@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 import { getAvailableTests } from 'redux/testingInfo/testingInfoOperations';
 import { setTemplateId } from 'redux/testingInfo/testingInfoSlice';
@@ -26,7 +26,7 @@ interface Item {
   wasStarted: boolean;
   nextRetakeDate?: undefined | string | Date;
   testStatus?: string;
-  avialableIn?: string;
+  availableIn?: string;
 }
 
 interface TestsProps {
@@ -105,7 +105,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
     newObj?.disabled?.map((item: Item) => {
       const specificDate =
         item.nextRetakeDate instanceof Date && item.nextRetakeDate;
-      item.avialableIn = parseDate(specificDate);
+      item.availableIn = parseDate(specificDate);
     });
 
     const order = ['available', 'tryAgain', 'disabled'];
@@ -148,7 +148,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
             questionsTotalCount,
             timeForCompletionInMs,
             percentageToPass,
-            avialableIn,
+            availableIn,
             testStatus,
           }) => (
             <li key={id}>
@@ -176,7 +176,7 @@ export const AvailableTestsList = ({ size }: TestsProps) => {
                     number: questionsTotalCount,
                     time: Math.round(timeForCompletionInMs / 60000),
                     testStatus,
-                    avialableIn,
+                    availableIn,
                   }}
                   theme={theme}
                 />

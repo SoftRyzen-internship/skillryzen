@@ -1,6 +1,6 @@
 import { ICONS } from 'ui-kit/icons';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { Column } from '../Table';

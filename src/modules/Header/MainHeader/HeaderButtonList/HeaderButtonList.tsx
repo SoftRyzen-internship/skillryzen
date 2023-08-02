@@ -1,7 +1,7 @@
 import { useCurrentWidth, useAppSelector } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
-import { USER_ROLE } from 'constans/consts';
+import { USER_ROLE } from 'constants/consts';
 
 import { HeaderButtonTheme } from './HeaderButtonTheme';
 import { HeaderButtonLanguage } from './HeaderButtonLanguage';

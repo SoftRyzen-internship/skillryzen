@@ -11,7 +11,7 @@ import { setRole, setStep, setToken } from 'redux/authSlice/authSlice';
 import { getCompanyByToken } from 'redux/authSlice/operations';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import s from './RegisterRoleForm.module.scss';
 

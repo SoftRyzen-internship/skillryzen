@@ -2,7 +2,7 @@ import { memo, useMemo } from 'react';
 
 import { ICONS } from 'ui-kit/icons';
 
-import { Theme, UserSocial } from 'constans/types';
+import { Theme, UserSocial } from 'constants/types';
 
 import s from './SocialList.module.scss';
 
