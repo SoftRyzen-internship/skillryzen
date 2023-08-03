@@ -8,7 +8,7 @@ import { ICONS } from 'ui-kit/icons';
 import { MainButton } from 'ui-kit';
 import { useAppSelector } from 'hooks';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
 interface FormValues {

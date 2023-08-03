@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from 'ui-kit/icons';
 import { Input, CopyButton } from 'ui-kit';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { copyToClipboard } from 'utils/copyToClipboard';
@@ -45,7 +45,7 @@ export const InviteByLink = ({ userType }: Props) => {
       </div>
       <div className={s.codeWrapper}>
         <h4 className={s.subTitle}>
-          {t('invite.acces.code')} <ICONS.ASTERIX />
+          {t('invite.access.code')} <ICONS.ASTERIX />
         </h4>
         <Input
           className={`${s.input} ${s[`input--${theme}`]}`}

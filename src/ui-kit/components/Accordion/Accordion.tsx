@@ -3,7 +3,7 @@ import s from './Accordion.module.scss';
 import { Checkbox } from 'ui-kit';
 import { ICONS } from 'ui-kit/icons';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 type AccordionItemProps = {
   id: string;
   title: string;

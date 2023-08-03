@@ -5,7 +5,7 @@ import { ROUTES } from 'routes/routes.const';
 
 import { TestCard } from 'ui-kit';
 
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 
 import s from './CompanyTests.module.scss';
 

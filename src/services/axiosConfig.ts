@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://skillryzen-be-dev.herokuapp.com/',
+  baseURL: 'https://skillryzen-be-dev-old-e5fdc54e018f.herokuapp.com',
   withCredentials: true,
 });
 

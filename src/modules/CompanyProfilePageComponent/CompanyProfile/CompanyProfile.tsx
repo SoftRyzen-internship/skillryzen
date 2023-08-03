@@ -6,7 +6,7 @@ import { IMAGES } from 'ui-kit/images';
 import { ICONS } from 'ui-kit/icons';
 import { SocialList } from 'ui-kit/index';
 
-import { Theme, UserSocial } from 'constans/types';
+import { Theme, UserSocial } from 'constants/types';
 
 import s from './CompanyProfile.module.scss';
 

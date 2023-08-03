@@ -11,7 +11,7 @@ import { SocialList } from 'ui-kit/index';
 
 import { CompanyAvatarCard } from './CompanyAvatarCard';
 
-import { Theme, UserSocial } from 'constans/types';
+import { Theme, UserSocial } from 'constants/types';
 
 import s from './UserProfile.module.scss';
 

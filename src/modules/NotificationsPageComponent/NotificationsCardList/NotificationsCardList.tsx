@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
 import { InfoCard } from 'ui-kit';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import s from './NotificationsCardList.module.scss';

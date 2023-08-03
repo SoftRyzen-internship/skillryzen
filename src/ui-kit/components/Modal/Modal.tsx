@@ -4,7 +4,7 @@ import { useThemeContext } from 'context/themeContext';
 import { useSelector } from 'react-redux';
 import { getIsClickLogOut } from 'redux/authSlice/authSelectors';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 import s from './Modal.module.scss';
 

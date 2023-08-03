@@ -7,7 +7,7 @@ import { ROUTES } from 'routes/routes.const';
 
 import { useThemeContext } from 'context/themeContext';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 import { HeaderButton, Popup } from 'ui-kit/index';
 

@@ -30,7 +30,7 @@ import ProfileSettingsPage from 'pages/ProfileSettingsPage';
 import UnderDevelopmentPage from 'pages/UnderDevelopmentPage';
 
 import { ROUTES } from './routes.const';
-import { USER_ROLE } from 'constans/consts';
+import { USER_ROLE } from 'constants/consts';
 
 export const AppRoutes = () => {
   const isAuth = useAppSelector(state => state.auth.isAuth);

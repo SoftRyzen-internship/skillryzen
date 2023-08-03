@@ -1,5 +1,5 @@
 import { memo, RefObject, forwardRef } from 'react';
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import s from './HeaderButton.module.scss';
 
 interface HeaderButtonProps {

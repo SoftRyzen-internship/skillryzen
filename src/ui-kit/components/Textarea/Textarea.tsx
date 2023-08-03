@@ -1,4 +1,4 @@
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 import { memo } from 'react';
 import s from './Textarea.module.scss';

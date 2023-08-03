@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 import { ICONS } from 'ui-kit/icons';
 

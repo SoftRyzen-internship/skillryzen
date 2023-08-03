@@ -15,7 +15,7 @@ import { LogOutStart } from 'modules/Modals/LogOut/LogOutStart';
 
 import { useThemeContext } from 'context/themeContext';
 
-import { USER_ROLE } from 'constans/consts';
+import { USER_ROLE } from 'constants/consts';
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 
@@ -28,7 +28,7 @@ import {
 import { randomAvatar } from 'utils/randomAvatar';
 
 import { UserAvatarCard, Popup, Modal } from 'ui-kit/index';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import s from './HeaderUserAvatarCard.module.scss';
 

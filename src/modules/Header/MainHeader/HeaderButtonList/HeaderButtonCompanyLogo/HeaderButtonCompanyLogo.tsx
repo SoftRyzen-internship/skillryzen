@@ -10,7 +10,7 @@ import { useThemeContext } from 'context/themeContext';
 import { ICONS } from 'ui-kit/icons';
 import { HeaderButton, Popup } from 'ui-kit/index';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 export const HeaderButtonCompanyLogo = () => {
   const ref = useRef<HTMLDivElement>();

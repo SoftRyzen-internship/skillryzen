@@ -134,7 +134,7 @@ import IconLogOut from 'assets/svg/log-out.svg';
 import IconLetter from 'assets/svg/letter.svg';
 import IconPage404 from 'assets/svg/page-404.svg';
 
-import { Icons } from 'constans/types';
+import { Icons } from 'constants/types';
 
 export const ICONS: Icons = {
   ALERT: IconAlert,

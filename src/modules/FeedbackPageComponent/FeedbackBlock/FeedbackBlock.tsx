@@ -11,7 +11,7 @@ import {
   getUserRole,
 } from 'redux/authSlice/authSelectors';
 import { useAppSelector } from 'hooks';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { randomAvatar } from 'utils/randomAvatar';
 import { useThemeContext } from 'context/themeContext';
 import { FeedbackForm } from 'modules/Forms/FeedbackForm/FeedbackForm';

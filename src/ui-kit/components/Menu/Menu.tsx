@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { UseSideBarContext } from 'modules/Sidebar/context/sideBarContext';
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 
 import s from './Menu.module.scss';
 

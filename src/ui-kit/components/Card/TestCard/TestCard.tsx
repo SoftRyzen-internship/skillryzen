@@ -1,4 +1,4 @@
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { useTranslation } from 'react-i18next';
 
 import { Tag } from 'ui-kit/index';
@@ -23,7 +23,7 @@ interface Item {
   testStatus?: 'disabled' | 'available' | 'tryAgain' | 'done' | 'failed';
   testDate?: string;
   attempts?: number | string;
-  avialableIn?: string;
+  availableIn?: string;
   percentageOfCorrectAnswers?: number;
 }
 
@@ -43,7 +43,7 @@ export const TestCard = ({
     number,
     time,
     testStatus,
-    avialableIn,
+    availableIn,
     percentageOfCorrectAnswers,
     attempts,
     testDate,
@@ -52,7 +52,7 @@ export const TestCard = ({
   const statusObject = {
     disabled: {
       className: `${s.disabled}`,
-      text: `${avialableIn}`,
+      text: `${availableIn}`,
     },
     available: {
       className: `${s.available}`,

@@ -4,7 +4,7 @@ import { useThemeContext } from 'context/themeContext';
 
 import { ScrollContainer } from 'ui-kit';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import s from './CompanySettingsPageComponent.module.scss';
 

@@ -10,7 +10,7 @@ import {
   getUserName,
   getUserRole,
 } from 'redux/authSlice/authSelectors';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 import { randomAvatar } from 'utils/randomAvatar';
 import { useAppSelector } from 'hooks';

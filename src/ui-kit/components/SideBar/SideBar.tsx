@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import { useCurrentWidth, useOutsideClick } from 'hooks';
 
 import { SideBarContext } from 'modules/Sidebar/context/sideBarContext';
-import { useAdavtipeSideBarContext } from 'context/adavtipeSideBarContext';
+import { useAdaptiveSideBarContext } from 'context/adaptiveSideBarContext';
 
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 
 import s from './SideBar.module.scss';
@@ -27,7 +27,7 @@ export const SideBar = ({
     return savedValue ? (savedValue === 'true' ? true : false) : true;
   });
   const ref = useRef<HTMLDivElement>();
-  const { showSideBar, setShowSideBar } = useAdavtipeSideBarContext();
+  const { showSideBar, setShowSideBar } = useAdaptiveSideBarContext();
   const currentWidth = useCurrentWidth();
 
   useOutsideClick(ref, (isInside, event) => {
@@ -49,7 +49,7 @@ export const SideBar = ({
     }
   }, [currentWidth, setShowSideBar, showSideBar]);
 
-  const setClassnameSidebar = () => {
+  const setClassNameSidebar = () => {
     if (isOpen) {
       if (theme === 'dark') {
         return s.sideBarIsOpenDark;
@@ -69,7 +69,7 @@ export const SideBar = ({
     }
   };
 
-  const setClassnameIconArrow = () => {
+  const setClassNameIconArrow = () => {
     if (isOpen) {
       if (theme === 'dark') {
         return s.sideBar__iconOpenDark;
@@ -99,7 +99,7 @@ export const SideBar = ({
       ref={ref}
       className={`${s.sideBar} ${showSideBar && s.openAdaptiveSideBar}`}
     >
-      <div className={setClassnameSidebar()} style={{ top: top }}>
+      <div className={setClassNameSidebar()} style={{ top: top }}>
         {/* <div className={s.sideBar__companyBlock}>
                   <img height='32' width='32'/>
                   {isOpen && <p className={s.sideBar__companyTitle}>Name of company</p>}
@@ -114,7 +114,7 @@ export const SideBar = ({
             }
             onClick={handleClick}
           >
-            <ICONS.ARROW_LEFT className={setClassnameIconArrow()} />
+            <ICONS.ARROW_LEFT className={setClassNameIconArrow()} />
           </button>
         )}
 

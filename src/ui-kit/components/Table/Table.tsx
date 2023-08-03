@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 
 import { TableHead } from './TableHead';

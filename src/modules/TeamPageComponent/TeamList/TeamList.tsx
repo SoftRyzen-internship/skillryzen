@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { team } from 'utils/team.js';
 import { IMAGES } from 'ui-kit/images';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext, UserSocial, SocialName } from 'constans/types';
+import { IThemeContext, UserSocial, SocialName } from 'constants/types';
 
 import { TeamCard } from 'ui-kit';
 
@@ -70,7 +70,7 @@ export const TeamList = ({ name, positions }: TeamListProps) => {
 
 // Варіант з пагінацією, поки не видаляти!!!
 
-// import { IThemeContext, UserSocial, SocialName } from 'constans/types';
+// import { IThemeContext, UserSocial, SocialName } from 'constants/types';
 // import { useThemeContext } from 'context/themeContext';
 // import { useEffect, useState, useCallback } from 'react';
 // import { Pagination } from 'ui-kit';

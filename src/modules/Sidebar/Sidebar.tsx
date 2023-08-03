@@ -5,13 +5,13 @@ import { useThemeContext } from 'context/themeContext';
 import { useAppSelector } from 'hooks';
 import { getUserRole } from 'redux/authSlice/authSelectors';
 
-import { USER_ROLE } from 'constans/consts';
+import { USER_ROLE } from 'constants/consts';
 import { ROUTES } from 'routes/routes.const';
 import { ICONS } from 'ui-kit/icons';
 
 import { SideBar, Menu } from 'ui-kit/index';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 function generateId() {
   return (
@@ -41,7 +41,7 @@ export const Sidebar = () => {
           path: ROUTES.CERTIFICATION,
         },
         {
-          title: t('sidebar.petprojects'),
+          title: t('sidebar.petProjects'),
           icon: ICONS.FILES,
           iconAlt: 'Petprojects',
           path: ROUTES.PETPROJECTS,

@@ -3,7 +3,7 @@ import { useThemeContext } from 'context/themeContext';
 import { ICONS } from 'ui-kit/icons';
 import { HeaderButton } from 'ui-kit/index';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 interface Props {
   active?: boolean;

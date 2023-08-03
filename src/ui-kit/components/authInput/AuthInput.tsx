@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { useThemeContext } from 'context/themeContext';
 import InputMask from 'react-input-mask';
 

@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from 'ui-kit/icons';
 
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import s from './Steps.module.scss';
 
@@ -30,8 +30,8 @@ export const Steps = ({ steps, currentStep }: ICurrentStep) => {
   const { t } = useTranslation();
   const stepsArr = steps === 3 ? [1, 2, 3] : [1, 2, 3, 4];
 
-  // Classname контейнера для кружечків (синя обводка активного степу)
-  const setClassnameCircleContainer = (idx: number) => {
+  // ClassName контейнера для кружечків (синя обводка активного степу)
+  const setClassNameCircleContainer = (idx: number) => {
     if (currentStep === idx + 1) {
       return s.circleContainerActive;
     }
@@ -39,8 +39,8 @@ export const Steps = ({ steps, currentStep }: ICurrentStep) => {
     return s.circleContainer;
   };
 
-  // Classname для кружечків
-  const setClassnameCircle = (idx: number) => {
+  // ClassName для кружечків
+  const setClassNameCircle = (idx: number) => {
     if (currentStep === idx + 1) {
       return s.activeCircle;
     }
@@ -51,8 +51,8 @@ export const Steps = ({ steps, currentStep }: ICurrentStep) => {
     return `${s.inactiveCircle} ${objectTheme[theme].inactiveCircle}`;
   };
 
-  // Classname для ліній
-  const setClassnameLine = (idx: number) => {
+  // ClassName для ліній
+  const setClassNameLine = (idx: number) => {
     // позаду активного степу
     if (idx < currentStep - 1) {
       return s.blueLine;
@@ -71,8 +71,8 @@ export const Steps = ({ steps, currentStep }: ICurrentStep) => {
         {stepsArr.map((step, idx) => (
           <li key={step} className={s.itemWrapper}>
             <div className={s.stepWrapper}>
-              <div className={setClassnameCircleContainer(idx)}>
-                <div className={setClassnameCircle(idx)}>
+              <div className={setClassNameCircleContainer(idx)}>
+                <div className={setClassNameCircle(idx)}>
                   {currentStep <= idx + 1 ? (
                     step
                   ) : (
@@ -82,7 +82,7 @@ export const Steps = ({ steps, currentStep }: ICurrentStep) => {
               </div>
               {step < steps && (
                 <div className={s.lineWrapper}>
-                  <div className={setClassnameLine(idx)}></div>
+                  <div className={setClassNameLine(idx)}></div>
                 </div>
               )}
             </div>

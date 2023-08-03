@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useThemeContext } from 'context/themeContext';
 import { useAppSelector, useCurrentWidth } from 'hooks';
 import { getTemplateId } from 'redux/testingInfo/testingInfoSelectors';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 import { ICONS } from 'ui-kit/icons';
 import { MainButton, Modal } from 'ui-kit';
 import { ModalStartTest } from 'modules/Modals/ModalStartTest/ModalStartTest';
@@ -256,7 +256,7 @@ export const FinalTestInfo = ({
           {theWorstTopic && theBestTopic && (
             <div className={objectTheme[theme].recomendationsWrapper}>
               <p className={objectTheme[theme].recText}>
-                {t('finalTestInfo.recomendations')}:
+                {t('finalTestInfo.subListRecommendations')}:
               </p>
               <p className={s.recTextSmall}>
                 {t('finalTestInfo.worstTopic')} {`${test}`} -

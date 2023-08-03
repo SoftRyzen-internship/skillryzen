@@ -7,7 +7,7 @@ import { CompanyProfile } from './CompanyProfile';
 
 import { ScrollContainer } from 'ui-kit';
 
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 import s from './CompanyProfilePageComponent.module.scss';
 

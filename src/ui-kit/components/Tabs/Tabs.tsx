@@ -1,4 +1,4 @@
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import { useTranslation } from 'react-i18next';
 
 import s from './Tabs.module.scss';

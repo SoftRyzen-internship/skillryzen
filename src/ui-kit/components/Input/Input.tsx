@@ -1,4 +1,4 @@
-import { Theme } from 'constans/types';
+import { Theme } from 'constants/types';
 import s from './Input.module.scss';
 
 interface IProps {

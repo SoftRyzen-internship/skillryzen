@@ -3,7 +3,7 @@ import s from './FeedbackModalPage.module.scss';
 import { FeedbackBlock } from 'modules/FeedbackPageComponent/FeedbackBlock/FeedbackBlock';
 import { FeedbackCongrat } from 'modules/FeedbackPageComponent/FeedbackCongrat/FeedbackCongrat';
 import { useThemeContext } from 'context/themeContext';
-import { IThemeContext } from 'constans/types';
+import { IThemeContext } from 'constants/types';
 
 interface FeedbackModalPageProps {
   handleClickModal: () => void;
