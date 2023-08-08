@@ -88,10 +88,9 @@ export const LoginForm = () => {
         size='large'
         text='Google'
         type='button'
-        needBackground='noBackgroundGray'
+        // needBackground='noBackgroundGray'
         icon={<ICONS.GOOGLE className={s.googleIcon} />}
         className={objectTheme[theme].googleButton}
-        disabled
       />
       <div className={objectTheme[theme].boxOr}>{t('auth.or')}</div>
       <ul className={s.inputsList}>

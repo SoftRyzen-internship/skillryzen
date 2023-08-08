@@ -134,6 +134,8 @@
     "studentsTitle": "Students"
   },
   "auth": {
+    "title": "What benefits will you get when using SkillRyzen app?",
+    "subtitle": "Take the JavaScript test",
     "roleTitle": "Choose your role",
     "contactTitle": "Give us more information about you!",
     "loginTitle": "Welcome back",

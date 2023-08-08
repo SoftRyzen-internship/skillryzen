@@ -1,65 +1,120 @@
-.sectionRegister {
+.sectionAuth {
   display: none;
   width: 49.2vw;
-  height: 100vh;
-  background-color: var(--accent-cl);
+  height: calc(100vh - 24px);
+  background-color: var(--accent-600-cl);
+  justify-content: end;
+  overflow: hidden;
+  position: relative;
 
   @media (min-width: 1280px) {
-    display: block;
+    display: flex;
+    margin: 7px 0 17px 16px;
+    border-radius: 20px;
   }
 }
 
-.sectionLogin {
-  composes: sectionRegister;
-  background-image: url('assets/svg/login.svg');
-  background-position: center 200px;
+.sectionBox {
+  min-height: 100%;
+  aspect-ratio: 0.7;
+  background-image: url('assets/images/hero.png'),
+    url('assets/images/hero-title-decor.png');
+  background-position: bottom right, top 5% center;
   background-repeat: no-repeat;
+  background-size: contain, 90%;
+  padding: 15vh 3.5vw 0 7vw;
+  color: var(--primary-100-cl);
 }
 
-.authIntroWrapper {
-  margin: 90px auto 0;
-  padding-top: 268px;
-  width: 408px;
-
-  background-repeat: no-repeat;
+.title {
+  font-weight: 600;
+  font-size: 1.6vw;
+  margin-bottom: 8px;
+  color: white;
 }
 
-.authCandidateBg {
-  composes: authIntroWrapper;
-  background-image: url('assets/svg/registration-monitor-user.svg');
-}
-
-.authCompanyBg {
-  composes: authIntroWrapper;
-  background-image: url('assets/svg/registration-company.svg');
-}
-
-.introMetaList {
-  margin: auto;
-  padding: 40px 20px;
-  max-width: 318px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-
-  border-radius: 15px;
-
-  color: var(--primary-cl);
-  background-color: var(--primary-txt-cl);
-}
-
-.introMetaItem {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.subtitle {
+  position: relative;
 
   &::before {
     content: '';
-    width: 24px;
-    height: 24px;
-
-    background-image: url('assets/svg/check-small.svg');
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/svg/hero-subtitle-before.svg');
     background-repeat: no-repeat;
+    background-position: bottom left;
+    transform: translateY(100%);
   }
 }
+
+// .sectionRegister {
+//   display: none;
+//   width: 49.2vw;
+//   height: calc(100vh - 24px);
+//   background-color: var(--accent-600-cl);
+
+//   @media (min-width: 1280px) {
+//     display: block;
+//     margin: 7px 0 17px 16px;
+//     border-radius: 20px;
+//   }
+// }
+
+// .sectionLogin {
+//   composes: sectionRegister;
+//   background-image: url('assets/images/hero.png');
+//   background-position: bottom right;
+//   background-repeat: no-repeat;
+//   background-size: auto 70%;
+// }
+
+// .authIntroWrapper {
+//   margin: 90px auto 0;
+//   padding-top: 268px;
+//   width: 408px;
+
+//   background-repeat: no-repeat;
+// }
+
+// .authCandidateBg {
+//   composes: authIntroWrapper;
+//   background-image: url('assets/svg/registration-monitor-user.svg');
+// }
+
+// .authCompanyBg {
+//   composes: authIntroWrapper;
+//   background-image: url('assets/svg/registration-company.svg');
+// }
+
+// .introMetaList {
+//   margin: auto;
+//   padding: 40px 20px;
+//   max-width: 318px;
+
+//   display: flex;
+//   flex-direction: column;
+//   gap: 18px;
+
+//   border-radius: 15px;
+
+//   color: var(--primary-cl);
+//   background-color: var(--primary-txt-cl);
+// }
+
+// .introMetaItem {
+//   display: flex;
+//   align-items: center;
+//   gap: 12px;
+
+//   &::before {
+//     content: '';
+//     width: 24px;
+//     height: 24px;
+
+//     background-image: url('assets/svg/check-small.svg');
+//     background-repeat: no-repeat;
+//   }
+// }

@@ -28,13 +28,13 @@ export const Login = () => {
         <Logo content='SkillRyzen' />
       </div>
       <h2 className={s.loginTitle}>{t('auth.loginTitle')}</h2>
+      <LoginForm />
       <p className={s.loginSubtitle}>
         {t('auth.registerLabel')}{' '}
         <NavLink to={ROUTES.REGISTER} className={s.link}>
           {t('auth.registerLink')}
         </NavLink>
       </p>
-      <LoginForm />
     </section>
   );
 };
