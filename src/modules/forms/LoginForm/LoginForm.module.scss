@@ -1,5 +1,8 @@
 .form {
   min-width: 280px;
+
+  margin-bottom: 12px;
+
   text-align: left;
   @media (min-width: 768px) {
     min-width: 424px;
@@ -31,6 +34,8 @@
 
   display: flex;
   align-items: center;
+
+  color: var(--middle-gray-text-cl);
 
   &::before,
   &::after {
@@ -91,6 +96,13 @@
   justify-content: center;
 
   font-weight: 400;
+
+  background-color: transparent;
+  border: 1px solid var(--disabled-cl);
+
+  &:disabled {
+    background-color: transparent;
+  }
 }
 
 .googleButtonLight {

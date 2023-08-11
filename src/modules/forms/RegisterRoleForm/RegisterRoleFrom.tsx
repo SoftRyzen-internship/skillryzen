@@ -38,15 +38,15 @@ export const RegisterRoleForm = () => {
   const dispatch = useAppDispatch();
   const companyName = useAppSelector(getCompanyName);
 
-  const [code, setCode] = useState('');
+  // const [code, setCode] = useState('');
   const [isValid, setIsValid] = useState(null);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (role === 'CANDIDATE') {
-      dispatch(setToken(code));
-    }
+    // if (role === 'CANDIDATE') {
+    //   dispatch(setToken(code));
+    // }
 
     dispatch(setStep(2));
   };
@@ -55,29 +55,29 @@ export const RegisterRoleForm = () => {
     dispatch(setRole(e.target.value));
   };
 
-  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const token = e.target.value.trim();
+  // const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const token = e.target.value.trim();
 
-    setCode(token);
+  //   setCode(token);
 
-    if (token.match(regex)) {
-      const resp = await dispatch(getCompanyByToken(token));
+  //   if (token.match(regex)) {
+  //     const resp = await dispatch(getCompanyByToken(token));
 
-      if (resp.meta.requestStatus === 'fulfilled') {
-        setIsValid(true);
-      } else {
-        setIsValid(false);
-      }
-    }
-  };
+  //     if (resp.meta.requestStatus === 'fulfilled') {
+  //       setIsValid(true);
+  //     } else {
+  //       setIsValid(false);
+  //     }
+  //   }
+  // };
 
-  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-    const token = e.target.value;
+  // const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+  //   const token = e.target.value;
 
-    if (!token.match(regex)) {
-      setIsValid(false);
-    }
-  };
+  //   if (!token.match(regex)) {
+  //     setIsValid(false);
+  //   }
+  // };
 
   return (
     <form className={s.form} onSubmit={handleSubmit}>
@@ -122,7 +122,7 @@ export const RegisterRoleForm = () => {
           </li>
         </ul>
       </fieldset>
-      {role === 'CANDIDATE' && (
+      {/* {role === 'CANDIDATE' && (
         <label
           className={`${s.label} ${
             (isValid === false && s.invalid) || (isValid === true && s.valid)
@@ -144,7 +144,7 @@ export const RegisterRoleForm = () => {
                 : t('auth.codeRequired'))}
           </p>
         </label>
-      )}
+      )} */}
       <ul className={s.buttonsList}>
         {companyName && role === 'CANDIDATE' && isValid && (
           <li>
@@ -164,7 +164,7 @@ export const RegisterRoleForm = () => {
             text={t('auth.accountBtn')}
             type='submit'
             color='blue'
-            disabled={!isValid && role === 'CANDIDATE'}
+            // disabled={!isValid && role === 'CANDIDATE'}
           />
         </li>
       </ul>

@@ -134,6 +134,8 @@
     "studentsTitle": "Студенти"
   },
   "auth": {
+    "title": "Які переваги ви отримаєте, користуючись додатком SkillRyzen?",
+    "subtitle": "Пройти тест з JavaScript",
     "roleTitle": "Оберіть вашу роль",
     "contactTitle": "Надайте нам більше інформації про вас!",
     "loginTitle": "З поверненням",

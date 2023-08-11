@@ -17,10 +17,11 @@
   margin-top: 100px;
   margin-right: auto;
   margin-left: auto;
-  margin-bottom: 12px;
+  margin-bottom: 32px;
   font-size: var(--subtitle);
   font-weight: var(--extrabold);
   text-align: center;
+
   @media (min-width: 768px) {
     margin-top: 150px;
     font-size: var(--title);
@@ -28,17 +29,17 @@
 }
 
 .loginSubtitle {
-  margin-bottom: 20px;
-  margin-right: auto;
-  margin-left: auto;
-  font-size: var(--text-md);
+  margin: 0 auto;
+  font-size: var(--text-sm);
   text-align: center;
-  @media (min-width: 768px) {
-    font-size: var(--text-lg);
-  }
+
+  color: var(--middle-gray-text-cl);
 }
 
 .link {
   font-weight: var(--bold);
+  font-size: var(--text-sm);
+  letter-spacing: 0.4px;
   text-decoration: underline;
+  color: var(--middle-gray-text-cl);
 }
