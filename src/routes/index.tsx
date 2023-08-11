@@ -109,8 +109,8 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.LEADERBOARD,
-                      element: <UnderDevelopmentPage />,
-                      // element: <LeaderboardPage />,
+                      // element: <UnderDevelopmentPage />,
+                      element: <LeaderboardPage />,
                     },
                     {
                       path: ROUTES.VACANCIES,
@@ -118,23 +118,23 @@ export const AppRoutes = () => {
                     },
                     {
                       path: ROUTES.PROFILE,
-                      element: <UnderDevelopmentPage />,
-                      // element: <ProfilePage />,
+                      // element: <UnderDevelopmentPage />,
+                      element: <ProfilePage />,
                     },
                     {
                       path: ROUTES.PROFILE_SETTINGS,
-                      element: <UnderDevelopmentPage />,
-                      // element: <ProfileSettingsPage />,
+                      // element: <UnderDevelopmentPage />,
+                      element: <ProfileSettingsPage />,
                     },
                     {
                       path: ROUTES.NOTIFICATIONS,
-                      element: <UnderDevelopmentPage />,
-                      // element: <NotificationsPage />,
+                      // element: <UnderDevelopmentPage />,
+                      element: <NotificationsPage />,
                     },
                     {
                       path: ROUTES.COINS,
-                      element: <UnderDevelopmentPage />,
-                      // element: <CoinsPage />,
+                      // element: <UnderDevelopmentPage />,
+                      element: <CoinsPage />,
                     },
                     {
                       path: ROUTES.FEEDBACK,
