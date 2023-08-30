@@ -46,7 +46,7 @@ export const TestsPageComponent = () => {
 
   const [currentValue, setCurrentValue] = useSessionStorage('testsPage', {
     currentTab: tabs[0].id,
-    size: 'large',
+    size: 'small',
   });
 
   const handleChangeTab = (tab: number) => {

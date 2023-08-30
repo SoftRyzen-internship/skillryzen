@@ -4,7 +4,7 @@ export const useSessionStorage = (
   key: string,
   defaultValue: {
     currentTab: number;
-    size: 'large' | 'small';
+    size: 'small' | 'large';
   }
 ) => {
   const [state, setState] = useState(() => {

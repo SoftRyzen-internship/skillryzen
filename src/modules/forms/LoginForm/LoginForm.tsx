@@ -56,13 +56,22 @@ export const LoginForm = () => {
     onSubmit: async ({ email, password }) => {
       const resp = await dispatch(logIn({ email, password }));
 
-      if (resp.meta.requestStatus === 'fulfilled') {
-        dispatch(auth()).then(resp => {
-          if (resp.meta.requestStatus === 'fulfilled') {
-            dispatch(setName(randomName()));
-            navigate(ROUTES.CERTIFICATION);
-          }
-        });
+      // FIXME: OLD VERSION
+      // if (resp.meta.requestStatus === 'fulfilled') {
+      //   dispatch(auth()).then(resp => {
+      //     if (resp.meta.requestStatus === 'fulfilled') {
+      //       dispatch(setName(randomName()));
+      //       navigate(ROUTES.CERTIFICATION);
+      //     }
+      //   });
+      // } else {
+      //   setErrors(handleError({ resp, email, password, t }));
+      // }
+
+      if (resp.payload === 200) {
+        // Проверяем наличие куки "Authentication"
+        dispatch(auth()).then(() => dispatch(setName(randomName())));
+        navigate(ROUTES.CERTIFICATION);
       } else {
         setErrors(handleError({ resp, email, password, t }));
       }
